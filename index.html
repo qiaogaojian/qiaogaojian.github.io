@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="行则将至">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="行则将至">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="HTML, JavaScript, Hexo">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>行则将至</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">行则将至</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Keep going and you can go anywhere</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qiaogaojian"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">qiaogaojian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qiaogaojian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/qiaogaojian" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-git-alt fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qiaogaojian@gmail.com" title="E-Mail → mailto:qiaogaojian@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+<div class="category-all-page">
+	<div class="category-all">
+	  <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BE%AE%E7%A7%AF%E5%88%86/">微积分</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">线性代数</a><span class="category-list-count">1</span></li></ul>
+	</div>
+</div>
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+      
+
+      
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/26/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-26 22:19:46" itemprop="dateCreated datePublished" datetime="2020-09-26T22:19:46+08:00">2020-09-26</time>
+    </span>
+
+  
+    <span id="/2020/09/26/hello-world/" class="post-meta-item leancloud_visitors" data-flag-title="Hello World" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/26/hello-world/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/hello-world/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/images/hexo.png" alt="hexo"></p>
+<p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/%E7%AC%94%E8%AE%B0%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/26/%E7%AC%94%E8%AE%B0%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/" class="post-title-link" itemprop="url">笔记说明文档</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-26 22:19:46" itemprop="dateCreated datePublished" datetime="2020-09-26T22:19:46+08:00">2020-09-26</time>
+    </span>
+
+  
+    <span id="/2020/09/26/%E7%AC%94%E8%AE%B0%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/" class="post-meta-item leancloud_visitors" data-flag-title="笔记说明文档" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/26/%E7%AC%94%E8%AE%B0%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/%E7%AC%94%E8%AE%B0%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="笔记说明文档"><a href="#笔记说明文档" class="headerlink" title="笔记说明文档"></a>笔记说明文档</h1><h2 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h2><p>带数字前缀的目录下，每个根目录下的笔记命名由5位数字组成，其中第一位数字是当前目录的编号，第二位数字是分类编号，后面三位数字是笔记编号，分类编号的含义如下所示</p>
+<h3 id="1：Tips-小知识"><a href="#1：Tips-小知识" class="headerlink" title="1：Tips 小知识"></a>1：Tips 小知识</h3><p>经常用到的零碎知识点</p>
+<h3 id="2-Trick-小技巧"><a href="#2-Trick-小技巧" class="headerlink" title="2.Trick 小技巧"></a>2.Trick 小技巧</h3><p>生产力工具/快捷操作</p>
+<h3 id="3-Bug-错误记录"><a href="#3-Bug-错误记录" class="headerlink" title="3.Bug 错误记录"></a>3.Bug 错误记录</h3><p>疑难杂症记录</p>
+<h3 id="4-BestPratice-最佳实践"><a href="#4-BestPratice-最佳实践" class="headerlink" title="4.BestPratice 最佳实践"></a>4.BestPratice 最佳实践</h3><p>路线图/规划/功能实现的最佳方式</p>
+<h3 id="5-Tutorial-知识总结"><a href="#5-Tutorial-知识总结" class="headerlink" title="5.Tutorial 知识总结"></a>5.Tutorial 知识总结</h3><p>系统性的知识点</p>
+<h3 id="6-Tao​-心得体会"><a href="#6-Tao​-心得体会" class="headerlink" title="6.Tao​ 心得体会"></a>6.Tao​ 心得体会</h3><p>感想感悟</p>
+<h3 id="笔记中图片使用外链-没网络的或有特殊需求的情况下存在-images路径下"><a href="#笔记中图片使用外链-没网络的或有特殊需求的情况下存在-images路径下" class="headerlink" title="笔记中图片使用外链,没网络的或有特殊需求的情况下存在/images路径下"></a>笔记中图片使用外链,没网络的或有特殊需求的情况下存在/images路径下</h3><p><img src="/images/hexo.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/ML/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/26/ML/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E6%88%98/" class="post-title-link" itemprop="url">机器学习理解与实战</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-26 22:19:46" itemprop="dateCreated datePublished" datetime="2020-09-26T22:19:46+08:00">2020-09-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ML/" itemprop="url" rel="index"><span itemprop="name">ML</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/26/ML/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E6%88%98/" class="post-meta-item leancloud_visitors" data-flag-title="机器学习理解与实战" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/26/ML/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E6%88%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/ML/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E6%88%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><h2 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h2><p>有标注数据</p>
+<h3 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h3><h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>申请到想去的学校</p>
+<h5 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h5><h6 id="成绩"><a href="#成绩" class="headerlink" title="成绩"></a>成绩</h6><h6 id="学校"><a href="#学校" class="headerlink" title="学校"></a>学校</h6><h6 id="科研成果"><a href="#科研成果" class="headerlink" title="科研成果"></a>科研成果</h6><h5 id="标记"><a href="#标记" class="headerlink" title="标记"></a>标记</h5><h6 id="拿到了"><a href="#拿到了" class="headerlink" title="拿到了"></a>拿到了</h6><h6 id="没拿到"><a href="#没拿到" class="headerlink" title="没拿到"></a>没拿到</h6><h4 id="过拟合"><a href="#过拟合" class="headerlink" title="过拟合"></a>过拟合</h4><h5 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h5><h6 id="特征太多"><a href="#特征太多" class="headerlink" title="特征太多"></a>特征太多</h6><h6 id="数据太少"><a href="#数据太少" class="headerlink" title="数据太少"></a>数据太少</h6><h5 id="应对方法"><a href="#应对方法" class="headerlink" title="应对方法"></a>应对方法</h5><h6 id="正规化"><a href="#正规化" class="headerlink" title="正规化"></a>正规化</h6><h6 id="减少特征"><a href="#减少特征" class="headerlink" title="减少特征"></a>减少特征</h6><h6 id="找更简单的模型"><a href="#找更简单的模型" class="headerlink" title="找更简单的模型"></a>找更简单的模型</h6><h4 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h4><h5 id="一棵随机的树"><a href="#一棵随机的树" class="headerlink" title="一棵随机的树"></a>一棵随机的树</h5><h5 id="搞很多"><a href="#搞很多" class="headerlink" title="搞很多"></a>搞很多</h5><h5 id="取平均值-投票"><a href="#取平均值-投票" class="headerlink" title="取平均值/投票"></a>取平均值/投票</h5><h3 id="回归问题"><a href="#回归问题" class="headerlink" title="回归问题"></a>回归问题</h3><h4 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h4><p>明天的比特币价格</p>
+<h5 id="特征-1"><a href="#特征-1" class="headerlink" title="特征"></a>特征</h5><h6 id="今天的加个"><a href="#今天的加个" class="headerlink" title="今天的加个"></a>今天的加个</h6><h6 id="昨天的价格"><a href="#昨天的价格" class="headerlink" title="昨天的价格"></a>昨天的价格</h6><h6 id="一周前的价格"><a href="#一周前的价格" class="headerlink" title="一周前的价格"></a>一周前的价格</h6><h6 id="昨天的成交量"><a href="#昨天的成交量" class="headerlink" title="昨天的成交量"></a>昨天的成交量</h6><h6 id="上一周的成交量"><a href="#上一周的成交量" class="headerlink" title="上一周的成交量"></a>上一周的成交量</h6><h6 id="明天与今天价格之比"><a href="#明天与今天价格之比" class="headerlink" title="明天与今天价格之比"></a>明天与今天价格之比</h6><h4 id="含非线性基的线性回归模型"><a href="#含非线性基的线性回归模型" class="headerlink" title="含非线性基的线性回归模型"></a>含非线性基的线性回归模型</h4><h5 id="基函数过多"><a href="#基函数过多" class="headerlink" title="基函数过多"></a>基函数过多</h5><h6 id="过拟合-1"><a href="#过拟合-1" class="headerlink" title="过拟合"></a>过拟合</h6><h6 id="正规化-1"><a href="#正规化-1" class="headerlink" title="正规化"></a>正规化</h6><h4 id="线性回归求解"><a href="#线性回归求解" class="headerlink" title="线性回归求解"></a>线性回归求解</h4><h5 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h5><h5 id="线性回归的严格解"><a href="#线性回归的严格解" class="headerlink" title="线性回归的严格解"></a>线性回归的严格解</h5><h2 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h2><p>无标注数据</p>
+<h3 id="主值分解"><a href="#主值分解" class="headerlink" title="主值分解"></a>主值分解</h3><h3 id="聚类算法"><a href="#聚类算法" class="headerlink" title="聚类算法"></a>聚类算法</h3><h4 id="K-means"><a href="#K-means" class="headerlink" title="K-means"></a>K-means</h4><h4 id="KM期望平均算法"><a href="#KM期望平均算法" class="headerlink" title="KM期望平均算法"></a>KM期望平均算法</h4><h2 id="AlphaGo简介"><a href="#AlphaGo简介" class="headerlink" title="AlphaGo简介"></a>AlphaGo简介</h2><h3 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h3><h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><h3 id="AlphaGo算法"><a href="#AlphaGo算法" class="headerlink" title="AlphaGo算法"></a>AlphaGo算法</h3>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/Math/%E5%BE%AE%E7%A7%AF%E5%88%86/20200926-%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/26/Math/%E5%BE%AE%E7%A7%AF%E5%88%86/20200926-%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-title-link" itemprop="url">微积分知识体系</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-26 00:00:00 / 修改时间：22:19:46" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BE%AE%E7%A7%AF%E5%88%86/" itemprop="url" rel="index"><span itemprop="name">微积分</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BE%AE%E7%A7%AF%E5%88%86/Math/" itemprop="url" rel="index"><span itemprop="name">Math</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/26/Math/%E5%BE%AE%E7%A7%AF%E5%88%86/20200926-%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-meta-item leancloud_visitors" data-flag-title="微积分知识体系" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/26/Math/%E5%BE%AE%E7%A7%AF%E5%88%86/20200926-%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/Math/%E5%BE%AE%E7%A7%AF%E5%88%86/20200926-%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="微积分知识体系"><a href="#微积分知识体系" class="headerlink" title="微积分知识体系"></a>微积分知识体系</h1><h2 id="微积分1"><a href="#微积分1" class="headerlink" title="微积分1"></a>微积分1</h2><h2 id="微积分2"><a href="#微积分2" class="headerlink" title="微积分2"></a>微积分2</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/Math/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/20200926-%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/26/Math/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/20200926-%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-title-link" itemprop="url">线性代数知识体系</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-26 00:00:00 / 修改时间：22:19:46" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" itemprop="url" rel="index"><span itemprop="name">线性代数</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/Math/" itemprop="url" rel="index"><span itemprop="name">Math</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/26/Math/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/20200926-%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-meta-item leancloud_visitors" data-flag-title="线性代数知识体系" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/26/Math/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/20200926-%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/Math/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/20200926-%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id=""><a href="#" class="headerlink" title="????????"></a>????????</h1><h2 id="1"><a href="#1" class="headerlink" title="????1"></a>????1</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiaogaojian</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/",
+    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":210,"height":360},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
