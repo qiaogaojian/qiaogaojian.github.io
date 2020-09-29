@@ -15,11 +15,10 @@
 
 
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
   <meta property="og:type" content="website">
@@ -90,7 +89,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
 
   <main class="main">
@@ -872,6 +871,103 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/" class="post-title-link" itemprop="url">Bug-AgentWeb所在的Activity无法启动</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-AgentWeb所在的Activity无法启动" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="AgentWeb所在的Activity无法启动"><a href="#AgentWeb所在的Activity无法启动" class="headerlink" title="AgentWeb所在的Activity无法启动"></a>AgentWeb所在的Activity无法启动</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>天狼大厅点击按钮打开一个网页,结果写完代码没有任何反应,找Bug找了两个小时,最后通过单步调试找到问题,报没有这个activity的异常</p>
+<h2 id="教训"><a href="#教训" class="headerlink" title="教训"></a>教训</h2><p>以后新建任何脚本资源特别是Activity Layout 都要用AndroidStudio自带的方式新建  不再自己手动创建</p>
+<p>以后遇到问题无法解决的话单步调试  进去进去进去  不要在外面找问题  吐槽一句 Logcat报的错实在太乱了 哎~</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/Android/20200929_Bug-Android%E4%B8%ADApplication%E5%92%8CActivity%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F%E5%BC%82%E5%B8%B8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -969,7 +1065,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -986,7 +1082,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/" class="post-title-link" itemprop="url">Bug-AgentWeb所在的Activity无法启动</a>
+            <a href="/2020/09/29/Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/" class="post-title-link" itemprop="url">Bug-Android中ScrollView内部组件高度异常</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1012,7 +1108,7 @@
     </span>
 
   
-    <span id="/2020/09/29/Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-AgentWeb所在的Activity无法启动" title="阅读次数">
+    <span id="/2020/09/29/Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-Android中ScrollView内部组件高度异常" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -1027,8 +1123,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1042,9 +1138,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="AgentWeb所在的Activity无法启动"><a href="#AgentWeb所在的Activity无法启动" class="headerlink" title="AgentWeb所在的Activity无法启动"></a>AgentWeb所在的Activity无法启动</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>天狼大厅点击按钮打开一个网页,结果写完代码没有任何反应,找Bug找了两个小时,最后通过单步调试找到问题,报没有这个activity的异常</p>
-<h2 id="教训"><a href="#教训" class="headerlink" title="教训"></a>教训</h2><p>以后新建任何脚本资源特别是Activity Layout 都要用AndroidStudio自带的方式新建  不再自己手动创建</p>
-<p>以后遇到问题无法解决的话单步调试  进去进去进去  不要在外面找问题  吐槽一句 Logcat报的错实在太乱了 哎~</p>
+          <h1 id="Android中ScrollView内部组件高度异常"><a href="#Android中ScrollView内部组件高度异常" class="headerlink" title="Android中ScrollView内部组件高度异常"></a>Android中ScrollView内部组件高度异常</h1><h2 id="ScrollView内部的组件被压扁"><a href="#ScrollView内部的组件被压扁" class="headerlink" title="ScrollView内部的组件被压扁"></a>ScrollView内部的组件被压扁</h2><p>ScrollView里只放一个元素.当ScrollView里的元素想填满ScrollView时，使用”fill_parent”是不管用的，必需为ScrollView设置：android:fillViewport=”true。 当ScrollView没有fillVeewport=“true”时, 里面的元素(比如LinearLayout)会按照wrap_content来计算(不论它是否设了”fill_parent”),而如果LinearLayout的元素设置了fill_parent,那么也是不管用的，因为LinearLayout依赖里面的元素，而里面的元素又依赖LinearLayout,这样自相矛盾.所以里面元素设置了fill_parent，也会当做wrap_content来计算.</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ljb568838953/article/details/52563452?locationNum=10">ScrollView与其他组件的冲突问题</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/CharlesGrant/p/4727799.html">在ScrollView下加入的组件，不能自动扩展到屏幕高度</a></p>
 
       
     </div>
@@ -1257,103 +1353,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/" class="post-title-link" itemprop="url">Bug-Android中ScrollView内部组件高度异常</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-Android中ScrollView内部组件高度异常" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Android中ScrollView内部组件高度异常"><a href="#Android中ScrollView内部组件高度异常" class="headerlink" title="Android中ScrollView内部组件高度异常"></a>Android中ScrollView内部组件高度异常</h1><h2 id="ScrollView内部的组件被压扁"><a href="#ScrollView内部的组件被压扁" class="headerlink" title="ScrollView内部的组件被压扁"></a>ScrollView内部的组件被压扁</h2><p>ScrollView里只放一个元素.当ScrollView里的元素想填满ScrollView时，使用”fill_parent”是不管用的，必需为ScrollView设置：android:fillViewport=”true。 当ScrollView没有fillVeewport=“true”时, 里面的元素(比如LinearLayout)会按照wrap_content来计算(不论它是否设了”fill_parent”),而如果LinearLayout的元素设置了fill_parent,那么也是不管用的，因为LinearLayout依赖里面的元素，而里面的元素又依赖LinearLayout,这样自相矛盾.所以里面元素设置了fill_parent，也会当做wrap_content来计算.</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ljb568838953/article/details/52563452?locationNum=10">ScrollView与其他组件的冲突问题</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/CharlesGrant/p/4727799.html">在ScrollView下加入的组件，不能自动扩展到屏幕高度</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1413,7 +1412,7 @@
 
   
   <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
 
