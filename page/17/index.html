@@ -278,7 +278,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/1.CS/Asm/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/1.CS/Asm/20200929_Tips-CPU%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -295,7 +295,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/1.CS/Asm/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">Tips-DosBox启动设置</a>
+            <a href="/2020/09/29/1.CS/Asm/20200929_Tips-CPU%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4/" class="post-title-link" itemprop="url">Tips-CPU的内存保护</a>
         </h2>
 
         <div class="post-meta-container">
@@ -325,7 +325,7 @@
     </span>
 
   
-    <span id="/2020/09/29/1.CS/Asm/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-DosBox启动设置" title="阅读次数">
+    <span id="/2020/09/29/1.CS/Asm/20200929_Tips-CPU%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-CPU的内存保护" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -340,8 +340,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/1.CS/Asm/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/1.CS/Asm/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/1.CS/Asm/20200929_Tips-CPU%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/1.CS/Asm/20200929_Tips-CPU%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -355,9 +355,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="DosBox启动设置"><a href="#DosBox启动设置" class="headerlink" title="DosBox启动设置"></a>DosBox启动设置</h1><h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>c:/用户/用户名/appdata/local/dosbox/dosbox-0.74.conf</p>
-<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>配置文件末尾添加以下指令:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mount c: d:\asm</span><br><span class="line"><span class="built_in">set</span> PATH=%PATH%;c:\;</span><br><span class="line">c:</span><br></pre></td></tr></table></figure>
+          <h1 id="CPU的内存保护"><a href="#CPU的内存保护" class="headerlink" title="CPU的内存保护"></a>CPU的内存保护</h1><h2 id="安全的内存地址"><a href="#安全的内存地址" class="headerlink" title="安全的内存地址"></a>安全的内存地址</h2><p>0:200H  ~  0:2FFH     FFH = 255D + 1D = 256D<br>0:7E00H ~ +</p>
+
       
     </div>
 

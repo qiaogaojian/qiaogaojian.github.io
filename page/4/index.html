@@ -973,7 +973,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-AAPT2_error_check_logs_for_details/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -990,7 +990,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/" class="post-title-link" itemprop="url">Bug-AgentWeb所在的Activity无法启动</a>
+            <a href="/2020/09/29/4.Android/20200929_Bug-AAPT2_error_check_logs_for_details/" class="post-title-link" itemprop="url">Bug-AAPT2_error_check_logs_for_details</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1016,7 +1016,7 @@
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-AgentWeb所在的Activity无法启动" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Bug-AAPT2_error_check_logs_for_details/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-AAPT2_error_check_logs_for_details" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -1031,8 +1031,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-AAPT2_error_check_logs_for_details/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-AAPT2_error_check_logs_for_details/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1046,9 +1046,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="AgentWeb所在的Activity无法启动"><a href="#AgentWeb所在的Activity无法启动" class="headerlink" title="AgentWeb所在的Activity无法启动"></a>AgentWeb所在的Activity无法启动</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>天狼大厅点击按钮打开一个网页,结果写完代码没有任何反应,找Bug找了两个小时,最后通过单步调试找到问题,报没有这个activity的异常</p>
-<h2 id="教训"><a href="#教训" class="headerlink" title="教训"></a>教训</h2><p>以后新建任何脚本资源特别是Activity Layout 都要用AndroidStudio自带的方式新建  不再自己手动创建</p>
-<p>以后遇到问题无法解决的话单步调试  进去进去进去  不要在外面找问题  吐槽一句 Logcat报的错实在太乱了 哎~</p>
+          <h1 id="AAPT2-error-check-logs-for-details"><a href="#AAPT2-error-check-logs-for-details" class="headerlink" title="AAPT2 error: check logs for details"></a>AAPT2 error: check logs for details</h1><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>今天写的布局文件中存在一个错误的属性: android:layout_to=”@id/item_mg_bg_x”<br>因为之前项目没有build成功 这个错误没有被IDE检查出来 导致Aapt2报错 把错误的属性改了就好了</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/47589873/aapt2-error-check-logs-for-details">AAPT2 error: check logs for details</a></p>
 
       
     </div>

@@ -278,7 +278,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/VSCode/20200929_Trick-VSCode%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -295,7 +295,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/" class="post-title-link" itemprop="url">Tutorial-Vim常见指令</a>
+            <a href="/2020/09/29/9.Tools/VSCode/20200929_Trick-VSCode%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Trick-VSCode同步设置配置</a>
         </h2>
 
         <div class="post-meta-container">
@@ -320,12 +320,12 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Vim/" itemprop="url" rel="index"><span itemprop="name">Vim</span></a>
+          <a href="/categories/9-Tools/VSCode/" itemprop="url" rel="index"><span itemprop="name">VSCode</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Vim常见指令" title="阅读次数">
+    <span id="/2020/09/29/9.Tools/VSCode/20200929_Trick-VSCode%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-VSCode同步设置配置" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -340,8 +340,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/9.Tools/VSCode/20200929_Trick-VSCode%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/VSCode/20200929_Trick-VSCode%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -355,296 +355,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Vim常见指令"><a href="#Vim常见指令" class="headerlink" title="Vim常见指令"></a>Vim常见指令</h1><h2 id="一-移动光标"><a href="#一-移动光标" class="headerlink" title="一.移动光标"></a>一.移动光标</h2><p>上下左右<br>        k<br>    h       l<br>        j</p>
-<h2 id="二-模式切换"><a href="#二-模式切换" class="headerlink" title="二.模式切换"></a>二.模式切换</h2><ul>
-<li><p>进入默认是普通模式</p>
-</li>
-<li><p>切换到插入模式</p>
-<table>
-<thead>
-<tr>
-<th>按键</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>i</td>
-<td>在光标的前边进入插入模式</td>
-</tr>
-<tr>
-<td>I</td>
-<td>在光标所在行的行首进入插入模式</td>
-</tr>
-<tr>
-<td>a</td>
-<td>在光标的后面进入插入模式</td>
-</tr>
-<tr>
-<td>A</td>
-<td>在光标所在行的行尾进入插入模式</td>
-</tr>
-<tr>
-<td>o</td>
-<td>在光标所在行的下方插入空行进入插入模式</td>
-</tr>
-<tr>
-<td>O</td>
-<td>在光标所在行的上方插入空行进入插入模式</td>
-</tr>
-<tr>
-<td>s</td>
-<td>删除光标指定的字符并进入插入模式</td>
-</tr>
-<tr>
-<td>S</td>
-<td>将光标所在行清除并进入插入模式</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>切换到选中模式</p>
-<table>
-<thead>
-<tr>
-<th>按键</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>v</td>
-<td>普通选中</td>
-</tr>
-<tr>
-<td>V</td>
-<td>行选中</td>
-</tr>
-<tr>
-<td>ctrl+v</td>
-<td>列选中</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>退出</p>
-<table>
-<thead>
-<tr>
-<th>按键</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>shift+z+z</td>
-<td>保存修改并退出</td>
-</tr>
-<tr>
-<td>:wq</td>
-<td>:w表示保存,:q表示退出</td>
-</tr>
-<tr>
-<td>:q</td>
-<td>未改动退出</td>
-</tr>
-<tr>
-<td>:q!</td>
-<td>改动后不保存强制退出</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h2 id="复制-粘贴-删除-修改-撤销-恢复"><a href="#复制-粘贴-删除-修改-撤销-恢复" class="headerlink" title="复制 粘贴 删除 修改 撤销 恢复"></a>复制 粘贴 删除 修改 撤销 恢复</h2><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>y</td>
-<td>复制</td>
-</tr>
-<tr>
-<td>p</td>
-<td>粘贴</td>
-</tr>
-<tr>
-<td>d</td>
-<td>删除</td>
-</tr>
-<tr>
-<td>r</td>
-<td>替换单个</td>
-</tr>
-<tr>
-<td>shift+r</td>
-<td>替换多个</td>
-</tr>
-<tr>
-<td>u</td>
-<td>撤销</td>
-</tr>
-<tr>
-<td>ctrl+r</td>
-<td>重做</td>
-</tr>
-</tbody></table>
-<h2 id="跳转-定位-缩进"><a href="#跳转-定位-缩进" class="headerlink" title="跳转 定位 缩进"></a>跳转 定位 缩进</h2><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>^</td>
-<td>光标到行首</td>
-</tr>
-<tr>
-<td>0</td>
-<td>光标到行首</td>
-</tr>
-<tr>
-<td>$</td>
-<td>光标到行尾</td>
-</tr>
-<tr>
-<td>b</td>
-<td>光标到所在单词开头</td>
-</tr>
-<tr>
-<td>e</td>
-<td>光标到所在单词结尾</td>
-</tr>
-<tr>
-<td>w</td>
-<td>光标到下个单词开头</td>
-</tr>
-<tr>
-<td>gg</td>
-<td>光标到文件的开头</td>
-</tr>
-<tr>
-<td>G</td>
-<td>光标到文件的结尾</td>
-</tr>
-</tbody></table>
-<h2 id="搜索-替换"><a href="#搜索-替换" class="headerlink" title="搜索 替换"></a>搜索 替换</h2><h2 id="shell命令-文件操作"><a href="#shell命令-文件操作" class="headerlink" title="shell命令 文件操作"></a>shell命令 文件操作</h2>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/" class="post-title-link" itemprop="url">Tips-PowerShellHelloWorld</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/OS/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-PowerShellHelloWorld" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="PowerShellHelloWorld"><a href="#PowerShellHelloWorld" class="headerlink" title="PowerShellHelloWorld"></a>PowerShellHelloWorld</h1><h2 id="设置执行权限"><a href="#设置执行权限" class="headerlink" title="设置执行权限"></a>设置执行权限</h2><p>This is normal behavior. In order to prevent malicious scripts from running on your system, PowerShell enforces an execution policy. There are 4 execution policies you can use:</p>
-<ul>
-<li>Restricted – Scripts won’t run. Period. (Default setting)</li>
-<li>RemoteSigned – Locally-created scripts will run. Scripts that were created on another machine will not run unless they are signed by a trusted publisher.</li>
-<li>AllSigned – Scripts will only run if signed by a trusted publisher (including locally-created scripts).</li>
-<li>Unrestricted – All scripts will run regardless of who created them and whether or not they are signed.</li>
-</ul>
-<p>In order to use our newly-created script, we will have to modify our execution policy to allow our script to run. Since we have not digitally signed our new script, our options for setting the execution policy are left to “RemoteSigned” and “Unrestricted.” We are going to change it to RemoteSigned.</p>
-<p>In order to change the execution policy, we will need to reopen PowerShell as an Administrator (the command will fail otherwise) and run the following command:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> RemoteSigned</span><br></pre></td></tr></table></figure>
-
-<p>The Set-ExecutionPolicy command will ask to verify that you really want to change the execution policy. Go ahead and select Y for yes, then go ahead and close and reopen your Powershell window.</p>
-<h2 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h2><p>After restarting the Powershell window, go ahead and try running that script again</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp; <span class="string">&quot;C:\Scripts\My First Script.ps1&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>It should write back, “Hello, World!” to the window:</p>
-
+          <p>VSCode同步设置配置</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/9.Tools/VSCode/20200929_Trick-VSCode%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -847,6 +566,124 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ webpack –v</span><br><span class="line">3.11.0</span><br></pre></td></tr></table></figure>
 
 <h4 id="新建Dapp项目"><a href="#新建Dapp项目" class="headerlink" title="新建Dapp项目"></a>新建Dapp项目</h4>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/" class="post-title-link" itemprop="url">Tips-PowerShellHelloWorld</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-PowerShellHelloWorld" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="PowerShellHelloWorld"><a href="#PowerShellHelloWorld" class="headerlink" title="PowerShellHelloWorld"></a>PowerShellHelloWorld</h1><h2 id="设置执行权限"><a href="#设置执行权限" class="headerlink" title="设置执行权限"></a>设置执行权限</h2><p>This is normal behavior. In order to prevent malicious scripts from running on your system, PowerShell enforces an execution policy. There are 4 execution policies you can use:</p>
+<ul>
+<li>Restricted – Scripts won’t run. Period. (Default setting)</li>
+<li>RemoteSigned – Locally-created scripts will run. Scripts that were created on another machine will not run unless they are signed by a trusted publisher.</li>
+<li>AllSigned – Scripts will only run if signed by a trusted publisher (including locally-created scripts).</li>
+<li>Unrestricted – All scripts will run regardless of who created them and whether or not they are signed.</li>
+</ul>
+<p>In order to use our newly-created script, we will have to modify our execution policy to allow our script to run. Since we have not digitally signed our new script, our options for setting the execution policy are left to “RemoteSigned” and “Unrestricted.” We are going to change it to RemoteSigned.</p>
+<p>In order to change the execution policy, we will need to reopen PowerShell as an Administrator (the command will fail otherwise) and run the following command:</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> RemoteSigned</span><br></pre></td></tr></table></figure>
+
+<p>The Set-ExecutionPolicy command will ask to verify that you really want to change the execution policy. Go ahead and select Y for yes, then go ahead and close and reopen your Powershell window.</p>
+<h2 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h2><p>After restarting the Powershell window, go ahead and try running that script again</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp; <span class="string">&quot;C:\Scripts\My First Script.ps1&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>It should write back, “Hello, World!” to the window:</p>
+
       
     </div>
 

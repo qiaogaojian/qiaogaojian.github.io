@@ -4,6 +4,7 @@
     <title>Tips-笔记说明文档</title>
     <url>/2020/09/26/9.Tools/20200926_Tips-%E7%AC%94%E8%AE%B0%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/</url>
     <content><![CDATA[<h1 id="笔记说明文档"><a href="#笔记说明文档" class="headerlink" title="笔记说明文档"></a>笔记说明文档</h1><h2 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h2><p>命名由三部分组成: 时间_分类-名字</p>
+<p>除了_ - 外不能有特殊字符</p>
 <h2 id="分类说明"><a href="#分类说明" class="headerlink" title="分类说明"></a>分类说明</h2><h3 id="0-RoadMap-路线图"><a href="#0-RoadMap-路线图" class="headerlink" title="0.RoadMap 路线图"></a>0.RoadMap 路线图</h3><p>学习路径/学习规划/学习资源</p>
 <h3 id="1-Tips-小知识"><a href="#1-Tips-小知识" class="headerlink" title="1.Tips 小知识"></a>1.Tips 小知识</h3><p>零碎知识点</p>
 <h3 id="2-Trick"><a href="#2-Trick" class="headerlink" title="2.Trick"></a>2.Trick</h3><p>小技巧/快捷操作</p>
@@ -158,6 +159,43 @@
       </tags>
   </entry>
   <entry>
+    <title>Tips-C Sharp中enum 和string int的互转</title>
+    <url>/2020/09/29/3.Unity/20200929_Tips-C%20Sharp%E4%B8%ADenum%20%E5%92%8Cstring%20int%E7%9A%84%E4%BA%92%E8%BD%AC/</url>
+    <content><![CDATA[<h1 id="C-中enum-和string-int的互转"><a href="#C-中enum-和string-int的互转" class="headerlink" title="C#中enum 和string int的互转"></a>C#中enum 和string int的互转</h1><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> Colors  </span><br><span class="line">&#123;</span><br><span class="line">    Red,</span><br><span class="line">    Green,</span><br><span class="line">    Blue,</span><br><span class="line">    Yellow</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Enum–-gt-String"><a href="#Enum–-gt-String" class="headerlink" title="Enum–&gt;String"></a>Enum–&gt;String</h2><h3 id="利用-Object-ToString-方法："><a href="#利用-Object-ToString-方法：" class="headerlink" title="利用 Object.ToString()方法："></a>利用 Object.ToString()方法：</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Colors.Green.ToString()==<span class="string">&quot;Green&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用-Enum-的静态方法-GetName-与-GetNames："><a href="#利用-Enum-的静态方法-GetName-与-GetNames：" class="headerlink" title="利用 Enum 的静态方法 GetName 与 GetNames："></a>利用 Enum 的静态方法 GetName 与 GetNames：</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Enum.GetName(<span class="keyword">typeof</span>(Colors),<span class="number">3</span>))</span><br><span class="line">== Enum.GetName(<span class="keyword">typeof</span>(Colors), Colors.Blue))</span><br><span class="line">== <span class="string">&quot;Blue&quot;</span>;</span><br><span class="line"></span><br><span class="line">Enum.GetNames(<span class="keyword">typeof</span>(Colors))</span><br><span class="line">== &#123; <span class="string">&quot;Red&quot;</span>,    <span class="string">&quot;Green&quot;</span>,    <span class="string">&quot;Blue&quot;</span>,     <span class="string">&quot;Yellow&quot;</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="String–-gt-Enum"><a href="#String–-gt-Enum" class="headerlink" title="String–&gt;Enum"></a>String–&gt;Enum</h2><h3 id="利用-Enum-的静态方法-Parse："><a href="#利用-Enum-的静态方法-Parse：" class="headerlink" title="利用 Enum 的静态方法 Parse："></a>利用 Enum 的静态方法 Parse：</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">(Colors)Enum.Parse(<span class="keyword">typeof</span>(Colors), <span class="string">&quot;Red&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Enum–-gt-Int"><a href="#Enum–-gt-Int" class="headerlink" title="Enum–&gt;Int"></a>Enum–&gt;Int</h2><h3 id="因为枚举的基类型是除-Char-外的整型，所以可以进行强制转换。"><a href="#因为枚举的基类型是除-Char-外的整型，所以可以进行强制转换。" class="headerlink" title="因为枚举的基类型是除 Char 外的整型，所以可以进行强制转换。"></a>因为枚举的基类型是除 Char 外的整型，所以可以进行强制转换。</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">int</span>)Colors.Red == <span class="number">0</span>;</span><br><span class="line">(<span class="keyword">byte</span>)Colors.Green == <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Int–-gt-Enum"><a href="#Int–-gt-Enum" class="headerlink" title="Int–&gt;Enum"></a>Int–&gt;Enum</h2><h3 id="可以强制转换将整型转换成枚举类型。"><a href="#可以强制转换将整型转换成枚举类型。" class="headerlink" title="可以强制转换将整型转换成枚举类型。"></a>可以强制转换将整型转换成枚举类型。</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Colors color = (Colors)<span class="number">2</span> ;</span><br><span class="line">color == Colors.Blue;</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用-Enum-的静态方法-ToObject。"><a href="#利用-Enum-的静态方法-ToObject。" class="headerlink" title="利用 Enum 的静态方法 ToObject。"></a>利用 Enum 的静态方法 ToObject。</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Colors color = (Colors)Enum.ToObject(<span class="keyword">typeof</span>(Colors), <span class="number">2</span>);</span><br><span class="line">color == Colors.Blue</span><br></pre></td></tr></table></figure>
+
+<h2 id="判断某个整型是否定义在枚举中的方法：Enum-IsDefined"><a href="#判断某个整型是否定义在枚举中的方法：Enum-IsDefined" class="headerlink" title="判断某个整型是否定义在枚举中的方法：Enum.IsDefined"></a>判断某个整型是否定义在枚举中的方法：Enum.IsDefined</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Enum.IsDefined(<span class="keyword">typeof</span>(Colors), <span class="number">3</span>)) == <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>3.Unity</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tips-Unity中Awake( )和Start( )的小区别</title>
+    <url>/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h1 id="Unity-中-Awake-和-Start-的小区别"><a href="#Unity-中-Awake-和-Start-的小区别" class="headerlink" title="Unity 中 Awake( )和 Start( )的小区别"></a>Unity 中 Awake( )和 Start( )的小区别</h1><h2 id="Awake"><a href="#Awake" class="headerlink" title="Awake"></a>Awake</h2><h3 id="绑定对象-active"><a href="#绑定对象-active" class="headerlink" title="绑定对象 active"></a>绑定对象 active</h3><h3 id="实例化后不论脚本是否-enable"><a href="#实例化后不论脚本是否-enable" class="headerlink" title="实例化后不论脚本是否 enable"></a>实例化后不论脚本是否 enable</h3><h3 id="只会调用一次"><a href="#只会调用一次" class="headerlink" title="只会调用一次"></a>只会调用一次</h3><h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h2><h3 id="绑定对象active"><a href="#绑定对象active" class="headerlink" title="绑定对象active"></a>绑定对象active</h3><h3 id="脚本-enable"><a href="#脚本-enable" class="headerlink" title="脚本 enable"></a>脚本 enable</h3><h3 id="只会-调用一次"><a href="#只会-调用一次" class="headerlink" title="只会 调用一次"></a>只会 调用一次</h3><h3 id="在第一次-Update-前调用-可能没有想象中的那么快-在这里初始化要想好调用顺序"><a href="#在第一次-Update-前调用-可能没有想象中的那么快-在这里初始化要想好调用顺序" class="headerlink" title="在第一次 Update 前调用,可能没有想象中的那么快,在这里初始化要想好调用顺序"></a>在第一次 Update 前调用,可能没有想象中的那么快,在这里初始化要想好调用顺序</h3>]]></content>
+      <categories>
+        <category>3.Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tao-游戏点子</title>
     <url>/2020/09/29/3.Unity/20200929_Tao-%E6%B8%B8%E6%88%8F%E7%82%B9%E5%AD%90/</url>
     <content><![CDATA[<h1 id="游戏想法"><a href="#游戏想法" class="headerlink" title="游戏想法"></a>游戏想法</h1><h2 id="世界迷雾"><a href="#世界迷雾" class="headerlink" title="世界迷雾"></a>世界迷雾</h2><p>基于真实世界的游戏化改造</p>
@@ -202,34 +240,24 @@
       </tags>
   </entry>
   <entry>
-    <title>Tips-C#中enum 和string int的互转</title>
-    <url>/2020/09/29/3.Unity/20200929_Tips-C#%E4%B8%ADenum%20%E5%92%8Cstring%20int%E7%9A%84%E4%BA%92%E8%BD%AC/</url>
-    <content><![CDATA[<h1 id="C-中enum-和string-int的互转"><a href="#C-中enum-和string-int的互转" class="headerlink" title="C#中enum 和string int的互转"></a>C#中enum 和string int的互转</h1><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> Colors  </span><br><span class="line">&#123;</span><br><span class="line">    Red,</span><br><span class="line">    Green,</span><br><span class="line">    Blue,</span><br><span class="line">    Yellow</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <title>Tips-Unity中OnGui原生GUI用法</title>
+    <url>/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADOnGui%E5%8E%9F%E7%94%9FGUI%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="Unity中OnGui原生GUI用法"><a href="#Unity中OnGui原生GUI用法" class="headerlink" title="Unity中OnGui原生GUI用法"></a>Unity中OnGui原生GUI用法</h1><h2 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (GUI.Button(<span class="keyword">new</span> Rect(<span class="number">10</span>, <span class="number">360</span>, <span class="number">200</span>, <span class="number">50</span>), <span class="string">&quot;开始新手引导&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        GuideManager.Instance.InitGuide();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Enum–-gt-String"><a href="#Enum–-gt-String" class="headerlink" title="Enum–&gt;String"></a>Enum–&gt;String</h2><h3 id="利用-Object-ToString-方法："><a href="#利用-Object-ToString-方法：" class="headerlink" title="利用 Object.ToString()方法："></a>利用 Object.ToString()方法：</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Colors.Green.ToString()==<span class="string">&quot;Green&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="利用-Enum-的静态方法-GetName-与-GetNames："><a href="#利用-Enum-的静态方法-GetName-与-GetNames：" class="headerlink" title="利用 Enum 的静态方法 GetName 与 GetNames："></a>利用 Enum 的静态方法 GetName 与 GetNames：</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Enum.GetName(<span class="keyword">typeof</span>(Colors),<span class="number">3</span>))</span><br><span class="line">== Enum.GetName(<span class="keyword">typeof</span>(Colors), Colors.Blue))</span><br><span class="line">== <span class="string">&quot;Blue&quot;</span>;</span><br><span class="line"></span><br><span class="line">Enum.GetNames(<span class="keyword">typeof</span>(Colors))</span><br><span class="line">== &#123; <span class="string">&quot;Red&quot;</span>,    <span class="string">&quot;Green&quot;</span>,    <span class="string">&quot;Blue&quot;</span>,     <span class="string">&quot;Yellow&quot;</span> &#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="String–-gt-Enum"><a href="#String–-gt-Enum" class="headerlink" title="String–&gt;Enum"></a>String–&gt;Enum</h2><h3 id="利用-Enum-的静态方法-Parse："><a href="#利用-Enum-的静态方法-Parse：" class="headerlink" title="利用 Enum 的静态方法 Parse："></a>利用 Enum 的静态方法 Parse：</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">(Colors)Enum.Parse(<span class="keyword">typeof</span>(Colors), <span class="string">&quot;Red&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="Enum–-gt-Int"><a href="#Enum–-gt-Int" class="headerlink" title="Enum–&gt;Int"></a>Enum–&gt;Int</h2><h3 id="因为枚举的基类型是除-Char-外的整型，所以可以进行强制转换。"><a href="#因为枚举的基类型是除-Char-外的整型，所以可以进行强制转换。" class="headerlink" title="因为枚举的基类型是除 Char 外的整型，所以可以进行强制转换。"></a>因为枚举的基类型是除 Char 外的整型，所以可以进行强制转换。</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">int</span>)Colors.Red == <span class="number">0</span>;</span><br><span class="line">(<span class="keyword">byte</span>)Colors.Green == <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Int–-gt-Enum"><a href="#Int–-gt-Enum" class="headerlink" title="Int–&gt;Enum"></a>Int–&gt;Enum</h2><h3 id="可以强制转换将整型转换成枚举类型。"><a href="#可以强制转换将整型转换成枚举类型。" class="headerlink" title="可以强制转换将整型转换成枚举类型。"></a>可以强制转换将整型转换成枚举类型。</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Colors color = (Colors)<span class="number">2</span> ;</span><br><span class="line">color == Colors.Blue;</span><br></pre></td></tr></table></figure>
-
-<h3 id="利用-Enum-的静态方法-ToObject。"><a href="#利用-Enum-的静态方法-ToObject。" class="headerlink" title="利用 Enum 的静态方法 ToObject。"></a>利用 Enum 的静态方法 ToObject。</h3><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Colors color = (Colors)Enum.ToObject(<span class="keyword">typeof</span>(Colors), <span class="number">2</span>);</span><br><span class="line">color == Colors.Blue</span><br></pre></td></tr></table></figure>
-
-<h2 id="判断某个整型是否定义在枚举中的方法：Enum-IsDefined"><a href="#判断某个整型是否定义在枚举中的方法：Enum-IsDefined" class="headerlink" title="判断某个整型是否定义在枚举中的方法：Enum.IsDefined"></a>判断某个整型是否定义在枚举中的方法：Enum.IsDefined</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Enum.IsDefined(<span class="keyword">typeof</span>(Colors), <span class="number">3</span>)) == <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
-]]></content>
+<h3 id="Rect-x-Rect-y"><a href="#Rect-x-Rect-y" class="headerlink" title="Rect.x Rect.y"></a>Rect.x Rect.y</h3><p>按钮左下角坐标</p>
+<h3 id="Rect-z-Rect-w"><a href="#Rect-z-Rect-w" class="headerlink" title="Rect.z Rect.w"></a>Rect.z Rect.w</h3><p>按钮的宽和高</p>
+<h2 id="OnGUI注意事项"><a href="#OnGUI注意事项" class="headerlink" title="OnGUI注意事项"></a>OnGUI注意事项</h2><h3 id="坐标原点-左上角"><a href="#坐标原点-左上角" class="headerlink" title="坐标原点: 左上角"></a>坐标原点: 左上角</h3>]]></content>
       <categories>
         <category>3.Unity</category>
       </categories>
       <tags>
         <tag>C#</tag>
+        <tag>Unity</tag>
       </tags>
   </entry>
   <entry>
-    <title>Tips-C#基于VSCode开发环境的搭建</title>
-    <url>/2020/09/29/3.Unity/20200929_Tips-C#%E5%9F%BA%E4%BA%8EVSCode%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
+    <title>Tips-C Sharp基于VSCode开发环境的搭建</title>
+    <url>/2020/09/29/3.Unity/20200929_Tips-C%20Sharp%E5%9F%BA%E4%BA%8EVSCode%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h1 id="C-基于VSCode开发环境的搭建"><a href="#C-基于VSCode开发环境的搭建" class="headerlink" title="C#基于VSCode开发环境的搭建"></a>C#基于VSCode开发环境的搭建</h1><h2 id="下载安装-NET-Core-SDK"><a href="#下载安装-NET-Core-SDK" class="headerlink" title="下载安装 .NET Core SDK"></a>下载安装 .NET Core SDK</h2><p><a href="https://www.microsoft.com/net/download/core">下载链接</a></p>
 <h2 id="新建dotnet-core-工程"><a href="#新建dotnet-core-工程" class="headerlink" title="新建dotnet core 工程"></a>新建dotnet core 工程</h2><h3 id="打开控制台"><a href="#打开控制台" class="headerlink" title="打开控制台"></a>打开控制台</h3><h3 id="进入工程根目录"><a href="#进入工程根目录" class="headerlink" title="进入工程根目录"></a>进入工程根目录</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> d:/workspace</span><br></pre></td></tr></table></figure>
 
@@ -259,13 +287,16 @@
       </tags>
   </entry>
   <entry>
-    <title>Tips-Unity中Awake( )和Start( )的小区别</title>
-    <url>/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<h1 id="Unity-中-Awake-和-Start-的小区别"><a href="#Unity-中-Awake-和-Start-的小区别" class="headerlink" title="Unity 中 Awake( )和 Start( )的小区别"></a>Unity 中 Awake( )和 Start( )的小区别</h1><h2 id="Awake"><a href="#Awake" class="headerlink" title="Awake"></a>Awake</h2><h3 id="绑定对象-active"><a href="#绑定对象-active" class="headerlink" title="绑定对象 active"></a>绑定对象 active</h3><h3 id="实例化后不论脚本是否-enable"><a href="#实例化后不论脚本是否-enable" class="headerlink" title="实例化后不论脚本是否 enable"></a>实例化后不论脚本是否 enable</h3><h3 id="只会调用一次"><a href="#只会调用一次" class="headerlink" title="只会调用一次"></a>只会调用一次</h3><h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h2><h3 id="绑定对象active"><a href="#绑定对象active" class="headerlink" title="绑定对象active"></a>绑定对象active</h3><h3 id="脚本-enable"><a href="#脚本-enable" class="headerlink" title="脚本 enable"></a>脚本 enable</h3><h3 id="只会-调用一次"><a href="#只会-调用一次" class="headerlink" title="只会 调用一次"></a>只会 调用一次</h3><h3 id="在第一次-Update-前调用-可能没有想象中的那么快-在这里初始化要想好调用顺序"><a href="#在第一次-Update-前调用-可能没有想象中的那么快-在这里初始化要想好调用顺序" class="headerlink" title="在第一次 Update 前调用,可能没有想象中的那么快,在这里初始化要想好调用顺序"></a>在第一次 Update 前调用,可能没有想象中的那么快,在这里初始化要想好调用顺序</h3>]]></content>
+    <title>Tips-Unity中停止协程StopCoroutine</title>
+    <url>/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/</url>
+    <content><![CDATA[<h1 id="Unity中停止协程StopCoroutine"><a href="#Unity中停止协程StopCoroutine" class="headerlink" title="Unity中停止协程StopCoroutine"></a>Unity中停止协程StopCoroutine</h1><h2 id="必须用字符串启动协程才能停止协程"><a href="#必须用字符串启动协程才能停止协程" class="headerlink" title="必须用字符串启动协程才能停止协程"></a>必须用字符串启动协程才能停止协程</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">//要想停止协程,必须用字符启动协程</span></span><br><span class="line">StartCoroutine(<span class="string">&quot;FunctionName&quot;</span>);</span><br><span class="line"><span class="comment">//如果要传参</span></span><br><span class="line">StarCoroutine(<span class="string">&quot;FunctionName&quot;</span>,<span class="keyword">object</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="停止协程"><a href="#停止协程" class="headerlink" title="停止协程"></a>停止协程</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">//停止协程</span></span><br><span class="line">StopCoroutine(<span class="string">&quot;FunctionName&quot;</span>);</span><br><span class="line"><span class="comment">//停止所有协程(慎用)</span></span><br><span class="line">StopAllCoroutine();</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>3.Unity</category>
       </categories>
       <tags>
+        <tag>C#</tag>
         <tag>Unity</tag>
       </tags>
   </entry>
@@ -285,36 +316,6 @@
         <tag>Unity</tag>
         <tag>UGUI</tag>
         <tag>效率</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tips-Unity中停止协程StopCoroutine</title>
-    <url>/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/</url>
-    <content><![CDATA[<h1 id="Unity中停止协程StopCoroutine"><a href="#Unity中停止协程StopCoroutine" class="headerlink" title="Unity中停止协程StopCoroutine"></a>Unity中停止协程StopCoroutine</h1><h2 id="必须用字符串启动协程才能停止协程"><a href="#必须用字符串启动协程才能停止协程" class="headerlink" title="必须用字符串启动协程才能停止协程"></a>必须用字符串启动协程才能停止协程</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">//要想停止协程,必须用字符启动协程</span></span><br><span class="line">StartCoroutine(<span class="string">&quot;FunctionName&quot;</span>);</span><br><span class="line"><span class="comment">//如果要传参</span></span><br><span class="line">StarCoroutine(<span class="string">&quot;FunctionName&quot;</span>,<span class="keyword">object</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="停止协程"><a href="#停止协程" class="headerlink" title="停止协程"></a>停止协程</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">//停止协程</span></span><br><span class="line">StopCoroutine(<span class="string">&quot;FunctionName&quot;</span>);</span><br><span class="line"><span class="comment">//停止所有协程(慎用)</span></span><br><span class="line">StopAllCoroutine();</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>3.Unity</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-        <tag>Unity</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tips-Unity中OnGui原生GUI用法</title>
-    <url>/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADOnGui%E5%8E%9F%E7%94%9FGUI%E7%94%A8%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="Unity中OnGui原生GUI用法"><a href="#Unity中OnGui原生GUI用法" class="headerlink" title="Unity中OnGui原生GUI用法"></a>Unity中OnGui原生GUI用法</h1><h2 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (GUI.Button(<span class="keyword">new</span> Rect(<span class="number">10</span>, <span class="number">360</span>, <span class="number">200</span>, <span class="number">50</span>), <span class="string">&quot;开始新手引导&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        GuideManager.Instance.InitGuide();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Rect-x-Rect-y"><a href="#Rect-x-Rect-y" class="headerlink" title="Rect.x Rect.y"></a>Rect.x Rect.y</h3><p>按钮左下角坐标</p>
-<h3 id="Rect-z-Rect-w"><a href="#Rect-z-Rect-w" class="headerlink" title="Rect.z Rect.w"></a>Rect.z Rect.w</h3><p>按钮的宽和高</p>
-<h2 id="OnGUI注意事项"><a href="#OnGUI注意事项" class="headerlink" title="OnGUI注意事项"></a>OnGUI注意事项</h2><h3 id="坐标原点-左上角"><a href="#坐标原点-左上角" class="headerlink" title="坐标原点: 左上角"></a>坐标原点: 左上角</h3>]]></content>
-      <categories>
-        <category>3.Unity</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-        <tag>Unity</tag>
       </tags>
   </entry>
   <entry>
@@ -369,6 +370,17 @@
       </categories>
       <tags>
         <tag>C#</tag>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Trick_Unity插件Ngui图片缝隙问题解决</title>
+    <url>/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<h1 id="Unity插件Ngui图片缝隙问题解决"><a href="#Unity插件Ngui图片缝隙问题解决" class="headerlink" title="Unity插件Ngui图片缝隙问题解决"></a>Unity插件Ngui图片缝隙问题解决</h1><h2 id="源图片的长宽必须是2的倍数-最好是2的n次方"><a href="#源图片的长宽必须是2的倍数-最好是2的n次方" class="headerlink" title="源图片的长宽必须是2的倍数 最好是2的n次方"></a>源图片的长宽必须是2的倍数 最好是2的n次方</h2><h2 id="源图片和图集设置"><a href="#源图片和图集设置" class="headerlink" title="源图片和图集设置"></a>源图片和图集设置</h2><h3 id="Texure-Type-Sprite"><a href="#Texure-Type-Sprite" class="headerlink" title="Texure Type:Sprite"></a>Texure Type:Sprite</h3><h3 id="Wrap-Mode-Point"><a href="#Wrap-Mode-Point" class="headerlink" title="Wrap Mode: Point"></a>Wrap Mode: Point</h3>]]></content>
+      <categories>
+        <category>3.Unity</category>
+      </categories>
+      <tags>
         <tag>Unity</tag>
       </tags>
   </entry>
@@ -555,17 +567,6 @@
 <li>输入游戏进程编号按Enter键</li>
 </ul>
 ]]></content>
-      <categories>
-        <category>3.Unity</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Trick_Unity插件Ngui图片缝隙问题解决</title>
-    <url>/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
-    <content><![CDATA[<h1 id="Unity插件Ngui图片缝隙问题解决"><a href="#Unity插件Ngui图片缝隙问题解决" class="headerlink" title="Unity插件Ngui图片缝隙问题解决"></a>Unity插件Ngui图片缝隙问题解决</h1><h2 id="源图片的长宽必须是2的倍数-最好是2的n次方"><a href="#源图片的长宽必须是2的倍数-最好是2的n次方" class="headerlink" title="源图片的长宽必须是2的倍数 最好是2的n次方"></a>源图片的长宽必须是2的倍数 最好是2的n次方</h2><h2 id="源图片和图集设置"><a href="#源图片和图集设置" class="headerlink" title="源图片和图集设置"></a>源图片和图集设置</h2><h3 id="Texure-Type-Sprite"><a href="#Texure-Type-Sprite" class="headerlink" title="Texure Type:Sprite"></a>Texure Type:Sprite</h3><h3 id="Wrap-Mode-Point"><a href="#Wrap-Mode-Point" class="headerlink" title="Wrap Mode: Point"></a>Wrap Mode: Point</h3>]]></content>
       <categories>
         <category>3.Unity</category>
       </categories>
@@ -1135,6 +1136,19 @@
       </tags>
   </entry>
   <entry>
+    <title>Bug-AAPT2_error_check_logs_for_details</title>
+    <url>/2020/09/29/4.Android/20200929_Bug-AAPT2_error_check_logs_for_details/</url>
+    <content><![CDATA[<h1 id="AAPT2-error-check-logs-for-details"><a href="#AAPT2-error-check-logs-for-details" class="headerlink" title="AAPT2 error: check logs for details"></a>AAPT2 error: check logs for details</h1><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>今天写的布局文件中存在一个错误的属性: android:layout_to=”@id/item_mg_bg_x”<br>因为之前项目没有build成功 这个错误没有被IDE检查出来 导致Aapt2报错 把错误的属性改了就好了</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://stackoverflow.com/questions/47589873/aapt2-error-check-logs-for-details">AAPT2 error: check logs for details</a></p>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>IDE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Bug-AgentWeb所在的Activity无法启动</title>
     <url>/2020/09/29/4.Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/</url>
     <content><![CDATA[<h1 id="AgentWeb所在的Activity无法启动"><a href="#AgentWeb所在的Activity无法启动" class="headerlink" title="AgentWeb所在的Activity无法启动"></a>AgentWeb所在的Activity无法启动</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>天狼大厅点击按钮打开一个网页,结果写完代码没有任何反应,找Bug找了两个小时,最后通过单步调试找到问题,报没有这个activity的异常</p>
@@ -1148,19 +1162,6 @@
         <tag>Android</tag>
         <tag>Web</tag>
         <tag>Bug</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Bug-AAPT2_error_check_logs_for_details</title>
-    <url>/2020/09/29/4.Android/20200929_Bug-AAPT2_error_check_logs_for_details/</url>
-    <content><![CDATA[<h1 id="AAPT2-error-check-logs-for-details"><a href="#AAPT2-error-check-logs-for-details" class="headerlink" title="AAPT2 error: check logs for details"></a>AAPT2 error: check logs for details</h1><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>今天写的布局文件中存在一个错误的属性: android:layout_to=”@id/item_mg_bg_x”<br>因为之前项目没有build成功 这个错误没有被IDE检查出来 导致Aapt2报错 把错误的属性改了就好了</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://stackoverflow.com/questions/47589873/aapt2-error-check-logs-for-details">AAPT2 error: check logs for details</a></p>
-]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>IDE</tag>
       </tags>
   </entry>
   <entry>
@@ -1193,21 +1194,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Bug-Android中webview背景透明设置</title>
-    <url>/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADwebview%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="Android中-agentweb-背景透明设置"><a href="#Android中-agentweb-背景透明设置" class="headerlink" title="Android中 agentweb 背景透明设置"></a>Android中 agentweb 背景透明设置</h1><blockquote>
-<p>agentweb在webview的基础上包了一层view 因此需要设置webview以及它的父级view才能实现透明,否则默认是白色背景</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">mAgentWeb.getWebCreator().getWebView().setBackgroundColor(<span class="number">0x00000000</span>);</span><br><span class="line">mAgentWeb.getWebCreator().getWebParentLayout().setBackgroundColor(<span class="number">0x00000000</span>);</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>Web</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Bug-Android中WebView闪烁问题</title>
     <url>/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADWebView%E9%97%AA%E7%83%81%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="Android中WebView闪烁问题"><a href="#Android中WebView闪烁问题" class="headerlink" title="Android中WebView闪烁问题"></a>Android中WebView闪烁问题</h1><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>webView默认隐藏然后在onPageFinished回调中显示</p>
@@ -1222,6 +1208,21 @@
         <tag>Android</tag>
         <tag>Web</tag>
         <tag>AR</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Bug-Android中webview背景透明设置</title>
+    <url>/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADwebview%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="Android中-agentweb-背景透明设置"><a href="#Android中-agentweb-背景透明设置" class="headerlink" title="Android中 agentweb 背景透明设置"></a>Android中 agentweb 背景透明设置</h1><blockquote>
+<p>agentweb在webview的基础上包了一层view 因此需要设置webview以及它的父级view才能实现透明,否则默认是白色背景</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">mAgentWeb.getWebCreator().getWebView().setBackgroundColor(<span class="number">0x00000000</span>);</span><br><span class="line">mAgentWeb.getWebCreator().getWebParentLayout().setBackgroundColor(<span class="number">0x00000000</span>);</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Web</tag>
       </tags>
   </entry>
   <entry>
@@ -1455,8 +1456,8 @@
         <tag>Android</tag>
         <tag>工具</tag>
         <tag>AR</tag>
-        <tag>Go</tag>
         <tag>Java</tag>
+        <tag>Go</tag>
         <tag>编程</tag>
         <tag>OpenGL</tag>
         <tag>Js</tag>
@@ -1791,9 +1792,9 @@
         <category>4.Android</category>
       </categories>
       <tags>
+        <tag>Git</tag>
         <tag>重构</tag>
         <tag>编程</tag>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -2097,8 +2098,8 @@
       <tags>
         <tag>Android</tag>
         <tag>AR</tag>
-        <tag>Go</tag>
         <tag>AS</tag>
+        <tag>Go</tag>
       </tags>
   </entry>
   <entry>
@@ -2514,6 +2515,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Trick-RxJava实现间隔调用</title>
+    <url>/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="RxJava实现间隔调用"><a href="#RxJava实现间隔调用" class="headerlink" title="RxJava实现间隔调用"></a>RxJava实现间隔调用</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Observable.interval(<span class="number">1</span>, TimeUnit.SECONDS, Schedulers.trampoline())</span><br><span class="line">.take(<span class="number">6</span>)</span><br><span class="line">.subscribeOn(Schedulers.io())</span><br><span class="line">.observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">.subscribe(<span class="keyword">new</span> Observer&lt;Long&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSubscribe</span><span class="params">(Disposable d)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onSubscribe&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Long value)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onNext:&quot;</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onError&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onComplete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onComplete&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>如果涉及到对UI的操作 需要设置好线程</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Observable.interval(<span class="number">1</span>, TimeUnit.SECONDS, Schedulers.trampoline())</span><br><span class="line">                 .take(<span class="number">59</span>)</span><br><span class="line">                 .subscribeOn(Schedulers.io())                 <span class="comment">// io线程</span></span><br><span class="line">                 .observeOn(AndroidSchedulers.mainThread())    <span class="comment">// 主线程</span></span><br><span class="line">                 .subscribe(<span class="keyword">new</span> Observer&lt;Long&gt;()</span><br><span class="line">                 &#123;</span><br><span class="line">                     <span class="meta">@Override</span></span><br><span class="line">                     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span></span></span><br><span class="line"><span class="function">                     </span>&#123;</span><br><span class="line">                         <span class="keyword">if</span> (activityRegBinding.etPhoneNumber.getText().length() == <span class="number">11</span>)</span><br><span class="line">                         &#123;</span><br><span class="line">                             mainView.setSendBtnState(<span class="number">2</span>);</span><br><span class="line">                         &#125; <span class="keyword">else</span></span><br><span class="line">                         &#123;</span><br><span class="line">                             mainView.setSendBtnState(<span class="number">1</span>);</span><br><span class="line">                         &#125;</span><br><span class="line">                     &#125;</span><br><span class="line"></span><br><span class="line">                     <span class="meta">@Override</span></span><br><span class="line">                     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span></span></span><br><span class="line"><span class="function">                     </span>&#123;</span><br><span class="line"></span><br><span class="line">                     &#125;</span><br><span class="line"></span><br><span class="line">                     <span class="meta">@Override</span></span><br><span class="line">                     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Long aLong)</span></span></span><br><span class="line"><span class="function">                     </span>&#123;</span><br><span class="line">                         activityRegBinding.tvSendCode.setText(String.format(<span class="string">&quot;(%ss)后重发&quot;</span>, (<span class="number">59</span> - aLong) + <span class="string">&quot;&quot;</span>));</span><br><span class="line">                     &#125;</span><br><span class="line">                 &#125;);</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Trick-adb连接mumu模拟器</title>
     <url>/2020/09/29/4.Android/20200929_Trick-adb%E8%BF%9E%E6%8E%A5mumu%E6%A8%A1%E6%8B%9F%E5%99%A8/</url>
     <content><![CDATA[<h1 id="adb-连接-mumu-模拟器"><a href="#adb-连接-mumu-模拟器" class="headerlink" title="adb 连接 mumu 模拟器"></a>adb 连接 mumu 模拟器</h1><h2 id="Windows-平台"><a href="#Windows-平台" class="headerlink" title="Windows 平台"></a>Windows 平台</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">adb connect 127.0.0.1:7555</span><br></pre></td></tr></table></figure>
@@ -2530,21 +2546,6 @@
       <tags>
         <tag>Windows</tag>
         <tag>Mac</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Trick-RxJava实现间隔调用</title>
-    <url>/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="RxJava实现间隔调用"><a href="#RxJava实现间隔调用" class="headerlink" title="RxJava实现间隔调用"></a>RxJava实现间隔调用</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Observable.interval(<span class="number">1</span>, TimeUnit.SECONDS, Schedulers.trampoline())</span><br><span class="line">.take(<span class="number">6</span>)</span><br><span class="line">.subscribeOn(Schedulers.io())</span><br><span class="line">.observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">.subscribe(<span class="keyword">new</span> Observer&lt;Long&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSubscribe</span><span class="params">(Disposable d)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onSubscribe&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Long value)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onNext:&quot;</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onError&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onComplete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onComplete&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>如果涉及到对UI的操作 需要设置好线程</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Observable.interval(<span class="number">1</span>, TimeUnit.SECONDS, Schedulers.trampoline())</span><br><span class="line">                 .take(<span class="number">59</span>)</span><br><span class="line">                 .subscribeOn(Schedulers.io())                 <span class="comment">// io线程</span></span><br><span class="line">                 .observeOn(AndroidSchedulers.mainThread())    <span class="comment">// 主线程</span></span><br><span class="line">                 .subscribe(<span class="keyword">new</span> Observer&lt;Long&gt;()</span><br><span class="line">                 &#123;</span><br><span class="line">                     <span class="meta">@Override</span></span><br><span class="line">                     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span></span></span><br><span class="line"><span class="function">                     </span>&#123;</span><br><span class="line">                         <span class="keyword">if</span> (activityRegBinding.etPhoneNumber.getText().length() == <span class="number">11</span>)</span><br><span class="line">                         &#123;</span><br><span class="line">                             mainView.setSendBtnState(<span class="number">2</span>);</span><br><span class="line">                         &#125; <span class="keyword">else</span></span><br><span class="line">                         &#123;</span><br><span class="line">                             mainView.setSendBtnState(<span class="number">1</span>);</span><br><span class="line">                         &#125;</span><br><span class="line">                     &#125;</span><br><span class="line"></span><br><span class="line">                     <span class="meta">@Override</span></span><br><span class="line">                     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span></span></span><br><span class="line"><span class="function">                     </span>&#123;</span><br><span class="line"></span><br><span class="line">                     &#125;</span><br><span class="line"></span><br><span class="line">                     <span class="meta">@Override</span></span><br><span class="line">                     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Long aLong)</span></span></span><br><span class="line"><span class="function">                     </span>&#123;</span><br><span class="line">                         activityRegBinding.tvSendCode.setText(String.format(<span class="string">&quot;(%ss)后重发&quot;</span>, (<span class="number">59</span> - aLong) + <span class="string">&quot;&quot;</span>));</span><br><span class="line">                     &#125;</span><br><span class="line">                 &#125;);</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -2575,6 +2576,29 @@
       </categories>
       <tags>
         <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tutorial-Android内存泄漏问题</title>
+    <url>/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="Android内存泄漏问题"><a href="#Android内存泄漏问题" class="headerlink" title="Android内存泄漏问题"></a>Android内存泄漏问题</h1><h2 id="什么是内存泄漏"><a href="#什么是内存泄漏" class="headerlink" title="什么是内存泄漏"></a>什么是内存泄漏</h2><p>Android虚拟机的垃圾回收采用的是根搜索算法。GC会从根节点（GC Roots）开始对heap进行遍历。到最后，部分没有直接或者间接引用到GC Roots的就是需要回收的垃圾，会被GC回收掉。但是当对象不再被应用程序使用，仍然被生命周期长的对象引用，垃圾回收器无法回收,这就叫内存泄漏.</p>
+<h2 id="内存泄露的根本原因"><a href="#内存泄露的根本原因" class="headerlink" title="内存泄露的根本原因"></a>内存泄露的根本原因</h2><p>长生命周期的对象持有短生命周期的对象。短周期对象就无法及时释放。</p>
+<h2 id="哪些情况会造成内存泄漏"><a href="#哪些情况会造成内存泄漏" class="headerlink" title="哪些情况会造成内存泄漏"></a>哪些情况会造成内存泄漏</h2><ul>
+<li><h3 id="错误使用单例造成的内存泄漏"><a href="#错误使用单例造成的内存泄漏" class="headerlink" title="错误使用单例造成的内存泄漏"></a>错误使用单例造成的内存泄漏</h3></li>
+<li><h3 id="Handler造成的内存泄漏"><a href="#Handler造成的内存泄漏" class="headerlink" title="Handler造成的内存泄漏"></a>Handler造成的内存泄漏</h3></li>
+<li><h3 id="线程造成的内存泄漏"><a href="#线程造成的内存泄漏" class="headerlink" title="线程造成的内存泄漏"></a>线程造成的内存泄漏</h3></li>
+<li><h3 id="非静态内部类创建静态实例造成的内存泄漏"><a href="#非静态内部类创建静态实例造成的内存泄漏" class="headerlink" title="非静态内部类创建静态实例造成的内存泄漏"></a>非静态内部类创建静态实例造成的内存泄漏</h3></li>
+<li><h3 id="资源未关闭造成的内存泄漏"><a href="#资源未关闭造成的内存泄漏" class="headerlink" title="资源未关闭造成的内存泄漏"></a>资源未关闭造成的内存泄漏</h3></li>
+</ul>
+<p><a href="https://www.jianshu.com/p/f55c6187a1c0">Android内存泄漏总结和leakcanary使用</a></p>
+<p><a href="https://blog.mindorks.com/detecting-and-fixing-memory-leaks-in-android">Detecting and fixing memory leaks in android</a></p>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -2624,29 +2648,6 @@
         <tag>AR</tag>
         <tag>Java</tag>
         <tag>ML</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tutorial-Android内存泄漏问题</title>
-    <url>/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="Android内存泄漏问题"><a href="#Android内存泄漏问题" class="headerlink" title="Android内存泄漏问题"></a>Android内存泄漏问题</h1><h2 id="什么是内存泄漏"><a href="#什么是内存泄漏" class="headerlink" title="什么是内存泄漏"></a>什么是内存泄漏</h2><p>Android虚拟机的垃圾回收采用的是根搜索算法。GC会从根节点（GC Roots）开始对heap进行遍历。到最后，部分没有直接或者间接引用到GC Roots的就是需要回收的垃圾，会被GC回收掉。但是当对象不再被应用程序使用，仍然被生命周期长的对象引用，垃圾回收器无法回收,这就叫内存泄漏.</p>
-<h2 id="内存泄露的根本原因"><a href="#内存泄露的根本原因" class="headerlink" title="内存泄露的根本原因"></a>内存泄露的根本原因</h2><p>长生命周期的对象持有短生命周期的对象。短周期对象就无法及时释放。</p>
-<h2 id="哪些情况会造成内存泄漏"><a href="#哪些情况会造成内存泄漏" class="headerlink" title="哪些情况会造成内存泄漏"></a>哪些情况会造成内存泄漏</h2><ul>
-<li><h3 id="错误使用单例造成的内存泄漏"><a href="#错误使用单例造成的内存泄漏" class="headerlink" title="错误使用单例造成的内存泄漏"></a>错误使用单例造成的内存泄漏</h3></li>
-<li><h3 id="Handler造成的内存泄漏"><a href="#Handler造成的内存泄漏" class="headerlink" title="Handler造成的内存泄漏"></a>Handler造成的内存泄漏</h3></li>
-<li><h3 id="线程造成的内存泄漏"><a href="#线程造成的内存泄漏" class="headerlink" title="线程造成的内存泄漏"></a>线程造成的内存泄漏</h3></li>
-<li><h3 id="非静态内部类创建静态实例造成的内存泄漏"><a href="#非静态内部类创建静态实例造成的内存泄漏" class="headerlink" title="非静态内部类创建静态实例造成的内存泄漏"></a>非静态内部类创建静态实例造成的内存泄漏</h3></li>
-<li><h3 id="资源未关闭造成的内存泄漏"><a href="#资源未关闭造成的内存泄漏" class="headerlink" title="资源未关闭造成的内存泄漏"></a>资源未关闭造成的内存泄漏</h3></li>
-</ul>
-<p><a href="https://www.jianshu.com/p/f55c6187a1c0">Android内存泄漏总结和leakcanary使用</a></p>
-<p><a href="https://blog.mindorks.com/detecting-and-fixing-memory-leaks-in-android">Detecting and fixing memory leaks in android</a></p>
-]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -2954,14 +2955,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Tutorial-UmengPushSdk接入文档</title>
-    <url>/2020/09/29/4.Android/20200929_Tutorial-UmengPushSdk%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3/</url>
-    <content><![CDATA[<h1 id="UmengPushSdk接入文档"><a href="#UmengPushSdk接入文档" class="headerlink" title="UmengPushSdk接入文档"></a>UmengPushSdk接入文档</h1><h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Tutorial-Java高并发和分布式技术</title>
     <url>/2020/09/29/4.Android/20200929_Tutorial-Java%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF/</url>
     <content><![CDATA[<h1 id="Java高并发和分布式技术"><a href="#Java高并发和分布式技术" class="headerlink" title="Java高并发和分布式技术"></a>Java高并发和分布式技术</h1><p><img src="/images/2019-08-14-09-08-29.png"></p>
@@ -2971,6 +2964,62 @@
       </categories>
       <tags>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tutorial-UmengPushSdk接入文档</title>
+    <url>/2020/09/29/4.Android/20200929_Tutorial-UmengPushSdk%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[<h1 id="UmengPushSdk接入文档"><a href="#UmengPushSdk接入文档" class="headerlink" title="UmengPushSdk接入文档"></a>UmengPushSdk接入文档</h1><h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Tips-Asm常用汇编指令</title>
+    <url>/2020/09/29/1.CS/Asm/20200929_Tips-Asm%E5%B8%B8%E7%94%A8%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="Asm常用汇编指令"><a href="#Asm常用汇编指令" class="headerlink" title="Asm常用汇编指令"></a>Asm常用汇编指令</h1><h2 id="移动指令"><a href="#移动指令" class="headerlink" title="移动指令"></a>移动指令</h2><h3 id="mov-右边赋值给左边"><a href="#mov-右边赋值给左边" class="headerlink" title="mov             右边赋值给左边"></a>mov             右边赋值给左边</h3><ul>
+<li>mov ax,10h        mov 寄存器,数据</li>
+<li>mov ax,bx         mov 寄存器,寄存器</li>
+<li>mov ax,ds:[0]     mov 寄存器,内存单元</li>
+<li>mov ds:[0],ax     mov 内存单元,寄存器</li>
+<li>mov ds,bx         mov 段寄存器,寄存器</li>
+<li>mov bx,ds         mov 寄存器,段寄存器</li>
+</ul>
+<blockquote>
+<p>mov ds,1000h 是不允许的  段寄存器不允许直接赋值</p>
+</blockquote>
+<h2 id="运算指令"><a href="#运算指令" class="headerlink" title="运算指令"></a>运算指令</h2><h3 id="add-加法"><a href="#add-加法" class="headerlink" title="add            加法"></a>add            加法</h3><ul>
+<li>add ax,100h      add 寄存器,数据</li>
+<li>add ax,bx        add 寄存器,寄存器</li>
+<li>add ax,ds:[0]    add 寄存器,内存单元</li>
+<li>add ds:[0],ax    add 内存单元,寄存器</li>
+</ul>
+<h3 id="sub-减法"><a href="#sub-减法" class="headerlink" title="sub            减法"></a>sub            减法</h3><ul>
+<li>sub ax,1h        sub 寄存器,数据</li>
+<li>sub ax,bx        sub 寄存器,寄存器</li>
+<li>sub ax,ds[0]     sub 寄存器,内存单元</li>
+<li>sub [0],ax       sub 内存单元,寄存器</li>
+</ul>
+<blockquote>
+<p>add ds,ax 是不允许的<br>sub ds,ax 是不允许的</p>
+</blockquote>
+<h3 id="inc-自增1"><a href="#inc-自增1" class="headerlink" title="inc            自增1"></a>inc            自增1</h3><ul>
+<li>inc ax           inc 寄存器</li>
+</ul>
+<h2 id="转移指令"><a href="#转移指令" class="headerlink" title="转移指令"></a>转移指令</h2><h3 id="jmp-跳转命令"><a href="#jmp-跳转命令" class="headerlink" title="jmp             跳转命令"></a>jmp             跳转命令</h3><ul>
+<li>jmp addFunction   jmp 标志符</li>
+</ul>
+<h3 id="loop-循环命令"><a href="#loop-循环命令" class="headerlink" title="loop            循环命令"></a>loop            循环命令</h3><ul>
+<li>loop addFunction  loop 标识符  每次执行 先把 cx - 1 然后检测cx是不是等于0</li>
+</ul>
+]]></content>
+      <categories>
+        <category>1.CS</category>
+        <category>Asm</category>
+      </categories>
+      <tags>
+        <tag>Asm</tag>
+        <tag>汇编</tag>
       </tags>
   </entry>
   <entry>
@@ -3100,54 +3149,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Tips-Asm常用汇编指令</title>
-    <url>/2020/09/29/1.CS/Asm/20200929_Tips-Asm%E5%B8%B8%E7%94%A8%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/</url>
-    <content><![CDATA[<h1 id="Asm常用汇编指令"><a href="#Asm常用汇编指令" class="headerlink" title="Asm常用汇编指令"></a>Asm常用汇编指令</h1><h2 id="移动指令"><a href="#移动指令" class="headerlink" title="移动指令"></a>移动指令</h2><h3 id="mov-右边赋值给左边"><a href="#mov-右边赋值给左边" class="headerlink" title="mov             右边赋值给左边"></a>mov             右边赋值给左边</h3><ul>
-<li>mov ax,10h        mov 寄存器,数据</li>
-<li>mov ax,bx         mov 寄存器,寄存器</li>
-<li>mov ax,ds:[0]     mov 寄存器,内存单元</li>
-<li>mov ds:[0],ax     mov 内存单元,寄存器</li>
-<li>mov ds,bx         mov 段寄存器,寄存器</li>
-<li>mov bx,ds         mov 寄存器,段寄存器</li>
-</ul>
-<blockquote>
-<p>mov ds,1000h 是不允许的  段寄存器不允许直接赋值</p>
-</blockquote>
-<h2 id="运算指令"><a href="#运算指令" class="headerlink" title="运算指令"></a>运算指令</h2><h3 id="add-加法"><a href="#add-加法" class="headerlink" title="add            加法"></a>add            加法</h3><ul>
-<li>add ax,100h      add 寄存器,数据</li>
-<li>add ax,bx        add 寄存器,寄存器</li>
-<li>add ax,ds:[0]    add 寄存器,内存单元</li>
-<li>add ds:[0],ax    add 内存单元,寄存器</li>
-</ul>
-<h3 id="sub-减法"><a href="#sub-减法" class="headerlink" title="sub            减法"></a>sub            减法</h3><ul>
-<li>sub ax,1h        sub 寄存器,数据</li>
-<li>sub ax,bx        sub 寄存器,寄存器</li>
-<li>sub ax,ds[0]     sub 寄存器,内存单元</li>
-<li>sub [0],ax       sub 内存单元,寄存器</li>
-</ul>
-<blockquote>
-<p>add ds,ax 是不允许的<br>sub ds,ax 是不允许的</p>
-</blockquote>
-<h3 id="inc-自增1"><a href="#inc-自增1" class="headerlink" title="inc            自增1"></a>inc            自增1</h3><ul>
-<li>inc ax           inc 寄存器</li>
-</ul>
-<h2 id="转移指令"><a href="#转移指令" class="headerlink" title="转移指令"></a>转移指令</h2><h3 id="jmp-跳转命令"><a href="#jmp-跳转命令" class="headerlink" title="jmp             跳转命令"></a>jmp             跳转命令</h3><ul>
-<li>jmp addFunction   jmp 标志符</li>
-</ul>
-<h3 id="loop-循环命令"><a href="#loop-循环命令" class="headerlink" title="loop            循环命令"></a>loop            循环命令</h3><ul>
-<li>loop addFunction  loop 标识符  每次执行 先把 cx - 1 然后检测cx是不是等于0</li>
-</ul>
-]]></content>
-      <categories>
-        <category>1.CS</category>
-        <category>Asm</category>
-      </categories>
-      <tags>
-        <tag>汇编</tag>
-        <tag>Asm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tips-Asm调试工具debug的使用</title>
     <url>/2020/09/29/1.CS/Asm/20200929_Tips-Asm%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7debug%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="Asm调试工具debug的使用"><a href="#Asm调试工具debug的使用" class="headerlink" title="Asm调试工具debug的使用"></a>Asm调试工具debug的使用</h1><ol>
@@ -3169,8 +3170,8 @@
       </categories>
       <tags>
         <tag>工具</tag>
-        <tag>汇编</tag>
         <tag>Asm</tag>
+        <tag>汇编</tag>
       </tags>
   </entry>
   <entry>
@@ -3251,21 +3252,21 @@
       </tags>
   </entry>
   <entry>
-    <title>Tips-CPU的内存保护</title>
-    <url>/2020/09/29/1.CS/Asm/20200929_Tips-CPU%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4/</url>
-    <content><![CDATA[<h1 id="CPU的内存保护"><a href="#CPU的内存保护" class="headerlink" title="CPU的内存保护"></a>CPU的内存保护</h1><h2 id="安全的内存地址"><a href="#安全的内存地址" class="headerlink" title="安全的内存地址"></a>安全的内存地址</h2><p>0:200H  ~  0:2FFH     FFH = 255D + 1D = 256D<br>0:7E00H ~ +</p>
-]]></content>
+    <title>Tips-DosBox启动设置</title>
+    <url>/2020/09/29/1.CS/Asm/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="DosBox启动设置"><a href="#DosBox启动设置" class="headerlink" title="DosBox启动设置"></a>DosBox启动设置</h1><h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>c:/用户/用户名/appdata/local/dosbox/dosbox-0.74.conf</p>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>配置文件末尾添加以下指令:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">mount c: d:\asm</span><br><span class="line"><span class="built_in">set</span> PATH=%PATH%;c:\;</span><br><span class="line">c:</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>1.CS</category>
         <category>Asm</category>
       </categories>
   </entry>
   <entry>
-    <title>Tips-DosBox启动设置</title>
-    <url>/2020/09/29/1.CS/Asm/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="DosBox启动设置"><a href="#DosBox启动设置" class="headerlink" title="DosBox启动设置"></a>DosBox启动设置</h1><h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>c:/用户/用户名/appdata/local/dosbox/dosbox-0.74.conf</p>
-<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>配置文件末尾添加以下指令:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">mount c: d:\asm</span><br><span class="line"><span class="built_in">set</span> PATH=%PATH%;c:\;</span><br><span class="line">c:</span><br></pre></td></tr></table></figure>]]></content>
+    <title>Tips-CPU的内存保护</title>
+    <url>/2020/09/29/1.CS/Asm/20200929_Tips-CPU%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4/</url>
+    <content><![CDATA[<h1 id="CPU的内存保护"><a href="#CPU的内存保护" class="headerlink" title="CPU的内存保护"></a>CPU的内存保护</h1><h2 id="安全的内存地址"><a href="#安全的内存地址" class="headerlink" title="安全的内存地址"></a>安全的内存地址</h2><p>0:200H  ~  0:2FFH     FFH = 255D + 1D = 256D<br>0:7E00H ~ +</p>
+]]></content>
       <categories>
         <category>1.CS</category>
         <category>Asm</category>
@@ -3447,19 +3448,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Trick-Git不忽略gitignore设置</title>
-    <url>/2020/09/29/9.Tools/Git/20200929_Trick-Git%E4%B8%8D%E5%BF%BD%E7%95%A5gitignore%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="不忽略git设置"><a href="#不忽略git设置" class="headerlink" title="不忽略git设置"></a>不忽略git设置</h1><h2 id="忽略所有文件除了某些类型"><a href="#忽略所有文件除了某些类型" class="headerlink" title="忽略所有文件除了某些类型"></a>忽略所有文件除了某些类型</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">*/*</span><br><span class="line">!.cs</span><br></pre></td></tr></table></figure>
-
-<h2 id="假设只跟踪-Scripts-目录和脚本-md文件"><a href="#假设只跟踪-Scripts-目录和脚本-md文件" class="headerlink" title="假设只跟踪 Scripts 目录和脚本/md文件"></a>假设只跟踪 Scripts 目录和脚本/md文件</h2><p>编辑.gitignore文件(.gitignore)<br>忽略所有文件，注意放在开头</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 忽略所有文件和目录</span></span><br><span class="line">/*</span><br><span class="line">*.*</span><br><span class="line"><span class="comment"># 除Scripts文件夹 和脚本/md文件外</span></span><br><span class="line">!/Scripts</span><br><span class="line">!*.cs</span><br><span class="line">!*.md</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>Git</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Tips-git多账号配置</title>
     <url>/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1 id="Git多账号配置"><a href="#Git多账号配置" class="headerlink" title="Git多账号配置"></a>Git多账号配置</h1><h2 id="取消-global-git-config"><a href="#取消-global-git-config" class="headerlink" title="取消 global git config"></a>取消 global git config</h2><h2 id="设置当前项目-git-config"><a href="#设置当前项目-git-config" class="headerlink" title="设置当前项目 git config"></a>设置当前项目 git config</h2><h2 id="Gitee-Token"><a href="#Gitee-Token" class="headerlink" title="Gitee Token"></a>Gitee Token</h2><p>7964c3ca84a1916dba62a53b10ed5b05</p>
@@ -3471,6 +3459,41 @@
       <tags>
         <tag>Git</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Trick-github配置hosts提高访问速度</title>
+    <url>/2020/09/29/9.Tools/Git/20200929_Trick-github%E9%85%8D%E7%BD%AEhosts%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/</url>
+    <content><![CDATA[<h1 id="github配置hosts提高访问速度"><a href="#github配置hosts提高访问速度" class="headerlink" title="github配置hosts提高访问速度"></a>github配置hosts提高访问速度</h1><h2 id="修改-Hosts"><a href="#修改-Hosts" class="headerlink" title="修改 Hosts"></a>修改 Hosts</h2><ul>
+<li><p>进入目录 C:\Windows\System32\drivers\etc</p>
+</li>
+<li><p>打开hosts文件并添加以下内容</p>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># GitHub Start</span></span><br><span class="line">192.30.253.112 github.com</span><br><span class="line">192.30.253.113 github.com</span><br><span class="line">192.30.253.119 gist.github.com</span><br><span class="line">151.101.185.194 github.global.ssl.fastly.net</span><br><span class="line">151.101.100.133 assets-cdn.github.com</span><br><span class="line">151.101.100.133 raw.githubusercontent.com</span><br><span class="line">151.101.100.133 gist.githubusercontent.com</span><br><span class="line">151.101.100.133 cloud.githubusercontent.com</span><br><span class="line">151.101.100.133 camo.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars0.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars1.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars2.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars3.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars4.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars5.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars6.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars7.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars8.githubusercontent.com</span><br><span class="line"><span class="comment"># GitHub End</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="刷新-DNS-缓存"><a href="#刷新-DNS-缓存" class="headerlink" title="刷新 DNS 缓存"></a>刷新 DNS 缓存</h2><p>CMD输入命令</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ipconfig /flushdns</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Trick-Git不忽略gitignore设置</title>
+    <url>/2020/09/29/9.Tools/Git/20200929_Trick-Git%E4%B8%8D%E5%BF%BD%E7%95%A5gitignore%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="不忽略git设置"><a href="#不忽略git设置" class="headerlink" title="不忽略git设置"></a>不忽略git设置</h1><h2 id="忽略所有文件除了某些类型"><a href="#忽略所有文件除了某些类型" class="headerlink" title="忽略所有文件除了某些类型"></a>忽略所有文件除了某些类型</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">*/*</span><br><span class="line">!.cs</span><br></pre></td></tr></table></figure>
+
+<h2 id="假设只跟踪-Scripts-目录和脚本-md文件"><a href="#假设只跟踪-Scripts-目录和脚本-md文件" class="headerlink" title="假设只跟踪 Scripts 目录和脚本/md文件"></a>假设只跟踪 Scripts 目录和脚本/md文件</h2><p>编辑.gitignore文件(.gitignore)<br>忽略所有文件，注意放在开头</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 忽略所有文件和目录</span></span><br><span class="line">/*</span><br><span class="line">*.*</span><br><span class="line"><span class="comment"># 除Scripts文件夹 和脚本/md文件外</span></span><br><span class="line">!/Scripts</span><br><span class="line">!*.cs</span><br><span class="line">!*.md</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>Git</category>
+      </categories>
   </entry>
   <entry>
     <title>Tutorial-git常用命令速查表</title>
@@ -3567,25 +3590,55 @@
       </tags>
   </entry>
   <entry>
-    <title>Trick-github配置hosts提高访问速度</title>
-    <url>/2020/09/29/9.Tools/Git/20200929_Trick-github%E9%85%8D%E7%BD%AEhosts%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/</url>
-    <content><![CDATA[<h1 id="github配置hosts提高访问速度"><a href="#github配置hosts提高访问速度" class="headerlink" title="github配置hosts提高访问速度"></a>github配置hosts提高访问速度</h1><h2 id="修改-Hosts"><a href="#修改-Hosts" class="headerlink" title="修改 Hosts"></a>修改 Hosts</h2><ul>
-<li><p>进入目录 C:\Windows\System32\drivers\etc</p>
+    <title>Bug-PHPStorm打开网页502问题</title>
+    <url>/2020/09/29/9.Tools/PHPStorm/20200929_Bug-PHPStorm%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5502%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="PHPStorm打开网页502问题"><a href="#PHPStorm打开网页502问题" class="headerlink" title="PHPStorm打开网页502问题"></a>PHPStorm打开网页502问题</h1><h2 id="设置PHP解释器"><a href="#设置PHP解释器" class="headerlink" title="设置PHP解释器"></a>设置PHP解释器</h2><p>File =&gt; Setting =&gt; Languages &amp; Frameworks =&gt; PHP</p>
+<ul>
+<li><p>设置语言版本</p>
 </li>
-<li><p>打开hosts文件并添加以下内容</p>
+<li><p>设置解释器路径</p>
 </li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># GitHub Start</span></span><br><span class="line">192.30.253.112 github.com</span><br><span class="line">192.30.253.113 github.com</span><br><span class="line">192.30.253.119 gist.github.com</span><br><span class="line">151.101.185.194 github.global.ssl.fastly.net</span><br><span class="line">151.101.100.133 assets-cdn.github.com</span><br><span class="line">151.101.100.133 raw.githubusercontent.com</span><br><span class="line">151.101.100.133 gist.githubusercontent.com</span><br><span class="line">151.101.100.133 cloud.githubusercontent.com</span><br><span class="line">151.101.100.133 camo.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars0.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars1.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars2.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars3.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars4.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars5.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars6.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars7.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars8.githubusercontent.com</span><br><span class="line"><span class="comment"># GitHub End</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="刷新-DNS-缓存"><a href="#刷新-DNS-缓存" class="headerlink" title="刷新 DNS 缓存"></a>刷新 DNS 缓存</h2><p>CMD输入命令</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ipconfig /flushdns</span><br></pre></td></tr></table></figure>]]></content>
+<h2 id="设置服务器"><a href="#设置服务器" class="headerlink" title="设置服务器"></a>设置服务器</h2><p>File =&gt; Setting =&gt; Build, Execution, Deployment =&gt; Deployment</p>
+<ul>
+<li><p>添加新的部署</p>
+</li>
+<li><p>选择 In place 类型</p>
+</li>
+<li><p>server root: localhost</p>
+</li>
+<li><p>local path: D:\xampp\htdocs</p>
+</li>
+</ul>
+<h2 id="Apply-gt-OK"><a href="#Apply-gt-OK" class="headerlink" title="Apply =&gt; OK"></a>Apply =&gt; OK</h2>]]></content>
       <categories>
         <category>9.Tools</category>
-        <category>Git</category>
+        <category>PHPStorm</category>
       </categories>
       <tags>
-        <tag>Windows</tag>
-        <tag>Git</tag>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Trick-PHPStorm的安装破解</title>
+    <url>/2020/09/29/9.Tools/PHPStorm/20200929_Trick-PHPStorm%E7%9A%84%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="PHPStorm的安装破解"><a href="#PHPStorm的安装破解" class="headerlink" title="PHPStorm的安装破解"></a>PHPStorm的安装破解</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://pan.baidu.com/s/1GTj3KTlkkaKjKPSpp_spOQ">链接</a> 提取码：35ty</p>
+<h2 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h2><p>打开文件夹PhpStorm2018.2.2破解，将JetbrainsCrack.jar文件拷贝至D:\phpStorm\PhpStorm2018.2.2\bin目录下</p>
+<h3 id="编辑启动配置"><a href="#编辑启动配置" class="headerlink" title="编辑启动配置"></a>编辑启动配置</h3><ul>
+<li>打开phpstorm64.exe.vmoptions</li>
+<li>将 -javaagent:{ install folder }\bin\JetbrainsCrack.jar 添加到最后一行</li>
+</ul>
+<h3 id="输入激活码"><a href="#输入激活码" class="headerlink" title="输入激活码"></a>输入激活码</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">ThisCrackLicenseId-&#123; <span class="string">&quot;licenseId&quot;</span>:<span class="string">&quot;ThisCrackLicenseId&quot;</span>, <span class="string">&quot;licenseeName&quot;</span>:<span class="string">&quot;idea&quot;</span>, <span class="string">&quot;assigneeName&quot;</span>:<span class="string">&quot;&quot;</span>, <span class="string">&quot;assigneeEmail&quot;</span>:<span class="string">&quot;idea@163.com&quot;</span>, <span class="string">&quot;licenseRestriction&quot;</span>:<span class="string">&quot;For This Crack, Only Test! Please support genuine!!!&quot;</span>, <span class="string">&quot;checkConcurrentUse&quot;</span>:<span class="literal">false</span>, <span class="string">&quot;products&quot;</span>:[ &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;II&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;DM&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;AC&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;RS0&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;WS&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;DPN&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;RC&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;PS&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;DC&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;RM&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;CL&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;PC&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125; ], <span class="string">&quot;hash&quot;</span>:<span class="string">&quot;2911276/0&quot;</span>, <span class="string">&quot;gracePeriodDays&quot;</span>:<span class="number">7</span>, <span class="string">&quot;autoProlongated&quot;</span>:<span class="literal">false</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="重新启动"><a href="#重新启动" class="headerlink" title="重新启动"></a>重新启动</h2><h2 id="设置备份"><a href="#设置备份" class="headerlink" title="设置备份"></a>设置备份</h2><p><a href="/download/PHPStormSettings.jar">PHPStormSettings.jar</a></p>
+]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>PHPStorm</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+        <tag>PhpStorm</tag>
       </tags>
   </entry>
   <entry>
@@ -3704,74 +3757,8 @@
       <tags>
         <tag>Android</tag>
         <tag>Web</tag>
-        <tag>IDE</tag>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Bug-PHPStorm打开网页502问题</title>
-    <url>/2020/09/29/9.Tools/PHPStorm/20200929_Bug-PHPStorm%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5502%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="PHPStorm打开网页502问题"><a href="#PHPStorm打开网页502问题" class="headerlink" title="PHPStorm打开网页502问题"></a>PHPStorm打开网页502问题</h1><h2 id="设置PHP解释器"><a href="#设置PHP解释器" class="headerlink" title="设置PHP解释器"></a>设置PHP解释器</h2><p>File =&gt; Setting =&gt; Languages &amp; Frameworks =&gt; PHP</p>
-<ul>
-<li><p>设置语言版本</p>
-</li>
-<li><p>设置解释器路径</p>
-</li>
-</ul>
-<h2 id="设置服务器"><a href="#设置服务器" class="headerlink" title="设置服务器"></a>设置服务器</h2><p>File =&gt; Setting =&gt; Build, Execution, Deployment =&gt; Deployment</p>
-<ul>
-<li><p>添加新的部署</p>
-</li>
-<li><p>选择 In place 类型</p>
-</li>
-<li><p>server root: localhost</p>
-</li>
-<li><p>local path: D:\xampp\htdocs</p>
-</li>
-</ul>
-<h2 id="Apply-gt-OK"><a href="#Apply-gt-OK" class="headerlink" title="Apply =&gt; OK"></a>Apply =&gt; OK</h2>]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>PHPStorm</category>
-      </categories>
-      <tags>
-        <tag>PHP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Trick-PHPStorm的安装破解</title>
-    <url>/2020/09/29/9.Tools/PHPStorm/20200929_Trick-PHPStorm%E7%9A%84%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="PHPStorm的安装破解"><a href="#PHPStorm的安装破解" class="headerlink" title="PHPStorm的安装破解"></a>PHPStorm的安装破解</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://pan.baidu.com/s/1GTj3KTlkkaKjKPSpp_spOQ">链接</a> 提取码：35ty</p>
-<h2 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h2><p>打开文件夹PhpStorm2018.2.2破解，将JetbrainsCrack.jar文件拷贝至D:\phpStorm\PhpStorm2018.2.2\bin目录下</p>
-<h3 id="编辑启动配置"><a href="#编辑启动配置" class="headerlink" title="编辑启动配置"></a>编辑启动配置</h3><ul>
-<li>打开phpstorm64.exe.vmoptions</li>
-<li>将 -javaagent:{ install folder }\bin\JetbrainsCrack.jar 添加到最后一行</li>
-</ul>
-<h3 id="输入激活码"><a href="#输入激活码" class="headerlink" title="输入激活码"></a>输入激活码</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">ThisCrackLicenseId-&#123; <span class="string">&quot;licenseId&quot;</span>:<span class="string">&quot;ThisCrackLicenseId&quot;</span>, <span class="string">&quot;licenseeName&quot;</span>:<span class="string">&quot;idea&quot;</span>, <span class="string">&quot;assigneeName&quot;</span>:<span class="string">&quot;&quot;</span>, <span class="string">&quot;assigneeEmail&quot;</span>:<span class="string">&quot;idea@163.com&quot;</span>, <span class="string">&quot;licenseRestriction&quot;</span>:<span class="string">&quot;For This Crack, Only Test! Please support genuine!!!&quot;</span>, <span class="string">&quot;checkConcurrentUse&quot;</span>:<span class="literal">false</span>, <span class="string">&quot;products&quot;</span>:[ &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;II&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;DM&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;AC&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;RS0&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;WS&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;DPN&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;RC&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;PS&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;DC&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;RM&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;CL&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;PC&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125; ], <span class="string">&quot;hash&quot;</span>:<span class="string">&quot;2911276/0&quot;</span>, <span class="string">&quot;gracePeriodDays&quot;</span>:<span class="number">7</span>, <span class="string">&quot;autoProlongated&quot;</span>:<span class="literal">false</span>&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="重新启动"><a href="#重新启动" class="headerlink" title="重新启动"></a>重新启动</h2><h2 id="设置备份"><a href="#设置备份" class="headerlink" title="设置备份"></a>设置备份</h2><p><a href="/download/PHPStormSettings.jar">PHPStormSettings.jar</a></p>
-]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>PHPStorm</category>
-      </categories>
-      <tags>
-        <tag>PHP</tag>
-        <tag>PhpStorm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Trick-Rider破解教程</title>
-    <url>/2020/09/29/9.Tools/Rider/20200929_Trick-Rider%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="Rider2020-1"><a href="#Rider2020-1" class="headerlink" title="Rider2020.1"></a>Rider2020.1</h1><p><a href="http://www.xue51.com/soft/38055.html">破解教程</a></p>
-<h2 id="设置备份"><a href="#设置备份" class="headerlink" title="设置备份"></a>设置备份</h2><p><a href="/download/settings.2020.1.zip">setting.zip</a></p>
-]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>Rider</category>
-      </categories>
-      <tags>
-        <tag>Rider</tag>
+        <tag>IDE</tag>
       </tags>
   </entry>
   <entry>
@@ -3829,6 +3816,20 @@
         <category>9.Tools</category>
         <category>Utils</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Trick-Rider破解教程</title>
+    <url>/2020/09/29/9.Tools/Rider/20200929_Trick-Rider%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="Rider2020-1"><a href="#Rider2020-1" class="headerlink" title="Rider2020.1"></a>Rider2020.1</h1><p><a href="http://www.xue51.com/soft/38055.html">破解教程</a></p>
+<h2 id="设置备份"><a href="#设置备份" class="headerlink" title="设置备份"></a>设置备份</h2><p><a href="/download/settings.2020.1.zip">setting.zip</a></p>
+]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>Rider</category>
+      </categories>
+      <tags>
+        <tag>Rider</tag>
+      </tags>
   </entry>
   <entry>
     <title>Trick-BeyondCompare</title>
@@ -3920,8 +3921,8 @@
         <category>VS</category>
       </categories>
       <tags>
-        <tag>VS</tag>
         <tag>Unity</tag>
+        <tag>VS</tag>
       </tags>
   </entry>
   <entry>
@@ -4017,61 +4018,6 @@
       </categories>
       <tags>
         <tag>VS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tips-VSCode主题颜色配置</title>
-    <url>/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="VSCode主题颜色配置"><a href="#VSCode主题颜色配置" class="headerlink" title="VSCode主题颜色配置"></a>VSCode主题颜色配置</h1><h2 id="官方教程"><a href="#官方教程" class="headerlink" title="官方教程"></a>官方教程</h2><p><a href="https://code.visualstudio.com/docs/getstarted/theme-color-reference">链接</a></p>
-]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>VSCode</category>
-      </categories>
-      <tags>
-        <tag>VSCode</tag>
-        <tag>VS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tips-VSCode正则表达式记录</title>
-    <url>/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1 id="VSCode正则表达式记录"><a href="#VSCode正则表达式记录" class="headerlink" title="VSCode正则表达式记录"></a>VSCode正则表达式记录</h1><h2 id="正则表达式学习"><a href="#正则表达式学习" class="headerlink" title="正则表达式学习"></a>正则表达式学习</h2><h2 id="VSCode-正则使用记录"><a href="#VSCode-正则使用记录" class="headerlink" title="VSCode 正则使用记录"></a>VSCode 正则使用记录</h2><ul>
-<li>匹配反编译后的注释</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 第一代</span></span><br><span class="line">//.*</span><br><span class="line"><span class="comment"># 第二代</span></span><br><span class="line">// Token: .*</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>VSCode</category>
-      </categories>
-      <tags>
-        <tag>VSCode</tag>
-        <tag>VS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Trick-VSCode同步设置配置</title>
-    <url>/2020/09/29/9.Tools/VSCode/20200929_Trick-VSCode%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="VSCode同步设置配置"><a href="#VSCode同步设置配置" class="headerlink" title="VSCode同步设置配置"></a>VSCode同步设置配置</h1><h2 id="Token-Gist"><a href="#Token-Gist" class="headerlink" title="Token Gist"></a>Token Gist</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sync</span><br><span class="line">CODE SETTINGS SYNC DOWNLOAD SUMMARY</span><br><span class="line">Version: 3.0.0</span><br><span class="line">--------------------</span><br><span class="line">GitHub Token: 8f3a35013437c34e76c86f5a9765015a3e764666</span><br><span class="line">GitHub Gist: 85b86979f73ec410b16184fdaf91f72b</span><br><span class="line">GitHub Gist Type: Secret</span><br><span class="line"></span><br><span class="line">Restarting Visual Studio Code may be required to apply color and file icon theme.</span><br><span class="line">--------------------</span><br></pre></td></tr></table></figure>
-
-<h2 id="Github-Cloud-Setting"><a href="#Github-Cloud-Setting" class="headerlink" title="Github Cloud Setting"></a>Github Cloud Setting</h2><p><a href="https://gist.github.com/qiaogaojian/85b86979f73ec410b16184fdaf91f72b">地址</a></p>
-<h2 id="Git-Path"><a href="#Git-Path" class="headerlink" title="Git Path"></a>Git Path</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Users\Michael\AppData\Roaming\Code\User</span><br></pre></td></tr></table></figure>
-
-<h2 id="Git-Clone"><a href="#Git-Clone" class="headerlink" title="Git Clone"></a>Git Clone</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">github: git clone https:&#x2F;&#x2F;gist.github.com&#x2F;85b86979f73ec410b16184fdaf91f72b.git</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gitee:  git clone https:&#x2F;&#x2F;gitee.com&#x2F;qiaogaojian&#x2F;vscodesetting.git</span><br></pre></td></tr></table></figure>
-
-<h2 id="Change-Extension-Path"><a href="#Change-Extension-Path" class="headerlink" title="Change Extension Path"></a>Change Extension Path</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Home: &quot;C:\Program Files\Microsoft VS Code\Code.exe&quot; --extensions-dir&#x3D;&quot;C:\Users\Michael\AppData\Roaming\Code\User\extensions&quot;</span><br><span class="line">Company: &quot;C:\Program Files\Microsoft VS Code\Code.exe&quot; --extensions-dir&#x3D;&quot;C:\Users\ETA\AppData\Roaming\Code\User\extensions&quot;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>VSCode</category>
-      </categories>
-      <tags>
-        <tag>VSCode</tag>
-        <tag>VS</tag>
-        <tag>AR</tag>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -4258,32 +4204,58 @@
       </tags>
   </entry>
   <entry>
-    <title>Tips-PowerShellHelloWorld</title>
-    <url>/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/</url>
-    <content><![CDATA[<h1 id="PowerShellHelloWorld"><a href="#PowerShellHelloWorld" class="headerlink" title="PowerShellHelloWorld"></a>PowerShellHelloWorld</h1><h2 id="设置执行权限"><a href="#设置执行权限" class="headerlink" title="设置执行权限"></a>设置执行权限</h2><p>This is normal behavior. In order to prevent malicious scripts from running on your system, PowerShell enforces an execution policy. There are 4 execution policies you can use:</p>
-<ul>
-<li>Restricted – Scripts won’t run. Period. (Default setting)</li>
-<li>RemoteSigned – Locally-created scripts will run. Scripts that were created on another machine will not run unless they are signed by a trusted publisher.</li>
-<li>AllSigned – Scripts will only run if signed by a trusted publisher (including locally-created scripts).</li>
-<li>Unrestricted – All scripts will run regardless of who created them and whether or not they are signed.</li>
-</ul>
-<p>In order to use our newly-created script, we will have to modify our execution policy to allow our script to run. Since we have not digitally signed our new script, our options for setting the execution policy are left to “RemoteSigned” and “Unrestricted.” We are going to change it to RemoteSigned.</p>
-<p>In order to change the execution policy, we will need to reopen PowerShell as an Administrator (the command will fail otherwise) and run the following command:</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> RemoteSigned</span><br></pre></td></tr></table></figure>
-
-<p>The Set-ExecutionPolicy command will ask to verify that you really want to change the execution policy. Go ahead and select Y for yes, then go ahead and close and reopen your Powershell window.</p>
-<h2 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h2><p>After restarting the Powershell window, go ahead and try running that script again</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">&amp; <span class="string">&quot;C:\Scripts\My First Script.ps1&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>It should write back, “Hello, World!” to the window:</p>
+    <title>Tips-VSCode主题颜色配置</title>
+    <url>/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="VSCode主题颜色配置"><a href="#VSCode主题颜色配置" class="headerlink" title="VSCode主题颜色配置"></a>VSCode主题颜色配置</h1><h2 id="官方教程"><a href="#官方教程" class="headerlink" title="官方教程"></a>官方教程</h2><p><a href="https://code.visualstudio.com/docs/getstarted/theme-color-reference">链接</a></p>
 ]]></content>
       <categories>
         <category>9.Tools</category>
-        <category>OS</category>
-        <category>Windows</category>
+        <category>VSCode</category>
       </categories>
       <tags>
-        <tag>Go</tag>
+        <tag>VSCode</tag>
+        <tag>VS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tips-VSCode正则表达式记录</title>
+    <url>/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="VSCode正则表达式记录"><a href="#VSCode正则表达式记录" class="headerlink" title="VSCode正则表达式记录"></a>VSCode正则表达式记录</h1><h2 id="正则表达式学习"><a href="#正则表达式学习" class="headerlink" title="正则表达式学习"></a>正则表达式学习</h2><h2 id="VSCode-正则使用记录"><a href="#VSCode-正则使用记录" class="headerlink" title="VSCode 正则使用记录"></a>VSCode 正则使用记录</h2><ul>
+<li>匹配反编译后的注释</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 第一代</span></span><br><span class="line">//.*</span><br><span class="line"><span class="comment"># 第二代</span></span><br><span class="line">// Token: .*</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>VSCode</category>
+      </categories>
+      <tags>
+        <tag>VSCode</tag>
+        <tag>VS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Trick-VSCode同步设置配置</title>
+    <url>/2020/09/29/9.Tools/VSCode/20200929_Trick-VSCode%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="VSCode同步设置配置"><a href="#VSCode同步设置配置" class="headerlink" title="VSCode同步设置配置"></a>VSCode同步设置配置</h1><h2 id="Token-Gist"><a href="#Token-Gist" class="headerlink" title="Token Gist"></a>Token Gist</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sync</span><br><span class="line">CODE SETTINGS SYNC DOWNLOAD SUMMARY</span><br><span class="line">Version: 3.0.0</span><br><span class="line">--------------------</span><br><span class="line">GitHub Token: 8f3a35013437c34e76c86f5a9765015a3e764666</span><br><span class="line">GitHub Gist: 85b86979f73ec410b16184fdaf91f72b</span><br><span class="line">GitHub Gist Type: Secret</span><br><span class="line"></span><br><span class="line">Restarting Visual Studio Code may be required to apply color and file icon theme.</span><br><span class="line">--------------------</span><br></pre></td></tr></table></figure>
+
+<h2 id="Github-Cloud-Setting"><a href="#Github-Cloud-Setting" class="headerlink" title="Github Cloud Setting"></a>Github Cloud Setting</h2><p><a href="https://gist.github.com/qiaogaojian/85b86979f73ec410b16184fdaf91f72b">地址</a></p>
+<h2 id="Git-Path"><a href="#Git-Path" class="headerlink" title="Git Path"></a>Git Path</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Users\Michael\AppData\Roaming\Code\User</span><br></pre></td></tr></table></figure>
+
+<h2 id="Git-Clone"><a href="#Git-Clone" class="headerlink" title="Git Clone"></a>Git Clone</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">github: git clone https:&#x2F;&#x2F;gist.github.com&#x2F;85b86979f73ec410b16184fdaf91f72b.git</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gitee:  git clone https:&#x2F;&#x2F;gitee.com&#x2F;qiaogaojian&#x2F;vscodesetting.git</span><br></pre></td></tr></table></figure>
+
+<h2 id="Change-Extension-Path"><a href="#Change-Extension-Path" class="headerlink" title="Change Extension Path"></a>Change Extension Path</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Home: &quot;C:\Program Files\Microsoft VS Code\Code.exe&quot; --extensions-dir&#x3D;&quot;C:\Users\Michael\AppData\Roaming\Code\User\extensions&quot;</span><br><span class="line">Company: &quot;C:\Program Files\Microsoft VS Code\Code.exe&quot; --extensions-dir&#x3D;&quot;C:\Users\ETA\AppData\Roaming\Code\User\extensions&quot;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>VSCode</category>
+      </categories>
+      <tags>
+        <tag>VSCode</tag>
+        <tag>VS</tag>
+        <tag>AR</tag>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -4399,8 +4371,37 @@
         <tag>Unity</tag>
         <tag>Web</tag>
         <tag>Windows</tag>
-        <tag>编程</tag>
         <tag>Ubuntu</tag>
+        <tag>编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tips-PowerShellHelloWorld</title>
+    <url>/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/</url>
+    <content><![CDATA[<h1 id="PowerShellHelloWorld"><a href="#PowerShellHelloWorld" class="headerlink" title="PowerShellHelloWorld"></a>PowerShellHelloWorld</h1><h2 id="设置执行权限"><a href="#设置执行权限" class="headerlink" title="设置执行权限"></a>设置执行权限</h2><p>This is normal behavior. In order to prevent malicious scripts from running on your system, PowerShell enforces an execution policy. There are 4 execution policies you can use:</p>
+<ul>
+<li>Restricted – Scripts won’t run. Period. (Default setting)</li>
+<li>RemoteSigned – Locally-created scripts will run. Scripts that were created on another machine will not run unless they are signed by a trusted publisher.</li>
+<li>AllSigned – Scripts will only run if signed by a trusted publisher (including locally-created scripts).</li>
+<li>Unrestricted – All scripts will run regardless of who created them and whether or not they are signed.</li>
+</ul>
+<p>In order to use our newly-created script, we will have to modify our execution policy to allow our script to run. Since we have not digitally signed our new script, our options for setting the execution policy are left to “RemoteSigned” and “Unrestricted.” We are going to change it to RemoteSigned.</p>
+<p>In order to change the execution policy, we will need to reopen PowerShell as an Administrator (the command will fail otherwise) and run the following command:</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> RemoteSigned</span><br></pre></td></tr></table></figure>
+
+<p>The Set-ExecutionPolicy command will ask to verify that you really want to change the execution policy. Go ahead and select Y for yes, then go ahead and close and reopen your Powershell window.</p>
+<h2 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h2><p>After restarting the Powershell window, go ahead and try running that script again</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">&amp; <span class="string">&quot;C:\Scripts\My First Script.ps1&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>It should write back, “Hello, World!” to the window:</p>
+]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>OS</category>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Go</tag>
       </tags>
   </entry>
   <entry>
@@ -4612,9 +4613,9 @@
       </categories>
       <tags>
         <tag>C#</tag>
+        <tag>Unity</tag>
         <tag>VSCode</tag>
         <tag>VS</tag>
-        <tag>Unity</tag>
         <tag>Shader</tag>
         <tag>Android</tag>
         <tag>Web</tag>
@@ -4624,8 +4625,13 @@
         <tag>算法</tag>
         <tag>工具</tag>
         <tag>C++</tag>
-        <tag>重构</tag>
+        <tag>PHP</tag>
+        <tag>ThinkPHP</tag>
         <tag>Java</tag>
+        <tag>Linux</tag>
+        <tag>Python</tag>
+        <tag>MySql</tag>
+        <tag>重构</tag>
         <tag>Android Studio</tag>
         <tag>查找</tag>
         <tag>编程</tag>
@@ -4633,16 +4639,11 @@
         <tag>Html</tag>
         <tag>设计模式</tag>
         <tag>ML</tag>
-        <tag>PHP</tag>
-        <tag>ThinkPHP</tag>
-        <tag>Linux</tag>
-        <tag>Python</tag>
-        <tag>MySql</tag>
-        <tag>线性代数</tag>
         <tag>微积分</tag>
         <tag>汇编</tag>
         <tag>信息安全</tag>
         <tag>操作系统</tag>
+        <tag>线性代数</tag>
         <tag>数学</tag>
         <tag>计算机网络</tag>
         <tag>BlockChain</tag>
@@ -5795,16 +5796,16 @@
         <tag>算法</tag>
         <tag>工具</tag>
         <tag>AR</tag>
-        <tag>Go</tag>
         <tag>Java</tag>
+        <tag>Linux</tag>
+        <tag>AS</tag>
+        <tag>Go</tag>
         <tag>Android Studio</tag>
         <tag>查找</tag>
         <tag>OpenGL</tag>
         <tag>设计模式</tag>
-        <tag>AS</tag>
         <tag>Tools</tag>
         <tag>ML</tag>
-        <tag>Linux</tag>
         <tag>操作系统</tag>
         <tag>排序</tag>
       </tags>
@@ -6227,8 +6228,8 @@
         <tag>数据结构</tag>
         <tag>工具</tag>
         <tag>AR</tag>
-        <tag>Go</tag>
         <tag>Java</tag>
+        <tag>Go</tag>
         <tag>Android Studio</tag>
         <tag>Html</tag>
         <tag>Tools</tag>
@@ -8565,10 +8566,10 @@
       <tags>
         <tag>Android</tag>
         <tag>Web</tag>
-        <tag>Html</tag>
-        <tag>AS</tag>
-        <tag>ML</tag>
         <tag>Python</tag>
+        <tag>AS</tag>
+        <tag>Html</tag>
+        <tag>ML</tag>
       </tags>
   </entry>
   <entry>
@@ -8589,6 +8590,17 @@
       </tags>
   </entry>
   <entry>
+    <title>Tao-Web盈利模式总结</title>
+    <url>/2020/09/28/5.Web/20200928_Tao-Web%E7%9B%88%E5%88%A9%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="Web盈利模式总结"><a href="#Web盈利模式总结" class="headerlink" title="Web盈利模式总结"></a>Web盈利模式总结</h1><h2 id="建一个资源分享网站"><a href="#建一个资源分享网站" class="headerlink" title="建一个资源分享网站"></a>建一个资源分享网站</h2><h3 id="用户点击下载时-弹出下载页的同时弹出一个广告"><a href="#用户点击下载时-弹出下载页的同时弹出一个广告" class="headerlink" title="用户点击下载时,弹出下载页的同时弹出一个广告"></a>用户点击下载时,弹出下载页的同时弹出一个广告</h3><h2 id="资源类App"><a href="#资源类App" class="headerlink" title="资源类App"></a>资源类App</h2><h3 id="限制搜索次数"><a href="#限制搜索次数" class="headerlink" title="限制搜索次数"></a>限制搜索次数</h3><h3 id="应用广告"><a href="#应用广告" class="headerlink" title="应用广告"></a>应用广告</h3><h3 id="1元解锁免费下载权限"><a href="#1元解锁免费下载权限" class="headerlink" title="1元解锁免费下载权限"></a>1元解锁免费下载权限</h3>]]></content>
+      <categories>
+        <category>5.Web</category>
+      </categories>
+      <tags>
+        <tag>Web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tips-PHP与Java的区别</title>
     <url>/2020/09/28/5.Web/20200928_Tips-PHP%E4%B8%8EJava%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<h1 id="PHP与Java的区别"><a href="#PHP与Java的区别" class="headerlink" title="PHP与Java的区别"></a>PHP与Java的区别</h1><ul>
@@ -8606,19 +8618,8 @@
         <category>5.Web</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>PHP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tao-Web盈利模式总结</title>
-    <url>/2020/09/28/5.Web/20200928_Tao-Web%E7%9B%88%E5%88%A9%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="Web盈利模式总结"><a href="#Web盈利模式总结" class="headerlink" title="Web盈利模式总结"></a>Web盈利模式总结</h1><h2 id="建一个资源分享网站"><a href="#建一个资源分享网站" class="headerlink" title="建一个资源分享网站"></a>建一个资源分享网站</h2><h3 id="用户点击下载时-弹出下载页的同时弹出一个广告"><a href="#用户点击下载时-弹出下载页的同时弹出一个广告" class="headerlink" title="用户点击下载时,弹出下载页的同时弹出一个广告"></a>用户点击下载时,弹出下载页的同时弹出一个广告</h3><h2 id="资源类App"><a href="#资源类App" class="headerlink" title="资源类App"></a>资源类App</h2><h3 id="限制搜索次数"><a href="#限制搜索次数" class="headerlink" title="限制搜索次数"></a>限制搜索次数</h3><h3 id="应用广告"><a href="#应用广告" class="headerlink" title="应用广告"></a>应用广告</h3><h3 id="1元解锁免费下载权限"><a href="#1元解锁免费下载权限" class="headerlink" title="1元解锁免费下载权限"></a>1元解锁免费下载权限</h3>]]></content>
-      <categories>
-        <category>5.Web</category>
-      </categories>
-      <tags>
-        <tag>Web</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -8708,9 +8709,35 @@
         <category>5.Web</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>PHP</tag>
         <tag>ThinkPHP</tag>
+        <tag>Ubuntu</tag>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tips-Ubuntu更改Web目录</title>
+    <url>/2020/09/28/5.Web/20200928_Tips-Ubuntu%E6%9B%B4%E6%94%B9Web%E7%9B%AE%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="Ubuntu更改Web目录"><a href="#Ubuntu更改Web目录" class="headerlink" title="Ubuntu更改Web目录"></a>Ubuntu更改Web目录</h1><ul>
+<li>配置文件</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">nano /etc/apache2/sites-enable/000-default</span><br></pre></td></tr></table></figure>
+
+<p>如下所示</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ServerAdmin webmaster@localhost</span><br><span class="line">       DocumentRoot /var/www/html/thinkphp5/public</span><br><span class="line"></span><br><span class="line">       <span class="comment"># Available loglevels: trace8, ..., trace1, debug, info, notice, warn,</span></span><br><span class="line">       <span class="comment"># error, crit, alert, emerg.</span></span><br><span class="line">       <span class="comment"># It is also possible to configure the loglevel for particular</span></span><br><span class="line">       <span class="comment"># modules, e.g.</span></span><br><span class="line">       <span class="comment">#LogLevel info ssl:warn</span></span><br></pre></td></tr></table></figure>
+
+<p>修改 DocumentRoot 后面的目录为自己想要的Web目录</p>
+<h2 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h2><p>Windows环境下配置文件如下</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">..\apache\conf\httpd.conf</span><br></pre></td></tr></table></figure>
+
+<p>还是修改 DocumentRoot 对应的值</p>
+]]></content>
+      <categories>
+        <category>5.Web</category>
+      </categories>
+      <tags>
+        <tag>Web</tag>
+        <tag>Windows</tag>
         <tag>Ubuntu</tag>
       </tags>
   </entry>
@@ -8755,32 +8782,6 @@
       <tags>
         <tag>AR</tag>
         <tag>AS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tips-Ubuntu更改Web目录</title>
-    <url>/2020/09/28/5.Web/20200928_Tips-Ubuntu%E6%9B%B4%E6%94%B9Web%E7%9B%AE%E5%BD%95/</url>
-    <content><![CDATA[<h1 id="Ubuntu更改Web目录"><a href="#Ubuntu更改Web目录" class="headerlink" title="Ubuntu更改Web目录"></a>Ubuntu更改Web目录</h1><ul>
-<li>配置文件</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">nano /etc/apache2/sites-enable/000-default</span><br></pre></td></tr></table></figure>
-
-<p>如下所示</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ServerAdmin webmaster@localhost</span><br><span class="line">       DocumentRoot /var/www/html/thinkphp5/public</span><br><span class="line"></span><br><span class="line">       <span class="comment"># Available loglevels: trace8, ..., trace1, debug, info, notice, warn,</span></span><br><span class="line">       <span class="comment"># error, crit, alert, emerg.</span></span><br><span class="line">       <span class="comment"># It is also possible to configure the loglevel for particular</span></span><br><span class="line">       <span class="comment"># modules, e.g.</span></span><br><span class="line">       <span class="comment">#LogLevel info ssl:warn</span></span><br></pre></td></tr></table></figure>
-
-<p>修改 DocumentRoot 后面的目录为自己想要的Web目录</p>
-<h2 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h2><p>Windows环境下配置文件如下</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">..\apache\conf\httpd.conf</span><br></pre></td></tr></table></figure>
-
-<p>还是修改 DocumentRoot 对应的值</p>
-]]></content>
-      <categories>
-        <category>5.Web</category>
-      </categories>
-      <tags>
-        <tag>Web</tag>
-        <tag>Windows</tag>
-        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -8939,18 +8940,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Roadmap_线性代数知识体系</title>
-    <url>/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/</url>
-    <content><![CDATA[<h1 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h1><h2 id="线性空间"><a href="#线性空间" class="headerlink" title="线性空间"></a>线性空间</h2>]]></content>
-      <categories>
-        <category>0.Math</category>
-        <category>LinearAlgebra</category>
-      </categories>
-      <tags>
-        <tag>线性代数</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Roadmap_微积分知识体系</title>
     <url>/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/</url>
     <content><![CDATA[<h1 id="微积分知识体系"><a href="#微积分知识体系" class="headerlink" title="微积分知识体系"></a>微积分知识体系</h1><h2 id="微积分1"><a href="#微积分1" class="headerlink" title="微积分1"></a>微积分1</h2><h2 id="微积分2"><a href="#微积分2" class="headerlink" title="微积分2"></a>微积分2</h2>]]></content>
@@ -8960,6 +8949,18 @@
       </categories>
       <tags>
         <tag>微积分</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Roadmap_线性代数知识体系</title>
+    <url>/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/</url>
+    <content><![CDATA[<h1 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h1><h2 id="线性空间"><a href="#线性空间" class="headerlink" title="线性空间"></a>线性空间</h2>]]></content>
+      <categories>
+        <category>0.Math</category>
+        <category>LinearAlgebra</category>
+      </categories>
+      <tags>
+        <tag>线性代数</tag>
       </tags>
   </entry>
   <entry>
@@ -9013,16 +9014,33 @@
         <tag>数据结构</tag>
         <tag>算法</tag>
         <tag>C++</tag>
-        <tag>设计模式</tag>
         <tag>PHP</tag>
-        <tag>线性代数</tag>
+        <tag>设计模式</tag>
         <tag>微积分</tag>
         <tag>汇编</tag>
         <tag>操作系统</tag>
+        <tag>线性代数</tag>
         <tag>数学</tag>
         <tag>计算机网络</tag>
         <tag>技能</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Tao-工作准则</title>
+    <url>/2020/09/26/8.Notes/Goals/20200926_Tao-%E5%B7%A5%E4%BD%9C%E5%87%86%E5%88%99/</url>
+    <content><![CDATA[<h1 id="行事准则"><a href="#行事准则" class="headerlink" title="行事准则"></a>行事准则</h1><ul>
+<li><p>不要浪费时间  白天好好工作  完成任务不加班</p>
+</li>
+<li><p>下班补基础  工作熟练之前不瞎搞</p>
+</li>
+<li><p>不要找理由  任何问题都能找到解决方法</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>8.Notes</category>
+        <category>Goals</category>
+      </categories>
   </entry>
   <entry>
     <title>Roadmap-长期目标</title>
@@ -9064,23 +9082,6 @@
 <p>这是我一生要完成的5个目标</p>
 </blockquote>
 <h3 id="Art-板绘游戏原画师"><a href="#Art-板绘游戏原画师" class="headerlink" title="Art (板绘游戏原画师)"></a>Art (板绘游戏原画师)</h3><h3 id="Work-计算机技术专家"><a href="#Work-计算机技术专家" class="headerlink" title="Work (计算机技术专家)"></a>Work (计算机技术专家)</h3><h3 id="Game-开发并发布10款好玩的游戏"><a href="#Game-开发并发布10款好玩的游戏" class="headerlink" title="Game (开发并发布10款好玩的游戏)"></a>Game (开发并发布10款好玩的游戏)</h3><h3 id="Master-东北大学软件工程研究生"><a href="#Master-东北大学软件工程研究生" class="headerlink" title="Master (东北大学软件工程研究生)"></a>Master (东北大学软件工程研究生)</h3><h3 id="Reading-读600百本书并写书评"><a href="#Reading-读600百本书并写书评" class="headerlink" title="Reading (读600百本书并写书评)"></a>Reading (读600百本书并写书评)</h3><h2 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h2><h3 id="Art"><a href="#Art" class="headerlink" title="Art"></a>Art</h3><h3 id="Work"><a href="#Work" class="headerlink" title="Work"></a>Work</h3><h3 id="Game"><a href="#Game" class="headerlink" title="Game"></a>Game</h3><h3 id="Master"><a href="#Master" class="headerlink" title="Master"></a>Master</h3><h3 id="Reading"><a href="#Reading" class="headerlink" title="Reading"></a>Reading</h3><h2 id="已完成"><a href="#已完成" class="headerlink" title="已完成"></a>已完成</h2><h3 id="Art-1"><a href="#Art-1" class="headerlink" title="Art"></a>Art</h3><h3 id="Work-1"><a href="#Work-1" class="headerlink" title="Work"></a>Work</h3><h3 id="Game-1"><a href="#Game-1" class="headerlink" title="Game"></a>Game</h3><h3 id="Master-1"><a href="#Master-1" class="headerlink" title="Master"></a>Master</h3><h3 id="Reading-1"><a href="#Reading-1" class="headerlink" title="Reading"></a>Reading</h3>]]></content>
-      <categories>
-        <category>8.Notes</category>
-        <category>Goals</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Tao-工作准则</title>
-    <url>/2020/09/26/8.Notes/Goals/20200926_Tao-%E5%B7%A5%E4%BD%9C%E5%87%86%E5%88%99/</url>
-    <content><![CDATA[<h1 id="行事准则"><a href="#行事准则" class="headerlink" title="行事准则"></a>行事准则</h1><ul>
-<li><p>不要浪费时间  白天好好工作  完成任务不加班</p>
-</li>
-<li><p>下班补基础  工作熟练之前不瞎搞</p>
-</li>
-<li><p>不要找理由  任何问题都能找到解决方法</p>
-</li>
-</ul>
-]]></content>
       <categories>
         <category>8.Notes</category>
         <category>Goals</category>
