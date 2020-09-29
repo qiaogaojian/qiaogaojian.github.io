@@ -124,6 +124,11 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
@@ -619,6 +624,100 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">Tips-Unity中Awake( )和Start( )的小区别</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Unity中Awake( )和Start( )的小区别" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Unity-中-Awake-和-Start-的小区别"><a href="#Unity-中-Awake-和-Start-的小区别" class="headerlink" title="Unity 中 Awake( )和 Start( )的小区别"></a>Unity 中 Awake( )和 Start( )的小区别</h1><h2 id="Awake"><a href="#Awake" class="headerlink" title="Awake"></a>Awake</h2><h3 id="绑定对象-active"><a href="#绑定对象-active" class="headerlink" title="绑定对象 active"></a>绑定对象 active</h3><h3 id="实例化后不论脚本是否-enable"><a href="#实例化后不论脚本是否-enable" class="headerlink" title="实例化后不论脚本是否 enable"></a>实例化后不论脚本是否 enable</h3><h3 id="只会调用一次"><a href="#只会调用一次" class="headerlink" title="只会调用一次"></a>只会调用一次</h3><h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h2><h3 id="绑定对象active"><a href="#绑定对象active" class="headerlink" title="绑定对象active"></a>绑定对象active</h3><h3 id="脚本-enable"><a href="#脚本-enable" class="headerlink" title="脚本 enable"></a>脚本 enable</h3><h3 id="只会-调用一次"><a href="#只会-调用一次" class="headerlink" title="只会 调用一次"></a>只会 调用一次</h3><h3 id="在第一次-Update-前调用-可能没有想象中的那么快-在这里初始化要想好调用顺序"><a href="#在第一次-Update-前调用-可能没有想象中的那么快-在这里初始化要想好调用顺序" class="headerlink" title="在第一次 Update 前调用,可能没有想象中的那么快,在这里初始化要想好调用顺序"></a>在第一次 Update 前调用,可能没有想象中的那么快,在这里初始化要想好调用顺序</h3>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%ADOnGui%E5%8E%9F%E7%94%9FGUI%E7%94%A8%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -697,100 +796,6 @@
 <h3 id="Rect-x-Rect-y"><a href="#Rect-x-Rect-y" class="headerlink" title="Rect.x Rect.y"></a>Rect.x Rect.y</h3><p>按钮左下角坐标</p>
 <h3 id="Rect-z-Rect-w"><a href="#Rect-z-Rect-w" class="headerlink" title="Rect.z Rect.w"></a>Rect.z Rect.w</h3><p>按钮的宽和高</p>
 <h2 id="OnGUI注意事项"><a href="#OnGUI注意事项" class="headerlink" title="OnGUI注意事项"></a>OnGUI注意事项</h2><h3 id="坐标原点-左上角"><a href="#坐标原点-左上角" class="headerlink" title="坐标原点: 左上角"></a>坐标原点: 左上角</h3>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">Tips-Unity中Awake( )和Start( )的小区别</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Unity中Awake( )和Start( )的小区别" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Unity-中-Awake-和-Start-的小区别"><a href="#Unity-中-Awake-和-Start-的小区别" class="headerlink" title="Unity 中 Awake( )和 Start( )的小区别"></a>Unity 中 Awake( )和 Start( )的小区别</h1><h2 id="Awake"><a href="#Awake" class="headerlink" title="Awake"></a>Awake</h2><h3 id="绑定对象-active"><a href="#绑定对象-active" class="headerlink" title="绑定对象 active"></a>绑定对象 active</h3><h3 id="实例化后不论脚本是否-enable"><a href="#实例化后不论脚本是否-enable" class="headerlink" title="实例化后不论脚本是否 enable"></a>实例化后不论脚本是否 enable</h3><h3 id="只会调用一次"><a href="#只会调用一次" class="headerlink" title="只会调用一次"></a>只会调用一次</h3><h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h2><h3 id="绑定对象active"><a href="#绑定对象active" class="headerlink" title="绑定对象active"></a>绑定对象active</h3><h3 id="脚本-enable"><a href="#脚本-enable" class="headerlink" title="脚本 enable"></a>脚本 enable</h3><h3 id="只会-调用一次"><a href="#只会-调用一次" class="headerlink" title="只会 调用一次"></a>只会 调用一次</h3><h3 id="在第一次-Update-前调用-可能没有想象中的那么快-在这里初始化要想好调用顺序"><a href="#在第一次-Update-前调用-可能没有想象中的那么快-在这里初始化要想好调用顺序" class="headerlink" title="在第一次 Update 前调用,可能没有想象中的那么快,在这里初始化要想好调用顺序"></a>在第一次 Update 前调用,可能没有想象中的那么快,在这里初始化要想好调用顺序</h3>
       
     </div>
 
@@ -910,6 +915,102 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/" class="post-title-link" itemprop="url">Tips-Unity中停止协程StopCoroutine</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Unity中停止协程StopCoroutine" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Unity中停止协程StopCoroutine"><a href="#Unity中停止协程StopCoroutine" class="headerlink" title="Unity中停止协程StopCoroutine"></a>Unity中停止协程StopCoroutine</h1><h2 id="必须用字符串启动协程才能停止协程"><a href="#必须用字符串启动协程才能停止协程" class="headerlink" title="必须用字符串启动协程才能停止协程"></a>必须用字符串启动协程才能停止协程</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//要想停止协程,必须用字符启动协程</span></span><br><span class="line">StartCoroutine(<span class="string">&quot;FunctionName&quot;</span>);</span><br><span class="line"><span class="comment">//如果要传参</span></span><br><span class="line">StarCoroutine(<span class="string">&quot;FunctionName&quot;</span>,<span class="keyword">object</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="停止协程"><a href="#停止协程" class="headerlink" title="停止协程"></a>停止协程</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//停止协程</span></span><br><span class="line">StopCoroutine(<span class="string">&quot;FunctionName&quot;</span>);</span><br><span class="line"><span class="comment">//停止所有协程(慎用)</span></span><br><span class="line">StopAllCoroutine();</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E5%9D%90%E6%A0%87%E7%B3%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1003,102 +1104,6 @@
 
 <h3 id="类似屏幕解锁功能的实现（屏幕坐标转换为世界坐标）"><a href="#类似屏幕解锁功能的实现（屏幕坐标转换为世界坐标）" class="headerlink" title="类似屏幕解锁功能的实现（屏幕坐标转换为世界坐标）"></a>类似屏幕解锁功能的实现（屏幕坐标转换为世界坐标）</h3><pre><code>    首先是创建LineRenderer。GameObject -&gt; Create Empty -&gt;更名为“LineRendererObj”，给LineRendererObj添加“Line Renderer”组件，Component -&gt;Effects -&gt;Line Renderer;将它的Positions 的size 设置为0</code></pre>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">touch</span> : <span class="title">MonoBehaviour</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Event e;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Texture2D Point;</span><br><span class="line">    <span class="keyword">public</span> Color c1 = Color.yellow;</span><br><span class="line">    <span class="keyword">public</span> Color c2 = Color.red;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> lengthOfLineRenderer;</span><br><span class="line">    <span class="keyword">public</span> GameObject LineRendererPrefab;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> LineRenderer lineRenderer;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 保存创建的Line Renderer</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">List</span>&lt;<span class="title">LineRenderer</span>&gt; lineRendArray</span> =<span class="keyword">new</span> List&lt;LineRenderer&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Vector3 screenPoint;</span><br><span class="line">    <span class="keyword">private</span> Vector3 scanPos;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Color[] color;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 记录宫格所在GUI位置</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">List</span>&lt;<span class="title">Rect</span>&gt; AreaRect</span> = <span class="keyword">new</span> List&lt;Rect&gt;();</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 记录宫格中心点</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">List</span>&lt;<span class="title">Vector2</span>&gt; CenterPointList</span> = <span class="keyword">new</span> List&lt;Vector2&gt;();</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 宫格标签</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> RectFlag;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 记录正确的滑动顺序</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">List</span>&lt;<span class="title">int</span>&gt; KeyOrder</span> = <span class="keyword">new</span> List&lt;<span class="keyword">int</span>&gt;();</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 记录玩家滑动顺序</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">List</span>&lt;<span class="title">int</span>&gt; PlayerKeyOrder</span> = <span class="keyword">new</span> List&lt;<span class="keyword">int</span>&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 判断开始鼠标位置是否可画</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">bool</span> CheckStartRect=<span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 判断结束鼠标位置是否可画</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">bool</span> CheckEndRect = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 行数</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Row = <span class="number">4</span>;</span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 列数</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Column = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        e = Event.current;</span><br><span class="line"></span><br><span class="line">        scanPos = LineRendererPrefab.transform.position;</span><br><span class="line">        lineRenderer = (LineRenderer)LineRendererPrefab.GetComponent(<span class="string">&quot;LineRenderer&quot;</span>);</span><br><span class="line">        lineRenderer.material = <span class="keyword">new</span> Material(Shader.Find(<span class="string">&quot;Particles/Additive&quot;</span>));</span><br><span class="line">        lengthOfLineRenderer = <span class="number">0</span>;</span><br><span class="line">        lineRenderer.SetColors(c1, c2);</span><br><span class="line">        lineRenderer.SetWidth(<span class="number">0.7F</span>, <span class="number">0.7F</span>);</span><br><span class="line">        lineRenderer.SetVertexCount(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        color = <span class="keyword">new</span> Color[<span class="number">8</span>];</span><br><span class="line">        color[<span class="number">0</span>] = Color.yellow;</span><br><span class="line">        color[<span class="number">1</span>] = Color.blue;</span><br><span class="line">        color[<span class="number">2</span>] = Color.cyan;</span><br><span class="line">        color[<span class="number">3</span>] = Color.gray;</span><br><span class="line">        color[<span class="number">4</span>] = Color.green;</span><br><span class="line">        color[<span class="number">5</span>] = Color.grey;</span><br><span class="line">        color[<span class="number">6</span>] = Color.magenta;</span><br><span class="line">        color[<span class="number">7</span>] = Color.red;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> RowCount = <span class="number">0</span>; RowCount &lt; Row; RowCount++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> columnCount = <span class="number">0</span>; columnCount &lt; Column; columnCount++)</span><br><span class="line">            &#123;</span><br><span class="line">                Rect IconRect = <span class="keyword">new</span> Rect(columnCount * Screen.width / Column + Screen.width / Column / <span class="number">2</span> - Point.width / <span class="number">2</span>, RowCount * Screen.height / Row + Screen.height / Row / <span class="number">2</span> - Point.height / <span class="number">2</span>, Point.width, Point.height);</span><br><span class="line">                AreaRect.Add(IconRect);</span><br><span class="line"></span><br><span class="line">                Vector2 CenterP = IconRect.center;<span class="comment">//得到每个的中心点</span></span><br><span class="line">                CenterPointList.Add(CenterP);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        e = Event.current;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> RowCount = <span class="number">0</span>; RowCount &lt; Row; RowCount++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> columnCount = <span class="number">0</span>; columnCount &lt; Column; columnCount++)</span><br><span class="line">            &#123;</span><br><span class="line">                Rect IconRect = <span class="keyword">new</span> Rect(columnCount * Screen.width / Column + Screen.width / Column / <span class="number">2</span> - Point.width / <span class="number">2</span>, RowCount * Screen.height / Row + Screen.height / Row / <span class="number">2</span> - Point.height / <span class="number">2</span>, Point.width, Point.height);</span><br><span class="line">                GUI.Label(IconRect, Point);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (e != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (e.type == EventType.MouseDown)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; AreaRect.Count; i++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (AreaRect[i].Contains(<span class="keyword">new</span> Vector3(Input.mousePosition.x, Screen.height - Input.mousePosition.y, Input.mousePosition.z)))</span><br><span class="line">                    &#123;</span><br><span class="line">                        CheckStartRect = <span class="literal">true</span>;</span><br><span class="line">                        print(<span class="string">&quot;Contains&quot;</span>);</span><br><span class="line">                        PlayerKeyOrder.Add(i);</span><br><span class="line">                        RectFlag = i;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        CheckStartRect = <span class="literal">false</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (CheckStartRect)</span><br><span class="line">                &#123;</span><br><span class="line">                    print(<span class="string">&quot;MouseDown_____&quot;</span>);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">//Vector3 curPosition = mousePToLineRendererP();</span></span><br><span class="line">                    Vector3 curPosition = centerPToLineRendererP(RectFlag);</span><br><span class="line">                    GameObject newObj;</span><br><span class="line">                    newObj = (GameObject)Instantiate(LineRendererPrefab, LineRendererPrefab.transform.position, LineRendererPrefab.transform.rotation);</span><br><span class="line">                    lineRenderer = (LineRenderer)newObj.GetComponent(<span class="string">&quot;LineRenderer&quot;</span>);</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">int</span> n = Random.Range(<span class="number">1</span>, <span class="number">8</span>);</span><br><span class="line">                    c1 = color[n - <span class="number">1</span>];</span><br><span class="line">                    n = Random.Range(<span class="number">1</span>, <span class="number">8</span>);</span><br><span class="line">                    c2 = color[n - <span class="number">1</span>];</span><br><span class="line">                    lineRenderer.SetColors(c1, c2);</span><br><span class="line"></span><br><span class="line">                    lineRenderer.SetVertexCount(<span class="number">1</span>);</span><br><span class="line">                    lineRenderer.SetWidth(<span class="number">0.7F</span>, <span class="number">0.7F</span>);</span><br><span class="line">                    lineRenderer.SetPosition(<span class="number">0</span>, curPosition);</span><br><span class="line">                    lineRendArray.Add(lineRenderer);</span><br><span class="line">                    lengthOfLineRenderer++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (e.type == EventType.MouseDrag&amp;&amp;CheckStartRect)</span><br><span class="line">            &#123;</span><br><span class="line">                print(<span class="string">&quot;MouseDrag_____&quot;</span>);</span><br><span class="line">                Vector3 curPosition = mousePToLineRendererP();</span><br><span class="line">                DrawRenderLine(lineRendArray[lengthOfLineRenderer - <span class="number">1</span>], curPosition);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (e.type == EventType.MouseUp &amp;&amp; CheckStartRect)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; AreaRect.Count; i++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (AreaRect[i].Contains(<span class="keyword">new</span> Vector3(Input.mousePosition.x, Screen.height - Input.mousePosition.y, Input.mousePosition.z)))</span><br><span class="line">                    &#123;</span><br><span class="line">                        CheckEndRect = <span class="literal">true</span>;</span><br><span class="line">                        PlayerKeyOrder.Add(i);</span><br><span class="line">                        RectFlag = i;</span><br><span class="line">                        print(<span class="string">&quot;EndContains&quot;</span>);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        CheckEndRect = <span class="literal">false</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (CheckEndRect)</span><br><span class="line">                &#123;</span><br><span class="line">                    Vector3 curPosition = centerPToLineRendererP(RectFlag);</span><br><span class="line">                    DrawRenderLine(lineRendArray[lengthOfLineRenderer - <span class="number">1</span>], curPosition);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    PlayerKeyOrder.RemoveAt(PlayerKeyOrder.Count - <span class="number">1</span>);</span><br><span class="line">                    Destroy(lineRendArray[lengthOfLineRenderer - <span class="number">1</span>].gameObject);</span><br><span class="line">                    <span class="comment">//lengthOfLineRenderer--;</span></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">DrawRenderLine</span>(<span class="params">LineRenderer line, Vector3 vect3</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Vector3 newPos = vect3;</span><br><span class="line">        line.SetVertexCount(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        line.SetPosition(<span class="number">1</span>, newPos);</span><br><span class="line">        print(<span class="string">&quot;new point: &quot;</span> + newPos);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//public Vector2 RectCenterPoint(Rect AreaRect)       //计算一个Rect的中心点</span></span><br><span class="line">    <span class="comment">//&#123;</span></span><br><span class="line">    <span class="comment">//    Vector2 CenterPoint=Vector2.zero;</span></span><br><span class="line">    <span class="comment">//    print(&quot;Rect:&quot;+AreaRect);</span></span><br><span class="line">    <span class="comment">//    CenterPoint.x=AreaRect.xMin+AreaRect.width/2;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//    CenterPoint.y=AreaRect.yMin+AreaRect.height/2;</span></span><br><span class="line">    <span class="comment">//    print(&quot;CenterPoint:&quot;+CenterPoint);</span></span><br><span class="line">    <span class="comment">//    return CenterPoint;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 鼠标所在位置转换为LineRenderer的位置</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Vector3 <span class="title">mousePToLineRendererP</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        screenPoint = Camera.main.WorldToScreenPoint(scanPos);</span><br><span class="line">        Vector3 curScreenPoint = <span class="keyword">new</span> Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);</span><br><span class="line">        Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);</span><br><span class="line">        print(<span class="string">&quot;curScreenPoint: &quot;</span> + curScreenPoint);</span><br><span class="line">        print(<span class="string">&quot;curPosition: &quot;</span> + curPosition);</span><br><span class="line">        <span class="keyword">return</span> curPosition;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> 鼠标所在区域的中心点转换为LineRenderer的位置</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;returns&gt;</span><span class="doctag">&lt;/returns&gt;</span></span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Vector3 <span class="title">centerPToLineRendererP</span>(<span class="params"><span class="keyword">int</span> Flag</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        screenPoint = Camera.main.WorldToScreenPoint(scanPos);</span><br><span class="line">        Vector3 curScreenPoint = <span class="keyword">new</span> Vector3(CenterPointList[Flag].x,Screen.height-CenterPointList[Flag].y,screenPoint.z);</span><br><span class="line">        Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);</span><br><span class="line">        print(<span class="string">&quot;curScreenPoint: &quot;</span> + curScreenPoint);</span><br><span class="line">        print(<span class="string">&quot;curPosition: &quot;</span> + curPosition);</span><br><span class="line">        <span class="keyword">return</span> curPosition;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/" class="post-title-link" itemprop="url">Tips-Unity中停止协程StopCoroutine</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Unity中停止协程StopCoroutine" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Unity中停止协程StopCoroutine"><a href="#Unity中停止协程StopCoroutine" class="headerlink" title="Unity中停止协程StopCoroutine"></a>Unity中停止协程StopCoroutine</h1><h2 id="必须用字符串启动协程才能停止协程"><a href="#必须用字符串启动协程才能停止协程" class="headerlink" title="必须用字符串启动协程才能停止协程"></a>必须用字符串启动协程才能停止协程</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//要想停止协程,必须用字符启动协程</span></span><br><span class="line">StartCoroutine(<span class="string">&quot;FunctionName&quot;</span>);</span><br><span class="line"><span class="comment">//如果要传参</span></span><br><span class="line">StarCoroutine(<span class="string">&quot;FunctionName&quot;</span>,<span class="keyword">object</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="停止协程"><a href="#停止协程" class="headerlink" title="停止协程"></a>停止协程</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//停止协程</span></span><br><span class="line">StopCoroutine(<span class="string">&quot;FunctionName&quot;</span>);</span><br><span class="line"><span class="comment">//停止所有协程(慎用)</span></span><br><span class="line">StopAllCoroutine();</span><br></pre></td></tr></table></figure>
       
     </div>
 
