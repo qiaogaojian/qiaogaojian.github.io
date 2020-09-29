@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="Ubuntu安装LAMP环境更新1sudo apt-get update  安装git1sudo apt-get install git  安装Apache1sudo apt-get install apache2  添加阿里云安全组外网80端口访问 测试浏览器输入IP,如果出现It works代表安装成功 查看状态12345678&#x2F;&#x2F; 服务状态service apache2 status&#x2F;&#x2F; 启">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tutorail-Ubuntu安装LAMP环境">
+<meta property="og:url" content="http://example.com/2020/09/28/Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/index.html">
+<meta property="og:site_name" content="行则将至">
+<meta property="og:description" content="Ubuntu安装LAMP环境更新1sudo apt-get update  安装git1sudo apt-get install git  安装Apache1sudo apt-get install apache2  添加阿里云安全组外网80端口访问 测试浏览器输入IP,如果出现It works代表安装成功 查看状态12345678&#x2F;&#x2F; 服务状态service apache2 status&#x2F;&#x2F; 启">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3947109-fc72e93e1a263173.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="article:published_time" content="2020-09-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-29T01:11:46.134Z">
+<meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="MySql">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/3947109-fc72e93e1a263173.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+<link rel="canonical" href="http://example.com/2020/09/28/Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Tutorail-Ubuntu安装LAMP环境 | 行则将至</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">行则将至</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Keep going and you can go anywhere</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu安装LAMP环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0"><span class="nav-number">1.1.</span> <span class="nav-text">更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85git"><span class="nav-number">1.2.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Apache"><span class="nav-number">1.3.</span> <span class="nav-text">安装Apache</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%89%E5%85%A8%E7%BB%84%E5%A4%96%E7%BD%9180%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE"><span class="nav-number">1.3.1.</span> <span class="nav-text">添加阿里云安全组外网80端口访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">1.3.2.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%81"><span class="nav-number">1.3.3.</span> <span class="nav-text">查看状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web%E7%9B%AE%E5%BD%95"><span class="nav-number">1.3.4.</span> <span class="nav-text">Web目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%9B%AE%E5%BD%95"><span class="nav-number">1.3.5.</span> <span class="nav-text">安装目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.6.</span> <span class="nav-text">全局配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%91%E5%90%AC%E7%AB%AF%E5%8F%A3"><span class="nav-number">1.3.7.</span> <span class="nav-text">监听端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA"><span class="nav-number">1.3.8.</span> <span class="nav-text">虚拟主机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85MySql"><span class="nav-number">1.4.</span> <span class="nav-text">安装MySql</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%81-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">查看状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%9B%91%E5%90%AC%E7%AB%AF%E5%8F%A3%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-number">1.4.3.</span> <span class="nav-text">查看监听端口的情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85PHP"><span class="nav-number">1.5.</span> <span class="nav-text">安装PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%85%B6%E4%BB%96%E6%A8%A1%E5%9D%97"><span class="nav-number">1.6.</span> <span class="nav-text">安装其他模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.6.1.</span> <span class="nav-text">重启服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90"><span class="nav-number">1.7.</span> <span class="nav-text">修改权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85phpMyAdmin"><span class="nav-number">1.8.</span> <span class="nav-text">安装phpMyAdmin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-Apache-rewrite%E6%A8%A1%E5%9D%97"><span class="nav-number">1.9.</span> <span class="nav-text">启动 Apache rewrite模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1-1"><span class="nav-number">1.9.1.</span> <span class="nav-text">重启服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95-2"><span class="nav-number">1.9.2.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEApache"><span class="nav-number">1.10.</span> <span class="nav-text">配置Apache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">1.11.</span> <span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qiaogaojian"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">qiaogaojian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">147</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qiaogaojian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/qiaogaojian" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-git-alt fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qiaogaojian@gmail.com" title="E-Mail → mailto:qiaogaojian@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/28/Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Tutorail-Ubuntu安装LAMP环境
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-28T00:00:00+08:00">2020-09-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-29 09:11:46" itemprop="dateModified" datetime="2020-09-29T09:11:46+08:00">2020-09-29</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Web/" itemprop="url" rel="index"><span itemprop="name">Web</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/28/Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorail-Ubuntu安装LAMP环境" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/28/Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/28/Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Ubuntu安装LAMP环境"><a href="#Ubuntu安装LAMP环境" class="headerlink" title="Ubuntu安装LAMP环境"></a>Ubuntu安装LAMP环境</h1><h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装Apache"><a href="#安装Apache" class="headerlink" title="安装Apache"></a>安装Apache</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install apache2</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加阿里云安全组外网80端口访问"><a href="#添加阿里云安全组外网80端口访问" class="headerlink" title="添加阿里云安全组外网80端口访问"></a>添加阿里云安全组外网80端口访问</h3><p><img src="https://upload-images.jianshu.io/upload_images/3947109-fc72e93e1a263173.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>浏览器输入IP,如果出现It works代表安装成功</p>
+<h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 服务状态</span><br><span class="line">service apache2 status</span><br><span class="line">// 启动服务</span><br><span class="line">service apache2 start</span><br><span class="line">// 停止服务</span><br><span class="line">service apache2 stop</span><br><span class="line">// 重启服务</span><br><span class="line">service apache2 restart</span><br></pre></td></tr></table></figure>
+
+<h3 id="Web目录"><a href="#Web目录" class="headerlink" title="Web目录"></a>Web目录</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/var/www</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装目录"><a href="#安装目录" class="headerlink" title="安装目录"></a>安装目录</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/apache2</span><br></pre></td></tr></table></figure>
+
+<h3 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/apache2/apache2.conf</span><br></pre></td></tr></table></figure>
+
+<h3 id="监听端口"><a href="#监听端口" class="headerlink" title="监听端口"></a>监听端口</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">etc/apache2/ports.conf</span><br></pre></td></tr></table></figure>
+
+<h3 id="虚拟主机"><a href="#虚拟主机" class="headerlink" title="虚拟主机"></a>虚拟主机</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/apache2/sites-enabled/000-default.conf</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装MySql"><a href="#安装MySql" class="headerlink" title="安装MySql"></a>安装MySql</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server mysql-client</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line">showdatabases;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看状态-1"><a href="#查看状态-1" class="headerlink" title="查看状态"></a>查看状态</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysql status/start/stop/restart</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看监听端口的情况"><a href="#查看监听端口的情况" class="headerlink" title="查看监听端口的情况"></a>查看监听端口的情况</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tunpl 或 netstat -tap</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装PHP"><a href="#安装PHP" class="headerlink" title="安装PHP"></a>安装PHP</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php</span><br></pre></td></tr></table></figure>
+
+<p>测试</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装其他模块"><a href="#安装其他模块" class="headerlink" title="安装其他模块"></a>安装其他模块</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libapache2-mod-php7.0</span><br><span class="line">sudo apt-get install php7.0-mysql</span><br></pre></td></tr></table></figure>
+
+<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service apache2 restart</span><br><span class="line">service mysql restart</span><br></pre></td></tr></table></figure>
+
+<p>测试Apache能否解析PHP</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nano /var/www/html/phpinfo.php</span><br><span class="line">文件中写：&lt;?php <span class="built_in">echo</span> phpinfo();?&gt;</span><br><span class="line">浏览器访问：http://ubuntu地址/phpinfo.php，出现PHP Version网页</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 /var/www</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装phpMyAdmin"><a href="#安装phpMyAdmin" class="headerlink" title="安装phpMyAdmin"></a>安装phpMyAdmin</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install phpmyadmin</span><br></pre></td></tr></table></figure>
+
+<p>服务器选择apache2</p>
+<p>配置数据库密码</p>
+<p>创建phpMyAdmin快捷方式</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /usr/share/phpmyadmin /var/www/html</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动-Apache-rewrite模块"><a href="#启动-Apache-rewrite模块" class="headerlink" title="启动 Apache rewrite模块"></a>启动 Apache rewrite模块</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod rewrite</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>开启rewrite模块后还要进入 etc/apache2/ 目录 打开 apache2.conf 文件</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory /var/www/&gt;</span><br><span class="line">        Options Indexes FollowSymLinks</span><br><span class="line">        AllowOverride All</span><br><span class="line">        Require all granted</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>把 AllowOverride 选项改为 All</p>
+</li>
+<li><p>把下面的内容保存为.htaccess文件放到应用入口文件的同级目录下</p>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule mod_rewrite.c&gt;</span><br><span class="line">RewriteEngine on</span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</span><br><span class="line">RewriteRule ^(.*)$ index.php/<span class="variable">$1</span> [QSA,PT,L]</span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="重启服务-1"><a href="#重启服务-1" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service php7.0-fpm restart</span><br><span class="line">service apache2 restart</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试-2"><a href="#测试-2" class="headerlink" title="测试"></a>测试</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 访问</span><br><span class="line">http://serverurl/phpmyadmin</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置Apache"><a href="#配置Apache" class="headerlink" title="配置Apache"></a>配置Apache</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/apache2/apache2.conf</span><br></pre></td></tr></table></figure>
+
+<p>添加配置</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AddType application/x-httpd-php .php .htm .html</span><br><span class="line">AddDefaultCharset UTF-8</span><br></pre></td></tr></table></figure>
+
+<p>重启Apache服务</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service apache2 restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.linuxidc.com/Linux/2016-10/136327.htm">Ubuntu 16.04搭建LAMP开发环境</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.mamicode.com/info-detail-2073578.html">阿里云 Ubuntu 16.04 搭建LAMP环境</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.edbiji.com/doccenter/showdoc/26/nav/1281.html">Thinkphp隐藏index.php入口文件</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="qiaogaojian 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="qiaogaojian 支付宝">
+        <span>支付宝</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.png" alt="qiaogaojian 比特币">
+        <span>比特币</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>qiaogaojian
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2020/09/28/Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/" title="Tutorail-Ubuntu安装LAMP环境">http://example.com/2020/09/28/Web/20200928_Tutorail-Ubuntu安装LAMP环境/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
+              <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
+              <a href="/tags/Ubuntu/" rel="tag"><i class="fa fa-tag"></i> Ubuntu</a>
+              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+              <a href="/tags/MySql/" rel="tag"><i class="fa fa-tag"></i> MySql</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/09/28/Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="Tutorial-ThinkPHP的使用">
+                  <i class="fa fa-chevron-left"></i> Tutorial-ThinkPHP的使用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/09/28/Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/" rel="next" title="Tips-mysql_设置字符集">
+                  Tips-mysql_设置字符集 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiaogaojian</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/2020/09/28/Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/",
+    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":210,"height":360},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
