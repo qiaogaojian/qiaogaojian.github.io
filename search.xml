@@ -113,22 +113,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Tips-Unity中OnGui原生GUI用法</title>
-    <url>/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADOnGui%E5%8E%9F%E7%94%9FGUI%E7%94%A8%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="Unity中OnGui原生GUI用法"><a href="#Unity中OnGui原生GUI用法" class="headerlink" title="Unity中OnGui原生GUI用法"></a>Unity中OnGui原生GUI用法</h1><h2 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (GUI.Button(<span class="keyword">new</span> Rect(<span class="number">10</span>, <span class="number">360</span>, <span class="number">200</span>, <span class="number">50</span>), <span class="string">&quot;开始新手引导&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        GuideManager.Instance.InitGuide();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Rect-x-Rect-y"><a href="#Rect-x-Rect-y" class="headerlink" title="Rect.x Rect.y"></a>Rect.x Rect.y</h3><p>按钮左下角坐标</p>
-<h3 id="Rect-z-Rect-w"><a href="#Rect-z-Rect-w" class="headerlink" title="Rect.z Rect.w"></a>Rect.z Rect.w</h3><p>按钮的宽和高</p>
-<h2 id="OnGUI注意事项"><a href="#OnGUI注意事项" class="headerlink" title="OnGUI注意事项"></a>OnGUI注意事项</h2><h3 id="坐标原点-左上角"><a href="#坐标原点-左上角" class="headerlink" title="坐标原点: 左上角"></a>坐标原点: 左上角</h3>]]></content>
-      <categories>
-        <category>3.Unity</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-        <tag>Unity</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tips-Unity中Sprite和UI Image的区别</title>
     <url>/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADSprite%E5%92%8CUI%20Image%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<h1 id="Unity中Sprite和UI-Image的区别"><a href="#Unity中Sprite和UI-Image的区别" class="headerlink" title="Unity中Sprite和UI Image的区别"></a>Unity中Sprite和UI Image的区别</h1><h2 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h2><p>Image 通过UGUI的Image和CanvasRenderer组件组件来渲染<br>Sprite 通过SpriteRenderer组件来渲染<br>两者在视觉上没有任何区别（都使用默认材质时）。它们默认的渲染也都是在Transparent Geometry队列中。</p>
@@ -161,13 +145,18 @@
       </tags>
   </entry>
   <entry>
-    <title>Tips-Unity中的碰撞</title>
-    <url>/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/</url>
-    <content><![CDATA[<h1 id="Unity-中的碰撞"><a href="#Unity-中的碰撞" class="headerlink" title="Unity 中的碰撞"></a>Unity 中的碰撞</h1><h2 id="碰撞的两种形式"><a href="#碰撞的两种形式" class="headerlink" title="碰撞的两种形式"></a>碰撞的两种形式</h2><h3 id="Collision-造成物理碰撞-触发-OnCollision-事件"><a href="#Collision-造成物理碰撞-触发-OnCollision-事件" class="headerlink" title="Collision:造成物理碰撞,触发 OnCollision 事件."></a>Collision:造成物理碰撞,触发 OnCollision 事件.</h3><h3 id="Trigger-没有物理碰撞效果-触发-OnTrigger-事件"><a href="#Trigger-没有物理碰撞效果-触发-OnTrigger-事件" class="headerlink" title="Trigger:没有物理碰撞效果,触发 OnTrigger 事件."></a>Trigger:没有物理碰撞效果,触发 OnTrigger 事件.</h3><h2 id="碰撞的条件"><a href="#碰撞的条件" class="headerlink" title="碰撞的条件"></a>碰撞的条件</h2><h3 id="Collision-碰撞"><a href="#Collision-碰撞" class="headerlink" title="Collision 碰撞"></a>Collision 碰撞</h3><h4 id="1-双方都有碰撞体"><a href="#1-双方都有碰撞体" class="headerlink" title="1. 双方都有碰撞体"></a>1. 双方都有碰撞体</h4><h4 id="2-撞的一方必须有刚体"><a href="#2-撞的一方必须有刚体" class="headerlink" title="2. 撞的一方必须有刚体"></a>2. 撞的一方必须有刚体</h4><h4 id="3-双方不可同时勾选-Kinematic-选项"><a href="#3-双方不可同时勾选-Kinematic-选项" class="headerlink" title="3. 双方不可同时勾选 Kinematic 选项"></a>3. 双方不可同时勾选 Kinematic 选项</h4><h4 id="4-双方都不可勾选-Trigger-触发器"><a href="#4-双方都不可勾选-Trigger-触发器" class="headerlink" title="4. 双方都不可勾选 Trigger 触发器"></a>4. 双方都不可勾选 Trigger 触发器</h4><h3 id="Trigger-触发器"><a href="#Trigger-触发器" class="headerlink" title="Trigger 触发器"></a>Trigger 触发器</h3><h4 id="1-双发都有碰撞体"><a href="#1-双发都有碰撞体" class="headerlink" title="1. 双发都有碰撞体"></a>1. 双发都有碰撞体</h4><h4 id="2-撞的一方必要有刚体"><a href="#2-撞的一方必要有刚体" class="headerlink" title="2. 撞的一方必要有刚体"></a>2. 撞的一方必要有刚体</h4><h4 id="3-至少有一方勾选-Trigger-触发器"><a href="#3-至少有一方勾选-Trigger-触发器" class="headerlink" title="3. 至少有一方勾选 Trigger 触发器"></a>3. 至少有一方勾选 Trigger 触发器</h4><h2 id="碰撞的事件"><a href="#碰撞的事件" class="headerlink" title="碰撞的事件"></a>碰撞的事件</h2><h3 id="OnTriggerEnter-OnTriggerStay-OnTriggerExit"><a href="#OnTriggerEnter-OnTriggerStay-OnTriggerExit" class="headerlink" title="OnTriggerEnter() OnTriggerStay() OnTriggerExit()"></a>OnTriggerEnter() OnTriggerStay() OnTriggerExit()</h3><h3 id="OnCollisionEnter-OnCollisionStay-OnCollisionExit"><a href="#OnCollisionEnter-OnCollisionStay-OnCollisionExit" class="headerlink" title="OnCollisionEnter() OnCollisionStay() OnCollisionExit()"></a>OnCollisionEnter() OnCollisionStay() OnCollisionExit()</h3><h3 id="1-Enter-事件表示两物体接触的瞬间-会执行一次"><a href="#1-Enter-事件表示两物体接触的瞬间-会执行一次" class="headerlink" title="1. Enter 事件表示两物体接触的瞬间,会执行一次"></a>1. Enter 事件表示两物体接触的瞬间,会执行一次</h3><h3 id="2-Stay-事件表示两物体持续接触-会不断执行"><a href="#2-Stay-事件表示两物体持续接触-会不断执行" class="headerlink" title="2. Stay 事件表示两物体持续接触,会不断执行"></a>2. Stay 事件表示两物体持续接触,会不断执行</h3><h3 id="3-Exit-事件表示当两物体分开瞬间-会执行一次"><a href="#3-Exit-事件表示当两物体分开瞬间-会执行一次" class="headerlink" title="3. Exit 事件表示当两物体分开瞬间,会执行一次"></a>3. Exit 事件表示当两物体分开瞬间,会执行一次</h3>]]></content>
+    <title>Tips-Unity中OnGui原生GUI用法</title>
+    <url>/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADOnGui%E5%8E%9F%E7%94%9FGUI%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="Unity中OnGui原生GUI用法"><a href="#Unity中OnGui原生GUI用法" class="headerlink" title="Unity中OnGui原生GUI用法"></a>Unity中OnGui原生GUI用法</h1><h2 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (GUI.Button(<span class="keyword">new</span> Rect(<span class="number">10</span>, <span class="number">360</span>, <span class="number">200</span>, <span class="number">50</span>), <span class="string">&quot;开始新手引导&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        GuideManager.Instance.InitGuide();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Rect-x-Rect-y"><a href="#Rect-x-Rect-y" class="headerlink" title="Rect.x Rect.y"></a>Rect.x Rect.y</h3><p>按钮左下角坐标</p>
+<h3 id="Rect-z-Rect-w"><a href="#Rect-z-Rect-w" class="headerlink" title="Rect.z Rect.w"></a>Rect.z Rect.w</h3><p>按钮的宽和高</p>
+<h2 id="OnGUI注意事项"><a href="#OnGUI注意事项" class="headerlink" title="OnGUI注意事项"></a>OnGUI注意事项</h2><h3 id="坐标原点-左上角"><a href="#坐标原点-左上角" class="headerlink" title="坐标原点: 左上角"></a>坐标原点: 左上角</h3>]]></content>
       <categories>
         <category>3.Unity</category>
       </categories>
       <tags>
+        <tag>C#</tag>
         <tag>Unity</tag>
       </tags>
   </entry>
@@ -201,6 +190,17 @@
         <tag>C#</tag>
         <tag>Unity</tag>
         <tag>Shader</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tips-Unity中的碰撞</title>
+    <url>/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/</url>
+    <content><![CDATA[<h1 id="Unity-中的碰撞"><a href="#Unity-中的碰撞" class="headerlink" title="Unity 中的碰撞"></a>Unity 中的碰撞</h1><h2 id="碰撞的两种形式"><a href="#碰撞的两种形式" class="headerlink" title="碰撞的两种形式"></a>碰撞的两种形式</h2><h3 id="Collision-造成物理碰撞-触发-OnCollision-事件"><a href="#Collision-造成物理碰撞-触发-OnCollision-事件" class="headerlink" title="Collision:造成物理碰撞,触发 OnCollision 事件."></a>Collision:造成物理碰撞,触发 OnCollision 事件.</h3><h3 id="Trigger-没有物理碰撞效果-触发-OnTrigger-事件"><a href="#Trigger-没有物理碰撞效果-触发-OnTrigger-事件" class="headerlink" title="Trigger:没有物理碰撞效果,触发 OnTrigger 事件."></a>Trigger:没有物理碰撞效果,触发 OnTrigger 事件.</h3><h2 id="碰撞的条件"><a href="#碰撞的条件" class="headerlink" title="碰撞的条件"></a>碰撞的条件</h2><h3 id="Collision-碰撞"><a href="#Collision-碰撞" class="headerlink" title="Collision 碰撞"></a>Collision 碰撞</h3><h4 id="1-双方都有碰撞体"><a href="#1-双方都有碰撞体" class="headerlink" title="1. 双方都有碰撞体"></a>1. 双方都有碰撞体</h4><h4 id="2-撞的一方必须有刚体"><a href="#2-撞的一方必须有刚体" class="headerlink" title="2. 撞的一方必须有刚体"></a>2. 撞的一方必须有刚体</h4><h4 id="3-双方不可同时勾选-Kinematic-选项"><a href="#3-双方不可同时勾选-Kinematic-选项" class="headerlink" title="3. 双方不可同时勾选 Kinematic 选项"></a>3. 双方不可同时勾选 Kinematic 选项</h4><h4 id="4-双方都不可勾选-Trigger-触发器"><a href="#4-双方都不可勾选-Trigger-触发器" class="headerlink" title="4. 双方都不可勾选 Trigger 触发器"></a>4. 双方都不可勾选 Trigger 触发器</h4><h3 id="Trigger-触发器"><a href="#Trigger-触发器" class="headerlink" title="Trigger 触发器"></a>Trigger 触发器</h3><h4 id="1-双发都有碰撞体"><a href="#1-双发都有碰撞体" class="headerlink" title="1. 双发都有碰撞体"></a>1. 双发都有碰撞体</h4><h4 id="2-撞的一方必要有刚体"><a href="#2-撞的一方必要有刚体" class="headerlink" title="2. 撞的一方必要有刚体"></a>2. 撞的一方必要有刚体</h4><h4 id="3-至少有一方勾选-Trigger-触发器"><a href="#3-至少有一方勾选-Trigger-触发器" class="headerlink" title="3. 至少有一方勾选 Trigger 触发器"></a>3. 至少有一方勾选 Trigger 触发器</h4><h2 id="碰撞的事件"><a href="#碰撞的事件" class="headerlink" title="碰撞的事件"></a>碰撞的事件</h2><h3 id="OnTriggerEnter-OnTriggerStay-OnTriggerExit"><a href="#OnTriggerEnter-OnTriggerStay-OnTriggerExit" class="headerlink" title="OnTriggerEnter() OnTriggerStay() OnTriggerExit()"></a>OnTriggerEnter() OnTriggerStay() OnTriggerExit()</h3><h3 id="OnCollisionEnter-OnCollisionStay-OnCollisionExit"><a href="#OnCollisionEnter-OnCollisionStay-OnCollisionExit" class="headerlink" title="OnCollisionEnter() OnCollisionStay() OnCollisionExit()"></a>OnCollisionEnter() OnCollisionStay() OnCollisionExit()</h3><h3 id="1-Enter-事件表示两物体接触的瞬间-会执行一次"><a href="#1-Enter-事件表示两物体接触的瞬间-会执行一次" class="headerlink" title="1. Enter 事件表示两物体接触的瞬间,会执行一次"></a>1. Enter 事件表示两物体接触的瞬间,会执行一次</h3><h3 id="2-Stay-事件表示两物体持续接触-会不断执行"><a href="#2-Stay-事件表示两物体持续接触-会不断执行" class="headerlink" title="2. Stay 事件表示两物体持续接触,会不断执行"></a>2. Stay 事件表示两物体持续接触,会不断执行</h3><h3 id="3-Exit-事件表示当两物体分开瞬间-会执行一次"><a href="#3-Exit-事件表示当两物体分开瞬间-会执行一次" class="headerlink" title="3. Exit 事件表示当两物体分开瞬间,会执行一次"></a>3. Exit 事件表示当两物体分开瞬间,会执行一次</h3>]]></content>
+      <categories>
+        <category>3.Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
       </tags>
   </entry>
   <entry>
@@ -399,111 +399,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Trick_Unity游戏dll破解_基于Dump内存的方法</title>
-    <url>/2020/09/29/3.Unity/20200929_Trick_Unity%E6%B8%B8%E6%88%8Fdll%E7%A0%B4%E8%A7%A3_%E5%9F%BA%E4%BA%8EDump%E5%86%85%E5%AD%98%E7%9A%84%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="Unity游戏dll破解-基于Dump内存的方法"><a href="#Unity游戏dll破解-基于Dump内存的方法" class="headerlink" title="Unity游戏dll破解_基于Dump内存的方法"></a>Unity游戏dll破解_基于Dump内存的方法</h1><h2 id="windbg"><a href="#windbg" class="headerlink" title="windbg"></a>windbg</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">.dump /ma E:/dumps/myapp.dmp</span><br><span class="line">.load psscor4</span><br><span class="line">!SaveAllModules E:\dumps\modules</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="Dll-Memory-Dumper"><a href="#Dll-Memory-Dumper" class="headerlink" title="Dll Memory Dumper"></a>Dll Memory Dumper</h2><ul>
-<li>打开游戏</li>
-<li>打开DllMemoryDumper</li>
-<li>输入游戏进程编号按Enter键</li>
-</ul>
-]]></content>
-      <categories>
-        <category>3.Unity</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tutorial-2048核心算法</title>
-    <url>/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="Unity3d-2048-核心算法讲解"><a href="#Unity3d-2048-核心算法讲解" class="headerlink" title="Unity3d 2048 核心算法讲解"></a>Unity3d 2048 核心算法讲解</h1><blockquote>
-<p>2048是一款非常好玩的游戏，经常让人花费好几个小时来玩它。 游戏目标是将相同值的格子“合并”在一起，合并到一起后原来格子的值翻倍。 当玩家在她想要的方向上滑动时，格子被移动到一边并且生成新的格子。 如果玩家达到了2048，那么就赢了游戏。 这篇文档主要用来介绍如何在Unity中来制作这个游戏。</p>
-</blockquote>
-<h2 id="输入系统"><a href="#输入系统" class="headerlink" title="输入系统"></a>输入系统</h2><p>游戏实现了通过键盘的箭头键来控制格子移动的方法, 我们通过一个枚举来获取用户的输入和一个必须由我们想要使用的每个输入方法实现的接口IInputDetector。</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> InputDirection</span><br><span class="line">&#123;</span><br><span class="line">    Left, Right, Top, Bottom</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IInputDetector</span></span><br><span class="line">&#123;</span><br><span class="line">    InputDirection? DetectInputDirection();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>DetectInputDirection方法的返回值已经实现为Nullable类型，因为用户可能根本没有输入。 现在，让我们访问第一个通过键盘输入的输入法。 如下所示，代码非常简单明了</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ArrowKeysDetector</span> : <span class="title">MonoBehaviour</span>, <span class="title">IInputDetector</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> InputDirection? DetectInputDirection()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Input.GetKeyUp(KeyCode.UpArrow))</span><br><span class="line">            <span class="keyword">return</span> InputDirection.Top;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (Input.GetKeyUp(KeyCode.DownArrow))</span><br><span class="line">            <span class="keyword">return</span> InputDirection.Bottom;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (Input.GetKeyUp(KeyCode.RightArrow))</span><br><span class="line">            <span class="keyword">return</span> InputDirection.Right;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (Input.GetKeyUp(KeyCode.LeftArrow))</span><br><span class="line">            <span class="keyword">return</span> InputDirection.Left;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h2><p>Globals类包含有关Rows，Columns和AnimationDuration的静态变量。</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">Globals</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">readonly</span> <span class="keyword">static</span> <span class="keyword">int</span> Rows = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">readonly</span> <span class="keyword">static</span> <span class="keyword">int</span> Columns = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">float</span> AnimationDuration = <span class="number">0.05f</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="格子相关数据结构"><a href="#格子相关数据结构" class="headerlink" title="格子相关数据结构"></a>格子相关数据结构</h2><p>ItemMovementDetails类用于携带有关即将移动和/或复制的对象的详细信息。 NewRow / NewColumn属性包含项目在数组中的位置信息，而GOToAnimateScale和GOToAnimatePosition属性包含有关即将移动和/或扩展的游戏对象的信息。 正常的过程是移动一个项目（改变它的位置），但如果这个项目将与另一个项目合并，那么这也将改变它的大小（然后消失）。</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ItemMovementDetails</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> GameObject GOToAnimateScale &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> GameObject GOToAnimatePosition &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> NewRow &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> NewColumn &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ItemMovementDetails</span>(<span class="params"><span class="keyword">int</span> newRow, <span class="keyword">int</span> newColumn, GameObject goToAnimatePosition, GameObject goToAnimateScale</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        NewRow = newRow;</span><br><span class="line">        NewColumn = newColumn;</span><br><span class="line">        GOToAnimatePosition = goToAnimatePosition;</span><br><span class="line">        GOToAnimateScale = goToAnimateScale;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Item类很简单</p>
-<ul>
-<li><p>Value属性包含项目的值（例如2,4,8,16等）</p>
-</li>
-<li><p>row和column属性包含此项目所属的数组的相应行和列值</p>
-</li>
-<li><p>GO属性包含对此Item引用的Unity GameObject的引用</p>
-</li>
-<li><p>WasJustDuplicated值是指此项目在此移动中是否重复</p>
-</li>
-</ul>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Item</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Value &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Row &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Column &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> GameObject GO &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">bool</span> WasJustDuplicated &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>ItemArray类包含一个私有成员，一个名为matrix的二维项目数组。 它还公开了一个索引器，以提供对此数组的访问。 如果项占据数组中的位置，则矩阵[row，column]项包含对它的引用。 否则，matrix [row，column]为null。</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ItemArray</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span> Item[,] matrix = <span class="keyword">new</span> Item[Globals.Rows, Globals.Columns];</span><br><span class="line"><span class="keyword">public</span> Item <span class="keyword">this</span>[<span class="keyword">int</span> row, <span class="keyword">int</span> column]</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> matrix[row, column];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">    &#123;</span><br><span class="line">        matrix[row, column] = <span class="keyword">value</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>此方法获取数组中的非null项。 它用于在每次移动后创建新格子。</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">GetRandomRowColumn</span>(<span class="params"><span class="keyword">out</span> <span class="keyword">int</span> row, <span class="keyword">out</span> <span class="keyword">int</span> column</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        row = random.Next(<span class="number">0</span>, Globals.Rows);</span><br><span class="line">        column = random.Next(<span class="number">0</span>, Globals.Columns);</span><br><span class="line">    &#125; <span class="keyword">while</span> (matrix[row, column] != <span class="literal">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>每次滑动后都会调用此方法，并将所有WasJustDuplicated值设置为false。</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ResetWasJustDuplicatedValues</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> row = <span class="number">0</span>; row &lt; Globals.Rows; row++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; Globals.Columns; column++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (matrix[row, column] != <span class="literal">null</span> &amp;&amp; matrix[row, column].WasJustDuplicated)</span><br><span class="line">                matrix[row, column].WasJustDuplicated = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>此方法检查作为参数传递的两个项（通过其列/行索引）是否具有相同的值。首先，它检查传递的索引是否超出范围。然后它检查此数组位置中的项是否为空，以及它是否只是重复（即在当前滑动后它没有重复）。如果所有这些检查都是真的，那么</p>
-<ul>
-<li><p>我们复制第一个项目值并将WasJustDuplicated字段设置为true</p>
-</li>
-<li><p>我们在保持对它的引用之后从数组中删除第二个项目，以便为它设置动画</p>
-</li>
-<li><p>我们返回一个ItemMovementDetails类的新实例，它携带项目的信息以使其位置具有动画效果，并使项目的比例为动画（并最终消失）。</p>
-</li>
-</ul>
-<p>关于根据用户的滑动项目的移动，我们有各种场景我们必须涵盖。请记住，数组中的空项表示空格。</p>
-<p>因此，我们假设X是空列，2是值为“2”的列。我们还假设左滑动。可能发生的一些情况如下，以及滑动后的相应项目移动。</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">a）<span class="number">2</span> | <span class="number">2</span> | X | X =&gt; <span class="number">4</span> | X | X | X.</span><br><span class="line"></span><br><span class="line">b）<span class="number">2</span> | X | <span class="number">2</span> | X =&gt; <span class="number">4</span> | X | X | X.</span><br><span class="line"></span><br><span class="line">c）<span class="number">2</span> | <span class="number">2</span> | X | <span class="number">2</span> =&gt; <span class="number">4</span> | <span class="number">2</span> | X | X. <span class="comment">//前两个&#x27;2&#x27;将合并，第三个将移动到第二列</span></span><br><span class="line"></span><br><span class="line">d）X | <span class="number">2</span> | <span class="number">2</span> | <span class="number">2</span> =&gt; <span class="number">4</span> | <span class="number">2</span> | X | X. <span class="comment">//与先前选项相同的情况。前两个&#x27;2&#x27;合并，移动到第一列，第三个&#x27;2&#x27;移动到第二列。</span></span><br><span class="line"></span><br><span class="line">e）<span class="number">4</span> | <span class="number">2</span> | <span class="number">2</span> | X =&gt; <span class="number">4</span> | <span class="number">4</span> | X | X.</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> ItemMovementDetails <span class="title">AreTheseTwoItemsSame</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params"><span class="keyword">int</span> originalRow, <span class="keyword">int</span> originalColumn, <span class="keyword">int</span> toCheckRow, <span class="keyword">int</span> toCheckColumn</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (toCheckRow &lt; <span class="number">0</span> || toCheckColumn &lt; <span class="number">0</span> || toCheckRow &gt;= Globals.Rows || toCheckColumn &gt;= Globals.Columns)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (matrix[originalRow, originalColumn] != <span class="literal">null</span> &amp;&amp; matrix[toCheckRow, toCheckColumn] != <span class="literal">null</span></span><br><span class="line">        &amp;&amp; matrix[originalRow, originalColumn].Value == matrix[toCheckRow, toCheckColumn].Value</span><br><span class="line">        &amp;&amp; !matrix[toCheckRow, toCheckColumn].WasJustDuplicated)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix[toCheckRow, toCheckColumn].Value *= <span class="number">2</span>;</span><br><span class="line">            matrix[toCheckRow, toCheckColumn].WasJustDuplicated = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">var</span> GOToAnimateScaleCopy = matrix[originalRow, originalColumn].GO;</span><br><span class="line">            matrix[originalRow, originalColumn] = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ItemMovementDetails(toCheckRow, toCheckColumn, matrix[toCheckRow, toCheckColumn].GO, GOToAnimateScaleCopy);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>此方法将项目移动到应该去的位置（基于值检查）。它将项目分配给新位置并“取消”旧项目。此外，它检查它旁边的项目是否具有相同的值。如果是这种情况，我们会返回此信息，而如果它们不同，我们只返回已移动项目的详细信息。</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> ItemMovementDetails MoveItemToNullPositionAndCheckIfSameWithNextOne</span><br><span class="line">(<span class="keyword">int</span> oldRow, <span class="keyword">int</span> newRow, <span class="keyword">int</span> itemToCheckRow, <span class="keyword">int</span> oldColumn, <span class="keyword">int</span> newColumn, <span class="keyword">int</span> itemToCheckColumn)</span><br><span class="line">&#123;</span><br><span class="line">    matrix[newRow, newColumn] = matrix[oldRow, oldColumn];</span><br><span class="line">    matrix[oldRow, oldColumn] = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    ItemMovementDetails imd2 = AreTheseTwoItemsSame(newRow, newColumn, itemToCheckRow,</span><br><span class="line">    itemToCheckColumn);</span><br><span class="line">    <span class="keyword">if</span> (imd2 != <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> imd2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ItemMovementDetails(newRow, newColumn, matrix[newRow, newColumn].GO, <span class="literal">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>此方法将项目移动到应该去的位置（基于值检查）。它将项目分配给新位置并“取消”旧项目。此外，它检查它旁边的项目是否具有相同的值。如果是这种情况，我们会返回此信息，而如果它们不同，我们只返回已移动项目的详细信息。</p>
-<p>我们有两种移动项目的方法。滑动是水平时调用的一个，垂直滑动调用的一个。在编写代码时，我首先创建了一个“MoveLeft”方法。经过多次测试，修复等，我创建了“MoveRight”。然后，我很清楚它们可以合并为一个方法，所以我创建了MoveHorizontal方法。再次，经过多次测试和修复后，对方法进行了转换和调整，以创建MoveVertical方法。这些方法有很多共同点，它们当然可以合并为一个“Move”方法。但是，我强烈认为这会使本教程复杂化。因此，我决定将它们保留原样。现在，它们在功能上非常相似，所以我们只描述“MoveHorizontal”。</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;ItemMovementDetails&gt; <span class="title">MoveHorizontal</span>(<span class="params">HorizontalMovement horizontalMovement</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ResetWasJustDuplicatedValues();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> movementDetails = <span class="keyword">new</span> List&lt;ItemMovementDetails&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> relativeColumn = horizontalMovement == HorizontalMovement.Left ? <span class="number">-1</span> : <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">var</span> columnNumbers = Enumerable.Range(<span class="number">0</span>, Globals.Columns);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (horizontalMovement == HorizontalMovement.Right)</span><br><span class="line">    &#123;</span><br><span class="line">        columnNumbers = columnNumbers.Reverse();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>方法从重置所有WasJustDuplicated值开始。 然后，根据运动是左还是右，我们得到-1或1.这将有助于确定要比较的项目。 如果向左滑动，我们将剩下的所有项目移动，因此我们需要将每个项目与前一项目（-1一项）进行比较，以便测试相似性。 转移，我们使用Enumerable.Range方法来获取列索引。 此方法将返回包含[0,1,2,3，…，Globals.Columns-1]的列表。 如果滑动是正确的，那么我们颠倒columnNumbers列表的顺序。 这是因为我们需要以正确的方向循环colums。 如果向左滑动，我们将首先检查第一列是否为null，然后是第二列等。这就是为什么因为我们要将第一个非空项目从左侧开始移动到第一个空位置。 如果我们有正确的滑动，我们需要在相反的方向上执行此操作。 这就是我们反转columnNumbers列表的原因。</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> row = Globals.Rows - <span class="number">1</span>; row &gt;= <span class="number">0</span>; row--)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="keyword">int</span> column <span class="keyword">in</span> columnNumbers)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (matrix[row, column] == <span class="literal">null</span>) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        ItemMovementDetails imd = AreTheseTwoItemsSame(row, column, row, column + relativeColumn);</span><br><span class="line">        <span class="keyword">if</span> (imd != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            movementDetails.Add(imd);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在这里，我们开始循环。 当然，我们会检查所有行。 然后，我们遍历所有列，从columnNumbers列表中获取索引。 在遍历每一行时，我们首先检查每个项目是否为null。 如果它为null，我们继续检查下一个项目（通过检查下一列 - 下一个意味着-1或1，具体取决于滑动。当我们到达非空列时，我们检查此列是否与 再次，“旁边”表示-1或1，具体取决于滑动是左还是右。如果这些项是相同的，那么我们将此信息添加到movingDetails列表并继续循环 下一栏。</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> columnFirstNullItem = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> numberOfItemsToTake = horizontalMovement == HorizontalMovement.Left? column : Globals.Columns – column;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> emptyItemFound = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">columnFirstNullItem++)</span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> tempColumnFirstNullItem <span class="keyword">in</span> columnNumbers.Take(numberOfItemsToTake))</span><br><span class="line">&#123;</span><br><span class="line">        columnFirstNullItem = tempColumnFirstNullItem;</span><br><span class="line">    <span class="keyword">if</span> (matrix[row, columnFirstNullItem] == <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        emptyItemFound = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果这些项不相同，那么我们必须在当前的第一个空位置移动我们当前引用的项。 对于左侧滑动，如果项目是[row，column]，那么唯一可能的位置是从[row，0]到[row，column-1]，因此我们需要columnNumbers列表中的第一个列项。 对于右滑动，唯一可能的位置是从[row，Globals.Columns-1]到[row，column + 1]，因此我们需要第一个Globals.Columns  - 来自reverse columnNumbers列表的列项。 我们在这些列中执行循环（使用Take LINQ方法）保持对每个列号的引用（通过columnFirstNullItem变量）并检查每个项是否为null。 如果我们找到一个，我们退出循环。</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">    <span class="keyword">if</span> (!emptyItemFound)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ItemMovementDetails newImd =MoveItemToNullPositionAndCheckIfSameWithNextOne</span><br><span class="line">    (row, row, row, column, columnFirstNullItem, columnFirstNullItem + relativeColumn);</span><br><span class="line"></span><br><span class="line">    movementDetails.Add(newImd);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> movementDetails;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果我们没有找到空项，则当前引用的项位于正确的位置，因此我们保持原样。 如果我们这样做，那么我们将当前引用的项移动到null位置，并创建ItemMovementDetails类的实例，以便携带动画信息。 在MoveHorizontal方法的末尾，我们返回movementDetails列表，其中包含必须执行的所有动画的信息。</p>
-<h2 id="游戏结束判定"><a href="#游戏结束判定" class="headerlink" title="游戏结束判定"></a>游戏结束判定</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">CheckGameOver</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> row = <span class="number">0</span>; row &lt; Globals.Rows; row++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; Globals.Columns; column++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (matrix[row, column] == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; Globals.Rows; x++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">0</span>; y &lt; Globals.Columns - <span class="number">1</span>; y++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (matrix[x, y].Value == matrix[x, y + <span class="number">1</span>].Value)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">0</span>; y &lt; Globals.Columns; y++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; Globals.Rows - <span class="number">1</span>; x++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (matrix[x, y].Value == matrix[x + <span class="number">1</span>, y].Value)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>结束判定很简单,遍历看矩阵中有没有空 或 有没有两个相邻且相等的数</p>
-]]></content>
-      <categories>
-        <category>3.Unity</category>
-      </categories>
-      <tags>
-        <tag>C#</tag>
-        <tag>Unity</tag>
-        <tag>Unity3d</tag>
-        <tag>数据结构</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tutorial-GameFramework功能简介</title>
     <url>/2020/09/29/3.Unity/20200929_Tutorial-GameFramework%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B/</url>
     <content><![CDATA[<h1 id="GameFramework-记录"><a href="#GameFramework-记录" class="headerlink" title="GameFramework 记录"></a>GameFramework 记录</h1><h2 id="GameFrameworkEntry（框架入口）"><a href="#GameFrameworkEntry（框架入口）" class="headerlink" title="GameFrameworkEntry（框架入口）"></a>GameFrameworkEntry（框架入口）</h2><pre><code>GameFrameworkEntry使用链表来维护所有的GameFrameworkModule（框架模块），并提供对GameFrameworkModule的各种相关操作以及框架版本号信息</code></pre>
@@ -645,6 +540,111 @@
       </tags>
   </entry>
   <entry>
+    <title>Trick_Unity游戏dll破解_基于Dump内存的方法</title>
+    <url>/2020/09/29/3.Unity/20200929_Trick_Unity%E6%B8%B8%E6%88%8Fdll%E7%A0%B4%E8%A7%A3_%E5%9F%BA%E4%BA%8EDump%E5%86%85%E5%AD%98%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="Unity游戏dll破解-基于Dump内存的方法"><a href="#Unity游戏dll破解-基于Dump内存的方法" class="headerlink" title="Unity游戏dll破解_基于Dump内存的方法"></a>Unity游戏dll破解_基于Dump内存的方法</h1><h2 id="windbg"><a href="#windbg" class="headerlink" title="windbg"></a>windbg</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">.dump /ma E:/dumps/myapp.dmp</span><br><span class="line">.load psscor4</span><br><span class="line">!SaveAllModules E:\dumps\modules</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Dll-Memory-Dumper"><a href="#Dll-Memory-Dumper" class="headerlink" title="Dll Memory Dumper"></a>Dll Memory Dumper</h2><ul>
+<li>打开游戏</li>
+<li>打开DllMemoryDumper</li>
+<li>输入游戏进程编号按Enter键</li>
+</ul>
+]]></content>
+      <categories>
+        <category>3.Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tutorial-2048核心算法</title>
+    <url>/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="Unity3d-2048-核心算法讲解"><a href="#Unity3d-2048-核心算法讲解" class="headerlink" title="Unity3d 2048 核心算法讲解"></a>Unity3d 2048 核心算法讲解</h1><blockquote>
+<p>2048是一款非常好玩的游戏，经常让人花费好几个小时来玩它。 游戏目标是将相同值的格子“合并”在一起，合并到一起后原来格子的值翻倍。 当玩家在她想要的方向上滑动时，格子被移动到一边并且生成新的格子。 如果玩家达到了2048，那么就赢了游戏。 这篇文档主要用来介绍如何在Unity中来制作这个游戏。</p>
+</blockquote>
+<h2 id="输入系统"><a href="#输入系统" class="headerlink" title="输入系统"></a>输入系统</h2><p>游戏实现了通过键盘的箭头键来控制格子移动的方法, 我们通过一个枚举来获取用户的输入和一个必须由我们想要使用的每个输入方法实现的接口IInputDetector。</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> InputDirection</span><br><span class="line">&#123;</span><br><span class="line">    Left, Right, Top, Bottom</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IInputDetector</span></span><br><span class="line">&#123;</span><br><span class="line">    InputDirection? DetectInputDirection();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>DetectInputDirection方法的返回值已经实现为Nullable类型，因为用户可能根本没有输入。 现在，让我们访问第一个通过键盘输入的输入法。 如下所示，代码非常简单明了</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ArrowKeysDetector</span> : <span class="title">MonoBehaviour</span>, <span class="title">IInputDetector</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> InputDirection? DetectInputDirection()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Input.GetKeyUp(KeyCode.UpArrow))</span><br><span class="line">            <span class="keyword">return</span> InputDirection.Top;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (Input.GetKeyUp(KeyCode.DownArrow))</span><br><span class="line">            <span class="keyword">return</span> InputDirection.Bottom;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (Input.GetKeyUp(KeyCode.RightArrow))</span><br><span class="line">            <span class="keyword">return</span> InputDirection.Right;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (Input.GetKeyUp(KeyCode.LeftArrow))</span><br><span class="line">            <span class="keyword">return</span> InputDirection.Left;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h2><p>Globals类包含有关Rows，Columns和AnimationDuration的静态变量。</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">Globals</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">readonly</span> <span class="keyword">static</span> <span class="keyword">int</span> Rows = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">readonly</span> <span class="keyword">static</span> <span class="keyword">int</span> Columns = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">float</span> AnimationDuration = <span class="number">0.05f</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="格子相关数据结构"><a href="#格子相关数据结构" class="headerlink" title="格子相关数据结构"></a>格子相关数据结构</h2><p>ItemMovementDetails类用于携带有关即将移动和/或复制的对象的详细信息。 NewRow / NewColumn属性包含项目在数组中的位置信息，而GOToAnimateScale和GOToAnimatePosition属性包含有关即将移动和/或扩展的游戏对象的信息。 正常的过程是移动一个项目（改变它的位置），但如果这个项目将与另一个项目合并，那么这也将改变它的大小（然后消失）。</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ItemMovementDetails</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> GameObject GOToAnimateScale &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> GameObject GOToAnimatePosition &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> NewRow &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> NewColumn &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ItemMovementDetails</span>(<span class="params"><span class="keyword">int</span> newRow, <span class="keyword">int</span> newColumn, GameObject goToAnimatePosition, GameObject goToAnimateScale</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        NewRow = newRow;</span><br><span class="line">        NewColumn = newColumn;</span><br><span class="line">        GOToAnimatePosition = goToAnimatePosition;</span><br><span class="line">        GOToAnimateScale = goToAnimateScale;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Item类很简单</p>
+<ul>
+<li><p>Value属性包含项目的值（例如2,4,8,16等）</p>
+</li>
+<li><p>row和column属性包含此项目所属的数组的相应行和列值</p>
+</li>
+<li><p>GO属性包含对此Item引用的Unity GameObject的引用</p>
+</li>
+<li><p>WasJustDuplicated值是指此项目在此移动中是否重复</p>
+</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Item</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Value &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Row &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Column &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> GameObject GO &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">bool</span> WasJustDuplicated &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ItemArray类包含一个私有成员，一个名为matrix的二维项目数组。 它还公开了一个索引器，以提供对此数组的访问。 如果项占据数组中的位置，则矩阵[row，column]项包含对它的引用。 否则，matrix [row，column]为null。</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ItemArray</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">private</span> Item[,] matrix = <span class="keyword">new</span> Item[Globals.Rows, Globals.Columns];</span><br><span class="line"><span class="keyword">public</span> Item <span class="keyword">this</span>[<span class="keyword">int</span> row, <span class="keyword">int</span> column]</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> matrix[row, column];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">    &#123;</span><br><span class="line">        matrix[row, column] = <span class="keyword">value</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此方法获取数组中的非null项。 它用于在每次移动后创建新格子。</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">GetRandomRowColumn</span>(<span class="params"><span class="keyword">out</span> <span class="keyword">int</span> row, <span class="keyword">out</span> <span class="keyword">int</span> column</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">        row = random.Next(<span class="number">0</span>, Globals.Rows);</span><br><span class="line">        column = random.Next(<span class="number">0</span>, Globals.Columns);</span><br><span class="line">    &#125; <span class="keyword">while</span> (matrix[row, column] != <span class="literal">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每次滑动后都会调用此方法，并将所有WasJustDuplicated值设置为false。</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ResetWasJustDuplicatedValues</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> row = <span class="number">0</span>; row &lt; Globals.Rows; row++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; Globals.Columns; column++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (matrix[row, column] != <span class="literal">null</span> &amp;&amp; matrix[row, column].WasJustDuplicated)</span><br><span class="line">                matrix[row, column].WasJustDuplicated = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此方法检查作为参数传递的两个项（通过其列/行索引）是否具有相同的值。首先，它检查传递的索引是否超出范围。然后它检查此数组位置中的项是否为空，以及它是否只是重复（即在当前滑动后它没有重复）。如果所有这些检查都是真的，那么</p>
+<ul>
+<li><p>我们复制第一个项目值并将WasJustDuplicated字段设置为true</p>
+</li>
+<li><p>我们在保持对它的引用之后从数组中删除第二个项目，以便为它设置动画</p>
+</li>
+<li><p>我们返回一个ItemMovementDetails类的新实例，它携带项目的信息以使其位置具有动画效果，并使项目的比例为动画（并最终消失）。</p>
+</li>
+</ul>
+<p>关于根据用户的滑动项目的移动，我们有各种场景我们必须涵盖。请记住，数组中的空项表示空格。</p>
+<p>因此，我们假设X是空列，2是值为“2”的列。我们还假设左滑动。可能发生的一些情况如下，以及滑动后的相应项目移动。</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">a）<span class="number">2</span> | <span class="number">2</span> | X | X =&gt; <span class="number">4</span> | X | X | X.</span><br><span class="line"></span><br><span class="line">b）<span class="number">2</span> | X | <span class="number">2</span> | X =&gt; <span class="number">4</span> | X | X | X.</span><br><span class="line"></span><br><span class="line">c）<span class="number">2</span> | <span class="number">2</span> | X | <span class="number">2</span> =&gt; <span class="number">4</span> | <span class="number">2</span> | X | X. <span class="comment">//前两个&#x27;2&#x27;将合并，第三个将移动到第二列</span></span><br><span class="line"></span><br><span class="line">d）X | <span class="number">2</span> | <span class="number">2</span> | <span class="number">2</span> =&gt; <span class="number">4</span> | <span class="number">2</span> | X | X. <span class="comment">//与先前选项相同的情况。前两个&#x27;2&#x27;合并，移动到第一列，第三个&#x27;2&#x27;移动到第二列。</span></span><br><span class="line"></span><br><span class="line">e）<span class="number">4</span> | <span class="number">2</span> | <span class="number">2</span> | X =&gt; <span class="number">4</span> | <span class="number">4</span> | X | X.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> ItemMovementDetails <span class="title">AreTheseTwoItemsSame</span>(<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params"><span class="keyword">int</span> originalRow, <span class="keyword">int</span> originalColumn, <span class="keyword">int</span> toCheckRow, <span class="keyword">int</span> toCheckColumn</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (toCheckRow &lt; <span class="number">0</span> || toCheckColumn &lt; <span class="number">0</span> || toCheckRow &gt;= Globals.Rows || toCheckColumn &gt;= Globals.Columns)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (matrix[originalRow, originalColumn] != <span class="literal">null</span> &amp;&amp; matrix[toCheckRow, toCheckColumn] != <span class="literal">null</span></span><br><span class="line">        &amp;&amp; matrix[originalRow, originalColumn].Value == matrix[toCheckRow, toCheckColumn].Value</span><br><span class="line">        &amp;&amp; !matrix[toCheckRow, toCheckColumn].WasJustDuplicated)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix[toCheckRow, toCheckColumn].Value *= <span class="number">2</span>;</span><br><span class="line">            matrix[toCheckRow, toCheckColumn].WasJustDuplicated = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">var</span> GOToAnimateScaleCopy = matrix[originalRow, originalColumn].GO;</span><br><span class="line">            matrix[originalRow, originalColumn] = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ItemMovementDetails(toCheckRow, toCheckColumn, matrix[toCheckRow, toCheckColumn].GO, GOToAnimateScaleCopy);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此方法将项目移动到应该去的位置（基于值检查）。它将项目分配给新位置并“取消”旧项目。此外，它检查它旁边的项目是否具有相同的值。如果是这种情况，我们会返回此信息，而如果它们不同，我们只返回已移动项目的详细信息。</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> ItemMovementDetails MoveItemToNullPositionAndCheckIfSameWithNextOne</span><br><span class="line">(<span class="keyword">int</span> oldRow, <span class="keyword">int</span> newRow, <span class="keyword">int</span> itemToCheckRow, <span class="keyword">int</span> oldColumn, <span class="keyword">int</span> newColumn, <span class="keyword">int</span> itemToCheckColumn)</span><br><span class="line">&#123;</span><br><span class="line">    matrix[newRow, newColumn] = matrix[oldRow, oldColumn];</span><br><span class="line">    matrix[oldRow, oldColumn] = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    ItemMovementDetails imd2 = AreTheseTwoItemsSame(newRow, newColumn, itemToCheckRow,</span><br><span class="line">    itemToCheckColumn);</span><br><span class="line">    <span class="keyword">if</span> (imd2 != <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> imd2;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ItemMovementDetails(newRow, newColumn, matrix[newRow, newColumn].GO, <span class="literal">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此方法将项目移动到应该去的位置（基于值检查）。它将项目分配给新位置并“取消”旧项目。此外，它检查它旁边的项目是否具有相同的值。如果是这种情况，我们会返回此信息，而如果它们不同，我们只返回已移动项目的详细信息。</p>
+<p>我们有两种移动项目的方法。滑动是水平时调用的一个，垂直滑动调用的一个。在编写代码时，我首先创建了一个“MoveLeft”方法。经过多次测试，修复等，我创建了“MoveRight”。然后，我很清楚它们可以合并为一个方法，所以我创建了MoveHorizontal方法。再次，经过多次测试和修复后，对方法进行了转换和调整，以创建MoveVertical方法。这些方法有很多共同点，它们当然可以合并为一个“Move”方法。但是，我强烈认为这会使本教程复杂化。因此，我决定将它们保留原样。现在，它们在功能上非常相似，所以我们只描述“MoveHorizontal”。</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;ItemMovementDetails&gt; <span class="title">MoveHorizontal</span>(<span class="params">HorizontalMovement horizontalMovement</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ResetWasJustDuplicatedValues();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> movementDetails = <span class="keyword">new</span> List&lt;ItemMovementDetails&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> relativeColumn = horizontalMovement == HorizontalMovement.Left ? <span class="number">-1</span> : <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">var</span> columnNumbers = Enumerable.Range(<span class="number">0</span>, Globals.Columns);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (horizontalMovement == HorizontalMovement.Right)</span><br><span class="line">    &#123;</span><br><span class="line">        columnNumbers = columnNumbers.Reverse();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方法从重置所有WasJustDuplicated值开始。 然后，根据运动是左还是右，我们得到-1或1.这将有助于确定要比较的项目。 如果向左滑动，我们将剩下的所有项目移动，因此我们需要将每个项目与前一项目（-1一项）进行比较，以便测试相似性。 转移，我们使用Enumerable.Range方法来获取列索引。 此方法将返回包含[0,1,2,3，…，Globals.Columns-1]的列表。 如果滑动是正确的，那么我们颠倒columnNumbers列表的顺序。 这是因为我们需要以正确的方向循环colums。 如果向左滑动，我们将首先检查第一列是否为null，然后是第二列等。这就是为什么因为我们要将第一个非空项目从左侧开始移动到第一个空位置。 如果我们有正确的滑动，我们需要在相反的方向上执行此操作。 这就是我们反转columnNumbers列表的原因。</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> row = Globals.Rows - <span class="number">1</span>; row &gt;= <span class="number">0</span>; row--)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="keyword">int</span> column <span class="keyword">in</span> columnNumbers)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (matrix[row, column] == <span class="literal">null</span>) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        ItemMovementDetails imd = AreTheseTwoItemsSame(row, column, row, column + relativeColumn);</span><br><span class="line">        <span class="keyword">if</span> (imd != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            movementDetails.Add(imd);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这里，我们开始循环。 当然，我们会检查所有行。 然后，我们遍历所有列，从columnNumbers列表中获取索引。 在遍历每一行时，我们首先检查每个项目是否为null。 如果它为null，我们继续检查下一个项目（通过检查下一列 - 下一个意味着-1或1，具体取决于滑动。当我们到达非空列时，我们检查此列是否与 再次，“旁边”表示-1或1，具体取决于滑动是左还是右。如果这些项是相同的，那么我们将此信息添加到movingDetails列表并继续循环 下一栏。</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> columnFirstNullItem = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> numberOfItemsToTake = horizontalMovement == HorizontalMovement.Left? column : Globals.Columns – column;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> emptyItemFound = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">columnFirstNullItem++)</span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> tempColumnFirstNullItem <span class="keyword">in</span> columnNumbers.Take(numberOfItemsToTake))</span><br><span class="line">&#123;</span><br><span class="line">        columnFirstNullItem = tempColumnFirstNullItem;</span><br><span class="line">    <span class="keyword">if</span> (matrix[row, columnFirstNullItem] == <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        emptyItemFound = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果这些项不相同，那么我们必须在当前的第一个空位置移动我们当前引用的项。 对于左侧滑动，如果项目是[row，column]，那么唯一可能的位置是从[row，0]到[row，column-1]，因此我们需要columnNumbers列表中的第一个列项。 对于右滑动，唯一可能的位置是从[row，Globals.Columns-1]到[row，column + 1]，因此我们需要第一个Globals.Columns  - 来自reverse columnNumbers列表的列项。 我们在这些列中执行循环（使用Take LINQ方法）保持对每个列号的引用（通过columnFirstNullItem变量）并检查每个项是否为null。 如果我们找到一个，我们退出循环。</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">    <span class="keyword">if</span> (!emptyItemFound)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ItemMovementDetails newImd =MoveItemToNullPositionAndCheckIfSameWithNextOne</span><br><span class="line">    (row, row, row, column, columnFirstNullItem, columnFirstNullItem + relativeColumn);</span><br><span class="line"></span><br><span class="line">    movementDetails.Add(newImd);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> movementDetails;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果我们没有找到空项，则当前引用的项位于正确的位置，因此我们保持原样。 如果我们这样做，那么我们将当前引用的项移动到null位置，并创建ItemMovementDetails类的实例，以便携带动画信息。 在MoveHorizontal方法的末尾，我们返回movementDetails列表，其中包含必须执行的所有动画的信息。</p>
+<h2 id="游戏结束判定"><a href="#游戏结束判定" class="headerlink" title="游戏结束判定"></a>游戏结束判定</h2><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="title">CheckGameOver</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> row = <span class="number">0</span>; row &lt; Globals.Rows; row++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; Globals.Columns; column++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (matrix[row, column] == <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; Globals.Rows; x++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">0</span>; y &lt; Globals.Columns - <span class="number">1</span>; y++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (matrix[x, y].Value == matrix[x, y + <span class="number">1</span>].Value)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">0</span>; y &lt; Globals.Columns; y++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; Globals.Rows - <span class="number">1</span>; x++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (matrix[x, y].Value == matrix[x + <span class="number">1</span>, y].Value)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结束判定很简单,遍历看矩阵中有没有空 或 有没有两个相邻且相等的数</p>
+]]></content>
+      <categories>
+        <category>3.Unity</category>
+      </categories>
+      <tags>
+        <tag>C#</tag>
+        <tag>Unity</tag>
+        <tag>Unity3d</tag>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tutorial-PureMVC前置知识点</title>
     <url>/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<h1 id="PureMVC"><a href="#PureMVC" class="headerlink" title="PureMVC"></a>PureMVC</h1><p><a href="https://www.gameres.com/822910.html">PureMVC</a></p>
@@ -678,37 +678,6 @@
       <categories>
         <category>3.Unity</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Tutorial-Unity中sqlite数据库的使用</title>
-    <url>/2020/09/29/3.Unity/20200929_Tutorial-Unity%E4%B8%ADsqlite%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="Unity中sqlite数据库的使用"><a href="#Unity中sqlite数据库的使用" class="headerlink" title="Unity中sqlite数据库的使用"></a>Unity中sqlite数据库的使用</h1><h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><p>进入sqlite命令行工具所在的目录,打开命令行,创建一个名称为test.db的数据库</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">sqlite3 test.db</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用已有数据库"><a href="#使用已有数据库" class="headerlink" title="使用已有数据库"></a>使用已有数据库</h2><p>使用已有数据库和创建数据库命令一样 sqlite3 + 数据库名字</p>
-<h2 id="显示当前数据库"><a href="#显示当前数据库" class="headerlink" title="显示当前数据库"></a>显示当前数据库</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">.databases</span><br></pre></td></tr></table></figure>
-
-<h2 id="显示当前数据表"><a href="#显示当前数据表" class="headerlink" title="显示当前数据表"></a>显示当前数据表</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">.tables</span><br></pre></td></tr></table></figure>
-
-<h2 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line">sqlite&gt;.header on</span><br><span class="line">sqlite&gt;.mode column</span><br><span class="line">sqlite&gt;.timer on</span><br></pre></td></tr></table></figure>
-
-<h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">sqlite&gt; CREATE TABLE COMPANY(</span><br><span class="line">   ID INT PRIMARY KEY     NOT NULL,</span><br><span class="line">   NAME           TEXT    NOT NULL,</span><br><span class="line">   AGE            INT     NOT NULL,</span><br><span class="line">   ADDRESS        CHAR(50),</span><br><span class="line">   SALARY         REAL</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<h2 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line">sqlite&gt;DROP TABLE COMPANY;</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改数据表"><a href="#修改数据表" class="headerlink" title="修改数据表"></a>修改数据表</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 插入表</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> TABLE_NAME [(column1, column2, column3,...columnN)]</span><br><span class="line"><span class="keyword">VALUES</span> (value1, value2, value3,...valueN);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 更新表</span></span><br><span class="line">sqlite&gt; UPDATE COMPANY SET ADDRESS = &#x27;Texas&#x27; WHERE ID = 6;</span><br></pre></td></tr></table></figure>
-
-<h2 id="查询数据表"><a href="#查询数据表" class="headerlink" title="查询数据表"></a>查询数据表</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, columnN <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
-
-<h2 id="操作记录"><a href="#操作记录" class="headerlink" title="操作记录"></a>操作记录</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ETA@QiaoGaojian-PC MINGW64 /d/gitee/etaframe (develop)</span><br><span class="line">$ <span class="built_in">cd</span> sqlitetool</span><br><span class="line"></span><br><span class="line">ETA@QiaoGaojian-PC MINGW64 /d/gitee/etaframe/sqlitetool (develop)</span><br><span class="line">$ ls</span><br><span class="line">sqldiff.exe  sqlite3.exe  sqlite3_analyzer.exe  test.db</span><br><span class="line"></span><br><span class="line">ETA@QiaoGaojian-PC MINGW64 /d/gitee/etaframe/sqlitetool (develop)</span><br><span class="line">$ sqlite3 test.db</span><br><span class="line">SQLite version 3.8.10.2 2015-05-20 18:17:19</span><br><span class="line">Enter <span class="string">&quot;.help&quot;</span> <span class="keyword">for</span> usage hints.</span><br><span class="line">sqlite&gt; .databases</span><br><span class="line">seq  name             file</span><br><span class="line">---  ---------------  ----------------------------------------------------------</span><br><span class="line">0    main             D:\gitee\etaframe\sqlitetool\test.db</span><br><span class="line">sqlite&gt; .tables;</span><br><span class="line">Error: unknown <span class="built_in">command</span> or invalid arguments:  <span class="string">&quot;tables;&quot;</span>. Enter <span class="string">&quot;.help&quot;</span> <span class="keyword">for</span> <span class="built_in">help</span></span><br><span class="line">sqlite&gt; .tables</span><br><span class="line">user</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">1|Michael|18</span><br><span class="line">sqlite&gt; insert into user values</span><br><span class="line">   ...&gt; (2,<span class="string">&quot;Michelle&quot;</span>,19);</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">1|Michael|18</span><br><span class="line">2|Michelle|19</span><br><span class="line">sqlite&gt; .header on</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">id|name|age</span><br><span class="line">1|Michael|18</span><br><span class="line">2|Michelle|19</span><br><span class="line">sqlite&gt; .mode column</span><br><span class="line">sqlite&gt; .timer on</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">id          name        age</span><br><span class="line">----------  ----------  ----------</span><br><span class="line">1           Michael     18</span><br><span class="line">2           Michelle    19</span><br><span class="line">Run Time: real 0.004 user 0.000000 sys 0.000000</span><br><span class="line">sqlite&gt; <span class="built_in">exit</span></span><br><span class="line">   ...&gt; ;</span><br><span class="line">Run Time: real 0.001 user 0.000000 sys 0.000000</span><br><span class="line">Error: near <span class="string">&quot;exit&quot;</span>: syntax error</span><br><span class="line">sqlite&gt; .<span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">ETA@QiaoGaojian-PC MINGW64 /d/gitee/etaframe/sqlitetool (develop)</span><br><span class="line">$ sqlite3 test.db</span><br><span class="line">SQLite version 3.8.10.2 2015-05-20 18:17:19</span><br><span class="line">Enter <span class="string">&quot;.help&quot;</span> <span class="keyword">for</span> usage hints.</span><br><span class="line">sqlite&gt; .status</span><br><span class="line">Error: unknown <span class="built_in">command</span> or invalid arguments:  <span class="string">&quot;status&quot;</span>. Enter <span class="string">&quot;.help&quot;</span> <span class="keyword">for</span> <span class="built_in">help</span></span><br><span class="line">sqlite&gt; .show</span><br><span class="line">        <span class="built_in">echo</span>: off</span><br><span class="line">         eqp: off</span><br><span class="line">  explain: off</span><br><span class="line">     headers: off</span><br><span class="line">        mode: list</span><br><span class="line">   nullvalue: <span class="string">&quot;&quot;</span></span><br><span class="line">      output: stdout</span><br><span class="line">colseparator: <span class="string">&quot;|&quot;</span></span><br><span class="line">rowseparator: <span class="string">&quot;\n&quot;</span></span><br><span class="line">       stats: off</span><br><span class="line">       width:</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">1|Michael|18</span><br><span class="line">2|Michelle|19</span><br><span class="line">sqlite&gt; .header on</span><br><span class="line">sqlite&gt; .mode column</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">id          name        age</span><br><span class="line">----------  ----------  ----------</span><br><span class="line">1           Michael     18</span><br><span class="line">2           Michelle    19</span><br><span class="line">sqlite&gt; .timer on</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">id          name        age</span><br><span class="line">----------  ----------  ----------</span><br><span class="line">1           Michael     18</span><br><span class="line">2           Michelle    19</span><br><span class="line">Run Time: real 0.005 user 0.015625 sys 0.000000</span><br><span class="line">sqlite&gt; sqlite3 test.db .dump &gt; test.sql</span><br><span class="line">   ...&gt; ;</span><br><span class="line">Run Time: real 0.000 user 0.000000 sys 0.000000</span><br><span class="line">Error: near <span class="string">&quot;sqlite3&quot;</span>: syntax error</span><br><span class="line">sqlite&gt; .<span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">ETA@QiaoGaojian-PC MINGW64 /d/gitee/etaframe/sqlitetool (develop)</span><br><span class="line">$</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>3.Unity</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
-        <tag>工具</tag>
-        <tag>AR</tag>
-      </tags>
   </entry>
   <entry>
     <title>Tutorial-Unity游戏开发中的生命周期</title>
@@ -823,26 +792,34 @@
       </tags>
   </entry>
   <entry>
-    <title>Tips_vscode+golang环境配置</title>
-    <url>/2020/09/29/7.BlockChain/20200929_Tips_vscode+golang%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="vscode-golang环境配置"><a href="#vscode-golang环境配置" class="headerlink" title="vscode+golang环境配置"></a>vscode+golang环境配置</h1><h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><p>安装git vscode go</p>
-<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><ol>
-<li><p>打开vscode设置配置文件</p>
-</li>
-<li><p>添加go环境路径</p>
- <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;go.goroot&quot;</span>: <span class="string">&quot;C:\\Program Files\\Go&quot;</span>,</span><br><span class="line"><span class="string">&quot;go.gopath&quot;</span>: <span class="string">&quot;C:\\Users\\PC-QGJ\\go&quot;</span>,</span><br></pre></td></tr></table></figure>
+    <title>Tutorial-Unity中sqlite数据库的使用</title>
+    <url>/2020/09/29/3.Unity/20200929_Tutorial-Unity%E4%B8%ADsqlite%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="Unity中sqlite数据库的使用"><a href="#Unity中sqlite数据库的使用" class="headerlink" title="Unity中sqlite数据库的使用"></a>Unity中sqlite数据库的使用</h1><h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><p>进入sqlite命令行工具所在的目录,打开命令行,创建一个名称为test.db的数据库</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">sqlite3 test.db</span><br></pre></td></tr></table></figure>
 
-<p> 如果不确定路径是多少 命令行输入go env把对应的路径输入</p>
-</li>
-<li><p>打开go工程文件夹配置debug设置</p>
-</li>
-</ol>
-]]></content>
+<h2 id="使用已有数据库"><a href="#使用已有数据库" class="headerlink" title="使用已有数据库"></a>使用已有数据库</h2><p>使用已有数据库和创建数据库命令一样 sqlite3 + 数据库名字</p>
+<h2 id="显示当前数据库"><a href="#显示当前数据库" class="headerlink" title="显示当前数据库"></a>显示当前数据库</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">.databases</span><br></pre></td></tr></table></figure>
+
+<h2 id="显示当前数据表"><a href="#显示当前数据表" class="headerlink" title="显示当前数据表"></a>显示当前数据表</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">.tables</span><br></pre></td></tr></table></figure>
+
+<h2 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line">sqlite&gt;.header on</span><br><span class="line">sqlite&gt;.mode column</span><br><span class="line">sqlite&gt;.timer on</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">sqlite&gt; CREATE TABLE COMPANY(</span><br><span class="line">   ID INT PRIMARY KEY     NOT NULL,</span><br><span class="line">   NAME           TEXT    NOT NULL,</span><br><span class="line">   AGE            INT     NOT NULL,</span><br><span class="line">   ADDRESS        CHAR(50),</span><br><span class="line">   SALARY         REAL</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line">sqlite&gt;DROP TABLE COMPANY;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改数据表"><a href="#修改数据表" class="headerlink" title="修改数据表"></a>修改数据表</h2><figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 插入表</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> TABLE_NAME [(column1, column2, column3,...columnN)]</span><br><span class="line"><span class="keyword">VALUES</span> (value1, value2, value3,...valueN);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 更新表</span></span><br><span class="line">sqlite&gt; UPDATE COMPANY SET ADDRESS = &#x27;Texas&#x27; WHERE ID = 6;</span><br></pre></td></tr></table></figure>
+
+<h2 id="查询数据表"><a href="#查询数据表" class="headerlink" title="查询数据表"></a>查询数据表</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, columnN <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<h2 id="操作记录"><a href="#操作记录" class="headerlink" title="操作记录"></a>操作记录</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ETA@QiaoGaojian-PC MINGW64 /d/gitee/etaframe (develop)</span><br><span class="line">$ <span class="built_in">cd</span> sqlitetool</span><br><span class="line"></span><br><span class="line">ETA@QiaoGaojian-PC MINGW64 /d/gitee/etaframe/sqlitetool (develop)</span><br><span class="line">$ ls</span><br><span class="line">sqldiff.exe  sqlite3.exe  sqlite3_analyzer.exe  test.db</span><br><span class="line"></span><br><span class="line">ETA@QiaoGaojian-PC MINGW64 /d/gitee/etaframe/sqlitetool (develop)</span><br><span class="line">$ sqlite3 test.db</span><br><span class="line">SQLite version 3.8.10.2 2015-05-20 18:17:19</span><br><span class="line">Enter <span class="string">&quot;.help&quot;</span> <span class="keyword">for</span> usage hints.</span><br><span class="line">sqlite&gt; .databases</span><br><span class="line">seq  name             file</span><br><span class="line">---  ---------------  ----------------------------------------------------------</span><br><span class="line">0    main             D:\gitee\etaframe\sqlitetool\test.db</span><br><span class="line">sqlite&gt; .tables;</span><br><span class="line">Error: unknown <span class="built_in">command</span> or invalid arguments:  <span class="string">&quot;tables;&quot;</span>. Enter <span class="string">&quot;.help&quot;</span> <span class="keyword">for</span> <span class="built_in">help</span></span><br><span class="line">sqlite&gt; .tables</span><br><span class="line">user</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">1|Michael|18</span><br><span class="line">sqlite&gt; insert into user values</span><br><span class="line">   ...&gt; (2,<span class="string">&quot;Michelle&quot;</span>,19);</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">1|Michael|18</span><br><span class="line">2|Michelle|19</span><br><span class="line">sqlite&gt; .header on</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">id|name|age</span><br><span class="line">1|Michael|18</span><br><span class="line">2|Michelle|19</span><br><span class="line">sqlite&gt; .mode column</span><br><span class="line">sqlite&gt; .timer on</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">id          name        age</span><br><span class="line">----------  ----------  ----------</span><br><span class="line">1           Michael     18</span><br><span class="line">2           Michelle    19</span><br><span class="line">Run Time: real 0.004 user 0.000000 sys 0.000000</span><br><span class="line">sqlite&gt; <span class="built_in">exit</span></span><br><span class="line">   ...&gt; ;</span><br><span class="line">Run Time: real 0.001 user 0.000000 sys 0.000000</span><br><span class="line">Error: near <span class="string">&quot;exit&quot;</span>: syntax error</span><br><span class="line">sqlite&gt; .<span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">ETA@QiaoGaojian-PC MINGW64 /d/gitee/etaframe/sqlitetool (develop)</span><br><span class="line">$ sqlite3 test.db</span><br><span class="line">SQLite version 3.8.10.2 2015-05-20 18:17:19</span><br><span class="line">Enter <span class="string">&quot;.help&quot;</span> <span class="keyword">for</span> usage hints.</span><br><span class="line">sqlite&gt; .status</span><br><span class="line">Error: unknown <span class="built_in">command</span> or invalid arguments:  <span class="string">&quot;status&quot;</span>. Enter <span class="string">&quot;.help&quot;</span> <span class="keyword">for</span> <span class="built_in">help</span></span><br><span class="line">sqlite&gt; .show</span><br><span class="line">        <span class="built_in">echo</span>: off</span><br><span class="line">         eqp: off</span><br><span class="line">  explain: off</span><br><span class="line">     headers: off</span><br><span class="line">        mode: list</span><br><span class="line">   nullvalue: <span class="string">&quot;&quot;</span></span><br><span class="line">      output: stdout</span><br><span class="line">colseparator: <span class="string">&quot;|&quot;</span></span><br><span class="line">rowseparator: <span class="string">&quot;\n&quot;</span></span><br><span class="line">       stats: off</span><br><span class="line">       width:</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">1|Michael|18</span><br><span class="line">2|Michelle|19</span><br><span class="line">sqlite&gt; .header on</span><br><span class="line">sqlite&gt; .mode column</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">id          name        age</span><br><span class="line">----------  ----------  ----------</span><br><span class="line">1           Michael     18</span><br><span class="line">2           Michelle    19</span><br><span class="line">sqlite&gt; .timer on</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">id          name        age</span><br><span class="line">----------  ----------  ----------</span><br><span class="line">1           Michael     18</span><br><span class="line">2           Michelle    19</span><br><span class="line">Run Time: real 0.005 user 0.015625 sys 0.000000</span><br><span class="line">sqlite&gt; sqlite3 test.db .dump &gt; test.sql</span><br><span class="line">   ...&gt; ;</span><br><span class="line">Run Time: real 0.000 user 0.000000 sys 0.000000</span><br><span class="line">Error: near <span class="string">&quot;sqlite3&quot;</span>: syntax error</span><br><span class="line">sqlite&gt; .<span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">ETA@QiaoGaojian-PC MINGW64 /d/gitee/etaframe/sqlitetool (develop)</span><br><span class="line">$</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>7.BlockChain</category>
+        <category>3.Unity</category>
       </categories>
       <tags>
-        <tag>Go</tag>
+        <tag>Unity</tag>
+        <tag>工具</tag>
+        <tag>AR</tag>
       </tags>
   </entry>
   <entry>
@@ -885,6 +862,17 @@
       </tags>
   </entry>
   <entry>
+    <title>Tao-Web盈利模式总结</title>
+    <url>/2020/09/28/5.Web/20200928_Tao-Web%E7%9B%88%E5%88%A9%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="Web盈利模式总结"><a href="#Web盈利模式总结" class="headerlink" title="Web盈利模式总结"></a>Web盈利模式总结</h1><h2 id="建一个资源分享网站"><a href="#建一个资源分享网站" class="headerlink" title="建一个资源分享网站"></a>建一个资源分享网站</h2><h3 id="用户点击下载时-弹出下载页的同时弹出一个广告"><a href="#用户点击下载时-弹出下载页的同时弹出一个广告" class="headerlink" title="用户点击下载时,弹出下载页的同时弹出一个广告"></a>用户点击下载时,弹出下载页的同时弹出一个广告</h3><h2 id="资源类App"><a href="#资源类App" class="headerlink" title="资源类App"></a>资源类App</h2><h3 id="限制搜索次数"><a href="#限制搜索次数" class="headerlink" title="限制搜索次数"></a>限制搜索次数</h3><h3 id="应用广告"><a href="#应用广告" class="headerlink" title="应用广告"></a>应用广告</h3><h3 id="1元解锁免费下载权限"><a href="#1元解锁免费下载权限" class="headerlink" title="1元解锁免费下载权限"></a>1元解锁免费下载权限</h3>]]></content>
+      <categories>
+        <category>5.Web</category>
+      </categories>
+      <tags>
+        <tag>Web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tips-PHP中echo括号的处理</title>
     <url>/2020/09/28/5.Web/20200928_Tips-PHP%E4%B8%ADecho%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<h1 id="PHP中echo括号的处理"><a href="#PHP中echo括号的处理" class="headerlink" title="PHP中echo括号的处理"></a>PHP中echo括号的处理</h1><h2 id="关于echo"><a href="#关于echo" class="headerlink" title="关于echo"></a>关于echo</h2><p>echo 不是一个函数（它是一个语言结构）， 因此你不一定要使用小括号来指明参数，单引号，双引号都可以。 echo （不像其他语言构造）不表现得像一个函数， 所以不能总是使用一个函数的上下文。 另外，如果你想给echo 传递多个参数， 那么就不能使用小括号。</p>
@@ -894,17 +882,6 @@
       </categories>
       <tags>
         <tag>PHP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tao-Web盈利模式总结</title>
-    <url>/2020/09/28/5.Web/20200928_Tao-Web%E7%9B%88%E5%88%A9%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="Web盈利模式总结"><a href="#Web盈利模式总结" class="headerlink" title="Web盈利模式总结"></a>Web盈利模式总结</h1><h2 id="建一个资源分享网站"><a href="#建一个资源分享网站" class="headerlink" title="建一个资源分享网站"></a>建一个资源分享网站</h2><h3 id="用户点击下载时-弹出下载页的同时弹出一个广告"><a href="#用户点击下载时-弹出下载页的同时弹出一个广告" class="headerlink" title="用户点击下载时,弹出下载页的同时弹出一个广告"></a>用户点击下载时,弹出下载页的同时弹出一个广告</h3><h2 id="资源类App"><a href="#资源类App" class="headerlink" title="资源类App"></a>资源类App</h2><h3 id="限制搜索次数"><a href="#限制搜索次数" class="headerlink" title="限制搜索次数"></a>限制搜索次数</h3><h3 id="应用广告"><a href="#应用广告" class="headerlink" title="应用广告"></a>应用广告</h3><h3 id="1元解锁免费下载权限"><a href="#1元解锁免费下载权限" class="headerlink" title="1元解锁免费下载权限"></a>1元解锁免费下载权限</h3>]]></content>
-      <categories>
-        <category>5.Web</category>
-      </categories>
-      <tags>
-        <tag>Web</tag>
       </tags>
   </entry>
   <entry>
@@ -958,114 +935,6 @@
       <tags>
         <tag>Ubuntu</tag>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tao_谈一谈区块链+游戏</title>
-    <url>/2020/09/29/7.BlockChain/20200929_Tao_%E8%B0%88%E4%B8%80%E8%B0%88%E5%8C%BA%E5%9D%97%E9%93%BE+%E6%B8%B8%E6%88%8F/</url>
-    <content><![CDATA[<h1 id="谈一谈-区块链-游戏"><a href="#谈一谈-区块链-游戏" class="headerlink" title="谈一谈 区块链 + 游戏"></a>谈一谈 区块链 + 游戏</h1><blockquote>
-<p>本文总结于火币的“区块链+游戏”报告</p>
-</blockquote>
-<h2 id="从区块链行业角度看到的传统游戏的痛点"><a href="#从区块链行业角度看到的传统游戏的痛点" class="headerlink" title="从区块链行业角度看到的传统游戏的痛点"></a>从区块链行业角度看到的传统游戏的痛点</h2><ol>
-<li><p>数值不透明，规则可任意更改 (中心化弊端，可通过透明合约保障)，游戏开发者承担全部开发责任，不及预期导致用户流失； (开发迭代压力与用户消费速度的失衡)</p>
-</li>
-<li><p>渠道、发行垄断收益；(成熟产业特性，优质而小众的产品出头困难，游戏开发投入大、不确定性高)</p>
-</li>
-<li><p>虚拟资产不属于用户，亦无法顺畅实现价值流通； (传统游戏内在价值的封闭和不流通) (网易藏宝阁-&gt;Steam-&gt;C5Game/IGXE/5173 各自封闭且受限)</p>
-</li>
-<li><p>游戏内生恶性通货膨胀倾向，玩家利益得不到保证；(调节供给，限制流通，取消交易，以牺牲游戏可玩性来缓解通胀，效果有限)</p>
-</li>
-</ol>
-<p>游戏间体系不互通，玩家沉没成本高昂。 (游戏停服，玩家投入难以回补)</p>
-<h2 id="区块链行业特性及与游戏行业的契合点"><a href="#区块链行业特性及与游戏行业的契合点" class="headerlink" title="区块链行业特性及与游戏行业的契合点"></a>区块链行业特性及与游戏行业的契合点</h2><h3 id="最契合区块链的应用场景是原生数字化领域的，非与现实发生巨大联系的，并且多适用于："><a href="#最契合区块链的应用场景是原生数字化领域的，非与现实发生巨大联系的，并且多适用于：" class="headerlink" title="最契合区块链的应用场景是原生数字化领域的，非与现实发生巨大联系的，并且多适用于："></a>最契合区块链的应用场景是原生数字化领域的，非与现实发生巨大联系的，并且多适用于：</h3><ul>
-<li>交流效率低，信任成本高的领域（产业链条长、环节众多）；</li>
-<li>对真实性、共识有极大需求的领域（不透明、黑箱）；</li>
-<li>以及长尾流量、资源分散、参与者之间利益不一致的领域（需要激励）。</li>
-</ul>
-<h3 id="游戏行业契合度"><a href="#游戏行业契合度" class="headerlink" title="游戏行业契合度"></a>游戏行业契合度</h3><ul>
-<li>原生数字化</li>
-<li>游戏用户群体年轻，容易接受新鲜事物，有望在未来 (与区块链这一新事物) 形成融合和合力。</li>
-<li>游戏不分语言，具备天生的跨国界属性，易传播，易出现爆款，点燃市场</li>
-</ul>
-<h2 id="区块链对游戏行业的重构"><a href="#区块链对游戏行业的重构" class="headerlink" title="区块链对游戏行业的重构"></a>区块链对游戏行业的重构</h2><p>1.上链，公平可信，同时Token激励让游戏社区化，革新不再单纯是开发者的责任；</p>
-<ul>
-<li>对于传统的游戏来说，上链所带来的透明化，意味着可为其带来超额利润的优势不再，同时，代码透明化后，一款游戏的可复制性较强，容易被抄袭。因而我们认为，区块链游戏，必将是从没有历史包袱的纯区块链游戏开发者开始的，并逐步迁移、倒逼传统游戏开发者加入区块链化进程。</li>
-<li>而传统游戏的区块链化，亦将首先从改良优化的角度出发，逐步深入，且会经过游戏币上链，到游戏资产上链，再到核心游戏逻辑上链（智能合约运行游戏），最终到游戏整体上链这一缓慢和需要适应的过程。</li>
-<li>社区可以在Token经济激励的前提下，根据自己的需求，选择和实现各自的治理方式和游戏规则。区块链有望将游戏社区化，有望大幅催生UGC，并延长部分游戏的生命周期。</li>
-</ul>
-<p>2.借助区块链，打破渠道垄断，产生新的自分销网络；</p>
-<ul>
-<li>中小的渠道商本身因为没有自己的SDK，数据依附于大厂，存在一定的不信任问题。有了区块链、Token后，就可以有一个完全透明、去中心化的激励型分发接口，记录用户所有的下载、注册、激活、消费等等行为，并不可篡改，从而建立起共识，更为之后广告商的买量业务奠定了真实性的基础；而区块链本身的可追溯性，天生适合应对长尾、分散又关系错综复杂的流量，即可以非常明晰地看到流量的来源，并进行对应的分析，结合Token，对不同的渠道调整激励策略。最终使得中小独立开发者、中小渠道和用户实现共赢共生的关系。</li>
-</ul>
-<p>3.用户真实拥有游戏内资产（True Ownership），并可借助智能合约去信任流通；</p>
-<ul>
-<li>每一个虚拟资产都可以归结为一个独一无二的Token，称之为Non-Fungible Token（NFT），并通过加密方式存储在用户的区块链账户地址之中，安全、可靠，所有权完全归属用户，成为“稀缺性”、“实用性”和“观赏性”结合的收藏品，大大提升了虚拟资产的价值</li>
-<li>存储在链上的虚拟资产，也可以通过智能合约形式，在去信任的环境下进行无摩擦点对点交易，并可以在区块链上看到所有成交历史，真实可信。</li>
-</ul>
-<p>4.区块链的跨应用账本特性，使同款IP资产可以被复用，大大增加游戏间的交互性及玩法。</p>
-<ul>
-<li>由于区块链的跨应用账本特性，同一款IP资产可以被复用，例如IP资产以太猫可以被用在其他游戏之中，或是进行二次改造，游戏与游戏之间是可以互通及联动的，而区块链本身由此也成为了一个素材库，可为开发者所随时调用，引领UGC的新时代。</li>
-</ul>
-<p>5.重塑游戏内经济体系。</p>
-<ul>
-<li>游戏经济体系设计，不再是传统的数值策划，而是通证经济，即可构建一个总量有共识，友好开放的游戏Token体系，并可实现游戏价值评估尺度的范式转移。</li>
-<li>（1）友好开放的游戏Token体系（2）总量有共识（3）价值评估尺度的范式转移</li>
-<li>传统游戏的价值评估，也取决于为开发商创造了多少利润，而非给玩家带来了多少利益。然而区块链游戏的本质是社区，是共赢，是共有。</li>
-</ul>
-<h2 id="阻碍区块链游戏大范围部署的瓶颈，以及区块链游戏的缺陷"><a href="#阻碍区块链游戏大范围部署的瓶颈，以及区块链游戏的缺陷" class="headerlink" title="阻碍区块链游戏大范围部署的瓶颈，以及区块链游戏的缺陷"></a>阻碍区块链游戏大范围部署的瓶颈，以及区块链游戏的缺陷</h2><ul>
-<li><p>用户量小，Dapp运行需载入钱包，消耗资源，秘钥管理困难，门槛高</p>
-</li>
-<li><p>游戏区块链化仍在初级阶段，而大部分区块链游戏系原生，且玩法原始</p>
-</li>
-<li><p>由于目前主流区块链底层智能合约运行均需要消耗Gas费用，因而若游戏机制过于复杂，可能会导致用户频繁签名，一定程度上也影响了用户在游戏中的体验</p>
-</li>
-<li><p>目前的区块链游戏，大部分并非传统游戏的区块链化，实际系原生的区块链游戏，游戏类型相对原始，对于大部分真正的玩家来说，难以具备很强的吸引力，区块链游戏的用户群体，与真正的游戏硬核玩家，重合度相对较低。</p>
-</li>
-<li><p>底层不足，大型游戏的运行追求零延迟，然而目前公链性能不符要求</p>
-</li>
-<li><p>目前区块链游戏投机性较明显，尚未找到可持续的用户留存方式</p>
-<p>  投机性严重,区块链游戏潜在具备了公开透明、资产可交易等等优势，然而由于该部分特性对于玩家来说并不直观，同时区块链游戏的体验尚还不能与传统游戏相比，为了吸引用户的涌入，区块链游戏大多直接或间接打着让用户赚钱的旗号进行传播，而用户赚钱的来源，常常来自于新玩家的投入，具备极强的投机性特征，实际已经偏离了“游戏”本身定义的初衷。该种模式一定程序上能快速吸引流量，然而由于游戏本身的持续依赖“接盘”者的存在，因而往往面临后劲不足的问题，部分用户高位“接盘”，游戏新增用户难以为继时，游戏便开始走下坡路，游戏的生命周期被投机性所吞噬和透支。</p>
-</li>
-</ul>
-<h2 id="“区块链-游戏”产业链的五大板块-各类实例见文章本身"><a href="#“区块链-游戏”产业链的五大板块-各类实例见文章本身" class="headerlink" title="“区块链+游戏”产业链的五大板块 (各类实例见文章本身)"></a>“区块链+游戏”产业链的五大板块 (各类实例见文章本身)</h2><ol>
-<li>基础设施及开发者工具；</li>
-<li>跨游戏虚拟资产交易市场；</li>
-<li>区块链游戏；</li>
-<li>基于区块链的游戏分发平台、社区；</li>
-<li>周边工具与服务。</li>
-</ol>
-<blockquote>
-<p>“区块链+游戏”的红利，将从基础设施及开发者工具开始，让更多的游戏上链，并以爆款区块链游戏的大量出现为标志达到高潮；而随着区块链游戏以及相应虚拟资产数量的不断增多，跨游戏虚拟资产交易市场，以及基于区块链的游戏分发平台/社区的也会逐步兴起，成为流量汇集的中心；而周边工具、服务，随着“区块链+游戏”行业的发展，则具有较为明确和稳定的发展。</p>
-</blockquote>
-<h2 id="“区块链-游戏”赛道未来的潜在爆发点"><a href="#“区块链-游戏”赛道未来的潜在爆发点" class="headerlink" title="“区块链+游戏”赛道未来的潜在爆发点"></a>“区块链+游戏”赛道未来的潜在爆发点</h2><ul>
-<li><p>含原生Token的游戏能适应更为复杂的商业模式，而不含原生Token的游戏，则更适用小而美、简单的商业逻辑；</p>
-</li>
-<li><p>区块链怎样与游戏进行融合？我们认为，区块链与游戏融合，是在含Token的前提下，构建一个开发者、发行商与游戏玩家利益一致的永续生态，它的思想将会体现在如下三个方面：</p>
-<ol>
-<li>激励机制：游戏中的“Proof-of-Work”与“Proof-of-Stake”</li>
-<li>游戏价值集中在NFT资产之上，通过Token价值输出变现</li>
-<li>充分激发UGC创造力、玩家社区贡献的容器</li>
-</ol>
-</li>
-<li><p>区块链游戏（或游戏区块链化）的可持续商业模式在哪里？</p>
-<ol>
-<li>同时，区块链结合游戏的核心即游戏内资产（NFT），其是稀缺性、实用性及观赏性结合的收藏品，设计精髓在于为用户创造稀缺性和唯一性的价值。</li>
-<li>未来，预计以ERC721为标准的游戏虚拟资产市值将会逐步膨胀，成为自ERC20同质化Token之后又一大爆点。而这将经历两个过程，首先是原生区块链游戏的ERC721资产市值的增长和流转，其次是传统游戏厂商手中的IP，尤其是一部分老牌的IP的Token化，借助区块链重新焕发活力，而这部分虚拟资产，很可能会通过授权的形式进入这个市场。</li>
-<li>另外，区块链游戏商业模式将围绕资产交易进行，并从原生区块链游戏的ERC721资产开始，逐步拓展到传统游戏IP，尤其是老牌IP。</li>
-</ol>
-</li>
-<li><p>区块链游戏的新趋势与玩法构想</p>
-</li>
-</ul>
-<p>实物ERC721—桌游的Token化改造 (Playtable)</p>
-]]></content>
-      <categories>
-        <category>7.BlockChain</category>
-      </categories>
-      <tags>
-        <tag>效率</tag>
-        <tag>工具</tag>
-        <tag>重构</tag>
       </tags>
   </entry>
   <entry>
@@ -1321,30 +1190,6 @@
       </tags>
   </entry>
   <entry>
-    <title>BestPractice-Android开发最佳实践</title>
-    <url>/2020/09/29/4.Android/20200929_BestPractice-Android%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</url>
-    <content><![CDATA[<h1 id="Android-开发最佳实践"><a href="#Android-开发最佳实践" class="headerlink" title="Android 开发最佳实践"></a>Android 开发最佳实践</h1><h2 id="使用Android-Studio"><a href="#使用Android-Studio" class="headerlink" title="使用Android Studio"></a>使用Android Studio</h2><h2 id="使用-String-xml"><a href="#使用-String-xml" class="headerlink" title="使用 String.xml"></a>使用 String.xml</h2><h2 id="创建模块化的UI布局-方便复用"><a href="#创建模块化的UI布局-方便复用" class="headerlink" title="创建模块化的UI布局,方便复用"></a>创建模块化的UI布局,方便复用</h2><h2 id="包含xxxhdpi资源"><a href="#包含xxxhdpi资源" class="headerlink" title="包含xxxhdpi资源"></a>包含xxxhdpi资源</h2><h2 id="应用图标放在mipmap-folder文件夹"><a href="#应用图标放在mipmap-folder文件夹" class="headerlink" title="应用图标放在mipmap-folder文件夹"></a>应用图标放在mipmap-folder文件夹</h2><h2 id="为debug和release划分不同的资源文件夹"><a href="#为debug和release划分不同的资源文件夹" class="headerlink" title="为debug和release划分不同的资源文件夹"></a>为debug和release划分不同的资源文件夹</h2><p><img src="https://ds1hty5qgiz73.cloudfront.net/wp-content/uploads/2015/08/file_structure1.jpg" alt="image"></p>
-<h2 id="尽量使用shapes和selectors"><a href="#尽量使用shapes和selectors" class="headerlink" title="尽量使用shapes和selectors"></a>尽量使用shapes和selectors</h2><h2 id="避免深层次的布局"><a href="#避免深层次的布局" class="headerlink" title="避免深层次的布局"></a>避免深层次的布局</h2><h2 id="尽量使用Gradle引入依赖"><a href="#尽量使用Gradle引入依赖" class="headerlink" title="尽量使用Gradle引入依赖"></a>尽量使用Gradle引入依赖</h2><h2 id="使用Retrofit管理网络请求"><a href="#使用Retrofit管理网络请求" class="headerlink" title="使用Retrofit管理网络请求"></a>使用Retrofit管理网络请求</h2><h2 id="使用RxJava"><a href="#使用RxJava" class="headerlink" title="使用RxJava"></a>使用RxJava</h2><h2 id="使用Glide-Fresco"><a href="#使用Glide-Fresco" class="headerlink" title="使用Glide/Fresco"></a>使用Glide/Fresco</h2><h2 id="使用Parcellable序列化"><a href="#使用Parcellable序列化" class="headerlink" title="使用Parcellable序列化"></a>使用Parcellable序列化</h2><h2 id="控制好异步任务的生命周期"><a href="#控制好异步任务的生命周期" class="headerlink" title="控制好异步任务的生命周期"></a>控制好异步任务的生命周期</h2><h2 id="IO操作不要放到UI线程"><a href="#IO操作不要放到UI线程" class="headerlink" title="IO操作不要放到UI线程"></a>IO操作不要放到UI线程</h2><h2 id="使用Style复用UI属性"><a href="#使用Style复用UI属性" class="headerlink" title="使用Style复用UI属性"></a>使用Style复用UI属性</h2><h2 id="大量连接String时使用StringBuilder"><a href="#大量连接String时使用StringBuilder" class="headerlink" title="大量连接String时使用StringBuilder"></a>大量连接String时使用StringBuilder</h2><h2 id="Return返回空对象而不是null"><a href="#Return返回空对象而不是null" class="headerlink" title="Return返回空对象而不是null"></a>Return返回空对象而不是null</h2><h2 id="添加StartActivity方法-减少重复"><a href="#添加StartActivity方法-减少重复" class="headerlink" title="添加StartActivity方法,减少重复"></a>添加StartActivity方法,减少重复</h2><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.innofied.com/13-android-development-best-practices/">Android development best practices we follow at Innofied</a></p>
-<p><a href="https://github.com/futurice/android-best-practices/blob/master/translations/Chinese/README.cn.md">Android 开发最佳实践</a></p>
-<p><a href="https://www.jianshu.com/p/613d28a3c8a0">Android最佳实践指南</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/49539736">Android性能最佳实践：APK瘦身计划</a></p>
-<p><a href="https://stuff.mit.edu/afs/sipb/project/android/docs/training/best-ux.html">Best Practices for User Experience &amp; UI</a></p>
-<p><a href="https://blog.mindorks.com/android-development-best-practices-83c94b027fd3">Android Development Best Practices</a></p>
-<p><a href="https://medium.com/mindorks/best-coding-practices-tips-and-more-for-android-4ec03c7eeb2c">Best coding practices, tips and more for Android
-</a></p>
-<p><a href="https://developer.android.com/training/constraint-layout/">Build a Responsive UI with ConstraintLayout</a></p>
-<p><a href="https://auth0.com/blog/best-practices-in-android-development/">Best Practices in Android Development</a></p>
-]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>Java</tag>
-        <tag>Android Studio</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Bug-AAPT2_error_check_logs_for_details</title>
     <url>/2020/09/29/4.Android/20200929_Bug-AAPT2_error_check_logs_for_details/</url>
     <content><![CDATA[<h1 id="AAPT2-error-check-logs-for-details"><a href="#AAPT2-error-check-logs-for-details" class="headerlink" title="AAPT2 error: check logs for details"></a>AAPT2 error: check logs for details</h1><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>今天写的布局文件中存在一个错误的属性: android:layout_to=”@id/item_mg_bg_x”<br>因为之前项目没有build成功 这个错误没有被IDE检查出来 导致Aapt2报错 把错误的属性改了就好了</p>
@@ -1355,6 +1200,22 @@
       </categories>
       <tags>
         <tag>IDE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Bug-AgentWeb所在的Activity无法启动</title>
+    <url>/2020/09/29/4.Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/</url>
+    <content><![CDATA[<h1 id="AgentWeb所在的Activity无法启动"><a href="#AgentWeb所在的Activity无法启动" class="headerlink" title="AgentWeb所在的Activity无法启动"></a>AgentWeb所在的Activity无法启动</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>天狼大厅点击按钮打开一个网页,结果写完代码没有任何反应,找Bug找了两个小时,最后通过单步调试找到问题,报没有这个activity的异常</p>
+<h2 id="教训"><a href="#教训" class="headerlink" title="教训"></a>教训</h2><p>以后新建任何脚本资源特别是Activity Layout 都要用AndroidStudio自带的方式新建  不再自己手动创建</p>
+<p>以后遇到问题无法解决的话单步调试  进去进去进去  不要在外面找问题  吐槽一句 Logcat报的错实在太乱了 哎~</p>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Web</tag>
+        <tag>Bug</tag>
       </tags>
   </entry>
   <entry>
@@ -1447,15 +1308,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Bug-Cannot_find_the_setter_for_attribute_android_layout_width_with_parameter_type_string_on_android_widget_ImageView</title>
-    <url>/2020/09/29/4.Android/20200929_Bug-Cannot_find_the_setter_for_attribute_android_layout_width_with_parameter_type_string_on_android_widget_ImageView/</url>
-    <content><![CDATA[<h1 id="Cannot-find-the-setter-for-attribute-‘android-layout-width’-with-parameter-type-int-on-android-widget-ImageView"><a href="#Cannot-find-the-setter-for-attribute-‘android-layout-width’-with-parameter-type-int-on-android-widget-ImageView" class="headerlink" title="Cannot find the setter for attribute ‘android:layout_width’ with parameter type int on android.widget.ImageView"></a>Cannot find the setter for attribute ‘android:layout_width’ with parameter type int on android.widget.ImageView</h1><h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><p>最早我以为是xml文件哪里写错了,排查了一遍没有发现错误,然后删除.gradle文件夹和.idea文件夹重新打开,问题解决.<br>估计是因为之前改了项目名字造成的错误.</p>
-]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Bug-Java中保留String空格</title>
     <url>/2020/09/29/4.Android/20200929_Bug-Java%E4%B8%AD%E4%BF%9D%E7%95%99String%E7%A9%BA%E6%A0%BC/</url>
     <content><![CDATA[<h1 id="Java中保留String空格"><a href="#Java中保留String空格" class="headerlink" title="Java中保留String空格"></a>Java中保留String空格</h1><h2 id="有空格的地方用-u0020-代替"><a href="#有空格的地方用-u0020-代替" class="headerlink" title="有空格的地方用 \u0020 代替"></a>有空格的地方用 \u0020 代替</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String msg = MessageFormat.format(<span class="string">&quot;您是否要花费\u0020\u0020\u0020&#123;0&#125;\u0020\u0020\u0020钻石\n&quot;</span> +</span><br><span class="line">                                                                <span class="string">&quot;点亮一个月的&#123;1&#125;徽章权限？&quot;</span>, price, name);</span><br></pre></td></tr></table></figure>
@@ -1471,6 +1323,39 @@
       </tags>
   </entry>
   <entry>
+    <title>Bug-Cannot_find_the_setter_for_attribute_android_layout_width_with_parameter_type_string_on_android_widget_ImageView</title>
+    <url>/2020/09/29/4.Android/20200929_Bug-Cannot_find_the_setter_for_attribute_android_layout_width_with_parameter_type_string_on_android_widget_ImageView/</url>
+    <content><![CDATA[<h1 id="Cannot-find-the-setter-for-attribute-‘android-layout-width’-with-parameter-type-int-on-android-widget-ImageView"><a href="#Cannot-find-the-setter-for-attribute-‘android-layout-width’-with-parameter-type-int-on-android-widget-ImageView" class="headerlink" title="Cannot find the setter for attribute ‘android:layout_width’ with parameter type int on android.widget.ImageView"></a>Cannot find the setter for attribute ‘android:layout_width’ with parameter type int on android.widget.ImageView</h1><h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><p>最早我以为是xml文件哪里写错了,排查了一遍没有发现错误,然后删除.gradle文件夹和.idea文件夹重新打开,问题解决.<br>估计是因为之前改了项目名字造成的错误.</p>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>BestPractice-Android开发最佳实践</title>
+    <url>/2020/09/29/4.Android/20200929_BestPractice-Android%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</url>
+    <content><![CDATA[<h1 id="Android-开发最佳实践"><a href="#Android-开发最佳实践" class="headerlink" title="Android 开发最佳实践"></a>Android 开发最佳实践</h1><h2 id="使用Android-Studio"><a href="#使用Android-Studio" class="headerlink" title="使用Android Studio"></a>使用Android Studio</h2><h2 id="使用-String-xml"><a href="#使用-String-xml" class="headerlink" title="使用 String.xml"></a>使用 String.xml</h2><h2 id="创建模块化的UI布局-方便复用"><a href="#创建模块化的UI布局-方便复用" class="headerlink" title="创建模块化的UI布局,方便复用"></a>创建模块化的UI布局,方便复用</h2><h2 id="包含xxxhdpi资源"><a href="#包含xxxhdpi资源" class="headerlink" title="包含xxxhdpi资源"></a>包含xxxhdpi资源</h2><h2 id="应用图标放在mipmap-folder文件夹"><a href="#应用图标放在mipmap-folder文件夹" class="headerlink" title="应用图标放在mipmap-folder文件夹"></a>应用图标放在mipmap-folder文件夹</h2><h2 id="为debug和release划分不同的资源文件夹"><a href="#为debug和release划分不同的资源文件夹" class="headerlink" title="为debug和release划分不同的资源文件夹"></a>为debug和release划分不同的资源文件夹</h2><p><img src="https://ds1hty5qgiz73.cloudfront.net/wp-content/uploads/2015/08/file_structure1.jpg" alt="image"></p>
+<h2 id="尽量使用shapes和selectors"><a href="#尽量使用shapes和selectors" class="headerlink" title="尽量使用shapes和selectors"></a>尽量使用shapes和selectors</h2><h2 id="避免深层次的布局"><a href="#避免深层次的布局" class="headerlink" title="避免深层次的布局"></a>避免深层次的布局</h2><h2 id="尽量使用Gradle引入依赖"><a href="#尽量使用Gradle引入依赖" class="headerlink" title="尽量使用Gradle引入依赖"></a>尽量使用Gradle引入依赖</h2><h2 id="使用Retrofit管理网络请求"><a href="#使用Retrofit管理网络请求" class="headerlink" title="使用Retrofit管理网络请求"></a>使用Retrofit管理网络请求</h2><h2 id="使用RxJava"><a href="#使用RxJava" class="headerlink" title="使用RxJava"></a>使用RxJava</h2><h2 id="使用Glide-Fresco"><a href="#使用Glide-Fresco" class="headerlink" title="使用Glide/Fresco"></a>使用Glide/Fresco</h2><h2 id="使用Parcellable序列化"><a href="#使用Parcellable序列化" class="headerlink" title="使用Parcellable序列化"></a>使用Parcellable序列化</h2><h2 id="控制好异步任务的生命周期"><a href="#控制好异步任务的生命周期" class="headerlink" title="控制好异步任务的生命周期"></a>控制好异步任务的生命周期</h2><h2 id="IO操作不要放到UI线程"><a href="#IO操作不要放到UI线程" class="headerlink" title="IO操作不要放到UI线程"></a>IO操作不要放到UI线程</h2><h2 id="使用Style复用UI属性"><a href="#使用Style复用UI属性" class="headerlink" title="使用Style复用UI属性"></a>使用Style复用UI属性</h2><h2 id="大量连接String时使用StringBuilder"><a href="#大量连接String时使用StringBuilder" class="headerlink" title="大量连接String时使用StringBuilder"></a>大量连接String时使用StringBuilder</h2><h2 id="Return返回空对象而不是null"><a href="#Return返回空对象而不是null" class="headerlink" title="Return返回空对象而不是null"></a>Return返回空对象而不是null</h2><h2 id="添加StartActivity方法-减少重复"><a href="#添加StartActivity方法-减少重复" class="headerlink" title="添加StartActivity方法,减少重复"></a>添加StartActivity方法,减少重复</h2><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.innofied.com/13-android-development-best-practices/">Android development best practices we follow at Innofied</a></p>
+<p><a href="https://github.com/futurice/android-best-practices/blob/master/translations/Chinese/README.cn.md">Android 开发最佳实践</a></p>
+<p><a href="https://www.jianshu.com/p/613d28a3c8a0">Android最佳实践指南</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/49539736">Android性能最佳实践：APK瘦身计划</a></p>
+<p><a href="https://stuff.mit.edu/afs/sipb/project/android/docs/training/best-ux.html">Best Practices for User Experience &amp; UI</a></p>
+<p><a href="https://blog.mindorks.com/android-development-best-practices-83c94b027fd3">Android Development Best Practices</a></p>
+<p><a href="https://medium.com/mindorks/best-coding-practices-tips-and-more-for-android-4ec03c7eeb2c">Best coding practices, tips and more for Android
+</a></p>
+<p><a href="https://developer.android.com/training/constraint-layout/">Build a Responsive UI with ConstraintLayout</a></p>
+<p><a href="https://auth0.com/blog/best-practices-in-android-development/">Best Practices in Android Development</a></p>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Java</tag>
+        <tag>Android Studio</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Bug-trying_to_draw_too_large_ bitmap</title>
     <url>/2020/09/29/4.Android/20200929_Bug-trying_to_draw_too_large_%20bitmap/</url>
     <content><![CDATA[<h1 id="trying-to-draw-too-large-bitmap"><a href="#trying-to-draw-too-large-bitmap" class="headerlink" title="trying_to_draw_too_large_ bitmap"></a>trying_to_draw_too_large_ bitmap</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>加载一个大背景图片时,报错 trying to draw too large(138078000bytes) bitmap</p>
@@ -1483,22 +1368,6 @@
       <categories>
         <category>4.Android</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Bug-AgentWeb所在的Activity无法启动</title>
-    <url>/2020/09/29/4.Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/</url>
-    <content><![CDATA[<h1 id="AgentWeb所在的Activity无法启动"><a href="#AgentWeb所在的Activity无法启动" class="headerlink" title="AgentWeb所在的Activity无法启动"></a>AgentWeb所在的Activity无法启动</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>天狼大厅点击按钮打开一个网页,结果写完代码没有任何反应,找Bug找了两个小时,最后通过单步调试找到问题,报没有这个activity的异常</p>
-<h2 id="教训"><a href="#教训" class="headerlink" title="教训"></a>教训</h2><p>以后新建任何脚本资源特别是Activity Layout 都要用AndroidStudio自带的方式新建  不再自己手动创建</p>
-<p>以后遇到问题无法解决的话单步调试  进去进去进去  不要在外面找问题  吐槽一句 Logcat报的错实在太乱了 哎~</p>
-]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>Web</tag>
-        <tag>Bug</tag>
-      </tags>
   </entry>
   <entry>
     <title>Bug-天狼安卓不足</title>
@@ -1555,22 +1424,6 @@
       <categories>
         <category>4.Android</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Roadmap-Android开发书籍</title>
-    <url>/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E4%B9%A6%E7%B1%8D/</url>
-    <content><![CDATA[<h1 id="Android开发书籍"><a href="#Android开发书籍" class="headerlink" title="Android开发书籍"></a>Android开发书籍</h1><h2 id="第一行代码"><a href="#第一行代码" class="headerlink" title="第一行代码"></a>第一行代码</h2><h2 id="Android开发艺术探索"><a href="#Android开发艺术探索" class="headerlink" title="Android开发艺术探索"></a>Android开发艺术探索</h2><h2 id="Thinking-in-Java"><a href="#Thinking-in-Java" class="headerlink" title="Thinking in Java"></a>Thinking in Java</h2><h2 id="Effective-Java"><a href="#Effective-Java" class="headerlink" title="Effective Java"></a>Effective Java</h2><h2 id="Java-并发编程实战"><a href="#Java-并发编程实战" class="headerlink" title="Java 并发编程实战"></a>Java 并发编程实战</h2><h2 id="深入理解-Java-虚拟机"><a href="#深入理解-Java-虚拟机" class="headerlink" title="深入理解 Java 虚拟机"></a>深入理解 Java 虚拟机</h2><h2 id="Head-First-设计模式"><a href="#Head-First-设计模式" class="headerlink" title="Head First 设计模式"></a>Head First 设计模式</h2><h2 id="数据结构与算法分析"><a href="#数据结构与算法分析" class="headerlink" title="数据结构与算法分析"></a>数据结构与算法分析</h2><h2 id="图解-Http-协议"><a href="#图解-Http-协议" class="headerlink" title="图解 Http 协议"></a>图解 Http 协议</h2><h2 id="Unix-编程艺术"><a href="#Unix-编程艺术" class="headerlink" title="Unix 编程艺术"></a>Unix 编程艺术</h2>]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>数据结构</tag>
-        <tag>算法</tag>
-        <tag>Java</tag>
-        <tag>编程</tag>
-        <tag>设计模式</tag>
-      </tags>
   </entry>
   <entry>
     <title>Roadmap-Android开发中常用框架</title>
@@ -1681,12 +1534,28 @@
         <tag>Android</tag>
         <tag>工具</tag>
         <tag>AR</tag>
-        <tag>Go</tag>
         <tag>Java</tag>
+        <tag>Go</tag>
         <tag>编程</tag>
         <tag>OpenGL</tag>
         <tag>Js</tag>
         <tag>Html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Roadmap-Android开发书籍</title>
+    <url>/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E4%B9%A6%E7%B1%8D/</url>
+    <content><![CDATA[<h1 id="Android开发书籍"><a href="#Android开发书籍" class="headerlink" title="Android开发书籍"></a>Android开发书籍</h1><h2 id="第一行代码"><a href="#第一行代码" class="headerlink" title="第一行代码"></a>第一行代码</h2><h2 id="Android开发艺术探索"><a href="#Android开发艺术探索" class="headerlink" title="Android开发艺术探索"></a>Android开发艺术探索</h2><h2 id="Thinking-in-Java"><a href="#Thinking-in-Java" class="headerlink" title="Thinking in Java"></a>Thinking in Java</h2><h2 id="Effective-Java"><a href="#Effective-Java" class="headerlink" title="Effective Java"></a>Effective Java</h2><h2 id="Java-并发编程实战"><a href="#Java-并发编程实战" class="headerlink" title="Java 并发编程实战"></a>Java 并发编程实战</h2><h2 id="深入理解-Java-虚拟机"><a href="#深入理解-Java-虚拟机" class="headerlink" title="深入理解 Java 虚拟机"></a>深入理解 Java 虚拟机</h2><h2 id="Head-First-设计模式"><a href="#Head-First-设计模式" class="headerlink" title="Head First 设计模式"></a>Head First 设计模式</h2><h2 id="数据结构与算法分析"><a href="#数据结构与算法分析" class="headerlink" title="数据结构与算法分析"></a>数据结构与算法分析</h2><h2 id="图解-Http-协议"><a href="#图解-Http-协议" class="headerlink" title="图解 Http 协议"></a>图解 Http 协议</h2><h2 id="Unix-编程艺术"><a href="#Unix-编程艺术" class="headerlink" title="Unix 编程艺术"></a>Unix 编程艺术</h2>]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+        <tag>Java</tag>
+        <tag>编程</tag>
+        <tag>设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -1921,20 +1790,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Roadmap-Android重要知识点</title>
-    <url>/2020/09/29/4.Android/20200929_Roadmap-Android%E9%87%8D%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<h1 id="Android重要知识点"><a href="#Android重要知识点" class="headerlink" title="Android重要知识点"></a>Android重要知识点</h1><h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><h2 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h2><h2 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h2><h2 id="Java内存泄漏问题"><a href="#Java内存泄漏问题" class="headerlink" title="Java内存泄漏问题"></a>Java内存泄漏问题</h2><h2 id="UI布局"><a href="#UI布局" class="headerlink" title="UI布局"></a>UI布局</h2><h2 id="RecycleView"><a href="#RecycleView" class="headerlink" title="RecycleView"></a>RecycleView</h2><h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><h2 id="Java数据结构"><a href="#Java数据结构" class="headerlink" title="Java数据结构"></a>Java数据结构</h2><h2 id="Java设计模式"><a href="#Java设计模式" class="headerlink" title="Java设计模式"></a>Java设计模式</h2><h2 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h2>]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>数据结构</tag>
-        <tag>Java</tag>
-        <tag>设计模式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Roadmap-Leetcode刷题指南</title>
     <url>/2020/09/29/4.Android/20200929_Roadmap-Leetcode%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[<h1 id="Leetcode刷题指南"><a href="#Leetcode刷题指南" class="headerlink" title="Leetcode刷题指南"></a>Leetcode刷题指南</h1><h2 id="新手向"><a href="#新手向" class="headerlink" title="新手向"></a>新手向</h2><ul>
@@ -2001,9 +1856,9 @@
         <category>4.Android</category>
       </categories>
       <tags>
-        <tag>重构</tag>
         <tag>Git</tag>
         <tag>编程</tag>
+        <tag>重构</tag>
       </tags>
   </entry>
   <entry>
@@ -2181,13 +2036,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Tips-Android开发中的Handler</title>
-    <url>/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/</url>
-    <content><![CDATA[<h1 id="Android开发中的Handler"><a href="#Android开发中的Handler" class="headerlink" title="Android开发中的Handler"></a>Android开发中的Handler</h1><p>Handler机制是Android中相当经典的异步消息机制，在Android发展的历史长河中扮演着很重要的角色，无论是我们直接面对的应用层还是FrameWork层，使用的场景还是相当的多。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> Button mBtnTest;</span><br><span class="line"><span class="keyword">private</span> Handler mTestHandler = <span class="keyword">new</span> Handler()&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span> (msg.what)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                mBtnTest.setText(<span class="string">&quot;收到消息1&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(<span class="keyword">final</span> Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line">    mBtnTest = (Button) findViewById(R.id.btn_test);</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">                mTestHandler.sendEmptyMessage(<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2018/0522/9728.html">10分钟了解Android的Handler机制</a></p>
-]]></content>
+    <title>Tips-Android开发规范</title>
+    <url>/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/</url>
+    <content><![CDATA[<h1 id="Android开发规范"><a href="#Android开发规范" class="headerlink" title="Android开发规范"></a>Android开发规范</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><h3 id="adapter"><a href="#adapter" class="headerlink" title="adapter"></a>adapter</h3><h3 id="application"><a href="#application" class="headerlink" title="application"></a>application</h3><h3 id="interf"><a href="#interf" class="headerlink" title="interf"></a>interf</h3><h3 id="model"><a href="#model" class="headerlink" title="model"></a>model</h3><h3 id="network"><a href="#network" class="headerlink" title="network"></a>network</h3><h3 id="receiver"><a href="#receiver" class="headerlink" title="receiver"></a>receiver</h3><h3 id="rx"><a href="#rx" class="headerlink" title="rx"></a>rx</h3><h3 id="service"><a href="#service" class="headerlink" title="service"></a>service</h3><h3 id="util"><a href="#util" class="headerlink" title="util"></a>util</h3><h3 id="view"><a href="#view" class="headerlink" title="view"></a>view</h3><h3 id="viewmodel"><a href="#viewmodel" class="headerlink" title="viewmodel"></a>viewmodel</h3>]]></content>
       <categories>
         <category>4.Android</category>
       </categories>
@@ -2196,9 +2047,13 @@
       </tags>
   </entry>
   <entry>
-    <title>Tips-Android开发规范</title>
-    <url>/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/</url>
-    <content><![CDATA[<h1 id="Android开发规范"><a href="#Android开发规范" class="headerlink" title="Android开发规范"></a>Android开发规范</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><h3 id="adapter"><a href="#adapter" class="headerlink" title="adapter"></a>adapter</h3><h3 id="application"><a href="#application" class="headerlink" title="application"></a>application</h3><h3 id="interf"><a href="#interf" class="headerlink" title="interf"></a>interf</h3><h3 id="model"><a href="#model" class="headerlink" title="model"></a>model</h3><h3 id="network"><a href="#network" class="headerlink" title="network"></a>network</h3><h3 id="receiver"><a href="#receiver" class="headerlink" title="receiver"></a>receiver</h3><h3 id="rx"><a href="#rx" class="headerlink" title="rx"></a>rx</h3><h3 id="service"><a href="#service" class="headerlink" title="service"></a>service</h3><h3 id="util"><a href="#util" class="headerlink" title="util"></a>util</h3><h3 id="view"><a href="#view" class="headerlink" title="view"></a>view</h3><h3 id="viewmodel"><a href="#viewmodel" class="headerlink" title="viewmodel"></a>viewmodel</h3>]]></content>
+    <title>Tips-Android开发中的Handler</title>
+    <url>/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/</url>
+    <content><![CDATA[<h1 id="Android开发中的Handler"><a href="#Android开发中的Handler" class="headerlink" title="Android开发中的Handler"></a>Android开发中的Handler</h1><p>Handler机制是Android中相当经典的异步消息机制，在Android发展的历史长河中扮演着很重要的角色，无论是我们直接面对的应用层还是FrameWork层，使用的场景还是相当的多。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> Button mBtnTest;</span><br><span class="line"><span class="keyword">private</span> Handler mTestHandler = <span class="keyword">new</span> Handler()&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span> (msg.what)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                mBtnTest.setText(<span class="string">&quot;收到消息1&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(<span class="keyword">final</span> Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line">    mBtnTest = (Button) findViewById(R.id.btn_test);</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">                mTestHandler.sendEmptyMessage(<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2018/0522/9728.html">10分钟了解Android的Handler机制</a></p>
+]]></content>
       <categories>
         <category>4.Android</category>
       </categories>
@@ -2307,8 +2162,8 @@
       <tags>
         <tag>Android</tag>
         <tag>AR</tag>
-        <tag>Go</tag>
         <tag>AS</tag>
+        <tag>Go</tag>
       </tags>
   </entry>
   <entry>
@@ -2324,19 +2179,6 @@
 <h2 id="当相对布局用"><a href="#当相对布局用" class="headerlink" title="当相对布局用"></a>当相对布局用</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">layout_constraintLeft_toLeftOf：当前View左边在某个View的左边，可以是parent与某个View的ID</span><br><span class="line">layout_constraintLeft_toRightOf：当前View左边在某个View的右边，可以是parent与某个View的ID</span><br><span class="line">layout_constraintRight_toRightOf：当前Viewr的右边在某个View的右边，可以是parent与某个View的ID</span><br><span class="line">layout_constraintRight_toLeftOf：当前Viewr的右边在某个View的左边，可以是parent与某个View的ID</span><br><span class="line">layout_constraintBottom_toBottomOf：当前Viewr的下边在某个View的下边，可以是parent与某个View的ID</span><br><span class="line">layout_constraintBottom_toTopOf：当前Viewr的下边在某个View的上边，可以是parent与某个View的ID</span><br><span class="line">layout_constraintTop_toTopOf：当前Viewr的上边在某个View的上边，可以是parent与某个View的ID</span><br><span class="line">layout_constraintTop_toBottomOf：当前Viewr的上边在某个View的下边，可以是parent与某个View的ID</span><br></pre></td></tr></table></figure>
 
 <h2 id="当百分比布局用"><a href="#当百分比布局用" class="headerlink" title="当百分比布局用"></a>当百分比布局用</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">layout_constraintVertical_bias：垂直乖离率（bias有道翻译为乖离率），也就是垂直偏移率。</span><br><span class="line">layout_constraintHorizontal_bias：水平乖离率（bias有道翻译为乖离率），也就是水平偏移率。</span><br><span class="line">layout_constraintHeight_percent：高度百分比，占父类高度的百分比</span><br><span class="line">layout_constraintWidth_percent：宽度百分比，占父类宽度的百分比</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Tips-Android解决Seekbar Thumb透明问题</title>
-    <url>/2020/09/29/4.Android/20200929_Tips-Android%E8%A7%A3%E5%86%B3Seekbar%20Thumb%E9%80%8F%E6%98%8E%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="解决Seekbar-Thumb透明问题"><a href="#解决Seekbar-Thumb透明问题" class="headerlink" title="解决Seekbar Thumb透明问题"></a>解决Seekbar Thumb透明问题</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>Thumb不是矩形时,透明部分会和背景冲突</p>
-<p><img src="/images/2020-09-29-16-19-15.png"></p>
-<p>第一个是修改后的 后两个是有问题的</p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>布局中Seekbar组件添加  android:splitTrack=”false”</p>
-<p><img src="/images/2020-09-29-16-12-36.png"></p>
-]]></content>
       <categories>
         <category>4.Android</category>
       </categories>
@@ -2362,6 +2204,19 @@
       <tags>
         <tag>Android</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Tips-Android解决Seekbar Thumb透明问题</title>
+    <url>/2020/09/29/4.Android/20200929_Tips-Android%E8%A7%A3%E5%86%B3Seekbar%20Thumb%E9%80%8F%E6%98%8E%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="解决Seekbar-Thumb透明问题"><a href="#解决Seekbar-Thumb透明问题" class="headerlink" title="解决Seekbar Thumb透明问题"></a>解决Seekbar Thumb透明问题</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>Thumb不是矩形时,透明部分会和背景冲突</p>
+<p><img src="/images/2020-09-29-16-19-15.png"></p>
+<p>第一个是修改后的 后两个是有问题的</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>布局中Seekbar组件添加  android:splitTrack=”false”</p>
+<p><img src="/images/2020-09-29-16-12-36.png"></p>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
   </entry>
   <entry>
     <title>Tips-Java中StringFormat和MessageFormat的区别</title>
@@ -2455,6 +2310,20 @@
       <tags>
         <tag>Android</tag>
         <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Roadmap-Android重要知识点</title>
+    <url>/2020/09/29/4.Android/20200929_Roadmap-Android%E9%87%8D%E8%A6%81%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="Android重要知识点"><a href="#Android重要知识点" class="headerlink" title="Android重要知识点"></a>Android重要知识点</h1><h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><h2 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h2><h2 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h2><h2 id="Java内存泄漏问题"><a href="#Java内存泄漏问题" class="headerlink" title="Java内存泄漏问题"></a>Java内存泄漏问题</h2><h2 id="UI布局"><a href="#UI布局" class="headerlink" title="UI布局"></a>UI布局</h2><h2 id="RecycleView"><a href="#RecycleView" class="headerlink" title="RecycleView"></a>RecycleView</h2><h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><h2 id="Java数据结构"><a href="#Java数据结构" class="headerlink" title="Java数据结构"></a>Java数据结构</h2><h2 id="Java设计模式"><a href="#Java设计模式" class="headerlink" title="Java设计模式"></a>Java设计模式</h2><h2 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h2>]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>数据结构</tag>
+        <tag>Java</tag>
+        <tag>设计模式</tag>
       </tags>
   </entry>
   <entry>
@@ -2679,6 +2548,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Trick-Java快速生成javadoc</title>
+    <url>/2020/09/29/4.Android/20200929_Trick-Java%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90javadoc/</url>
+    <content><![CDATA[<h1 id="Java快速生成javadoc"><a href="#Java快速生成javadoc" class="headerlink" title="Java快速生成javadoc"></a>Java快速生成javadoc</h1><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ javadoc -d apidoc -windowtitle API -doctitle <span class="string">&#x27;The API of javadoc&#x27;</span> -charset UTF-8 -author -version *.java</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="d"><a href="#d" class="headerlink" title="-d"></a>-d</h2><h2 id="windowtitle"><a href="#windowtitle" class="headerlink" title="-windowtitle"></a>-windowtitle</h2><h2 id="doctitle"><a href="#doctitle" class="headerlink" title="-doctitle"></a>-doctitle</h2><h2 id="charset"><a href="#charset" class="headerlink" title="-charset"></a>-charset</h2><h2 id="author"><a href="#author" class="headerlink" title="-author"></a>-author</h2><h2 id="version"><a href="#version" class="headerlink" title="-version"></a>-version</h2>]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Trick-Java保留小数位的方法</title>
     <url>/2020/09/29/4.Android/20200929_Trick-Java%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E4%BD%8D%E7%9A%84%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h1 id="Java保留小数位的方法"><a href="#Java保留小数位的方法" class="headerlink" title="Java保留小数位的方法"></a>Java保留小数位的方法</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">double</span>) (Math.round(sd3*<span class="number">10000</span>)/<span class="number">10000.0</span>);</span><br></pre></td></tr></table></figure>
@@ -2695,21 +2579,6 @@
       <tags>
         <tag>Java</tag>
         <tag>Math</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Trick-Java快速生成javadoc</title>
-    <url>/2020/09/29/4.Android/20200929_Trick-Java%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90javadoc/</url>
-    <content><![CDATA[<h1 id="Java快速生成javadoc"><a href="#Java快速生成javadoc" class="headerlink" title="Java快速生成javadoc"></a>Java快速生成javadoc</h1><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ javadoc -d apidoc -windowtitle API -doctitle <span class="string">&#x27;The API of javadoc&#x27;</span> -charset UTF-8 -author -version *.java</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="d"><a href="#d" class="headerlink" title="-d"></a>-d</h2><h2 id="windowtitle"><a href="#windowtitle" class="headerlink" title="-windowtitle"></a>-windowtitle</h2><h2 id="doctitle"><a href="#doctitle" class="headerlink" title="-doctitle"></a>-doctitle</h2><h2 id="charset"><a href="#charset" class="headerlink" title="-charset"></a>-charset</h2><h2 id="author"><a href="#author" class="headerlink" title="-author"></a>-author</h2><h2 id="version"><a href="#version" class="headerlink" title="-version"></a>-version</h2>]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -3164,14 +3033,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Tutorial-UmengPushSdk接入文档</title>
-    <url>/2020/09/29/4.Android/20200929_Tutorial-UmengPushSdk%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3/</url>
-    <content><![CDATA[<h1 id="UmengPushSdk接入文档"><a href="#UmengPushSdk接入文档" class="headerlink" title="UmengPushSdk接入文档"></a>UmengPushSdk接入文档</h1><h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Tutorial-Java高并发和分布式技术</title>
     <url>/2020/09/29/4.Android/20200929_Tutorial-Java%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF/</url>
     <content><![CDATA[<h1 id="Java高并发和分布式技术"><a href="#Java高并发和分布式技术" class="headerlink" title="Java高并发和分布式技术"></a>Java高并发和分布式技术</h1><p><img src="/images/2019-08-14-09-08-29.png"></p>
@@ -3181,6 +3042,145 @@
       </categories>
       <tags>
         <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tutorial-UmengPushSdk接入文档</title>
+    <url>/2020/09/29/4.Android/20200929_Tutorial-UmengPushSdk%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[<h1 id="UmengPushSdk接入文档"><a href="#UmengPushSdk接入文档" class="headerlink" title="UmengPushSdk接入文档"></a>UmengPushSdk接入文档</h1><h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Tips_vscode+golang环境配置</title>
+    <url>/2020/09/29/7.BlockChain/20200929_Tips_vscode+golang%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="vscode-golang环境配置"><a href="#vscode-golang环境配置" class="headerlink" title="vscode+golang环境配置"></a>vscode+golang环境配置</h1><h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><p>安装git vscode go</p>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><ol>
+<li><p>打开vscode设置配置文件</p>
+</li>
+<li><p>添加go环境路径</p>
+ <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;go.goroot&quot;</span>: <span class="string">&quot;C:\\Program Files\\Go&quot;</span>,</span><br><span class="line"><span class="string">&quot;go.gopath&quot;</span>: <span class="string">&quot;C:\\Users\\PC-QGJ\\go&quot;</span>,</span><br></pre></td></tr></table></figure>
+
+<p> 如果不确定路径是多少 命令行输入go env把对应的路径输入</p>
+</li>
+<li><p>打开go工程文件夹配置debug设置</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>7.BlockChain</category>
+      </categories>
+      <tags>
+        <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tao_谈一谈区块链+游戏</title>
+    <url>/2020/09/29/7.BlockChain/20200929_Tao_%E8%B0%88%E4%B8%80%E8%B0%88%E5%8C%BA%E5%9D%97%E9%93%BE+%E6%B8%B8%E6%88%8F/</url>
+    <content><![CDATA[<h1 id="谈一谈-区块链-游戏"><a href="#谈一谈-区块链-游戏" class="headerlink" title="谈一谈 区块链 + 游戏"></a>谈一谈 区块链 + 游戏</h1><blockquote>
+<p>本文总结于火币的“区块链+游戏”报告</p>
+</blockquote>
+<h2 id="从区块链行业角度看到的传统游戏的痛点"><a href="#从区块链行业角度看到的传统游戏的痛点" class="headerlink" title="从区块链行业角度看到的传统游戏的痛点"></a>从区块链行业角度看到的传统游戏的痛点</h2><ol>
+<li><p>数值不透明，规则可任意更改 (中心化弊端，可通过透明合约保障)，游戏开发者承担全部开发责任，不及预期导致用户流失； (开发迭代压力与用户消费速度的失衡)</p>
+</li>
+<li><p>渠道、发行垄断收益；(成熟产业特性，优质而小众的产品出头困难，游戏开发投入大、不确定性高)</p>
+</li>
+<li><p>虚拟资产不属于用户，亦无法顺畅实现价值流通； (传统游戏内在价值的封闭和不流通) (网易藏宝阁-&gt;Steam-&gt;C5Game/IGXE/5173 各自封闭且受限)</p>
+</li>
+<li><p>游戏内生恶性通货膨胀倾向，玩家利益得不到保证；(调节供给，限制流通，取消交易，以牺牲游戏可玩性来缓解通胀，效果有限)</p>
+</li>
+</ol>
+<p>游戏间体系不互通，玩家沉没成本高昂。 (游戏停服，玩家投入难以回补)</p>
+<h2 id="区块链行业特性及与游戏行业的契合点"><a href="#区块链行业特性及与游戏行业的契合点" class="headerlink" title="区块链行业特性及与游戏行业的契合点"></a>区块链行业特性及与游戏行业的契合点</h2><h3 id="最契合区块链的应用场景是原生数字化领域的，非与现实发生巨大联系的，并且多适用于："><a href="#最契合区块链的应用场景是原生数字化领域的，非与现实发生巨大联系的，并且多适用于：" class="headerlink" title="最契合区块链的应用场景是原生数字化领域的，非与现实发生巨大联系的，并且多适用于："></a>最契合区块链的应用场景是原生数字化领域的，非与现实发生巨大联系的，并且多适用于：</h3><ul>
+<li>交流效率低，信任成本高的领域（产业链条长、环节众多）；</li>
+<li>对真实性、共识有极大需求的领域（不透明、黑箱）；</li>
+<li>以及长尾流量、资源分散、参与者之间利益不一致的领域（需要激励）。</li>
+</ul>
+<h3 id="游戏行业契合度"><a href="#游戏行业契合度" class="headerlink" title="游戏行业契合度"></a>游戏行业契合度</h3><ul>
+<li>原生数字化</li>
+<li>游戏用户群体年轻，容易接受新鲜事物，有望在未来 (与区块链这一新事物) 形成融合和合力。</li>
+<li>游戏不分语言，具备天生的跨国界属性，易传播，易出现爆款，点燃市场</li>
+</ul>
+<h2 id="区块链对游戏行业的重构"><a href="#区块链对游戏行业的重构" class="headerlink" title="区块链对游戏行业的重构"></a>区块链对游戏行业的重构</h2><p>1.上链，公平可信，同时Token激励让游戏社区化，革新不再单纯是开发者的责任；</p>
+<ul>
+<li>对于传统的游戏来说，上链所带来的透明化，意味着可为其带来超额利润的优势不再，同时，代码透明化后，一款游戏的可复制性较强，容易被抄袭。因而我们认为，区块链游戏，必将是从没有历史包袱的纯区块链游戏开发者开始的，并逐步迁移、倒逼传统游戏开发者加入区块链化进程。</li>
+<li>而传统游戏的区块链化，亦将首先从改良优化的角度出发，逐步深入，且会经过游戏币上链，到游戏资产上链，再到核心游戏逻辑上链（智能合约运行游戏），最终到游戏整体上链这一缓慢和需要适应的过程。</li>
+<li>社区可以在Token经济激励的前提下，根据自己的需求，选择和实现各自的治理方式和游戏规则。区块链有望将游戏社区化，有望大幅催生UGC，并延长部分游戏的生命周期。</li>
+</ul>
+<p>2.借助区块链，打破渠道垄断，产生新的自分销网络；</p>
+<ul>
+<li>中小的渠道商本身因为没有自己的SDK，数据依附于大厂，存在一定的不信任问题。有了区块链、Token后，就可以有一个完全透明、去中心化的激励型分发接口，记录用户所有的下载、注册、激活、消费等等行为，并不可篡改，从而建立起共识，更为之后广告商的买量业务奠定了真实性的基础；而区块链本身的可追溯性，天生适合应对长尾、分散又关系错综复杂的流量，即可以非常明晰地看到流量的来源，并进行对应的分析，结合Token，对不同的渠道调整激励策略。最终使得中小独立开发者、中小渠道和用户实现共赢共生的关系。</li>
+</ul>
+<p>3.用户真实拥有游戏内资产（True Ownership），并可借助智能合约去信任流通；</p>
+<ul>
+<li>每一个虚拟资产都可以归结为一个独一无二的Token，称之为Non-Fungible Token（NFT），并通过加密方式存储在用户的区块链账户地址之中，安全、可靠，所有权完全归属用户，成为“稀缺性”、“实用性”和“观赏性”结合的收藏品，大大提升了虚拟资产的价值</li>
+<li>存储在链上的虚拟资产，也可以通过智能合约形式，在去信任的环境下进行无摩擦点对点交易，并可以在区块链上看到所有成交历史，真实可信。</li>
+</ul>
+<p>4.区块链的跨应用账本特性，使同款IP资产可以被复用，大大增加游戏间的交互性及玩法。</p>
+<ul>
+<li>由于区块链的跨应用账本特性，同一款IP资产可以被复用，例如IP资产以太猫可以被用在其他游戏之中，或是进行二次改造，游戏与游戏之间是可以互通及联动的，而区块链本身由此也成为了一个素材库，可为开发者所随时调用，引领UGC的新时代。</li>
+</ul>
+<p>5.重塑游戏内经济体系。</p>
+<ul>
+<li>游戏经济体系设计，不再是传统的数值策划，而是通证经济，即可构建一个总量有共识，友好开放的游戏Token体系，并可实现游戏价值评估尺度的范式转移。</li>
+<li>（1）友好开放的游戏Token体系（2）总量有共识（3）价值评估尺度的范式转移</li>
+<li>传统游戏的价值评估，也取决于为开发商创造了多少利润，而非给玩家带来了多少利益。然而区块链游戏的本质是社区，是共赢，是共有。</li>
+</ul>
+<h2 id="阻碍区块链游戏大范围部署的瓶颈，以及区块链游戏的缺陷"><a href="#阻碍区块链游戏大范围部署的瓶颈，以及区块链游戏的缺陷" class="headerlink" title="阻碍区块链游戏大范围部署的瓶颈，以及区块链游戏的缺陷"></a>阻碍区块链游戏大范围部署的瓶颈，以及区块链游戏的缺陷</h2><ul>
+<li><p>用户量小，Dapp运行需载入钱包，消耗资源，秘钥管理困难，门槛高</p>
+</li>
+<li><p>游戏区块链化仍在初级阶段，而大部分区块链游戏系原生，且玩法原始</p>
+</li>
+<li><p>由于目前主流区块链底层智能合约运行均需要消耗Gas费用，因而若游戏机制过于复杂，可能会导致用户频繁签名，一定程度上也影响了用户在游戏中的体验</p>
+</li>
+<li><p>目前的区块链游戏，大部分并非传统游戏的区块链化，实际系原生的区块链游戏，游戏类型相对原始，对于大部分真正的玩家来说，难以具备很强的吸引力，区块链游戏的用户群体，与真正的游戏硬核玩家，重合度相对较低。</p>
+</li>
+<li><p>底层不足，大型游戏的运行追求零延迟，然而目前公链性能不符要求</p>
+</li>
+<li><p>目前区块链游戏投机性较明显，尚未找到可持续的用户留存方式</p>
+<p>  投机性严重,区块链游戏潜在具备了公开透明、资产可交易等等优势，然而由于该部分特性对于玩家来说并不直观，同时区块链游戏的体验尚还不能与传统游戏相比，为了吸引用户的涌入，区块链游戏大多直接或间接打着让用户赚钱的旗号进行传播，而用户赚钱的来源，常常来自于新玩家的投入，具备极强的投机性特征，实际已经偏离了“游戏”本身定义的初衷。该种模式一定程序上能快速吸引流量，然而由于游戏本身的持续依赖“接盘”者的存在，因而往往面临后劲不足的问题，部分用户高位“接盘”，游戏新增用户难以为继时，游戏便开始走下坡路，游戏的生命周期被投机性所吞噬和透支。</p>
+</li>
+</ul>
+<h2 id="“区块链-游戏”产业链的五大板块-各类实例见文章本身"><a href="#“区块链-游戏”产业链的五大板块-各类实例见文章本身" class="headerlink" title="“区块链+游戏”产业链的五大板块 (各类实例见文章本身)"></a>“区块链+游戏”产业链的五大板块 (各类实例见文章本身)</h2><ol>
+<li>基础设施及开发者工具；</li>
+<li>跨游戏虚拟资产交易市场；</li>
+<li>区块链游戏；</li>
+<li>基于区块链的游戏分发平台、社区；</li>
+<li>周边工具与服务。</li>
+</ol>
+<blockquote>
+<p>“区块链+游戏”的红利，将从基础设施及开发者工具开始，让更多的游戏上链，并以爆款区块链游戏的大量出现为标志达到高潮；而随着区块链游戏以及相应虚拟资产数量的不断增多，跨游戏虚拟资产交易市场，以及基于区块链的游戏分发平台/社区的也会逐步兴起，成为流量汇集的中心；而周边工具、服务，随着“区块链+游戏”行业的发展，则具有较为明确和稳定的发展。</p>
+</blockquote>
+<h2 id="“区块链-游戏”赛道未来的潜在爆发点"><a href="#“区块链-游戏”赛道未来的潜在爆发点" class="headerlink" title="“区块链+游戏”赛道未来的潜在爆发点"></a>“区块链+游戏”赛道未来的潜在爆发点</h2><ul>
+<li><p>含原生Token的游戏能适应更为复杂的商业模式，而不含原生Token的游戏，则更适用小而美、简单的商业逻辑；</p>
+</li>
+<li><p>区块链怎样与游戏进行融合？我们认为，区块链与游戏融合，是在含Token的前提下，构建一个开发者、发行商与游戏玩家利益一致的永续生态，它的思想将会体现在如下三个方面：</p>
+<ol>
+<li>激励机制：游戏中的“Proof-of-Work”与“Proof-of-Stake”</li>
+<li>游戏价值集中在NFT资产之上，通过Token价值输出变现</li>
+<li>充分激发UGC创造力、玩家社区贡献的容器</li>
+</ol>
+</li>
+<li><p>区块链游戏（或游戏区块链化）的可持续商业模式在哪里？</p>
+<ol>
+<li>同时，区块链结合游戏的核心即游戏内资产（NFT），其是稀缺性、实用性及观赏性结合的收藏品，设计精髓在于为用户创造稀缺性和唯一性的价值。</li>
+<li>未来，预计以ERC721为标准的游戏虚拟资产市值将会逐步膨胀，成为自ERC20同质化Token之后又一大爆点。而这将经历两个过程，首先是原生区块链游戏的ERC721资产市值的增长和流转，其次是传统游戏厂商手中的IP，尤其是一部分老牌的IP的Token化，借助区块链重新焕发活力，而这部分虚拟资产，很可能会通过授权的形式进入这个市场。</li>
+<li>另外，区块链游戏商业模式将围绕资产交易进行，并从原生区块链游戏的ERC721资产开始，逐步拓展到传统游戏IP，尤其是老牌IP。</li>
+</ol>
+</li>
+<li><p>区块链游戏的新趋势与玩法构想</p>
+</li>
+</ul>
+<p>实物ERC721—桌游的Token化改造 (Playtable)</p>
+]]></content>
+      <categories>
+        <category>7.BlockChain</category>
+      </categories>
+      <tags>
+        <tag>效率</tag>
+        <tag>工具</tag>
+        <tag>重构</tag>
       </tags>
   </entry>
   <entry>
@@ -3232,80 +3232,6 @@
       </categories>
       <tags>
         <tag>线性代数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tips-Asm调试工具debug的使用</title>
-    <url>/2020/09/29/1.CS/Asm/20200929_Tips-Asm%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7debug%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="Asm调试工具debug的使用"><a href="#Asm调试工具debug的使用" class="headerlink" title="Asm调试工具debug的使用"></a>Asm调试工具debug的使用</h1><ol>
-<li>-r 修改寄存器</li>
-<li>-d 段地址:偏移地址 - 偏移地址</li>
-<li>-u 将后续的字节翻译成汇编指令 查看汇编指令: 段地址 : 偏移地址</li>
-<li>-a 段地址:偏移地址 从指定地址开始编写指令</li>
-<li>-e 段地址:偏移地址 从指定地址修改</li>
-<li>-t 单步执行指令</li>
-<li>-p 终止程序</li>
-<li>-q 退出debug</li>
-<li>-g 段地址:偏移地址 命令直接跳到地址</li>
-</ol>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="/download/asm.rar">asm.rar</a></p>
-]]></content>
-      <categories>
-        <category>1.CS</category>
-        <category>Asm</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>Asm</tag>
-        <tag>汇编</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tips-Asm常用汇编指令</title>
-    <url>/2020/09/29/1.CS/Asm/20200929_Tips-Asm%E5%B8%B8%E7%94%A8%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/</url>
-    <content><![CDATA[<h1 id="Asm常用汇编指令"><a href="#Asm常用汇编指令" class="headerlink" title="Asm常用汇编指令"></a>Asm常用汇编指令</h1><h2 id="移动指令"><a href="#移动指令" class="headerlink" title="移动指令"></a>移动指令</h2><h3 id="mov-右边赋值给左边"><a href="#mov-右边赋值给左边" class="headerlink" title="mov             右边赋值给左边"></a>mov             右边赋值给左边</h3><ul>
-<li>mov ax,10h        mov 寄存器,数据</li>
-<li>mov ax,bx         mov 寄存器,寄存器</li>
-<li>mov ax,ds:[0]     mov 寄存器,内存单元</li>
-<li>mov ds:[0],ax     mov 内存单元,寄存器</li>
-<li>mov ds,bx         mov 段寄存器,寄存器</li>
-<li>mov bx,ds         mov 寄存器,段寄存器</li>
-</ul>
-<blockquote>
-<p>mov ds,1000h 是不允许的  段寄存器不允许直接赋值</p>
-</blockquote>
-<h2 id="运算指令"><a href="#运算指令" class="headerlink" title="运算指令"></a>运算指令</h2><h3 id="add-加法"><a href="#add-加法" class="headerlink" title="add            加法"></a>add            加法</h3><ul>
-<li>add ax,100h      add 寄存器,数据</li>
-<li>add ax,bx        add 寄存器,寄存器</li>
-<li>add ax,ds:[0]    add 寄存器,内存单元</li>
-<li>add ds:[0],ax    add 内存单元,寄存器</li>
-</ul>
-<h3 id="sub-减法"><a href="#sub-减法" class="headerlink" title="sub            减法"></a>sub            减法</h3><ul>
-<li>sub ax,1h        sub 寄存器,数据</li>
-<li>sub ax,bx        sub 寄存器,寄存器</li>
-<li>sub ax,ds[0]     sub 寄存器,内存单元</li>
-<li>sub [0],ax       sub 内存单元,寄存器</li>
-</ul>
-<blockquote>
-<p>add ds,ax 是不允许的<br>sub ds,ax 是不允许的</p>
-</blockquote>
-<h3 id="inc-自增1"><a href="#inc-自增1" class="headerlink" title="inc            自增1"></a>inc            自增1</h3><ul>
-<li>inc ax           inc 寄存器</li>
-</ul>
-<h2 id="转移指令"><a href="#转移指令" class="headerlink" title="转移指令"></a>转移指令</h2><h3 id="jmp-跳转命令"><a href="#jmp-跳转命令" class="headerlink" title="jmp             跳转命令"></a>jmp             跳转命令</h3><ul>
-<li>jmp addFunction   jmp 标志符</li>
-</ul>
-<h3 id="loop-循环命令"><a href="#loop-循环命令" class="headerlink" title="loop            循环命令"></a>loop            循环命令</h3><ul>
-<li>loop addFunction  loop 标识符  每次执行 先把 cx - 1 然后检测cx是不是等于0</li>
-</ul>
-]]></content>
-      <categories>
-        <category>1.CS</category>
-        <category>Asm</category>
-      </categories>
-      <tags>
-        <tag>Asm</tag>
-        <tag>汇编</tag>
       </tags>
   </entry>
   <entry>
@@ -3435,25 +3361,78 @@
       </tags>
   </entry>
   <entry>
-    <title>Tips-CPU的内存保护</title>
-    <url>/2020/09/29/1.CS/Asm/20200929_Tips-CPU%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4/</url>
-    <content><![CDATA[<h1 id="CPU的内存保护"><a href="#CPU的内存保护" class="headerlink" title="CPU的内存保护"></a>CPU的内存保护</h1><h2 id="安全的内存地址"><a href="#安全的内存地址" class="headerlink" title="安全的内存地址"></a>安全的内存地址</h2><p>0:200H  ~  0:2FFH     FFH = 255D + 1D = 256D<br>0:7E00H ~ +</p>
+    <title>Tips-Asm常用汇编指令</title>
+    <url>/2020/09/29/1.CS/Asm/20200929_Tips-Asm%E5%B8%B8%E7%94%A8%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="Asm常用汇编指令"><a href="#Asm常用汇编指令" class="headerlink" title="Asm常用汇编指令"></a>Asm常用汇编指令</h1><h2 id="移动指令"><a href="#移动指令" class="headerlink" title="移动指令"></a>移动指令</h2><h3 id="mov-右边赋值给左边"><a href="#mov-右边赋值给左边" class="headerlink" title="mov             右边赋值给左边"></a>mov             右边赋值给左边</h3><ul>
+<li>mov ax,10h        mov 寄存器,数据</li>
+<li>mov ax,bx         mov 寄存器,寄存器</li>
+<li>mov ax,ds:[0]     mov 寄存器,内存单元</li>
+<li>mov ds:[0],ax     mov 内存单元,寄存器</li>
+<li>mov ds,bx         mov 段寄存器,寄存器</li>
+<li>mov bx,ds         mov 寄存器,段寄存器</li>
+</ul>
+<blockquote>
+<p>mov ds,1000h 是不允许的  段寄存器不允许直接赋值</p>
+</blockquote>
+<h2 id="运算指令"><a href="#运算指令" class="headerlink" title="运算指令"></a>运算指令</h2><h3 id="add-加法"><a href="#add-加法" class="headerlink" title="add            加法"></a>add            加法</h3><ul>
+<li>add ax,100h      add 寄存器,数据</li>
+<li>add ax,bx        add 寄存器,寄存器</li>
+<li>add ax,ds:[0]    add 寄存器,内存单元</li>
+<li>add ds:[0],ax    add 内存单元,寄存器</li>
+</ul>
+<h3 id="sub-减法"><a href="#sub-减法" class="headerlink" title="sub            减法"></a>sub            减法</h3><ul>
+<li>sub ax,1h        sub 寄存器,数据</li>
+<li>sub ax,bx        sub 寄存器,寄存器</li>
+<li>sub ax,ds[0]     sub 寄存器,内存单元</li>
+<li>sub [0],ax       sub 内存单元,寄存器</li>
+</ul>
+<blockquote>
+<p>add ds,ax 是不允许的<br>sub ds,ax 是不允许的</p>
+</blockquote>
+<h3 id="inc-自增1"><a href="#inc-自增1" class="headerlink" title="inc            自增1"></a>inc            自增1</h3><ul>
+<li>inc ax           inc 寄存器</li>
+</ul>
+<h2 id="转移指令"><a href="#转移指令" class="headerlink" title="转移指令"></a>转移指令</h2><h3 id="jmp-跳转命令"><a href="#jmp-跳转命令" class="headerlink" title="jmp             跳转命令"></a>jmp             跳转命令</h3><ul>
+<li>jmp addFunction   jmp 标志符</li>
+</ul>
+<h3 id="loop-循环命令"><a href="#loop-循环命令" class="headerlink" title="loop            循环命令"></a>loop            循环命令</h3><ul>
+<li>loop addFunction  loop 标识符  每次执行 先把 cx - 1 然后检测cx是不是等于0</li>
+</ul>
 ]]></content>
       <categories>
         <category>1.CS</category>
         <category>Asm</category>
       </categories>
+      <tags>
+        <tag>汇编</tag>
+        <tag>Asm</tag>
+      </tags>
   </entry>
   <entry>
-    <title>Tips-DosBox启动设置</title>
-    <url>/2020/09/29/1.CS/Asm/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="DosBox启动设置"><a href="#DosBox启动设置" class="headerlink" title="DosBox启动设置"></a>DosBox启动设置</h1><h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>c:/用户/用户名/appdata/local/dosbox/dosbox-0.74.conf</p>
-<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>配置文件末尾添加以下指令:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">mount c: d:\asm</span><br><span class="line"><span class="built_in">set</span> PATH=%PATH%;c:\;</span><br><span class="line">c:</span><br></pre></td></tr></table></figure>]]></content>
+    <title>Tips-Asm调试工具debug的使用</title>
+    <url>/2020/09/29/1.CS/Asm/20200929_Tips-Asm%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7debug%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="Asm调试工具debug的使用"><a href="#Asm调试工具debug的使用" class="headerlink" title="Asm调试工具debug的使用"></a>Asm调试工具debug的使用</h1><ol>
+<li>-r 修改寄存器</li>
+<li>-d 段地址:偏移地址 - 偏移地址</li>
+<li>-u 将后续的字节翻译成汇编指令 查看汇编指令: 段地址 : 偏移地址</li>
+<li>-a 段地址:偏移地址 从指定地址开始编写指令</li>
+<li>-e 段地址:偏移地址 从指定地址修改</li>
+<li>-t 单步执行指令</li>
+<li>-p 终止程序</li>
+<li>-q 退出debug</li>
+<li>-g 段地址:偏移地址 命令直接跳到地址</li>
+</ol>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="/download/asm.rar">asm.rar</a></p>
+]]></content>
       <categories>
         <category>1.CS</category>
         <category>Asm</category>
       </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>汇编</tag>
+        <tag>Asm</tag>
+      </tags>
   </entry>
   <entry>
     <title>Tips-CISP-PTE</title>
@@ -3531,6 +3510,27 @@
         <tag>信息安全</tag>
         <tag>操作系统</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Tips-DosBox启动设置</title>
+    <url>/2020/09/29/1.CS/Asm/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="DosBox启动设置"><a href="#DosBox启动设置" class="headerlink" title="DosBox启动设置"></a>DosBox启动设置</h1><h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>c:/用户/用户名/appdata/local/dosbox/dosbox-0.74.conf</p>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>配置文件末尾添加以下指令:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">mount c: d:\asm</span><br><span class="line"><span class="built_in">set</span> PATH=%PATH%;c:\;</span><br><span class="line">c:</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>1.CS</category>
+        <category>Asm</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Tips-CPU的内存保护</title>
+    <url>/2020/09/29/1.CS/Asm/20200929_Tips-CPU%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4/</url>
+    <content><![CDATA[<h1 id="CPU的内存保护"><a href="#CPU的内存保护" class="headerlink" title="CPU的内存保护"></a>CPU的内存保护</h1><h2 id="安全的内存地址"><a href="#安全的内存地址" class="headerlink" title="安全的内存地址"></a>安全的内存地址</h2><p>0:200H  ~  0:2FFH     FFH = 255D + 1D = 256D<br>0:7E00H ~ +</p>
+]]></content>
+      <categories>
+        <category>1.CS</category>
+        <category>Asm</category>
+      </categories>
   </entry>
   <entry>
     <title>Roadmap-学习目标</title>
@@ -3657,19 +3657,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Trick-AndroidStudio必备插件</title>
-    <url>/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<h1 id="AndroidStudio必备插件"><a href="#AndroidStudio必备插件" class="headerlink" title="AndroidStudio必备插件"></a>AndroidStudio必备插件</h1><h2 id="GsonFormat"><a href="#GsonFormat" class="headerlink" title="GsonFormat"></a>GsonFormat</h2><h2 id="Jrebel-2018-1-5"><a href="#Jrebel-2018-1-5" class="headerlink" title="Jrebel 2018.1.5"></a>Jrebel 2018.1.5</h2><h2 id="ADB-Idea"><a href="#ADB-Idea" class="headerlink" title="ADB Idea"></a>ADB Idea</h2><h2 id="Android-Studio-Prettify"><a href="#Android-Studio-Prettify" class="headerlink" title="Android Studio Prettify"></a>Android Studio Prettify</h2><h2 id="FindViewByMe"><a href="#FindViewByMe" class="headerlink" title="FindViewByMe"></a>FindViewByMe</h2><h2 id="Wakatime"><a href="#Wakatime" class="headerlink" title="Wakatime"></a>Wakatime</h2>]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>AS</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>Android Studio</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tips-AndroidStudio Log颜色配置</title>
     <url>/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1 id="AndroidStudio-Log-颜色配置"><a href="#AndroidStudio-Log-颜色配置" class="headerlink" title="AndroidStudio Log 颜色配置"></a>AndroidStudio Log 颜色配置</h1><h2 id="配置-1"><a href="#配置-1" class="headerlink" title="配置 1"></a>配置 1</h2><table>
@@ -3747,6 +3734,38 @@
       </tags>
   </entry>
   <entry>
+    <title>Trick-AndroidStudio必备插件</title>
+    <url>/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="AndroidStudio必备插件"><a href="#AndroidStudio必备插件" class="headerlink" title="AndroidStudio必备插件"></a>AndroidStudio必备插件</h1><h2 id="GsonFormat"><a href="#GsonFormat" class="headerlink" title="GsonFormat"></a>GsonFormat</h2><h2 id="Jrebel-2018-1-5"><a href="#Jrebel-2018-1-5" class="headerlink" title="Jrebel 2018.1.5"></a>Jrebel 2018.1.5</h2><h2 id="ADB-Idea"><a href="#ADB-Idea" class="headerlink" title="ADB Idea"></a>ADB Idea</h2><h2 id="Android-Studio-Prettify"><a href="#Android-Studio-Prettify" class="headerlink" title="Android Studio Prettify"></a>Android Studio Prettify</h2><h2 id="FindViewByMe"><a href="#FindViewByMe" class="headerlink" title="FindViewByMe"></a>FindViewByMe</h2><h2 id="Wakatime"><a href="#Wakatime" class="headerlink" title="Wakatime"></a>Wakatime</h2>]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>AS</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Android Studio</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Bug-gitignore不起作用的解决办法</title>
+    <url>/2020/09/29/9.Tools/Git/20200929_Bug-gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="gitignore不起作用的解决办法"><a href="#gitignore不起作用的解决办法" class="headerlink" title="gitignore不起作用的解决办法"></a>gitignore不起作用的解决办法</h1><h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>首先，.gitignore文件我们在.gitignore文件中增加需要忽略的文件并更新后，有时会出现相关文件并未被忽略的情况，即更新后的.gitignore并未生效。原因是.gitignore只能忽略未被track的文件，而git有本地缓存。如果增加的ignore文件原来被track过，则忽视.gitignore的规则。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>.gitignore文件必须存放在项目根目录下。<br>首先进入项目根目录，输入git status：如果要忽略的文件或文件夹不在untracked files列表中，则说明该文件已加入git cache。<br>这时，输入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git rm --cached app&#x2F;build&#x2F;UnusedFiles</span><br></pre></td></tr></table></figure>
+
+<p>清除 UnusedFiles 缓存，现在该文件不会被track了。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://stackoverflow.com/questions/3833561/why-doesnt-git-ignore-my-specified-file">Why doesn’t Git ignore my specified file?
+</a></p>
+]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tips-git+vscode</title>
     <url>/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/</url>
     <content><![CDATA[<h1 id="VSCode-下-Git-的使用"><a href="#VSCode-下-Git-的使用" class="headerlink" title="VSCode 下 Git 的使用"></a>VSCode 下 Git 的使用</h1><blockquote>
@@ -3776,15 +3795,24 @@
       </tags>
   </entry>
   <entry>
-    <title>Bug-gitignore不起作用的解决办法</title>
-    <url>/2020/09/29/9.Tools/Git/20200929_Bug-gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="gitignore不起作用的解决办法"><a href="#gitignore不起作用的解决办法" class="headerlink" title="gitignore不起作用的解决办法"></a>gitignore不起作用的解决办法</h1><h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>首先，.gitignore文件我们在.gitignore文件中增加需要忽略的文件并更新后，有时会出现相关文件并未被忽略的情况，即更新后的.gitignore并未生效。原因是.gitignore只能忽略未被track的文件，而git有本地缓存。如果增加的ignore文件原来被track过，则忽视.gitignore的规则。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>.gitignore文件必须存放在项目根目录下。<br>首先进入项目根目录，输入git status：如果要忽略的文件或文件夹不在untracked files列表中，则说明该文件已加入git cache。<br>这时，输入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git rm --cached app&#x2F;build&#x2F;UnusedFiles</span><br></pre></td></tr></table></figure>
+    <title>Tips-git恢复删除的stash代码</title>
+    <url>/2020/09/29/9.Tools/Git/20200929_Tips-git%E6%81%A2%E5%A4%8D%E5%88%A0%E9%99%A4%E7%9A%84stash%E4%BB%A3%E7%A0%81/</url>
+    <content><![CDATA[<h1 id="git恢复删除的stash代码"><a href="#git恢复删除的stash代码" class="headerlink" title="git恢复删除的stash代码"></a>git恢复删除的stash代码</h1><h2 id="列出删除列表"><a href="#列出删除列表" class="headerlink" title="列出删除列表"></a>列出删除列表</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git fsck --lost-found</span><br></pre></td></tr></table></figure>
 
-<p>清除 UnusedFiles 缓存，现在该文件不会被track了。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://stackoverflow.com/questions/3833561/why-doesnt-git-ignore-my-specified-file">Why doesn’t Git ignore my specified file?
-</a></p>
+<h2 id="复制列表中dangling-commit-中的-id"><a href="#复制列表中dangling-commit-中的-id" class="headerlink" title="复制列表中dangling commit 中的 id"></a>复制列表中dangling commit 中的 id</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dangling commit **7010e0447be96627fde29961d420d887533d7796**</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看具体信息"><a href="#查看具体信息" class="headerlink" title="查看具体信息"></a>查看具体信息</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git show 7010e0447be96627fde29961d420d887533d7796</span><br></pre></td></tr></table></figure>
+
+<h2 id="根据信息找到并恢复记录"><a href="#根据信息找到并恢复记录" class="headerlink" title="根据信息找到并恢复记录"></a>根据信息找到并恢复记录</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git merge 7010e0447be96627fde29961d420d887533d7796</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>Git</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Tips-git多账号配置</title>
+    <url>/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="Git多账号配置"><a href="#Git多账号配置" class="headerlink" title="Git多账号配置"></a>Git多账号配置</h1><h2 id="取消-global-git-config"><a href="#取消-global-git-config" class="headerlink" title="取消 global git config"></a>取消 global git config</h2><h2 id="设置当前项目-git-config"><a href="#设置当前项目-git-config" class="headerlink" title="设置当前项目 git config"></a>设置当前项目 git config</h2><h2 id="Gitee-Token"><a href="#Gitee-Token" class="headerlink" title="Gitee Token"></a>Gitee Token</h2><p>7964c3ca84a1916dba62a53b10ed5b05</p>
 ]]></content>
       <categories>
         <category>9.Tools</category>
@@ -3811,34 +3839,6 @@
 
 <p>76cada^ 表示从 76cada 的 commit 开始合并（作为新的commit）。这样就完成了 76cada 到 62ecb3<br> 合并到 master。</p>
 ]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>Git</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Tips-git多账号配置</title>
-    <url>/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="Git多账号配置"><a href="#Git多账号配置" class="headerlink" title="Git多账号配置"></a>Git多账号配置</h1><h2 id="取消-global-git-config"><a href="#取消-global-git-config" class="headerlink" title="取消 global git config"></a>取消 global git config</h2><h2 id="设置当前项目-git-config"><a href="#设置当前项目-git-config" class="headerlink" title="设置当前项目 git config"></a>设置当前项目 git config</h2><h2 id="Gitee-Token"><a href="#Gitee-Token" class="headerlink" title="Gitee Token"></a>Gitee Token</h2><p>7964c3ca84a1916dba62a53b10ed5b05</p>
-]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tips-git恢复删除的stash代码</title>
-    <url>/2020/09/29/9.Tools/Git/20200929_Tips-git%E6%81%A2%E5%A4%8D%E5%88%A0%E9%99%A4%E7%9A%84stash%E4%BB%A3%E7%A0%81/</url>
-    <content><![CDATA[<h1 id="git恢复删除的stash代码"><a href="#git恢复删除的stash代码" class="headerlink" title="git恢复删除的stash代码"></a>git恢复删除的stash代码</h1><h2 id="列出删除列表"><a href="#列出删除列表" class="headerlink" title="列出删除列表"></a>列出删除列表</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git fsck --lost-found</span><br></pre></td></tr></table></figure>
-
-<h2 id="复制列表中dangling-commit-中的-id"><a href="#复制列表中dangling-commit-中的-id" class="headerlink" title="复制列表中dangling commit 中的 id"></a>复制列表中dangling commit 中的 id</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dangling commit **7010e0447be96627fde29961d420d887533d7796**</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看具体信息"><a href="#查看具体信息" class="headerlink" title="查看具体信息"></a>查看具体信息</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git show 7010e0447be96627fde29961d420d887533d7796</span><br></pre></td></tr></table></figure>
-
-<h2 id="根据信息找到并恢复记录"><a href="#根据信息找到并恢复记录" class="headerlink" title="根据信息找到并恢复记录"></a>根据信息找到并恢复记录</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git merge 7010e0447be96627fde29961d420d887533d7796</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>9.Tools</category>
         <category>Git</category>
@@ -4075,6 +4075,7 @@
 <p>重新部署预览</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
+<h4 id="调整字体大小"><a href="#调整字体大小" class="headerlink" title="调整字体大小"></a>调整字体大小</h4><p><img src="/images/2020-09-29-17-43-34.png" alt="调整字体大小"></p>
 <h4 id="关闭动画"><a href="#关闭动画" class="headerlink" title="关闭动画"></a>关闭动画</h4><p>打开_config.next.yml</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">motion:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 
@@ -4086,7 +4087,11 @@
 <h4 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h4><p>文件下载需要把文件放入source/download文件夹下</p>
 <p><a href="/download/file">下载地址</a></p>
 <h2 id="错误记录"><a href="#错误记录" class="headerlink" title="错误记录"></a>错误记录</h2><h3 id="YAMLException-end-of-the-stream-or-a-document-separator-is-expected"><a href="#YAMLException-end-of-the-stream-or-a-document-separator-is-expected" class="headerlink" title="YAMLException: end of the stream or a document separator is expected"></a>YAMLException: end of the stream or a document separator is expected</h3><p>文章头部添加</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">description: Title</span><br><span class="line">---</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">description: Title</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://zhuanlan.zhihu.com/p/251383216">hexo主题安装以及next8.0主题美化</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/60424755">hexo的next主题个性化配置</a></p>
+]]></content>
       <categories>
         <category>9.Tools</category>
         <category>Hexo</category>
@@ -4126,20 +4131,6 @@
       </categories>
       <tags>
         <tag>PHP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Trick-Rider破解教程</title>
-    <url>/2020/09/29/9.Tools/Rider/20200929_Trick-Rider%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="Rider2020-1"><a href="#Rider2020-1" class="headerlink" title="Rider2020.1"></a>Rider2020.1</h1><p><a href="http://www.xue51.com/soft/38055.html">破解教程</a></p>
-<h2 id="设置备份"><a href="#设置备份" class="headerlink" title="设置备份"></a>设置备份</h2><p><a href="/download/settings.2020.1.zip">setting.zip</a></p>
-]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>Rider</category>
-      </categories>
-      <tags>
-        <tag>Rider</tag>
       </tags>
   </entry>
   <entry>
@@ -4285,6 +4276,20 @@
       </tags>
   </entry>
   <entry>
+    <title>Trick-Rider破解教程</title>
+    <url>/2020/09/29/9.Tools/Rider/20200929_Trick-Rider%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="Rider2020-1"><a href="#Rider2020-1" class="headerlink" title="Rider2020.1"></a>Rider2020.1</h1><p><a href="http://www.xue51.com/soft/38055.html">破解教程</a></p>
+<h2 id="设置备份"><a href="#设置备份" class="headerlink" title="设置备份"></a>设置备份</h2><p><a href="/download/settings.2020.1.zip">setting.zip</a></p>
+]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>Rider</category>
+      </categories>
+      <tags>
+        <tag>Rider</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tips-Nano编辑器的基本用法</title>
     <url>/2020/09/29/9.Tools/Utils/20200929_Tips-Nano%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</url>
     <content><![CDATA[<h1 id="Nano编辑器的基本用法"><a href="#Nano编辑器的基本用法" class="headerlink" title="Nano编辑器的基本用法"></a>Nano编辑器的基本用法</h1><h2 id="新建文件"><a href="#新建文件" class="headerlink" title="新建文件"></a>新建文件</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">nano [filename]</span><br></pre></td></tr></table></figure>
@@ -4308,25 +4313,6 @@
       </categories>
       <tags>
         <tag>查找</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Trick-BeyondCompare</title>
-    <url>/2020/09/29/9.Tools/Utils/20200929_Trick-BeyondCompare.%E6%97%A0%E9%99%90%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="BeyondCompare-无限使用"><a href="#BeyondCompare-无限使用" class="headerlink" title="BeyondCompare 无限使用"></a>BeyondCompare 无限使用</h1><h2 id="进入目录"><a href="#进入目录" class="headerlink" title="进入目录"></a>进入目录</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Users\ETA\AppData\Roaming\BCompare\</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改BCompare文件-确保安装时间和上次加载时间始终为当前时间"><a href="#修改BCompare文件-确保安装时间和上次加载时间始终为当前时间" class="headerlink" title="修改BCompare文件 确保安装时间和上次加载时间始终为当前时间"></a>修改BCompare文件 确保安装时间和上次加载时间始终为当前时间</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">[BCompare]</span><br><span class="line">InstallTime=1533965017</span><br><span class="line">LastLoading=1533965017</span><br></pre></td></tr></table></figure>
-
-<h2 id="自动化"><a href="#自动化" class="headerlink" title="自动化"></a>自动化</h2><p>可以写一个Unity Editor工具或Python工具,获取当前用户名自动修改时间戳</p>
-]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>Utils</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
-        <tag>工具</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -4358,6 +4344,25 @@
         <category>9.Tools</category>
         <category>Utils</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Trick-BeyondCompare</title>
+    <url>/2020/09/29/9.Tools/Utils/20200929_Trick-BeyondCompare.%E6%97%A0%E9%99%90%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="BeyondCompare-无限使用"><a href="#BeyondCompare-无限使用" class="headerlink" title="BeyondCompare 无限使用"></a>BeyondCompare 无限使用</h1><h2 id="进入目录"><a href="#进入目录" class="headerlink" title="进入目录"></a>进入目录</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Users\ETA\AppData\Roaming\BCompare\</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改BCompare文件-确保安装时间和上次加载时间始终为当前时间"><a href="#修改BCompare文件-确保安装时间和上次加载时间始终为当前时间" class="headerlink" title="修改BCompare文件 确保安装时间和上次加载时间始终为当前时间"></a>修改BCompare文件 确保安装时间和上次加载时间始终为当前时间</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">[BCompare]</span><br><span class="line">InstallTime=1533965017</span><br><span class="line">LastLoading=1533965017</span><br></pre></td></tr></table></figure>
+
+<h2 id="自动化"><a href="#自动化" class="headerlink" title="自动化"></a>自动化</h2><p>可以写一个Unity Editor工具或Python工具,获取当前用户名自动修改时间戳</p>
+]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>Utils</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+        <tag>工具</tag>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title>Tips-VS主题颜色配置</title>
@@ -4544,6 +4549,22 @@
       </tags>
   </entry>
   <entry>
+    <title>Tips-VSCode正则表达式记录</title>
+    <url>/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="VSCode正则表达式记录"><a href="#VSCode正则表达式记录" class="headerlink" title="VSCode正则表达式记录"></a>VSCode正则表达式记录</h1><h2 id="正则表达式学习"><a href="#正则表达式学习" class="headerlink" title="正则表达式学习"></a>正则表达式学习</h2><h2 id="VSCode-正则使用记录"><a href="#VSCode-正则使用记录" class="headerlink" title="VSCode 正则使用记录"></a>VSCode 正则使用记录</h2><ul>
+<li>匹配反编译后的注释</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 第一代</span></span><br><span class="line">//.*</span><br><span class="line"><span class="comment"># 第二代</span></span><br><span class="line">// Token: .*</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>VSCode</category>
+      </categories>
+      <tags>
+        <tag>VSCode</tag>
+        <tag>VS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Trick-VSCode同步设置配置</title>
     <url>/2020/09/29/9.Tools/VSCode/20200929_Trick-VSCode%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1 id="VSCode同步设置配置"><a href="#VSCode同步设置配置" class="headerlink" title="VSCode同步设置配置"></a>VSCode同步设置配置</h1><h2 id="Token-Gist"><a href="#Token-Gist" class="headerlink" title="Token Gist"></a>Token Gist</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sync</span><br><span class="line">CODE SETTINGS SYNC DOWNLOAD SUMMARY</span><br><span class="line">Version: 3.0.0</span><br><span class="line">--------------------</span><br><span class="line">GitHub Token: 8f3a35013437c34e76c86f5a9765015a3e764666</span><br><span class="line">GitHub Gist: 85b86979f73ec410b16184fdaf91f72b</span><br><span class="line">GitHub Gist Type: Secret</span><br><span class="line"></span><br><span class="line">Restarting Visual Studio Code may be required to apply color and file icon theme.</span><br><span class="line">--------------------</span><br></pre></td></tr></table></figure>
@@ -4566,22 +4587,6 @@
         <tag>VS</tag>
         <tag>AR</tag>
         <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tips-VSCode正则表达式记录</title>
-    <url>/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h1 id="VSCode正则表达式记录"><a href="#VSCode正则表达式记录" class="headerlink" title="VSCode正则表达式记录"></a>VSCode正则表达式记录</h1><h2 id="正则表达式学习"><a href="#正则表达式学习" class="headerlink" title="正则表达式学习"></a>正则表达式学习</h2><h2 id="VSCode-正则使用记录"><a href="#VSCode-正则使用记录" class="headerlink" title="VSCode 正则使用记录"></a>VSCode 正则使用记录</h2><ul>
-<li>匹配反编译后的注释</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 第一代</span></span><br><span class="line">//.*</span><br><span class="line"><span class="comment"># 第二代</span></span><br><span class="line">// Token: .*</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>VSCode</category>
-      </categories>
-      <tags>
-        <tag>VSCode</tag>
-        <tag>VS</tag>
       </tags>
   </entry>
   <entry>
@@ -5132,21 +5137,21 @@
         <tag>Unity3d</tag>
         <tag>数据结构</tag>
         <tag>算法</tag>
-        <tag>工具</tag>
         <tag>C++</tag>
+        <tag>工具</tag>
         <tag>PHP</tag>
         <tag>ThinkPHP</tag>
         <tag>Java</tag>
         <tag>Linux</tag>
         <tag>Python</tag>
-        <tag>重构</tag>
         <tag>MySql</tag>
-        <tag>Android Studio</tag>
         <tag>查找</tag>
+        <tag>Android Studio</tag>
         <tag>编程</tag>
-        <tag>设计模式</tag>
         <tag>Js</tag>
         <tag>Html</tag>
+        <tag>设计模式</tag>
+        <tag>重构</tag>
         <tag>ML</tag>
         <tag>微积分</tag>
         <tag>线性代数</tag>
@@ -6305,14 +6310,14 @@
         <tag>算法</tag>
         <tag>工具</tag>
         <tag>AR</tag>
-        <tag>Go</tag>
         <tag>Java</tag>
         <tag>Linux</tag>
         <tag>AS</tag>
-        <tag>Android Studio</tag>
+        <tag>Go</tag>
         <tag>查找</tag>
-        <tag>设计模式</tag>
+        <tag>Android Studio</tag>
         <tag>OpenGL</tag>
+        <tag>设计模式</tag>
         <tag>Tools</tag>
         <tag>ML</tag>
         <tag>操作系统</tag>
@@ -6737,8 +6742,8 @@
         <tag>数据结构</tag>
         <tag>工具</tag>
         <tag>AR</tag>
-        <tag>Go</tag>
         <tag>Java</tag>
+        <tag>Go</tag>
         <tag>Android Studio</tag>
         <tag>Html</tag>
         <tag>Tools</tag>
