@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="Ubuntu VirtualBox安装与设置一.系统安装 下载virtualBox 和 ubuntu-16.04.6-desktop-amd64.iso镜像  完成安装后打开virtualBox新建虚拟机 如果没有64位选项 重启电脑进入bios开启cpu虚拟化选项(Virtualization)  内存设置2G 硬盘设置30G 动态分配大小 硬盘位置选一个空间大的硬盘  启动虚拟机 光驱选择前面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tutorial-Ubuntu 基于 VirtualBox安装 设置与编程开发">
+<meta property="og:url" content="http://example.com/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:site_name" content="行则将至">
+<meta property="og:description" content="Ubuntu VirtualBox安装与设置一.系统安装 下载virtualBox 和 ubuntu-16.04.6-desktop-amd64.iso镜像  完成安装后打开virtualBox新建虚拟机 如果没有64位选项 重启电脑进入bios开启cpu虚拟化选项(Virtualization)  内存设置2G 硬盘设置30G 动态分配大小 硬盘位置选一个空间大的硬盘  启动虚拟机 光驱选择前面">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-29T01:11:46.106Z">
+<meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="Unity">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Tutorial-Ubuntu 基于 VirtualBox安装 设置与编程开发 | 行则将至</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">行则将至</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Keep going and you can go anywhere</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu-VirtualBox%E5%AE%89%E8%A3%85%E4%B8%8E%E8%AE%BE%E7%BD%AE"><span class="nav-text">Ubuntu VirtualBox安装与设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="nav-text">一.系统安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C-%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE"><span class="nav-text">二.基本设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%9B%B4%E6%96%B0%E6%BA%90"><span class="nav-text">1.更新源</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1%E6%96%B9%E6%B3%95%E4%B8%80"><span class="nav-text">1.1方法一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="nav-text">1.2方法二</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%AE%BE%E7%BD%AE%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6"><span class="nav-text">2.设置共享文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%AE%BE%E7%BD%AEUbuntu%E5%A4%96%E8%A7%82"><span class="nav-text">3.设置Ubuntu外观</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1%E8%AE%BE%E7%BD%AELauncher%E5%88%B0%E5%BA%95%E9%83%A8"><span class="nav-text">3.1设置Launcher到底部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2%E8%AE%BE%E7%BD%AE%E4%B8%BB%E9%A2%98"><span class="nav-text">3.2设置主题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89-%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91"><span class="nav-text">三.编程开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BB%A5%E5%A4%AA%E5%9D%8ADapp%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-text">1.以太坊Dapp开发环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E5%AE%89%E8%A3%85Node-js"><span class="nav-text">1.1 安装Node.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E5%AE%89%E8%A3%85%E8%8A%82%E7%82%B9%E4%BB%BF%E7%9C%9F%E5%99%A8"><span class="nav-text">1.2 安装节点仿真器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E5%AE%89%E8%A3%85solidity%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-text">1.3 安装solidity编译器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-%E5%AE%89%E8%A3%85web3"><span class="nav-text">1.4 安装web3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-%E5%AE%89%E8%A3%85truffle%E6%A1%86%E6%9E%B6"><span class="nav-text">1.5 安装truffle框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-%E5%AE%89%E8%A3%85webpack"><span class="nav-text">1.6 安装webpack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%BB%BADapp%E9%A1%B9%E7%9B%AE"><span class="nav-text">新建Dapp项目</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qiaogaojian"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">qiaogaojian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">152</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">73</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qiaogaojian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/qiaogaojian" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-git-alt fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qiaogaojian@gmail.com" title="E-Mail → mailto:qiaogaojian@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Tutorial-Ubuntu 基于 VirtualBox安装 设置与编程开发
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Ubuntu 基于 VirtualBox安装 设置与编程开发" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Ubuntu-VirtualBox安装与设置"><a href="#Ubuntu-VirtualBox安装与设置" class="headerlink" title="Ubuntu VirtualBox安装与设置"></a>Ubuntu VirtualBox安装与设置</h1><h2 id="一-系统安装"><a href="#一-系统安装" class="headerlink" title="一.系统安装"></a>一.系统安装</h2><ul>
+<li><p>下载virtualBox 和 ubuntu-16.04.6-desktop-amd64.iso镜像</p>
+</li>
+<li><p>完成安装后打开virtualBox新建虚拟机 如果没有64位选项 重启电脑进入bios开启cpu虚拟化选项(Virtualization)</p>
+</li>
+<li><p>内存设置2G 硬盘设置30G 动态分配大小 硬盘位置选一个空间大的硬盘</p>
+</li>
+<li><p>启动虚拟机 光驱选择前面下载好的镜像进入安装程序</p>
+</li>
+<li><p>语言选择英语</p>
+</li>
+<li><p>安装完成后重启</p>
+</li>
+</ul>
+<h2 id="二-基本设置"><a href="#二-基本设置" class="headerlink" title="二.基本设置"></a>二.基本设置</h2><h3 id="1-更新源"><a href="#1-更新源" class="headerlink" title="1.更新源"></a>1.更新源</h3><h4 id="1-1方法一"><a href="#1-1方法一" class="headerlink" title="1.1方法一"></a>1.1方法一</h4><p>修改 /etc/apt/sources.list</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#添加阿里源</span></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+
+<p>然后更新</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2方法二"><a href="#1-2方法二" class="headerlink" title="1.2方法二"></a>1.2方法二</h4><p>打开软件更新中心选择国内的源 如aliyun</p>
+<h3 id="2-设置共享文件"><a href="#2-设置共享文件" class="headerlink" title="2.设置共享文件"></a>2.设置共享文件</h3><p>打开虚拟机设备菜单 选择安装增强功能</p>
+<p>安装完成后在宿主机本地新建共享文件夹hdshare 然后打开虚拟机设置选择共享文件夹选项 固定分配添加刚才新建的文件夹</p>
+<p>回到虚拟机 进入/mnt/文件夹新建文件夹hdshare</p>
+<p>执行装载命令即可完成共享</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t vboxsf hdshare /mnt/hdshare/</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-设置Ubuntu外观"><a href="#3-设置Ubuntu外观" class="headerlink" title="3.设置Ubuntu外观"></a>3.设置Ubuntu外观</h3><h4 id="3-1设置Launcher到底部"><a href="#3-1设置Launcher到底部" class="headerlink" title="3.1设置Launcher到底部"></a>3.1设置Launcher到底部</h4><p>按下 ctrl + alt + t 打开终端输入以下命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gsettings <span class="built_in">set</span> com.canonical.Unity.Launcher launcher-position Bottom</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2设置主题"><a href="#3-2设置主题" class="headerlink" title="3.2设置主题"></a>3.2设置主题</h4><ul>
+<li>更新</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<p>安装unity-tweak-tool</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install unity-tweak-tool</span><br></pre></td></tr></table></figure>
+
+<p>安装 Flatabulous 主题</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:noobslab/themes</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install flatabulous-theme</span><br></pre></td></tr></table></figure>
+
+<p>安装Flatabulous 主题的配套图标</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:noobslab/icons</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install ultra-flat-icons</span><br></pre></td></tr></table></figure>
+
+<p>按Windows键，输入unity，打开unity-tweak-tool 打开主题设置选择flatabulous  打开icon设置选择ultraflat</p>
+<h2 id="三-编程开发"><a href="#三-编程开发" class="headerlink" title="三.编程开发"></a>三.编程开发</h2><h3 id="1-以太坊Dapp开发环境"><a href="#1-以太坊Dapp开发环境" class="headerlink" title="1.以太坊Dapp开发环境"></a>1.以太坊Dapp开发环境</h3><h4 id="1-1-安装Node-js"><a href="#1-1-安装Node-js" class="headerlink" title="1.1 安装Node.js"></a>1.1 安装Node.js</h4><p>进入/home/username/downloads目录下载安装包</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wget https://nodejs.org/dist/v8.10.0/node-v8.10.0-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>解压</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf node-v8.10.0-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>/home目录下新建dev文件夹 移动解压后的node到dev目录</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv node-v8.10.0-linux-x64 ../../dev/node8</span><br></pre></td></tr></table></figure>
+
+<p>设置node环境变量</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;export NODE_HOME=/home/dev/node8&quot;</span> &gt;&gt; .bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;export NODE_PATH=<span class="variable">$NODE_HOME</span>/lib/node_modules&quot;</span> &gt;&gt; .bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;export PATH=<span class="variable">$NODE_HOME</span>/bin:<span class="variable">$PATH</span>&quot;</span> &gt;&gt; .bashrc</span><br></pre></td></tr></table></figure>
+
+<p>设置永久环境变量</p>
+<blockquote>
+<p>/etc/profile和/etc/profile.d都是常用的设置环境的地方。其中/etc/profile.d文件夹来源于/etc/profile，在该目录下的*.sh，即以sh为后缀的文件都会被加载。<br>类似地，不推荐使用/etc/bash.bashrc，因为在图形界面环境下启动程序时，不会加载它里边的环境变量设置。</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gedit /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>在打开的文件后面添加下面代码</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NODE_HOME=/home/dev/node8</span><br><span class="line"><span class="built_in">export</span> NODE_PATH=<span class="variable">$NODE_HOME</span>/lib/node_modules</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$NODE_HOME</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+
+<p>更新并查看环境变量</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"><span class="built_in">export</span></span><br></pre></td></tr></table></figure>
+
+<p>验证：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ node –v</span><br><span class="line">v8.10.0</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-安装节点仿真器"><a href="#1-2-安装节点仿真器" class="headerlink" title="1.2 安装节点仿真器"></a>1.2 安装节点仿真器</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install –g ganache-cli</span><br></pre></td></tr></table></figure>
+
+<p>验证：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ ganache-cli --version</span><br><span class="line">Ganache CLI v6.0.3 (ganache-core: 2.0.2)</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-3-安装solidity编译器"><a href="#1-3-安装solidity编译器" class="headerlink" title="1.3 安装solidity编译器"></a>1.3 安装solidity编译器</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install –g solc</span><br><span class="line"><span class="comment"># 如果需要安装特定版本solc 需要在项目目录下安装 然后再设置vscode solidity插件的编译器版本</span></span><br><span class="line">npm install solc@0.4.18</span><br></pre></td></tr></table></figure>
+
+<p>如果提示没有权限,修改相应文件夹的权限</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 * -R</span><br></pre></td></tr></table></figure>
+
+<p>验证：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ solcjs -–version</span><br><span class="line">0.40.2+commit.3155dd80.Emscripten.clang</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-安装web3"><a href="#1-4-安装web3" class="headerlink" title="1.4 安装web3"></a>1.4 安装web3</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果没有git 要先安装git</span></span><br><span class="line">sudo apt-get install git</span><br><span class="line">npm install –g web3@0.20.2</span><br></pre></td></tr></table></figure>
+
+<p>验证：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~$ node –p <span class="string">&#x27;require(&quot;web3&quot;)&#x27;</span></span><br><span class="line">&#123;[Function: Web3]</span><br><span class="line">  providers:&#123;…&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-5-安装truffle框架"><a href="#1-5-安装truffle框架" class="headerlink" title="1.5 安装truffle框架"></a>1.5 安装truffle框架</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install –g truffle</span><br></pre></td></tr></table></figure>
+
+<p>验证：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ truffle version</span><br><span class="line">Truffle v4.1.3 (core 4.1.3)</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-6-安装webpack"><a href="#1-6-安装webpack" class="headerlink" title="1.6 安装webpack"></a>1.6 安装webpack</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install –g webpack@3.11.0</span><br></pre></td></tr></table></figure>
+
+<p>验证：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ webpack –v</span><br><span class="line">3.11.0</span><br></pre></td></tr></table></figure>
+
+<h4 id="新建Dapp项目"><a href="#新建Dapp项目" class="headerlink" title="新建Dapp项目"></a>新建Dapp项目</h4>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="qiaogaojian 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="qiaogaojian 支付宝">
+        <span>支付宝</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.png" alt="qiaogaojian 比特币">
+        <span>比特币</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>qiaogaojian
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" title="Tutorial-Ubuntu 基于 VirtualBox安装 设置与编程开发">http://example.com/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu 基于 VirtualBox安装 设置与编程开发/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Unity/" rel="tag"><i class="fa fa-tag"></i> Unity</a>
+              <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
+              <a href="/tags/Windows/" rel="tag"><i class="fa fa-tag"></i> Windows</a>
+              <a href="/tags/Ubuntu/" rel="tag"><i class="fa fa-tag"></i> Ubuntu</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/" rel="prev" title="Tips-PowerShellHelloWorld">
+                  <i class="fa fa-chevron-left"></i> Tips-PowerShellHelloWorld
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/" rel="next" title="Tutorial-Vim常见指令">
+                  Tutorial-Vim常见指令 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiaogaojian</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/",
+    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":210,"height":360},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

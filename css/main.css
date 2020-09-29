@@ -1568,9 +1568,10 @@ pre code {
   line-height: 1.8;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .post-toc .nav .nav-child {
-  display: block;
+  display: none;
 }
 .post-toc .nav .active > .nav-child {
   display: block;
@@ -1774,6 +1775,15 @@ pre code {
   top: 0;
   width: 100%;
   z-index: 1500;
+}
+.reading-progress-bar {
+  background: #37c6c0;
+  height: 3px;
+  left: 0;
+  position: fixed;
+  width: 0;
+  z-index: 1500;
+  top: 0;
 }
 .rtl.post-body p,
 .rtl.post-body a,
