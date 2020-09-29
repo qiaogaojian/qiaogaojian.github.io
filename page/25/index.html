@@ -278,6 +278,185 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/28/5.Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/28/5.Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Tutorail-Ubuntu安装LAMP环境</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-28T00:00:00+08:00">2020-09-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-29 09:11:46" itemprop="dateModified" datetime="2020-09-29T09:11:46+08:00">2020-09-29</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-Web/" itemprop="url" rel="index"><span itemprop="name">5.Web</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/28/5.Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorail-Ubuntu安装LAMP环境" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/28/5.Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/28/5.Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Ubuntu安装LAMP环境"><a href="#Ubuntu安装LAMP环境" class="headerlink" title="Ubuntu安装LAMP环境"></a>Ubuntu安装LAMP环境</h1><h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装Apache"><a href="#安装Apache" class="headerlink" title="安装Apache"></a>安装Apache</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install apache2</span><br></pre></td></tr></table></figure>
+
+<h3 id="添加阿里云安全组外网80端口访问"><a href="#添加阿里云安全组外网80端口访问" class="headerlink" title="添加阿里云安全组外网80端口访问"></a>添加阿里云安全组外网80端口访问</h3><p><img src="https://upload-images.jianshu.io/upload_images/3947109-fc72e93e1a263173.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>浏览器输入IP,如果出现It works代表安装成功</p>
+<h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 服务状态</span><br><span class="line">service apache2 status</span><br><span class="line">// 启动服务</span><br><span class="line">service apache2 start</span><br><span class="line">// 停止服务</span><br><span class="line">service apache2 stop</span><br><span class="line">// 重启服务</span><br><span class="line">service apache2 restart</span><br></pre></td></tr></table></figure>
+
+<h3 id="Web目录"><a href="#Web目录" class="headerlink" title="Web目录"></a>Web目录</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/var/www</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装目录"><a href="#安装目录" class="headerlink" title="安装目录"></a>安装目录</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/apache2</span><br></pre></td></tr></table></figure>
+
+<h3 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/apache2/apache2.conf</span><br></pre></td></tr></table></figure>
+
+<h3 id="监听端口"><a href="#监听端口" class="headerlink" title="监听端口"></a>监听端口</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">etc/apache2/ports.conf</span><br></pre></td></tr></table></figure>
+
+<h3 id="虚拟主机"><a href="#虚拟主机" class="headerlink" title="虚拟主机"></a>虚拟主机</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/apache2/sites-enabled/000-default.conf</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装MySql"><a href="#安装MySql" class="headerlink" title="安装MySql"></a>安装MySql</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server mysql-client</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line">showdatabases;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看状态-1"><a href="#查看状态-1" class="headerlink" title="查看状态"></a>查看状态</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysql status/start/stop/restart</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看监听端口的情况"><a href="#查看监听端口的情况" class="headerlink" title="查看监听端口的情况"></a>查看监听端口的情况</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tunpl 或 netstat -tap</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装PHP"><a href="#安装PHP" class="headerlink" title="安装PHP"></a>安装PHP</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php</span><br></pre></td></tr></table></figure>
+
+<p>测试</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装其他模块"><a href="#安装其他模块" class="headerlink" title="安装其他模块"></a>安装其他模块</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libapache2-mod-php7.0</span><br><span class="line">sudo apt-get install php7.0-mysql</span><br></pre></td></tr></table></figure>
+
+<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service apache2 restart</span><br><span class="line">service mysql restart</span><br></pre></td></tr></table></figure>
+
+<p>测试Apache能否解析PHP</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nano /var/www/html/phpinfo.php</span><br><span class="line">文件中写：&lt;?php <span class="built_in">echo</span> phpinfo();?&gt;</span><br><span class="line">浏览器访问：http://ubuntu地址/phpinfo.php，出现PHP Version网页</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 /var/www</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装phpMyAdmin"><a href="#安装phpMyAdmin" class="headerlink" title="安装phpMyAdmin"></a>安装phpMyAdmin</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install phpmyadmin</span><br></pre></td></tr></table></figure>
+
+<p>服务器选择apache2</p>
+<p>配置数据库密码</p>
+<p>创建phpMyAdmin快捷方式</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /usr/share/phpmyadmin /var/www/html</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动-Apache-rewrite模块"><a href="#启动-Apache-rewrite模块" class="headerlink" title="启动 Apache rewrite模块"></a>启动 Apache rewrite模块</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod rewrite</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>开启rewrite模块后还要进入 etc/apache2/ 目录 打开 apache2.conf 文件</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory /var/www/&gt;</span><br><span class="line">        Options Indexes FollowSymLinks</span><br><span class="line">        AllowOverride All</span><br><span class="line">        Require all granted</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>把 AllowOverride 选项改为 All</p>
+</li>
+<li><p>把下面的内容保存为.htaccess文件放到应用入口文件的同级目录下</p>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule mod_rewrite.c&gt;</span><br><span class="line">RewriteEngine on</span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</span><br><span class="line">RewriteRule ^(.*)$ index.php/<span class="variable">$1</span> [QSA,PT,L]</span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="重启服务-1"><a href="#重启服务-1" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service php7.0-fpm restart</span><br><span class="line">service apache2 restart</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试-2"><a href="#测试-2" class="headerlink" title="测试"></a>测试</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 访问</span><br><span class="line">http://serverurl/phpmyadmin</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置Apache"><a href="#配置Apache" class="headerlink" title="配置Apache"></a>配置Apache</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/apache2/apache2.conf</span><br></pre></td></tr></table></figure>
+
+<p>添加配置</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AddType application/x-httpd-php .php .htm .html</span><br><span class="line">AddDefaultCharset UTF-8</span><br></pre></td></tr></table></figure>
+
+<p>重启Apache服务</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service apache2 restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.linuxidc.com/Linux/2016-10/136327.htm">Ubuntu 16.04搭建LAMP开发环境</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.mamicode.com/info-detail-2073578.html">阿里云 Ubuntu 16.04 搭建LAMP环境</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.edbiji.com/doccenter/showdoc/26/nav/1281.html">Thinkphp隐藏index.php入口文件</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/28/5.Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -514,7 +693,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/9.Tools/20200926_Tips-%E7%AC%94%E8%AE%B0%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -531,21 +710,11 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/26/9.Tools/20200926_Tips-%E7%AC%94%E8%AE%B0%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/" class="post-title-link" itemprop="url">Tips-笔记说明文档</a>
+            <a href="/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-title-link" itemprop="url">Roadmap_线性代数知识体系</a>
         </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
-  
-  <!--
-    <span class="post-meta-item-icon">
-      <i class="fas fa-thumbtack"></i>
-    </span>
-  -->
-     <span class="post-meta-item-text">
-        <font color=7D26CD>置顶</font>
-     </span>
-    <span class="post-meta-divider"></span>
   
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -560,7 +729,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-29 15:56:42" itemprop="dateModified" datetime="2020-09-29T15:56:42+08:00">2020-09-29</time>
+        <time title="修改时间：2020-09-29 09:11:46" itemprop="dateModified" datetime="2020-09-29T09:11:46+08:00">2020-09-29</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -568,12 +737,16 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+          <a href="/categories/0-Math/" itemprop="url" rel="index"><span itemprop="name">0.Math</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/0-Math/LinearAlgebra/" itemprop="url" rel="index"><span itemprop="name">LinearAlgebra</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/26/9.Tools/20200926_Tips-%E7%AC%94%E8%AE%B0%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-笔记说明文档" title="阅读次数">
+    <span id="/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-meta-item leancloud_visitors" data-flag-title="Roadmap_线性代数知识体系" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -588,8 +761,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/26/9.Tools/20200926_Tips-%E7%AC%94%E8%AE%B0%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/9.Tools/20200926_Tips-%E7%AC%94%E8%AE%B0%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -603,16 +776,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="笔记说明文档"><a href="#笔记说明文档" class="headerlink" title="笔记说明文档"></a>笔记说明文档</h1><h2 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h2><p>命名由三部分组成: 时间_分类-名字</p>
-<h2 id="分类说明"><a href="#分类说明" class="headerlink" title="分类说明"></a>分类说明</h2><h3 id="0-RoadMap-路线图"><a href="#0-RoadMap-路线图" class="headerlink" title="0.RoadMap 路线图"></a>0.RoadMap 路线图</h3><p>学习路径/学习规划/学习资源</p>
-<h3 id="1-Tips-小知识"><a href="#1-Tips-小知识" class="headerlink" title="1.Tips 小知识"></a>1.Tips 小知识</h3><p>零碎知识点</p>
-<h3 id="2-Trick"><a href="#2-Trick" class="headerlink" title="2.Trick"></a>2.Trick</h3><p>小技巧/快捷操作</p>
-<h3 id="3-Bug"><a href="#3-Bug" class="headerlink" title="3.Bug"></a>3.Bug</h3><p>错误记录</p>
-<h3 id="4-BestPratice"><a href="#4-BestPratice" class="headerlink" title="4.BestPratice"></a>4.BestPratice</h3><p>最佳实践</p>
-<h3 id="5-Tutorial"><a href="#5-Tutorial" class="headerlink" title="5.Tutorial"></a>5.Tutorial</h3><p>系统性的知识总结</p>
-<h3 id="6-Tao​"><a href="#6-Tao​" class="headerlink" title="6.Tao​"></a>6.Tao​</h3><p>心得体会/经验总结</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="笔记中图片放在-images-路径下"><a href="#笔记中图片放在-images-路径下" class="headerlink" title="笔记中图片放在/images 路径下"></a>笔记中图片放在/images 路径下</h3><p><img src="/images/hexo.png" alt="Test"></p>
-
+          <h1 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h1><h2 id="线性空间"><a href="#线性空间" class="headerlink" title="线性空间"></a>线性空间</h2>
       
     </div>
 
@@ -717,110 +881,6 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="微积分知识体系"><a href="#微积分知识体系" class="headerlink" title="微积分知识体系"></a>微积分知识体系</h1><h2 id="微积分1"><a href="#微积分1" class="headerlink" title="微积分1"></a>微积分1</h2><h2 id="微积分2"><a href="#微积分2" class="headerlink" title="微积分2"></a>微积分2</h2>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-title-link" itemprop="url">Roadmap_线性代数知识体系</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-29 09:11:46" itemprop="dateModified" datetime="2020-09-29T09:11:46+08:00">2020-09-29</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/0-Math/" itemprop="url" rel="index"><span itemprop="name">0.Math</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/0-Math/LinearAlgebra/" itemprop="url" rel="index"><span itemprop="name">LinearAlgebra</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-meta-item leancloud_visitors" data-flag-title="Roadmap_线性代数知识体系" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h1><h2 id="线性空间"><a href="#线性空间" class="headerlink" title="线性空间"></a>线性空间</h2>
       
     </div>
 

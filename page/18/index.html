@@ -278,7 +278,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Git/20200929_Tips-git%E6%81%A2%E5%A4%8D%E5%88%A0%E9%99%A4%E7%9A%84stash%E4%BB%A3%E7%A0%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -295,7 +295,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/" class="post-title-link" itemprop="url">Tips-git合并指定提交到另一个分支</a>
+            <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E6%81%A2%E5%A4%8D%E5%88%A0%E9%99%A4%E7%9A%84stash%E4%BB%A3%E7%A0%81/" class="post-title-link" itemprop="url">Tips-git恢复删除的stash代码</a>
         </h2>
 
         <div class="post-meta-container">
@@ -325,7 +325,7 @@
     </span>
 
   
-    <span id="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-git合并指定提交到另一个分支" title="阅读次数">
+    <span id="/2020/09/29/9.Tools/Git/20200929_Tips-git%E6%81%A2%E5%A4%8D%E5%88%A0%E9%99%A4%E7%9A%84stash%E4%BB%A3%E7%A0%81/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-git恢复删除的stash代码" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -340,8 +340,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E6%81%A2%E5%A4%8D%E5%88%A0%E9%99%A4%E7%9A%84stash%E4%BB%A3%E7%A0%81/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Git/20200929_Tips-git%E6%81%A2%E5%A4%8D%E5%88%A0%E9%99%A4%E7%9A%84stash%E4%BB%A3%E7%A0%81/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -355,20 +355,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="git合并分支上指定的commit"><a href="#git合并分支上指定的commit" class="headerlink" title="git合并分支上指定的commit"></a>git合并分支上指定的commit</h1><blockquote>
-<p>merge 能够胜任平常大部分的合并需求。但也会遇到某些特殊的情况，例如正在开发一个新的功能，线上说有一个紧急的bug要修复。bug修好了但并不像把仍在开发的新功能代码也提交到线上去。这时候也许想要一个只合并指定某些 commit 的功能。</p>
-</blockquote>
-<h2 id="假设分支结构如下："><a href="#假设分支结构如下：" class="headerlink" title="假设分支结构如下："></a>假设分支结构如下：</h2><p>dd2e86 - 946992 - 9143a9 - a6fd86 - 5a6057 [master]</p>
-<p>|</p>
-<p>76cada-62ecb3-b886a0[feature]</p>
-<h2 id="再假设-62ecb3-的提交修复了bug，这时候可以用"><a href="#再假设-62ecb3-的提交修复了bug，这时候可以用" class="headerlink" title="再假设 62ecb3 的提交修复了bug，这时候可以用"></a>再假设 62ecb3 的提交修复了bug，这时候可以用</h2><h2 id="cherry-pick-合并单个-commit"><a href="#cherry-pick-合并单个-commit" class="headerlink" title="cherry pick 合并单个 commit"></a>cherry pick 合并单个 commit</h2><h3 id="具体操作："><a href="#具体操作：" class="headerlink" title="具体操作："></a>具体操作：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git cherry-pick 62ecb3</span><br></pre></td></tr></table></figure>
+          <h1 id="git恢复删除的stash代码"><a href="#git恢复删除的stash代码" class="headerlink" title="git恢复删除的stash代码"></a>git恢复删除的stash代码</h1><h2 id="列出删除列表"><a href="#列出删除列表" class="headerlink" title="列出删除列表"></a>列出删除列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fsck --lost-found</span><br></pre></td></tr></table></figure>
 
-<p>就这么简单。62ecb3 已经应用在 master 上了（作为一个新的commit）。</p>
-<h2 id="cherry-pick-连续多个commit"><a href="#cherry-pick-连续多个commit" class="headerlink" title="cherry pick 连续多个commit"></a>cherry pick 连续多个commit</h2><p>cherry pick 虽好，但一次只能合并一个commit。合并多个就要用到 rebase 了。再次假设想要把 76cada 和 62ecb3 合并到 master 上。</p>
-<h3 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b newbranch 62ecb3</span><br><span class="line">git rebase —onto master 76cada^</span><br></pre></td></tr></table></figure>
+<h2 id="复制列表中dangling-commit-中的-id"><a href="#复制列表中dangling-commit-中的-id" class="headerlink" title="复制列表中dangling commit 中的 id"></a>复制列表中dangling commit 中的 id</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dangling commit **7010e0447be96627fde29961d420d887533d7796**</span><br></pre></td></tr></table></figure>
 
-<p>76cada^ 表示从 76cada 的 commit 开始合并（作为新的commit）。这样就完成了 76cada 到 62ecb3<br> 合并到 master。</p>
+<h2 id="查看具体信息"><a href="#查看具体信息" class="headerlink" title="查看具体信息"></a>查看具体信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show 7010e0447be96627fde29961d420d887533d7796</span><br></pre></td></tr></table></figure>
 
+<h2 id="根据信息找到并恢复记录"><a href="#根据信息找到并恢复记录" class="headerlink" title="根据信息找到并恢复记录"></a>根据信息找到并恢复记录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge 7010e0447be96627fde29961d420d887533d7796</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -491,7 +484,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Git/20200929_Trick-github%E9%85%8D%E7%BD%AEhosts%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -508,7 +501,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/9.Tools/Git/20200929_Trick-github%E9%85%8D%E7%BD%AEhosts%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/" class="post-title-link" itemprop="url">Trick-github配置hosts提高访问速度</a>
+            <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Tips-git多账号配置</a>
         </h2>
 
         <div class="post-meta-container">
@@ -538,7 +531,7 @@
     </span>
 
   
-    <span id="/2020/09/29/9.Tools/Git/20200929_Trick-github%E9%85%8D%E7%BD%AEhosts%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-github配置hosts提高访问速度" title="阅读次数">
+    <span id="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-git多账号配置" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -553,8 +546,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/9.Tools/Git/20200929_Trick-github%E9%85%8D%E7%BD%AEhosts%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Git/20200929_Trick-github%E9%85%8D%E7%BD%AEhosts%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -568,16 +561,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="github配置hosts提高访问速度"><a href="#github配置hosts提高访问速度" class="headerlink" title="github配置hosts提高访问速度"></a>github配置hosts提高访问速度</h1><h2 id="修改-Hosts"><a href="#修改-Hosts" class="headerlink" title="修改 Hosts"></a>修改 Hosts</h2><ul>
-<li><p>进入目录 C:\Windows\System32\drivers\etc</p>
-</li>
-<li><p>打开hosts文件并添加以下内容</p>
-</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GitHub Start</span></span><br><span class="line">192.30.253.112 github.com</span><br><span class="line">192.30.253.113 github.com</span><br><span class="line">192.30.253.119 gist.github.com</span><br><span class="line">151.101.185.194 github.global.ssl.fastly.net</span><br><span class="line">151.101.100.133 assets-cdn.github.com</span><br><span class="line">151.101.100.133 raw.githubusercontent.com</span><br><span class="line">151.101.100.133 gist.githubusercontent.com</span><br><span class="line">151.101.100.133 cloud.githubusercontent.com</span><br><span class="line">151.101.100.133 camo.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars0.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars1.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars2.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars3.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars4.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars5.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars6.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars7.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars8.githubusercontent.com</span><br><span class="line"><span class="comment"># GitHub End</span></span><br></pre></td></tr></table></figure>
+          <h1 id="Git多账号配置"><a href="#Git多账号配置" class="headerlink" title="Git多账号配置"></a>Git多账号配置</h1><h2 id="取消-global-git-config"><a href="#取消-global-git-config" class="headerlink" title="取消 global git config"></a>取消 global git config</h2><h2 id="设置当前项目-git-config"><a href="#设置当前项目-git-config" class="headerlink" title="设置当前项目 git config"></a>设置当前项目 git config</h2><h2 id="Gitee-Token"><a href="#Gitee-Token" class="headerlink" title="Gitee Token"></a>Gitee Token</h2><p>7964c3ca84a1916dba62a53b10ed5b05</p>
 
-<h2 id="刷新-DNS-缓存"><a href="#刷新-DNS-缓存" class="headerlink" title="刷新 DNS 缓存"></a>刷新 DNS 缓存</h2><p>CMD输入命令</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig /flushdns</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -778,7 +763,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/PHPStorm/20200929_Bug-PHPStorm%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5502%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Git/20200929_Trick-github%E9%85%8D%E7%BD%AEhosts%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -795,7 +780,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/9.Tools/PHPStorm/20200929_Bug-PHPStorm%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5502%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Bug-PHPStorm打开网页502问题</a>
+            <a href="/2020/09/29/9.Tools/Git/20200929_Trick-github%E9%85%8D%E7%BD%AEhosts%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/" class="post-title-link" itemprop="url">Trick-github配置hosts提高访问速度</a>
         </h2>
 
         <div class="post-meta-container">
@@ -820,12 +805,12 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/PHPStorm/" itemprop="url" rel="index"><span itemprop="name">PHPStorm</span></a>
+          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/29/9.Tools/PHPStorm/20200929_Bug-PHPStorm%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5502%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-PHPStorm打开网页502问题" title="阅读次数">
+    <span id="/2020/09/29/9.Tools/Git/20200929_Trick-github%E9%85%8D%E7%BD%AEhosts%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-github配置hosts提高访问速度" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -840,8 +825,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/9.Tools/PHPStorm/20200929_Bug-PHPStorm%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5502%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/PHPStorm/20200929_Bug-PHPStorm%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5502%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/9.Tools/Git/20200929_Trick-github%E9%85%8D%E7%BD%AEhosts%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Git/20200929_Trick-github%E9%85%8D%E7%BD%AEhosts%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -855,25 +840,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="PHPStorm打开网页502问题"><a href="#PHPStorm打开网页502问题" class="headerlink" title="PHPStorm打开网页502问题"></a>PHPStorm打开网页502问题</h1><h2 id="设置PHP解释器"><a href="#设置PHP解释器" class="headerlink" title="设置PHP解释器"></a>设置PHP解释器</h2><p>File =&gt; Setting =&gt; Languages &amp; Frameworks =&gt; PHP</p>
-<ul>
-<li><p>设置语言版本</p>
+          <h1 id="github配置hosts提高访问速度"><a href="#github配置hosts提高访问速度" class="headerlink" title="github配置hosts提高访问速度"></a>github配置hosts提高访问速度</h1><h2 id="修改-Hosts"><a href="#修改-Hosts" class="headerlink" title="修改 Hosts"></a>修改 Hosts</h2><ul>
+<li><p>进入目录 C:\Windows\System32\drivers\etc</p>
 </li>
-<li><p>设置解释器路径</p>
-</li>
-</ul>
-<h2 id="设置服务器"><a href="#设置服务器" class="headerlink" title="设置服务器"></a>设置服务器</h2><p>File =&gt; Setting =&gt; Build, Execution, Deployment =&gt; Deployment</p>
-<ul>
-<li><p>添加新的部署</p>
-</li>
-<li><p>选择 In place 类型</p>
-</li>
-<li><p>server root: localhost</p>
-</li>
-<li><p>local path: D:\xampp\htdocs</p>
+<li><p>打开hosts文件并添加以下内容</p>
 </li>
 </ul>
-<h2 id="Apply-gt-OK"><a href="#Apply-gt-OK" class="headerlink" title="Apply =&gt; OK"></a>Apply =&gt; OK</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GitHub Start</span></span><br><span class="line">192.30.253.112 github.com</span><br><span class="line">192.30.253.113 github.com</span><br><span class="line">192.30.253.119 gist.github.com</span><br><span class="line">151.101.185.194 github.global.ssl.fastly.net</span><br><span class="line">151.101.100.133 assets-cdn.github.com</span><br><span class="line">151.101.100.133 raw.githubusercontent.com</span><br><span class="line">151.101.100.133 gist.githubusercontent.com</span><br><span class="line">151.101.100.133 cloud.githubusercontent.com</span><br><span class="line">151.101.100.133 camo.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars0.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars1.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars2.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars3.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars4.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars5.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars6.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars7.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars8.githubusercontent.com</span><br><span class="line"><span class="comment"># GitHub End</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="刷新-DNS-缓存"><a href="#刷新-DNS-缓存" class="headerlink" title="刷新 DNS 缓存"></a>刷新 DNS 缓存</h2><p>CMD输入命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig /flushdns</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -894,7 +870,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/PHPStorm/20200929_Trick-PHPStorm%E7%9A%84%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/QPython/20200929_Tutorial-QPython%E5%AE%89%E5%8D%93%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -911,7 +887,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/9.Tools/PHPStorm/20200929_Trick-PHPStorm%E7%9A%84%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3/" class="post-title-link" itemprop="url">Trick-PHPStorm的安装破解</a>
+            <a href="/2020/09/29/9.Tools/QPython/20200929_Tutorial-QPython%E5%AE%89%E5%8D%93%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/" class="post-title-link" itemprop="url">Tutorial-QPython安卓接口文档</a>
         </h2>
 
         <div class="post-meta-container">
@@ -936,12 +912,12 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/PHPStorm/" itemprop="url" rel="index"><span itemprop="name">PHPStorm</span></a>
+          <a href="/categories/9-Tools/QPython/" itemprop="url" rel="index"><span itemprop="name">QPython</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/29/9.Tools/PHPStorm/20200929_Trick-PHPStorm%E7%9A%84%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-PHPStorm的安装破解" title="阅读次数">
+    <span id="/2020/09/29/9.Tools/QPython/20200929_Tutorial-QPython%E5%AE%89%E5%8D%93%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-QPython安卓接口文档" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -956,8 +932,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/9.Tools/PHPStorm/20200929_Trick-PHPStorm%E7%9A%84%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/PHPStorm/20200929_Trick-PHPStorm%E7%9A%84%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/9.Tools/QPython/20200929_Tutorial-QPython%E5%AE%89%E5%8D%93%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/QPython/20200929_Tutorial-QPython%E5%AE%89%E5%8D%93%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -971,15 +947,111 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="PHPStorm的安装破解"><a href="#PHPStorm的安装破解" class="headerlink" title="PHPStorm的安装破解"></a>PHPStorm的安装破解</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1GTj3KTlkkaKjKPSpp_spOQ">链接</a> 提取码：35ty</p>
-<h2 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h2><p>打开文件夹PhpStorm2018.2.2破解，将JetbrainsCrack.jar文件拷贝至D:\phpStorm\PhpStorm2018.2.2\bin目录下</p>
-<h3 id="编辑启动配置"><a href="#编辑启动配置" class="headerlink" title="编辑启动配置"></a>编辑启动配置</h3><ul>
-<li>打开phpstorm64.exe.vmoptions</li>
-<li>将 -javaagent:{ install folder }\bin\JetbrainsCrack.jar 添加到最后一行</li>
-</ul>
-<h3 id="输入激活码"><a href="#输入激活码" class="headerlink" title="输入激活码"></a>输入激活码</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ThisCrackLicenseId-&#123; <span class="string">&quot;licenseId&quot;</span>:<span class="string">&quot;ThisCrackLicenseId&quot;</span>, <span class="string">&quot;licenseeName&quot;</span>:<span class="string">&quot;idea&quot;</span>, <span class="string">&quot;assigneeName&quot;</span>:<span class="string">&quot;&quot;</span>, <span class="string">&quot;assigneeEmail&quot;</span>:<span class="string">&quot;idea@163.com&quot;</span>, <span class="string">&quot;licenseRestriction&quot;</span>:<span class="string">&quot;For This Crack, Only Test! Please support genuine!!!&quot;</span>, <span class="string">&quot;checkConcurrentUse&quot;</span>:<span class="literal">false</span>, <span class="string">&quot;products&quot;</span>:[ &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;II&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;DM&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;AC&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;RS0&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;WS&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;DPN&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;RC&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;PS&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;DC&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;RM&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;CL&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;PC&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125; ], <span class="string">&quot;hash&quot;</span>:<span class="string">&quot;2911276/0&quot;</span>, <span class="string">&quot;gracePeriodDays&quot;</span>:<span class="number">7</span>, <span class="string">&quot;autoProlongated&quot;</span>:<span class="literal">false</span>&#125;</span><br></pre></td></tr></table></figure>
+          <h1 id="QPython接口文档"><a href="#QPython接口文档" class="headerlink" title="QPython接口文档"></a>QPython接口文档</h1><!-- TOC -->
 
-<h2 id="重新启动"><a href="#重新启动" class="headerlink" title="重新启动"></a>重新启动</h2><h2 id="设置备份"><a href="#设置备份" class="headerlink" title="设置备份"></a>设置备份</h2><p><a href="/download/PHPStormSettings.jar">PHPStormSettings.jar</a></p>
+<ul>
+<li><a href="#qpython%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3">QPython接口文档</a><ul>
+<li><a href="#androidfacade">AndroidFacade</a><ul>
+<li><a href="#--clipboard-apis">- Clipboard APIs</a></li>
+<li><a href="#--intent--startactivity-apis">- Intent &amp; startActivity APIs</a></li>
+<li><a href="#--sendbroadcast-apis">- SendBroadcast APIs</a></li>
+<li><a href="#--vibrate">- Vibrate</a></li>
+<li><a href="#--networkstatus">- NetworkStatus</a></li>
+<li><a href="#--packageversion-apis">- PackageVersion APIs</a></li>
+<li><a href="#--system-apis">- System APIs</a></li>
+<li><a href="#--sendemail">- SendEmail</a></li>
+<li><a href="#--toast-getinput-getpassword-notify-apis">- Toast, getInput, getPassword, notify APIs</a></li>
+</ul>
+</li>
+<li><a href="#applicationmanagerfacade">ApplicationManagerFacade</a><ul>
+<li><a href="#--manager-apis">- Manager APIs</a></li>
+</ul>
+</li>
+<li><a href="#camerafacade">CameraFacade</a></li>
+<li><a href="#commonintentsfacade">CommonIntentsFacade</a><ul>
+<li><a href="#--barcode">- Barcode</a></li>
+<li><a href="#--view-apis">- View APIs</a></li>
+</ul>
+</li>
+<li><a href="#contactsfacade">ContactsFacade</a></li>
+<li><a href="#eventfacade">EventFacade</a></li>
+<li><a href="#locationfacade">LocationFacade</a><ul>
+<li><a href="#--providers-apis">- Providers APIs</a></li>
+<li><a href="#--location-apis">- Location APIs</a></li>
+<li><a href="#--geo">- GEO</a></li>
+</ul>
+</li>
+<li><a href="#phonefacade">PhoneFacade</a><ul>
+<li><a href="#--phonestat-apis">- PhoneStat APIs</a></li>
+<li><a href="#--call--dia-apis">- Call &amp; Dia APIs</a></li>
+<li><a href="#--get-information-apis">- Get information APIs</a></li>
+</ul>
+</li>
+<li><a href="#mediarecorderfacade">MediaRecorderFacade</a><ul>
+<li><a href="#--audio">- Audio</a></li>
+<li><a href="#--video-apis">- Video APIs</a></li>
+<li><a href="#--stop">- Stop</a></li>
+</ul>
+</li>
+<li><a href="#sensormanagerfacade">SensorManagerFacade</a><ul>
+<li><a href="#--start--stop">- Start &amp; Stop</a></li>
+<li><a href="#--read-data-apis">- Read data APIs</a></li>
+</ul>
+</li>
+<li><a href="#settingsfacade">SettingsFacade</a><ul>
+<li><a href="#--screen">- Screen</a></li>
+<li><a href="#--airplanermode">- AirplanerMode</a></li>
+<li><a href="#--ringer-silent-mode">- Ringer Silent Mode</a></li>
+<li><a href="#--vibrate-mode">- Vibrate Mode</a></li>
+<li><a href="#--ringer--media-volume">- Ringer &amp; Media Volume</a></li>
+<li><a href="#--screen-brightness">- Screen Brightness</a></li>
+</ul>
+</li>
+<li><a href="#smsfacade">SmsFacade</a></li>
+<li><a href="#speechrecognitionfacade">SpeechRecognitionFacade</a></li>
+<li><a href="#tonegeneratorfacade">ToneGeneratorFacade</a></li>
+<li><a href="#wakelockfacade">WakeLockFacade</a></li>
+<li><a href="#wififacade">WifiFacade</a></li>
+<li><a href="#batterymanagerfacade">BatteryManagerFacade</a></li>
+<li><a href="#activityresultfacade">ActivityResultFacade</a></li>
+<li><a href="#mediaplayerfacade">MediaPlayerFacade</a><ul>
+<li><a href="#--control">- Control</a></li>
+<li><a href="#--get-information">- Get Information</a></li>
+</ul>
+</li>
+<li><a href="#preferencesfacade">PreferencesFacade</a></li>
+<li><a href="#qpyinterfacefacade">QPyInterfaceFacade</a></li>
+<li><a href="#texttospeechfacade">TextToSpeechFacade</a></li>
+<li><a href="#eyesfreefacade">EyesFreeFacade</a></li>
+<li><a href="#bluetoothfacade">BluetoothFacade</a></li>
+<li><a href="#signalstrengthfacade">SignalStrengthFacade</a></li>
+<li><a href="#webcamfacade">WebCamFacade</a></li>
+<li><a href="#uifacade">UiFacade</a><ul>
+<li><a href="#--dialog">- Dialog</a></li>
+<li><a href="#--nfc">- NFC</a></li>
+<li><a href="#--progress">- Progress</a></li>
+<li><a href="#--alert">- Alert</a></li>
+<li><a href="#--dialog-control">- Dialog Control</a></li>
+<li><a href="#--layout">- Layout</a></li>
+<li><a href="#--webview">- WebView</a></li>
+</ul>
+</li>
+<li><a href="#usb-host-serial-facade">USB Host Serial Facade</a><ul>
+<li><a href="#--requirements">- Requirements</a></li>
+<li><a href="#--status">- Status</a></li>
+<li><a href="#--author">- Author</a></li>
+<li><a href="#--apis">- APIs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+
+<blockquote>
+<p>To simplify QPython SL4A development in IDEs with a “hepler” class derived from the default Android class containing SL4A(Script Layer for Android) facade functions &amp; API documentation</p>
+</blockquote>
+<h2 id="AndroidFacade"><a href="#AndroidFacade" class="headerlink" title="AndroidFacade"></a>AndroidFacade</h2><h3 id="Clipboard-APIs"><a href="#Clipboard-APIs" class="headerlink" title="- Clipboard APIs"></a>- Clipboard APIs</h3><h3 id="Intent-amp-startActivity-APIs"><a href="#Intent-amp-startActivity-APIs" class="headerlink" title="- Intent &amp; startActivity APIs"></a>- Intent &amp; startActivity APIs</h3><h3 id="SendBroadcast-APIs"><a href="#SendBroadcast-APIs" class="headerlink" title="- SendBroadcast APIs"></a>- SendBroadcast APIs</h3><h3 id="Vibrate"><a href="#Vibrate" class="headerlink" title="- Vibrate"></a>- Vibrate</h3><h3 id="NetworkStatus"><a href="#NetworkStatus" class="headerlink" title="- NetworkStatus"></a>- NetworkStatus</h3><h3 id="PackageVersion-APIs"><a href="#PackageVersion-APIs" class="headerlink" title="- PackageVersion APIs"></a>- PackageVersion APIs</h3><h3 id="System-APIs"><a href="#System-APIs" class="headerlink" title="- System APIs"></a>- System APIs</h3><h3 id="SendEmail"><a href="#SendEmail" class="headerlink" title="- SendEmail"></a>- SendEmail</h3><h3 id="Toast-getInput-getPassword-notify-APIs"><a href="#Toast-getInput-getPassword-notify-APIs" class="headerlink" title="- Toast, getInput, getPassword, notify APIs"></a>- Toast, getInput, getPassword, notify APIs</h3><h2 id="ApplicationManagerFacade"><a href="#ApplicationManagerFacade" class="headerlink" title="ApplicationManagerFacade"></a>ApplicationManagerFacade</h2><h3 id="Manager-APIs"><a href="#Manager-APIs" class="headerlink" title="- Manager APIs"></a>- Manager APIs</h3><h2 id="CameraFacade"><a href="#CameraFacade" class="headerlink" title="CameraFacade"></a>CameraFacade</h2><h2 id="CommonIntentsFacade"><a href="#CommonIntentsFacade" class="headerlink" title="CommonIntentsFacade"></a>CommonIntentsFacade</h2><h3 id="Barcode"><a href="#Barcode" class="headerlink" title="- Barcode"></a>- Barcode</h3><h3 id="View-APIs"><a href="#View-APIs" class="headerlink" title="- View APIs"></a>- View APIs</h3><h2 id="ContactsFacade"><a href="#ContactsFacade" class="headerlink" title="ContactsFacade"></a>ContactsFacade</h2><h2 id="EventFacade"><a href="#EventFacade" class="headerlink" title="EventFacade"></a>EventFacade</h2><h2 id="LocationFacade"><a href="#LocationFacade" class="headerlink" title="LocationFacade"></a>LocationFacade</h2><h3 id="Providers-APIs"><a href="#Providers-APIs" class="headerlink" title="- Providers APIs"></a>- Providers APIs</h3><h3 id="Location-APIs"><a href="#Location-APIs" class="headerlink" title="- Location APIs"></a>- Location APIs</h3><h3 id="GEO"><a href="#GEO" class="headerlink" title="- GEO"></a>- GEO</h3><h2 id="PhoneFacade"><a href="#PhoneFacade" class="headerlink" title="PhoneFacade"></a>PhoneFacade</h2><h3 id="PhoneStat-APIs"><a href="#PhoneStat-APIs" class="headerlink" title="- PhoneStat APIs"></a>- PhoneStat APIs</h3><h3 id="Call-amp-Dia-APIs"><a href="#Call-amp-Dia-APIs" class="headerlink" title="- Call &amp; Dia APIs"></a>- Call &amp; Dia APIs</h3><h3 id="Get-information-APIs"><a href="#Get-information-APIs" class="headerlink" title="- Get information APIs"></a>- Get information APIs</h3><h2 id="MediaRecorderFacade"><a href="#MediaRecorderFacade" class="headerlink" title="MediaRecorderFacade"></a>MediaRecorderFacade</h2><h3 id="Audio"><a href="#Audio" class="headerlink" title="- Audio"></a>- Audio</h3><h3 id="Video-APIs"><a href="#Video-APIs" class="headerlink" title="- Video APIs"></a>- Video APIs</h3><h3 id="Stop"><a href="#Stop" class="headerlink" title="- Stop"></a>- Stop</h3><h2 id="SensorManagerFacade"><a href="#SensorManagerFacade" class="headerlink" title="SensorManagerFacade"></a>SensorManagerFacade</h2><h3 id="Start-amp-Stop"><a href="#Start-amp-Stop" class="headerlink" title="- Start &amp; Stop"></a>- Start &amp; Stop</h3><h3 id="Read-data-APIs"><a href="#Read-data-APIs" class="headerlink" title="- Read data APIs"></a>- Read data APIs</h3><h2 id="SettingsFacade"><a href="#SettingsFacade" class="headerlink" title="SettingsFacade"></a>SettingsFacade</h2><h3 id="Screen"><a href="#Screen" class="headerlink" title="- Screen"></a>- Screen</h3><h3 id="AirplanerMode"><a href="#AirplanerMode" class="headerlink" title="- AirplanerMode"></a>- AirplanerMode</h3><h3 id="Ringer-Silent-Mode"><a href="#Ringer-Silent-Mode" class="headerlink" title="- Ringer Silent Mode"></a>- Ringer Silent Mode</h3><h3 id="Vibrate-Mode"><a href="#Vibrate-Mode" class="headerlink" title="- Vibrate Mode"></a>- Vibrate Mode</h3><h3 id="Ringer-amp-Media-Volume"><a href="#Ringer-amp-Media-Volume" class="headerlink" title="- Ringer &amp; Media Volume"></a>- Ringer &amp; Media Volume</h3><h3 id="Screen-Brightness"><a href="#Screen-Brightness" class="headerlink" title="- Screen Brightness"></a>- Screen Brightness</h3><h2 id="SmsFacade"><a href="#SmsFacade" class="headerlink" title="SmsFacade"></a>SmsFacade</h2><h2 id="SpeechRecognitionFacade"><a href="#SpeechRecognitionFacade" class="headerlink" title="SpeechRecognitionFacade"></a>SpeechRecognitionFacade</h2><h2 id="ToneGeneratorFacade"><a href="#ToneGeneratorFacade" class="headerlink" title="ToneGeneratorFacade"></a>ToneGeneratorFacade</h2><h2 id="WakeLockFacade"><a href="#WakeLockFacade" class="headerlink" title="WakeLockFacade"></a>WakeLockFacade</h2><h2 id="WifiFacade"><a href="#WifiFacade" class="headerlink" title="WifiFacade"></a>WifiFacade</h2><h2 id="BatteryManagerFacade"><a href="#BatteryManagerFacade" class="headerlink" title="BatteryManagerFacade"></a>BatteryManagerFacade</h2><h2 id="ActivityResultFacade"><a href="#ActivityResultFacade" class="headerlink" title="ActivityResultFacade"></a>ActivityResultFacade</h2><h2 id="MediaPlayerFacade"><a href="#MediaPlayerFacade" class="headerlink" title="MediaPlayerFacade"></a>MediaPlayerFacade</h2><h3 id="Control"><a href="#Control" class="headerlink" title="- Control"></a>- Control</h3><h3 id="Get-Information"><a href="#Get-Information" class="headerlink" title="- Get Information"></a>- Get Information</h3><h2 id="PreferencesFacade"><a href="#PreferencesFacade" class="headerlink" title="PreferencesFacade"></a>PreferencesFacade</h2><h2 id="QPyInterfaceFacade"><a href="#QPyInterfaceFacade" class="headerlink" title="QPyInterfaceFacade"></a>QPyInterfaceFacade</h2><h2 id="TextToSpeechFacade"><a href="#TextToSpeechFacade" class="headerlink" title="TextToSpeechFacade"></a>TextToSpeechFacade</h2><h2 id="EyesFreeFacade"><a href="#EyesFreeFacade" class="headerlink" title="EyesFreeFacade"></a>EyesFreeFacade</h2><h2 id="BluetoothFacade"><a href="#BluetoothFacade" class="headerlink" title="BluetoothFacade"></a>BluetoothFacade</h2><h2 id="SignalStrengthFacade"><a href="#SignalStrengthFacade" class="headerlink" title="SignalStrengthFacade"></a>SignalStrengthFacade</h2><h2 id="WebCamFacade"><a href="#WebCamFacade" class="headerlink" title="WebCamFacade"></a>WebCamFacade</h2><h2 id="UiFacade"><a href="#UiFacade" class="headerlink" title="UiFacade"></a>UiFacade</h2><h3 id="Dialog"><a href="#Dialog" class="headerlink" title="- Dialog"></a>- Dialog</h3><h3 id="NFC"><a href="#NFC" class="headerlink" title="- NFC"></a>- NFC</h3><h3 id="Progress"><a href="#Progress" class="headerlink" title="- Progress"></a>- Progress</h3><h3 id="Alert"><a href="#Alert" class="headerlink" title="- Alert"></a>- Alert</h3><h3 id="Dialog-Control"><a href="#Dialog-Control" class="headerlink" title="- Dialog Control"></a>- Dialog Control</h3><h3 id="Layout"><a href="#Layout" class="headerlink" title="- Layout"></a>- Layout</h3><h3 id="WebView"><a href="#WebView" class="headerlink" title="- WebView"></a>- WebView</h3><h2 id="USB-Host-Serial-Facade"><a href="#USB-Host-Serial-Facade" class="headerlink" title="USB Host Serial Facade"></a>USB Host Serial Facade</h2><h3 id="Requirements"><a href="#Requirements" class="headerlink" title="- Requirements"></a>- Requirements</h3><h3 id="Status"><a href="#Status" class="headerlink" title="- Status"></a>- Status</h3><h3 id="Author"><a href="#Author" class="headerlink" title="- Author"></a>- Author</h3><h3 id="APIs"><a href="#APIs" class="headerlink" title="- APIs"></a>- APIs</h3><p><img src="/images/2019-08-22_164930.png" alt="所有api"></p>
 
       
     </div>

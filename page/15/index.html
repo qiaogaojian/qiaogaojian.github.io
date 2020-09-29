@@ -278,6 +278,473 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-Android%E5%BC%80%E5%8F%91%E5%B8%B8%E8%A7%81%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%BC%80%E5%8F%91%E5%B8%B8%E8%A7%81%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Tutorial-Android开发常见内存泄漏问题和对应的解决方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%BC%80%E5%8F%91%E5%B8%B8%E8%A7%81%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Android开发常见内存泄漏问题和对应的解决方法" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%BC%80%E5%8F%91%E5%B8%B8%E8%A7%81%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%BC%80%E5%8F%91%E5%B8%B8%E8%A7%81%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Android-开发常见内存泄漏问题和对应的解决方法"><a href="#Android-开发常见内存泄漏问题和对应的解决方法" class="headerlink" title="Android 开发常见内存泄漏问题和对应的解决方法"></a>Android 开发常见内存泄漏问题和对应的解决方法</h1><!-- TOC -->
+
+<ul>
+<li><a href="#android-%E5%BC%80%E5%8F%91%E5%B8%B8%E8%A7%81%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">Android 开发常见内存泄漏问题和对应的解决方法</a><ul>
+<li><a href="#%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E7%9A%84%E5%8E%9F%E5%9B%A0">内存泄漏的原因</a></li>
+<li><a href="#%E5%B8%B8%E8%A7%81%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98">常见内存泄漏问题</a><ul>
+<li><a href="#1static-activity">1.Static Activity</a><ul>
+<li><a href="#%E5%8E%9F%E5%9B%A0">原因</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">解决方法</a></li>
+</ul>
+</li>
+<li><a href="#2static-views">2.Static Views</a><ul>
+<li><a href="#%E5%8E%9F%E5%9B%A0-1">原因</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-1">解决方法</a></li>
+</ul>
+</li>
+<li><a href="#3inner-classes">3.Inner Classes</a><ul>
+<li><a href="#%E5%8E%9F%E5%9B%A0-2">原因</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-2">解决方法</a></li>
+</ul>
+</li>
+<li><a href="#4anonymous-classes">4.Anonymous Classes</a><ul>
+<li><a href="#%E5%8E%9F%E5%9B%A0-3">原因</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-3">解决方法</a></li>
+</ul>
+</li>
+<li><a href="#5handler">5.Handler</a><ul>
+<li><a href="#%E5%8E%9F%E5%9B%A0-4">原因</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-4">解决方法</a></li>
+</ul>
+</li>
+<li><a href="#6threads">6.Threads</a><ul>
+<li><a href="#%E5%8E%9F%E5%9B%A0-5">原因</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-5">解决方法</a></li>
+</ul>
+</li>
+<li><a href="#7timertask">7.TimerTask</a><ul>
+<li><a href="#%E5%8E%9F%E5%9B%A0-6">原因</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-6">解决方法</a></li>
+</ul>
+</li>
+<li><a href="#8sensor-manager">8.Sensor Manager</a><ul>
+<li><a href="#%E5%8E%9F%E5%9B%A0-7">原因</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-7">解决方法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+
+<h2 id="内存泄漏的原因"><a href="#内存泄漏的原因" class="headerlink" title="内存泄漏的原因"></a>内存泄漏的原因</h2><p>一般内存泄漏(traditional memory leak)的原因是：由忘记释放分配的内存导致的。（Cursor 忘记关闭等）<br>逻辑内存泄漏(logical memory leak)的原因是：当应用不再需要这个对象，当仍未释放该对象的所有引用。</p>
+<p><strong>如果持有对象的强引用，垃圾回收器是无法在内存中回收这个对象。</strong></p>
+<p>在 Android 开发中，最容易引发的内存泄漏问题的是 Context。比如 Activity 的 Context，就包含大量的内存引用，例如 View Hierarchies 和其他资源。一旦泄漏了 Context，也意味泄漏它指向的所有对象。Android 机器内存有限，太多的内存泄漏容易导致 OOM。</p>
+<p>Activity 有着明确的生命周期，很容易发现泄漏的原因。Activity.onDestroy()被视为 Activity 生命的结束，程序上来看，它应该被销毁了，或者 Android 系统需要回收这些内存（当内存不够时，Android 会回收看不见的 Activity）。<br>如果这个方法执行完，在堆栈中仍存在持有该 Activity 的强引用，垃圾回收器就无法把它标记成已回收的内存，而我们本来目的就是要回收它！<br>结果就是 Activity 存活在它的生命周期之外。</p>
+<p>Activity 是重量级对象，应该让 Android 系统来处理它。然而，逻辑内存泄漏总是在不经意间发生。（曾经试过一个 Activity 导致 20M 内存泄漏）。在 Android 中，导致潜在内存泄漏的陷阱不外乎两种：</p>
+<ul>
+<li><p>全局进程(process-global)的 static 变量。这个无视应用的状态，持有 Activity 的强引用的怪物。</p>
+</li>
+<li><p>活在 Activity 生命周期之外的线程。没有清空对 Activity 的强引用。</p>
+</li>
+</ul>
+<h2 id="常见内存泄漏问题"><a href="#常见内存泄漏问题" class="headerlink" title="常见内存泄漏问题"></a>常见内存泄漏问题</h2><h3 id="1-Static-Activity"><a href="#1-Static-Activity" class="headerlink" title="1.Static Activity"></a>1.Static Activity</h3><h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><p>在类中定义了静态 Activity 变量，把当前运行的 Activity 实例赋值于这个静态变量。<br>如果这个静态变量在 Activity 生命周期结束后没有清空，就导致内存泄漏。因为 static 变量是贯穿这个应用的生命周期的，所以被泄漏的 Activity 就会一直存在于应用的进程中，不会被垃圾回收器回收。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> Activity activity;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setStaticActivity</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  activity = <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">View saButton = findViewById(R.id.sa_button);</span><br><span class="line">saButton.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">    setStaticActivity();</span><br><span class="line">    nextActivity();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/2020-01-15-16-49-50.png"></p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>构造静态变量持有 Activity 对象很容易造成内存泄漏，因为静态变量是全局存在的，所以当 MainActivity 生命周期结束时，引用仍被持有。这种写法开发者是有理由来使用的，所以我们需要正确的释放引用让垃圾回收机制在它被销毁的同时将其回收。</p>
+<p>Android 提供了特殊的 Set 集合</p>
+<p><a target="_blank" rel="noopener" href="https://developer.android.com/reference/java/lang/ref/package-summary.html#classes">https://developer.android.com/reference/java/lang/ref/package-summary.html#classes</a></p>
+<p>允许开发者控制引用的“强度”。Activity 对象泄漏是由于需要被销毁时，仍然被强引用着，只要强引用存在就无法被回收。</p>
+<p>可以用弱引用代替强引用。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.android.com/reference/java/lang/ref/WeakReference.html">https://developer.android.com/reference/java/lang/ref/WeakReference.html</a>.</p>
+<p>弱引用不会阻止对象的内存释放，所以即使有弱引用的存在，该对象也可以被回收。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> WeakReference&lt;MainActivity&gt; activityReference;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setStaticActivity</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    activityReference = <span class="keyword">new</span> WeakReference&lt;MainActivity&gt;(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Static-Views"><a href="#2-Static-Views" class="headerlink" title="2.Static Views"></a>2.Static Views</h3><h4 id="原因-1"><a href="#原因-1" class="headerlink" title="原因"></a>原因</h4><p>类似的情况会发生在单例模式中，如果 Activity 经常被用到，那么在内存中保存一个实例是很实用的。正如之前所述，强制延长 Activity 的生命周期是相当危险而且不必要的，无论如何都不能这样做。</p>
+<p>特殊情况：如果一个 View 初始化耗费大量资源，而且在一个 Activity 生命周期内保持不变，那可以把它变成 static，加载到视图树上(View Hierachy)，像这样，当 Activity 被销毁时，应当释放资源。（译者注：示例代码中并没有释放内存，把这个 static view 置 null 即可，但是还是不建议用这个 static view 的方法）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> view;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setStaticView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  view = findViewById(R.id.sv_button);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">View svButton = findViewById(R.id.sv_button);</span><br><span class="line">svButton.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">    setStaticView();</span><br><span class="line">    nextActivity();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/2020-01-15-16-50-19.png"></p>
+<h4 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h4><p>由于 View 持有其宿主 Activity 的引用，导致的问题与 Activity 一样严重。弱引用是个有效的解决方法，然而还有另一种方法是在生命周期结束时清除引用，Activity#onDestory()方法就很适合把引用置空。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> View view;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    <span class="keyword">if</span> (view != <span class="keyword">null</span>) &#123;</span><br><span class="line">        unsetStaticView();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">unsetStaticView</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    view = <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Inner-Classes"><a href="#3-Inner-Classes" class="headerlink" title="3.Inner Classes"></a>3.Inner Classes</h3><h4 id="原因-2"><a href="#原因-2" class="headerlink" title="原因"></a>原因</h4><p>继续，假设 Activity 中有个内部类，这样做可以提高可读性和封装性。将如我们创建一个内部类，而且持有一个静态变量的引用，恭喜，内存泄漏就离你不远了（销毁的时候置空，嗯）。<br>内部类的优势之一就是可以访问外部类，不幸的是，导致内存泄漏的原因，就是内部类持有外部类实例的强引用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> Object inner;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createInnerClass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    inner = <span class="keyword">new</span> InnerClass();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">View icButton = findViewById(R.id.ic_button);</span><br><span class="line">icButton.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">        createInnerClass();</span><br><span class="line">        nextActivity();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/2020-01-15-16-50-44.png"></p>
+<h4 id="解决方法-2"><a href="#解决方法-2" class="headerlink" title="解决方法"></a>解决方法</h4><p>与上述两种情况相似，开发者必须注意少用非静态内部类，因为非静态内部类持有外部类的隐式引用，容易导致意料之外的泄漏。然而内部类可以访问外部类的私有变量，只要我们注意引用的生命周期，就可以避免意外的发生。</p>
+<blockquote>
+<p>避免静态变量</p>
+</blockquote>
+<p>这样持有内部类的成员变量是可以的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Object inner;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createInnerClass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    inner = <span class="keyword">new</span> InnerClass();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Anonymous-Classes"><a href="#4-Anonymous-Classes" class="headerlink" title="4.Anonymous Classes"></a>4.Anonymous Classes</h3><h4 id="原因-3"><a href="#原因-3" class="headerlink" title="原因"></a>原因</h4><p>相似地，匿名类也维护了外部类的引用。所以内存泄漏很容易发生，当你在 Activity 中定义了匿名的 AsyncTsk<br>。当异步任务在后台执行耗时任务期间，Activity 不幸被销毁了（译者注：用户退出，系统回收），这个被 AsyncTask 持有的 Activity 实例就不会被垃圾回收器回收，直到异步任务结束。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">startAsyncTask</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> AsyncTask&lt;Void, Void, Void&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span> <span class="function"><span class="keyword">protected</span> Void <span class="title">doInBackground</span><span class="params">(Void... params)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;.execute();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">setContentView(R.layout.activity_main);</span><br><span class="line">View aicButton = findViewById(R.id.at_button);</span><br><span class="line">aicButton.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">        startAsyncTask();</span><br><span class="line">        nextActivity();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;); java</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/2020-01-15-16-51-05.png"></p>
+<h4 id="解决方法-3"><a href="#解决方法-3" class="headerlink" title="解决方法"></a>解决方法</h4><p>正如使用内部类一样，只要不跨越生命周期，内部类是完全没问题的。但是，这些类是用于产生后台线程的，这些 Java 线程是全局的，而且持有创建者的引用（即匿名类的引用），而匿名类又持有外部类的引用。线程是可能长时间运行的，所以一直持有 Activity 的引用导致当销毁时无法回收。<br>这次我们不能通过移除静态成员变量解决，因为线程是于应用生命周期相关的。为了避免泄漏，我们必须舍弃简洁偷懒的写法，把子类声明为静态内部类。</p>
+<blockquote>
+<p>静态内部类不持有外部类的引用，打破了链式引用。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">NimbleTask</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">Void</span>, <span class="title">Void</span>, <span class="title">Void</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">protected</span> Void <span class="title">doInBackground</span><span class="params">(Void... params)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">startAsyncTask</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> NimbleTask().execute();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-Handler"><a href="#5-Handler" class="headerlink" title="5.Handler"></a>5.Handler</h3><h4 id="原因-4"><a href="#原因-4" class="headerlink" title="原因"></a>原因</h4><p>同样道理，定义匿名的 Runnable，用匿名类 Handler 执行。Runnable 内部类会持有外部类的隐式引用，被传递到 Handler 的消息队列 MessageQueue 中，在 Message 消息没有被处理之前，Activity 实例不会被销毁了，于是导致内存泄漏。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createHandler</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> Handler() &#123;</span><br><span class="line">        <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message message)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.handleMessage(message);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;.postDelayed(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, Long.MAX_VALUE &gt;&gt; <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">View hButton = findViewById(R.id.h_button);</span><br><span class="line">hButton.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">        createHandler();</span><br><span class="line">        nextActivity();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/2020-01-15-16-51-25.png"></p>
+<h4 id="解决方法-4"><a href="#解决方法-4" class="headerlink" title="解决方法"></a>解决方法</h4><p>也是 Anonymous Classes 导致的,同上</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">NimbleHandler</span> <span class="keyword">extends</span> <span class="title">Handler</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message message)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.handleMessage(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">NimbleRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">createHandler</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> NimbleHandler().postDelayed(<span class="keyword">new</span> NimbleRunnable(), Long.MAX_VALUE &gt;&gt; <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-Threads"><a href="#6-Threads" class="headerlink" title="6.Threads"></a>6.Threads</h3><h4 id="原因-5"><a href="#原因-5" class="headerlink" title="原因"></a>原因</h4><p>我们通过 Thread 来展现内存泄漏。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">spawnThread</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> Thread() &#123;</span><br><span class="line">        <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;.start();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">View tButton = findViewById(R.id.t_button);</span><br><span class="line">tButton.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">      spawnThread();</span><br><span class="line">      nextActivity();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/2020-01-15-16-51-52.png"></p>
+<h4 id="解决方法-5"><a href="#解决方法-5" class="headerlink" title="解决方法"></a>解决方法</h4><p>如果你坚持使用匿名类，只要在生命周期结束时中断线程就可以。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Thread thread;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    <span class="keyword">if</span> (thread != <span class="keyword">null</span>) &#123;</span><br><span class="line">        thread.interrupt();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">spawnThread</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    thread = <span class="keyword">new</span> Thread() &#123;</span><br><span class="line">        <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">while</span> (!isInterrupted()) &#123;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    thread.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-TimerTask"><a href="#7-TimerTask" class="headerlink" title="7.TimerTask"></a>7.TimerTask</h3><h4 id="原因-6"><a href="#原因-6" class="headerlink" title="原因"></a>原因</h4><p>只要是匿名类的实例，不管是不是在工作线程，都会持有 Activity 的引用，导致内存泄漏。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">scheduleTimer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> Timer().schedule(<span class="keyword">new</span> TimerTask() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, Long.MAX_VALUE &gt;&gt; <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">View ttButton = findViewById(R.id.tt_button);</span><br><span class="line">ttButton.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">        scheduleTimer();</span><br><span class="line">        nextActivity();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/2020-01-15-16-52-09.png"></p>
+<h4 id="解决方法-6"><a href="#解决方法-6" class="headerlink" title="解决方法"></a>解决方法</h4><p>同匿名类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">NimbleTimerTask</span> <span class="keyword">extends</span> <span class="title">TimerTask</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">scheduleTimer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> Timer().schedule(<span class="keyword">new</span> NimbleTimerTask(), Long.MAX_VALUE &gt;&gt; <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-Sensor-Manager"><a href="#8-Sensor-Manager" class="headerlink" title="8.Sensor Manager"></a>8.Sensor Manager</h3><h4 id="原因-7"><a href="#原因-7" class="headerlink" title="原因"></a>原因</h4><p>最后，通过 Context.getSystemService(int name)可以获取系统服务。这些服务工作在各自的进程中，帮助应用处理后台任务，处理硬件交互。如果需要使用这些服务，可以注册监听器，这会导致服务持有了 Context 的引用，如果在 Activity 销毁的时候没有注销这些监听器，会导致内存泄漏。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">registerListener</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);</span><br><span class="line">        Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ALL);</span><br><span class="line">        sensorManager.registerListener(<span class="keyword">this</span>, sensor, SensorManager.SENSOR_DELAY_FASTEST);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">View smButton = findViewById(R.id.sm_button);</span><br><span class="line">smButton.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">        registerListener();</span><br><span class="line">        nextActivity();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/2020-01-15-16-52-28.png"></p>
+<h4 id="解决方法-7"><a href="#解决方法-7" class="headerlink" title="解决方法"></a>解决方法</h4><p>在 Activity 结束时注销监听器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> SensorManager sensorManager;</span><br><span class="line"><span class="keyword">private</span> Sensor sensor;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    <span class="keyword">if</span> (sensor != <span class="keyword">null</span>) &#123;</span><br><span class="line">        unregisterListener();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">unregisterListener</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    sensorManager.unregisterListener(<span class="keyword">this</span>, sensor);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-Android%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">Tutorial-Android生命周期详解</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tutorial-Android%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Android生命周期详解" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tutorial-Android%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Android-生命周期详解"><a href="#Android-生命周期详解" class="headerlink" title="Android 生命周期详解"></a>Android 生命周期详解</h1><h2 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h2><p><img src="/images/2019-11-04-14-58-21.png" alt="activity"></p>
+<h2 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h2><p><img src="https://upload-images.jianshu.io/upload_images/6433394-2905902a1331235f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/317/format/webp" alt="fragment"></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c8f34229b6dc">Fragment与Fragment相互切换之间的生命周期方法</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-Android%E7%A6%BB%E7%BA%BF%E5%BA%94%E7%94%A8%E6%8E%A5%E6%94%B6%E6%8E%A8%E9%80%81%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E7%A6%BB%E7%BA%BF%E5%BA%94%E7%94%A8%E6%8E%A5%E6%94%B6%E6%8E%A8%E9%80%81%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Tutorial-Android离线应用接收推送方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tutorial-Android%E7%A6%BB%E7%BA%BF%E5%BA%94%E7%94%A8%E6%8E%A5%E6%94%B6%E6%8E%A8%E9%80%81%E6%96%B9%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Android离线应用接收推送方法" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E7%A6%BB%E7%BA%BF%E5%BA%94%E7%94%A8%E6%8E%A5%E6%94%B6%E6%8E%A8%E9%80%81%E6%96%B9%E6%B3%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tutorial-Android%E7%A6%BB%E7%BA%BF%E5%BA%94%E7%94%A8%E6%8E%A5%E6%94%B6%E6%8E%A8%E9%80%81%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Android离线应用接收推送方法"><a href="#Android离线应用接收推送方法" class="headerlink" title="Android离线应用接收推送方法"></a>Android离线应用接收推送方法</h1><!-- TOC -->
+
+<ul>
+<li><a href="#android%E7%A6%BB%E7%BA%BF%E5%BA%94%E7%94%A8%E6%8E%A5%E6%94%B6%E6%8E%A8%E9%80%81%E6%96%B9%E6%B3%95">Android离线应用接收推送方法</a><ul>
+<li><a href="#%E9%80%9A%E7%9F%A5%E6%A0%8F%E6%B6%88%E6%81%AF%E7%A6%BB%E7%BA%BF%E6%8E%A5%E6%94%B6">通知栏消息离线接收</a><ul>
+<li><a href="#%E6%9D%A1%E4%BB%B6">条件</a></li>
+<li><a href="#%E7%BC%BA%E7%82%B9">缺点</a></li>
+</ul>
+</li>
+<li><a href="#%E9%80%8F%E4%BC%A0%E7%A6%BB%E7%BA%BF%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF%E9%9C%80%E8%A6%81%E7%94%A8%E6%88%B7%E6%89%8B%E5%8A%A8%E6%93%8D%E4%BD%9C">透传离线接收消息需要用户手动操作</a><ul>
+<li><a href="#%E5%B0%8F%E7%B1%B3miui">小米【MIUI】</a></li>
+<li><a href="#%E5%8D%8E%E4%B8%BAemotion">华为【Emotion】</a></li>
+<li><a href="#%E9%AD%85%E6%97%8Fflyme">魅族【Flyme】</a></li>
+<li><a href="#vivofuntouch-os">VIVO【Funtouch OS】</a></li>
+<li><a href="#oppocoloros">OPPO【ColorOS】</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B7%A5%E5%8D%95%E5%9B%9E%E5%A4%8D">工单回复</a><ul>
+<li><a href="#%E5%8D%8E%E4%B8%BA">华为</a></li>
+<li><a href="#%E5%B0%8F%E7%B1%B3">小米</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+
+<h2 id="通知栏消息离线接收"><a href="#通知栏消息离线接收" class="headerlink" title="通知栏消息离线接收"></a>通知栏消息离线接收</h2><h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><ul>
+<li><p>手机厂商自带推送</p>
+</li>
+<li><p>必须使用通知栏消息</p>
+</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li><p>客户端无法控制通知栏的显示隐藏</p>
+</li>
+<li><p>原有代码(前后端)需要重写</p>
+</li>
+<li><p>推送sdk局限性大 (设备厂商和sdk厂商要一致)</p>
+</li>
+</ul>
+<h2 id="透传离线接收消息需要用户手动操作"><a href="#透传离线接收消息需要用户手动操作" class="headerlink" title="透传离线接收消息需要用户手动操作"></a>透传离线接收消息需要用户手动操作</h2><h3 id="小米【MIUI】"><a href="#小米【MIUI】" class="headerlink" title="小米【MIUI】"></a>小米【MIUI】</h3><p>自启动管理：需要把应用加到【自启动管理】列表，否则杀进程或重新开机后进程无法开启<br>通知栏设置：应用默认都是显示通知栏通知，如果关闭，则收到通知也不会提示<br>网络助手：可以手动禁止已安装的第三方程序访问2G/3G和WIFI的网络和设置以后新安装程序是否允许访问2G/3G和WIFI的网络<br>MIUI 7 神隐模式： 允许应用进行自定义配置模式，应用在后台保持联网可用，否则应用进入后台时，应用无法正常接收消息。【设置】下电量和性能中【神隐模式】</p>
+<p><img src="/images/2019-08-07-12-24-56.png"></p>
+<h3 id="华为【Emotion】"><a href="#华为【Emotion】" class="headerlink" title="华为【Emotion】"></a>华为【Emotion】</h3><p>自启动管理：需要把应用加到【自启动管理】列表，否则杀进程或重新开机后进程不会开启，只能手动开启应用<br>后台应用保护：需要手动把应用加到此列表，否则设备进入睡眠后会自动杀掉应用进程，只有手动开启应用才能恢复运行<br>通知管理：应用状态有三种：提示、允许、禁止。禁止应用则通知栏不会有任何提醒</p>
+<h3 id="魅族【Flyme】"><a href="#魅族【Flyme】" class="headerlink" title="魅族【Flyme】"></a>魅族【Flyme】</h3><p>自启动管理：需要把应用加到【自启动管理】列表，否则杀进程或重新开机后进程无法开启<br>通知栏推送：关闭应用通知则收到消息不会有任何展示<br>省电管理： 安全中心里设置省电模式，在【待机耗电管理】中允许应用待机时，保持允许，否则手机休眠或者应用闲置一段时间，无法正常接收消息。</p>
+<h3 id="VIVO【Funtouch-OS】"><a href="#VIVO【Funtouch-OS】" class="headerlink" title="VIVO【Funtouch OS】"></a>VIVO【Funtouch OS】</h3><p>内存一键清理：需要将应用加入【白名单】列表，否则系统自带的“一键加速”，会杀掉进程<br>自启动管理：需要将应用加入“i管家”中的【自启动管理】列表，否则重启手机后进程不会自启。但强制手动杀进程，即使加了这个列表中，后续进程也无法自启动。</p>
+<h3 id="OPPO【ColorOS】"><a href="#OPPO【ColorOS】" class="headerlink" title="OPPO【ColorOS】"></a>OPPO【ColorOS】</h3><p>冻结应用管理：需要将应用加入纯净后台，否则锁屏状态下无法及时收到消息<br>自启动管理：将应用加入【自启动管理】列表的同时，还需要到设置-应用程序-正在运行里锁定应用进程，否则杀进程或者开机后进程不会开启，只能手动开启应用</p>
+<h2 id="工单回复"><a href="#工单回复" class="headerlink" title="工单回复"></a>工单回复</h2><h3 id="华为"><a href="#华为" class="headerlink" title="华为"></a>华为</h3><p><img src="/images/2019-08-08-10-24-46.png"></p>
+<h3 id="小米"><a href="#小米" class="headerlink" title="小米"></a>小米</h3><p><img src="/images/2019-08-08-10-26-19.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-Android%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -494,101 +961,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-Java%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/4.Android/20200929_Tutorial-Java%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF/" class="post-title-link" itemprop="url">Tutorial-Java高并发和分布式技术</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/4.Android/20200929_Tutorial-Java%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Java高并发和分布式技术" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Tutorial-Java%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tutorial-Java%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Java高并发和分布式技术"><a href="#Java高并发和分布式技术" class="headerlink" title="Java高并发和分布式技术"></a>Java高并发和分布式技术</h1><p><img src="/images/2019-08-14-09-08-29.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-UmengPushSdk%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -663,301 +1035,6 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="UmengPushSdk接入文档"><a href="#UmengPushSdk接入文档" class="headerlink" title="UmengPushSdk接入文档"></a>UmengPushSdk接入文档</h1><h2 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/7.BlockChain/20200929_Tips_vscode+golang%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/7.BlockChain/20200929_Tips_vscode+golang%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Tips_vscode+golang环境配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/7-BlockChain/" itemprop="url" rel="index"><span itemprop="name">7.BlockChain</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/7.BlockChain/20200929_Tips_vscode+golang%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Tips_vscode+golang环境配置" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/7.BlockChain/20200929_Tips_vscode+golang%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/7.BlockChain/20200929_Tips_vscode+golang%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="vscode-golang环境配置"><a href="#vscode-golang环境配置" class="headerlink" title="vscode+golang环境配置"></a>vscode+golang环境配置</h1><h2 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h2><p>安装git vscode go</p>
-<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><ol>
-<li><p>打开vscode设置配置文件</p>
-</li>
-<li><p>添加go环境路径</p>
- <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;go.goroot&quot;</span>: <span class="string">&quot;C:\\Program Files\\Go&quot;</span>,</span><br><span class="line"><span class="string">&quot;go.gopath&quot;</span>: <span class="string">&quot;C:\\Users\\PC-QGJ\\go&quot;</span>,</span><br></pre></td></tr></table></figure>
-
-<p> 如果不确定路径是多少 命令行输入go env把对应的路径输入</p>
-</li>
-<li><p>打开go工程文件夹配置debug设置</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/7.BlockChain/20200929_Tao_%E8%B0%88%E4%B8%80%E8%B0%88%E5%8C%BA%E5%9D%97%E9%93%BE+%E6%B8%B8%E6%88%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/7.BlockChain/20200929_Tao_%E8%B0%88%E4%B8%80%E8%B0%88%E5%8C%BA%E5%9D%97%E9%93%BE+%E6%B8%B8%E6%88%8F/" class="post-title-link" itemprop="url">Tao_谈一谈区块链+游戏</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/7-BlockChain/" itemprop="url" rel="index"><span itemprop="name">7.BlockChain</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/7.BlockChain/20200929_Tao_%E8%B0%88%E4%B8%80%E8%B0%88%E5%8C%BA%E5%9D%97%E9%93%BE+%E6%B8%B8%E6%88%8F/" class="post-meta-item leancloud_visitors" data-flag-title="Tao_谈一谈区块链+游戏" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/7.BlockChain/20200929_Tao_%E8%B0%88%E4%B8%80%E8%B0%88%E5%8C%BA%E5%9D%97%E9%93%BE+%E6%B8%B8%E6%88%8F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/7.BlockChain/20200929_Tao_%E8%B0%88%E4%B8%80%E8%B0%88%E5%8C%BA%E5%9D%97%E9%93%BE+%E6%B8%B8%E6%88%8F/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="谈一谈-区块链-游戏"><a href="#谈一谈-区块链-游戏" class="headerlink" title="谈一谈 区块链 + 游戏"></a>谈一谈 区块链 + 游戏</h1><blockquote>
-<p>本文总结于火币的“区块链+游戏”报告</p>
-</blockquote>
-<h2 id="从区块链行业角度看到的传统游戏的痛点"><a href="#从区块链行业角度看到的传统游戏的痛点" class="headerlink" title="从区块链行业角度看到的传统游戏的痛点"></a>从区块链行业角度看到的传统游戏的痛点</h2><ol>
-<li><p>数值不透明，规则可任意更改 (中心化弊端，可通过透明合约保障)，游戏开发者承担全部开发责任，不及预期导致用户流失； (开发迭代压力与用户消费速度的失衡)</p>
-</li>
-<li><p>渠道、发行垄断收益；(成熟产业特性，优质而小众的产品出头困难，游戏开发投入大、不确定性高)</p>
-</li>
-<li><p>虚拟资产不属于用户，亦无法顺畅实现价值流通； (传统游戏内在价值的封闭和不流通) (网易藏宝阁-&gt;Steam-&gt;C5Game/IGXE/5173 各自封闭且受限)</p>
-</li>
-<li><p>游戏内生恶性通货膨胀倾向，玩家利益得不到保证；(调节供给，限制流通，取消交易，以牺牲游戏可玩性来缓解通胀，效果有限)</p>
-</li>
-</ol>
-<p>游戏间体系不互通，玩家沉没成本高昂。 (游戏停服，玩家投入难以回补)</p>
-<h2 id="区块链行业特性及与游戏行业的契合点"><a href="#区块链行业特性及与游戏行业的契合点" class="headerlink" title="区块链行业特性及与游戏行业的契合点"></a>区块链行业特性及与游戏行业的契合点</h2><h3 id="最契合区块链的应用场景是原生数字化领域的，非与现实发生巨大联系的，并且多适用于："><a href="#最契合区块链的应用场景是原生数字化领域的，非与现实发生巨大联系的，并且多适用于：" class="headerlink" title="最契合区块链的应用场景是原生数字化领域的，非与现实发生巨大联系的，并且多适用于："></a>最契合区块链的应用场景是原生数字化领域的，非与现实发生巨大联系的，并且多适用于：</h3><ul>
-<li>交流效率低，信任成本高的领域（产业链条长、环节众多）；</li>
-<li>对真实性、共识有极大需求的领域（不透明、黑箱）；</li>
-<li>以及长尾流量、资源分散、参与者之间利益不一致的领域（需要激励）。</li>
-</ul>
-<h3 id="游戏行业契合度"><a href="#游戏行业契合度" class="headerlink" title="游戏行业契合度"></a>游戏行业契合度</h3><ul>
-<li>原生数字化</li>
-<li>游戏用户群体年轻，容易接受新鲜事物，有望在未来 (与区块链这一新事物) 形成融合和合力。</li>
-<li>游戏不分语言，具备天生的跨国界属性，易传播，易出现爆款，点燃市场</li>
-</ul>
-<h2 id="区块链对游戏行业的重构"><a href="#区块链对游戏行业的重构" class="headerlink" title="区块链对游戏行业的重构"></a>区块链对游戏行业的重构</h2><p>1.上链，公平可信，同时Token激励让游戏社区化，革新不再单纯是开发者的责任；</p>
-<ul>
-<li>对于传统的游戏来说，上链所带来的透明化，意味着可为其带来超额利润的优势不再，同时，代码透明化后，一款游戏的可复制性较强，容易被抄袭。因而我们认为，区块链游戏，必将是从没有历史包袱的纯区块链游戏开发者开始的，并逐步迁移、倒逼传统游戏开发者加入区块链化进程。</li>
-<li>而传统游戏的区块链化，亦将首先从改良优化的角度出发，逐步深入，且会经过游戏币上链，到游戏资产上链，再到核心游戏逻辑上链（智能合约运行游戏），最终到游戏整体上链这一缓慢和需要适应的过程。</li>
-<li>社区可以在Token经济激励的前提下，根据自己的需求，选择和实现各自的治理方式和游戏规则。区块链有望将游戏社区化，有望大幅催生UGC，并延长部分游戏的生命周期。</li>
-</ul>
-<p>2.借助区块链，打破渠道垄断，产生新的自分销网络；</p>
-<ul>
-<li>中小的渠道商本身因为没有自己的SDK，数据依附于大厂，存在一定的不信任问题。有了区块链、Token后，就可以有一个完全透明、去中心化的激励型分发接口，记录用户所有的下载、注册、激活、消费等等行为，并不可篡改，从而建立起共识，更为之后广告商的买量业务奠定了真实性的基础；而区块链本身的可追溯性，天生适合应对长尾、分散又关系错综复杂的流量，即可以非常明晰地看到流量的来源，并进行对应的分析，结合Token，对不同的渠道调整激励策略。最终使得中小独立开发者、中小渠道和用户实现共赢共生的关系。</li>
-</ul>
-<p>3.用户真实拥有游戏内资产（True Ownership），并可借助智能合约去信任流通；</p>
-<ul>
-<li>每一个虚拟资产都可以归结为一个独一无二的Token，称之为Non-Fungible Token（NFT），并通过加密方式存储在用户的区块链账户地址之中，安全、可靠，所有权完全归属用户，成为“稀缺性”、“实用性”和“观赏性”结合的收藏品，大大提升了虚拟资产的价值</li>
-<li>存储在链上的虚拟资产，也可以通过智能合约形式，在去信任的环境下进行无摩擦点对点交易，并可以在区块链上看到所有成交历史，真实可信。</li>
-</ul>
-<p>4.区块链的跨应用账本特性，使同款IP资产可以被复用，大大增加游戏间的交互性及玩法。</p>
-<ul>
-<li>由于区块链的跨应用账本特性，同一款IP资产可以被复用，例如IP资产以太猫可以被用在其他游戏之中，或是进行二次改造，游戏与游戏之间是可以互通及联动的，而区块链本身由此也成为了一个素材库，可为开发者所随时调用，引领UGC的新时代。</li>
-</ul>
-<p>5.重塑游戏内经济体系。</p>
-<ul>
-<li>游戏经济体系设计，不再是传统的数值策划，而是通证经济，即可构建一个总量有共识，友好开放的游戏Token体系，并可实现游戏价值评估尺度的范式转移。</li>
-<li>（1）友好开放的游戏Token体系（2）总量有共识（3）价值评估尺度的范式转移</li>
-<li>传统游戏的价值评估，也取决于为开发商创造了多少利润，而非给玩家带来了多少利益。然而区块链游戏的本质是社区，是共赢，是共有。</li>
-</ul>
-<h2 id="阻碍区块链游戏大范围部署的瓶颈，以及区块链游戏的缺陷"><a href="#阻碍区块链游戏大范围部署的瓶颈，以及区块链游戏的缺陷" class="headerlink" title="阻碍区块链游戏大范围部署的瓶颈，以及区块链游戏的缺陷"></a>阻碍区块链游戏大范围部署的瓶颈，以及区块链游戏的缺陷</h2><ul>
-<li><p>用户量小，Dapp运行需载入钱包，消耗资源，秘钥管理困难，门槛高</p>
-</li>
-<li><p>游戏区块链化仍在初级阶段，而大部分区块链游戏系原生，且玩法原始</p>
-</li>
-<li><p>由于目前主流区块链底层智能合约运行均需要消耗Gas费用，因而若游戏机制过于复杂，可能会导致用户频繁签名，一定程度上也影响了用户在游戏中的体验</p>
-</li>
-<li><p>目前的区块链游戏，大部分并非传统游戏的区块链化，实际系原生的区块链游戏，游戏类型相对原始，对于大部分真正的玩家来说，难以具备很强的吸引力，区块链游戏的用户群体，与真正的游戏硬核玩家，重合度相对较低。</p>
-</li>
-<li><p>底层不足，大型游戏的运行追求零延迟，然而目前公链性能不符要求</p>
-</li>
-<li><p>目前区块链游戏投机性较明显，尚未找到可持续的用户留存方式</p>
-<p>  投机性严重,区块链游戏潜在具备了公开透明、资产可交易等等优势，然而由于该部分特性对于玩家来说并不直观，同时区块链游戏的体验尚还不能与传统游戏相比，为了吸引用户的涌入，区块链游戏大多直接或间接打着让用户赚钱的旗号进行传播，而用户赚钱的来源，常常来自于新玩家的投入，具备极强的投机性特征，实际已经偏离了“游戏”本身定义的初衷。该种模式一定程序上能快速吸引流量，然而由于游戏本身的持续依赖“接盘”者的存在，因而往往面临后劲不足的问题，部分用户高位“接盘”，游戏新增用户难以为继时，游戏便开始走下坡路，游戏的生命周期被投机性所吞噬和透支。</p>
-</li>
-</ul>
-<h2 id="“区块链-游戏”产业链的五大板块-各类实例见文章本身"><a href="#“区块链-游戏”产业链的五大板块-各类实例见文章本身" class="headerlink" title="“区块链+游戏”产业链的五大板块 (各类实例见文章本身)"></a>“区块链+游戏”产业链的五大板块 (各类实例见文章本身)</h2><ol>
-<li>基础设施及开发者工具；</li>
-<li>跨游戏虚拟资产交易市场；</li>
-<li>区块链游戏；</li>
-<li>基于区块链的游戏分发平台、社区；</li>
-<li>周边工具与服务。</li>
-</ol>
-<blockquote>
-<p>“区块链+游戏”的红利，将从基础设施及开发者工具开始，让更多的游戏上链，并以爆款区块链游戏的大量出现为标志达到高潮；而随着区块链游戏以及相应虚拟资产数量的不断增多，跨游戏虚拟资产交易市场，以及基于区块链的游戏分发平台/社区的也会逐步兴起，成为流量汇集的中心；而周边工具、服务，随着“区块链+游戏”行业的发展，则具有较为明确和稳定的发展。</p>
-</blockquote>
-<h2 id="“区块链-游戏”赛道未来的潜在爆发点"><a href="#“区块链-游戏”赛道未来的潜在爆发点" class="headerlink" title="“区块链+游戏”赛道未来的潜在爆发点"></a>“区块链+游戏”赛道未来的潜在爆发点</h2><ul>
-<li><p>含原生Token的游戏能适应更为复杂的商业模式，而不含原生Token的游戏，则更适用小而美、简单的商业逻辑；</p>
-</li>
-<li><p>区块链怎样与游戏进行融合？我们认为，区块链与游戏融合，是在含Token的前提下，构建一个开发者、发行商与游戏玩家利益一致的永续生态，它的思想将会体现在如下三个方面：</p>
-<ol>
-<li>激励机制：游戏中的“Proof-of-Work”与“Proof-of-Stake”</li>
-<li>游戏价值集中在NFT资产之上，通过Token价值输出变现</li>
-<li>充分激发UGC创造力、玩家社区贡献的容器</li>
-</ol>
-</li>
-<li><p>区块链游戏（或游戏区块链化）的可持续商业模式在哪里？</p>
-<ol>
-<li>同时，区块链结合游戏的核心即游戏内资产（NFT），其是稀缺性、实用性及观赏性结合的收藏品，设计精髓在于为用户创造稀缺性和唯一性的价值。</li>
-<li>未来，预计以ERC721为标准的游戏虚拟资产市值将会逐步膨胀，成为自ERC20同质化Token之后又一大爆点。而这将经历两个过程，首先是原生区块链游戏的ERC721资产市值的增长和流转，其次是传统游戏厂商手中的IP，尤其是一部分老牌的IP的Token化，借助区块链重新焕发活力，而这部分虚拟资产，很可能会通过授权的形式进入这个市场。</li>
-<li>另外，区块链游戏商业模式将围绕资产交易进行，并从原生区块链游戏的ERC721资产开始，逐步拓展到传统游戏IP，尤其是老牌IP。</li>
-</ol>
-</li>
-<li><p>区块链游戏的新趋势与玩法构想</p>
-</li>
-</ul>
-<p>实物ERC721—桌游的Token化改造 (Playtable)</p>
-
       
     </div>
 
