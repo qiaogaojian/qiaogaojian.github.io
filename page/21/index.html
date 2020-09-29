@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="行则将至">
+<meta property="og:url" content="http://example.com/page/21/index.html">
+<meta property="og:site_name" content="行则将至">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="Math,数学,Calculus,微积分,Linear Algebra,线性代数,Computer Science,计算机原理,编程,设计模式,计算机网络,计算机图形学,Computer Graphics,Unity,Unity3d,CG,HLSL,OpenGL,C#,Android,Java,GameFramework,ML,Shader,Golang,Go,Asm,Adb,BlockChain,VSCode,Web,Tools,PHP,Ubuntu,ThinkPHP,MySql,Sqlite,重构,Windows,Win10,Git,Mac,Linux,树莓派,VS,AS,Android Studio,PhpStorm,PyCharm,Vim,Rider,Jupyter,Kali,Js,JavaScript,Hexo,3dMax,Maya,Zbrush,汇编,游戏设计,Roguelike,Roguelite,地图生成,技能,FSM,NGUI,UGUI,UV,法线,光照,后端,Html,Css,C语言,C++,Python,机器学习,信息安全,操作系统,IDE,工具,效率,VR,AR,BitCoin,Eos,数据结构,算法,排序,查找,Leetcode,RoadMap,Tips,Trick,Bug,BestPratice,Tutorial,Tao​">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/page/21/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>行则将至</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">行则将至</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Keep going and you can go anywhere</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qiaogaojian"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">qiaogaojian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">152</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">73</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qiaogaojian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/qiaogaojian" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-git-alt fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qiaogaojian@gmail.com" title="E-Mail → mailto:qiaogaojian@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+<!--
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+-->
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+      
+
+      
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/" class="post-title-link" itemprop="url">Tutorial-Vim常见指令</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Vim/" itemprop="url" rel="index"><span itemprop="name">Vim</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Vim常见指令" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Vim常见指令"><a href="#Vim常见指令" class="headerlink" title="Vim常见指令"></a>Vim常见指令</h1><h2 id="一-移动光标"><a href="#一-移动光标" class="headerlink" title="一.移动光标"></a>一.移动光标</h2><p>上下左右<br>        k<br>    h       l<br>        j</p>
+<h2 id="二-模式切换"><a href="#二-模式切换" class="headerlink" title="二.模式切换"></a>二.模式切换</h2><ul>
+<li><p>进入默认是普通模式</p>
+</li>
+<li><p>切换到插入模式</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>i</td>
+<td>在光标的前边进入插入模式</td>
+</tr>
+<tr>
+<td>I</td>
+<td>在光标所在行的行首进入插入模式</td>
+</tr>
+<tr>
+<td>a</td>
+<td>在光标的后面进入插入模式</td>
+</tr>
+<tr>
+<td>A</td>
+<td>在光标所在行的行尾进入插入模式</td>
+</tr>
+<tr>
+<td>o</td>
+<td>在光标所在行的下方插入空行进入插入模式</td>
+</tr>
+<tr>
+<td>O</td>
+<td>在光标所在行的上方插入空行进入插入模式</td>
+</tr>
+<tr>
+<td>s</td>
+<td>删除光标指定的字符并进入插入模式</td>
+</tr>
+<tr>
+<td>S</td>
+<td>将光标所在行清除并进入插入模式</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>切换到选中模式</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>v</td>
+<td>普通选中</td>
+</tr>
+<tr>
+<td>V</td>
+<td>行选中</td>
+</tr>
+<tr>
+<td>ctrl+v</td>
+<td>列选中</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>退出</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>shift+z+z</td>
+<td>保存修改并退出</td>
+</tr>
+<tr>
+<td>:wq</td>
+<td>:w表示保存,:q表示退出</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>未改动退出</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>改动后不保存强制退出</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="复制-粘贴-删除-修改-撤销-恢复"><a href="#复制-粘贴-删除-修改-撤销-恢复" class="headerlink" title="复制 粘贴 删除 修改 撤销 恢复"></a>复制 粘贴 删除 修改 撤销 恢复</h2><table>
+<thead>
+<tr>
+<th>按键</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>y</td>
+<td>复制</td>
+</tr>
+<tr>
+<td>p</td>
+<td>粘贴</td>
+</tr>
+<tr>
+<td>d</td>
+<td>删除</td>
+</tr>
+<tr>
+<td>r</td>
+<td>替换单个</td>
+</tr>
+<tr>
+<td>shift+r</td>
+<td>替换多个</td>
+</tr>
+<tr>
+<td>u</td>
+<td>撤销</td>
+</tr>
+<tr>
+<td>ctrl+r</td>
+<td>重做</td>
+</tr>
+</tbody></table>
+<h2 id="跳转-定位-缩进"><a href="#跳转-定位-缩进" class="headerlink" title="跳转 定位 缩进"></a>跳转 定位 缩进</h2><table>
+<thead>
+<tr>
+<th>按键</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>^</td>
+<td>光标到行首</td>
+</tr>
+<tr>
+<td>0</td>
+<td>光标到行首</td>
+</tr>
+<tr>
+<td>$</td>
+<td>光标到行尾</td>
+</tr>
+<tr>
+<td>b</td>
+<td>光标到所在单词开头</td>
+</tr>
+<tr>
+<td>e</td>
+<td>光标到所在单词结尾</td>
+</tr>
+<tr>
+<td>w</td>
+<td>光标到下个单词开头</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>光标到文件的开头</td>
+</tr>
+<tr>
+<td>G</td>
+<td>光标到文件的结尾</td>
+</tr>
+</tbody></table>
+<h2 id="搜索-替换"><a href="#搜索-替换" class="headerlink" title="搜索 替换"></a>搜索 替换</h2><h2 id="shell命令-文件操作"><a href="#shell命令-文件操作" class="headerlink" title="shell命令 文件操作"></a>shell命令 文件操作</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" class="post-title-link" itemprop="url">Tutorial-Ubuntu 基于 VirtualBox安装 设置与编程开发</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Ubuntu 基于 VirtualBox安装 设置与编程开发" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Ubuntu-VirtualBox安装与设置"><a href="#Ubuntu-VirtualBox安装与设置" class="headerlink" title="Ubuntu VirtualBox安装与设置"></a>Ubuntu VirtualBox安装与设置</h1><h2 id="一-系统安装"><a href="#一-系统安装" class="headerlink" title="一.系统安装"></a>一.系统安装</h2><ul>
+<li><p>下载virtualBox 和 ubuntu-16.04.6-desktop-amd64.iso镜像</p>
+</li>
+<li><p>完成安装后打开virtualBox新建虚拟机 如果没有64位选项 重启电脑进入bios开启cpu虚拟化选项(Virtualization)</p>
+</li>
+<li><p>内存设置2G 硬盘设置30G 动态分配大小 硬盘位置选一个空间大的硬盘</p>
+</li>
+<li><p>启动虚拟机 光驱选择前面下载好的镜像进入安装程序</p>
+</li>
+<li><p>语言选择英语</p>
+</li>
+<li><p>安装完成后重启</p>
+</li>
+</ul>
+<h2 id="二-基本设置"><a href="#二-基本设置" class="headerlink" title="二.基本设置"></a>二.基本设置</h2><h3 id="1-更新源"><a href="#1-更新源" class="headerlink" title="1.更新源"></a>1.更新源</h3><h4 id="1-1方法一"><a href="#1-1方法一" class="headerlink" title="1.1方法一"></a>1.1方法一</h4><p>修改 /etc/apt/sources.list</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#添加阿里源</span></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+
+<p>然后更新</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2方法二"><a href="#1-2方法二" class="headerlink" title="1.2方法二"></a>1.2方法二</h4><p>打开软件更新中心选择国内的源 如aliyun</p>
+<h3 id="2-设置共享文件"><a href="#2-设置共享文件" class="headerlink" title="2.设置共享文件"></a>2.设置共享文件</h3><p>打开虚拟机设备菜单 选择安装增强功能</p>
+<p>安装完成后在宿主机本地新建共享文件夹hdshare 然后打开虚拟机设置选择共享文件夹选项 固定分配添加刚才新建的文件夹</p>
+<p>回到虚拟机 进入/mnt/文件夹新建文件夹hdshare</p>
+<p>执行装载命令即可完成共享</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t vboxsf hdshare /mnt/hdshare/</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-设置Ubuntu外观"><a href="#3-设置Ubuntu外观" class="headerlink" title="3.设置Ubuntu外观"></a>3.设置Ubuntu外观</h3><h4 id="3-1设置Launcher到底部"><a href="#3-1设置Launcher到底部" class="headerlink" title="3.1设置Launcher到底部"></a>3.1设置Launcher到底部</h4><p>按下 ctrl + alt + t 打开终端输入以下命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gsettings <span class="built_in">set</span> com.canonical.Unity.Launcher launcher-position Bottom</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2设置主题"><a href="#3-2设置主题" class="headerlink" title="3.2设置主题"></a>3.2设置主题</h4><ul>
+<li>更新</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<p>安装unity-tweak-tool</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install unity-tweak-tool</span><br></pre></td></tr></table></figure>
+
+<p>安装 Flatabulous 主题</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:noobslab/themes</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install flatabulous-theme</span><br></pre></td></tr></table></figure>
+
+<p>安装Flatabulous 主题的配套图标</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:noobslab/icons</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install ultra-flat-icons</span><br></pre></td></tr></table></figure>
+
+<p>按Windows键，输入unity，打开unity-tweak-tool 打开主题设置选择flatabulous  打开icon设置选择ultraflat</p>
+<h2 id="三-编程开发"><a href="#三-编程开发" class="headerlink" title="三.编程开发"></a>三.编程开发</h2><h3 id="1-以太坊Dapp开发环境"><a href="#1-以太坊Dapp开发环境" class="headerlink" title="1.以太坊Dapp开发环境"></a>1.以太坊Dapp开发环境</h3><h4 id="1-1-安装Node-js"><a href="#1-1-安装Node-js" class="headerlink" title="1.1 安装Node.js"></a>1.1 安装Node.js</h4><p>进入/home/username/downloads目录下载安装包</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wget https://nodejs.org/dist/v8.10.0/node-v8.10.0-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>解压</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf node-v8.10.0-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>/home目录下新建dev文件夹 移动解压后的node到dev目录</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv node-v8.10.0-linux-x64 ../../dev/node8</span><br></pre></td></tr></table></figure>
+
+<p>设置node环境变量</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;export NODE_HOME=/home/dev/node8&quot;</span> &gt;&gt; .bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;export NODE_PATH=<span class="variable">$NODE_HOME</span>/lib/node_modules&quot;</span> &gt;&gt; .bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;export PATH=<span class="variable">$NODE_HOME</span>/bin:<span class="variable">$PATH</span>&quot;</span> &gt;&gt; .bashrc</span><br></pre></td></tr></table></figure>
+
+<p>设置永久环境变量</p>
+<blockquote>
+<p>/etc/profile和/etc/profile.d都是常用的设置环境的地方。其中/etc/profile.d文件夹来源于/etc/profile，在该目录下的*.sh，即以sh为后缀的文件都会被加载。<br>类似地，不推荐使用/etc/bash.bashrc，因为在图形界面环境下启动程序时，不会加载它里边的环境变量设置。</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gedit /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>在打开的文件后面添加下面代码</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> NODE_HOME=/home/dev/node8</span><br><span class="line"><span class="built_in">export</span> NODE_PATH=<span class="variable">$NODE_HOME</span>/lib/node_modules</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$NODE_HOME</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+
+<p>更新并查看环境变量</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"><span class="built_in">export</span></span><br></pre></td></tr></table></figure>
+
+<p>验证：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ node –v</span><br><span class="line">v8.10.0</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-安装节点仿真器"><a href="#1-2-安装节点仿真器" class="headerlink" title="1.2 安装节点仿真器"></a>1.2 安装节点仿真器</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install –g ganache-cli</span><br></pre></td></tr></table></figure>
+
+<p>验证：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ ganache-cli --version</span><br><span class="line">Ganache CLI v6.0.3 (ganache-core: 2.0.2)</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-3-安装solidity编译器"><a href="#1-3-安装solidity编译器" class="headerlink" title="1.3 安装solidity编译器"></a>1.3 安装solidity编译器</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install –g solc</span><br><span class="line"><span class="comment"># 如果需要安装特定版本solc 需要在项目目录下安装 然后再设置vscode solidity插件的编译器版本</span></span><br><span class="line">npm install solc@0.4.18</span><br></pre></td></tr></table></figure>
+
+<p>如果提示没有权限,修改相应文件夹的权限</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 * -R</span><br></pre></td></tr></table></figure>
+
+<p>验证：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ solcjs -–version</span><br><span class="line">0.40.2+commit.3155dd80.Emscripten.clang</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-安装web3"><a href="#1-4-安装web3" class="headerlink" title="1.4 安装web3"></a>1.4 安装web3</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果没有git 要先安装git</span></span><br><span class="line">sudo apt-get install git</span><br><span class="line">npm install –g web3@0.20.2</span><br></pre></td></tr></table></figure>
+
+<p>验证：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~$ node –p <span class="string">&#x27;require(&quot;web3&quot;)&#x27;</span></span><br><span class="line">&#123;[Function: Web3]</span><br><span class="line">  providers:&#123;…&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-5-安装truffle框架"><a href="#1-5-安装truffle框架" class="headerlink" title="1.5 安装truffle框架"></a>1.5 安装truffle框架</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install –g truffle</span><br></pre></td></tr></table></figure>
+
+<p>验证：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ truffle version</span><br><span class="line">Truffle v4.1.3 (core 4.1.3)</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-6-安装webpack"><a href="#1-6-安装webpack" class="headerlink" title="1.6 安装webpack"></a>1.6 安装webpack</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install –g webpack@3.11.0</span><br></pre></td></tr></table></figure>
+
+<p>验证：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ webpack –v</span><br><span class="line">3.11.0</span><br></pre></td></tr></table></figure>
+
+<h4 id="新建Dapp项目"><a href="#新建Dapp项目" class="headerlink" title="新建Dapp项目"></a>新建Dapp项目</h4>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/" class="post-title-link" itemprop="url">Tips-PowerShellHelloWorld</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-PowerShellHelloWorld" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="PowerShellHelloWorld"><a href="#PowerShellHelloWorld" class="headerlink" title="PowerShellHelloWorld"></a>PowerShellHelloWorld</h1><h2 id="设置执行权限"><a href="#设置执行权限" class="headerlink" title="设置执行权限"></a>设置执行权限</h2><p>This is normal behavior. In order to prevent malicious scripts from running on your system, PowerShell enforces an execution policy. There are 4 execution policies you can use:</p>
+<ul>
+<li>Restricted – Scripts won’t run. Period. (Default setting)</li>
+<li>RemoteSigned – Locally-created scripts will run. Scripts that were created on another machine will not run unless they are signed by a trusted publisher.</li>
+<li>AllSigned – Scripts will only run if signed by a trusted publisher (including locally-created scripts).</li>
+<li>Unrestricted – All scripts will run regardless of who created them and whether or not they are signed.</li>
+</ul>
+<p>In order to use our newly-created script, we will have to modify our execution policy to allow our script to run. Since we have not digitally signed our new script, our options for setting the execution policy are left to “RemoteSigned” and “Unrestricted.” We are going to change it to RemoteSigned.</p>
+<p>In order to change the execution policy, we will need to reopen PowerShell as an Administrator (the command will fail otherwise) and run the following command:</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> RemoteSigned</span><br></pre></td></tr></table></figure>
+
+<p>The Set-ExecutionPolicy command will ask to verify that you really want to change the execution policy. Go ahead and select Y for yes, then go ahead and close and reopen your Powershell window.</p>
+<h2 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h2><p>After restarting the Powershell window, go ahead and try running that script again</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp; <span class="string">&quot;C:\Scripts\My First Script.ps1&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>It should write back, “Hello, World!” to the window:</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/OS/Windows/20200929_Tips-SSH%E5%AE%A2%E6%88%B7%E7%AB%AFPutty%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-SSH%E5%AE%A2%E6%88%B7%E7%AB%AFPutty%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">Tips-SSH客户端Putty配色方案</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-SSH%E5%AE%A2%E6%88%B7%E7%AB%AFPutty%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-SSH客户端Putty配色方案" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-SSH%E5%AE%A2%E6%88%B7%E7%AB%AFPutty%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-SSH%E5%AE%A2%E6%88%B7%E7%AB%AFPutty%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Putty配色方案"><a href="#Putty配色方案" class="headerlink" title="Putty配色方案"></a>Putty配色方案</h1><p><img src="https://upload-images.jianshu.io/upload_images/3947109-dd8468c99ec93c7c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Putty配色方案.png"></p>
+<h2 id="校正"><a href="#校正" class="headerlink" title="校正"></a>校正</h2><p>Default Foreground: 245,222,179</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li><p>修改完主题之后一定要记得保存</p>
+</li>
+<li><p>保存时要先点击相应的session 然后修改主题 最后点击save</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E6%BF%80%E6%B4%BBPowerShell%E4%BB%A3%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E6%BF%80%E6%B4%BBPowerShell%E4%BB%A3%E7%A0%81/" class="post-title-link" itemprop="url">Trick-Win10激活PowerShell代码</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E6%BF%80%E6%B4%BBPowerShell%E4%BB%A3%E7%A0%81/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-Win10激活PowerShell代码" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E6%BF%80%E6%B4%BBPowerShell%E4%BB%A3%E7%A0%81/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E6%BF%80%E6%B4%BBPowerShell%E4%BB%A3%E7%A0%81/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Win10激活PowerShell代码"><a href="#Win10激活PowerShell代码" class="headerlink" title="Win10激活PowerShell代码"></a>Win10激活PowerShell代码</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PS C:\WINDOWS\system32&gt; slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX</span><br><span class="line">PS C:\WINDOWS\system32&gt; slmgr /skms kms.digiboy.ir</span><br><span class="line">PS C:\WINDOWS\system32&gt; slmgr /ato</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E7%A6%81%E7%94%A8%E5%8F%8A%E6%81%A2%E5%A4%8D%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%94%AE%E7%9B%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E7%A6%81%E7%94%A8%E5%8F%8A%E6%81%A2%E5%A4%8D%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%94%AE%E7%9B%98/" class="post-title-link" itemprop="url">Trick-Win10禁用及恢复笔记本键盘</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E7%A6%81%E7%94%A8%E5%8F%8A%E6%81%A2%E5%A4%8D%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%94%AE%E7%9B%98/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-Win10禁用及恢复笔记本键盘" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E7%A6%81%E7%94%A8%E5%8F%8A%E6%81%A2%E5%A4%8D%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%94%AE%E7%9B%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E7%A6%81%E7%94%A8%E5%8F%8A%E6%81%A2%E5%A4%8D%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%94%AE%E7%9B%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Win10禁用及恢复笔记本键盘"><a href="#Win10禁用及恢复笔记本键盘" class="headerlink" title="Win10禁用及恢复笔记本键盘"></a>Win10禁用及恢复笔记本键盘</h1><p>首先进入Windows/System32</p>
+<ol>
+<li><p>禁用</p>
+<p>以管理员身份进入cmd，输入：sc config i8042prt start= disabled<br>然后重启</p>
+</li>
+<li><p>启用</p>
+<p>以管理员身份进入cmd，输入：sc config i8042prt start= auto<br>然后重启</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/20/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/22/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiaogaojian</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/page/21/",
+    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":210,"height":360},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
