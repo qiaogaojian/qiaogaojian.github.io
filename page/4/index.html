@@ -215,20 +215,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">152</span>
+          <span class="site-state-item-count">154</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">73</span>
+        <span class="site-state-item-count">74</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -275,6 +275,349 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tutorial-GameFramework%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/3.Unity/20200929_Tutorial-GameFramework%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B/" class="post-title-link" itemprop="url">Tutorial-GameFramework功能简介</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/3-Unity/" itemprop="url" rel="index"><span itemprop="name">3.Unity</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/3.Unity/20200929_Tutorial-GameFramework%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-GameFramework功能简介" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tutorial-GameFramework%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tutorial-GameFramework%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="GameFramework-记录"><a href="#GameFramework-记录" class="headerlink" title="GameFramework 记录"></a>GameFramework 记录</h1><h2 id="GameFrameworkEntry（框架入口）"><a href="#GameFrameworkEntry（框架入口）" class="headerlink" title="GameFrameworkEntry（框架入口）"></a>GameFrameworkEntry（框架入口）</h2><pre><code>GameFrameworkEntry使用链表来维护所有的GameFrameworkModule（框架模块），并提供对GameFrameworkModule的各种相关操作以及框架版本号信息</code></pre>
+<ol>
+<li><p>只有在获取模块时对应模块不存在才会创建模块</p>
+</li>
+<li><p>创建模块时，根据模块优先级决定新模块在链表中的位置</p>
+</li>
+<li><p>轮询模块时，根据优先级决定轮询顺序（即正向遍历链表调用OnUpdate）（在UGF中，由BaseComponent来调用轮询方法）</p>
+</li>
+<li><p>所有的Manager类都需要继承GameFrameworkModule，并实现对应的IManager接口</p>
+</li>
+</ol>
+<h2 id="GameEntry（游戏入口）"><a href="#GameEntry（游戏入口）" class="headerlink" title="GameEntry（游戏入口）"></a>GameEntry（游戏入口）</h2><pre><code>示例程序Start Force里包含两个GameEntry，一个是UGF的，一个是Start Force的。Start Force在场景GameFramework中有一个Game Framework物体，上面挂载了Start Force的GameEntry脚本作为游戏入口</code></pre>
+<ol>
+<li><p>UGF的GameEntry使用链表来维护所有的GameFrameworkComponent（框架组件），并提供各种相关操作。</p>
+</li>
+<li><p>所有GameFrameworkComponent在Awake中调用UGF的GameEntry的RegisterComponent(GameFrameworkComponen)，将自身添加到UGF的GameEntry中的链表里</p>
+</li>
+<li><p>Start Force的GameEntry脚本持有所有GameFrameworkComponent的引用，被分成了3个部分，分别负责调用Start方法，初始化内置GameFrameworkComponent，初始化自定义GameFrameworkComponent</p>
+</li>
+<li><p>GameFramework物体下有预制体Builtin（由UGF框架提供，原名GameFramework），该预制体下的所有子物体分别挂载了所有的内置GameFrameworkComponent。所有内置GameFrameworkComponent都持有一个对应IManager接口的引用（可以视作GF的Manager在UGF中的代理或实现），在初始化时通过GameFrameworkEntry来获取实例</p>
+</li>
+<li><p>自定义的GameFrameworkComponent需要另外创建一个空物体作为GameFramework的子物体，然后将自定义组件各自挂载到空物体下，作为其子物体</p>
+</li>
+</ol>
+<h2 id="FSM（有限状态机）与Procedure（流程）"><a href="#FSM（有限状态机）与Procedure（流程）" class="headerlink" title="FSM（有限状态机）与Procedure（流程）"></a>FSM（有限状态机）与Procedure（流程）</h2><pre><code>流程是贯穿游戏运行时整个生命周期的有限状态机。框架用流程来处理所有的事情，不同的流程负责不同的工作，流程的切换是用有限状态机来实现的</code></pre>
+<ol>
+<li><p>FSM模块主要由状态，状态机，状态机管理器三部分组成</p>
+</li>
+<li><p>状态FsmState&lt; T &gt;维护一个事件码与事件处理方法的字典，并提供各种对应操作</p>
+</li>
+<li><p>状态机Fsm继承FsmBase并实现IFsm&lt; T &gt;接口，维护该状态机的所有状态与状态机数据，并提供各种对应操作</p>
+</li>
+<li><p>状态机管理器FsmManager维护所有状态机，并提供各种对应操作</p>
+</li>
+<li><p>Procedure模块主要由流程基类和流程管理器两部分组成</p>
+</li>
+<li><p>流程基类ProcedureBase继承自FsmState&lt; IProcedureManager &gt;，可以理解为一种特殊的状态</p>
+</li>
+<li><p>流程管理器ProcedureManager持有FsmManager与自身的Fsm的引用，并提供对流程的相关操作</p>
+</li>
+<li><p>在UGF中的ProcedureComponent，主要负责读取创建好的流程类，然后调用ProcedureManager来创建并开始状态机</p>
+</li>
+</ol>
+<h2 id="Event（事件）"><a href="#Event（事件）" class="headerlink" title="Event（事件）"></a>Event（事件）</h2><pre><code>Event是游戏逻辑监听、抛出事件的机制。</code></pre>
+<ol>
+<li><p>Event模块由事件参数，事件池，事件管理器三部分组成</p>
+</li>
+<li><p>事件参数基类BaseEventArgs继承GameFrameworkEventArgs（还有另一种事件参数类也继承GameFrameworkEventArgs，那种事件不受Event模块管理）</p>
+</li>
+<li><p>事件池EventPool&lt; T &gt;主要维护事件结点（Event）（Event是对BaseEventArgs的封装）的队列（该队列处理线程安全的事件抛出）与一个事件码与事件处理方法的字典，并提供各种对应操作</p>
+</li>
+</ol>
+<p>4.事件管理器EventManager是对EventPool&lt; T &gt;里各种操作的代理</p>
+<h2 id="任务（Task）"><a href="#任务（Task）" class="headerlink" title="任务（Task）"></a>任务（Task）</h2><pre><code>Task功能主要负责管理Web请求、资源的下载或加载的任务的执行</code></pre>
+<ol>
+<li><p>Task功能主要由任务，任务代理，任务池三部分组成</p>
+</li>
+<li><p>任务（ITask）存储了任务执行需要的数据</p>
+</li>
+<li><p>任务代理（ITaskAgent&lt; T &gt;）是对ITask的代理类，提供对任务的各种对应操作</p>
+</li>
+<li><p>任务池TaskPool&lt; T &gt;负责维护三种容器（可用任务代理，工作中任务代理，等待任务），并提供各种对应操作</p>
+</li>
+</ol>
+<h2 id="DataNode（数据结点）"><a href="#DataNode（数据结点）" class="headerlink" title="DataNode（数据结点）"></a>DataNode（数据结点）</h2><pre><code>DataNode将任意类型的数据以树状结构的形式进行保存，用于管理游戏运行时的各种数据,数据结点的使用非常灵活，有以下三种使用方式：</code></pre>
+<ul>
+<li>使用数据结点组件，直接通过绝对路径获取或设置数据；</li>
+<li>使用数据结点组件，通过参照某个数据结点和相对路径获取或设置数据；</li>
+<li>使用数据结点组件获取数据结点后，通过数据结点的接口进行更多操作。</li>
+</ul>
+<ol>
+<li><p>DataNode模块由数据结点和数据结点管理器两部分组成</p>
+</li>
+<li><p>数据结点（DataNode）存储数据以及父结点、子结点的相关信息</p>
+</li>
+<li><p>数据结点管理器（DataNodeManager）管理根结点，并提供数据结点的相关操作</p>
+</li>
+</ol>
+<h2 id="ObjectPool（对象池）"><a href="#ObjectPool（对象池）" class="headerlink" title="ObjectPool（对象池）"></a>ObjectPool（对象池）</h2><pre><code>ObjectPool提供对象缓存池的功能，避免频繁地创建和销毁各种游戏对象，提高游戏性能。</code></pre>
+<p>1.ObjectPool模块主要由对象基类，内部对象，对象池，对象池管理器三部分组成</p>
+<p>2.对象基类（ObjectBase）是所有需要由ObjectPool模块管理的对象的父类</p>
+<p>3.内部对象（Object&lt; T &gt;）存储ObjectBase相关数据，并提供获取与回收的方法</p>
+<p>4.对象池（ObjectPool&lt; T &gt;）使用链表维护池子里的所有Object&lt; T &gt;，并提供各种相关操作</p>
+<p>5.对象池管理器（ObjectPoolManager）使用字典维护所有ObjectPool&lt; T &gt;，并提供各种相关操作</p>
+<h2 id="Download（下载）"><a href="#Download（下载）" class="headerlink" title="Download（下载）"></a>Download（下载）</h2><pre><code>Download模块提供下载文件的功能，支持断点续传，并可指定允许几个下载器进行同时下载。更新资源时会主动调用此模块</code></pre>
+<ol>
+<li><p>DownLoad模块主要由下载任务，下载代理辅助器，下载任务代理，下载管理器，下载事件五个部分组成</p>
+</li>
+<li><p>下载任务（DownloadTask）实现了ITask接口，保存了下载任务的相关数据</p>
+</li>
+<li><p>下载代理辅助器（IDownloadAgentHelper）负责进行实际的下载逻辑处理（在UGF中提供了默认的实现DefaultDownloadAgentHelper，使用WWW类进行下载）（下载过程中通过3个委托向DownloadAgent通知下载事件）</p>
+</li>
+<li><p>下载任务代理（DownloadAgent）实现了ITaskAgent接口，负责处理下载任务，并持有一个IDownloadAgentHelper，调用其中的方法进行实际的下载。（下载过程中通过4个委托向DownloadManager通知下载事件）</p>
+</li>
+<li><p>下载管理器（DownloadManager）维护一个DownloadTask的TaskPool，对外提供DownloadTask的相关操作（下载过程中通过4个委托将DownloadAgent的下载事件通知给UGF的DownloadComponent，然后由其派发4个全局事件）</p>
+</li>
+<li><p>下载事件分为三部分，一部分是DownloadManager里的事件，另一部分是DownloadAgentHelper里的事件，这两部分定义在GF里，是模块局部事件，第三部分则是UGF里定义的全局事件,由DownloadComponent接收到模块局部事件后进行派发</p>
+</li>
+</ol>
+<h2 id="WebRequest（Web请求）"><a href="#WebRequest（Web请求）" class="headerlink" title="WebRequest（Web请求）"></a>WebRequest（Web请求）</h2><pre><code>WebRequest模块提供使用短连接的功能，可以用 Get 或者 Post 方法向服务器发送请求并获取响应数据，可指定允许几个 Web 请求器进行同时请求</code></pre>
+<ol>
+<li><p>WebRequest模块主要由由Web请求任务，Web请求代理辅助器，Web请求任务代理，Web请求管理器，Web请求事件五个部分组成</p>
+</li>
+<li><p>Web请求任务（WebRequestTask）实现了ITask接口，保存了Web请求任务的相关数据</p>
+</li>
+<li><p>Web请求辅助器（IWebRequestAgentHelper）负责进行实际的请求逻辑处理（在UGF中提供了默认的实现DefaultWebRequestAgentHelper，使用WWW类进行请求）（请求过程中通过2个委托向WebRequestAgent通知请求事件）</p>
+</li>
+<li><p>Web请求任务代理（WebRequestAgent）实现了ITaskAgent接口，负责处理请求任务，并持有一个IWebRequestAgentHelper，调用其中的方法进行实际的请求。（请求过程中通过3个委托向WebRequestManager通知请求事件）</p>
+</li>
+<li><p>Web请求管理器（WebRequestManager）维护一个WebRequestTask的TaskPool，对外提供WebRequestTask的相关操作（请求过程中通过3个委托将WebRequestAgent的请求事件通知给UGF的WebRequestComponent，然后由其派发3个全局事件）</p>
+</li>
+<li><p>下载事件分为三部分，一部分是WebRequestManager里的事件，另一部分是WebRequestAgentHelper里的事件，这两部分定义在GF里，是模块局部事件，第三部分则是UGF里定义的全局事件,由WebRequestComponent接收到模块局部事件后进行派发</p>
+</li>
+</ol>
+<h2 id="ReferencePool（引用池）"><a href="#ReferencePool（引用池）" class="headerlink" title="ReferencePool（引用池）"></a>ReferencePool（引用池）</h2><pre><code>ReferencePool功能负责管理对象的引用</code></pre>
+<ol>
+<li><p>ReferencePool功能主要由引用接口，引用集合，引用池三部分组成</p>
+</li>
+<li><p>只有实现了引用接口（IReference）的类才能被ReferencePool管理，在框架中由BaseEventArgs实现，也就是说ReferencePool主要拿来管理对BaseEventArgs的引用</p>
+</li>
+<li><p>引用集合（ReferenceCollection）维护一个IReference的队列，并提供该对象的各种信息或相关操作</p>
+</li>
+<li><p>引用池（ReferencePool）维护一个ReferenceCollection的字典，并提供各种相关的操作</p>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="http://gameframework.cn/resource">资源</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.lfzxb.top/gameframework_all/">GameFramework篇：个人笔记汇总</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_15020543/article/details/86766583">GameFramework框架个人笔记汇总</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-title-link" itemprop="url">Tutorial-PureMVC前置知识点</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/3-Unity/" itemprop="url" rel="index"><span itemprop="name">3.Unity</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-PureMVC前置知识点" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="PureMVC"><a href="#PureMVC" class="headerlink" title="PureMVC"></a>PureMVC</h1><p><a target="_blank" rel="noopener" href="https://www.gameres.com/822910.html">PureMVC</a></p>
+<p><img src="/images/2020-08-24-13-33-15.png" alt="1"></p>
+<p><img src="/images/2020-08-24-13-37-46.png" alt="2"></p>
+<p><img src="/images/2020-08-24-14-49-51.png" alt="3"></p>
+<h2 id="Pattern"><a href="#Pattern" class="headerlink" title="Pattern"></a>Pattern</h2><h3 id="单例"><a href="#单例" class="headerlink" title="单例"></a>单例</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/singleton-pattern.html">单例模式</a></p>
+<h3 id="观察者"><a href="#观察者" class="headerlink" title="观察者"></a>观察者</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/observer-pattern.html">观察者模式</a></p>
+<h3 id="Facade-外观"><a href="#Facade-外观" class="headerlink" title="Facade 外观"></a>Facade 外观</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/facade-pattern.html">外观模式</a></p>
+<h3 id="Proxy-代理"><a href="#Proxy-代理" class="headerlink" title="Proxy 代理"></a>Proxy 代理</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/proxy-pattern.html">代理模式</a></p>
+<h3 id="Mediator-中介者"><a href="#Mediator-中介者" class="headerlink" title="Mediator 中介者"></a>Mediator 中介者</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/mediator-pattern.html">中介者模式</a></p>
+<h3 id="Command-命令"><a href="#Command-命令" class="headerlink" title="Command 命令"></a>Command 命令</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/command-pattern.html">命令模式</a></p>
+<h2 id="Facade"><a href="#Facade" class="headerlink" title="Facade"></a>Facade</h2><h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><h4 id="void-RegisterProxy-IProxy-proxy"><a href="#void-RegisterProxy-IProxy-proxy" class="headerlink" title="void RegisterProxy(IProxy proxy);"></a>void RegisterProxy(IProxy proxy);</h4><h4 id="IProxy-RemoveProxy-string-proxyName"><a href="#IProxy-RemoveProxy-string-proxyName" class="headerlink" title="IProxy RemoveProxy(string proxyName);"></a>IProxy RemoveProxy(string proxyName);</h4><h4 id="IProxy-RetrieveProxy-string-proxyName"><a href="#IProxy-RetrieveProxy-string-proxyName" class="headerlink" title="IProxy RetrieveProxy(string proxyName);"></a>IProxy RetrieveProxy(string proxyName);</h4><h4 id="bool-HasProxy-string-proxyName"><a href="#bool-HasProxy-string-proxyName" class="headerlink" title="bool HasProxy(string proxyName);"></a>bool HasProxy(string proxyName);</h4><h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><h4 id="void-OnRegister"><a href="#void-OnRegister" class="headerlink" title="void OnRegister();"></a>void OnRegister();</h4><h4 id="void-OnRemove"><a href="#void-OnRemove" class="headerlink" title="void OnRemove();"></a>void OnRemove();</h4><h3 id="View"><a href="#View" class="headerlink" title="View"></a>View</h3><h4 id="void-RegisterMediator-IMediator-mediator"><a href="#void-RegisterMediator-IMediator-mediator" class="headerlink" title="void RegisterMediator(IMediator mediator);"></a>void RegisterMediator(IMediator mediator);</h4><h4 id="IMediator-RemoveMediator-string-mediatorName"><a href="#IMediator-RemoveMediator-string-mediatorName" class="headerlink" title="IMediator RemoveMediator(string mediatorName);"></a>IMediator RemoveMediator(string mediatorName);</h4><h4 id="IMediator-RetrieveMediator-string-mediatorName"><a href="#IMediator-RetrieveMediator-string-mediatorName" class="headerlink" title="IMediator RetrieveMediator(string mediatorName);"></a>IMediator RetrieveMediator(string mediatorName);</h4><h4 id="bool-HasMediator-string-mediatorName"><a href="#bool-HasMediator-string-mediatorName" class="headerlink" title="bool HasMediator(string mediatorName);"></a>bool HasMediator(string mediatorName);</h4><h4 id="void-RegisterObserver-string-notificationName-IObserver-observer"><a href="#void-RegisterObserver-string-notificationName-IObserver-observer" class="headerlink" title="void RegisterObserver(string notificationName, IObserver observer);"></a>void RegisterObserver(string notificationName, IObserver observer);</h4><h4 id="void-RemoveObserver-string-notificationName-object-notifyContext"><a href="#void-RemoveObserver-string-notificationName-object-notifyContext" class="headerlink" title="void RemoveObserver(string notificationName, object notifyContext);"></a>void RemoveObserver(string notificationName, object notifyContext);</h4><h4 id="void-NotifyObservers-INotification-note"><a href="#void-NotifyObservers-INotification-note" class="headerlink" title="void NotifyObservers(INotification note);"></a>void NotifyObservers(INotification note);</h4><h3 id="Mediator"><a href="#Mediator" class="headerlink" title="Mediator"></a>Mediator</h3><h4 id="void-OnRegister-1"><a href="#void-OnRegister-1" class="headerlink" title="void OnRegister();"></a>void OnRegister();</h4><h4 id="void-OnRemove-1"><a href="#void-OnRemove-1" class="headerlink" title="void OnRemove();"></a>void OnRemove();</h4><h4 id="IList-ListNotificationInterests"><a href="#IList-ListNotificationInterests" class="headerlink" title="IList ListNotificationInterests();"></a>IList<string> ListNotificationInterests();</h4><h4 id="void-HandleNotification-INotification-notification"><a href="#void-HandleNotification-INotification-notification" class="headerlink" title="void HandleNotification(INotification notification);"></a>void HandleNotification(INotification notification);</h4><h3 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h3><h4 id="void-RegisterCommand-string-notificationName-Type-commandType"><a href="#void-RegisterCommand-string-notificationName-Type-commandType" class="headerlink" title="void RegisterCommand(string notificationName, Type commandType);"></a>void RegisterCommand(string notificationName, Type commandType);</h4><h4 id="void-RemoveCommand-string-notificationName"><a href="#void-RemoveCommand-string-notificationName" class="headerlink" title="void RemoveCommand(string notificationName);"></a>void RemoveCommand(string notificationName);</h4><h4 id="void-ExecuteCommand-INotification-notification"><a href="#void-ExecuteCommand-INotification-notification" class="headerlink" title="void ExecuteCommand(INotification notification);"></a>void ExecuteCommand(INotification notification);</h4><h4 id="bool-HasCommand-string-notificationName"><a href="#bool-HasCommand-string-notificationName" class="headerlink" title="bool HasCommand(string notificationName);"></a>bool HasCommand(string notificationName);</h4><h3 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h3><h4 id="void-Execute-INotification-notification"><a href="#void-Execute-INotification-notification" class="headerlink" title="void Execute(INotification notification);"></a>void Execute(INotification notification);</h4><h2 id="Init-Process"><a href="#Init-Process" class="headerlink" title="Init Process"></a>Init Process</h2><h3 id="App"><a href="#App" class="headerlink" title="App"></a>App</h3><h4 id="AppFacade"><a href="#AppFacade" class="headerlink" title="AppFacade"></a>AppFacade</h4><h5 id="InitializeModel"><a href="#InitializeModel" class="headerlink" title="InitializeModel()"></a>InitializeModel()</h5><h6 id="Facade-InitializeModel"><a href="#Facade-InitializeModel" class="headerlink" title="Facade.InitializeModel()"></a>Facade.InitializeModel()</h6><p>####### m_model = Model.Instance</p>
+<p>######## m_proxyMap = new Dictionary&lt;string, IProxy&gt;()</p>
+<h6 id="Facade-RegisterProxy"><a href="#Facade-RegisterProxy" class="headerlink" title="Facade.RegisterProxy()"></a>Facade.RegisterProxy()</h6><p>####### m_model.RegisterProxy(proxy)</p>
+<p>######## m_proxyMap[proxy.ProxyName] = proxy</p>
+<h5 id="InitializeController"><a href="#InitializeController" class="headerlink" title="InitializeController()"></a>InitializeController()</h5><h6 id="Facade-InitializeController"><a href="#Facade-InitializeController" class="headerlink" title="Facade.InitializeController()"></a>Facade.InitializeController()</h6><p>####### m_controller = Controller.Instance</p>
+<p>######## m_commandMap = new Dictionary&lt;string, ICommand&gt;()</p>
+<p>######## m_view = View.Instance;</p>
+<h6 id="Facade-RegisterCommand"><a href="#Facade-RegisterCommand" class="headerlink" title="Facade.RegisterCommand()"></a>Facade.RegisterCommand()</h6><p>####### m_controller.RegisterCommand(notificationName, commandType)</p>
+<p>######## m_view.RegisterObserver(notificationName, new Observer(“executeCommand”, this));</p>
+<p>######## m_commandMap[notificationName] = commandType;</p>
+<h5 id="InitializeView"><a href="#InitializeView" class="headerlink" title="InitializeView()"></a>InitializeView()</h5><h6 id="Facade-InitializeView"><a href="#Facade-InitializeView" class="headerlink" title="Facade.InitializeView()"></a>Facade.InitializeView()</h6><p>####### m_view = View.Instance</p>
+<p>######## m_mediatorMap = new Dictionary&lt;string, IMediator&gt;();</p>
+<p>######## m_observerMap = new Dictionary&lt;string, IList<IObserver>&gt;();</p>
+<h6 id="Facade-RegiesterMediator"><a href="#Facade-RegiesterMediator" class="headerlink" title="Facade.RegiesterMediator()"></a>Facade.RegiesterMediator()</h6><p>####### m_view.RegisterMediator(mediator);</p>
+<p>######## m_mediatorMap[mediator.MediatorName] = mediator;</p>
+<p>######## IObserver observer = new Observer(“handleNotification”, mediator)</p>
+<p>######## m_observerMap[notificationName].Add(observer)</p>
+<h2 id="Notify-Process"><a href="#Notify-Process" class="headerlink" title="Notify Process"></a>Notify Process</h2><h3 id="View-1"><a href="#View-1" class="headerlink" title="View"></a>View</h3><h4 id="RegisterObserver-string-notificationName-IObserver-observer"><a href="#RegisterObserver-string-notificationName-IObserver-observer" class="headerlink" title="RegisterObserver(string notificationName, IObserver observer)"></a>RegisterObserver(string notificationName, IObserver observer)</h4><h5 id="m-observerMap-notificationName-Add-observer"><a href="#m-observerMap-notificationName-Add-observer" class="headerlink" title="m_observerMap[notificationName].Add(observer)"></a>m_observerMap[notificationName].Add(observer)</h5><h4 id="NotifyObservers-INotification-notification"><a href="#NotifyObservers-INotification-notification" class="headerlink" title="NotifyObservers(INotification notification)"></a>NotifyObservers(INotification notification)</h4><h5 id="observer-i-NotifyObserver-notification"><a href="#observer-i-NotifyObserver-notification" class="headerlink" title="observer[i].NotifyObserver(notification);"></a>observer[i].NotifyObserver(notification);</h5><h6 id="type-GetMethod-methodName-f-Invoke-context-new-object-notification"><a href="#type-GetMethod-methodName-f-Invoke-context-new-object-notification" class="headerlink" title="type.GetMethod(methodName,f).Invoke(context,new object[] { notification });"></a>type.GetMethod(methodName,f).Invoke(context,new object[] { notification });</h6>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -574,111 +917,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_BestPractice-Android%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/4.Android/20200929_BestPractice-Android%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">BestPractice-Android开发最佳实践</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/4.Android/20200929_BestPractice-Android%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-meta-item leancloud_visitors" data-flag-title="BestPractice-Android开发最佳实践" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/4.Android/20200929_BestPractice-Android%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_BestPractice-Android%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Android-开发最佳实践"><a href="#Android-开发最佳实践" class="headerlink" title="Android 开发最佳实践"></a>Android 开发最佳实践</h1><h2 id="使用Android-Studio"><a href="#使用Android-Studio" class="headerlink" title="使用Android Studio"></a>使用Android Studio</h2><h2 id="使用-String-xml"><a href="#使用-String-xml" class="headerlink" title="使用 String.xml"></a>使用 String.xml</h2><h2 id="创建模块化的UI布局-方便复用"><a href="#创建模块化的UI布局-方便复用" class="headerlink" title="创建模块化的UI布局,方便复用"></a>创建模块化的UI布局,方便复用</h2><h2 id="包含xxxhdpi资源"><a href="#包含xxxhdpi资源" class="headerlink" title="包含xxxhdpi资源"></a>包含xxxhdpi资源</h2><h2 id="应用图标放在mipmap-folder文件夹"><a href="#应用图标放在mipmap-folder文件夹" class="headerlink" title="应用图标放在mipmap-folder文件夹"></a>应用图标放在mipmap-folder文件夹</h2><h2 id="为debug和release划分不同的资源文件夹"><a href="#为debug和release划分不同的资源文件夹" class="headerlink" title="为debug和release划分不同的资源文件夹"></a>为debug和release划分不同的资源文件夹</h2><p><img src="https://ds1hty5qgiz73.cloudfront.net/wp-content/uploads/2015/08/file_structure1.jpg" alt="image"></p>
-<h2 id="尽量使用shapes和selectors"><a href="#尽量使用shapes和selectors" class="headerlink" title="尽量使用shapes和selectors"></a>尽量使用shapes和selectors</h2><h2 id="避免深层次的布局"><a href="#避免深层次的布局" class="headerlink" title="避免深层次的布局"></a>避免深层次的布局</h2><h2 id="尽量使用Gradle引入依赖"><a href="#尽量使用Gradle引入依赖" class="headerlink" title="尽量使用Gradle引入依赖"></a>尽量使用Gradle引入依赖</h2><h2 id="使用Retrofit管理网络请求"><a href="#使用Retrofit管理网络请求" class="headerlink" title="使用Retrofit管理网络请求"></a>使用Retrofit管理网络请求</h2><h2 id="使用RxJava"><a href="#使用RxJava" class="headerlink" title="使用RxJava"></a>使用RxJava</h2><h2 id="使用Glide-Fresco"><a href="#使用Glide-Fresco" class="headerlink" title="使用Glide/Fresco"></a>使用Glide/Fresco</h2><h2 id="使用Parcellable序列化"><a href="#使用Parcellable序列化" class="headerlink" title="使用Parcellable序列化"></a>使用Parcellable序列化</h2><h2 id="控制好异步任务的生命周期"><a href="#控制好异步任务的生命周期" class="headerlink" title="控制好异步任务的生命周期"></a>控制好异步任务的生命周期</h2><h2 id="IO操作不要放到UI线程"><a href="#IO操作不要放到UI线程" class="headerlink" title="IO操作不要放到UI线程"></a>IO操作不要放到UI线程</h2><h2 id="使用Style复用UI属性"><a href="#使用Style复用UI属性" class="headerlink" title="使用Style复用UI属性"></a>使用Style复用UI属性</h2><h2 id="大量连接String时使用StringBuilder"><a href="#大量连接String时使用StringBuilder" class="headerlink" title="大量连接String时使用StringBuilder"></a>大量连接String时使用StringBuilder</h2><h2 id="Return返回空对象而不是null"><a href="#Return返回空对象而不是null" class="headerlink" title="Return返回空对象而不是null"></a>Return返回空对象而不是null</h2><h2 id="添加StartActivity方法-减少重复"><a href="#添加StartActivity方法-减少重复" class="headerlink" title="添加StartActivity方法,减少重复"></a>添加StartActivity方法,减少重复</h2><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.innofied.com/13-android-development-best-practices/">Android development best practices we follow at Innofied</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/futurice/android-best-practices/blob/master/translations/Chinese/README.cn.md">Android 开发最佳实践</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/613d28a3c8a0">Android最佳实践指南</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/49539736">Android性能最佳实践：APK瘦身计划</a></p>
-<p><a target="_blank" rel="noopener" href="https://stuff.mit.edu/afs/sipb/project/android/docs/training/best-ux.html">Best Practices for User Experience &amp; UI</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.mindorks.com/android-development-best-practices-83c94b027fd3">Android Development Best Practices</a></p>
-<p><a target="_blank" rel="noopener" href="https://medium.com/mindorks/best-coding-practices-tips-and-more-for-android-4ec03c7eeb2c">Best coding practices, tips and more for Android
-</a></p>
-<p><a target="_blank" rel="noopener" href="https://developer.android.com/training/constraint-layout/">Build a Responsive UI with ConstraintLayout</a></p>
-<p><a target="_blank" rel="noopener" href="https://auth0.com/blog/best-practices-in-android-development/">Best Practices in Android Development</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-AAPT2_error_check_logs_for_details/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -775,7 +1013,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_BestPractice-Android%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -792,7 +1030,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/" class="post-title-link" itemprop="url">Bug-AgentWeb所在的Activity无法启动</a>
+            <a href="/2020/09/29/4.Android/20200929_BestPractice-Android%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-title-link" itemprop="url">BestPractice-Android开发最佳实践</a>
         </h2>
 
         <div class="post-meta-container">
@@ -818,7 +1056,7 @@
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-AgentWeb所在的Activity无法启动" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_BestPractice-Android%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-meta-item leancloud_visitors" data-flag-title="BestPractice-Android开发最佳实践" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -833,8 +1071,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-AgentWeb%E6%89%80%E5%9C%A8%E7%9A%84Activity%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_BestPractice-Android%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_BestPractice-Android%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -848,106 +1086,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="AgentWeb所在的Activity无法启动"><a href="#AgentWeb所在的Activity无法启动" class="headerlink" title="AgentWeb所在的Activity无法启动"></a>AgentWeb所在的Activity无法启动</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>天狼大厅点击按钮打开一个网页,结果写完代码没有任何反应,找Bug找了两个小时,最后通过单步调试找到问题,报没有这个activity的异常</p>
-<h2 id="教训"><a href="#教训" class="headerlink" title="教训"></a>教训</h2><p>以后新建任何脚本资源特别是Activity Layout 都要用AndroidStudio自带的方式新建  不再自己手动创建</p>
-<p>以后遇到问题无法解决的话单步调试  进去进去进去  不要在外面找问题  吐槽一句 Logcat报的错实在太乱了 哎~</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/" class="post-title-link" itemprop="url">Bug-Android中ScrollView内部组件高度异常</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-Android中ScrollView内部组件高度异常" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Android中ScrollView内部组件高度异常"><a href="#Android中ScrollView内部组件高度异常" class="headerlink" title="Android中ScrollView内部组件高度异常"></a>Android中ScrollView内部组件高度异常</h1><h2 id="ScrollView内部的组件被压扁"><a href="#ScrollView内部的组件被压扁" class="headerlink" title="ScrollView内部的组件被压扁"></a>ScrollView内部的组件被压扁</h2><p>ScrollView里只放一个元素.当ScrollView里的元素想填满ScrollView时，使用”fill_parent”是不管用的，必需为ScrollView设置：android:fillViewport=”true。 当ScrollView没有fillVeewport=“true”时, 里面的元素(比如LinearLayout)会按照wrap_content来计算(不论它是否设了”fill_parent”),而如果LinearLayout的元素设置了fill_parent,那么也是不管用的，因为LinearLayout依赖里面的元素，而里面的元素又依赖LinearLayout,这样自相矛盾.所以里面元素设置了fill_parent，也会当做wrap_content来计算.</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ljb568838953/article/details/52563452?locationNum=10">ScrollView与其他组件的冲突问题</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/CharlesGrant/p/4727799.html">在ScrollView下加入的组件，不能自动扩展到屏幕高度</a></p>
+          <h1 id="Android-开发最佳实践"><a href="#Android-开发最佳实践" class="headerlink" title="Android 开发最佳实践"></a>Android 开发最佳实践</h1><h2 id="使用Android-Studio"><a href="#使用Android-Studio" class="headerlink" title="使用Android Studio"></a>使用Android Studio</h2><h2 id="使用-String-xml"><a href="#使用-String-xml" class="headerlink" title="使用 String.xml"></a>使用 String.xml</h2><h2 id="创建模块化的UI布局-方便复用"><a href="#创建模块化的UI布局-方便复用" class="headerlink" title="创建模块化的UI布局,方便复用"></a>创建模块化的UI布局,方便复用</h2><h2 id="包含xxxhdpi资源"><a href="#包含xxxhdpi资源" class="headerlink" title="包含xxxhdpi资源"></a>包含xxxhdpi资源</h2><h2 id="应用图标放在mipmap-folder文件夹"><a href="#应用图标放在mipmap-folder文件夹" class="headerlink" title="应用图标放在mipmap-folder文件夹"></a>应用图标放在mipmap-folder文件夹</h2><h2 id="为debug和release划分不同的资源文件夹"><a href="#为debug和release划分不同的资源文件夹" class="headerlink" title="为debug和release划分不同的资源文件夹"></a>为debug和release划分不同的资源文件夹</h2><p><img src="https://ds1hty5qgiz73.cloudfront.net/wp-content/uploads/2015/08/file_structure1.jpg" alt="image"></p>
+<h2 id="尽量使用shapes和selectors"><a href="#尽量使用shapes和selectors" class="headerlink" title="尽量使用shapes和selectors"></a>尽量使用shapes和selectors</h2><h2 id="避免深层次的布局"><a href="#避免深层次的布局" class="headerlink" title="避免深层次的布局"></a>避免深层次的布局</h2><h2 id="尽量使用Gradle引入依赖"><a href="#尽量使用Gradle引入依赖" class="headerlink" title="尽量使用Gradle引入依赖"></a>尽量使用Gradle引入依赖</h2><h2 id="使用Retrofit管理网络请求"><a href="#使用Retrofit管理网络请求" class="headerlink" title="使用Retrofit管理网络请求"></a>使用Retrofit管理网络请求</h2><h2 id="使用RxJava"><a href="#使用RxJava" class="headerlink" title="使用RxJava"></a>使用RxJava</h2><h2 id="使用Glide-Fresco"><a href="#使用Glide-Fresco" class="headerlink" title="使用Glide/Fresco"></a>使用Glide/Fresco</h2><h2 id="使用Parcellable序列化"><a href="#使用Parcellable序列化" class="headerlink" title="使用Parcellable序列化"></a>使用Parcellable序列化</h2><h2 id="控制好异步任务的生命周期"><a href="#控制好异步任务的生命周期" class="headerlink" title="控制好异步任务的生命周期"></a>控制好异步任务的生命周期</h2><h2 id="IO操作不要放到UI线程"><a href="#IO操作不要放到UI线程" class="headerlink" title="IO操作不要放到UI线程"></a>IO操作不要放到UI线程</h2><h2 id="使用Style复用UI属性"><a href="#使用Style复用UI属性" class="headerlink" title="使用Style复用UI属性"></a>使用Style复用UI属性</h2><h2 id="大量连接String时使用StringBuilder"><a href="#大量连接String时使用StringBuilder" class="headerlink" title="大量连接String时使用StringBuilder"></a>大量连接String时使用StringBuilder</h2><h2 id="Return返回空对象而不是null"><a href="#Return返回空对象而不是null" class="headerlink" title="Return返回空对象而不是null"></a>Return返回空对象而不是null</h2><h2 id="添加StartActivity方法-减少重复"><a href="#添加StartActivity方法-减少重复" class="headerlink" title="添加StartActivity方法,减少重复"></a>添加StartActivity方法,减少重复</h2><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.innofied.com/13-android-development-best-practices/">Android development best practices we follow at Innofied</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/futurice/android-best-practices/blob/master/translations/Chinese/README.cn.md">Android 开发最佳实践</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/613d28a3c8a0">Android最佳实践指南</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/49539736">Android性能最佳实践：APK瘦身计划</a></p>
+<p><a target="_blank" rel="noopener" href="https://stuff.mit.edu/afs/sipb/project/android/docs/training/best-ux.html">Best Practices for User Experience &amp; UI</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.mindorks.com/android-development-best-practices-83c94b027fd3">Android Development Best Practices</a></p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/mindorks/best-coding-practices-tips-and-more-for-android-4ec03c7eeb2c">Best coding practices, tips and more for Android
+</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.android.com/training/constraint-layout/">Build a Responsive UI with ConstraintLayout</a></p>
+<p><a target="_blank" rel="noopener" href="https://auth0.com/blog/best-practices-in-android-development/">Best Practices in Android Development</a></p>
 
       
     </div>

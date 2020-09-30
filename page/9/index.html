@@ -215,20 +215,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">152</span>
+          <span class="site-state-item-count">154</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">73</span>
+        <span class="site-state-item-count">74</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -275,6 +275,235 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Tips-Android常用Gradle命令</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android常用Gradle命令" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Android常用Gradle命令"><a href="#Android常用Gradle命令" class="headerlink" title="Android常用Gradle命令"></a>Android常用Gradle命令</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h2 id="gradle-wrapper"><a href="#gradle-wrapper" class="headerlink" title="gradle wrapper"></a>gradle wrapper</h2><p>每个基于gradle构建的工程都有一个gradle本地代理，叫做 gradle wrapper<br>在 /gradle/wrapper/gralde-wrapper.properties 目录中声明了指向目录和版本</p>
+<p><a target="_blank" rel="noopener" href="https://services.gradle.org/distributions/">官方的各个版本的代理下载地址</a><br>如果 gradle 初次构建缓慢，可以手动下载代理放到${USER}/.gradle/wrapper/dists下</p>
+<p>本地建立文件 gradle.properties 或者在用户的 .gradle目录下建立 gradle.properties 文件作为全局设置，参数有</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启并行编译</span></span><br><span class="line">org.gradle.parallel=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 开启守护进程</span></span><br><span class="line">org.gradle.daemon=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 按需编译</span></span><br><span class="line">org.gradle.configureondemand=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 设置编译jvm参数</span></span><br><span class="line">org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8</span><br><span class="line"><span class="comment"># 设置代理</span></span><br><span class="line">systemProp.http.proxyHost=127.0.0.1</span><br><span class="line">systemProp.http.proxyPort=10384</span><br><span class="line">systemProp.https.proxyHost=127.0.0.1</span><br><span class="line">systemProp.https.proxyPort=10384</span><br><span class="line"><span class="comment"># 开启JNI编译支持过时API</span></span><br><span class="line">android.useDeprecatedNdk=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>安装一个全局的gradle，并配置好Path变量，避免每个项目重复下载，这样后面编译项目就可以直接运行gradle build</p>
+<h3 id="快速构建命令"><a href="#快速构建命令" class="headerlink" title="快速构建命令"></a>快速构建命令</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看构建版本</span></span><br><span class="line">./gradlew -v</span><br><span class="line"><span class="comment"># 清除build文件夹</span></span><br><span class="line">./gradlew clean</span><br><span class="line"><span class="comment"># 检查依赖并编译打包</span></span><br><span class="line">./gradlew build</span><br><span class="line"><span class="comment"># 编译并安装debug包</span></span><br><span class="line">./gradlew installDebug</span><br><span class="line"><span class="comment"># 编译并打印日志</span></span><br><span class="line">./gradlew build --info</span><br><span class="line"><span class="comment"># 译并输出性能报告，性能报告一般在 构建工程根目录 build/reports/profile</span></span><br><span class="line">./gradlew build --profile</span><br><span class="line"><span class="comment"># 调试模式构建并打印堆栈日志</span></span><br><span class="line">./gradlew build --info --debug --stacktrace</span><br><span class="line"><span class="comment"># 强制更新最新依赖，清除构建并构建</span></span><br><span class="line">./gradlew clean build --refresh-dependencies</span><br></pre></td></tr></table></figure>
+
+<p>注意build命令把 debug、release环境的包都打出来的<br>如果需要指定构建使用如下命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编译并打Debug包</span></span><br><span class="line">./gradlew assembleDebug</span><br><span class="line"><span class="comment"># 这个是简写 assembleDebug</span></span><br><span class="line">./gradlew aD</span><br><span class="line"><span class="comment"># 编译并打Release的包</span></span><br><span class="line">./gradlew assembleRelease</span><br><span class="line"><span class="comment"># 这个是简写 assembleRelease</span></span><br><span class="line">./gradlew aR</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a03f4f6ae31d">Gradle Android-build 常用命令参数及解释</a></p>
+<p><a target="_blank" rel="noopener" href="https://droidyue.com/blog/2017/04/16/speedup-gradle-building/index.html">一些关于加速Gradle构建的个人经验</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">Tips-Android开发中dp_sp_px理解</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android开发中dp_sp_px理解" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Android开发中-dp-sp-px-的理解"><a href="#Android开发中-dp-sp-px-的理解" class="headerlink" title="Android开发中 dp sp px 的理解"></a>Android开发中 dp sp px 的理解</h1><h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><ul>
+<li><p>px ： 其实就是像素单位，比如我们通常说的手机分辨列表800*400都是px的单位</p>
+</li>
+<li><p>dp ： 设备独立像素 (device independent pixels) 也叫 dip ，在不同的像素密度的设备上会自动适配</p>
+</li>
+<li><p>sp ： 同dp相似，还会根据用户手机系统的字体大小来缩放</p>
+</li>
+</ul>
+<h3 id="drawable文件夹有"><a href="#drawable文件夹有" class="headerlink" title="drawable文件夹有"></a>drawable文件夹有</h3><p>ldpi、mdpi、hdpi、xhdpi四种。</p>
+<h3 id="dpi指像素-英寸"><a href="#dpi指像素-英寸" class="headerlink" title="dpi指像素/英寸"></a>dpi指像素/英寸</h3><p>而ldpi指dpi120，</p>
+<p>mdpi指dpi160， icon48<em>48    一般指320</em>480，是标准的 dp大约是1.5倍的pix</p>
+<p>hdpi指dpi240，  icon72<em>72   480</em>800</p>
+<p>xhdpi指dpi320,   icon96<em>96   720</em>1280</p>
+<p>xxhdpi指dpi480   icon144<em>144 1080</em>1920</p>
+<p><img src="https://note.youdao.com/yws/public/resource/749aabcc6fd96f41ff3179f1e1012294/xmlnote/7FE5D942C3A344CFB7DDEC99CC1CF47B/3744" alt="dp1"></p>
+<p><img src="https://note.youdao.com/yws/public/resource/749aabcc6fd96f41ff3179f1e1012294/xmlnote/A342AAD9D65B4C1C9A4E0EC9EBB75932/3746" alt="dp2"></p>
+<p>状态栏高度：50 px</p>
+<p>导航栏高度：96 px</p>
+<p>标签栏高度：96 px</p>
+<p>Android最近出的手机都几乎去掉了实体键，把功能键移到了屏幕中，当然高度也是和标签栏一样的：96 px<br>内容区域高度为：1038 px （1280-50-96-96=1038）</p>
+<p><img src="https://note.youdao.com/yws/public/resource/749aabcc6fd96f41ff3179f1e1012294/xmlnote/70B39302D43E4B6D818FAF46DFCB4643/4802" alt="sp"></p>
+<p>切图720*1280就行了</p>
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p>字号采用12sp(small)、14sp(normal)、18sp(large)、22sp(larger),40sp(huge)等四个级别来设计</p>
+<h2 id="对应关系"><a href="#对应关系" class="headerlink" title="对应关系"></a>对应关系</h2><h3 id="1、安卓机型各种尺寸下的PX与DP、SP的对应关系"><a href="#1、安卓机型各种尺寸下的PX与DP、SP的对应关系" class="headerlink" title="1、安卓机型各种尺寸下的PX与DP、SP的对应关系"></a>1、安卓机型各种尺寸下的PX与DP、SP的对应关系</h3><p><img src="https://upload-images.jianshu.io/upload_images/3947109-2d302aef8242565c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1"></p>
+<h3 id="2、距离单位DP与PX的对应关系"><a href="#2、距离单位DP与PX的对应关系" class="headerlink" title="2、距离单位DP与PX的对应关系"></a>2、距离单位DP与PX的对应关系</h3><p><img src="https://upload-images.jianshu.io/upload_images/3947109-bbf61041ea078b69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2"></p>
+<h3 id="3、字体单位SP与PX的对应关系"><a href="#3、字体单位SP与PX的对应关系" class="headerlink" title="3、字体单位SP与PX的对应关系"></a>3、字体单位SP与PX的对应关系</h3><p><img src="https://upload-images.jianshu.io/upload_images/3947109-885fd2ebd692e437.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="3"></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="http://www.sohu.com/a/215512768_114819">一款APP设计的从0到1之：Android设计规范篇</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010413574/article/details/52790253">Android hdpi ldpi mdpi xhdpi xxhdpi适配详解</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -668,262 +897,6 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="Android开发配置ADB环境变量"><a href="#Android开发配置ADB环境变量" class="headerlink" title="Android开发配置ADB环境变量"></a>Android开发配置ADB环境变量</h1><p>D:\Android\AndroidSdk\platform-tools 是 adb 程序所在目录, 只需要把这个目录添加到系统环境变量的 path 中, 即可在任意地方使用adb命令</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E6%89%93%E5%8C%85%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E5%88%B0%E6%89%8B%E6%9C%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E6%89%93%E5%8C%85%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E5%88%B0%E6%89%8B%E6%9C%BA/" class="post-title-link" itemprop="url">Tips-Android打包无法安装到手机</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E6%89%93%E5%8C%85%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E5%88%B0%E6%89%8B%E6%9C%BA/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android打包无法安装到手机" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E6%89%93%E5%8C%85%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E5%88%B0%E6%89%8B%E6%9C%BA/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E6%89%93%E5%8C%85%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E5%88%B0%E6%89%8B%E6%9C%BA/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Android打包无法安装到手机"><a href="#Android打包无法安装到手机" class="headerlink" title="Android打包无法安装到手机"></a>Android打包无法安装到手机</h1><h2 id="错误记录"><a href="#错误记录" class="headerlink" title="错误记录"></a>错误记录</h2><p><img src="/images/2019-08-28-15-58-04.png"></p>
-<p>以上为安装时提示的异常情况，解决办法：<br>在 gradle.properties 文件中添加 android.injected.testOnly=false 即可解决问题</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC%E9%87%8D%E8%A6%81%E5%B7%AE%E5%BC%82%E6%B1%87%E6%80%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC%E9%87%8D%E8%A6%81%E5%B7%AE%E5%BC%82%E6%B1%87%E6%80%BB/" class="post-title-link" itemprop="url">Tips-Android系统版本重要差异汇总</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC%E9%87%8D%E8%A6%81%E5%B7%AE%E5%BC%82%E6%B1%87%E6%80%BB/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android系统版本重要差异汇总" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC%E9%87%8D%E8%A6%81%E5%B7%AE%E5%BC%82%E6%B1%87%E6%80%BB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC%E9%87%8D%E8%A6%81%E5%B7%AE%E5%BC%82%E6%B1%87%E6%80%BB/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Android系统版本重要差异汇总"><a href="#Android系统版本重要差异汇总" class="headerlink" title="Android系统版本重要差异汇总"></a>Android系统版本重要差异汇总</h1><h2 id="一、Android-5-x"><a href="#一、Android-5-x" class="headerlink" title="一、Android 5.x"></a>一、Android 5.x</h2><ul>
-<li><p>Material design</p>
-<p>  Material design算是Android 系统风格的里程碑，其3D UI风格新颖，贴近人机交互；</p>
-</li>
-<li><p>改善通知栏，提升可视化、亲近性、可编辑性。同时支持手机在锁屏状态也可接收到通知，用户可以在锁屏状态下，设置接收全部应用的通知或者接收部分应用的通知或者不接收所有应用的通知；</p>
-</li>
-<li><p>系统由以往的Dalvik模式改为采用ART（Android Runtime）模式，实现ahead-of-time (AOT)静态编译与just-in-time (JIT)动态编译交互进行；</p>
-</li>
-<li><p>V7中引入CardView和RecycleView等新控件；</p>
-</li>
-<li><p>支持64位系统；</p>
-</li>
-</ul>
-<h2 id="二、Android-6-x"><a href="#二、Android-6-x" class="headerlink" title="二、Android 6.x"></a>二、Android 6.x</h2><ul>
-<li><p>新增运行时权限概念<br>  Android6.0或以上版本，用户可以完全控制应用权限。</p>
-<p>  最佳实践是使用tedpermission插件mango</p>
-  <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">&#x27;gun0912.ted:tedpermission:2.2.2&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>  代码示例</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">PermissionListener permissionlistener = <span class="keyword">new</span> PermissionListener()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPermissionGranted</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        postUpdateUrl();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPermissionDenied</span><span class="params">(List&lt;String&gt; deniedPermissions)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        dismissProgressDialog();</span><br><span class="line">        finish();</span><br><span class="line">        System.exit(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">TedPermission.with(<span class="keyword">this</span>)</span><br><span class="line">                .setPermissionListener(permissionlistener)</span><br><span class="line">                .setDeniedMessage(<span class="string">&quot;如果拒绝权限，则不能使用消息推送服务\n\n请点击 [设置] &gt; [权限] &gt; [存储]&quot;</span>)</span><br><span class="line">                .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)</span><br><span class="line">                .setDeniedCloseButtonText(<span class="string">&quot;关闭&quot;</span>)</span><br><span class="line">                .setGotoSettingButtonText(<span class="string">&quot;设置&quot;</span>)</span><br><span class="line">                .check();</span><br></pre></td></tr></table></figure>
-
-<p>  当用户安装一个app时，系统默认给app授权部分基础权限，其他敏感权限，需要开发者自己注意，当涉及敏感权限时，开发者需要手动请求系统授予权限，系统这时会弹框给用户，倘若用户拒绝，如果没有保护，app将直接崩溃，倘若有保护，app也无法使用相关功能。</p>
-</li>
-<li><p>新增瞌睡模式和待机模式</p>
-<p>  瞌睡模式：当不碰手机，手机自动关闭屏幕后，过一会，手机将进入瞌睡模式。在瞌睡模式下，设备只会定期的唤醒，然后继续执行等待中的任务接着又进入瞌睡；</p>
-<p>  待机模式：假如用户一段时间不触碰手机，设备将进入待机模式。在这个模式下，系统会认为所有app是闲置的，这时系统会关闭网络，并且暂停app之前正在执行的任务。</p>
-</li>
-<li><p>移除对Apache HTTP client的支持<br>  建议使用HttpURLConnection。如果还是想用Apache HTTP client，那么需要在build.gradle中添加</p>
-  <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">android</span><br><span class="line">&#123;</span><br><span class="line">    useLibrary <span class="string">&#x27;org.apache.http.legacy&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="三、Android-7-x"><a href="#三、Android-7-x" class="headerlink" title="三、Android 7.x"></a>三、Android 7.x</h2><ul>
-<li><p>FileProvider</p>
-<p>  intent不允许包名之外的文件Uri,需要使用File Provider</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(Environment.getExternalStorageDirectory(), m_appNameStr);</span><br><span class="line">Uri  uri  = FileProvider.getUriForFile(LoadingActivity.<span class="keyword">this</span>, <span class="string">&quot;com.sdbean.recommendstock.Tool.GenericFileProvider&quot;</span>, file);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>引入全新的JIT编译器，使得App安装速度快了75%，编译代码的规模减少了50%</p>
-</li>
-<li><p>安全：更安全的加密模式，可以对单独的文件进行加密，android系统启动加密</p>
-</li>
-</ul>
-<h2 id="四、Android-O（安卓8-0）"><a href="#四、Android-O（安卓8-0）" class="headerlink" title="四、Android O（安卓8.0）"></a>四、Android O（安卓8.0）</h2><ul>
-<li><p>Notification需要设置channel</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> String CHANNEL_ID = <span class="string">&quot;my_channel_01&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O)</span><br><span class="line">&#123;</span><br><span class="line">    CharSequence name       = <span class="string">&quot;My New Channel&quot;</span>;</span><br><span class="line">    <span class="meta">@SuppressLint(&quot;WrongConstant&quot;)</span> NotificationChannel channel = <span class="keyword">new</span> NotificationChannel(CHANNEL_ID, name, android.app.NotificationManager.IMPORTANCE_HIGH);</span><br><span class="line">    mNotifyMgr.createNotificationChannel(channel);</span><br><span class="line">    Notification notification = <span class="keyword">new</span> Notification.Builder(context)</span><br><span class="line">            .setSmallIcon(R.drawable.xg_push_icon)</span><br><span class="line">            .setContentTitle(message.getTitle())</span><br><span class="line">            .setContentText(message.getExtra().get(<span class="string">&quot;alert&quot;</span>))</span><br><span class="line">            .setContentIntent(pIntent)</span><br><span class="line">            .setChannelId(CHANNEL_ID)</span><br><span class="line">            .setAutoCancel(<span class="keyword">true</span>)</span><br><span class="line">            .build();</span><br><span class="line">    mNotifyMgr.notify(message.getNotifyId(), notification);</span><br><span class="line">&#125; <span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    Notification notification = <span class="keyword">new</span> Notification.Builder(context)</span><br><span class="line">            .setSmallIcon(R.drawable.xg_push_icon)</span><br><span class="line">            .setContentTitle(message.getTitle())</span><br><span class="line">            .setContentText(message.getExtra().get(<span class="string">&quot;alert&quot;</span>))</span><br><span class="line">            .setContentIntent(pIntent)</span><br><span class="line">            .setAutoCancel(<span class="keyword">true</span>)</span><br><span class="line">            .build();</span><br><span class="line">    mNotifyMgr.notify(message.getNotifyId(), notification);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安卓8.0版本时为了支持全面屏，增加了一个限制：如果是透明的Activity，则不能固定它的方向，因为它的方向其实是依赖其父Activity的（因为透明）。然而这个bug只有在8.0中有，8.1中已经修复。具体crash有两种：</p>
-<ol>
-<li><p>Activity的风格为透明，在manifest文件中指定了一个方向，则在onCreate中crash</p>
-</li>
-<li><p>Activity的风格为透明，如果调用setRequestedOrientation方法固定方向，则crash</p>
-<p>如果进onCreate的时候，如果判断是透明窗口风格，直接把屏幕朝向改为未指定类型即SCREEN_ORIENTATION_UNSPECIFIED就可以了</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (Build.VERSION.SDK_INT == Build.VERSION_CODES.O &amp;&amp; isTranslucentOrFloating()) &#123;</span><br><span class="line">        <span class="keyword">boolean</span> result = fixOrientation();</span><br><span class="line">        XLog.i(XLog.BASE, <span class="string">&quot;onCreate fixOrientation when Oreo, result = &quot;</span> + result);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isTranslucentOrFloating</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">boolean</span> isTranslucentOrFloating = <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> [] styleableRes = (<span class="keyword">int</span>[]) Class.forName(<span class="string">&quot;com.android.internal.R$styleable&quot;</span>).getField(<span class="string">&quot;Window&quot;</span>).get(<span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">final</span> TypedArray ta = obtainStyledAttributes(styleableRes);</span><br><span class="line">        Method m = ActivityInfo.class.getMethod(<span class="string">&quot;isTranslucentOrFloating&quot;</span>, TypedArray.class);</span><br><span class="line">        m.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">        isTranslucentOrFloating = (<span class="keyword">boolean</span>)m.invoke(<span class="keyword">null</span>, ta);</span><br><span class="line">        m.setAccessible(<span class="keyword">false</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> isTranslucentOrFloating;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">fixOrientation</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Field field = Activity.class.getDeclaredField(<span class="string">&quot;mActivityInfo&quot;</span>);</span><br><span class="line">        field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">        ActivityInfo o = (ActivityInfo)field.get(<span class="keyword">this</span>);</span><br><span class="line">        o.screenOrientation = -<span class="number">1</span>;</span><br><span class="line">        field.setAccessible(<span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后在设置方向的时候如果透明，直接不执行：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRequestedOrientation</span><span class="params">(<span class="keyword">int</span> requestedOrientation)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (Build.VERSION.SDK_INT == Build.VERSION_CODES.O &amp;&amp; isTranslucentOrFloating()) &#123;</span><br><span class="line">        XLog.i(XLog.BASE, <span class="string">&quot;avoid calling setRequestedOrientation when Oreo.&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">super</span>.setRequestedOrientation(requestedOrientation);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><p>后台进程限制</p>
-<p>  谷歌表示一直在优化安卓Android的后台应用限制策略，以最大程度减小后台应用对电池的消耗和对资源的占用。在Android O的更新中，当应用被置入后台后，Android O将自动智能限制后台应用活动，主要会限制应用的广播、后台运行和位置，但应用的整体进程并没有被杀掉。不过，部分层级比较重要的应用可以不受限制，但总的来说，Android O将严格限制后台进程对手机资源的调用。</p>
-</li>
-</ul>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://proandroiddev.com/sharing-files-though-intents-are-you-ready-for-nougat-70f7e9294a0b">Sharing files through Intents: are you ready for Nougat?</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/88409d6f5795">android各个版本的新特性</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/starry_eve/article/details/82777160">Only fullscreen activities can request orientation终极解决方法</a></p>
 
       
     </div>

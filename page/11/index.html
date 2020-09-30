@@ -215,20 +215,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">152</span>
+          <span class="site-state-item-count">154</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">73</span>
+        <span class="site-state-item-count">74</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -275,6 +275,217 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Java%E4%B8%ADenum_int_String%E7%9A%84%E4%BA%92%E7%9B%B8%E8%BD%AC%E6%8D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tips-Java%E4%B8%ADenum_int_String%E7%9A%84%E4%BA%92%E7%9B%B8%E8%BD%AC%E6%8D%A2/" class="post-title-link" itemprop="url">Tips-Java中enum_int_String的互相转换</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tips-Java%E4%B8%ADenum_int_String%E7%9A%84%E4%BA%92%E7%9B%B8%E8%BD%AC%E6%8D%A2/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Java中enum_int_String的互相转换" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Java%E4%B8%ADenum_int_String%E7%9A%84%E4%BA%92%E7%9B%B8%E8%BD%AC%E6%8D%A2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Java%E4%B8%ADenum_int_String%E7%9A%84%E4%BA%92%E7%9B%B8%E8%BD%AC%E6%8D%A2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Java中enum-int-String的互相转换"><a href="#Java中enum-int-String的互相转换" class="headerlink" title="Java中enum/int/String的互相转换"></a>Java中enum/int/String的互相转换</h1><h2 id="enum-和-int"><a href="#enum-和-int" class="headerlink" title="enum 和 int"></a>enum 和 int</h2><h3 id="enum-gt-int"><a href="#enum-gt-int" class="headerlink" title="enum -&gt; int"></a>enum -&gt; int</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = enumType.value.ordinal();</span><br></pre></td></tr></table></figure>
+
+<h3 id="int-gt-enum"><a href="#int-gt-enum" class="headerlink" title="int -&gt; enum"></a>int -&gt; enum</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enumType b = enumType.values()[i];</span><br></pre></td></tr></table></figure>
+
+<h2 id="enum-和-string"><a href="#enum-和-string" class="headerlink" title="enum 和 string"></a>enum 和 string</h2><h3 id="enum-gt-string"><a href="#enum-gt-string" class="headerlink" title="enum -&gt; string"></a>enum -&gt; string</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s = enumType.name();</span><br></pre></td></tr></table></figure>
+
+<h3 id="string-gt-enum"><a href="#string-gt-enum" class="headerlink" title="string -&gt; enum"></a>string -&gt; enum</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enumType b = enumType.valueOf(s);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-Adb%E8%BF%9C%E7%A8%8BWifi%E8%B0%83%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Trick-Adb%E8%BF%9C%E7%A8%8BWifi%E8%B0%83%E8%AF%95/" class="post-title-link" itemprop="url">Trick-Adb远程Wifi调试</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Trick-Adb%E8%BF%9C%E7%A8%8BWifi%E8%B0%83%E8%AF%95/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-Adb远程Wifi调试" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-Adb%E8%BF%9C%E7%A8%8BWifi%E8%B0%83%E8%AF%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-Adb%E8%BF%9C%E7%A8%8BWifi%E8%B0%83%E8%AF%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Adb远程Wifi调试"><a href="#Adb远程Wifi调试" class="headerlink" title="Adb远程Wifi调试"></a>Adb远程Wifi调试</h1><blockquote>
+<p>平时在开发的时候总是需要用一根数据线连接电脑进行调试，不是很方便。其实有个好方法就是同时WiFi连接手机进行调试。进行WiFi调试的前提是你手机必须root了，因为其中有一步需要在root权限下执行命令。</p>
+</blockquote>
+<ol>
+<li><p>将手机和电脑置于同一个局域网下，保证电脑和手机能相互ping通。</p>
+</li>
+<li><p>首先利用有线连接手机，在adb shell 的root下执行如下命令（这一步是需要root权限的）：</p>
+<p> Setprop service.adb.tcp.port5555</p>
+</li>
+<li><p>继续保持手机与电脑是有线连接，在dos命令下执行：adb tcpip 8888。该步骤表示重启手机端tcpip，并监听8888端口。</p>
+</li>
+<li><p>在电脑端dos命令下执行：adb connect ip:8888。其中ip表示手机的ip地址。</p>
+</li>
+<li><p>断开连接时执行如下命令：adb disconnect ip:8888。</p>
+</li>
+</ol>
+<p>通过以上步骤就可以实现adb无线调试手机应用了。在用无线调试前，最好用有线连接时将一直允许该电脑调试手机选中，不然可能通过adb conncet连接后，通过adb devices显示的是未授权。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -647,217 +858,6 @@
 <p>密\u0020\u0020\u0020\u0020码：</p>
 <p>这样我们就可以解决TextView中多个连续空格只显示一个的问题了。</p>
 <h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013480667/article/details/43876183">TextView中的连续空格只显示一个的解决方法</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-Android%E5%AF%8C%E6%96%87%E6%9C%AC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/4.Android/20200929_Trick-Android%E5%AF%8C%E6%96%87%E6%9C%AC/" class="post-title-link" itemprop="url">Trick-Android富文本</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/4.Android/20200929_Trick-Android%E5%AF%8C%E6%96%87%E6%9C%AC/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-Android富文本" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-Android%E5%AF%8C%E6%96%87%E6%9C%AC/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-Android%E5%AF%8C%E6%96%87%E6%9C%AC/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Android富文本"><a href="#Android富文本" class="headerlink" title="Android富文本"></a>Android富文本</h1><h2 id="Html-fromHtml"><a href="#Html-fromHtml" class="headerlink" title="Html.fromHtml()"></a>Html.fromHtml()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String nameContent = <span class="string">&quot;&lt;font color=#ffffff&gt;您的 &lt;/font&gt;&quot;</span> + <span class="string">&quot;&lt;font color=#FFBC55&gt;&quot;</span> + cardName + <span class="string">&quot;&lt;/font&gt;&quot;</span> + <span class="string">&quot;&lt;font color=#ffffff&gt; 还未到期&lt;br&gt;是否继续购买延长时间？&lt;/font&gt;&quot;</span>;</span><br><span class="line">binding.tvName.setText(Html.fromHtml(nameContent));</span><br></pre></td></tr></table></figure>
-
-<h2 id="Spannable"><a href="#Spannable" class="headerlink" title="Spannable"></a>Spannable</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">String    prefix      = <span class="string">&quot;您的 &quot;</span>;</span><br><span class="line">String    suffix      = <span class="string">&quot; 还未到期\n是否继续购买延长时间？&quot;</span>;</span><br><span class="line">String    nameContent = prefix + cardName + suffix;</span><br><span class="line">Spannable spannable   = <span class="keyword">new</span> SpannableString(nameContent);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里的span只能用new 因为多次set同一个span 后面的会把前面的覆盖掉</span></span><br><span class="line">ForegroundColorSpan yellowColorSpan = <span class="keyword">new</span> ForegroundColorSpan(getActivity().getResources().getColor(R.color.dull_yellow));</span><br><span class="line">spannable.setSpan(<span class="keyword">new</span> ForegroundColorSpan(getActivity().getResources().getColor(R.color.white)), <span class="number">0</span>, prefix.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</span><br><span class="line">spannable.setSpan(yellowColorSpan, prefix.length(), (prefix + cardName).length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">spannable.setSpan(<span class="keyword">new</span> ForegroundColorSpan(getActivity().getResources().getColor(R.color.white)), (prefix + cardName).length(), nameContent.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">binding.tvName.setText(spannable, TextView.BufferType.SPANNABLE);</span><br></pre></td></tr></table></figure>
-
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/4032676/how-can-i-change-the-color-of-a-part-of-a-textview">How can I change the color of a part of a TextView?</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/050ffa5b762c">Android富文本实现图文混排</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-Android%E5%B8%83%E5%B1%80%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/4.Android/20200929_Trick-Android%E5%B8%83%E5%B1%80%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Trick-Android布局图片预览内存泄漏问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/4.Android/20200929_Trick-Android%E5%B8%83%E5%B1%80%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-Android布局图片预览内存泄漏问题" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-Android%E5%B8%83%E5%B1%80%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-Android%E5%B8%83%E5%B1%80%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Android布局图片预览内存泄漏问题"><a href="#Android布局图片预览内存泄漏问题" class="headerlink" title="Android布局图片预览内存泄漏问题"></a>Android布局图片预览内存泄漏问题</h1><p>Sometimes, when we write a layout file, we want to preview the result and if the layout has an ImageView then we also want to see the image by just giving the image resources in xml. Beware of that, by the time you set image resource in image view for only preview purpose, don’t forget to remove it. If we forget to remove it, then in the runtime the image will be loaded and suck the app memory.</p>
-<p>It would seem fine if the image is only loaded once but what if the sample image is on item layout, and we use the layout in recycler view (listview)? the sample image will be loaded in every single item you have in the list. Just multiply it with the size of the image, that is how the app becomes a memory sucker.</p>
-<p>I made this mistake, and fortunately I used a really big image, so the exception was always raised.</p>
-<p>Here is the example of pre set image resources</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">ImageView</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:id</span>=<span class="string">&quot;@+id/iv_preview&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:layout_height</span>=<span class="string">&quot;200dp&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:layout_below</span>=<span class="string">&quot;@+id/tv_title&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:adjustViewBounds</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:scaleType</span>=<span class="string">&quot;centerCrop&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:src</span>=<span class="string">&quot;@drawable/budget_preview&quot;</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>budget_preview.png is a really big image. With default activity, my app only uses around 20mb of memory,</p>
-<p>but after open the activity with only 3 items with that layout, it jumped into 90mb, scroll a little bit, OOM was raised.</p>
-<p>So don’t forget to remove android:src after you finish preview, and you’ll probably save a good memory Hope it’s usefull.</p>
-<p><a target="_blank" rel="noopener" href="http://tools.android.com/tips/layout-designtime-attributes">Use tools:src instead of android:src to get the preview image in Android Studio with zero impact on runtime</a></p>
-<h2 id="2-common-usage"><a href="#2-common-usage" class="headerlink" title="2 common usage"></a>2 common usage</h2><ul>
-<li><p>tools:text</p>
-</li>
-<li><p>tools:src</p>
-</li>
-</ul>
-<h2 id="refer"><a href="#refer" class="headerlink" title="refer"></a>refer</h2><p><a target="_blank" rel="noopener" href="https://developer.android.com/studio/write/tool-attributes">Tools attributes reference</a></p>
 
       
     </div>

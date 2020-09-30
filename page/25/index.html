@@ -215,20 +215,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">152</span>
+          <span class="site-state-item-count">154</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">73</span>
+        <span class="site-state-item-count">74</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -279,7 +279,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/28/5.Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/28/5.Web/20200928_Tips-Ubuntu%E6%9B%B4%E6%94%B9Web%E7%9B%AE%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -296,7 +296,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/28/5.Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Tutorial-ThinkPHP的使用</a>
+            <a href="/2020/09/28/5.Web/20200928_Tips-Ubuntu%E6%9B%B4%E6%94%B9Web%E7%9B%AE%E5%BD%95/" class="post-title-link" itemprop="url">Tips-Ubuntu更改Web目录</a>
         </h2>
 
         <div class="post-meta-container">
@@ -328,7 +328,7 @@
     </span>
 
   
-    <span id="/2020/09/28/5.Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-ThinkPHP的使用" title="阅读次数">
+    <span id="/2020/09/28/5.Web/20200928_Tips-Ubuntu%E6%9B%B4%E6%94%B9Web%E7%9B%AE%E5%BD%95/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Ubuntu更改Web目录" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -343,8 +343,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/28/5.Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/28/5.Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/28/5.Web/20200928_Tips-Ubuntu%E6%9B%B4%E6%94%B9Web%E7%9B%AE%E5%BD%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/28/5.Web/20200928_Tips-Ubuntu%E6%9B%B4%E6%94%B9Web%E7%9B%AE%E5%BD%95/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -358,38 +358,150 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="ThinkPHP的使用"><a href="#ThinkPHP的使用" class="headerlink" title="ThinkPHP的使用"></a>ThinkPHP的使用</h1><h2 id="打开debug模式"><a href="#打开debug模式" class="headerlink" title="打开debug模式"></a>打开debug模式</h2><p>找到config目录下的app.php文件 设置如下</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;show_error_msg&#x27;</span>         =&gt; <span class="literal">true</span>,</span><br></pre></td></tr></table></figure>
-
-<p>没正式上线之前打开debug模式,方便调试,上线后再关闭</p>
-<h2 id="新建-Controller-命令"><a href="#新建-Controller-命令" class="headerlink" title="新建 Controller 命令"></a>新建 Controller 命令</h2><h3 id="普通控制器"><a href="#普通控制器" class="headerlink" title="普通控制器"></a>普通控制器</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意 Controller 的名字(在这里是Article)要大写</span></span><br><span class="line">D:\xampp\htdocs\thinkphp5&gt; php think make:controller index/Article --plain</span><br></pre></td></tr></table></figure>
-
-<h3 id="资源控制器"><a href="#资源控制器" class="headerlink" title="资源控制器"></a>资源控制器</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 相对于普通控制器 没有 --plain</span></span><br><span class="line">D:\xampp\htdocs\thinkphp5&gt; php think make:controller index/Article</span><br></pre></td></tr></table></figure>
-
-<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><h3 id="路由到自定义方法"><a href="#路由到自定义方法" class="headerlink" title="路由到自定义方法"></a>路由到自定义方法</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 路由到自定义的方法</span></span><br><span class="line"><span class="comment">// 第一个参数是定义的路由规则</span></span><br><span class="line"><span class="comment">// 第二个参数是调用的方法 或 控制器中的方法</span></span><br><span class="line">Route::get(<span class="string">&quot;hello&quot;</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello World!&quot;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="路由到控制器的方法"><a href="#路由到控制器的方法" class="headerlink" title="路由到控制器的方法"></a>路由到控制器的方法</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 路由到控制器的方法</span></span><br><span class="line"><span class="comment">// 如果设置了路由器访问指定方法的时候,就只能通过路由形式访问,不能再使用 模块/控制器/方法名 的方式来访问</span></span><br><span class="line">Route::get(<span class="string">&quot;article&quot;</span>,<span class="string">&#x27;index/article/index&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="资源路由"><a href="#资源路由" class="headerlink" title="资源路由"></a>资源路由</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 资源路由</span></span><br><span class="line"><span class="comment">// 第一个参数是定义路由规则</span></span><br><span class="line"><span class="comment">// 第二个参数是该规则去找的控制器名称</span></span><br><span class="line"><span class="comment">// 资源路由会自动根据资源路由的定义方式,生成对应的每个方法的请求方式及路由地址</span></span><br><span class="line">Route::resource(<span class="string">&#x27;student&#x27;</span>,<span class="string">&#x27;index/Student&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="有参数的路由"><a href="#有参数的路由" class="headerlink" title="有参数的路由"></a>有参数的路由</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果在定义路由的时候,需要传递一些参数,可以使用 : 来定义参数 该参数会自动的被传递给当前路由所调用的方法,作为方法的参数自动被接收</span></span><br><span class="line">Route::get(<span class="string">&#x27;hello/:name&#x27;</span>, <span class="string">&#x27;index/hello&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="View模板"><a href="#View模板" class="headerlink" title="View模板"></a>View模板</h2><h3 id="建立模板"><a href="#建立模板" class="headerlink" title="建立模板"></a>建立模板</h3><ul>
-<li>在当前模块目录下新建view文件夹</li>
-<li>在view文件夹下新建对应控制器名字的文件夹 名字全部小写</li>
-<li>在控制器文件夹下新建对应控制器方法名字的html文件即为模板文件</li>
+          <h1 id="Ubuntu更改Web目录"><a href="#Ubuntu更改Web目录" class="headerlink" title="Ubuntu更改Web目录"></a>Ubuntu更改Web目录</h1><ul>
+<li>配置文件</li>
 </ul>
-<h3 id="使用模板"><a href="#使用模板" class="headerlink" title="使用模板"></a>使用模板</h3><p>控制器代码如下</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Index</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> view();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">$name = <span class="string">&#x27;ThinkPHP5&#x27;</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;hello,&#x27;</span> . $name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/apache2/sites-enable/000-default</span><br></pre></td></tr></table></figure>
 
-<h3 id="安装数据迁移插件"><a href="#安装数据迁移插件" class="headerlink" title="安装数据迁移插件"></a>安装数据迁移插件</h3><p>更新国内源</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer config -g repo.packagist composer https://packagist.phpcomposer.com</span><br></pre></td></tr></table></figure>
+<p>如下所示</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ServerAdmin webmaster@localhost</span><br><span class="line">       DocumentRoot /var/www/html/thinkphp5/public</span><br><span class="line"></span><br><span class="line">       <span class="comment"># Available loglevels: trace8, ..., trace1, debug, info, notice, warn,</span></span><br><span class="line">       <span class="comment"># error, crit, alert, emerg.</span></span><br><span class="line">       <span class="comment"># It is also possible to configure the loglevel for particular</span></span><br><span class="line">       <span class="comment"># modules, e.g.</span></span><br><span class="line">       <span class="comment">#LogLevel info ssl:warn</span></span><br></pre></td></tr></table></figure>
 
-<p>安装</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require topthink/think-migration</span><br></pre></td></tr></table></figure>
+<p>修改 DocumentRoot 后面的目录为自己想要的Web目录</p>
+<h2 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h2><p>Windows环境下配置文件如下</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">..\apache\conf\httpd.conf</span><br></pre></td></tr></table></figure>
 
-<p>如果报错</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer config -g -- disable-tls <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>还是修改 DocumentRoot 对应的值</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/" class="post-title-link" itemprop="url">Tips-mysql_设置字符集</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-28T00:00:00+08:00">2020-09-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-29 20:48:04" itemprop="dateModified" datetime="2020-09-29T20:48:04+08:00">2020-09-29</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-Web/" itemprop="url" rel="index"><span itemprop="name">5.Web</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-mysql_设置字符集" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="mysql设置字符集"><a href="#mysql设置字符集" class="headerlink" title="mysql设置字符集"></a>mysql设置字符集</h1><ul>
+<li><p>查看当前数据库字符集</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &quot;%char%&quot;;</span><br><span class="line"></span><br><span class="line">//输出</span><br><span class="line">+<span class="comment">--------------------------+--------------------------------+</span></span><br><span class="line">| Variable_name            | Value                          |</span><br><span class="line">+<span class="comment">--------------------------+--------------------------------+</span></span><br><span class="line">| character_set_client     | utf8                           |</span><br><span class="line">| character_set_connection | latin1                         |</span><br><span class="line">| character_set_database   | latin1                         |</span><br><span class="line">| character_set_filesystem | binary                         |</span><br><span class="line">| character_set_results    | utf8                           |</span><br><span class="line">| character_set_server     | utf8                           |</span><br><span class="line">| character_set_system     | utf8                           |</span><br><span class="line">| character_sets_dir       | D:\xampp\mysql\share\charsets\ |</span><br><span class="line">+<span class="comment">--------------------------+--------------------------------+</span></span><br></pre></td></tr></table></figure></li>
+<li><p>查看当前数据表字符集</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> mysql&gt;  show create table tb_name;</span><br><span class="line"></span><br><span class="line"> //输出</span><br><span class="line">+<span class="comment">--------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span></span><br><span class="line"> | Table  | <span class="keyword">Create</span> <span class="keyword">Table</span>                                                                                                                                                                  |</span><br><span class="line"> +<span class="comment">--------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span></span><br><span class="line"> | testcn | <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`testcn`</span> (</span><br><span class="line"> <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line"> <span class="string">`name`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line"> PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line"> ) <span class="keyword">ENGINE</span>=MyISAM AUTO_INCREMENT=<span class="number">3</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 |</span><br><span class="line"> +<span class="comment">--------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>一般来说, utf8 最为通用,所以字符集设置为 uft8</p>
+</blockquote>
+</li>
+<li><p>修改mysql配置文件 my.ini 中所有其他字符改为 utf8</p>
+</li>
+<li><p>mysql控制台下运行以下命令</p>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; set names utf8;</span><br><span class="line">mysql&gt; ALTER DATABASE db_name DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;</span><br><span class="line">mysql&gt; ALTER TABLE tb_name DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启mysql 这时数据库的编码就是utf8了</p>
+</li>
+</ul>
+<h2 id="简化命令版"><a href="#简化命令版" class="headerlink" title="简化命令版"></a>简化命令版</h2><blockquote>
+<p>如果上面的没有效果,可以用下面的命令</p>
+</blockquote>
+<ul>
+<li><p>设置</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> character_set_client = utf8;</span><br><span class="line"><span class="keyword">set</span> character_set_server = utf8;</span><br><span class="line"><span class="keyword">set</span> character_set_connection = utf8;</span><br><span class="line"><span class="keyword">set</span> character_set_database = utf8;</span><br><span class="line"><span class="keyword">set</span> character_set_results = utf8;</span><br><span class="line"><span class="keyword">set</span> collation_connection = utf8_general_ci;</span><br><span class="line"><span class="keyword">set</span> collation_database = utf8_general_ci;</span><br><span class="line"><span class="keyword">set</span> collation_server = utf8_general_ci;</span><br></pre></td></tr></table></figure></li>
+<li><p>检查</p>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &quot;%char%&quot;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启(linux)</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/mysqld restart</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
@@ -569,6 +681,138 @@
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.linuxidc.com/Linux/2016-10/136327.htm">Ubuntu 16.04搭建LAMP开发环境</a></p>
 <p><a target="_blank" rel="noopener" href="http://www.mamicode.com/info-detail-2073578.html">阿里云 Ubuntu 16.04 搭建LAMP环境</a></p>
 <p><a target="_blank" rel="noopener" href="http://www.edbiji.com/doccenter/showdoc/26/nav/1281.html">Thinkphp隐藏index.php入口文件</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/28/5.Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/28/5.Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Tutorial-ThinkPHP的使用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-28T00:00:00+08:00">2020-09-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-29 20:48:04" itemprop="dateModified" datetime="2020-09-29T20:48:04+08:00">2020-09-29</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-Web/" itemprop="url" rel="index"><span itemprop="name">5.Web</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/28/5.Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-ThinkPHP的使用" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/28/5.Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/28/5.Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="ThinkPHP的使用"><a href="#ThinkPHP的使用" class="headerlink" title="ThinkPHP的使用"></a>ThinkPHP的使用</h1><h2 id="打开debug模式"><a href="#打开debug模式" class="headerlink" title="打开debug模式"></a>打开debug模式</h2><p>找到config目录下的app.php文件 设置如下</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;show_error_msg&#x27;</span>         =&gt; <span class="literal">true</span>,</span><br></pre></td></tr></table></figure>
+
+<p>没正式上线之前打开debug模式,方便调试,上线后再关闭</p>
+<h2 id="新建-Controller-命令"><a href="#新建-Controller-命令" class="headerlink" title="新建 Controller 命令"></a>新建 Controller 命令</h2><h3 id="普通控制器"><a href="#普通控制器" class="headerlink" title="普通控制器"></a>普通控制器</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意 Controller 的名字(在这里是Article)要大写</span></span><br><span class="line">D:\xampp\htdocs\thinkphp5&gt; php think make:controller index/Article --plain</span><br></pre></td></tr></table></figure>
+
+<h3 id="资源控制器"><a href="#资源控制器" class="headerlink" title="资源控制器"></a>资源控制器</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 相对于普通控制器 没有 --plain</span></span><br><span class="line">D:\xampp\htdocs\thinkphp5&gt; php think make:controller index/Article</span><br></pre></td></tr></table></figure>
+
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><h3 id="路由到自定义方法"><a href="#路由到自定义方法" class="headerlink" title="路由到自定义方法"></a>路由到自定义方法</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 路由到自定义的方法</span></span><br><span class="line"><span class="comment">// 第一个参数是定义的路由规则</span></span><br><span class="line"><span class="comment">// 第二个参数是调用的方法 或 控制器中的方法</span></span><br><span class="line">Route::get(<span class="string">&quot;hello&quot;</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello World!&quot;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="路由到控制器的方法"><a href="#路由到控制器的方法" class="headerlink" title="路由到控制器的方法"></a>路由到控制器的方法</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 路由到控制器的方法</span></span><br><span class="line"><span class="comment">// 如果设置了路由器访问指定方法的时候,就只能通过路由形式访问,不能再使用 模块/控制器/方法名 的方式来访问</span></span><br><span class="line">Route::get(<span class="string">&quot;article&quot;</span>,<span class="string">&#x27;index/article/index&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="资源路由"><a href="#资源路由" class="headerlink" title="资源路由"></a>资源路由</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 资源路由</span></span><br><span class="line"><span class="comment">// 第一个参数是定义路由规则</span></span><br><span class="line"><span class="comment">// 第二个参数是该规则去找的控制器名称</span></span><br><span class="line"><span class="comment">// 资源路由会自动根据资源路由的定义方式,生成对应的每个方法的请求方式及路由地址</span></span><br><span class="line">Route::resource(<span class="string">&#x27;student&#x27;</span>,<span class="string">&#x27;index/Student&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="有参数的路由"><a href="#有参数的路由" class="headerlink" title="有参数的路由"></a>有参数的路由</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果在定义路由的时候,需要传递一些参数,可以使用 : 来定义参数 该参数会自动的被传递给当前路由所调用的方法,作为方法的参数自动被接收</span></span><br><span class="line">Route::get(<span class="string">&#x27;hello/:name&#x27;</span>, <span class="string">&#x27;index/hello&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="View模板"><a href="#View模板" class="headerlink" title="View模板"></a>View模板</h2><h3 id="建立模板"><a href="#建立模板" class="headerlink" title="建立模板"></a>建立模板</h3><ul>
+<li>在当前模块目录下新建view文件夹</li>
+<li>在view文件夹下新建对应控制器名字的文件夹 名字全部小写</li>
+<li>在控制器文件夹下新建对应控制器方法名字的html文件即为模板文件</li>
+</ul>
+<h3 id="使用模板"><a href="#使用模板" class="headerlink" title="使用模板"></a>使用模板</h3><p>控制器代码如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Index</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> view();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">hello</span>(<span class="params">$name = <span class="string">&#x27;ThinkPHP5&#x27;</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;hello,&#x27;</span> . $name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装数据迁移插件"><a href="#安装数据迁移插件" class="headerlink" title="安装数据迁移插件"></a>安装数据迁移插件</h3><p>更新国内源</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer config -g repo.packagist composer https://packagist.phpcomposer.com</span><br></pre></td></tr></table></figure>
+
+<p>安装</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require topthink/think-migration</span><br></pre></td></tr></table></figure>
+
+<p>如果报错</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer config -g -- disable-tls <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -778,249 +1022,6 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="微积分知识体系"><a href="#微积分知识体系" class="headerlink" title="微积分知识体系"></a>微积分知识体系</h1><h2 id="微积分1"><a href="#微积分1" class="headerlink" title="微积分1"></a>微积分1</h2><h2 id="微积分2"><a href="#微积分2" class="headerlink" title="微积分2"></a>微积分2</h2>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-title-link" itemprop="url">Roadmap_线性代数知识体系</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-29 20:48:04" itemprop="dateModified" datetime="2020-09-29T20:48:04+08:00">2020-09-29</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/0-Math/" itemprop="url" rel="index"><span itemprop="name">0.Math</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/0-Math/LinearAlgebra/" itemprop="url" rel="index"><span itemprop="name">LinearAlgebra</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-meta-item leancloud_visitors" data-flag-title="Roadmap_线性代数知识体系" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h1><h2 id="线性空间"><a href="#线性空间" class="headerlink" title="线性空间"></a>线性空间</h2>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/8.Notes/Goals/20200926_Roadmap-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/26/8.Notes/Goals/20200926_Roadmap-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/" class="post-title-link" itemprop="url">Roadmap-学习目标</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-29 20:48:04" itemprop="dateModified" datetime="2020-09-29T20:48:04+08:00">2020-09-29</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/8-Notes/" itemprop="url" rel="index"><span itemprop="name">8.Notes</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/8-Notes/Goals/" itemprop="url" rel="index"><span itemprop="name">Goals</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/26/8.Notes/Goals/20200926_Roadmap-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/" class="post-meta-item leancloud_visitors" data-flag-title="Roadmap-学习目标" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/26/8.Notes/Goals/20200926_Roadmap-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/8.Notes/Goals/20200926_Roadmap-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="内功修炼"><a href="#内功修炼" class="headerlink" title="内功修炼"></a>内功修炼</h1><ol>
-<li><p>数学 (用到什么学什么)</p>
-<p> 线性代数/概率论与统计/离散数学/微积分</p>
-</li>
-<li><p>计算机组成结构 (过一遍)</p>
-<p> 深入理解计算机系统</p>
-</li>
-<li><p>汇编语言 (过一遍)</p>
-<ul>
-<li>汇编语言 王爽</li>
-</ul>
-</li>
-<li><p>C/C++ (掌握)</p>
-</li>
-<li><p>编译原理 (过一遍)</p>
-</li>
-<li><p>计算机操作系统 (重点)</p>
-</li>
-<li><p>计算机网络 (重点)</p>
-</li>
-<li><p>数据结构和算法 (重点)</p>
-</li>
-<li><p>设计模式  (重点)</p>
-</li>
-<li><p>技能树</p>
-<ul>
-<li>Unity3d</li>
-<li>Android</li>
-<li>PHPAPI</li>
-<li>WEB前端</li>
-<li>Web渗透</li>
-<li>折腾</li>
-</ul>
-</li>
-</ol>
-
       
     </div>
 
