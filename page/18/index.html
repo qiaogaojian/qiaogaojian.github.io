@@ -215,20 +215,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">154</span>
+          <span class="site-state-item-count">158</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-count">75</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -275,6 +275,373 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/1.CS/Asm/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/1.CS/Asm/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">Tips-DosBox启动设置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-CS/" itemprop="url" rel="index"><span itemprop="name">1.CS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-CS/Asm/" itemprop="url" rel="index"><span itemprop="name">Asm</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/1.CS/Asm/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-DosBox启动设置" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/1.CS/Asm/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/1.CS/Asm/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="DosBox启动设置"><a href="#DosBox启动设置" class="headerlink" title="DosBox启动设置"></a>DosBox启动设置</h1><h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>c:/用户/用户名/appdata/local/dosbox/dosbox-0.74.conf</p>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>配置文件末尾添加以下指令:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mount c: d:\asm</span><br><span class="line"><span class="built_in">set</span> PATH=%PATH%;c:\;</span><br><span class="line">c:</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Tips-AndroidStudio Log颜色配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-30 21:53:59" itemprop="dateModified" datetime="2020-09-30T21:53:59+08:00">2020-09-30</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/AS/" itemprop="url" rel="index"><span itemprop="name">AS</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-AndroidStudio Log颜色配置" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="AndroidStudio-Log-颜色配置"><a href="#AndroidStudio-Log-颜色配置" class="headerlink" title="AndroidStudio Log 颜色配置"></a>AndroidStudio Log 颜色配置</h1><h2 id="配置-1"><a href="#配置-1" class="headerlink" title="配置 1"></a>配置 1</h2><table>
+<thead>
+<tr>
+<th><strong>Type</strong></th>
+<th><strong>Color</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Assert:</td>
+<td>#AA66CC</td>
+</tr>
+<tr>
+<td>Debug:</td>
+<td>#33B5E5</td>
+</tr>
+<tr>
+<td>Error:</td>
+<td>#FF4444</td>
+</tr>
+<tr>
+<td>Info:</td>
+<td>#99CC00</td>
+</tr>
+<tr>
+<td>Verbose:</td>
+<td>#FFFFFF</td>
+</tr>
+<tr>
+<td>Warning:</td>
+<td>#FFBB33</td>
+</tr>
+</tbody></table>
+<h2 id="配置-2"><a href="#配置-2" class="headerlink" title="配置 2"></a>配置 2</h2><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Color</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>verbose:</td>
+<td><strong>#BBB</strong></td>
+</tr>
+<tr>
+<td>debug:</td>
+<td><strong>#33B5E5</strong></td>
+</tr>
+<tr>
+<td>info:</td>
+<td><strong>#9C0</strong></td>
+</tr>
+<tr>
+<td>assert:</td>
+<td><strong>#A6C</strong></td>
+</tr>
+<tr>
+<td>error:</td>
+<td><strong>#F44</strong></td>
+</tr>
+<tr>
+<td>warning:</td>
+<td><strong>#FB3</strong></td>
+</tr>
+</tbody></table>
+<h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><p><a href="/download/setting.androidstudio.zip">setting.androidstudio.zip</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/" class="post-title-link" itemprop="url">Trick-AndroidStudio必备插件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/AS/" itemprop="url" rel="index"><span itemprop="name">AS</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-AndroidStudio必备插件" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="AndroidStudio必备插件"><a href="#AndroidStudio必备插件" class="headerlink" title="AndroidStudio必备插件"></a>AndroidStudio必备插件</h1><h2 id="GsonFormat"><a href="#GsonFormat" class="headerlink" title="GsonFormat"></a>GsonFormat</h2><h2 id="Jrebel-2018-1-5"><a href="#Jrebel-2018-1-5" class="headerlink" title="Jrebel 2018.1.5"></a>Jrebel 2018.1.5</h2><h2 id="ADB-Idea"><a href="#ADB-Idea" class="headerlink" title="ADB Idea"></a>ADB Idea</h2><h2 id="Android-Studio-Prettify"><a href="#Android-Studio-Prettify" class="headerlink" title="Android Studio Prettify"></a>Android Studio Prettify</h2><h2 id="FindViewByMe"><a href="#FindViewByMe" class="headerlink" title="FindViewByMe"></a>FindViewByMe</h2><h2 id="Wakatime"><a href="#Wakatime" class="headerlink" title="Wakatime"></a>Wakatime</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -363,6 +730,119 @@
 <p>清除 UnusedFiles 缓存，现在该文件不会被track了。</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/3833561/why-doesnt-git-ignore-my-specified-file">Why doesn’t Git ignore my specified file?
 </a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/" class="post-title-link" itemprop="url">Tips-git+vscode</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-git+vscode" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="VSCode-下-Git-的使用"><a href="#VSCode-下-Git-的使用" class="headerlink" title="VSCode 下 Git 的使用"></a>VSCode 下 Git 的使用</h1><blockquote>
+<p>趟完坑,给出最简单方案.</p>
+</blockquote>
+<h2 id="下载-git"><a href="#下载-git" class="headerlink" title="下载 git"></a>下载 git</h2><p><a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=https://git-scm.com/download/win" title="https://link.jianshu.com/?t=https://git-scm.com/download/win">下载地址</a></p>
+<h2 id="设置全局配置"><a href="#设置全局配置" class="headerlink" title="设置全局配置"></a>设置全局配置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;Michael&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;qiaogaojian@vip.qq.com&quot;</span>  //注意这里的email要和服务器账户的email保持一致</span><br></pre></td></tr></table></figure>
+
+<h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><p><img src="https://upload-images.jianshu.io/upload_images/3947109-80d26fc8f1ab5686.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="克隆项目"><a href="#克隆项目" class="headerlink" title="克隆项目"></a>克隆项目</h2><p><img src="https://upload-images.jianshu.io/upload_images/3947109-b1993df3f8696389.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3947109-5b5a6f417c2eeb47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3947109-9c069c5a078424b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="编辑项目"><a href="#编辑项目" class="headerlink" title="编辑项目"></a>编辑项目</h2><p><img src="https://upload-images.jianshu.io/upload_images/3947109-ed2ccc9e478c1e54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3947109-a4272015adbb5ece.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="提交项目"><a href="#提交项目" class="headerlink" title="提交项目"></a>提交项目</h2><p><img src="https://upload-images.jianshu.io/upload_images/3947109-c55d61f1052535bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3947109-9d610389131fa203.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/3947109-dcbe3a362f713af5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 
       
     </div>
@@ -491,428 +971,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Tips-git多账号配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-git多账号配置" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Git多账号配置"><a href="#Git多账号配置" class="headerlink" title="Git多账号配置"></a>Git多账号配置</h1><h2 id="取消-global-git-config"><a href="#取消-global-git-config" class="headerlink" title="取消 global git config"></a>取消 global git config</h2><h2 id="设置当前项目-git-config"><a href="#设置当前项目-git-config" class="headerlink" title="设置当前项目 git config"></a>设置当前项目 git config</h2><h2 id="Gitee-Token"><a href="#Gitee-Token" class="headerlink" title="Gitee Token"></a>Gitee Token</h2><p>7964c3ca84a1916dba62a53b10ed5b05</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Git/20200929_Tips-git%E6%81%A2%E5%A4%8D%E5%88%A0%E9%99%A4%E7%9A%84stash%E4%BB%A3%E7%A0%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E6%81%A2%E5%A4%8D%E5%88%A0%E9%99%A4%E7%9A%84stash%E4%BB%A3%E7%A0%81/" class="post-title-link" itemprop="url">Tips-git恢复删除的stash代码</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/9.Tools/Git/20200929_Tips-git%E6%81%A2%E5%A4%8D%E5%88%A0%E9%99%A4%E7%9A%84stash%E4%BB%A3%E7%A0%81/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-git恢复删除的stash代码" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E6%81%A2%E5%A4%8D%E5%88%A0%E9%99%A4%E7%9A%84stash%E4%BB%A3%E7%A0%81/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Git/20200929_Tips-git%E6%81%A2%E5%A4%8D%E5%88%A0%E9%99%A4%E7%9A%84stash%E4%BB%A3%E7%A0%81/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="git恢复删除的stash代码"><a href="#git恢复删除的stash代码" class="headerlink" title="git恢复删除的stash代码"></a>git恢复删除的stash代码</h1><h2 id="列出删除列表"><a href="#列出删除列表" class="headerlink" title="列出删除列表"></a>列出删除列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fsck --lost-found</span><br></pre></td></tr></table></figure>
-
-<h2 id="复制列表中dangling-commit-中的-id"><a href="#复制列表中dangling-commit-中的-id" class="headerlink" title="复制列表中dangling commit 中的 id"></a>复制列表中dangling commit 中的 id</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dangling commit **7010e0447be96627fde29961d420d887533d7796**</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看具体信息"><a href="#查看具体信息" class="headerlink" title="查看具体信息"></a>查看具体信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show 7010e0447be96627fde29961d420d887533d7796</span><br></pre></td></tr></table></figure>
-
-<h2 id="根据信息找到并恢复记录"><a href="#根据信息找到并恢复记录" class="headerlink" title="根据信息找到并恢复记录"></a>根据信息找到并恢复记录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge 7010e0447be96627fde29961d420d887533d7796</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Git/20200929_Trick-github%E9%85%8D%E7%BD%AEhosts%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/9.Tools/Git/20200929_Trick-github%E9%85%8D%E7%BD%AEhosts%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/" class="post-title-link" itemprop="url">Trick-github配置hosts提高访问速度</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/9.Tools/Git/20200929_Trick-github%E9%85%8D%E7%BD%AEhosts%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-github配置hosts提高访问速度" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/9.Tools/Git/20200929_Trick-github%E9%85%8D%E7%BD%AEhosts%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Git/20200929_Trick-github%E9%85%8D%E7%BD%AEhosts%E6%8F%90%E9%AB%98%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="github配置hosts提高访问速度"><a href="#github配置hosts提高访问速度" class="headerlink" title="github配置hosts提高访问速度"></a>github配置hosts提高访问速度</h1><h2 id="修改-Hosts"><a href="#修改-Hosts" class="headerlink" title="修改 Hosts"></a>修改 Hosts</h2><ul>
-<li><p>进入目录 C:\Windows\System32\drivers\etc</p>
-</li>
-<li><p>打开hosts文件并添加以下内容</p>
-</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># GitHub Start</span></span><br><span class="line">192.30.253.112 github.com</span><br><span class="line">192.30.253.113 github.com</span><br><span class="line">192.30.253.119 gist.github.com</span><br><span class="line">151.101.185.194 github.global.ssl.fastly.net</span><br><span class="line">151.101.100.133 assets-cdn.github.com</span><br><span class="line">151.101.100.133 raw.githubusercontent.com</span><br><span class="line">151.101.100.133 gist.githubusercontent.com</span><br><span class="line">151.101.100.133 cloud.githubusercontent.com</span><br><span class="line">151.101.100.133 camo.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars0.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars1.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars2.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars3.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars4.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars5.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars6.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars7.githubusercontent.com</span><br><span class="line">151.101.100.133 avatars8.githubusercontent.com</span><br><span class="line"><span class="comment"># GitHub End</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="刷新-DNS-缓存"><a href="#刷新-DNS-缓存" class="headerlink" title="刷新 DNS 缓存"></a>刷新 DNS 缓存</h2><p>CMD输入命令</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig /flushdns</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Git/20200929_Trick-Git%E5%8F%AA%E8%B7%9F%E8%B8%AA%E7%89%B9%E5%AE%9A%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/9.Tools/Git/20200929_Trick-Git%E5%8F%AA%E8%B7%9F%E8%B8%AA%E7%89%B9%E5%AE%9A%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">Trick-Git只跟踪特定文件设置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-01 00:53:46" itemprop="dateModified" datetime="2020-10-01T00:53:46+08:00">2020-10-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/9.Tools/Git/20200929_Trick-Git%E5%8F%AA%E8%B7%9F%E8%B8%AA%E7%89%B9%E5%AE%9A%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-Git只跟踪特定文件设置" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/9.Tools/Git/20200929_Trick-Git%E5%8F%AA%E8%B7%9F%E8%B8%AA%E7%89%B9%E5%AE%9A%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Git/20200929_Trick-Git%E5%8F%AA%E8%B7%9F%E8%B8%AA%E7%89%B9%E5%AE%9A%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="不忽略git设置"><a href="#不忽略git设置" class="headerlink" title="不忽略git设置"></a>不忽略git设置</h1><h2 id="忽略所有文件除了某些类型"><a href="#忽略所有文件除了某些类型" class="headerlink" title="忽略所有文件除了某些类型"></a>忽略所有文件除了某些类型</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*/*</span><br><span class="line">!.cs</span><br></pre></td></tr></table></figure>
-
-<h2 id="假设只跟踪-Scripts-目录和脚本-md文件"><a href="#假设只跟踪-Scripts-目录和脚本-md文件" class="headerlink" title="假设只跟踪 Scripts 目录和脚本/md文件"></a>假设只跟踪 Scripts 目录和脚本/md文件</h2><p>编辑.gitignore文件(.gitignore)<br>忽略所有文件，注意放在开头</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 忽略所有文件和目录</span></span><br><span class="line">/*</span><br><span class="line">*.*</span><br><span class="line"><span class="comment"># 除Scripts文件夹 和脚本/md文件外</span></span><br><span class="line">!/Scripts</span><br><span class="line">!*.cs</span><br><span class="line">!*.md</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 

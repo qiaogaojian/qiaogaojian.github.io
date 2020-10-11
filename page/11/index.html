@@ -215,20 +215,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">154</span>
+          <span class="site-state-item-count">158</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">74</span>
+        <span class="site-state-item-count">75</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -275,6 +275,417 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E7%BA%A6%E6%9D%9F%E5%B8%83%E5%B1%80%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E7%BA%A6%E6%9D%9F%E5%B8%83%E5%B1%80%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">Tips-Android约束布局用法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E7%BA%A6%E6%9D%9F%E5%B8%83%E5%B1%80%E7%94%A8%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android约束布局用法" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E7%BA%A6%E6%9D%9F%E5%B8%83%E5%B1%80%E7%94%A8%E6%B3%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E7%BA%A6%E6%9D%9F%E5%B8%83%E5%B1%80%E7%94%A8%E6%B3%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="约束布局用法"><a href="#约束布局用法" class="headerlink" title="约束布局用法"></a>约束布局用法</h1><h2 id="当线性布局用"><a href="#当线性布局用" class="headerlink" title="当线性布局用"></a>当线性布局用</h2><h3 id="下面我们来实现一个常用的底部导航栏，5个导航栏"><a href="#下面我们来实现一个常用的底部导航栏，5个导航栏" class="headerlink" title="下面我们来实现一个常用的底部导航栏，5个导航栏"></a>下面我们来实现一个常用的底部导航栏，5个导航栏</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">android.support.constraint.ConstraintLayout</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">&quot;http://schemas.android.com/apk/res-auto&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/tab0&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;50dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:background</span>=<span class="string">&quot;@color/colorPrimary&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">&quot;center&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">&quot;tab1&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textColor</span>=<span class="string">&quot;@color/colorWhite&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">&quot;20sp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintBottom_toBottomOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintLeft_toLeftOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintRight_toLeftOf</span>=<span class="string">&quot;@+id/tab1&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/tab1&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">&quot;center&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">&quot;tab2&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">&quot;20sp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintBottom_toBottomOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintLeft_toRightOf</span>=<span class="string">&quot;@+id/tab0&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintRight_toLeftOf</span>=<span class="string">&quot;@+id/tab2&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintTop_toTopOf</span>=<span class="string">&quot;@+id/tab0&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/tab2&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:background</span>=<span class="string">&quot;@color/colorAccent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">&quot;center&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">&quot;tab3&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textColor</span>=<span class="string">&quot;@color/colorWhite&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">&quot;20sp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintBottom_toBottomOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintLeft_toRightOf</span>=<span class="string">&quot;@+id/tab1&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintRight_toLeftOf</span>=<span class="string">&quot;@id/tab3&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintTop_toTopOf</span>=<span class="string">&quot;@+id/tab0&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/tab3&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">&quot;center&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">&quot;tab4&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">&quot;20sp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintBottom_toBottomOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintLeft_toRightOf</span>=<span class="string">&quot;@+id/tab2&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintRight_toLeftOf</span>=<span class="string">&quot;@+id/tab4&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintTop_toTopOf</span>=<span class="string">&quot;@+id/tab0&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/tab4&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:background</span>=<span class="string">&quot;@color/colorHoloOrangeLight&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">&quot;center&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">&quot;tab5&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textColor</span>=<span class="string">&quot;@color/colorWhite&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">&quot;20sp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintBottom_toBottomOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintLeft_toRightOf</span>=<span class="string">&quot;@+id/tab3&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintRight_toRightOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintTop_toTopOf</span>=<span class="string">&quot;@+id/tab0&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">android.support.constraint.ConstraintLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="添加权重控制比例"><a href="#添加权重控制比例" class="headerlink" title="添加权重控制比例"></a>添加权重控制比例</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">layout_constraintHorizontal_weight：横向的权重</span><br><span class="line"></span><br><span class="line">layout_constraintVertical_weight：纵向的权重</span><br></pre></td></tr></table></figure>
+
+<p>如果上文中的tab3要大于其他四个tab，只需要在tab3的View添加app:layout_constraintHorizontal_weight=”2”，其他View设置为1，即可</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:id</span>=<span class="string">&quot;@+id/tab2&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_width</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_height</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:background</span>=<span class="string">&quot;@color/colorAccent&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:gravity</span>=<span class="string">&quot;center&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:text</span>=<span class="string">&quot;tab3&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:textColor</span>=<span class="string">&quot;@color/colorWhite&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:textSize</span>=<span class="string">&quot;20sp&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:layout_constraintBottom_toBottomOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:layout_constraintHorizontal_weight</span>=<span class="string">&quot;2&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:layout_constraintLeft_toRightOf</span>=<span class="string">&quot;@+id/tab1&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:layout_constraintRight_toLeftOf</span>=<span class="string">&quot;@id/tab3&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:layout_constraintTop_toTopOf</span>=<span class="string">&quot;@id/tab0&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:id</span>=<span class="string">&quot;@+id/tab3&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_width</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:layout_height</span>=<span class="string">&quot;0dp&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:gravity</span>=<span class="string">&quot;center&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:text</span>=<span class="string">&quot;tab4&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">android:textSize</span>=<span class="string">&quot;20sp&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:layout_constraintBottom_toBottomOf</span>=<span class="string">&quot;parent&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:layout_constraintHorizontal_weight</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:layout_constraintLeft_toRightOf</span>=<span class="string">&quot;@+id/tab2&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:layout_constraintRight_toLeftOf</span>=<span class="string">&quot;@+id/tab4&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">app:layout_constraintTop_toTopOf</span>=<span class="string">&quot;@+id/tab0&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="当相对布局用"><a href="#当相对布局用" class="headerlink" title="当相对布局用"></a>当相对布局用</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">layout_constraintLeft_toLeftOf：当前View左边在某个View的左边，可以是parent与某个View的ID</span><br><span class="line">layout_constraintLeft_toRightOf：当前View左边在某个View的右边，可以是parent与某个View的ID</span><br><span class="line">layout_constraintRight_toRightOf：当前Viewr的右边在某个View的右边，可以是parent与某个View的ID</span><br><span class="line">layout_constraintRight_toLeftOf：当前Viewr的右边在某个View的左边，可以是parent与某个View的ID</span><br><span class="line">layout_constraintBottom_toBottomOf：当前Viewr的下边在某个View的下边，可以是parent与某个View的ID</span><br><span class="line">layout_constraintBottom_toTopOf：当前Viewr的下边在某个View的上边，可以是parent与某个View的ID</span><br><span class="line">layout_constraintTop_toTopOf：当前Viewr的上边在某个View的上边，可以是parent与某个View的ID</span><br><span class="line">layout_constraintTop_toBottomOf：当前Viewr的上边在某个View的下边，可以是parent与某个View的ID</span><br></pre></td></tr></table></figure>
+
+<h2 id="当百分比布局用"><a href="#当百分比布局用" class="headerlink" title="当百分比布局用"></a>当百分比布局用</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">layout_constraintVertical_bias：垂直乖离率（bias有道翻译为乖离率），也就是垂直偏移率。</span><br><span class="line">layout_constraintHorizontal_bias：水平乖离率（bias有道翻译为乖离率），也就是水平偏移率。</span><br><span class="line">layout_constraintHeight_percent：高度百分比，占父类高度的百分比</span><br><span class="line">layout_constraintWidth_percent：宽度百分比，占父类宽度的百分比</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E8%A7%A3%E5%86%B3Seekbar%20Thumb%E9%80%8F%E6%98%8E%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E8%A7%A3%E5%86%B3Seekbar%20Thumb%E9%80%8F%E6%98%8E%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Tips-Android解决Seekbar Thumb透明问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E8%A7%A3%E5%86%B3Seekbar%20Thumb%E9%80%8F%E6%98%8E%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android解决Seekbar Thumb透明问题" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E8%A7%A3%E5%86%B3Seekbar%20Thumb%E9%80%8F%E6%98%8E%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E8%A7%A3%E5%86%B3Seekbar%20Thumb%E9%80%8F%E6%98%8E%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="解决Seekbar-Thumb透明问题"><a href="#解决Seekbar-Thumb透明问题" class="headerlink" title="解决Seekbar Thumb透明问题"></a>解决Seekbar Thumb透明问题</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>Thumb不是矩形时,透明部分会和背景冲突</p>
+<p><img src="/images/2020-09-29-16-19-15.png"></p>
+<p>第一个是修改后的 后两个是有问题的</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>布局中Seekbar组件添加  android:splitTrack=”false”</p>
+<p><img src="/images/2020-09-29-16-12-36.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Tips-Android页面跳转的几种方法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android页面跳转的几种方法" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E9%A1%B5%E9%9D%A2%E8%B7%B3%E8%BD%AC%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Android页面跳转的几种方法"><a href="#Android页面跳转的几种方法" class="headerlink" title="Android页面跳转的几种方法"></a>Android页面跳转的几种方法</h1><h2 id="一般跳转"><a href="#一般跳转" class="headerlink" title="一般跳转"></a>一般跳转</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(FirstActivity.<span class="keyword">this</span>,SecondAcvity.class);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+
+<h2 id="跳转到新的Activity并传递数据"><a href="#跳转到新的Activity并传递数据" class="headerlink" title="跳转到新的Activity并传递数据"></a>跳转到新的Activity并传递数据</h2><p>Person实现了Serialable接口,所以所有的Person对象都是可序列化的,这时我们就可以使用Intent来传递Person对象了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Person person = <span class="keyword">new</span> Person(<span class="string">&quot;Michael&quot;</span>,<span class="string">&quot;123&quot;</span>);</span><br><span class="line">Intent intent = <span class="keyword">new</span> Intent(FirstActivity.<span class="keyword">this</span>,SecondActivity.class);</span><br><span class="line">intent.putExtra(<span class="string">&quot;person_data&quot;</span>,person);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+
+<p>SecondActivity获取Person数据方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person person = (Person) getIntent().getSerializableExtra(<span class="string">&quot;person_data&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="销毁当前的Activity并跳转"><a href="#销毁当前的Activity并跳转" class="headerlink" title="销毁当前的Activity并跳转"></a>销毁当前的Activity并跳转</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>,SecondActivity.class);</span><br><span class="line">intent.putExtra(<span class="string">&quot;isBoy&quot;</span>, <span class="keyword">true</span>);</span><br><span class="line">FirstActivity.<span class="keyword">this</span>.finish();</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+
+<h2 id="返回之前未关闭的一个Activity"><a href="#返回之前未关闭的一个Activity" class="headerlink" title="返回之前未关闭的一个Activity"></a>返回之前未关闭的一个Activity</h2><p>因为Activity是堆栈存储的,finish掉当前的Activity就可以返回之前的Activity</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FirstActivity.<span class="keyword">this</span>.finish();</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Java%E4%B8%ADStringFormat%E5%92%8CMessageFormat%E7%9A%84%E5%8C%BA%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tips-Java%E4%B8%ADStringFormat%E5%92%8CMessageFormat%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">Tips-Java中StringFormat和MessageFormat的区别</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tips-Java%E4%B8%ADStringFormat%E5%92%8CMessageFormat%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Java中StringFormat和MessageFormat的区别" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Java%E4%B8%ADStringFormat%E5%92%8CMessageFormat%E7%9A%84%E5%8C%BA%E5%88%AB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Java%E4%B8%ADStringFormat%E5%92%8CMessageFormat%E7%9A%84%E5%8C%BA%E5%88%AB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Java中StringFormat和MessageFormat的区别"><a href="#Java中StringFormat和MessageFormat的区别" class="headerlink" title="Java中StringFormat和MessageFormat的区别"></a>Java中StringFormat和MessageFormat的区别</h1><h2 id="MessageFormat-format"><a href="#MessageFormat-format" class="headerlink" title="MessageFormat.format()"></a>MessageFormat.format()</h2><p>format string accepts argument positions (eg. {0}, {1}). Example:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MessageFormat.format(<span class="string">&quot;This is year &#123;0&#125;!&quot;</span>,<span class="number">1992</span>)</span><br></pre></td></tr></table></figure>
+
+<p>The developer doesn’t have to worry about argument types, because they are, most often, recognized and formated according to current Locale.</p>
+<h2 id="String-format"><a href="#String-format" class="headerlink" title="String.format()"></a>String.format()</h2><p>format string accepts argument type specifiers (eg. %d for numbers, %s for strings). Example:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String.format(<span class="string">&quot;This is year %d!&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>String.format() generally gives you much more control over how the argument is displayed thanks to many options you can specify with the type specifier. For instance, format string “%-6.2f” specifies to display a left-aligned floating point number with min. width 6 chars and precision of 2 decimal places.</p>
+<h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/2809633/difference-between-messageformat-format-and-string-format-in-jdk1-5">difference between MessageFormat.format and String.format in jdk1.5?
+</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -359,117 +770,6 @@
 <h2 id="enum-和-string"><a href="#enum-和-string" class="headerlink" title="enum 和 string"></a>enum 和 string</h2><h3 id="enum-gt-string"><a href="#enum-gt-string" class="headerlink" title="enum -&gt; string"></a>enum -&gt; string</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s = enumType.name();</span><br></pre></td></tr></table></figure>
 
 <h3 id="string-gt-enum"><a href="#string-gt-enum" class="headerlink" title="string -&gt; enum"></a>string -&gt; enum</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enumType b = enumType.valueOf(s);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-Adb%E8%BF%9C%E7%A8%8BWifi%E8%B0%83%E8%AF%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/4.Android/20200929_Trick-Adb%E8%BF%9C%E7%A8%8BWifi%E8%B0%83%E8%AF%95/" class="post-title-link" itemprop="url">Trick-Adb远程Wifi调试</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/4.Android/20200929_Trick-Adb%E8%BF%9C%E7%A8%8BWifi%E8%B0%83%E8%AF%95/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-Adb远程Wifi调试" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-Adb%E8%BF%9C%E7%A8%8BWifi%E8%B0%83%E8%AF%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-Adb%E8%BF%9C%E7%A8%8BWifi%E8%B0%83%E8%AF%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Adb远程Wifi调试"><a href="#Adb远程Wifi调试" class="headerlink" title="Adb远程Wifi调试"></a>Adb远程Wifi调试</h1><blockquote>
-<p>平时在开发的时候总是需要用一根数据线连接电脑进行调试，不是很方便。其实有个好方法就是同时WiFi连接手机进行调试。进行WiFi调试的前提是你手机必须root了，因为其中有一步需要在root权限下执行命令。</p>
-</blockquote>
-<ol>
-<li><p>将手机和电脑置于同一个局域网下，保证电脑和手机能相互ping通。</p>
-</li>
-<li><p>首先利用有线连接手机，在adb shell 的root下执行如下命令（这一步是需要root权限的）：</p>
-<p> Setprop service.adb.tcp.port5555</p>
-</li>
-<li><p>继续保持手机与电脑是有线连接，在dos命令下执行：adb tcpip 8888。该步骤表示重启手机端tcpip，并监听8888端口。</p>
-</li>
-<li><p>在电脑端dos命令下执行：adb connect ip:8888。其中ip表示手机的ip地址。</p>
-</li>
-<li><p>断开连接时执行如下命令：adb disconnect ip:8888。</p>
-</li>
-</ol>
-<p>通过以上步骤就可以实现adb无线调试手机应用了。在用无线调试前，最好用有线连接时将一直允许该电脑调试手机选中，不然可能通过adb conncet连接后，通过adb devices显示的是未授权。</p>
-
       
     </div>
 
@@ -584,301 +884,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-AndroidStudio%E4%B8%ADlogcat%E8%BE%93%E5%87%BAhttp%E4%B8%AD%E6%96%87%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/4.Android/20200929_Trick-AndroidStudio%E4%B8%ADlogcat%E8%BE%93%E5%87%BAhttp%E4%B8%AD%E6%96%87%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF/" class="post-title-link" itemprop="url">Trick-AndroidStudio中logcat输出http中文返回信息</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/4.Android/20200929_Trick-AndroidStudio%E4%B8%ADlogcat%E8%BE%93%E5%87%BAhttp%E4%B8%AD%E6%96%87%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-AndroidStudio中logcat输出http中文返回信息" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-AndroidStudio%E4%B8%ADlogcat%E8%BE%93%E5%87%BAhttp%E4%B8%AD%E6%96%87%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-AndroidStudio%E4%B8%ADlogcat%E8%BE%93%E5%87%BAhttp%E4%B8%AD%E6%96%87%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="AndroidStudio中logcat输出http中文返回信息"><a href="#AndroidStudio中logcat输出http中文返回信息" class="headerlink" title="AndroidStudio中logcat输出http中文返回信息"></a>AndroidStudio中logcat输出http中文返回信息</h1><p>项目中使用retrofit网络框架,但是发现服务器返回的信息logcat打印出来中文部分是unicode码,就写了个转码工具,解决了乱码问题</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">okHttpClient = <span class="keyword">new</span> OkHttpClient.Builder()</span><br><span class="line">.addInterceptor(<span class="keyword">new</span> HttpLoggingInterceptor(<span class="keyword">new</span> HttpLoggingInterceptor.Logger()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">log</span><span class="params">(String message)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Log.d(<span class="string">&quot;Sever&quot;</span>, <span class="string">&quot;OkHttp: &quot;</span> + unicodeToUTF_8(message));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).setLevel(HttpLoggingInterceptor.Level.BODY))</span><br><span class="line">.addInterceptor(LoginInterceptor)</span><br><span class="line">.addNetworkInterceptor(LoginInterceptor)</span><br><span class="line">.build();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">unicodeToUTF_8</span><span class="params">(String src)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">null</span> == src)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    StringBuilder out = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; src.length(); )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">char</span> c = src.charAt(i);</span><br><span class="line">        <span class="keyword">if</span> (i + <span class="number">6</span> &lt; src.length() &amp;&amp; c == <span class="string">&#x27;\\&#x27;</span> &amp;&amp; src.charAt(i + <span class="number">1</span>) == <span class="string">&#x27;u&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            String hex = src.substring(i + <span class="number">2</span>, i + <span class="number">6</span>);</span><br><span class="line">            <span class="keyword">try</span></span><br><span class="line">            &#123;</span><br><span class="line">                out.append((<span class="keyword">char</span>) Integer.parseInt(hex, <span class="number">16</span>));</span><br><span class="line">            &#125; <span class="keyword">catch</span> (NumberFormatException nfe)</span><br><span class="line">            &#123;</span><br><span class="line">                nfe.fillInStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            i = i + <span class="number">6</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            out.append(src.charAt(i));</span><br><span class="line">            ++i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> out.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-AndroidStudio%E4%B8%AD%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/4.Android/20200929_Trick-AndroidStudio%E4%B8%AD%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Trick-AndroidStudio中控制台中文乱码问题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/4.Android/20200929_Trick-AndroidStudio%E4%B8%AD%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-AndroidStudio中控制台中文乱码问题" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-AndroidStudio%E4%B8%AD%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-AndroidStudio%E4%B8%AD%E6%8E%A7%E5%88%B6%E5%8F%B0%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="解决控制台中文乱码问题"><a href="#解决控制台中文乱码问题" class="headerlink" title="解决控制台中文乱码问题"></a>解决控制台中文乱码问题</h1><h2 id="在项目gradle-build文件中添加以下代码即可"><a href="#在项目gradle-build文件中添加以下代码即可" class="headerlink" title="在项目gradle.build文件中添加以下代码即可"></a>在项目gradle.build文件中添加以下代码即可</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tasks.withType(JavaCompile) &#123;</span><br><span class="line">    <span class="keyword">options</span>.encoding = <span class="string">&quot;UTF-8&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="完整如下"><a href="#完整如下" class="headerlink" title="完整如下"></a>完整如下</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: <span class="string">&#x27;java-library&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    implementation <span class="keyword">fileTree</span>(dir: <span class="string">&#x27;libs&#x27;</span>, <span class="keyword">include</span>: [<span class="string">&#x27;*.jar&#x27;</span>])</span><br><span class="line">&#125;</span><br><span class="line">tasks.withType(JavaCompile) &#123;</span><br><span class="line">    <span class="keyword">options</span>.encoding = <span class="string">&quot;UTF-8&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">sourceCompatibility</span> = <span class="string">&quot;6&quot;</span></span><br><span class="line"><span class="keyword">targetCompatibility</span> = <span class="string">&quot;6&quot;</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-Android%E4%B8%AD%E8%BF%9E%E7%BB%AD%E7%A9%BA%E6%A0%BC%E5%8F%AA%E6%98%BE%E7%A4%BA%E4%B8%80%E4%B8%AA%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/4.Android/20200929_Trick-Android%E4%B8%AD%E8%BF%9E%E7%BB%AD%E7%A9%BA%E6%A0%BC%E5%8F%AA%E6%98%BE%E7%A4%BA%E4%B8%80%E4%B8%AA%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Trick-Android中连续空格只显示一个的解决方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：20:48:04" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/4.Android/20200929_Trick-Android%E4%B8%AD%E8%BF%9E%E7%BB%AD%E7%A9%BA%E6%A0%BC%E5%8F%AA%E6%98%BE%E7%A4%BA%E4%B8%80%E4%B8%AA%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-Android中连续空格只显示一个的解决方法" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-Android%E4%B8%AD%E8%BF%9E%E7%BB%AD%E7%A9%BA%E6%A0%BC%E5%8F%AA%E6%98%BE%E7%A4%BA%E4%B8%80%E4%B8%AA%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-Android%E4%B8%AD%E8%BF%9E%E7%BB%AD%E7%A9%BA%E6%A0%BC%E5%8F%AA%E6%98%BE%E7%A4%BA%E4%B8%80%E4%B8%AA%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Android中String文件连续空格的方法"><a href="#Android中String文件连续空格的方法" class="headerlink" title="Android中String文件连续空格的方法"></a>Android中String文件连续空格的方法</h1><p>解决办法就是用字节来代替空格，大家都知道，Android中xml文件都是UTF-8编码，UTF-8编码下，一个空格占一个字节，一个汉字占用3~4个字节,占用4个字节的占多数.</p>
-<p>我们可以用空格的unicode编码值来代替空格，可以写成这样：</p>
-<p>登录密码：</p>
-<p>密\u0020\u0020\u0020\u0020码：</p>
-<p>这样我们就可以解决TextView中多个连续空格只显示一个的问题了。</p>
-<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013480667/article/details/43876183">TextView中的连续空格只显示一个的解决方法</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
