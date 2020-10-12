@@ -215,20 +215,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">152</span>
+          <span class="site-state-item-count">159</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">73</span>
+        <span class="site-state-item-count">75</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -244,10 +244,11 @@
         <a href="mailto:qiaogaojian@gmail.com" title="E-Mail → mailto:qiaogaojian@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
   </div>
+<!--
   <div class="cc-license site-overview-item animated" itemprop="license">
     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
-
+-->
 
       </section>
     </div>
@@ -278,7 +279,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -295,7 +296,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Tips-Android常用Gradle命令</a>
+            <a href="/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/" class="post-title-link" itemprop="url">Trick-Android自定义软键盘enter键</a>
         </h2>
 
         <div class="post-meta-container">
@@ -321,7 +322,7 @@
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android常用Gradle命令" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-Android自定义软键盘enter键" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -336,8 +337,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -351,20 +352,23 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Android常用Gradle命令"><a href="#Android常用Gradle命令" class="headerlink" title="Android常用Gradle命令"></a>Android常用Gradle命令</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h2 id="gradle-wrapper"><a href="#gradle-wrapper" class="headerlink" title="gradle wrapper"></a>gradle wrapper</h2><p>每个基于gradle构建的工程都有一个gradle本地代理，叫做 gradle wrapper<br>在 /gradle/wrapper/gralde-wrapper.properties 目录中声明了指向目录和版本</p>
-<p><a target="_blank" rel="noopener" href="https://services.gradle.org/distributions/">官方的各个版本的代理下载地址</a><br>如果 gradle 初次构建缓慢，可以手动下载代理放到${USER}/.gradle/wrapper/dists下</p>
-<p>本地建立文件 gradle.properties 或者在用户的 .gradle目录下建立 gradle.properties 文件作为全局设置，参数有</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启并行编译</span></span><br><span class="line">org.gradle.parallel=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 开启守护进程</span></span><br><span class="line">org.gradle.daemon=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 按需编译</span></span><br><span class="line">org.gradle.configureondemand=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 设置编译jvm参数</span></span><br><span class="line">org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8</span><br><span class="line"><span class="comment"># 设置代理</span></span><br><span class="line">systemProp.http.proxyHost=127.0.0.1</span><br><span class="line">systemProp.http.proxyPort=10384</span><br><span class="line">systemProp.https.proxyHost=127.0.0.1</span><br><span class="line">systemProp.https.proxyPort=10384</span><br><span class="line"><span class="comment"># 开启JNI编译支持过时API</span></span><br><span class="line">android.useDeprecatedNdk=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+          自定义Android软键盘enter键
+问题描述
+你在EditText上输入以后，想在下一行输入框输入，可能需要去点击下一行输入框，让它获取焦点，也可能要隐藏软键盘，在点击输入框，弹出软键盘。或者已经到了最后一行输入框，输入完毕以后，要点击登录，注册，或者链接按钮，可能要去隐藏它，感觉操作狠繁琐。用户体验不好，有没有解决办法呢？
 
-<p>安装一个全局的gradle，并配置好Path变量，避免每个项目重复下载，这样后面编译项目就可以直接运行gradle build</p>
-<h3 id="快速构建命令"><a href="#快速构建命令" class="headerlink" title="快速构建命令"></a>快速构建命令</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看构建版本</span></span><br><span class="line">./gradlew -v</span><br><span class="line"><span class="comment"># 清除build文件夹</span></span><br><span class="line">./gradlew clean</span><br><span class="line"><span class="comment"># 检查依赖并编译打包</span></span><br><span class="line">./gradlew build</span><br><span class="line"><span class="comment"># 编译并安装debug包</span></span><br><span class="line">./gradlew installDebug</span><br><span class="line"><span class="comment"># 编译并打印日志</span></span><br><span class="line">./gradlew build --info</span><br><span class="line"><span class="comment"># 译并输出性能报告，性能报告一般在 构建工程根目录 build/reports/profile</span></span><br><span class="line">./gradlew build --profile</span><br><span class="line"><span class="comment"># 调试模式构建并打印堆栈日志</span></span><br><span class="line">./gradlew build --info --debug --stacktrace</span><br><span class="line"><span class="comment"># 强制更新最新依赖，清除构建并构建</span></span><br><span class="line">./gradlew clean build --refresh-dependencies</span><br></pre></td></tr></table></figure>
-
-<p>注意build命令把 debug、release环境的包都打出来的<br>如果需要指定构建使用如下命令</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编译并打Debug包</span></span><br><span class="line">./gradlew assembleDebug</span><br><span class="line"><span class="comment"># 这个是简写 assembleDebug</span></span><br><span class="line">./gradlew aD</span><br><span class="line"><span class="comment"># 编译并打Release的包</span></span><br><span class="line">./gradlew assembleRelease</span><br><span class="line"><span class="comment"># 这个是简写 assembleRelease</span></span><br><span class="line">./gradlew aR</span><br></pre></td></tr></table></figure>
-
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a03f4f6ae31d">Gradle Android-build 常用命令参数及解释</a></p>
-<p><a target="_blank" rel="noopener" href="https://droidyue.com/blog/2017/04/16/speedup-gradle-building/index.html">一些关于加速Gradle构建的个人经验</a></p>
-
+解决办法
+设置EditText的Ime Options属性。
+软键盘，最常用的enter键事件有： 把EditText的Ime Options属性设置成不同的值，Enter键上可以显示不同的文字或图案
+actionNone : 回车键，按下后光标到下一行
+actio
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -385,7 +389,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-Java%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E4%BD%8D%E7%9A%84%E6%96%B9%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -402,7 +406,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">Tips-Android开发中dp_sp_px理解</a>
+            <a href="/2020/09/29/4.Android/20200929_Trick-Java%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E4%BD%8D%E7%9A%84%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Trick-Java保留小数位的方法</a>
         </h2>
 
         <div class="post-meta-container">
@@ -428,7 +432,7 @@
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android开发中dp_sp_px理解" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Trick-Java%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E4%BD%8D%E7%9A%84%E6%96%B9%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-Java保留小数位的方法" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -443,8 +447,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-Java%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E4%BD%8D%E7%9A%84%E6%96%B9%E6%B3%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-Java%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E4%BD%8D%E7%9A%84%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -458,35 +462,49 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Android开发中-dp-sp-px-的理解"><a href="#Android开发中-dp-sp-px-的理解" class="headerlink" title="Android开发中 dp sp px 的理解"></a>Android开发中 dp sp px 的理解</h1><h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><ul>
-<li><p>px ： 其实就是像素单位，比如我们通常说的手机分辨列表800*400都是px的单位</p>
-</li>
-<li><p>dp ： 设备独立像素 (device independent pixels) 也叫 dip ，在不同的像素密度的设备上会自动适配</p>
-</li>
-<li><p>sp ： 同dp相似，还会根据用户手机系统的字体大小来缩放</p>
-</li>
-</ul>
-<h3 id="drawable文件夹有"><a href="#drawable文件夹有" class="headerlink" title="drawable文件夹有"></a>drawable文件夹有</h3><p>ldpi、mdpi、hdpi、xhdpi四种。</p>
-<h3 id="dpi指像素-英寸"><a href="#dpi指像素-英寸" class="headerlink" title="dpi指像素/英寸"></a>dpi指像素/英寸</h3><p>而ldpi指dpi120，</p>
-<p>mdpi指dpi160， icon48<em>48    一般指320</em>480，是标准的 dp大约是1.5倍的pix</p>
-<p>hdpi指dpi240，  icon72<em>72   480</em>800</p>
-<p>xhdpi指dpi320,   icon96<em>96   720</em>1280</p>
-<p>xxhdpi指dpi480   icon144<em>144 1080</em>1920</p>
-<p><img src="https://note.youdao.com/yws/public/resource/749aabcc6fd96f41ff3179f1e1012294/xmlnote/7FE5D942C3A344CFB7DDEC99CC1CF47B/3744" alt="dp1"></p>
-<p><img src="https://note.youdao.com/yws/public/resource/749aabcc6fd96f41ff3179f1e1012294/xmlnote/A342AAD9D65B4C1C9A4E0EC9EBB75932/3746" alt="dp2"></p>
-<p>状态栏高度：50 px</p>
-<p>导航栏高度：96 px</p>
-<p>标签栏高度：96 px</p>
-<p>Android最近出的手机都几乎去掉了实体键，把功能键移到了屏幕中，当然高度也是和标签栏一样的：96 px<br>内容区域高度为：1038 px （1280-50-96-96=1038）</p>
-<p><img src="https://note.youdao.com/yws/public/resource/749aabcc6fd96f41ff3179f1e1012294/xmlnote/70B39302D43E4B6D818FAF46DFCB4643/4802" alt="sp"></p>
-<p>切图720*1280就行了</p>
-<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p>字号采用12sp(small)、14sp(normal)、18sp(large)、22sp(larger),40sp(huge)等四个级别来设计</p>
-<h2 id="对应关系"><a href="#对应关系" class="headerlink" title="对应关系"></a>对应关系</h2><h3 id="1、安卓机型各种尺寸下的PX与DP、SP的对应关系"><a href="#1、安卓机型各种尺寸下的PX与DP、SP的对应关系" class="headerlink" title="1、安卓机型各种尺寸下的PX与DP、SP的对应关系"></a>1、安卓机型各种尺寸下的PX与DP、SP的对应关系</h3><p><img src="https://upload-images.jianshu.io/upload_images/3947109-2d302aef8242565c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1"></p>
-<h3 id="2、距离单位DP与PX的对应关系"><a href="#2、距离单位DP与PX的对应关系" class="headerlink" title="2、距离单位DP与PX的对应关系"></a>2、距离单位DP与PX的对应关系</h3><p><img src="https://upload-images.jianshu.io/upload_images/3947109-bbf61041ea078b69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2"></p>
-<h3 id="3、字体单位SP与PX的对应关系"><a href="#3、字体单位SP与PX的对应关系" class="headerlink" title="3、字体单位SP与PX的对应关系"></a>3、字体单位SP与PX的对应关系</h3><p><img src="https://upload-images.jianshu.io/upload_images/3947109-885fd2ebd692e437.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="3"></p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="http://www.sohu.com/a/215512768_114819">一款APP设计的从0到1之：Android设计规范篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010413574/article/details/52790253">Android hdpi ldpi mdpi xhdpi xxhdpi适配详解</a></p>
+          Java保留小数位的方法
+方法一
+1
 
+
+(double) (Math.round(sd3*10000)/10000.0);
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+
+
+private String modelNum(int num)
+{
+    if (num>=10000)
+    {
+        double result = num/10000.0;
+        result = Math.round(result*10)/10.0;
+        return result + "万";
+    }
+    else if(num>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Trick-Java%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E4%BD%8D%E7%9A%84%E6%96%B9%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -507,7 +525,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-Java%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90javadoc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -524,7 +542,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Tips-Android开发中常用adb命令</a>
+            <a href="/2020/09/29/4.Android/20200929_Trick-Java%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90javadoc/" class="post-title-link" itemprop="url">Trick-Java快速生成javadoc</a>
         </h2>
 
         <div class="post-meta-container">
@@ -550,7 +568,7 @@
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android开发中常用adb命令" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Trick-Java%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90javadoc/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-Java快速生成javadoc" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -565,8 +583,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-Java%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90javadoc/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-Java%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90javadoc/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -580,36 +598,27 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Android开发种常用adb命令总结"><a href="#Android开发种常用adb命令总结" class="headerlink" title="Android开发种常用adb命令总结"></a>Android开发种常用adb命令总结</h1><!-- TOC -->
+          Java快速生成javadoc
+1
 
-<ul>
-<li><a href="#android%E5%BC%80%E5%8F%91%E7%A7%8D%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93">Android开发种常用adb命令总结</a><ul>
-<li><a href="#adb-devices">adb devices</a></li>
-<li><a href="#adb-install-%E5%AE%89%E8%A3%85%E5%8C%85">adb install 安装包</a></li>
-<li><a href="#adb-uninstall-%E5%8C%85%E5%90%8D">adb uninstall 包名</a></li>
-<li><a href="#adb-tcpip-5555">adb tcpip 5555</a></li>
-<li><a href="#adb-connect-1921681235555">adb connect 192.168.1.23:5555</a></li>
-<li><a href="#adb-disconnect-192168123">adb disconnect 192.168.1.23</a></li>
-<li><a href="#adb-shell-dumpsys-meminfo">adb shell dumpsys meminfo</a></li>
-<li><a href="#adb-shell-dumpsys-meminfo-pidpackagename">adb shell dumpsys meminfo pid/packagename</a></li>
-<li><a href="#adb-logcat--v-time--logtxt">adb logcat -v time &gt; log.txt</a></li>
-<li><a href="#adb-bugreport-d%5Cpath">adb bugreport D:\path</a></li>
-</ul>
-</li>
-</ul>
-<!-- /TOC -->
 
-<h2 id="adb-devices"><a href="#adb-devices" class="headerlink" title="adb devices"></a>adb devices</h2><p>当前连接设备</p>
-<h2 id="adb-install-安装包"><a href="#adb-install-安装包" class="headerlink" title="adb install 安装包"></a>adb install 安装包</h2><p>安装软件</p>
-<h2 id="adb-uninstall-包名"><a href="#adb-uninstall-包名" class="headerlink" title="adb uninstall 包名"></a>adb uninstall 包名</h2><p>卸载软件</p>
-<h2 id="adb-tcpip-5555"><a href="#adb-tcpip-5555" class="headerlink" title="adb tcpip 5555"></a>adb tcpip 5555</h2><p>开放远程接口5555</p>
-<h2 id="adb-connect-192-168-1-23-5555"><a href="#adb-connect-192-168-1-23-5555" class="headerlink" title="adb connect 192.168.1.23:5555"></a>adb connect 192.168.1.23:5555</h2><p>远程连接设备</p>
-<h2 id="adb-disconnect-192-168-1-23"><a href="#adb-disconnect-192-168-1-23" class="headerlink" title="adb disconnect 192.168.1.23"></a>adb disconnect 192.168.1.23</h2><p>与远程设备断开连接</p>
-<h2 id="adb-shell-dumpsys-meminfo"><a href="#adb-shell-dumpsys-meminfo" class="headerlink" title="adb shell dumpsys meminfo"></a>adb shell dumpsys meminfo</h2><p>查看所有进程内存信息</p>
-<h2 id="adb-shell-dumpsys-meminfo-pid-packagename"><a href="#adb-shell-dumpsys-meminfo-pid-packagename" class="headerlink" title="adb shell dumpsys meminfo pid/packagename"></a>adb shell dumpsys meminfo pid/packagename</h2><p>查看特定进程内存信息</p>
-<h2 id="adb-logcat-v-time-gt-log-txt"><a href="#adb-logcat-v-time-gt-log-txt" class="headerlink" title="adb logcat -v time &gt; log.txt"></a>adb logcat -v time &gt; log.txt</h2><p>抓取log (ctrl + c 结束抓取)</p>
-<h2 id="adb-bugreport-D-path"><a href="#adb-bugreport-D-path" class="headerlink" title="adb bugreport D:\path"></a>adb bugreport D:\path</h2><p>获取崩溃日志,如果您连接了多台设备，则必须使用 -s 选项指定设备。adb -s 8XV7N15C31003476 bugreport</p>
+$ javadoc -d apidoc -windowtitle API -doctitle 'The API of javadoc' -charset UTF-8 -author -version *.java
 
+
+-d
+-windowtitle
+-doctitle
+-charset
+-author
+-version
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Trick-Java%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90javadoc/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -630,7 +639,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E5%BB%B6%E8%BF%9F%E8%B0%83%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -647,7 +656,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/" class="post-title-link" itemprop="url">Tips-Android开发中的Handler</a>
+            <a href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E5%BB%B6%E8%BF%9F%E8%B0%83%E7%94%A8/" class="post-title-link" itemprop="url">Trick-RxJava实现延迟调用</a>
         </h2>
 
         <div class="post-meta-container">
@@ -673,7 +682,7 @@
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android开发中的Handler" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E5%BB%B6%E8%BF%9F%E8%B0%83%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-RxJava实现延迟调用" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -688,8 +697,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E5%BB%B6%E8%BF%9F%E8%B0%83%E7%94%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E5%BB%B6%E8%BF%9F%E8%B0%83%E7%94%A8/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -703,11 +712,47 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Android开发中的Handler"><a href="#Android开发中的Handler" class="headerlink" title="Android开发中的Handler"></a>Android开发中的Handler</h1><p>Handler机制是Android中相当经典的异步消息机制，在Android发展的历史长河中扮演着很重要的角色，无论是我们直接面对的应用层还是FrameWork层，使用的场景还是相当的多。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Button mBtnTest;</span><br><span class="line"><span class="keyword">private</span> Handler mTestHandler = <span class="keyword">new</span> Handler()&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span> (msg.what)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                mBtnTest.setText(<span class="string">&quot;收到消息1&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(<span class="keyword">final</span> Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line">    mBtnTest = (Button) findViewById(R.id.btn_test);</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">                mTestHandler.sendEmptyMessage(<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          RxJava实现延迟调用
+代码
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
 
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2018/0522/9728.html">10分钟了解Android的Handler机制</a></p>
 
+Observable.timer(1, TimeUnit.SECONDS).subscribe(new Observer<Long>() {
+    @Override
+    public void onSubscribe(Disposable d) {
+        System.out.println("onSubscribe");
+    }
+
+    @Override
+    public void onNext(Long value) 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E5%BB%B6%E8%BF%9F%E8%B0%83%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -728,7 +773,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -745,7 +790,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">Tips-Android开发规范</a>
+            <a href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/" class="post-title-link" itemprop="url">Trick-RxJava实现间隔调用</a>
         </h2>
 
         <div class="post-meta-container">
@@ -771,7 +816,7 @@
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android开发规范" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-RxJava实现间隔调用" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -786,8 +831,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -801,7 +846,50 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Android开发规范"><a href="#Android开发规范" class="headerlink" title="Android开发规范"></a>Android开发规范</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><h3 id="adapter"><a href="#adapter" class="headerlink" title="adapter"></a>adapter</h3><h3 id="application"><a href="#application" class="headerlink" title="application"></a>application</h3><h3 id="interf"><a href="#interf" class="headerlink" title="interf"></a>interf</h3><h3 id="model"><a href="#model" class="headerlink" title="model"></a>model</h3><h3 id="network"><a href="#network" class="headerlink" title="network"></a>network</h3><h3 id="receiver"><a href="#receiver" class="headerlink" title="receiver"></a>receiver</h3><h3 id="rx"><a href="#rx" class="headerlink" title="rx"></a>rx</h3><h3 id="service"><a href="#service" class="headerlink" title="service"></a>service</h3><h3 id="util"><a href="#util" class="headerlink" title="util"></a>util</h3><h3 id="view"><a href="#view" class="headerlink" title="view"></a>view</h3><h3 id="viewmodel"><a href="#viewmodel" class="headerlink" title="viewmodel"></a>viewmodel</h3>
+          RxJava实现间隔调用
+代码
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+
+
+Observable.interval(1, TimeUnit.SECONDS, Schedulers.trampoline())
+.take(6)
+.subscribeOn(Schedulers.io())
+.observeOn(AndroidSchedulers.mainThread())
+.subscribe(new Observer<Long>() {
+    @Override
+    public void onSu
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -822,7 +910,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E9%85%8D%E7%BD%AEADB%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-adb%E8%BF%9E%E6%8E%A5mumu%E6%A8%A1%E6%8B%9F%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -839,7 +927,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E9%85%8D%E7%BD%AEADB%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="post-title-link" itemprop="url">Tips-Android开发配置ADB环境变量</a>
+            <a href="/2020/09/29/4.Android/20200929_Trick-adb%E8%BF%9E%E6%8E%A5mumu%E6%A8%A1%E6%8B%9F%E5%99%A8/" class="post-title-link" itemprop="url">Trick-adb连接mumu模拟器</a>
         </h2>
 
         <div class="post-meta-container">
@@ -865,7 +953,7 @@
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E9%85%8D%E7%BD%AEADB%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android开发配置ADB环境变量" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Trick-adb%E8%BF%9E%E6%8E%A5mumu%E6%A8%A1%E6%8B%9F%E5%99%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-adb连接mumu模拟器" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -880,8 +968,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E9%85%8D%E7%BD%AEADB%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E9%85%8D%E7%BD%AEADB%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-adb%E8%BF%9E%E6%8E%A5mumu%E6%A8%A1%E6%8B%9F%E5%99%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-adb%E8%BF%9E%E6%8E%A5mumu%E6%A8%A1%E6%8B%9F%E5%99%A8/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -895,8 +983,517 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Android开发配置ADB环境变量"><a href="#Android开发配置ADB环境变量" class="headerlink" title="Android开发配置ADB环境变量"></a>Android开发配置ADB环境变量</h1><p>D:\Android\AndroidSdk\platform-tools 是 adb 程序所在目录, 只需要把这个目录添加到系统环境变量的 path 中, 即可在任意地方使用adb命令</p>
+          adb 连接 mumu 模拟器
+Windows 平台
+1
 
+
+adb connect 127.0.0.1:7555
+
+
+Mac 平台
+1
+
+
+adb shell
+
+
+如果不行,可以尝试 adb kill-server,再运行连接
+.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Trick-adb%E8%BF%9E%E6%8E%A5mumu%E6%A8%A1%E6%8B%9F%E5%99%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-Android%E4%B8%8A%E4%BC%A0module%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E4%B8%8A%E4%BC%A0module%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="post-title-link" itemprop="url">Tutorial-Android上传module到服务器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tutorial-Android%E4%B8%8A%E4%BC%A0module%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Android上传module到服务器" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E4%B8%8A%E4%BC%A0module%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tutorial-Android%E4%B8%8A%E4%BC%A0module%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Android上传module到服务器
+ * Android上传module到服务器 * 配置maven仓库地址 用户名 密码
+    * 配置 gradle.properties
+    * 配置 build.gralde
+   
+   
+
+配置maven仓库地址 用户名 密码
+项目级build.gradle
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        // maven仓库
+        maven {
+    
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E4%B8%8A%E4%BC%A0module%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Tutorial-Android内存泄漏问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Android内存泄漏问题" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Android内存泄漏问题
+什么是内存泄漏
+Android虚拟机的垃圾回收采用的是根搜索算法。GC会从根节点（GC Roots）开始对heap进行遍历。到最后，部分没有直接或者间接引用到GC Roots的就是需要回收的垃圾，会被GC回收掉。但是当对象不再被应用程序使用，仍然被生命周期长的对象引用，垃圾回收器无法回收,这就叫内存泄漏.
+
+内存泄露的根本原因
+长生命周期的对象持有短生命周期的对象。短周期对象就无法及时释放。
+
+哪些情况会造成内存泄漏
+ * 错误使用单例造成的内存泄漏
+   
+ * Handler造成的内存泄漏
+   
+ * 线程造成的内存泄漏
+   
+ * 非静态内部类创建静态实例
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-Android%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8D%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8D%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Tutorial-Android安装包反编译教程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8D%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Android安装包反编译教程" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8D%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8D%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Android安装包反编译教程
+ * Android安装包反编译教程 * 工具下载
+    * 用apktool反编译apk得到图片、XML配置、语言资源等文件
+    * 使用dex2jar反编译apk得到Java源代码
+    * 使用jd-gui打开classes-dex2jar.jar就可以看到源代码了
+   
+   
+
+工具下载
+ * apktool ——(资源文件获取，可以提取出图片文件和布局文件进行使用查看)
+   
+   
+ * dex2jar——(将apk反编译成java源码(classes.dex转化成jar文件))
+   
+   
+ * jd-gui——(查看APK中cl
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8D%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-Android%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">Tutorial-Android属性动画详解</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB%E8%AF%A6%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Android属性动画详解" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB%E8%AF%A6%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB%E8%AF%A6%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Android属性动画详解
+单个View,单个动画
+1
+2
+3
+4
+5
+6
+7
+
+
+ObjectAnimator translation = ObjectAnimator.ofFloat(view, View.TRANSLATION_X, 0f, 100f);
+translation.setDuration(500);
+translation.setRepeatCount(3);
+
+// 可以设置插值器,使之按照一定的规律运动
+translation.setInterpolator(new AccelerateDecelerateInterpolator());
+translation.sta
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB%E8%AF%A6%E8%A7%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -916,7 +1513,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 

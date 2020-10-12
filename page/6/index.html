@@ -215,20 +215,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">152</span>
+          <span class="site-state-item-count">159</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">73</span>
+        <span class="site-state-item-count">75</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -244,10 +244,11 @@
         <a href="mailto:qiaogaojian@gmail.com" title="E-Mail → mailto:qiaogaojian@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
   </div>
+<!--
   <div class="cc-license site-overview-item animated" itemprop="license">
     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
-
+-->
 
       </section>
     </div>
@@ -278,7 +279,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-AndroidStudio%E5%9C%A8Debug%E6%97%B6%E6%97%A0%E6%B3%95attach/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -295,7 +296,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/" class="post-title-link" itemprop="url">Bug-Android异常java</a>
+            <a href="/2020/09/29/4.Android/20200929_Tips-AndroidStudio%E5%9C%A8Debug%E6%97%B6%E6%97%A0%E6%B3%95attach/" class="post-title-link" itemprop="url">Tips-AndroidStudio在Debug时无法attach</a>
         </h2>
 
         <div class="post-meta-container">
@@ -321,7 +322,7 @@
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-Android异常java" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Tips-AndroidStudio%E5%9C%A8Debug%E6%97%B6%E6%97%A0%E6%B3%95attach/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-AndroidStudio在Debug时无法attach" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -336,8 +337,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-AndroidStudio%E5%9C%A8Debug%E6%97%B6%E6%97%A0%E6%B3%95attach/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-AndroidStudio%E5%9C%A8Debug%E6%97%B6%E6%97%A0%E6%B3%95attach/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -351,9 +352,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Android异常java-lang-IllegalArgumentException-Unable-to-create-converter-for-class"><a href="#Android异常java-lang-IllegalArgumentException-Unable-to-create-converter-for-class" class="headerlink" title="Android异常java.lang.IllegalArgumentException_Unable to create converter for class"></a>Android异常java.lang.IllegalArgumentException_Unable to create converter for class</h1><h2 id="错误解析"><a href="#错误解析" class="headerlink" title="错误解析"></a>错误解析</h2><p>原因是这个class中 字段冲突 把命名一样的字段改一下名字即可解决问题</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/39316707/unable-to-create-converter-for-class">Unable to create converter for class</a></p>
+          AndroidStudio在Debug时无法attach
+命令行输入以下命令
 
+1
+
+
+adb usb
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tips-AndroidStudio%E5%9C%A8Debug%E6%97%B6%E6%97%A0%E6%B3%95attach/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -374,7 +387,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-Java%E4%B8%AD%E4%BF%9D%E7%95%99String%E7%A9%BA%E6%A0%BC/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADEditText%E8%BE%93%E5%85%A5%E6%A1%86%E9%A2%9C%E8%89%B2%E8%87%AA%E5%AE%9A%E4%B9%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -391,7 +404,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Bug-Java%E4%B8%AD%E4%BF%9D%E7%95%99String%E7%A9%BA%E6%A0%BC/" class="post-title-link" itemprop="url">Bug-Java中保留String空格</a>
+            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADEditText%E8%BE%93%E5%85%A5%E6%A1%86%E9%A2%9C%E8%89%B2%E8%87%AA%E5%AE%9A%E4%B9%89/" class="post-title-link" itemprop="url">Tips-Android中EditText输入框颜色自定义</a>
         </h2>
 
         <div class="post-meta-container">
@@ -417,7 +430,7 @@
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Bug-Java%E4%B8%AD%E4%BF%9D%E7%95%99String%E7%A9%BA%E6%A0%BC/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-Java中保留String空格" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADEditText%E8%BE%93%E5%85%A5%E6%A1%86%E9%A2%9C%E8%89%B2%E8%87%AA%E5%AE%9A%E4%B9%89/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android中EditText输入框颜色自定义" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -432,8 +445,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-Java%E4%B8%AD%E4%BF%9D%E7%95%99String%E7%A9%BA%E6%A0%BC/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-Java%E4%B8%AD%E4%BF%9D%E7%95%99String%E7%A9%BA%E6%A0%BC/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADEditText%E8%BE%93%E5%85%A5%E6%A1%86%E9%A2%9C%E8%89%B2%E8%87%AA%E5%AE%9A%E4%B9%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADEditText%E8%BE%93%E5%85%A5%E6%A1%86%E9%A2%9C%E8%89%B2%E8%87%AA%E5%AE%9A%E4%B9%89/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -447,11 +460,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Java中保留String空格"><a href="#Java中保留String空格" class="headerlink" title="Java中保留String空格"></a>Java中保留String空格</h1><h2 id="有空格的地方用-u0020-代替"><a href="#有空格的地方用-u0020-代替" class="headerlink" title="有空格的地方用 \u0020 代替"></a>有空格的地方用 \u0020 代替</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String msg = MessageFormat.format(<span class="string">&quot;您是否要花费\u0020\u0020\u0020&#123;0&#125;\u0020\u0020\u0020钻石\n&quot;</span> +</span><br><span class="line">                                                                <span class="string">&quot;点亮一个月的&#123;1&#125;徽章权限？&quot;</span>, price, name);</span><br></pre></td></tr></table></figure>
-
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/1587056/how-to-keep-the-spaces-at-the-end-and-or-at-the-beginning-of-a-string">How to keep the spaces at the end and/or at the beginning of a String?
-</a></p>
-
+          Android中EditText输入框颜色自定义
+res/values/colors.xml 中name为colorAccent的颜色代表输入框颜色,更改这个颜色的值即可自定义
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADEditText%E8%BE%93%E5%85%A5%E6%A1%86%E9%A2%9C%E8%89%B2%E8%87%AA%E5%AE%9A%E4%B9%89/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -472,7 +490,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-Cannot_find_the_setter_for_attribute_android_layout_width_with_parameter_type_string_on_android_widget_ImageView/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADImageView%E7%9A%84scaleType%E5%B1%9E%E6%80%A7%E5%9B%BE%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -489,7 +507,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Bug-Cannot_find_the_setter_for_attribute_android_layout_width_with_parameter_type_string_on_android_widget_ImageView/" class="post-title-link" itemprop="url">Bug-Cannot_find_the_setter_for_attribute_android_layout_width_with_parameter_type_string_on_android_widget_ImageView</a>
+            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADImageView%E7%9A%84scaleType%E5%B1%9E%E6%80%A7%E5%9B%BE%E8%A7%A3/" class="post-title-link" itemprop="url">Tips-Android中ImageView的scaleType属性图解</a>
         </h2>
 
         <div class="post-meta-container">
@@ -515,7 +533,7 @@
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Bug-Cannot_find_the_setter_for_attribute_android_layout_width_with_parameter_type_string_on_android_widget_ImageView/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-Cannot_find_the_setter_for_attribute_android_layout_width_with_parameter_type_string_on_android_widget_ImageView" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADImageView%E7%9A%84scaleType%E5%B1%9E%E6%80%A7%E5%9B%BE%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android中ImageView的scaleType属性图解" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -530,8 +548,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-Cannot_find_the_setter_for_attribute_android_layout_width_with_parameter_type_string_on_android_widget_ImageView/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-Cannot_find_the_setter_for_attribute_android_layout_width_with_parameter_type_string_on_android_widget_ImageView/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADImageView%E7%9A%84scaleType%E5%B1%9E%E6%80%A7%E5%9B%BE%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADImageView%E7%9A%84scaleType%E5%B1%9E%E6%80%A7%E5%9B%BE%E8%A7%A3/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -545,8 +563,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Cannot-find-the-setter-for-attribute-‘android-layout-width’-with-parameter-type-int-on-android-widget-ImageView"><a href="#Cannot-find-the-setter-for-attribute-‘android-layout-width’-with-parameter-type-int-on-android-widget-ImageView" class="headerlink" title="Cannot find the setter for attribute ‘android:layout_width’ with parameter type int on android.widget.ImageView"></a>Cannot find the setter for attribute ‘android:layout_width’ with parameter type int on android.widget.ImageView</h1><h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h2><p>最早我以为是xml文件哪里写错了,排查了一遍没有发现错误,然后删除.gradle文件夹和.idea文件夹重新打开,问题解决.<br>估计是因为之前改了项目名字造成的错误.</p>
-
+          Android ImageView 的scaleType 属性图解
+参考链接
+Android ImageView 的scaleType 属性图解
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADImageView%E7%9A%84scaleType%E5%B1%9E%E6%80%A7%E5%9B%BE%E8%A7%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -567,7 +594,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-trying_to_draw_too_large_%20bitmap/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADonNewIntent%E6%96%B9%E6%B3%95%E8%8E%B7%E5%8F%96%E6%96%B0%E7%9A%84intent%E6%95%B0%E6%8D%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -584,7 +611,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Bug-trying_to_draw_too_large_%20bitmap/" class="post-title-link" itemprop="url">Bug-trying_to_draw_too_large_ bitmap</a>
+            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADonNewIntent%E6%96%B9%E6%B3%95%E8%8E%B7%E5%8F%96%E6%96%B0%E7%9A%84intent%E6%95%B0%E6%8D%AE/" class="post-title-link" itemprop="url">Tips-Android中onNewIntent方法获取新的intent数据</a>
         </h2>
 
         <div class="post-meta-container">
@@ -610,7 +637,7 @@
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Bug-trying_to_draw_too_large_%20bitmap/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-trying_to_draw_too_large_ bitmap" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADonNewIntent%E6%96%B9%E6%B3%95%E8%8E%B7%E5%8F%96%E6%96%B0%E7%9A%84intent%E6%95%B0%E6%8D%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android中onNewIntent方法获取新的intent数据" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -625,8 +652,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-trying_to_draw_too_large_%20bitmap/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-trying_to_draw_too_large_%20bitmap/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADonNewIntent%E6%96%B9%E6%B3%95%E8%8E%B7%E5%8F%96%E6%96%B0%E7%9A%84intent%E6%95%B0%E6%8D%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADonNewIntent%E6%96%B9%E6%B3%95%E8%8E%B7%E5%8F%96%E6%96%B0%E7%9A%84intent%E6%95%B0%E6%8D%AE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -640,13 +667,50 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="trying-to-draw-too-large-bitmap"><a href="#trying-to-draw-too-large-bitmap" class="headerlink" title="trying_to_draw_too_large_ bitmap"></a>trying_to_draw_too_large_ bitmap</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>加载一个大背景图片时,报错 trying to draw too large(138078000bytes) bitmap</p>
-<h2 id="最终解决方案"><a href="#最终解决方案" class="headerlink" title="最终解决方案"></a>最终解决方案</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(getApplicContext())</span><br><span class="line">        .load(R.drawable.cge_gamehall_bg)</span><br><span class="line">        .diskCacheStrategy(DiskCacheStrategy.ALL)</span><br><span class="line">        .into(<span class="keyword">new</span> SimpleTarget&lt;GlideDrawable&gt;()</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResourceReady</span><span class="params">(GlideDrawable resource, GlideAnimation&lt;? <span class="keyword">super</span> GlideDrawable&gt; glideAnimation)</span></span></span><br><span class="line"><span class="function">            </span>&#123;</span><br><span class="line">                gamehallBinding.gameHallBg.setImageDrawable(resource);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+          Android中onNewIntent方法获取新的intent数据
+问题描述
+Activity中重写onNewIntent(Intent intent)方法,结果intent中取不到需要的数据.
 
-<h2 id="其他说法-未验证"><a href="#其他说法-未验证" class="headerlink" title="其他说法(未验证)"></a>其他说法(未验证)</h2><p>这里就不翻译了，意思就是说你将高分辨率图片放在了低分辨率文件夹下。<br>例如：图片的分辨率是属于xxhdpi的，而你将这张图片放在了drawable-xhdpi或者比这个还低的文件夹下，就会报这个错，解决的办法：<br>1.人为的将这张图片的分辨率降低(一般不这样做)<br>2.将高分辨率的图片放在drawable-xxhdpi或者drawable-xxxhdpi下即可</p>
-<p>当然，之所以会出现这些问题都是UI切图不注意大小或者工程师放置图片位置不规范导致的，如果严格的按照andorid开发规范的要求来做的话，是根本不会出现这种问题的。</p>
-<p>采用第二种方式的话，在调试安装apk的时候是没有问题的，但是在打包安装的时候会报软件包安装程序已停止的错误，原因是drawable-xhdpi文件夹下没有图片，将图片分辨率降低放入drawable-xhdpi文件夹下再次打包安装就没有问题了。</p>
+解决方法
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
 
+
+@Override
+protected void onNewIntent(Intent intent)
+{
+    super.onNewIntent(intent);
+    setIntent(intent);
+}
+
+@Override
+protected void onResume()
+{
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADonNewIntent%E6%96%B9%E6%B3%95%E8%8E%B7%E5%8F%96%E6%96%B0%E7%9A%84intent%E6%95%B0%E6%8D%AE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -667,7 +731,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E4%BD%BF%E7%94%A8VideoView%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -684,7 +748,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/" class="post-title-link" itemprop="url">Bug-天狼安卓不足</a>
+            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E4%BD%BF%E7%94%A8VideoView%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91/" class="post-title-link" itemprop="url">Tips-Android使用VideoView播放视频</a>
         </h2>
 
         <div class="post-meta-container">
@@ -710,7 +774,7 @@
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-天狼安卓不足" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E4%BD%BF%E7%94%A8VideoView%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android使用VideoView播放视频" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -725,8 +789,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E4%BD%BF%E7%94%A8VideoView%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E4%BD%BF%E7%94%A8VideoView%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -740,39 +804,48 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="天狼安卓不足"><a href="#天狼安卓不足" class="headerlink" title="天狼安卓不足"></a>天狼安卓不足</h1><ol>
-<li><p>点广告后,主播已下线</p>
-<p> 多次点进去结果主播已下线,降低广告点击意愿,建议优化广告时间分配</p>
-</li>
-<li><p>没有查找好友功能</p>
-<p> 想加好友还要先建个房,建议首页添加查找用户功能(根据id和name)</p>
-</li>
-<li><p>gitignore不规范</p>
-<p> git上有很多平时开发没有用到的东西,容易冲突,建议精简git版本控制文件夹或明确开发人员提交范围:app/</p>
-</li>
-<li><p>接口文档更改不及时</p>
-<p> 好多次都是微信发一下接口怎么改,加什么,这样容易出错,消息记录也不好找.建议杜绝口头式开发 服务器接口调试面向接口文档</p>
-</li>
-<li><p>测试账号冲突问题</p>
-<p> 为每个开发人员分配测试账号 避免测试时冲突</p>
-</li>
-<li><p>资源重复</p>
-<p> 版本迭代过程中积累很多冗余资源drawable/layout  建议集中清理</p>
-</li>
-<li><p>UI设计规范</p>
-<p> UI颜色 文字大小 margin padding shape 没有统一规范(统一的大中小,圆角,阴影等) 每次都要重新写 产生很多冗余资源 建议设定统一规范 方便资源复用</p>
-</li>
-<li><p>没有统一的编码规范</p>
-<p> 代码中有很多以前代码修改后注释掉的代码,大部分是过时的, 还有每次IDE format时因为编码规范(主要括号位置 换行)不一样,有很多无效改动,不方便后续查找代码  建议设置统一的编码规范 大家共同遵守</p>
-</li>
-<li><p>Tapd 任务分配模糊</p>
-<p> Tapd 和 Confuence 中的文档对应关系模糊,  Tapd没有任务描述 而且任务名字和文档中的需求名字不统一  不方便查看</p>
-</li>
-<li><p>任务分配粗糙</p>
-<p>建议分配任务的时候,同时3个任务为上限,快速完成,快速交接,能加快效率,一下子分10多个任务真的好吗</p>
-</li>
-</ol>
+          Android使用VideoView播放视频
+布局
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
 
+
+<android.support.constraint.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/test_button"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:src="@color/colorAccen
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tips-Android%E4%BD%BF%E7%94%A8VideoView%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -793,7 +866,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-%E7%8B%BC%E4%BA%BA%E6%9D%80%E6%90%9C%E7%B4%A2%E6%88%BF%E9%97%B4%E6%A1%86%E6%97%A0%E6%B3%95%E8%BF%9B%E5%85%A5%E6%88%BF%E9%97%B4/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -810,7 +883,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Bug-%E7%8B%BC%E4%BA%BA%E6%9D%80%E6%90%9C%E7%B4%A2%E6%88%BF%E9%97%B4%E6%A1%86%E6%97%A0%E6%B3%95%E8%BF%9B%E5%85%A5%E6%88%BF%E9%97%B4/" class="post-title-link" itemprop="url">Bug-狼人杀搜索房间框无法进入房间</a>
+            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Tips-Android常用Gradle命令</a>
         </h2>
 
         <div class="post-meta-container">
@@ -836,7 +909,7 @@
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Bug-%E7%8B%BC%E4%BA%BA%E6%9D%80%E6%90%9C%E7%B4%A2%E6%88%BF%E9%97%B4%E6%A1%86%E6%97%A0%E6%B3%95%E8%BF%9B%E5%85%A5%E6%88%BF%E9%97%B4/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-狼人杀搜索房间框无法进入房间" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android常用Gradle命令" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -851,8 +924,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-%E7%8B%BC%E4%BA%BA%E6%9D%80%E6%90%9C%E7%B4%A2%E6%88%BF%E9%97%B4%E6%A1%86%E6%97%A0%E6%B3%95%E8%BF%9B%E5%85%A5%E6%88%BF%E9%97%B4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-%E7%8B%BC%E4%BA%BA%E6%9D%80%E6%90%9C%E7%B4%A2%E6%88%BF%E9%97%B4%E6%A1%86%E6%97%A0%E6%B3%95%E8%BF%9B%E5%85%A5%E6%88%BF%E9%97%B4/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -866,10 +939,511 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="狼人杀搜索房间框无法进入房间"><a href="#狼人杀搜索房间框无法进入房间" class="headerlink" title="狼人杀搜索房间框无法进入房间"></a>狼人杀搜索房间框无法进入房间</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>搜索房间后输入房间号密码无法进入房间</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>输入房间号由Activity改为弹窗,原有取数据的方式已经无法获得正确数据,因此出错</p>
-<h2 id="经验教训"><a href="#经验教训" class="headerlink" title="经验教训"></a>经验教训</h2><p>以后不用的UI都删掉,不要隐藏放在那</p>
+          Android常用Gradle命令
+简介
+gradle wrapper
+每个基于gradle构建的工程都有一个gradle本地代理，叫做 gradle wrapper
+在 /gradle/wrapper/gralde-wrapper.properties 目录中声明了指向目录和版本
 
+官方的各个版本的代理下载地址
+如果 gradle 初次构建缓慢，可以手动下载代理放到${USER}/.gradle/wrapper/dists下
+
+本地建立文件 gradle.properties 或者在用户的 .gradle目录下建立 gradle.properties 文件作为全局设置，参数有
+
+1
+2
+3
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">Tips-Android开发中dp_sp_px理解</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android开发中dp_sp_px理解" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Android开发中 dp sp px 的理解
+基础概念
+ * px ： 其实就是像素单位，比如我们通常说的手机分辨列表800*400都是px的单位
+   
+   
+ * dp ： 设备独立像素 (device independent pixels) 也叫 dip ，在不同的像素密度的设备上会自动适配
+   
+   
+ * sp ： 同dp相似，还会根据用户手机系统的字体大小来缩放
+   
+   
+
+drawable文件夹有
+ldpi、mdpi、hdpi、xhdpi四种。
+
+dpi指像素/英寸
+而ldpi指dpi120，
+
+mdpi指dpi160， icon4848 一般指320480，是标准
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Tips-Android开发中常用adb命令</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android开发中常用adb命令" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Android开发种常用adb命令总结
+ * Android开发种常用adb命令总结 * adb devices
+    * adb install 安装包
+    * adb uninstall 包名
+    * adb tcpip 5555
+    * adb connect 192.168.1.23:5555
+    * adb disconnect 192.168.1.23
+    * adb shell dumpsys meminfo
+    * adb shell dumpsys meminfo pid/packagename
+    * adb logcat -v time > 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/" class="post-title-link" itemprop="url">Tips-Android开发中的Handler</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android开发中的Handler" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Android开发中的Handler
+Handler机制是Android中相当经典的异步消息机制，在Android发展的历史长河中扮演着很重要的角色，无论是我们直接面对的应用层还是FrameWork层，使用的场景还是相当的多。
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+
+
+private Button mBtnTest;
+private Handler mTestHandler = new Handler(){
+    @Override
+    public void handleMess
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">Tips-Android开发规范</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Android开发规范" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Android开发规范
+目录结构
+adapter
+application
+interf
+model
+network
+receiver
+rx
+service
+util
+view
+viewmodel
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -889,7 +1463,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
