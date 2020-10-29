@@ -358,6 +358,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="自定义Android软键盘enter键"><a href="#自定义Android软键盘enter键" class="headerlink" title="自定义Android软键盘enter键"></a>自定义Android软键盘enter键</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>你在EditText上输入以后，想在下一行输入框输入，可能需要去点击下一行输入框，让它获取焦点，也可能要隐藏软键盘，在点击输入框，弹出软键盘。或者已经到了最后一行输入框，输入完毕以后，要点击登录，注册，或者链接按钮，可能要去隐藏它，感觉操作狠繁琐。用户体验不好，有没有解决办法呢？</p>
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>设置EditText的Ime Options属性。<br>软键盘，最常用的enter键事件有：   把EditText的Ime Options属性设置成不同的值，Enter键上可以显示不同的文字或图案<br>actionNone : 回车键，按下后光标到下一行<br>actionSend ： Send<br>actionNext ： Next<br>actionDone ： Done，隐藏软键盘，即使不是最后一个文本输入框<br>actionSearch ： search 搜索</p>
 <p><strong>注意一定要设置android:singleLine=”true”，否则回车会换行</strong></p>
@@ -421,8 +422,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Trick-Java%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90javadoc/" rel="prev" title="Trick-Java快速生成javadoc">
-                  <i class="fa fa-chevron-left"></i> Trick-Java快速生成javadoc
+                <a href="/2020/09/29/4.Android/20200929_Trick-Java%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E4%BD%8D%E7%9A%84%E6%96%B9%E6%B3%95/" rel="prev" title="Trick-Java保留小数位的方法">
+                  <i class="fa fa-chevron-left"></i> Trick-Java保留小数位的方法
                 </a>
             </div>
             <div class="post-nav-item">

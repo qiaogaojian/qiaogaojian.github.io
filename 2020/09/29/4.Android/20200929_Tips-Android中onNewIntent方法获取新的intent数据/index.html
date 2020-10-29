@@ -357,6 +357,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="Android中onNewIntent方法获取新的intent数据"><a href="#Android中onNewIntent方法获取新的intent数据" class="headerlink" title="Android中onNewIntent方法获取新的intent数据"></a>Android中onNewIntent方法获取新的intent数据</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>Activity中重写onNewIntent(Intent intent)方法,结果intent中取不到需要的数据.</p>
 <h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onNewIntent</span><span class="params">(Intent intent)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onNewIntent(intent);</span><br><span class="line">    setIntent(intent);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onResume();</span><br><span class="line">    Intent intent = getIntent();</span><br><span class="line">    <span class="comment">// 这时intent已经是新的intent了</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这里写获取到数据后的逻辑</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 末尾记得重置intent 防止无法返回</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -416,13 +417,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E4%BD%BF%E7%94%A8VideoView%E6%92%AD%E6%94%BE%E8%A7%86%E9%A2%91/" rel="prev" title="Tips-Android使用VideoView播放视频">
-                  <i class="fa fa-chevron-left"></i> Tips-Android使用VideoView播放视频
+                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADImageView%E7%9A%84scaleType%E5%B1%9E%E6%80%A7%E5%9B%BE%E8%A7%A3/" rel="prev" title="Tips-Android中ImageView的scaleType属性图解">
+                  <i class="fa fa-chevron-left"></i> Tips-Android中ImageView的scaleType属性图解
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADImageView%E7%9A%84scaleType%E5%B1%9E%E6%80%A7%E5%9B%BE%E8%A7%A3/" rel="next" title="Tips-Android中ImageView的scaleType属性图解">
-                  Tips-Android中ImageView的scaleType属性图解 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E4%B8%ADEditText%E8%BE%93%E5%85%A5%E6%A1%86%E9%A2%9C%E8%89%B2%E8%87%AA%E5%AE%9A%E4%B9%89/" rel="next" title="Tips-Android中EditText输入框颜色自定义">
+                  Tips-Android中EditText输入框颜色自定义 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

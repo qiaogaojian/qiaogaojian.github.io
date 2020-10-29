@@ -368,6 +368,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="高级-10：branch-删过了才想起来有用？"><a href="#高级-10：branch-删过了才想起来有用？" class="headerlink" title="高级 10：branch 删过了才想起来有用？"></a>高级 10：branch 删过了才想起来有用？</h1><p><code>branch</code> 用完就删是好习惯，但有的时候，不小心手残删了一个还有用的 <code>branch</code> ，或者把一个 <code>branch</code> 删掉了才想起来它还有用，怎么办？</p>
 <h2 id="reflog-：引用的-log"><a href="#reflog-：引用的-log" class="headerlink" title="reflog ：引用的 log"></a>reflog ：引用的 log</h2><p><code>reflog</code> 是 “reference log” 的缩写，使用它可以查看 Git 仓库中的引用的移动记录。如果不指定引用，它会显示 <code>HEAD</code> 的移动记录。假如你误删了 <code>branch1</code> 这个 <code>branch</code>，那么你可以查看一下 <code>HEAD</code> 的移动历史：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -440,13 +441,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-22%E6%80%BB%E7%BB%93/" rel="prev" title="Tutorial-22总结">
-                  <i class="fa fa-chevron-left"></i> Tutorial-22总结
+                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-21%E9%A2%9D%E5%A4%96%E8%AF%B4%E7%82%B9%EF%BC%9A.gitignore%E2%80%94%E2%80%94%E6%8E%92%E9%99%A4%E4%B8%8D%E6%83%B3%E8%A2%AB%E7%AE%A1%E7%90%86%E7%9A%84%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95/" rel="prev" title="Tutorial-21额外说点：">
+                  <i class="fa fa-chevron-left"></i> Tutorial-21额外说点：
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-21%E9%A2%9D%E5%A4%96%E8%AF%B4%E7%82%B9%EF%BC%9A.gitignore%E2%80%94%E2%80%94%E6%8E%92%E9%99%A4%E4%B8%8D%E6%83%B3%E8%A2%AB%E7%AE%A1%E7%90%86%E7%9A%84%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95/" rel="next" title="Tutorial-21额外说点：">
-                  Tutorial-21额外说点： <i class="fa fa-chevron-right"></i>
+                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-19%E9%AB%98%E7%BA%A7%209%EF%BC%9A%E7%B4%A7%E6%80%A5%E6%83%85%E5%86%B5%EF%BC%9A%E3%80%8C%E7%AB%8B%E5%8D%B3%E7%BB%99%E6%88%91%E6%89%93%E4%B8%AA%E5%8C%85%EF%BC%8C%E7%8E%B0%E5%9C%A8%E9%A9%AC%E4%B8%8A%EF%BC%81%E3%80%8D/" rel="next" title="Tutorial-19高级 9：紧急情况：「立即给我打个包，现在马上！」">
+                  Tutorial-19高级 9：紧急情况：「立即给我打个包，现在马上！」 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

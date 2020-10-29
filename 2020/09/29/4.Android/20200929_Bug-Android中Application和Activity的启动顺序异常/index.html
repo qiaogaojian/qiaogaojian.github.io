@@ -358,6 +358,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="Android中Application和Activity的启动顺序异常"><a href="#Android中Application和Activity的启动顺序异常" class="headerlink" title="Android中Application和Activity的启动顺序异常"></a>Android中Application和Activity的启动顺序异常</h1><h2 id="发现Activity的OnCreate-先执行-Application中的OnCreate-不执行"><a href="#发现Activity的OnCreate-先执行-Application中的OnCreate-不执行" class="headerlink" title="发现Activity的OnCreate() 先执行   Application中的OnCreate() 不执行"></a>发现Activity的OnCreate() 先执行   Application中的OnCreate() 不执行</h2><h2 id="错误分析"><a href="#错误分析" class="headerlink" title="错误分析"></a>错误分析</h2><p>没有在 AndroidManifest 文件中指明 Application:name 属性</p>
 <h2 id="知识扩展"><a href="#知识扩展" class="headerlink" title="知识扩展"></a>知识扩展</h2><p>application 创建以后就会调用onCreate()<br>接下来才去查找对应的Activity并创建,并执行一列表的生命周期<br>只要知道这两个类的生命周期即可</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/beyond702/article/details/49666809">Application, Activity, ContentProvider启动顺序</a></p>

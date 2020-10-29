@@ -358,6 +358,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="Unity中OnGui原生GUI用法"><a href="#Unity中OnGui原生GUI用法" class="headerlink" title="Unity中OnGui原生GUI用法"></a>Unity中OnGui原生GUI用法</h1><h2 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (GUI.Button(<span class="keyword">new</span> Rect(<span class="number">10</span>, <span class="number">360</span>, <span class="number">200</span>, <span class="number">50</span>), <span class="string">&quot;开始新手引导&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        GuideManager.Instance.InitGuide();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="Rect-x-Rect-y"><a href="#Rect-x-Rect-y" class="headerlink" title="Rect.x Rect.y"></a>Rect.x Rect.y</h3><p>按钮左下角坐标</p>

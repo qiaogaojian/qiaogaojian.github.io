@@ -357,6 +357,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="Android属性动画详解"><a href="#Android属性动画详解" class="headerlink" title="Android属性动画详解"></a>Android属性动画详解</h1><h2 id="单个View-单个动画"><a href="#单个View-单个动画" class="headerlink" title="单个View,单个动画"></a>单个View,单个动画</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ObjectAnimator translation = ObjectAnimator.ofFloat(view, View.TRANSLATION_X, <span class="number">0f</span>, <span class="number">100f</span>);</span><br><span class="line">translation.setDuration(<span class="number">500</span>);</span><br><span class="line">translation.setRepeatCount(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以设置插值器,使之按照一定的规律运动</span></span><br><span class="line">translation.setInterpolator(<span class="keyword">new</span> AccelerateDecelerateInterpolator());</span><br><span class="line">translation.start();</span><br></pre></td></tr></table></figure>
 
 <p>属性平移动画用的px,如果UI用的是dp,需要进行转换</p>

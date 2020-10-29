@@ -358,6 +358,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="Android富文本"><a href="#Android富文本" class="headerlink" title="Android富文本"></a>Android富文本</h1><h2 id="Html-fromHtml"><a href="#Html-fromHtml" class="headerlink" title="Html.fromHtml()"></a>Html.fromHtml()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String nameContent = <span class="string">&quot;&lt;font color=#ffffff&gt;您的 &lt;/font&gt;&quot;</span> + <span class="string">&quot;&lt;font color=#FFBC55&gt;&quot;</span> + cardName + <span class="string">&quot;&lt;/font&gt;&quot;</span> + <span class="string">&quot;&lt;font color=#ffffff&gt; 还未到期&lt;br&gt;是否继续购买延长时间？&lt;/font&gt;&quot;</span>;</span><br><span class="line">binding.tvName.setText(Html.fromHtml(nameContent));</span><br></pre></td></tr></table></figure>
 
 <h2 id="Spannable"><a href="#Spannable" class="headerlink" title="Spannable"></a>Spannable</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">String    prefix      = <span class="string">&quot;您的 &quot;</span>;</span><br><span class="line">String    suffix      = <span class="string">&quot; 还未到期\n是否继续购买延长时间？&quot;</span>;</span><br><span class="line">String    nameContent = prefix + cardName + suffix;</span><br><span class="line">Spannable spannable   = <span class="keyword">new</span> SpannableString(nameContent);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里的span只能用new 因为多次set同一个span 后面的会把前面的覆盖掉</span></span><br><span class="line">ForegroundColorSpan yellowColorSpan = <span class="keyword">new</span> ForegroundColorSpan(getActivity().getResources().getColor(R.color.dull_yellow));</span><br><span class="line">spannable.setSpan(<span class="keyword">new</span> ForegroundColorSpan(getActivity().getResources().getColor(R.color.white)), <span class="number">0</span>, prefix.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</span><br><span class="line">spannable.setSpan(yellowColorSpan, prefix.length(), (prefix + cardName).length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">spannable.setSpan(<span class="keyword">new</span> ForegroundColorSpan(getActivity().getResources().getColor(R.color.white)), (prefix + cardName).length(), nameContent.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">binding.tvName.setText(spannable, TextView.BufferType.SPANNABLE);</span><br></pre></td></tr></table></figure>
@@ -420,8 +421,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Trick-Android%E5%B7%A6%E5%8F%B3%E5%AF%B9%E9%BD%90%E5%B9%B6%E9%80%82%E9%85%8D%E5%86%85%E5%AE%B9/" rel="prev" title="Trick-Android左右对齐并适配内容">
-                  <i class="fa fa-chevron-left"></i> Trick-Android左右对齐并适配内容
+                <a href="/2020/09/29/4.Android/20200929_Trick-Android%E5%B8%83%E5%B1%80%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" rel="prev" title="Trick-Android布局图片预览内存泄漏问题">
+                  <i class="fa fa-chevron-left"></i> Trick-Android布局图片预览内存泄漏问题
                 </a>
             </div>
             <div class="post-nav-item">

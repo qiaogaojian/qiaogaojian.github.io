@@ -365,6 +365,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="高级-9：紧急情况：「立即给我打个包，现在马上！」"><a href="#高级-9：紧急情况：「立即给我打个包，现在马上！」" class="headerlink" title="高级 9：紧急情况：「立即给我打个包，现在马上！」"></a>高级 9：紧急情况：「立即给我打个包，现在马上！」</h1><p>前面在讲 <code>branch</code> 的时候讲到，利用 <code>branch</code> 可以实现一人多任务的需求，从而可以轻松应对「嘿，这个先别做了，给你个新活」的情况。但有时，尤其是在互联网公司，你可能会遇到比这更紧急的情况：你正对着电脑发呆，忽然见到一个同事屁股着着火就跑来找你了：「快快快，立即给我打个包，现在马上，拜托拜托！」</p>
 <p>这种情况和「这个 <code>branch</code> 先放放吧」不同，你没时间、也没必要当场慌慌张张把文件的所有改动做个临时的 <code>commit</code> 然后去救同事的火，救完火再重新把 <code>commit</code> 撤销回来。这时候你只要先把所有文件一股脑扔在一边就可以去给同事打包了，打完包再把刚才扔到一边的文件重新取过来就好。</p>
 <p>这一「扔」一「取」，用的是 Git 的 <code>stash</code> 指令。</p>
@@ -436,8 +437,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-21%E9%A2%9D%E5%A4%96%E8%AF%B4%E7%82%B9%EF%BC%9A.gitignore%E2%80%94%E2%80%94%E6%8E%92%E9%99%A4%E4%B8%8D%E6%83%B3%E8%A2%AB%E7%AE%A1%E7%90%86%E7%9A%84%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95/" rel="prev" title="Tutorial-21额外说点：">
-                  <i class="fa fa-chevron-left"></i> Tutorial-21额外说点：
+                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-20%E9%AB%98%E7%BA%A7%2010%EF%BC%9Abranch%20%E5%88%A0%E8%BF%87%E4%BA%86%E6%89%8D%E6%83%B3%E8%B5%B7%E6%9D%A5%E6%9C%89%E7%94%A8%EF%BC%9F/" rel="prev" title="Tutorial-20高级 10：branch 删过了才想起来有用？">
+                  <i class="fa fa-chevron-left"></i> Tutorial-20高级 10：branch 删过了才想起来有用？
                 </a>
             </div>
             <div class="post-nav-item">

@@ -376,6 +376,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="进阶-4：Feature-Branching：最流行的工作流"><a href="#进阶-4：Feature-Branching：最流行的工作流" class="headerlink" title="进阶 4：Feature Branching：最流行的工作流"></a>进阶 4：Feature Branching：最流行的工作流</h1><p>在前面的《上手 2》这一节里，我介绍了一种最基本的团队工作模型。在这种模型里，所有人都工作在 <code>master</code> 上，写完了的 <code>commit</code> 可以通过 <code>push</code> 来发送到中央仓库，并且可以使用 <code>pull</code> 来获取到别人的最新 <code>commit</code>s。</p>
 <p>这种工作模型解决了团队合作最基本的问题：多人并行开发和版本管理。事实上，这也是早期的 VCS——中央式 VCS 的工作模型。</p>
 <p>但这种工作模型也有它的限制：使用这种工作模型时，每个人的代码在被大家看到的时候，就是它进入正式的生产库的时候。所有人的工作都会被直接 <code>push</code> 到 <code>master</code>，这导致每个人的代码在正式启用前无法被别人看到（严格来讲是有办法的，别人可以直接从你的电脑上 <code>pull</code> ，Git 的「分布式」不是说说的。但——这种做法超级不方便），这样就让代码在正式启用前的讨论和 review（审阅）非常不方便。现在的商业团队，开发项目多是采用「边开发边发布、边开发边更新、边开发边修复」的持续开发策略，所以代码分享的不便会极大地影响团队的开发效率。</p>
@@ -507,13 +508,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-09%E8%BF%9B%E9%98%B6%205%EF%BC%9A%E5%85%B3%E4%BA%8E%20add/" rel="prev" title="Tutorial-09进阶 5：关于 add">
-                  <i class="fa fa-chevron-left"></i> Tutorial-09进阶 5：关于 add
+                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-10%E8%BF%9B%E9%98%B6%206%EF%BC%9A%E7%9C%8B%E7%9C%8B%E6%88%91%E9%83%BD%E6%94%B9%E4%BA%86%E4%BB%80%E4%B9%88/" rel="prev" title="Tutorial-10进阶 6：看看我都改了什么">
+                  <i class="fa fa-chevron-left"></i> Tutorial-10进阶 6：看看我都改了什么
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-07%E8%BF%9B%E9%98%B6%203%EF%BC%9Amerge%EF%BC%9A%E5%90%88%E5%B9%B6%20commits/" rel="next" title="Tutorial-07进阶 3：merge：合并 commits">
-                  Tutorial-07进阶 3：merge：合并 commits <i class="fa fa-chevron-right"></i>
+                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-09%E8%BF%9B%E9%98%B6%205%EF%BC%9A%E5%85%B3%E4%BA%8E%20add/" rel="next" title="Tutorial-09进阶 5：关于 add">
+                  Tutorial-09进阶 5：关于 add <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

@@ -374,6 +374,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="高级-3：写错的不是最新的提交，而是倒数第二个？"><a href="#高级-3：写错的不是最新的提交，而是倒数第二个？" class="headerlink" title="高级 3：写错的不是最新的提交，而是倒数第二个？"></a>高级 3：写错的不是最新的提交，而是倒数第二个？</h1><p><code>commit --amend</code> 可以修复最新 <code>commit</code> 的错误，但如果是倒数第二个 <code>commit</code> 写错了，怎么办？</p>
 <h2 id="rebase-i：交互式-rebase"><a href="#rebase-i：交互式-rebase" class="headerlink" title="rebase -i：交互式 rebase"></a>rebase -i：交互式 rebase</h2><p>如果不是最新的 <code>commit</code> 写错，就不能用 <code>commit --amend</code> 来修复了，而是要用 <code>rebase</code>。不过需要给 <code>rebase</code> 也加一个参数：<code>-i</code>。</p>
 <p><code>rebase -i</code> 是 <code>rebase --interactive</code> 的缩写形式，意为「交互式 rebase」。</p>

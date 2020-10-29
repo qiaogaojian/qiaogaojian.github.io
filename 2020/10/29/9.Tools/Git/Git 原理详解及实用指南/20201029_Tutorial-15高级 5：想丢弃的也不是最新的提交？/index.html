@@ -375,6 +375,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="高级-5：想丢弃的也不是最新的提交？"><a href="#高级-5：想丢弃的也不是最新的提交？" class="headerlink" title="高级 5：想丢弃的也不是最新的提交？"></a>高级 5：想丢弃的也不是最新的提交？</h1><p>假如有一个 <code>commit</code> ，你在刚把它写完的时候并没有觉得它不好，可是在之后又写了几个提交以后，你突然灵光一现：「哎呀，那个 <code>commit</code> 不该写，我要撤销！」</p>
 <p>不是最新的提交，就不能用 <code>reset --hard</code> 来撤销了。这种情况的撤销，就要用之前介绍过的一个指令：交互式 <code>rebase</code> ——<code>rebase -i</code>。</p>
 <h2 id="用交互式-rebase-撤销提交"><a href="#用交互式-rebase-撤销提交" class="headerlink" title="用交互式 rebase 撤销提交"></a>用交互式 rebase 撤销提交</h2><p>之前介绍过，交互式 <code>rebase</code> 可以用来修改某些旧的 <code>commit</code>s。其实除了修改提交，它还可以用于撤销提交。比如下面这种情况：</p>

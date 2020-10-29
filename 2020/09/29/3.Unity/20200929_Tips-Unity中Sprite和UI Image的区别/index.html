@@ -359,6 +359,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="Unity中Sprite和UI-Image的区别"><a href="#Unity中Sprite和UI-Image的区别" class="headerlink" title="Unity中Sprite和UI Image的区别"></a>Unity中Sprite和UI Image的区别</h1><h2 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h2><p>Image 通过UGUI的Image和CanvasRenderer组件组件来渲染<br>Sprite 通过SpriteRenderer组件来渲染<br>两者在视觉上没有任何区别（都使用默认材质时）。它们默认的渲染也都是在Transparent Geometry队列中。</p>
 <h2 id="使用上"><a href="#使用上" class="headerlink" title="使用上"></a>使用上</h2><p>Image需要位于某个Canvas下才能显示出来。场景中的Sprite可以像普通的3D游戏物体一样对待，通过Transform组件进行移动等操作，而Image则使用RectTransform进行布局，以便通过Canvas统一管理。由于RectTransform可以设置大小、对齐方式等，Image可以说更加方便一点，这也是很多人选择使用Image的原因。</p>
 <h2 id="引擎的处理上"><a href="#引擎的处理上" class="headerlink" title="引擎的处理上"></a>引擎的处理上</h2><p>将Wireframe选项打开然后在场景中观察，就可以清楚地发现，Image为一个矩形的Sprite生成两个三角形拼成的矩形几何体，而Sprite则会根据显示内容，裁剪掉元素中的大部分透明区域，最终生成的几何体可能会有比较复杂的顶点结构。</p>

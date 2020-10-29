@@ -358,6 +358,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="Unity中停止协程StopCoroutine"><a href="#Unity中停止协程StopCoroutine" class="headerlink" title="Unity中停止协程StopCoroutine"></a>Unity中停止协程StopCoroutine</h1><h2 id="必须用字符串启动协程才能停止协程"><a href="#必须用字符串启动协程才能停止协程" class="headerlink" title="必须用字符串启动协程才能停止协程"></a>必须用字符串启动协程才能停止协程</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//要想停止协程,必须用字符启动协程</span></span><br><span class="line">StartCoroutine(<span class="string">&quot;FunctionName&quot;</span>);</span><br><span class="line"><span class="comment">//如果要传参</span></span><br><span class="line">StarCoroutine(<span class="string">&quot;FunctionName&quot;</span>,<span class="keyword">object</span>);</span><br></pre></td></tr></table></figure>
 
 <h2 id="停止协程"><a href="#停止协程" class="headerlink" title="停止协程"></a>停止协程</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//停止协程</span></span><br><span class="line">StopCoroutine(<span class="string">&quot;FunctionName&quot;</span>);</span><br><span class="line"><span class="comment">//停止所有协程(慎用)</span></span><br><span class="line">StopAllCoroutine();</span><br></pre></td></tr></table></figure>
@@ -416,8 +417,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E5%9D%90%E6%A0%87%E7%B3%BB/" rel="prev" title="Tips-Unity中的坐标系">
-                  <i class="fa fa-chevron-left"></i> Tips-Unity中的坐标系
+                <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/" rel="prev" title="Tips-Unity中的碰撞">
+                  <i class="fa fa-chevron-left"></i> Tips-Unity中的碰撞
                 </a>
             </div>
             <div class="post-nav-item">

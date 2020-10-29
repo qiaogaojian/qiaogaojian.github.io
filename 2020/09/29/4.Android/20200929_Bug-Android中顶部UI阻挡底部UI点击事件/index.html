@@ -357,6 +357,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="Android中顶部UI阻隔底部UI点击事件"><a href="#Android中顶部UI阻隔底部UI点击事件" class="headerlink" title="Android中顶部UI阻隔底部UI点击事件"></a>Android中顶部UI阻隔底部UI点击事件</h1><h2 id="错误分析"><a href="#错误分析" class="headerlink" title="错误分析"></a>错误分析</h2><p>今天接到一个bug: 在播放一个全屏webp动画时,竟然可以点击下面被遮挡的按钮并触发点击事件,最终通过设置xml文件属性解决, webp 组件为 Fresco 的 SimpleDraweeView</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">android:focusable=&quot;true&quot;</span><br><span class="line">android:clickable=&quot;true&quot;</span><br></pre></td></tr></table></figure>
 

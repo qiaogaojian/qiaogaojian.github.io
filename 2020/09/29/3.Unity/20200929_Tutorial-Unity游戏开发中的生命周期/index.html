@@ -364,6 +364,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="Unity游戏开发中的生命周期"><a href="#Unity游戏开发中的生命周期" class="headerlink" title="Unity游戏开发中的生命周期"></a>Unity游戏开发中的生命周期</h1><h2 id="C-对象的生命周期"><a href="#C-对象的生命周期" class="headerlink" title="C#对象的生命周期"></a>C#对象的生命周期</h2><h3 id="了解对象生命周期前，要先理解类、对象与引用是怎么回事。"><a href="#了解对象生命周期前，要先理解类、对象与引用是怎么回事。" class="headerlink" title="了解对象生命周期前，要先理解类、对象与引用是怎么回事。"></a>了解对象生命周期前，要先理解类、对象与引用是怎么回事。</h3><h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><pre><code>是定义在代码文件中，保存在硬盘上 ，是对象的蓝本，它描述了对象在内存中大概是什么样子的。</code></pre>
 <h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><pre><code>我们都知道.net将值类型存储在栈中，引用类型存储在堆中，这样做的原因是栈中的数据是轻量级的，而堆中的数据是重量级，目的是在应用程序在操作它们的时候比较方便存取，从而提高程序的运行速度。
 创建一个对象实例，用new+类名+（），就创建了一个对象实例，创建的这个对象实例是引用类型，被存储在托管堆中，以后就不用管它了，new关键字返回一个对象实例存在的地址，这个存储地址（引用）变量，被放在栈中，实际上应用程序在运行时都是操作的这个引用。</code></pre>

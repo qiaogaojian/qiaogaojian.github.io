@@ -359,6 +359,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="Android中WebView闪烁问题"><a href="#Android中WebView闪烁问题" class="headerlink" title="Android中WebView闪烁问题"></a>Android中WebView闪烁问题</h1><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>webView默认隐藏然后在onPageFinished回调中显示</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageFinished</span><span class="params">(WebView view, String url)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//页面加载完成</span></span><br><span class="line"></span><br><span class="line">    mBinding.webviewTrans.setBackgroundColor(Color.TRANSPARENT);</span><br><span class="line">    mBinding.webviewTrans.setLayerType(WebView.LAYER_TYPE_SOFTWARE, <span class="keyword">null</span>);</span><br><span class="line">    mBinding.webviewTrans.setVisibility(View.VISIBLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 

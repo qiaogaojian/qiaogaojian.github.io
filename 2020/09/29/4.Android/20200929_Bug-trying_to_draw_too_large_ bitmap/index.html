@@ -357,6 +357,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="trying-to-draw-too-large-bitmap"><a href="#trying-to-draw-too-large-bitmap" class="headerlink" title="trying_to_draw_too_large_ bitmap"></a>trying_to_draw_too_large_ bitmap</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>加载一个大背景图片时,报错 trying to draw too large(138078000bytes) bitmap</p>
 <h2 id="最终解决方案"><a href="#最终解决方案" class="headerlink" title="最终解决方案"></a>最终解决方案</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(getApplicContext())</span><br><span class="line">        .load(R.drawable.cge_gamehall_bg)</span><br><span class="line">        .diskCacheStrategy(DiskCacheStrategy.ALL)</span><br><span class="line">        .into(<span class="keyword">new</span> SimpleTarget&lt;GlideDrawable&gt;()</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResourceReady</span><span class="params">(GlideDrawable resource, GlideAnimation&lt;? <span class="keyword">super</span> GlideDrawable&gt; glideAnimation)</span></span></span><br><span class="line"><span class="function">            </span>&#123;</span><br><span class="line">                gamehallBinding.gameHallBg.setImageDrawable(resource);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
 
@@ -415,13 +416,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Bug-%E7%8B%BC%E4%BA%BA%E6%9D%80%E6%90%9C%E7%B4%A2%E6%88%BF%E9%97%B4%E6%A1%86%E6%97%A0%E6%B3%95%E8%BF%9B%E5%85%A5%E6%88%BF%E9%97%B4/" rel="prev" title="Bug-狼人杀搜索房间框无法进入房间">
-                  <i class="fa fa-chevron-left"></i> Bug-狼人杀搜索房间框无法进入房间
+                <a href="/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/" rel="prev" title="Bug-天狼安卓不足">
+                  <i class="fa fa-chevron-left"></i> Bug-天狼安卓不足
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/" rel="next" title="Bug-天狼安卓不足">
-                  Bug-天狼安卓不足 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/4.Android/20200929_Bug-Java%E4%B8%AD%E4%BF%9D%E7%95%99String%E7%A9%BA%E6%A0%BC/" rel="next" title="Bug-Java中保留String空格">
+                  Bug-Java中保留String空格 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

@@ -369,6 +369,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="进阶-2：push-的本质"><a href="#进阶-2：push-的本质" class="headerlink" title="进阶 2：push 的本质"></a>进阶 2：push 的本质</h1><p>在之前的内容里，我粗略地说过，<code>push</code> 指令做的事是把你的本地提交上传到中央仓库去，用本地的内容来覆盖掉远端的内容。这个说法其实是不够准确的，但 Git 的知识系统比较庞大，在你对 Git 了解比较少的时候，用「上传本地提交」来解释会比较好理解；而在你知道了 <code>branch</code>，并且明白了 <code>branch</code> 的具体含义以后，我就可以告诉你 <code>push</code> 到底是什么了。</p>
 <h2 id="push：把-branch-上传到远端仓库"><a href="#push：把-branch-上传到远端仓库" class="headerlink" title="push：把 branch 上传到远端仓库"></a>push：把 branch 上传到远端仓库</h2><p>实质上，<code>push</code> 做的事是：把当前 <code>branch</code> 的位置（即它指向哪个 <code>commit</code>）上传到远端仓库，并把它的路径上的 <code>commit</code>s 一并上传。</p>
 <p>例如，我现在的本地仓库有一个 <code>master</code> ，它超前了远程仓库两个提交；另外还有一个新建的 <code>branch</code> 叫 <code>feature1</code>，远程仓库还没有记载过它。具体大概像这样：</p>
@@ -453,8 +454,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-05%E8%BF%9B%E9%98%B6%201%EF%BC%9AHEAD%E3%80%81master%20%E4%B8%8E%20branch/" rel="next" title="Tutorial-05进阶 1：HEAD、master 与 branch">
-                  Tutorial-05进阶 1：HEAD、master 与 branch <i class="fa fa-chevron-right"></i>
+                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-04%E4%B8%8A%E6%89%8B%202%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B/" rel="next" title="Tutorial-04上手 2：团队工作的基本工作模型">
+                  Tutorial-04上手 2：团队工作的基本工作模型 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

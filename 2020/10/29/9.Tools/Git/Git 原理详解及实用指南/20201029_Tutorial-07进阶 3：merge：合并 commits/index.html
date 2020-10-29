@@ -383,6 +383,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
         <h1 id="进阶-3：merge：合并-commits"><a href="#进阶-3：merge：合并-commits" class="headerlink" title="进阶 3：merge：合并 commits"></a>进阶 3：merge：合并 commits</h1><p>前面说到，<code>pull</code> 的内部操作其实是把远程仓库取到本地后（使用的是 <code>fetch</code>），再用一次 <code>merge</code> 来把远端仓库的新 <code>commits</code> 合并到本地。这一节就说一下，<code>merge</code> 到底是什么。</p>
 <h2 id="含义和用法"><a href="#含义和用法" class="headerlink" title="含义和用法"></a>含义和用法</h2><p><code>merge</code> 的意思是「合并」，它做的事也是合并：指定一个 <code>commit</code>，把它合并到当前的 <code>commit</code> 来。具体来讲，<code>merge</code> 做的事是：</p>
 <p><strong>从目标 <code>commit</code> 和当前 <code>commit</code> （即 <code>HEAD</code> 所指向的 <code>commit</code>）分叉的位置起，把目标 <code>commit</code> 的路径上的所有 <code>commit</code> 的内容一并应用到当前 <code>commit</code>，然后自动生成一个新的 <code>commit</code>。</strong></p>
@@ -536,8 +537,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-08%E8%BF%9B%E9%98%B6%204%EF%BC%9AFeature%20Branching%EF%BC%9A%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="prev" title="Tutorial-08进阶 4：Feature Branching：最流行的工作流">
-                  <i class="fa fa-chevron-left"></i> Tutorial-08进阶 4：Feature Branching：最流行的工作流
+                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-05%E8%BF%9B%E9%98%B6%201%EF%BC%9AHEAD%E3%80%81master%20%E4%B8%8E%20branch/" rel="prev" title="Tutorial-05进阶 1：HEAD、master 与 branch">
+                  <i class="fa fa-chevron-left"></i> Tutorial-05进阶 1：HEAD、master 与 branch
                 </a>
             </div>
             <div class="post-nav-item">
