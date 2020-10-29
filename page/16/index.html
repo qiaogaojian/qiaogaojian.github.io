@@ -215,14 +215,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-count">180</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -279,7 +279,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/28/5.Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -296,7 +296,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/28/5.Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/" class="post-title-link" itemprop="url">Tutorail-Ubuntu安装LAMP环境</a>
+            <a href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/" class="post-title-link" itemprop="url">Tips-PowerShellHelloWorld</a>
         </h2>
 
         <div class="post-meta-container">
@@ -307,28 +307,30 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2020-09-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-28T00:00:00+08:00">2020-09-28</time>
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-29 09:11:46" itemprop="dateModified" datetime="2020-09-29T09:11:46+08:00">2020-09-29</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/5-Web/" itemprop="url" rel="index"><span itemprop="name">5.Web</span></a>
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/28/5.Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorail-Ubuntu安装LAMP环境" title="阅读次数">
+    <span id="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-PowerShellHelloWorld" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -343,8 +345,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/28/5.Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/28/5.Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -358,56 +360,619 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          Ubuntu安装LAMP环境
-更新
+          PowerShellHelloWorld
+设置执行权限
+This is normal behavior. In order to prevent malicious scripts from running on your system, PowerShell enforces an execution policy. There are 4 execution policies you can use:
+
+ * Restricted – Scripts won’t run. Period. (Default setting)
+ * RemoteSigned – Locally-created
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E6%BF%80%E6%B4%BBPowerShell%E4%BB%A3%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E6%BF%80%E6%B4%BBPowerShell%E4%BB%A3%E7%A0%81/" class="post-title-link" itemprop="url">Trick-Win10激活PowerShell代码</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E6%BF%80%E6%B4%BBPowerShell%E4%BB%A3%E7%A0%81/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-Win10激活PowerShell代码" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E6%BF%80%E6%B4%BBPowerShell%E4%BB%A3%E7%A0%81/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E6%BF%80%E6%B4%BBPowerShell%E4%BB%A3%E7%A0%81/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Win10激活PowerShell代码
 1
+2
+3
 
 
-sudo apt-get update
+PS C:\WINDOWS\system32> slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX
+PS C:\WINDOWS\system32> slmgr /skms kms.digiboy.ir
+PS C:\WINDOWS\system32> slmgr /ato
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E6%BF%80%E6%B4%BBPowerShell%E4%BB%A3%E7%A0%81/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/OS/Windows/20200929_Tips-SSH%E5%AE%A2%E6%88%B7%E7%AB%AFPutty%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-SSH%E5%AE%A2%E6%88%B7%E7%AB%AFPutty%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">Tips-SSH客户端Putty配色方案</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-SSH%E5%AE%A2%E6%88%B7%E7%AB%AFPutty%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-SSH客户端Putty配色方案" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-SSH%E5%AE%A2%E6%88%B7%E7%AB%AFPutty%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-SSH%E5%AE%A2%E6%88%B7%E7%AB%AFPutty%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Putty配色方案
 
 
-安装git
+校正
+Default Foreground: 245,222,179
+
+注意事项
+ * 修改完主题之后一定要记得保存
+   
+   
+ * 保存时要先点击相应的session 然后修改主题 最后点击save
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-SSH%E5%AE%A2%E6%88%B7%E7%AB%AFPutty%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E7%A6%81%E7%94%A8%E5%8F%8A%E6%81%A2%E5%A4%8D%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%94%AE%E7%9B%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E7%A6%81%E7%94%A8%E5%8F%8A%E6%81%A2%E5%A4%8D%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%94%AE%E7%9B%98/" class="post-title-link" itemprop="url">Trick-Win10禁用及恢复笔记本键盘</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/OS/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E7%A6%81%E7%94%A8%E5%8F%8A%E6%81%A2%E5%A4%8D%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%94%AE%E7%9B%98/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-Win10禁用及恢复笔记本键盘" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E7%A6%81%E7%94%A8%E5%8F%8A%E6%81%A2%E5%A4%8D%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%94%AE%E7%9B%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E7%A6%81%E7%94%A8%E5%8F%8A%E6%81%A2%E5%A4%8D%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%94%AE%E7%9B%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Win10禁用及恢复笔记本键盘
+首先进入Windows/System32
+
+ 1. 禁用
+    
+    以管理员身份进入cmd，输入：sc config i8042prt start= disabled
+    然后重启
+    
+    
+ 2. 启用
+    
+    以管理员身份进入cmd，输入：sc config i8042prt start= auto
+    然后重启
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E7%A6%81%E7%94%A8%E5%8F%8A%E6%81%A2%E5%A4%8D%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%94%AE%E7%9B%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/1.CS/20200929_Roadmap-%E7%BC%96%E7%A8%8B%E4%BD%93%E7%B3%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/1.CS/20200929_Roadmap-%E7%BC%96%E7%A8%8B%E4%BD%93%E7%B3%BB/" class="post-title-link" itemprop="url">Roadmap-编程体系</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-CS/" itemprop="url" rel="index"><span itemprop="name">1.CS</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/1.CS/20200929_Roadmap-%E7%BC%96%E7%A8%8B%E4%BD%93%E7%B3%BB/" class="post-meta-item leancloud_visitors" data-flag-title="Roadmap-编程体系" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/1.CS/20200929_Roadmap-%E7%BC%96%E7%A8%8B%E4%BD%93%E7%B3%BB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/1.CS/20200929_Roadmap-%E7%BC%96%E7%A8%8B%E4%BD%93%E7%B3%BB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          编程之道
+像我这样的人,终究是要当一个技术,错过了很多,走了不少弯路,以后的目标就是精进自己,下面的,随便挑!
+
+心法
+ * 一专多能,T型结构
+ * Unity3d, Android, Web
+ * 苦练内功,格物致知
+ * 高等数学,数据结构和算法,计算机操作系统,计算机网络,面向对象,软件工程
+ * 学以致用,用以促学
+ * unitypackage, roguelike, roguelike + blockchain
+
+以基础知识为根本,不追求奇淫异巧
+以解决问题为根本,不追求目前用不到的东西
+纸上得来终觉浅,学以致用,每学一个东西都要实际操作一遍
+内功
+计算机体系结构
+计算机系统基础
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/1.CS/20200929_Roadmap-%E7%BC%96%E7%A8%8B%E4%BD%93%E7%B3%BB/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E9%A2%84%E7%9F%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E9%A2%84%E7%9F%A5/" class="post-title-link" itemprop="url">Roadmap-Android开发预知</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E9%A2%84%E7%9F%A5/" class="post-meta-item leancloud_visitors" data-flag-title="Roadmap-Android开发预知" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E9%A2%84%E7%9F%A5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E9%A2%84%E7%9F%A5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Android 开发预知
+MVVM
+OKHttp3
+添加依赖
 1
+2
+3
 
 
-sudo apt-get install git
+dependencies {
+    implementation 'com.squareup.okhttp3:okhttp:3.9.1'
+}
 
 
-安装Apache
-1
-
-
-sudo apt-get install apache2
-
-
-添加阿里云安全组外网80端口访问
-
-
-测试
-浏览器输入IP,如果出现It works代表安装成功
-
-查看状态
+添加权限
 1
 2
 3
 4
-5
-6
-7
-8
 
 
-// 服务状态
-service apache2 status
-// 启动服务
-service apache2 start
-// 停止服务
-service apache2 stop
-// 重启服务
-serv
+<!--网络权限-->
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission andro
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/28/5.Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E9%A2%84%E7%9F%A5/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -433,7 +998,7 @@ serv
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-Android_UI%E8%AE%BE%E8%AE%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -450,7 +1015,7 @@ serv
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/" class="post-title-link" itemprop="url">Tips-mysql_设置字符集</a>
+            <a href="/2020/09/29/4.Android/20200929_Tutorial-Android_UI%E8%AE%BE%E8%AE%A1/" class="post-title-link" itemprop="url">Tutorial-Android_UI设计</a>
         </h2>
 
         <div class="post-meta-container">
@@ -461,28 +1026,22 @@ serv
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2020-09-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-28T00:00:00+08:00">2020-09-28</time>
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-29 09:11:46" itemprop="dateModified" datetime="2020-09-29T09:11:46+08:00">2020-09-29</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/5-Web/" itemprop="url" rel="index"><span itemprop="name">5.Web</span></a>
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-mysql_设置字符集" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Tutorial-Android_UI%E8%AE%BE%E8%AE%A1/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Android_UI设计" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -497,8 +1056,8 @@ serv
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tutorial-Android_UI%E8%AE%BE%E8%AE%A1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tutorial-Android_UI%E8%AE%BE%E8%AE%A1/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -512,35 +1071,44 @@ serv
     
     
     <div class="post-body" itemprop="articleBody">
-          mysql设置字符集
- * 查看当前数据库字符集
+          Android设计
+UI控件
+文本类
+TextView
+EditText
+AutoCompleteTextView
+按钮类
+Button
+CheckBox
+RadioButton
+ToggleButton
+ZoomButton
+图片类
+ImageView
+时间控件
+Datepicker
+DigitalClock
+AnalogClock
+进度显示
+ProcessBar
+SeekBar
+AbsSeekBar
+导航
+TabHost
+TabWidget
+UI布局
+LinearLayout
+1. 方向
+ * 属性
    
    1
    2
-   3
-   4
-   5
-   6
-   7
-   8
-   9
-   10
-   11
-   12
-   13
-   14
-   15
    
    
-   mysql> show variables like "%char%";
-   
-   //输出
-   +--------------------------+--------------------------------+
-   | Variable_name            | Value                          |
-
+   android:orientation=
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tutorial-Android_UI%E8%AE%BE%E8%AE%A1/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -566,7 +1134,7 @@ serv
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/28/5.Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-Android%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -583,7 +1151,7 @@ serv
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/28/5.Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Tutorial-ThinkPHP的使用</a>
+            <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" class="post-title-link" itemprop="url">Tutorial-Android架构设计</a>
         </h2>
 
         <div class="post-meta-container">
@@ -594,28 +1162,22 @@ serv
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2020-09-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-28T00:00:00+08:00">2020-09-28</time>
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-29 09:11:46" itemprop="dateModified" datetime="2020-09-29T09:11:46+08:00">2020-09-29</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/5-Web/" itemprop="url" rel="index"><span itemprop="name">5.Web</span></a>
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/28/5.Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-ThinkPHP的使用" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Tutorial-Android%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Android架构设计" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -630,8 +1192,8 @@ serv
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/28/5.Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/28/5.Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tutorial-Android%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -645,38 +1207,20 @@ serv
     
     
     <div class="post-body" itemprop="articleBody">
-          ThinkPHP的使用
-打开debug模式
-找到config目录下的app.php文件 设置如下
+          Android架构设计
+MVC
+MVC 概念
+VC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写，一种软件设计典范，用一种业务逻辑、数据、界面显示分离的方法组织代码，将业务逻辑聚集到一个部件里面，在改进和个性化定制界面及用户交互的同时，不需要重新编写业务逻辑。
 
-1
-
-
-'show_error_msg'         => true,
+其中M层处理数据，业务逻辑等；V层处理界面的显示结果；C层起到桥梁的作用，来控制V层和M层通信以此来达到分离视图显示和业务逻辑层。
 
 
-没正式上线之前打开debug模式,方便调试,上线后再关闭
 
-新建 Controller 命令
-普通控制器
-1
-2
-
-
-# 注意 Controller 的名字(在这里是Article)要大写
-D:\xampp\htdocs\thinkphp5> php think make:controller index/Article --plain
-
-
-资源控制器
-1
-2
-
-
-# 相对于普通控制器 没有 --plain
-D:\x
+MVC for Android
+ * M层：适合做一些业务逻辑处理，比如数据库存取操作，网络操作，复杂的算法，耗时的任
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/28/5.Web/20200928_Tutorial-ThinkPHP%E7%9A%84%E4%BD%BF%E7%94%A8/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -702,7 +1246,7 @@ D:\x
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/6.ML/20200926_Roadmap_%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E6%88%98/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E9%9C%80%E6%8E%8C%E6%8F%A1%E7%9F%A5%E8%AF%86%E7%82%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -719,7 +1263,7 @@ D:\x
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/26/6.ML/20200926_Roadmap_%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E6%88%98/" class="post-title-link" itemprop="url">Roadmap_机器学习理解与实战</a>
+            <a href="/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E9%9C%80%E6%8E%8C%E6%8F%A1%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-title-link" itemprop="url">Roadmap-Android开发需掌握知识点</a>
         </h2>
 
         <div class="post-meta-container">
@@ -730,28 +1274,22 @@ D:\x
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2020-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-29 09:11:46" itemprop="dateModified" datetime="2020-09-29T09:11:46+08:00">2020-09-29</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/6-ML/" itemprop="url" rel="index"><span itemprop="name">6.ML</span></a>
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/26/6.ML/20200926_Roadmap_%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E6%88%98/" class="post-meta-item leancloud_visitors" data-flag-title="Roadmap_机器学习理解与实战" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E9%9C%80%E6%8E%8C%E6%8F%A1%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-meta-item leancloud_visitors" data-flag-title="Roadmap-Android开发需掌握知识点" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -766,8 +1304,8 @@ D:\x
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/26/6.ML/20200926_Roadmap_%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E6%88%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/6.ML/20200926_Roadmap_%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E6%88%98/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E9%9C%80%E6%8E%8C%E6%8F%A1%E7%9F%A5%E8%AF%86%E7%82%B9/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E9%9C%80%E6%8E%8C%E6%8F%A1%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -781,64 +1319,24 @@ D:\x
     
     
     <div class="post-body" itemprop="articleBody">
-          机器学习
-监督学习
-有标注数据
-
-分类问题
-问题描述
-申请到想去的学校
-
-特征
-成绩
-学校
-科研成果
-标记
-拿到了
-没拿到
-过拟合
-原因
-特征太多
-数据太少
-应对方法
-正规化
-减少特征
-找更简单的模型
-随机森林
-一棵随机的树
-搞很多
-取平均值/投票
-回归问题
-问题描述
-明天的比特币价格
-
-特征
-今天的加个
-昨天的价格
-一周前的价格
-昨天的成交量
-上一周的成交量
-明天与今天价格之比
-含非线性基的线性回归模型
-基函数过多
-过拟合
-正规化
-线性回归求解
-梯度下降法
-线性回归的严格解
-无监督学习
-无标注数据
-
-主值分解
-聚类算法
-K-means
-KM期望平均算法
-AlphaGo简介
-神经网络
-卷积神经
+          Android 开发需掌握知识点
+ * Android 开发需掌握知识点 * 网络：分层模型、TCP、UDP、HTTP、HTTPS * 分层模型
+       * UDP
+       * TCP
+       * HTTP
+       * HTTPS
+      
+      
+    * 算法：数据结构、常用算法 * 数据结构
+       * 常用算法
+      
+      
+    * Java 基础：StringBuilder、泛型擦除、Exception、IO、容器 * StringBuilder
+       * 泛型擦除
+       * Exception 和 Erro
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/26/6.ML/20200926_Roadmap_%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E6%88%98/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E9%9C%80%E6%8E%8C%E6%8F%A1%E7%9F%A5%E8%AF%86%E7%82%B9/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -864,7 +1362,7 @@ AlphaGo简介
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-Android%E5%BC%80%E5%8F%91Tips/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -881,7 +1379,7 @@ AlphaGo简介
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-title-link" itemprop="url">Roadmap_线性代数知识体系</a>
+            <a href="/2020/09/29/4.Android/20200929_Trick-Android%E5%BC%80%E5%8F%91Tips/" class="post-title-link" itemprop="url">Trick-Android开发Tips</a>
         </h2>
 
         <div class="post-meta-container">
@@ -892,32 +1390,22 @@ AlphaGo简介
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2020-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-29 09:11:46" itemprop="dateModified" datetime="2020-09-29T09:11:46+08:00">2020-09-29</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/0-Math/" itemprop="url" rel="index"><span itemprop="name">0.Math</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/0-Math/LinearAlgebra/" itemprop="url" rel="index"><span itemprop="name">LinearAlgebra</span></a>
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-meta-item leancloud_visitors" data-flag-title="Roadmap_线性代数知识体系" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Trick-Android%E5%BC%80%E5%8F%91Tips/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-Android开发Tips" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -932,8 +1420,8 @@ AlphaGo简介
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-Android%E5%BC%80%E5%8F%91Tips/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-Android%E5%BC%80%E5%8F%91Tips/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -947,514 +1435,17 @@ AlphaGo简介
     
     
     <div class="post-body" itemprop="articleBody">
-          线性代数
-线性空间
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-title-link" itemprop="url">Roadmap_微积分知识体系</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-29 09:11:46" itemprop="dateModified" datetime="2020-09-29T09:11:46+08:00">2020-09-29</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/0-Math/" itemprop="url" rel="index"><span itemprop="name">0.Math</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/0-Math/Calculus/" itemprop="url" rel="index"><span itemprop="name">Calculus</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-meta-item leancloud_visitors" data-flag-title="Roadmap_微积分知识体系" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          微积分知识体系
-微积分1
-微积分2
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/8.Notes/Goal/20200926_Roadmap-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/26/8.Notes/Goal/20200926_Roadmap-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/" class="post-title-link" itemprop="url">Roadmap-学习目标</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-29 16:05:56" itemprop="dateModified" datetime="2020-09-29T16:05:56+08:00">2020-09-29</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/8-Notes/" itemprop="url" rel="index"><span itemprop="name">8.Notes</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/8-Notes/Goal/" itemprop="url" rel="index"><span itemprop="name">Goal</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/26/8.Notes/Goal/20200926_Roadmap-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/" class="post-meta-item leancloud_visitors" data-flag-title="Roadmap-学习目标" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/26/8.Notes/Goal/20200926_Roadmap-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/8.Notes/Goal/20200926_Roadmap-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          内功修炼
- 1.  数学 (用到什么学什么)
-     
-      线性代数/概率论与统计/离散数学/微积分
-     
-     
- 2.  计算机组成结构 (过一遍)
-     
-      深入理解计算机系统
-     
-     
- 3.  汇编语言 (过一遍)
-     
-      * 汇编语言 王爽
-     
-     
- 4.  C/C++ (掌握)
-     
-     
- 5.  编译原理 (过一遍)
-     
-     
- 6.  计算机操作系统 (重点)
-     
-     
- 7.  计算机网络 (重点)
-     
-     
- 8.  数据结构和算法 (重
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/26/8.Notes/Goal/20200926_Roadmap-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/8.Notes/Goal/20200926_Roadmap-%E9%95%BF%E6%9C%9F%E7%9B%AE%E6%A0%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/26/8.Notes/Goal/20200926_Roadmap-%E9%95%BF%E6%9C%9F%E7%9B%AE%E6%A0%87/" class="post-title-link" itemprop="url">Roadmap-长期目标</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-29 16:05:48" itemprop="dateModified" datetime="2020-09-29T16:05:48+08:00">2020-09-29</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/8-Notes/" itemprop="url" rel="index"><span itemprop="name">8.Notes</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/8-Notes/Goal/" itemprop="url" rel="index"><span itemprop="name">Goal</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/26/8.Notes/Goal/20200926_Roadmap-%E9%95%BF%E6%9C%9F%E7%9B%AE%E6%A0%87/" class="post-meta-item leancloud_visitors" data-flag-title="Roadmap-长期目标" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/26/8.Notes/Goal/20200926_Roadmap-%E9%95%BF%E6%9C%9F%E7%9B%AE%E6%A0%87/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/8.Notes/Goal/20200926_Roadmap-%E9%95%BF%E6%9C%9F%E7%9B%AE%E6%A0%87/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          番茄笔记
- * 番茄笔记 * 目标 * Art (板绘游戏原画师)
-       * Work (计算机技术专家)
-       * Game (开发并发布10款好玩的游戏)
-       * Master (东北大学软件工程研究生)
-       * Reading (读600百本书并写书评)
-      
-      
-    * 任务 * Art
-       * Work
-       * Game
-       * Master
-       * Reading
-      
-      
-    * 已完成 * Art
-       * Work
-       * Game
-   
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/26/8.Notes/Goal/20200926_Roadmap-%E9%95%BF%E6%9C%9F%E7%9B%AE%E6%A0%87/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/8.Notes/Rule/20200926_Tao-%E5%B7%A5%E4%BD%9C%E5%87%86%E5%88%99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/26/8.Notes/Rule/20200926_Tao-%E5%B7%A5%E4%BD%9C%E5%87%86%E5%88%99/" class="post-title-link" itemprop="url">Tao-工作准则</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-09 10:49:21" itemprop="dateModified" datetime="2020-10-09T10:49:21+08:00">2020-10-09</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/8-Notes/" itemprop="url" rel="index"><span itemprop="name">8.Notes</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/8-Notes/Rule/" itemprop="url" rel="index"><span itemprop="name">Rule</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/26/8.Notes/Rule/20200926_Tao-%E5%B7%A5%E4%BD%9C%E5%87%86%E5%88%99/" class="post-meta-item leancloud_visitors" data-flag-title="Tao-工作准则" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/26/8.Notes/Rule/20200926_Tao-%E5%B7%A5%E4%BD%9C%E5%87%86%E5%88%99/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/8.Notes/Rule/20200926_Tao-%E5%B7%A5%E4%BD%9C%E5%87%86%E5%88%99/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          行事准则
- * 不要浪费时间 白天好好工作 完成任务不加班
+          Android开发Tips
+ * setBackgroundResource(0) 可以移除 View 的背景色
    
    
- * 下班补基础 工作熟练之前不瞎搞
+ * Resources.getSystem().getDisplayMetrics().density 可以不用 Context 也能获取屏幕密度哦
    
    
- * 不要找理由 任何问题都能找到解决方法
+ * 通过重载 ViewGroup 的 dispatchDraw 可以实现一个简单的蒙版效果。 例如下拉刷新时，可以在 contentView 上加一层遮罩。 canvas.drawRect(0, mContentView.getTranslationY(), getWidth(), getHeigh
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/26/8.Notes/Rule/20200926_Tao-%E5%B7%A5%E4%BD%9C%E5%87%86%E5%88%99/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Trick-Android%E5%BC%80%E5%8F%91Tips/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1479,7 +1470,7 @@ AlphaGo简介
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span>
+    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 

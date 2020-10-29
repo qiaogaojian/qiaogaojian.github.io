@@ -215,14 +215,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-count">180</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -279,7 +279,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Utils/20200929_Trick-BeyondCompare.%E6%97%A0%E9%99%90%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E4%B8%ADCPU%E5%AF%84%E5%AD%98%E5%99%A8%E5%88%86%E7%B1%BB%E4%BB%8B%E7%BB%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -296,7 +296,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/9.Tools/Utils/20200929_Trick-BeyondCompare.%E6%97%A0%E9%99%90%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Trick-BeyondCompare</a>
+            <a href="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E4%B8%ADCPU%E5%AF%84%E5%AD%98%E5%99%A8%E5%88%86%E7%B1%BB%E4%BB%8B%E7%BB%8D/" class="post-title-link" itemprop="url">Tips-Asm中CPU寄存器分类介绍</a>
         </h2>
 
         <div class="post-meta-container">
@@ -317,16 +317,16 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+          <a href="/categories/1-CS/" itemprop="url" rel="index"><span itemprop="name">1.CS</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Utils/" itemprop="url" rel="index"><span itemprop="name">Utils</span></a>
+          <a href="/categories/1-CS/ASM/" itemprop="url" rel="index"><span itemprop="name">ASM</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/29/9.Tools/Utils/20200929_Trick-BeyondCompare.%E6%97%A0%E9%99%90%E4%BD%BF%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-BeyondCompare" title="阅读次数">
+    <span id="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E4%B8%ADCPU%E5%AF%84%E5%AD%98%E5%99%A8%E5%88%86%E7%B1%BB%E4%BB%8B%E7%BB%8D/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Asm中CPU寄存器分类介绍" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -341,8 +341,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/9.Tools/Utils/20200929_Trick-BeyondCompare.%E6%97%A0%E9%99%90%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Utils/20200929_Trick-BeyondCompare.%E6%97%A0%E9%99%90%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E4%B8%ADCPU%E5%AF%84%E5%AD%98%E5%99%A8%E5%88%86%E7%B1%BB%E4%BB%8B%E7%BB%8D/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E4%B8%ADCPU%E5%AF%84%E5%AD%98%E5%99%A8%E5%88%86%E7%B1%BB%E4%BB%8B%E7%BB%8D/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -356,30 +356,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          BeyondCompare 无限使用
-进入目录
-1
+          CPU寄存器分类介绍
+32位CPU所含有的寄存器有:
+4个数据寄存器(EAX,EBX,ECX,EDX)
+2个变址和指针寄存器(ESI,EDI) 2个指针寄存器(ESP,EBP)
+6个段寄存器(ES,CS,SS,DS,FS,GS)
+1个指令指针寄存器(EIP)1个标志寄存器(EFlags)
 
-
-cd C:\Users\ETA\AppData\Roaming\BCompare\
-
-
-修改BCompare文件 确保安装时间和上次加载时间始终为当前时间
-1
-2
-3
-
-
-[BCompare]
-InstallTime=1533965017
-LastLoading=1533965017
-
-
-自动化
-可以写一个Unity Editor工具或Python工具,获取当前用户名自动修改时间戳
+一.数据寄存器
+寄存器作用EAX累加器(Accumulator),用累加器进行的操作可能需要更少时间.可用于乘,除,输入,输出等操作,使用频率很高EBX基地址寄存器(Base Register),它可作为存储器指针来使用ECX计数寄存器(Count Register),在循环和字符操作时,用它控制循环次数,
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/29/9.Tools/Utils/20200929_Trick-BeyondCompare.%E6%97%A0%E9%99%90%E4%BD%BF%E7%94%A8/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E4%B8%ADCPU%E5%AF%84%E5%AD%98%E5%99%A8%E5%88%86%E7%B1%BB%E4%BB%8B%E7%BB%8D/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -405,7 +393,7 @@ LastLoading=1533965017
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/VS/20200929_Tips-VS%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7debug%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -422,7 +410,7 @@ LastLoading=1533965017
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/9.Tools/VS/20200929_Tips-VS%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Tips-VS主题颜色配置</a>
+            <a href="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7debug%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Tips-Asm调试工具debug的使用</a>
         </h2>
 
         <div class="post-meta-container">
@@ -443,16 +431,16 @@ LastLoading=1533965017
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+          <a href="/categories/1-CS/" itemprop="url" rel="index"><span itemprop="name">1.CS</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/VS/" itemprop="url" rel="index"><span itemprop="name">VS</span></a>
+          <a href="/categories/1-CS/ASM/" itemprop="url" rel="index"><span itemprop="name">ASM</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/29/9.Tools/VS/20200929_Tips-VS%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-VS主题颜色配置" title="阅读次数">
+    <span id="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7debug%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Asm调试工具debug的使用" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -467,8 +455,8 @@ LastLoading=1533965017
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/9.Tools/VS/20200929_Tips-VS%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/VS/20200929_Tips-VS%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7debug%E7%9A%84%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7debug%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -482,10 +470,22 @@ LastLoading=1533965017
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Unity中sqlite数据库的使用</p>
+          Asm调试工具debug的使用
+ 1. -r 修改寄存器
+ 2. -d 段地址:偏移地址 - 偏移地址
+ 3. -u 将后续的字节翻译成汇编指令 查看汇编指令: 段地址 : 偏移地址
+ 4. -a 段地址:偏移地址 从指定地址开始编写指令
+ 5. -e 段地址:偏移地址 从指定地址修改
+ 6. -t 单步执行指令
+ 7. -p 终止程序
+ 8. -q 退出debug
+ 9. -g 段地址:偏移地址 命令直接跳到地址
+
+下载
+asm.rar
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/29/9.Tools/VS/20200929_Tips-VS%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/">
+              <a class="btn" href="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7debug%E7%9A%84%E4%BD%BF%E7%94%A8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -511,7 +511,7 @@ LastLoading=1533965017
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/VS/20200929_Trick-VS%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/1.CS/ASM/20200929_Tips-CPU%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -528,7 +528,7 @@ LastLoading=1533965017
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/9.Tools/VS/20200929_Trick-VS%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">Trick-VS快捷键设置</a>
+            <a href="/2020/09/29/1.CS/ASM/20200929_Tips-CPU%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4/" class="post-title-link" itemprop="url">Tips-CPU的内存保护</a>
         </h2>
 
         <div class="post-meta-container">
@@ -549,16 +549,16 @@ LastLoading=1533965017
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+          <a href="/categories/1-CS/" itemprop="url" rel="index"><span itemprop="name">1.CS</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/VS/" itemprop="url" rel="index"><span itemprop="name">VS</span></a>
+          <a href="/categories/1-CS/ASM/" itemprop="url" rel="index"><span itemprop="name">ASM</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/29/9.Tools/VS/20200929_Trick-VS%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-VS快捷键设置" title="阅读次数">
+    <span id="/2020/09/29/1.CS/ASM/20200929_Tips-CPU%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-CPU的内存保护" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -573,8 +573,8 @@ LastLoading=1533965017
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/9.Tools/VS/20200929_Trick-VS%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/VS/20200929_Trick-VS%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/1.CS/ASM/20200929_Tips-CPU%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/1.CS/ASM/20200929_Tips-CPU%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -588,15 +588,13 @@ LastLoading=1533965017
     
     
     <div class="post-body" itemprop="articleBody">
-          代码编辑器快捷键设置
-快捷键
-
-
-
-hotkeyfunctionalt + dgo to definationalt + rfind all referencealt + gfind filealt + tgo to linealt + fformat filealt + ;go to line endalt + qnav backalt + enav aheadalt + /commentalt + vuncommentalt + afile structF2refactor renamealt + jcode templatealt + ngenerate codealt + ↓move 
+          CPU的内存保护
+安全的内存地址
+0:200H ~ 0:2FFH FFH = 255D + 1D = 256D
+0:7E00H ~ +
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/29/9.Tools/VS/20200929_Trick-VS%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/1.CS/ASM/20200929_Tips-CPU%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -622,7 +620,7 @@ hotkeyfunctionalt + dgo to definationalt + rfind all referencealt + gfind fileal
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/VS/20200929_Trick-VS%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/1.CS/ASM/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -639,7 +637,7 @@ hotkeyfunctionalt + dgo to definationalt + rfind all referencealt + gfind fileal
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/9.Tools/VS/20200929_Trick-VS%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95/" class="post-title-link" itemprop="url">Trick-VS插件扩展</a>
+            <a href="/2020/09/29/1.CS/ASM/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">Tips-DosBox启动设置</a>
         </h2>
 
         <div class="post-meta-container">
@@ -660,16 +658,16 @@ hotkeyfunctionalt + dgo to definationalt + rfind all referencealt + gfind fileal
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+          <a href="/categories/1-CS/" itemprop="url" rel="index"><span itemprop="name">1.CS</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/VS/" itemprop="url" rel="index"><span itemprop="name">VS</span></a>
+          <a href="/categories/1-CS/ASM/" itemprop="url" rel="index"><span itemprop="name">ASM</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/29/9.Tools/VS/20200929_Trick-VS%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-VS插件扩展" title="阅读次数">
+    <span id="/2020/09/29/1.CS/ASM/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-DosBox启动设置" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -684,8 +682,8 @@ hotkeyfunctionalt + dgo to definationalt + rfind all referencealt + gfind fileal
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/9.Tools/VS/20200929_Trick-VS%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/VS/20200929_Trick-VS%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/1.CS/ASM/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/1.CS/ASM/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -699,241 +697,24 @@ hotkeyfunctionalt + dgo to definationalt + rfind all referencealt + gfind fileal
     
     
     <div class="post-body" itemprop="articleBody">
-          VS插件扩展
-CodeMaid
-Enhanced-Syntax-Highlighting
-Region Highlights
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/9.Tools/VS/20200929_Trick-VS%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
+          DosBox启动设置
+位置
+c:/用户/用户名/appdata/local/dosbox/dosbox-0.74.conf
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Tips-VSCode主题颜色配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/VSCode/" itemprop="url" rel="index"><span itemprop="name">VSCode</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-VSCode主题颜色配置" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          VSCode主题颜色配置
-官方教程
-链接
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%B0%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">Tips-VSCode正则表达式记录</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/VSCode/" itemprop="url" rel="index"><span itemprop="name">VSCode</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%B0%E5%BD%95/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-VSCode正则表达式记录" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%B0%E5%BD%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%B0%E5%BD%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          VSCode正则表达式记录
-正则表达式学习
-VSCode 正则使用记录
- * 匹配反编译后的注释
+指令
+配置文件末尾添加以下指令:
 
 1
 2
 3
-4
 
 
-# 第一代
-//.*
-# 第二代
-// Token: .*
+mount c: d:\asm
+set PATH=%PATH%;c:\;
+c:
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%B0%E5%BD%95/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/1.CS/ASM/20200929_Tips-DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -959,7 +740,7 @@ VSCode 正则使用记录
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/VSCode/20200929_Trick-VSCode%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -976,7 +757,7 @@ VSCode 正则使用记录
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/9.Tools/VSCode/20200929_Trick-VSCode%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Trick-VSCode同步设置配置</a>
+            <a href="/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Tips-AndroidStudio Log颜色配置</a>
         </h2>
 
         <div class="post-meta-container">
@@ -987,10 +768,16 @@ VSCode 正则使用记录
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+      <time title="创建时间：2020-09-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-30 11:30:47" itemprop="dateModified" datetime="2020-09-30T11:30:47+08:00">2020-09-30</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -1001,12 +788,12 @@ VSCode 正则使用记录
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/VSCode/" itemprop="url" rel="index"><span itemprop="name">VSCode</span></a>
+          <a href="/categories/9-Tools/AS/" itemprop="url" rel="index"><span itemprop="name">AS</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/29/9.Tools/VSCode/20200929_Trick-VSCode%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-VSCode同步设置配置" title="阅读次数">
+    <span id="/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-AndroidStudio Log颜色配置" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -1021,8 +808,8 @@ VSCode 正则使用记录
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/9.Tools/VSCode/20200929_Trick-VSCode%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/VSCode/20200929_Trick-VSCode%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1036,10 +823,14 @@ VSCode 正则使用记录
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>VSCode同步设置配置</p>
+          AndroidStudio Log 颜色配置
+配置 1
+TypeColorAssert:#AA66CCDebug:#33B5E5Error:#FF4444Info:#99CC00Verbose:#FFFFFFWarning:#FFBB33配置 2
+TypeColorverbose:#BBBdebug:#33B5E5info:#9C0assert:#A6Cerror:#F44warning:#FB3备份
+setting.androidstudio.zip
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/29/9.Tools/VSCode/20200929_Trick-VSCode%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE/">
+              <a class="btn" href="/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1065,7 +856,7 @@ VSCode 正则使用记录
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1082,7 +873,7 @@ VSCode 正则使用记录
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/" class="post-title-link" itemprop="url">Tutorial-Vim常见指令</a>
+            <a href="/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/" class="post-title-link" itemprop="url">Trick-AndroidStudio必备插件</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1107,12 +898,12 @@ VSCode 正则使用记录
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Vim/" itemprop="url" rel="index"><span itemprop="name">Vim</span></a>
+          <a href="/categories/9-Tools/AS/" itemprop="url" rel="index"><span itemprop="name">AS</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Vim常见指令" title="阅读次数">
+    <span id="/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-AndroidStudio必备插件" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -1127,8 +918,8 @@ VSCode 正则使用记录
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1142,29 +933,16 @@ VSCode 正则使用记录
     
     
     <div class="post-body" itemprop="articleBody">
-          Vim常见指令
-一.移动光标
-上下左右
-k
-h l
-j
-
-二.模式切换
- * 进入默认是普通模式
-   
-   
- * 切换到插入模式
-   
-   按键含义i在光标的前边进入插入模式I在光标所在行的行首进入插入模式a在光标的后面进入插入模式A在光标所在行的行尾进入插入模式o在光标所在行的下方插入空行进入插入模式O在光标所在行的上方插入空行进入插入模式s删除光标指定的字符并进入插入模式S将光标所在行清除并进入插入模式
- * 切换到选中模式
-   
-   按键含义v普通选中V行选中ctrl+v列选中
- * 退出
-   
-   按键含义shift+z+z保存修改并退出:wq:w表示保存,:q表示退
+          AndroidStudio必备插件
+GsonFormat
+Jrebel 2018.1.5
+ADB Idea
+Android Studio Prettify
+FindViewByMe
+Wakatime
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1190,7 +968,7 @@ j
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Git/20200929_Bug-gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1207,7 +985,7 @@ j
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" class="post-title-link" itemprop="url">Tutorial-Ubuntu 基于 VirtualBox安装 设置与编程开发</a>
+            <a href="/2020/09/29/9.Tools/Git/20200929_Bug-gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="post-title-link" itemprop="url">Bug-gitignore不起作用的解决办法</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1232,16 +1010,12 @@ j
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/OS/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Ubuntu 基于 VirtualBox安装 设置与编程开发" title="阅读次数">
+    <span id="/2020/09/29/9.Tools/Git/20200929_Bug-gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-gitignore不起作用的解决办法" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -1256,8 +1030,8 @@ j
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/9.Tools/Git/20200929_Bug-gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Git/20200929_Bug-gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1271,32 +1045,19 @@ j
     
     
     <div class="post-body" itemprop="articleBody">
-          Ubuntu VirtualBox安装与设置
-一.系统安装
- * 下载virtualBox 和 ubuntu-16.04.6-desktop-amd64.iso镜像
-   
-   
- * 完成安装后打开virtualBox新建虚拟机 如果没有64位选项 重启电脑进入bios开启cpu虚拟化选项(Virtualization)
-   
-   
- * 内存设置2G 硬盘设置30G 动态分配大小 硬盘位置选一个空间大的硬盘
-   
-   
- * 启动虚拟机 光驱选择前面下载好的镜像进入安装程序
-   
-   
- * 语言选择英语
-   
-   
- * 安装完成后重启
-   
-   
+          gitignore不起作用的解决办法
+问题原因
+首先，.gitignore文件我们在.gitignore文件中增加需要忽略的文件并更新后，有时会出现相关文件并未被忽略的情况，即更新后的.gitignore并未生效。原因是.gitignore只能忽略未被track的文件，而git有本地缓存。如果增加的ignore文件原来被track过，则忽视.gitignore的规则。
 
-二.基本设置
+解决方案
+.gitignore文件必须存放在项目根目录下。
+首先进入项目根目录，输入git status：如果要忽略的文件或文件夹不在untracked files列表中，则说明该文件已加入git cache。
+这时，输入
+
 
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/9.Tools/Git/20200929_Bug-gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1322,7 +1083,7 @@ j
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1339,7 +1100,7 @@ j
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/" class="post-title-link" itemprop="url">Tips-PowerShellHelloWorld</a>
+            <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/" class="post-title-link" itemprop="url">Tips-git+vscode</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1364,16 +1125,12 @@ j
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/OS/" itemprop="url" rel="index"><span itemprop="name">OS</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/OS/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
         </span>
     </span>
 
   
-    <span id="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-PowerShellHelloWorld" title="阅读次数">
+    <span id="/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-git+vscode" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -1388,8 +1145,8 @@ j
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1403,15 +1160,290 @@ j
     
     
     <div class="post-body" itemprop="articleBody">
-          PowerShellHelloWorld
-设置执行权限
-This is normal behavior. In order to prevent malicious scripts from running on your system, PowerShell enforces an execution policy. There are 4 execution policies you can use:
+          VSCode 下 Git 的使用
+趟完坑,给出最简单方案.
 
- * Restricted – Scripts won’t run. Period. (Default setting)
- * RemoteSigned – Locally-created
+下载 git
+下载地址
+
+设置全局配置
+1
+2
+
+
+git config --global user.name "Michael"
+git config --global user.email "qiaogaojian@vip.qq.com"  //注意这里的email要和服务器账户的email保持一致
+
+
+新建项目
+
+
+克隆项目
+
+
+
+
+
+
+编辑项目
+
+
+
+
+提交项目
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-PowerShellHelloWorld/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/" class="post-title-link" itemprop="url">Tips-git合并指定提交到另一个分支</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-git合并指定提交到另一个分支" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          git合并分支上指定的commit
+merge 能够胜任平常大部分的合并需求。但也会遇到某些特殊的情况，例如正在开发一个新的功能，线上说有一个紧急的bug要修复。bug修好了但并不像把仍在开发的新功能代码也提交到线上去。这时候也许想要一个只合并指定某些 commit 的功能。
+
+假设分支结构如下：
+dd2e86 - 946992 - 9143a9 - a6fd86 - 5a6057 [master]
+
+|
+
+76cada-62ecb3-b886a0[feature]
+
+再假设 62ecb3 的提交修复了bug，这时候可以用
+cherry pick 合并单个 commit
+具体操作：
+1
+2
+
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/" class="post-title-link" itemprop="url">Tips-CISP-PTE</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-CS/" itemprop="url" rel="index"><span itemprop="name">1.CS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-CS/ASM/" itemprop="url" rel="index"><span itemprop="name">ASM</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-CISP-PTE" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          CISP-PTE
+CISP-PTE（注册信息安全专业人员-渗透测试工程师），英文为Certified Information Security Professional - Penetration Testing Engineer
+
+大纲
+ 1. Web安全基础
+    
+     * HTTP协议
+       
+       
+     * 注入漏洞
+       
+       
+     * XSS漏洞
+       
+       
+     * SSRF漏洞
+       
+       
+     * CSRF漏洞
+       
+       
+     * 文件处理漏洞
+  
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1436,7 +1468,7 @@ This is normal behavior. In order to prevent malicious scripts from running on y
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
