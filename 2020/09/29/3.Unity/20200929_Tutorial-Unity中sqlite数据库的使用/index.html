@@ -93,7 +93,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -363,22 +367,14 @@
     <meta name="referrer" content="no-referrer"/>
         <h1 id="Unity中sqlite数据库的使用"><a href="#Unity中sqlite数据库的使用" class="headerlink" title="Unity中sqlite数据库的使用"></a>Unity中sqlite数据库的使用</h1><h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><p>进入sqlite命令行工具所在的目录,打开命令行,创建一个名称为test.db的数据库</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlite3 test.db</span><br></pre></td></tr></table></figure>
-
 <h2 id="使用已有数据库"><a href="#使用已有数据库" class="headerlink" title="使用已有数据库"></a>使用已有数据库</h2><p>使用已有数据库和创建数据库命令一样 sqlite3 + 数据库名字</p>
 <h2 id="显示当前数据库"><a href="#显示当前数据库" class="headerlink" title="显示当前数据库"></a>显示当前数据库</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.databases</span><br></pre></td></tr></table></figure>
-
 <h2 id="显示当前数据表"><a href="#显示当前数据表" class="headerlink" title="显示当前数据表"></a>显示当前数据表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.tables</span><br></pre></td></tr></table></figure>
-
 <h2 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sqlite&gt;.header on</span><br><span class="line">sqlite&gt;.mode column</span><br><span class="line">sqlite&gt;.timer on</span><br></pre></td></tr></table></figure>
-
 <h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sqlite&gt; CREATE TABLE COMPANY(</span><br><span class="line">   ID INT PRIMARY KEY     NOT NULL,</span><br><span class="line">   NAME           TEXT    NOT NULL,</span><br><span class="line">   AGE            INT     NOT NULL,</span><br><span class="line">   ADDRESS        CHAR(50),</span><br><span class="line">   SALARY         REAL</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
 <h2 id="删除数据表"><a href="#删除数据表" class="headerlink" title="删除数据表"></a>删除数据表</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlite&gt;DROP TABLE COMPANY;</span><br></pre></td></tr></table></figure>
-
 <h2 id="修改数据表"><a href="#修改数据表" class="headerlink" title="修改数据表"></a>修改数据表</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 插入表</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> TABLE_NAME [(column1, column2, column3,...columnN)]</span><br><span class="line"><span class="keyword">VALUES</span> (value1, value2, value3,...valueN);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 更新表</span></span><br><span class="line">sqlite&gt; UPDATE COMPANY SET ADDRESS = &#x27;Texas&#x27; WHERE ID = 6;</span><br></pre></td></tr></table></figure>
-
 <h2 id="查询数据表"><a href="#查询数据表" class="headerlink" title="查询数据表"></a>查询数据表</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column1, column2, columnN <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
-
 <h2 id="操作记录"><a href="#操作记录" class="headerlink" title="操作记录"></a>操作记录</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">ETA@QiaoGaojian-PC MINGW64 /d/gitee/etaframe (develop)</span><br><span class="line">$ <span class="built_in">cd</span> sqlitetool</span><br><span class="line"></span><br><span class="line">ETA@QiaoGaojian-PC MINGW64 /d/gitee/etaframe/sqlitetool (develop)</span><br><span class="line">$ ls</span><br><span class="line">sqldiff.exe  sqlite3.exe  sqlite3_analyzer.exe  test.db</span><br><span class="line"></span><br><span class="line">ETA@QiaoGaojian-PC MINGW64 /d/gitee/etaframe/sqlitetool (develop)</span><br><span class="line">$ sqlite3 test.db</span><br><span class="line">SQLite version 3.8.10.2 2015-05-20 18:17:19</span><br><span class="line">Enter <span class="string">&quot;.help&quot;</span> <span class="keyword">for</span> usage hints.</span><br><span class="line">sqlite&gt; .databases</span><br><span class="line">seq  name             file</span><br><span class="line">---  ---------------  ----------------------------------------------------------</span><br><span class="line">0    main             D:\gitee\etaframe\sqlitetool\test.db</span><br><span class="line">sqlite&gt; .tables;</span><br><span class="line">Error: unknown <span class="built_in">command</span> or invalid arguments:  <span class="string">&quot;tables;&quot;</span>. Enter <span class="string">&quot;.help&quot;</span> <span class="keyword">for</span> <span class="built_in">help</span></span><br><span class="line">sqlite&gt; .tables</span><br><span class="line">user</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">1|Michael|18</span><br><span class="line">sqlite&gt; insert into user values</span><br><span class="line">   ...&gt; (2,<span class="string">&quot;Michelle&quot;</span>,19);</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">1|Michael|18</span><br><span class="line">2|Michelle|19</span><br><span class="line">sqlite&gt; .header on</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">id|name|age</span><br><span class="line">1|Michael|18</span><br><span class="line">2|Michelle|19</span><br><span class="line">sqlite&gt; .mode column</span><br><span class="line">sqlite&gt; .timer on</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">id          name        age</span><br><span class="line">----------  ----------  ----------</span><br><span class="line">1           Michael     18</span><br><span class="line">2           Michelle    19</span><br><span class="line">Run Time: real 0.004 user 0.000000 sys 0.000000</span><br><span class="line">sqlite&gt; <span class="built_in">exit</span></span><br><span class="line">   ...&gt; ;</span><br><span class="line">Run Time: real 0.001 user 0.000000 sys 0.000000</span><br><span class="line">Error: near <span class="string">&quot;exit&quot;</span>: syntax error</span><br><span class="line">sqlite&gt; .<span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">ETA@QiaoGaojian-PC MINGW64 /d/gitee/etaframe/sqlitetool (develop)</span><br><span class="line">$ sqlite3 test.db</span><br><span class="line">SQLite version 3.8.10.2 2015-05-20 18:17:19</span><br><span class="line">Enter <span class="string">&quot;.help&quot;</span> <span class="keyword">for</span> usage hints.</span><br><span class="line">sqlite&gt; .status</span><br><span class="line">Error: unknown <span class="built_in">command</span> or invalid arguments:  <span class="string">&quot;status&quot;</span>. Enter <span class="string">&quot;.help&quot;</span> <span class="keyword">for</span> <span class="built_in">help</span></span><br><span class="line">sqlite&gt; .show</span><br><span class="line">        <span class="built_in">echo</span>: off</span><br><span class="line">         eqp: off</span><br><span class="line">  explain: off</span><br><span class="line">     headers: off</span><br><span class="line">        mode: list</span><br><span class="line">   nullvalue: <span class="string">&quot;&quot;</span></span><br><span class="line">      output: stdout</span><br><span class="line">colseparator: <span class="string">&quot;|&quot;</span></span><br><span class="line">rowseparator: <span class="string">&quot;\n&quot;</span></span><br><span class="line">       stats: off</span><br><span class="line">       width:</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">1|Michael|18</span><br><span class="line">2|Michelle|19</span><br><span class="line">sqlite&gt; .header on</span><br><span class="line">sqlite&gt; .mode column</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">id          name        age</span><br><span class="line">----------  ----------  ----------</span><br><span class="line">1           Michael     18</span><br><span class="line">2           Michelle    19</span><br><span class="line">sqlite&gt; .timer on</span><br><span class="line">sqlite&gt; select * from user;</span><br><span class="line">id          name        age</span><br><span class="line">----------  ----------  ----------</span><br><span class="line">1           Michael     18</span><br><span class="line">2           Michelle    19</span><br><span class="line">Run Time: real 0.005 user 0.015625 sys 0.000000</span><br><span class="line">sqlite&gt; sqlite3 test.db .dump &gt; test.sql</span><br><span class="line">   ...&gt; ;</span><br><span class="line">Run Time: real 0.000 user 0.000000 sys 0.000000</span><br><span class="line">Error: near <span class="string">&quot;sqlite3&quot;</span>: syntax error</span><br><span class="line">sqlite&gt; .<span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">ETA@QiaoGaojian-PC MINGW64 /d/gitee/etaframe/sqlitetool (develop)</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
     </div>
 
@@ -539,6 +535,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

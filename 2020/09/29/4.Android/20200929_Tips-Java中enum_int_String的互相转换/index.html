@@ -91,7 +91,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -359,11 +363,8 @@
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
         <h1 id="Java中enum-int-String的互相转换"><a href="#Java中enum-int-String的互相转换" class="headerlink" title="Java中enum/int/String的互相转换"></a>Java中enum/int/String的互相转换</h1><h2 id="enum-和-int"><a href="#enum-和-int" class="headerlink" title="enum 和 int"></a>enum 和 int</h2><h3 id="enum-gt-int"><a href="#enum-gt-int" class="headerlink" title="enum -&gt; int"></a>enum -&gt; int</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = enumType.value.ordinal();</span><br></pre></td></tr></table></figure>
-
 <h3 id="int-gt-enum"><a href="#int-gt-enum" class="headerlink" title="int -&gt; enum"></a>int -&gt; enum</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enumType b = enumType.values()[i];</span><br></pre></td></tr></table></figure>
-
 <h2 id="enum-和-string"><a href="#enum-和-string" class="headerlink" title="enum 和 string"></a>enum 和 string</h2><h3 id="enum-gt-string"><a href="#enum-gt-string" class="headerlink" title="enum -&gt; string"></a>enum -&gt; string</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s = enumType.name();</span><br></pre></td></tr></table></figure>
-
 <h3 id="string-gt-enum"><a href="#string-gt-enum" class="headerlink" title="string -&gt; enum"></a>string -&gt; enum</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enumType b = enumType.valueOf(s);</span><br></pre></td></tr></table></figure>
     </div>
 
@@ -522,6 +523,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

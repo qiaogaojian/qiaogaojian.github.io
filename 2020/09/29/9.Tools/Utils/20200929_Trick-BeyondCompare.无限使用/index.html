@@ -93,7 +93,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -365,9 +369,7 @@
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
         <h1 id="BeyondCompare-无限使用"><a href="#BeyondCompare-无限使用" class="headerlink" title="BeyondCompare 无限使用"></a>BeyondCompare 无限使用</h1><h2 id="进入目录"><a href="#进入目录" class="headerlink" title="进入目录"></a>进入目录</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Users\ETA\AppData\Roaming\BCompare\</span><br></pre></td></tr></table></figure>
-
 <h2 id="修改BCompare文件-确保安装时间和上次加载时间始终为当前时间"><a href="#修改BCompare文件-确保安装时间和上次加载时间始终为当前时间" class="headerlink" title="修改BCompare文件 确保安装时间和上次加载时间始终为当前时间"></a>修改BCompare文件 确保安装时间和上次加载时间始终为当前时间</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[BCompare]</span><br><span class="line">InstallTime=1533965017</span><br><span class="line">LastLoading=1533965017</span><br></pre></td></tr></table></figure>
-
 <h2 id="自动化"><a href="#自动化" class="headerlink" title="自动化"></a>自动化</h2><p>可以写一个Unity Editor工具或Python工具,获取当前用户名自动修改时间戳</p>
 
     </div>
@@ -426,8 +428,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/9.Tools/VS/20200929_Tips-VS%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" rel="prev" title="Tips-VS主题颜色配置">
-                  <i class="fa fa-chevron-left"></i> Tips-VS主题颜色配置
+                <a href="/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" rel="prev" title="Tips-VSCode主题颜色配置">
+                  <i class="fa fa-chevron-left"></i> Tips-VSCode主题颜色配置
                 </a>
             </div>
             <div class="post-nav-item">
@@ -529,6 +531,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

@@ -97,7 +97,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -379,63 +383,44 @@
 <blockquote>
 <p>所有命令都是在博客文件夹下gitbash中运行的</p>
 </blockquote>
-<h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><p><a target="_blank" rel="noopener" href="http://qiaogaojian.github.io/">Github</a></p>
-<p><a target="_blank" rel="noopener" href="http://qiaogaojian.gitee.io/">Gitee</a></p>
+<h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><p><a target="_blank" rel="noopener" href="http://qiaogaojian.github.io">Github</a></p>
+<p><a target="_blank" rel="noopener" href="http://qiaogaojian.gitee.io">Gitee</a></p>
 <h2 id="注册-Github-Gitee-账号"><a href="#注册-Github-Gitee-账号" class="headerlink" title="注册 Github Gitee 账号"></a>注册 Github Gitee 账号</h2><h2 id="创建-Pages-Repository"><a href="#创建-Pages-Repository" class="headerlink" title="创建 Pages Repository"></a>创建 Pages Repository</h2><h3 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h3><p>命名格式: username.github.io</p>
 <h3 id="Gitee"><a href="#Gitee" class="headerlink" title="Gitee"></a>Gitee</h3><p>命名格式: username (和个人主页路径中的 username 保持一致)</p>
 <h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><p><a target="_blank" rel="noopener" href="https://git-scm.com/downloads">下载地址</a></p>
 <h3 id="node"><a href="#node" class="headerlink" title="node"></a>node</h3><p><a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">下载地址</a></p>
 <h2 id="Hexo-安装"><a href="#Hexo-安装" class="headerlink" title="Hexo 安装"></a>Hexo 安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
 <h2 id="Hexo-初始化"><a href="#Hexo-初始化" class="headerlink" title="Hexo 初始化"></a>Hexo 初始化</h2><h3 id="生成"><a href="#生成" class="headerlink" title="生成"></a>生成</h3><p>新建 blog 存放目录,打开终端进入</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; hexo init blog</span><br></pre></td></tr></table></figure>
-
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line"></span><br><span class="line"><span class="comment"># hexo n &quot;article&quot; == hexo new &quot;article&quot;  #新建</span></span><br><span class="line"><span class="comment"># hexo g == hexo generate                 #生成</span></span><br><span class="line"><span class="comment"># hexo s == hexo server                   #预览</span></span><br><span class="line"><span class="comment"># hexo d == hexo deploy                   #部署</span></span><br></pre></td></tr></table></figure>
-
 <p>浏览器输入 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> 查看默认网页</p>
 <h2 id="Hexo-配置"><a href="#Hexo-配置" class="headerlink" title="Hexo 配置"></a>Hexo 配置</h2><p>注意配置的’:’后面一定要有空格</p>
 <h3 id="配置基本信息"><a href="#配置基本信息" class="headerlink" title="配置基本信息"></a>配置基本信息</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">title:          <span class="comment">#Blog标题</span></span><br><span class="line">subtitle:       <span class="comment">#副标题</span></span><br><span class="line">description:    <span class="comment">#网页描述</span></span><br><span class="line">author:         <span class="comment">#作者</span></span><br><span class="line">keywords:       <span class="comment">#关键词</span></span><br><span class="line">tags:           <span class="comment">#标签 hexo-enhancer插件会根据这里的标签来匹配文章内容,用于生成文章的标签</span></span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: Asia/Shanghai</span><br></pre></td></tr></table></figure>
-
 <h3 id="配置部署"><a href="#配置部署" class="headerlink" title="配置部署"></a>配置部署</h3><h4 id="安装-hexo-deployer-git"><a href="#安装-hexo-deployer-git" class="headerlink" title="安装 hexo-deployer-git"></a>安装 hexo-deployer-git</h4><p>用于 Git 部署</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
 <h4 id="单部署"><a href="#单部署" class="headerlink" title="单部署"></a>单部署</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: https://github.com/qiaogaojian/qiaogaojian.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
 <h4 id="多部署"><a href="#多部署" class="headerlink" title="多部署"></a>多部署</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo:</span><br><span class="line">      gitee: https://gitee.com/qiaogaojian/qiaogaojian.git</span><br><span class="line">      github: https://github.com/qiaogaojian/qiaogaojian.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
 <h3 id="安装-hexo-enhancer"><a href="#安装-hexo-enhancer" class="headerlink" title="安装 hexo-enhancer"></a>安装 hexo-enhancer</h3><p>hexo-enhancer 是一个 Hexo 功能增强插件 <a target="_blank" rel="noopener" href="https://sulin.me/2019/Z726F8.html">说明文档</a></p>
 <p>最新版有 bug,这里使用 1.0.7</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-enhancer@1.0.7 --save</span><br></pre></td></tr></table></figure>
-
 <p>建议文章命名格式:时间_分类-名字 例:”20200929_Tutorial-Hexo+Github+Gitee 博客搭建”</p>
 <h3 id="更换主题-next"><a href="#更换主题-next" class="headerlink" title="更换主题(next)"></a>更换主题(next)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; git clone https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-theme-next</span><br></pre></td></tr></table></figure>
-
 <p>为了方便配置和修改,这里克隆下主题后把 next 文件夹放在根目录 themes 文件夹下<br>然后将themes/next/_config.yml复制到博客根目录，重命名为_config.next.yml</p>
 <h4 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h4><p>打开_config.next.yml</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
-
 <h4 id="设置icon"><a href="#设置icon" class="headerlink" title="设置icon"></a>设置icon</h4><p>打开_config.next.yml</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">favicon:</span><br><span class="line"> small: &#x2F;images&#x2F;avatar.jfif</span><br><span class="line"> medium: &#x2F;images&#x2F;avatar.jfif</span><br><span class="line"> apple_touch_icon: &#x2F;images&#x2F;avatar.jfif</span><br><span class="line"> safari_pinned_tab: &#x2F;images&#x2F;logo.svg</span><br></pre></td></tr></table></figure>
-
 <h4 id="设置菜单"><a href="#设置菜单" class="headerlink" title="设置菜单"></a>设置菜单</h4><p>打开_config.next.yml,用于设置菜单选项显示,font awesome图标可以自定义,<a target="_blank" rel="noopener" href="https://fontawesome.com/">官网</a></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line"> home: / || fa fa-home</span><br><span class="line"> about: /about/ || fa fa-user</span><br><span class="line"> tags: /tags/ || fa fa-tags</span><br><span class="line"> categories: /categories/ || fa fa-th</span><br><span class="line"> archives: /archives/ || fa fa-archive</span><br><span class="line"> <span class="comment"># guestbook: /guestbook/ || fa fa-book</span></span><br><span class="line"> <span class="comment"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line"> <span class="comment"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line"> <span class="comment"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>
-
 <h5 id="新建分类和标签页面"><a href="#新建分类和标签页面" class="headerlink" title="新建分类和标签页面"></a>新建分类和标签页面</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; hexo new page categories</span><br><span class="line">&gt; hexo new page tags</span><br></pre></td></tr></table></figure>
-
 <p>设置categories页面属性(source目录下的md文件)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">comments: false</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">comments: false</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
 <h4 id="设置已读进度条"><a href="#设置已读进度条" class="headerlink" title="设置已读进度条"></a>设置已读进度条</h4><p>打开_config.next.yml</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">reading_progress:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Available values: top | bottom</span></span><br><span class="line">  position: top</span><br><span class="line">  color: <span class="string">&quot;#37c6c0&quot;</span></span><br><span class="line">  height: 3px</span><br></pre></td></tr></table></figure>
-
 <h4 id="搜索功能"><a href="#搜索功能" class="headerlink" title="搜索功能"></a>搜索功能</h4><h5 id="安装-hexo-generator-searchdb"><a href="#安装-hexo-generator-searchdb" class="headerlink" title="安装 hexo-generator-searchdb"></a>安装 hexo-generator-searchdb</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-
 <h5 id="配置根目录下-config-yml"><a href="#配置根目录下-config-yml" class="headerlink" title="配置根目录下 _config.yml"></a>配置根目录下 _config.yml</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  <span class="built_in">limit</span>: 10000</span><br></pre></td></tr></table></figure>
-
 <h5 id="配置主题目录下-config-yml"><a href="#配置主题目录下-config-yml" class="headerlink" title="配置主题目录下 _config.yml"></a>配置主题目录下 _config.yml</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">local_search:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
 <h5 id="重新部署"><a href="#重新部署" class="headerlink" title="重新部署"></a>重新部署</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
 <h4 id="添加评论"><a href="#添加评论" class="headerlink" title="添加评论"></a>添加评论</h4><p>注册<a target="_blank" rel="noopener" href="https://www.leancloud.cn/">leancloud</a>账号,获取自己的appid,appkey</p>
 <p>新建开发版应用</p>
 <p>新建存储class “Counter”  设置权限为所有人可读可写</p>
@@ -443,51 +428,36 @@
 <p>打开_config.next.yml</p>
 <p>修改配置</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">valine:</span><br><span class="line">    <span class="built_in">enable</span>: <span class="literal">true</span> <span class="comment"># 为true时启用评论</span></span><br><span class="line">    appid:  <span class="comment"># 这里填写上面得到的APP ID   注意空一格再输入ID和key,</span></span><br><span class="line">    appkey:  <span class="comment"># 这里填写上面得到的APP KEY</span></span><br><span class="line">    notify: <span class="literal">false</span> <span class="comment">#  邮件通知</span></span><br><span class="line">    verify: <span class="literal">false</span> <span class="comment"># 验证码</span></span><br><span class="line">    placeholder:  <span class="comment">#评论框中预设的文字,随意填写</span></span><br><span class="line">    avatar: mm <span class="comment"># gravatar style 头像,采用gravatar头像,到http://cn.gravatar.com/了解</span></span><br><span class="line">    guest_info: nick,mail,link <span class="comment"># custom comment header 访客信息,显示在评论框上面,三者可随意选择或全选</span></span><br><span class="line">    pageSize: 10 <span class="comment"># pagination size 评论分页大小</span></span><br><span class="line">    visitor: <span class="literal">false</span> <span class="comment">#</span></span><br></pre></td></tr></table></figure>
-
 <h4 id="添加打赏"><a href="#添加打赏" class="headerlink" title="添加打赏"></a>添加打赏</h4><p>打开_config.next.yml</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">reward:</span><br><span class="line">   　　enable: true ＃开启</span><br><span class="line">   　　comment: buy me a coffee</span><br><span class="line">   　　wechatpay:   ＃图片地址</span><br><span class="line">   　　alipay:      ＃图片地址</span><br></pre></td></tr></table></figure>
-
 <h4 id="隐藏底部-power-by-hexo"><a href="#隐藏底部-power-by-hexo" class="headerlink" title="隐藏底部 power by hexo"></a>隐藏底部 power by hexo</h4><p>打开 themes/next/layout/_partials/footer.njk 注释下图所示代码</p>
-<p><img src="/images/2020-09-29-15-12-05.png"></p>
+<p><img src="/images/2020-09-29-15-12-05.png" alt=""></p>
 <h4 id="置顶功能"><a href="#置顶功能" class="headerlink" title="置顶功能"></a>置顶功能</h4><h5 id="更换原有-hexo-generator-index"><a href="#更换原有-hexo-generator-index" class="headerlink" title="更换原有 hexo-generator-index"></a>更换原有 hexo-generator-index</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm uninstall hexo-generator-index --save</span><br><span class="line">&gt; npm install hexo-generator-index-pin-top --save</span><br></pre></td></tr></table></figure>
-
 <h5 id="需要置顶的文章顶部添加"><a href="#需要置顶的文章顶部添加" class="headerlink" title="需要置顶的文章顶部添加"></a>需要置顶的文章顶部添加</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">top: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
 <h5 id="设置置顶标志"><a href="#设置置顶标志" class="headerlink" title="设置置顶标志"></a>设置置顶标志</h5><p>打开文件 next/layout/_partials/post/poset-meta.njk</p>
 <p>在<code>&lt;div class=&quot;post-meta&quot;&gt;</code>标签下插入如下代码：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if post.top %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fas fa-thumbtack&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">7D26CD</span>&gt;</span>置顶<span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;post-meta-divider&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
-
 <h5 id="重新部署-1"><a href="#重新部署-1" class="headerlink" title="重新部署"></a>重新部署</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
 <h4 id="添加宠物"><a href="#添加宠物" class="headerlink" title="添加宠物"></a>添加宠物</h4><p>安装插件</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm install --save hexo-helper-live2d</span><br></pre></td></tr></table></figure>
-
 <p>作者提供以下模型的<a target="_blank" rel="noopener" href="https://huaji8.top/post/live2d-plugin-2.0/">模型包</a>，模型包预览地址见下面的链接，选择你想用的模型，记住名字，选择对应的后缀模型包</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">live2d-widget-model-chitose</span><br><span class="line">live2d-widget-model-epsilon2_1</span><br><span class="line">live2d-widget-model-gf</span><br><span class="line">live2d-widget-model-haru&#x2F;01 (use npm install --save live2d-widget-model-haru)</span><br><span class="line">live2d-widget-model-haru&#x2F;02 (use npm install --save live2d-widget-model-haru)</span><br><span class="line">live2d-widget-model-haruto</span><br><span class="line">live2d-widget-model-hibiki</span><br><span class="line">live2d-widget-model-hijiki</span><br><span class="line">live2d-widget-model-izumi</span><br><span class="line">live2d-widget-model-koharu</span><br><span class="line">live2d-widget-model-miku</span><br><span class="line">live2d-widget-model-ni-j</span><br><span class="line">live2d-widget-model-nico</span><br><span class="line">live2d-widget-model-nietzsche</span><br><span class="line">live2d-widget-model-nipsilon</span><br><span class="line">live2d-widget-model-nito</span><br><span class="line">live2d-widget-model-shizuku</span><br><span class="line">live2d-widget-model-tororo</span><br><span class="line">live2d-widget-model-tsumiki</span><br><span class="line">live2d-widget-model-unitychan</span><br><span class="line">live2d-widget-model-wanko</span><br><span class="line">live2d-widget-model-z16</span><br></pre></td></tr></table></figure>
-
 <p>选择好对应的模型，使用 npm install 模型的包名来安装，比如我选择的的是 live2d-widget-model-wanko 模型包</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm install live2d-widget-model-wanko</span><br></pre></td></tr></table></figure>
-
 <p>打开hexo的 _config.yml 添加live2d配置</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span> <span class="comment">#????</span></span><br><span class="line">  scriptFrom: <span class="built_in">local</span></span><br><span class="line">  model:</span><br><span class="line">    use: live2d-widget-model-wanko</span><br><span class="line">  display:</span><br><span class="line">    position: right</span><br><span class="line">    width: 210</span><br><span class="line">    height: 360</span><br><span class="line">  mobile:</span><br><span class="line">    show: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
 <p>重新部署预览</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
 <h4 id="调整字体大小"><a href="#调整字体大小" class="headerlink" title="调整字体大小"></a>调整字体大小</h4><p><img src="/images/2020-09-29-17-43-34.png" alt="调整字体大小"></p>
 <h4 id="关闭动画"><a href="#关闭动画" class="headerlink" title="关闭动画"></a>关闭动画</h4><p>打开_config.next.yml</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">motion:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="插入图片-视频和下载文件"><a href="#插入图片-视频和下载文件" class="headerlink" title="插入图片/视频和下载文件"></a>插入图片/视频和下载文件</h3><h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><p>图片统一放在 source/images 文件夹中,访问时路径如下</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![imageName](/images/image.jpg)</span><br></pre></td></tr></table></figure>
-
 <h4 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法1</span></span><br><span class="line"></span><br><span class="line">&lt;iframe src=<span class="string">&quot;（视频网址）&quot;</span> scrolling=<span class="string">&quot;no&quot;</span> border=<span class="string">&quot;0&quot;</span> frameborder=<span class="string">&quot;no&quot;</span> framespacing=<span class="string">&quot;0&quot;</span> allowfullscreen=<span class="string">&quot;true&quot;</span> width=<span class="string">&quot;100%&quot;</span>  height=<span class="string">&quot;580&quot;</span> quality=<span class="string">&quot;high&quot;</span> &gt; &lt;/iframe&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法2 支持手机自适应</span></span><br><span class="line"></span><br><span class="line">&lt;div style=<span class="string">&quot;position: relative; width: 100%; height: 0;padding-bottom: 75%;&quot;</span>&gt;</span><br><span class="line">    &lt;iframe src=<span class="string">&quot;//player.bilibili.com/player.html?aid=39807850&amp;cid=69927212&amp;page=1&quot;</span> scrolling=<span class="string">&quot;no&quot;</span> border=<span class="string">&quot;0&quot;</span> frameborder=<span class="string">&quot;no&quot;</span> framespacing=<span class="string">&quot;0&quot;</span> allowfullscreen=<span class="string">&quot;true&quot;</span> style=<span class="string">&quot;position: absolute; width: 100%; height: 100%; left: 0; top: 0;&quot;</span>&gt;</span><br><span class="line">    &lt;/iframe&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <h4 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h4><p>文件下载需要把文件放入source/download文件夹下</p>
 <p><a href="/download/file">下载地址</a></p>
 <h2 id="错误记录"><a href="#错误记录" class="headerlink" title="错误记录"></a>错误记录</h2><h3 id="YAMLException-end-of-the-stream-or-a-document-separator-is-expected"><a href="#YAMLException-end-of-the-stream-or-a-document-separator-is-expected" class="headerlink" title="YAMLException: end of the stream or a document separator is expected"></a>YAMLException: end of the stream or a document separator is expected</h3><p>文章头部添加</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">description: Title</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/251383216">hexo主题安装以及next8.0主题美化</a></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60424755">hexo的next主题个性化配置</a></p>
 
@@ -651,6 +621,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

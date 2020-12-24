@@ -91,7 +91,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -359,7 +363,6 @@
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
         <h1 id="Unity游戏dll破解-基于Dump内存的方法"><a href="#Unity游戏dll破解-基于Dump内存的方法" class="headerlink" title="Unity游戏dll破解_基于Dump内存的方法"></a>Unity游戏dll破解_基于Dump内存的方法</h1><h2 id="windbg"><a href="#windbg" class="headerlink" title="windbg"></a>windbg</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.dump /ma E:/dumps/myapp.dmp</span><br><span class="line">.load psscor4</span><br><span class="line">!SaveAllModules E:\dumps\modules</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <h2 id="Dll-Memory-Dumper"><a href="#Dll-Memory-Dumper" class="headerlink" title="Dll Memory Dumper"></a>Dll Memory Dumper</h2><ul>
 <li>打开游戏</li>
 <li>打开DllMemoryDumper</li>
@@ -420,13 +423,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Tutorial-GameFramework%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B/" rel="prev" title="Tutorial-GameFramework功能简介">
-                  <i class="fa fa-chevron-left"></i> Tutorial-GameFramework功能简介
+                <a href="/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/" rel="prev" title="Tutorial-2048核心算法">
+                  <i class="fa fa-chevron-left"></i> Tutorial-2048核心算法
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/" rel="next" title="Tutorial-2048核心算法">
-                  Tutorial-2048核心算法 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" rel="next" title="Trick_Unity插件Ngui图片缝隙问题解决">
+                  Trick_Unity插件Ngui图片缝隙问题解决 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -523,6 +526,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

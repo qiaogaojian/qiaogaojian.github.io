@@ -103,7 +103,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -379,7 +383,6 @@
 </blockquote>
 <h2 id="下载-git"><a href="#下载-git" class="headerlink" title="下载 git"></a>下载 git</h2><p><a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=https://git-scm.com/download/win" title="https://link.jianshu.com/?t=https://git-scm.com/download/win">下载地址</a></p>
 <h2 id="设置全局配置"><a href="#设置全局配置" class="headerlink" title="设置全局配置"></a>设置全局配置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;Michael&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;qiaogaojian@vip.qq.com&quot;</span>  //注意这里的email要和服务器账户的email保持一致</span><br></pre></td></tr></table></figure>
-
 <h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><p><img src="https://upload-images.jianshu.io/upload_images/3947109-80d26fc8f1ab5686.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="克隆项目"><a href="#克隆项目" class="headerlink" title="克隆项目"></a>克隆项目</h2><p><img src="https://upload-images.jianshu.io/upload_images/3947109-b1993df3f8696389.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/3947109-5b5a6f417c2eeb47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
@@ -446,8 +449,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/" rel="prev" title="Tips-git多账号配置">
-                  <i class="fa fa-chevron-left"></i> Tips-git多账号配置
+                <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/" rel="prev" title="Tips-git合并指定提交到另一个分支">
+                  <i class="fa fa-chevron-left"></i> Tips-git合并指定提交到另一个分支
                 </a>
             </div>
             <div class="post-nav-item">
@@ -549,6 +552,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

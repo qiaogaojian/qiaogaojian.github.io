@@ -91,7 +91,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -369,11 +373,9 @@
 <p>|</p>
 <p>76cada-62ecb3-b886a0[feature]</p>
 <h2 id="再假设-62ecb3-的提交修复了bug，这时候可以用"><a href="#再假设-62ecb3-的提交修复了bug，这时候可以用" class="headerlink" title="再假设 62ecb3 的提交修复了bug，这时候可以用"></a>再假设 62ecb3 的提交修复了bug，这时候可以用</h2><h2 id="cherry-pick-合并单个-commit"><a href="#cherry-pick-合并单个-commit" class="headerlink" title="cherry pick 合并单个 commit"></a>cherry pick 合并单个 commit</h2><h3 id="具体操作："><a href="#具体操作：" class="headerlink" title="具体操作："></a>具体操作：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git cherry-pick 62ecb3</span><br></pre></td></tr></table></figure>
-
 <p>就这么简单。62ecb3 已经应用在 master 上了（作为一个新的commit）。</p>
 <h2 id="cherry-pick-连续多个commit"><a href="#cherry-pick-连续多个commit" class="headerlink" title="cherry pick 连续多个commit"></a>cherry pick 连续多个commit</h2><p>cherry pick 虽好，但一次只能合并一个commit。合并多个就要用到 rebase 了。再次假设想要把 76cada 和 62ecb3 合并到 master 上。</p>
 <h3 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b newbranch 62ecb3</span><br><span class="line">git rebase —onto master 76cada^</span><br></pre></td></tr></table></figure>
-
 <p>76cada^ 表示从 76cada 的 commit 开始合并（作为新的commit）。这样就完成了 76cada 到 62ecb3<br> 合并到 master。</p>
 
     </div>
@@ -427,13 +429,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E6%81%A2%E5%A4%8D%E5%88%A0%E9%99%A4%E7%9A%84stash%E4%BB%A3%E7%A0%81/" rel="prev" title="Tips-git恢复删除的stash代码">
-                  <i class="fa fa-chevron-left"></i> Tips-git恢复删除的stash代码
+                <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/" rel="prev" title="Tips-git多账号配置">
+                  <i class="fa fa-chevron-left"></i> Tips-git多账号配置
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/" rel="next" title="Tips-git多账号配置">
-                  Tips-git多账号配置 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/" rel="next" title="Tips-git+vscode">
+                  Tips-git+vscode <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -530,6 +532,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

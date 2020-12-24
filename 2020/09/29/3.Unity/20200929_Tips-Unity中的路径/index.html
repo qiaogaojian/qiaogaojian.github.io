@@ -95,7 +95,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -363,7 +367,6 @@
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
         <h1 id="Unity-中的路径"><a href="#Unity-中的路径" class="headerlink" title="Unity 中的路径"></a>Unity 中的路径</h1><h2 id="Application-persistentDataPath"><a href="#Application-persistentDataPath" class="headerlink" title="Application.persistentDataPath"></a>Application.persistentDataPath</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">string</span> userPath = Application.persistentDataPath + <span class="string">&quot;/user.json&quot;</span>;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>Application.persistentDataPath 是最合适用来存放下载资源的地方</p>
 </li>
@@ -375,7 +378,6 @@
 </li>
 </ul>
 <h2 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Resources.Load()</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>Resources 文件夹是一个只读的文件夹</p>
 </li>
@@ -386,10 +388,8 @@
 </ul>
 <h2 id="StreamingAssets"><a href="#StreamingAssets" class="headerlink" title="StreamingAssets"></a>StreamingAssets</h2><p>下面是 Unity 官方给的代码,适合读取文件,我用的就是这个</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ExampleClass</span> : <span class="title">MonoBehaviour</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">string</span> filePath = System.IO.Path.Combine(Application.streamingAssetsPath, <span class="string">&quot;MyFile&quot;</span>);</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">string</span> result = <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="function">IEnumerator <span class="title">Example</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (filePath.Contains(<span class="string">&quot;://&quot;</span>)) &#123;</span><br><span class="line">      WWW www = <span class="keyword">new</span> WWW(filePath);</span><br><span class="line">      <span class="keyword">yield</span> <span class="keyword">return</span> www;</span><br><span class="line">      result = www.text;</span><br><span class="line">    &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">      result = System.IO.File.ReadAllText(filePath);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>下面是网上的代码,不太好,因为 Android 设备最好用 www 读取</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">if</span> UNITY_EDITOR</span></span><br><span class="line">  <span class="keyword">string</span> filepath = Application.dataPath +<span class="string">&quot;/StreamingAssets&quot;</span>+<span class="string">&quot;/my.xml&quot;</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span> UNITY_IPHONE</span></span><br><span class="line">  <span class="keyword">string</span> filepath = Application.dataPath +<span class="string">&quot;/Raw&quot;</span>+<span class="string">&quot;/my.xml&quot;</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span> UNITY_ANDROID</span></span><br><span class="line">  <span class="keyword">string</span> filepath = <span class="string">&quot;jar:file://&quot;</span> + Application.dataPath + <span class="string">&quot;!/assets/&quot;</span>+<span class="string">&quot;/my.xml;</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>StreamingAssets 一般用来存放视频等文件,文件不会被 Unity 加密</p>
 </li>
@@ -398,14 +398,16 @@
 <li><p>只读的物件适合放这里</p>
 </li>
 </ul>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="IOS"><a href="#IOS" class="headerlink" title="IOS"></a>IOS</h3><table>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="IOS"><a href="#IOS" class="headerlink" title="IOS"></a>IOS</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>类型</th>
 <th>路径</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Application.dataPath :</td>
 <td>Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data</td>
 </tr>
@@ -421,15 +423,19 @@
 <td>Application.temporaryCachePath :</td>
 <td>Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Library/Caches</td>
 </tr>
-</tbody></table>
-<h3 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>类型</th>
 <th>路径</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Application.dataPath :</td>
 <td>/data/app/xxx.xxx.xxx.apk</td>
 </tr>
@@ -445,15 +451,19 @@
 <td>Application.temporaryCachePath :</td>
 <td>/data/data/xxx.xxx.xxx/cache</td>
 </tr>
-</tbody></table>
-<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>类型</th>
 <th>路径</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Application.dataPath :</td>
 <td>/Assets</td>
 </tr>
@@ -469,15 +479,19 @@
 <td>Application.temporaryCachePath :</td>
 <td>C:/Users/xxxx/AppData/Local/Temp/CompanyName/ProductName</td>
 </tr>
-</tbody></table>
-<h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>类型</th>
 <th>路径</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Application.dataPath :</td>
 <td>/Assets</td>
 </tr>
@@ -493,15 +507,19 @@
 <td>Application.temporaryCachePath :</td>
 <td>/var/folders/57/6b4_9w8113x2fsmzx_yhrhvh0000gn/T/CompanyName/Product Name</td>
 </tr>
-</tbody></table>
-<h3 id="Windows-Web-Player"><a href="#Windows-Web-Player" class="headerlink" title="Windows Web Player"></a>Windows Web Player</h3><table>
+</tbody>
+</table>
+</div>
+<h3 id="Windows-Web-Player"><a href="#Windows-Web-Player" class="headerlink" title="Windows Web Player"></a>Windows Web Player</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>类型</th>
 <th>路径</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Application.dataPath :</td>
 <td>file:///D:/MyGame/WebPlayer (即导包后保存的文件夹，html 文件所在文件夹)</td>
 </tr>
@@ -515,9 +533,10 @@
 </tr>
 <tr>
 <td>Application.temporaryCachePath :</td>
-<td></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/nanwei/p/8795949.html">参考文档</a></p>
 
     </div>
@@ -578,8 +597,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" rel="prev" title="Trick_Unity插件Ngui图片缝隙问题解决">
-                  <i class="fa fa-chevron-left"></i> Trick_Unity插件Ngui图片缝隙问题解决
+                <a href="/2020/09/29/3.Unity/20200929_Trick_Unity%E4%B8%AD%E8%87%AA%E5%B8%A6%E6%95%B0%E6%8D%AE%E5%9B%BA%E5%8C%96%E7%9A%84%E5%B1%9E%E6%80%A7/" rel="prev" title="Trick_Unity中自带数据固化的属性">
+                  <i class="fa fa-chevron-left"></i> Trick_Unity中自带数据固化的属性
                 </a>
             </div>
             <div class="post-nav-item">
@@ -681,6 +700,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

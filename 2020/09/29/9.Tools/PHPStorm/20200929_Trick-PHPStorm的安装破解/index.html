@@ -92,7 +92,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -370,7 +374,6 @@
 <li>将 -javaagent:{ install folder }\bin\JetbrainsCrack.jar 添加到最后一行</li>
 </ul>
 <h3 id="输入激活码"><a href="#输入激活码" class="headerlink" title="输入激活码"></a>输入激活码</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ThisCrackLicenseId-&#123; <span class="string">&quot;licenseId&quot;</span>:<span class="string">&quot;ThisCrackLicenseId&quot;</span>, <span class="string">&quot;licenseeName&quot;</span>:<span class="string">&quot;idea&quot;</span>, <span class="string">&quot;assigneeName&quot;</span>:<span class="string">&quot;&quot;</span>, <span class="string">&quot;assigneeEmail&quot;</span>:<span class="string">&quot;idea@163.com&quot;</span>, <span class="string">&quot;licenseRestriction&quot;</span>:<span class="string">&quot;For This Crack, Only Test! Please support genuine!!!&quot;</span>, <span class="string">&quot;checkConcurrentUse&quot;</span>:<span class="literal">false</span>, <span class="string">&quot;products&quot;</span>:[ &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;II&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;DM&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;AC&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;RS0&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;WS&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;DPN&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;RC&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;PS&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;DC&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;RM&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;CL&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125;, &#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;PC&quot;</span>,<span class="string">&quot;paidUpTo&quot;</span>:<span class="string">&quot;2099-12-31&quot;</span>&#125; ], <span class="string">&quot;hash&quot;</span>:<span class="string">&quot;2911276/0&quot;</span>, <span class="string">&quot;gracePeriodDays&quot;</span>:<span class="number">7</span>, <span class="string">&quot;autoProlongated&quot;</span>:<span class="literal">false</span>&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="重新启动"><a href="#重新启动" class="headerlink" title="重新启动"></a>重新启动</h2><h2 id="设置备份"><a href="#设置备份" class="headerlink" title="设置备份"></a>设置备份</h2><p><a href="/download/PHPStormSettings.jar">PHPStormSettings.jar</a></p>
 
     </div>
@@ -531,6 +534,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

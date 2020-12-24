@@ -94,7 +94,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -368,16 +372,11 @@
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
         <h1 id="Ubuntu安装ThinkPHP"><a href="#Ubuntu安装ThinkPHP" class="headerlink" title="Ubuntu安装ThinkPHP"></a>Ubuntu安装ThinkPHP</h1><h2 id="安装Composer"><a href="#安装Composer" class="headerlink" title="安装Composer"></a>安装Composer</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install composer</span><br></pre></td></tr></table></figure>
-
 <h2 id="切换Composer源"><a href="#切换Composer源" class="headerlink" title="切换Composer源"></a>切换Composer源</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer config -g repo.packagist composer https://packagist.phpcomposer.com</span><br></pre></td></tr></table></figure>
-
 <h2 id="安装thinkphp5"><a href="#安装thinkphp5" class="headerlink" title="安装thinkphp5"></a>安装thinkphp5</h2><p>首先切换到网站根目录 var/www/html</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install zip unzip php7.0-zip</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer create-project topthink/think thinkphp5  --prefer-dist</span><br></pre></td></tr></table></figure>
-
 <h2 id="添加Git版本控制"><a href="#添加Git版本控制" class="headerlink" title="添加Git版本控制"></a>添加Git版本控制</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;Michael&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;qiaogaojian@vip.qq.com&quot;</span></span><br><span class="line">git config --global push.default simple</span><br><span class="line"></span><br><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;init project&quot;</span></span><br><span class="line"></span><br><span class="line">git remote add origin https://gitee.com.qiaogaojian/example.git</span><br><span class="line"></span><br><span class="line">git branch --set-upstream-to=origin/master</span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line">git push --set-upstream origin master</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://my.oschina.net/inuxor/blog/750717">composer方式安装thinkphp5</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_33876553/article/details/80111946">使用git将本地项目推送到码云私有仓库</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.oschina.net/news/45585/git-2-x-change-push-default-to-simple">Git 2.0 更改 push default 为‘simple’</a></p>
@@ -542,6 +541,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

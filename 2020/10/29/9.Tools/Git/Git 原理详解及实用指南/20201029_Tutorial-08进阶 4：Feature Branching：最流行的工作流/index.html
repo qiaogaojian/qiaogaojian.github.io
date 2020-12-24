@@ -28,22 +28,22 @@
 <meta property="og:site_name" content="行则将至">
 <meta property="og:description" content="进阶 4：Feature Branching：最流行的工作流 在前面的《上手 2》这一节里，我介绍了一种最基本的团队工作模型。在这种模型里，所有人都工作在 master 上，写完了的 commit 可以通过 push 来发送到中央仓库，并且可以使用 pull 来获取到别人的最新 commits。  这种工作模型解决了团队合作最基本的问题：多人并行开发和版本管理。事实上，这也是早期的 VCS——中央">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbfe362c4?w=600&h=476&f=gif&s=627308">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/29/16007bb30da619c5?w=590&h=854&f=gif&s=143898">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/29/160087ca5a7d901a?w=484&h=672&f=gif&s=579053">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/29/1600877abc63a4d9?w=482&h=594&f=gif&s=492135">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbe5190a4?w=1000&h=465&f=jpeg&s=135485">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbeda949d?w=882&h=669&f=jpeg&s=158636">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edc112a514?w=796&h=616&f=jpeg&s=145692">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/30/1600884104e5bb94?w=458&h=594&f=gif&s=129309">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbfbe3b64?w=793&h=132&f=jpeg&s=22712">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbfe362c4?w=600&amp;h=476&amp;f=gif&amp;s=627308">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/29/16007bb30da619c5?w=590&amp;h=854&amp;f=gif&amp;s=143898">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/29/160087ca5a7d901a?w=484&amp;h=672&amp;f=gif&amp;s=579053">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/29/1600877abc63a4d9?w=482&amp;h=594&amp;f=gif&amp;s=492135">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbe5190a4?w=1000&amp;h=465&amp;f=jpeg&amp;s=135485">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbeda949d?w=882&amp;h=669&amp;f=jpeg&amp;s=158636">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edc112a514?w=796&amp;h=616&amp;f=jpeg&amp;s=145692">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/30/1600884104e5bb94?w=458&amp;h=594&amp;f=gif&amp;s=129309">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbfbe3b64?w=793&amp;h=132&amp;f=jpeg&amp;s=22712">
 <meta property="article:published_time" content="2020-10-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-10-29T02:28:29.389Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="效率">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbfe362c4?w=600&h=476&f=gif&s=627308">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbfe362c4?w=600&amp;h=476&amp;f=gif&amp;s=627308">
 
 
 <link rel="canonical" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-08%E8%BF%9B%E9%98%B6%204%EF%BC%9AFeature%20Branching%EF%BC%9A%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/">
@@ -102,7 +102,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -386,31 +390,26 @@
 <li>任何新的功能（feature）或 bug 修复全都新建一个 <code>branch</code> 来写；</li>
 <li><code>branch</code> 写完后，合并到 <code>master</code>，然后删掉这个 <code>branch</code>。</li>
 </ol>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbfe362c4?w=600&h=476&f=gif&s=627308" alt="Feature Branching"></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbfe362c4?w=600&amp;h=476&amp;f=gif&amp;s=627308" alt="Feature Branching"></p>
 <p>Feature Branching</p>
 <p>这就是这种工作流最基本的模型。</p>
 <p>从上面的动图来看，这种工作流似乎没什么特别之处。但实质上，Feature Branching 这种工作流，为团队开发时两个关键的问题——代码分享和一人多任务——提供了解决方案。</p>
 <h2 id="1-代码分享"><a href="#1-代码分享" class="headerlink" title="1. 代码分享"></a>1. 代码分享</h2><p>假设你在一个叫做「掘金」的团队工作，现在你要开发一个叫做「掘金小册」的功能（呵呵），于是你创建了一个新的 <code>branch</code> 叫做 <code>books</code>，然后开始在 <code>books</code> 上进行开发工作。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b books</span><br></pre></td></tr></table></figure>
-
 <p>在十几个 <code>commit</code>s 过后，「掘金小册」的基本功能开发完毕，你就把代码 <code>push</code> 到中央仓库（例如 GitHub）去，然后告诉同事：「嘿，小册的基本功能写完了，分支名是 <code>books</code>，谁有空的话帮我 review 一下吧。」</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin books</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/29/16007bb30da619c5?w=590&h=854&f=gif&s=143898" alt="把 books push 到中央仓库"></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/29/16007bb30da619c5?w=590&amp;h=854&amp;f=gif&amp;s=143898" alt="把 books push 到中央仓库"></p>
 <p>把 books push 到中央仓库</p>
 <p>然后你的同事明明正好有空，他就从中央仓库拉下来了你的代码开始读：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 明明的电脑：</span><br><span class="line">git pull</span><br><span class="line">git chekcout books</span><br></pre></td></tr></table></figure>
-
 <p>读完以后，明明对你说说，嗯我看完了，我觉得不错，可以合并到 <code>master</code>！</p>
 <p>于是你就把 <code>books</code> 合并到了 <code>master</code> 上去：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git pull # merge 之前 pull 一下，让 master 更新到和远程仓库同步</span><br><span class="line">git merge books</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/29/160087ca5a7d901a?w=484&h=672&f=gif&s=579053" alt="把 books 合并到 master"></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/29/160087ca5a7d901a?w=484&amp;h=672&amp;f=gif&amp;s=579053" alt="把 books 合并到 master"></p>
 <p>把 books 合并到 master</p>
 <p>紧接着，你把合并后的结果 <code>push</code> 到了中央仓库，并删掉了 <code>books</code> 这个 <code>branch</code>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br><span class="line">git branch -d books</span><br><span class="line">git push origin -d books # 用 -d 参数把远程仓库的 branch 也删了</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/29/1600877abc63a4d9?w=482&h=594&f=gif&s=492135" alt="把 master push 上去，并删除本地和远程的 books"></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/29/1600877abc63a4d9?w=482&amp;h=594&amp;f=gif&amp;s=492135" alt="把 master push 上去，并删除本地和远程的 books"></p>
 <p>把 master push 上去，并删除本地和远程的 books</p>
 <h3 id="如果同事有意见"><a href="#如果同事有意见" class="headerlink" title="如果同事有意见"></a>如果同事有意见</h3><p>上面讲的是明明对你的代码没有意见，而假如他在你的代码里看到了问题，例如他跑来对你说：「嘿，你的代码缩进为什么用的是 TAB？快改成空格，不然砍死你哦。」</p>
 <p>这时，你就可以把你的缩进改成空格，然后做一个新的提交，再 <code>push</code> 上去，然后通知他：「我改完啦！」</p>
@@ -424,23 +423,22 @@
 <li><p>把 <code>branch</code> <code>push</code> 到中央仓库；</p>
 </li>
 <li><p>在中央仓库处创建一个 Pull Request。以 GitHub 为例：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbe5190a4?w=1000&h=465&f=jpeg&s=135485"></p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbeda949d?w=882&h=669&f=jpeg&s=158636"></p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edc112a514?w=796&h=616&f=jpeg&s=145692"></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbe5190a4?w=1000&amp;h=465&amp;f=jpeg&amp;s=135485" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbeda949d?w=882&amp;h=669&amp;f=jpeg&amp;s=158636" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edc112a514?w=796&amp;h=616&amp;f=jpeg&amp;s=145692" alt=""></p>
 <p>然后你的同事就可以在 GitHub 上看到你创建的 Pull Request 了。他们可以在 GitHub 的这个页面查看你的 <code>commit</code>s，也可以给你评论表示赞同或提意见，你接下来也可以根据他们的意见把新的 <code>commit</code>s <code>push</code> 上来，这也页面会随着你新的 <code>push</code> 而展示出最新的 <code>commits</code>。</p>
 <p>在讨论结束以后，你们一致认为这个 <code>branch</code> 可以合并了，你只需要点一下页面中那个绿色的 “Merge pull request” 按钮，GitHub 就会自动地在中央仓库帮你把 <code>branch</code> 合并到 <code>master</code> 了：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/30/1600884104e5bb94?w=458&h=594&f=gif&s=129309" alt="&quot;Merge pull request&quot; 按钮自动在中央仓库 merge"></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/30/1600884104e5bb94?w=458&amp;h=594&amp;f=gif&amp;s=129309" alt="&quot;Merge pull request&quot; 按钮自动在中央仓库 merge"></p>
 <p>“Merge pull request” 按钮自动在中央仓库 merge</p>
 <p>然后你只要在本地 <code>pull</code> 一下，把最新的内容拉到你的电脑上，这件事情就算完成了。</p>
 <p>另外，GitHub 还设计了一个贴心的 “Delete branch” 按钮，方便你在合并之后一键删除 <code>branch</code>。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbfbe3b64?w=793&h=132&f=jpeg&s=22712"></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbfbe3b64?w=793&amp;h=132&amp;f=jpeg&amp;s=22712" alt=""></p>
 </li>
 </ol>
 <h2 id="2-一人多任务"><a href="#2-一人多任务" class="headerlink" title="2. 一人多任务"></a>2. 一人多任务</h2><p>除了代码分享的便捷，基于 Feature Branch 的工作流对于一人多任务的工作需求也提供了很好的支持。</p>
 <p>安安心心做事不被打扰，做完一件再做下一件自然是很美好的事，但现实往往不能这样。对于程序员来说，一种很常见的情况是，你正在认真写着代码，忽然同事过来跟你说：「内个……你这个功能先放一放吧，我们最新讨论出要做另一个更重要的功能，你来做一下吧。」</p>
 <p>其实，虽然这种情况确实有点烦，但如果你是在独立的 <code>branch</code> 上做事，切换任务是很简单的。你只要稍微把目前未提交的代码简单收尾一下，然后做一个带有「未完成」标记的提交（例如，在提交信息里标上「TODO」），然后回到 <code>master</code> 去创建一个新的 <code>branch</code> 就好了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git checkout -b new_feature</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>上面这两行代码有更简单的操作方式，不过为了小册内容的简洁性，我就不引入更多的内容了，有兴趣的话可以自己搜索一下。</p>
 </blockquote>
@@ -611,6 +609,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

@@ -91,7 +91,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -359,9 +363,6 @@
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
         <h1 id="Java快速生成javadoc"><a href="#Java快速生成javadoc" class="headerlink" title="Java快速生成javadoc"></a>Java快速生成javadoc</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ javadoc -d apidoc -windowtitle API -doctitle <span class="string">&#x27;The API of javadoc&#x27;</span> -charset UTF-8 -author -version *.java</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="d"><a href="#d" class="headerlink" title="-d"></a>-d</h2><h2 id="windowtitle"><a href="#windowtitle" class="headerlink" title="-windowtitle"></a>-windowtitle</h2><h2 id="doctitle"><a href="#doctitle" class="headerlink" title="-doctitle"></a>-doctitle</h2><h2 id="charset"><a href="#charset" class="headerlink" title="-charset"></a>-charset</h2><h2 id="author"><a href="#author" class="headerlink" title="-author"></a>-author</h2><h2 id="version"><a href="#version" class="headerlink" title="-version"></a>-version</h2>
     </div>
 
@@ -417,13 +418,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/" rel="prev" title="Trick-RxJava实现间隔调用">
-                  <i class="fa fa-chevron-left"></i> Trick-RxJava实现间隔调用
+                <a href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E5%BB%B6%E8%BF%9F%E8%B0%83%E7%94%A8/" rel="prev" title="Trick-RxJava实现延迟调用">
+                  <i class="fa fa-chevron-left"></i> Trick-RxJava实现延迟调用
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E5%BB%B6%E8%BF%9F%E8%B0%83%E7%94%A8/" rel="next" title="Trick-RxJava实现延迟调用">
-                  Trick-RxJava实现延迟调用 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/4.Android/20200929_Trick-Java%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E4%BD%8D%E7%9A%84%E6%96%B9%E6%B3%95/" rel="next" title="Trick-Java保留小数位的方法">
+                  Trick-Java保留小数位的方法 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -520,6 +521,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

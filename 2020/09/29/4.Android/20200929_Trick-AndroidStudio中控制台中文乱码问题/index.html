@@ -91,7 +91,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -359,7 +363,6 @@
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
         <h1 id="解决控制台中文乱码问题"><a href="#解决控制台中文乱码问题" class="headerlink" title="解决控制台中文乱码问题"></a>解决控制台中文乱码问题</h1><h2 id="在项目gradle-build文件中添加以下代码即可"><a href="#在项目gradle-build文件中添加以下代码即可" class="headerlink" title="在项目gradle.build文件中添加以下代码即可"></a>在项目gradle.build文件中添加以下代码即可</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tasks.withType(JavaCompile) &#123;</span><br><span class="line">    <span class="keyword">options</span>.encoding = <span class="string">&quot;UTF-8&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="完整如下"><a href="#完整如下" class="headerlink" title="完整如下"></a>完整如下</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: <span class="string">&#x27;java-library&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    implementation <span class="keyword">fileTree</span>(dir: <span class="string">&#x27;libs&#x27;</span>, <span class="keyword">include</span>: [<span class="string">&#x27;*.jar&#x27;</span>])</span><br><span class="line">&#125;</span><br><span class="line">tasks.withType(JavaCompile) &#123;</span><br><span class="line">    <span class="keyword">options</span>.encoding = <span class="string">&quot;UTF-8&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">sourceCompatibility</span> = <span class="string">&quot;6&quot;</span></span><br><span class="line"><span class="keyword">targetCompatibility</span> = <span class="string">&quot;6&quot;</span></span><br></pre></td></tr></table></figure>
     </div>
 
@@ -518,6 +521,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

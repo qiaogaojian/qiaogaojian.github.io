@@ -96,7 +96,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -368,9 +372,8 @@
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
         <h1 id="QPython接口文档"><a href="#QPython接口文档" class="headerlink" title="QPython接口文档"></a>QPython接口文档</h1><!-- TOC -->
-
 <ul>
-<li><a href="#qpython%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3">QPython接口文档</a><ul>
+<li><a href="#qpython接口文档">QPython接口文档</a><ul>
 <li><a href="#androidfacade">AndroidFacade</a><ul>
 <li><a href="#--clipboard-apis">- Clipboard APIs</a></li>
 <li><a href="#--intent--startactivity-apis">- Intent &amp; startActivity APIs</a></li>
@@ -467,7 +470,6 @@
 </li>
 </ul>
 <!-- /TOC -->
-
 <blockquote>
 <p>To simplify QPython SL4A development in IDEs with a “hepler” class derived from the default Android class containing SL4A(Script Layer for Android) facade functions &amp; API documentation</p>
 </blockquote>
@@ -633,6 +635,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

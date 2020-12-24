@@ -92,7 +92,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -370,7 +374,6 @@
   <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &quot;%char%&quot;;</span><br><span class="line"></span><br><span class="line">//输出</span><br><span class="line">+<span class="comment">--------------------------+--------------------------------+</span></span><br><span class="line">| Variable_name            | Value                          |</span><br><span class="line">+<span class="comment">--------------------------+--------------------------------+</span></span><br><span class="line">| character_set_client     | utf8                           |</span><br><span class="line">| character_set_connection | latin1                         |</span><br><span class="line">| character_set_database   | latin1                         |</span><br><span class="line">| character_set_filesystem | binary                         |</span><br><span class="line">| character_set_results    | utf8                           |</span><br><span class="line">| character_set_server     | utf8                           |</span><br><span class="line">| character_set_system     | utf8                           |</span><br><span class="line">| character_sets_dir       | D:\xampp\mysql\share\charsets\ |</span><br><span class="line">+<span class="comment">--------------------------+--------------------------------+</span></span><br></pre></td></tr></table></figure></li>
 <li><p>查看当前数据表字符集</p>
   <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> mysql&gt;  show create table tb_name;</span><br><span class="line"></span><br><span class="line"> //输出</span><br><span class="line">+<span class="comment">--------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span></span><br><span class="line"> | Table  | <span class="keyword">Create</span> <span class="keyword">Table</span>                                                                                                                                                                  |</span><br><span class="line"> +<span class="comment">--------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span></span><br><span class="line"> | testcn | <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`testcn`</span> (</span><br><span class="line"> <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line"> <span class="string">`name`</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line"> PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line"> ) <span class="keyword">ENGINE</span>=MyISAM AUTO_INCREMENT=<span class="number">3</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8 |</span><br><span class="line"> +<span class="comment">--------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+</span></span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>一般来说, utf8 最为通用,所以字符集设置为 uft8</p>
 </blockquote>
@@ -555,6 +558,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

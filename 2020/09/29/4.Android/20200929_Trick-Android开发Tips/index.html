@@ -33,16 +33,16 @@
 <meta property="article:published_time" content="2020-09-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-29T01:11:46.059Z">
 <meta property="article:author" content="qiaogaojian">
-<meta property="article:tag" content="工具">
 <meta property="article:tag" content="效率">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="Web">
 <meta property="article:tag" content="Windows">
 <meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="工具">
 <meta property="article:tag" content="AR">
 <meta property="article:tag" content="Java">
-<meta property="article:tag" content="Go">
 <meta property="article:tag" content="Android Studio">
+<meta property="article:tag" content="Go">
 <meta property="article:tag" content="Html">
 <meta property="article:tag" content="Tools">
 <meta property="article:tag" content="Tips">
@@ -106,7 +106,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -436,7 +440,6 @@
 </li>
 <li><p>TabLayout 修改字体的方法 官方的 TabLayout 没有提供修改 TextView size 的方法，可以新建一个 style CustomTabLayoutTextAppearance 继承 TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse ，然后增加 item ，设置 android:textAllCaps 为 true ，再设置 android:textSize 为你想设置的大小。</p>
   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span> = <span class="string">&quot;CustomTabLayoutTextAppearance&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">parent</span> = <span class="string">&quot;TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse&quot;</span>&gt;</span></span><br><span class="line"><span class="xml">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span> = <span class="string">&quot;android:textSize&quot;</span>&gt;</span>18sp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">       <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span> = <span class="string">&quot;android:textAllCaps&quot;</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p>  再在 TabLayout 的布局文件里设置 app:tabTextAppearance=”@style/CustomTabLayoutTextAppearance” 即可。</p>
   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.TabLayout</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">&quot;@+id/event_tab_layout&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">app:tebMode</span>=<span class="string">&quot;fixed&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">app:tabTextAppearance</span>=<span class="string">&quot;@style/CustomTabLayoutTextAppearance&quot;</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure></li>
 <li><p>遍历HashMap的最佳方法</p>
@@ -454,30 +457,7 @@
 <li><p>华为手机无法显示log解决方案,.拨号界面输入(<em>#</em>#2846579#<em>#</em>) Service menu will appear.Go to “ProjectMenu” -&gt; “Background Setting” -&gt; “Log Setting”Open “Log switch” and set it to ON.Open “Log level setting” and set the log level you wish.</p>
 </li>
 <li><p>后台service经常因为重启之类的出现onStartCommand()中的Intent传递的参数为null， 通过在onStartCommand()中的返回值改成return super.onStartCommand(intent, Service.START_REDELIVER_INTENT, startId); 可以解决问题。下面介绍几个flag的意思</p>
-<table>
-<thead>
-<tr>
-<th>flag</th>
-<th align="left">解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>START_STICKY</td>
-<td align="left">如果service进程被kill掉，保留service的状态为开始状态，但不保留递送的intent对象。随后系统会尝试重新创建service，由于服务状态为开始状态，所以创建服务后一定会调用onStartCommand(Intent,int,int)方法。如果在此期间没有任何启动命令被传递到service，那么参数Intent将为null。</td>
-</tr>
-<tr>
-<td>START_NOT_STICKY</td>
-<td align="left">“非粘性的”。使用这个返回值时，如果在执行完onStartCommand后，服务被异常kill掉，系统不会自动重启该服务。</td>
-</tr>
-<tr>
-<td>START_REDELIVER_INTENT</td>
-<td align="left">重传Intent。使用这个返回值时，如果在执行完onStartCommand后，服务被异常kill掉，系统会自动重启该服务，并将Intent的值传入。</td>
-</tr>
-<tr>
-<td>START_STICKY_COMPATIBILITY</td>
-<td align="left">START_STICKY的兼容版本，但不保证服务被kill后一定能重启。</td>
-</tr>
-</tbody></table>
+<p>  | flag | 解释 |<br>  | ——————- |:——————-|<br>  | START_STICKY | 如果service进程被kill掉，保留service的状态为开始状态，但不保留递送的intent对象。随后系统会尝试重新创建service，由于服务状态为开始状态，所以创建服务后一定会调用onStartCommand(Intent,int,int)方法。如果在此期间没有任何启动命令被传递到service，那么参数Intent将为null。 |<br>  | START_NOT_STICKY | “非粘性的”。使用这个返回值时，如果在执行完onStartCommand后，服务被异常kill掉，系统不会自动重启该服务。 |<br>  |START_REDELIVER_INTENT|重传Intent。使用这个返回值时，如果在执行完onStartCommand后，服务被异常kill掉，系统会自动重启该服务，并将Intent的值传入。|<br>  |START_STICKY_COMPATIBILITY|START_STICKY的兼容版本，但不保证服务被kill后一定能重启。 |</p>
 </li>
 <li><p>不能在Activity没有完全显示时显示PopupWindow和Dialog</p>
 </li>
@@ -623,7 +603,7 @@
 </li>
 <li><p>GradientDrawable 有个阴影效果还不错，以为是切的图片，一看代码，什么鬼= =！</p>
 </li>
-<li><p>有朋友提到了在自定义View时有些方法在开启硬件加速的时候没有效果的问题，在API16之后确实有很多方法不支持硬件加速，通常我们关闭硬件加速都是在清单文件中通过&lt;application android:hardwareAccelerated=”false” …&gt;，其实android也提供了针对特定View关闭硬件加速的方法,调用View.setLayerType(View.LAYER_TYPE_SOFTWARE, null);即可。</p>
+<li><p>有朋友提到了在自定义View时有些方法在开启硬件加速的时候没有效果的问题，在API16之后确实有很多方法不支持硬件加速，通常我们关闭硬件加速都是在清单文件中通过<application android:hardwareAccelerated="false" ...>，其实android也提供了针对特定View关闭硬件加速的方法,调用View.setLayerType(View.LAYER_TYPE_SOFTWARE, null);即可。</p>
 </li>
 <li><p>PointF，graphics包中的一个类，我们经常见到在处理Touch事件的时候分别定义一个downX，一个downY用来存储一个坐标，如果坐标少还好，如果要记录的坐标过多那代码就不好看了。用PointF(float x, float y);来描述一个坐标点会清楚很多。</p>
 </li>
@@ -765,7 +745,6 @@
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Colors</span> </span>&#123;</span><br><span class="line">    <span class="meta">@IntDef(&#123;RED, GREEN, YELLOW&#125;)</span></span><br><span class="line">    <span class="comment">//声明必要的int常量,使用@IntDef修饰LightColors,参数设置为待枚举的集合</span></span><br><span class="line">    <span class="meta">@Retention(RetentionPolicy.SOURCE)</span></span><br><span class="line">    <span class="comment">//使用@Retention(RetentionPolicy.SOURCE)指定注解仅存在与源码中,不加入到class文件中</span></span><br><span class="line">    <span class="keyword">public</span> <span class="meta">@interface</span> LightColors&#123;&#125;</span><br><span class="line">    <span class="comment">//声明一个注解为LightColors</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> RED = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> GREEN = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> YELLOW = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//用法</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setColor</span><span class="params">(<span class="meta">@Colors</span>.LightColors <span class="keyword">int</span> color)</span> </span>&#123;</span><br><span class="line">        Log.d(<span class="string">&quot;MainActivity&quot;</span>, <span class="string">&quot;setColor color=&quot;</span> + color);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用的该方法的时候</span></span><br><span class="line">setColor(Colors.GREEN);</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>PathInterpolatorCompat 很方便的使用它来创建各种插值曲线，举个非常简单的例子：</p>
   <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Path path = <span class="keyword">new</span> Path();</span><br><span class="line">path.cubicTo(<span class="number">0.2f</span>, <span class="number">0f</span>, <span class="number">0.1f</span>, <span class="number">1f</span>, <span class="number">0.5f</span>, <span class="number">1f</span>);</span><br><span class="line">path.lineTo(<span class="number">1f</span>, <span class="number">1f</span>);</span><br><span class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(view, View.TRANSLATION_X, <span class="number">500</span>);</span><br><span class="line">animator.setInterpolator(PathInterpolatorCompat.create(path));</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure>
@@ -824,16 +803,16 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
               <a href="/tags/%E6%95%88%E7%8E%87/" rel="tag"><i class="fa fa-tag"></i> 效率</a>
               <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
               <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
               <a href="/tags/Windows/" rel="tag"><i class="fa fa-tag"></i> Windows</a>
               <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
+              <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
               <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
               <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
-              <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
               <a href="/tags/Android-Studio/" rel="tag"><i class="fa fa-tag"></i> Android Studio</a>
+              <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
               <a href="/tags/Html/" rel="tag"><i class="fa fa-tag"></i> Html</a>
               <a href="/tags/Tools/" rel="tag"><i class="fa fa-tag"></i> Tools</a>
               <a href="/tags/Tips/" rel="tag"><i class="fa fa-tag"></i> Tips</a>
@@ -946,6 +925,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

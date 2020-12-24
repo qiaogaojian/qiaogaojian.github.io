@@ -91,7 +91,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -376,11 +380,9 @@
 <p>In order to use our newly-created script, we will have to modify our execution policy to allow our script to run. Since we have not digitally signed our new script, our options for setting the execution policy are left to “RemoteSigned” and “Unrestricted.” We are going to change it to RemoteSigned.</p>
 <p>In order to change the execution policy, we will need to reopen PowerShell as an Administrator (the command will fail otherwise) and run the following command:</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> RemoteSigned</span><br></pre></td></tr></table></figure>
-
 <p>The Set-ExecutionPolicy command will ask to verify that you really want to change the execution policy. Go ahead and select Y for yes, then go ahead and close and reopen your Powershell window.</p>
 <h2 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h2><p>After restarting the Powershell window, go ahead and try running that script again</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp; <span class="string">&quot;C:\Scripts\My First Script.ps1&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>It should write back, “Hello, World!” to the window:</p>
 
     </div>
@@ -437,13 +439,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E6%BF%80%E6%B4%BBPowerShell%E4%BB%A3%E7%A0%81/" rel="prev" title="Trick-Win10激活PowerShell代码">
-                  <i class="fa fa-chevron-left"></i> Trick-Win10激活PowerShell代码
+                <a href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-SSH%E5%AE%A2%E6%88%B7%E7%AB%AFPutty%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88/" rel="prev" title="Tips-SSH客户端Putty配色方案">
+                  <i class="fa fa-chevron-left"></i> Tips-SSH客户端Putty配色方案
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/9.Tools/OS/Windows/20200929_Tips-SSH%E5%AE%A2%E6%88%B7%E7%AB%AFPutty%E9%85%8D%E8%89%B2%E6%96%B9%E6%A1%88/" rel="next" title="Tips-SSH客户端Putty配色方案">
-                  Tips-SSH客户端Putty配色方案 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/9.Tools/OS/Linux/20200929_Tutorial-Ubuntu%20%E5%9F%BA%E4%BA%8E%20VirtualBox%E5%AE%89%E8%A3%85%20%E8%AE%BE%E7%BD%AE%E4%B8%8E%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" rel="next" title="Tutorial-Ubuntu 基于 VirtualBox安装 设置与编程开发">
+                  Tutorial-Ubuntu 基于 VirtualBox安装 设置与编程开发 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -540,6 +542,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

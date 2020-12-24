@@ -91,7 +91,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -413,13 +417,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Trick_Unity%E4%B8%AD%E8%87%AA%E5%B8%A6%E6%95%B0%E6%8D%AE%E5%9B%BA%E5%8C%96%E7%9A%84%E5%B1%9E%E6%80%A7/" rel="prev" title="Trick_Unity中自带数据固化的属性">
-                  <i class="fa fa-chevron-left"></i> Trick_Unity中自带数据固化的属性
+                <a href="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%B8%B8%E6%88%8Fdll%E7%A0%B4%E8%A7%A3_%E5%9F%BA%E4%BA%8EDump%E5%86%85%E5%AD%98%E7%9A%84%E6%96%B9%E6%B3%95/" rel="prev" title="Trick_Unity游戏dll破解_基于Dump内存的方法">
+                  <i class="fa fa-chevron-left"></i> Trick_Unity游戏dll破解_基于Dump内存的方法
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/" rel="next" title="Tips-Unity中的路径">
-                  Tips-Unity中的路径 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/3.Unity/20200929_Trick_Unity%E4%B8%AD%E8%87%AA%E5%B8%A6%E6%95%B0%E6%8D%AE%E5%9B%BA%E5%8C%96%E7%9A%84%E5%B1%9E%E6%80%A7/" rel="next" title="Trick_Unity中自带数据固化的属性">
+                  Trick_Unity中自带数据固化的属性 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -516,6 +520,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

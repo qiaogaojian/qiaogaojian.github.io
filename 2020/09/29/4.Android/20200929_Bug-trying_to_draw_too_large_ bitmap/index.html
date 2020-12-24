@@ -91,7 +91,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -360,7 +364,6 @@
     <meta name="referrer" content="no-referrer"/>
         <h1 id="trying-to-draw-too-large-bitmap"><a href="#trying-to-draw-too-large-bitmap" class="headerlink" title="trying_to_draw_too_large_ bitmap"></a>trying_to_draw_too_large_ bitmap</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>加载一个大背景图片时,报错 trying to draw too large(138078000bytes) bitmap</p>
 <h2 id="最终解决方案"><a href="#最终解决方案" class="headerlink" title="最终解决方案"></a>最终解决方案</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(getApplicContext())</span><br><span class="line">        .load(R.drawable.cge_gamehall_bg)</span><br><span class="line">        .diskCacheStrategy(DiskCacheStrategy.ALL)</span><br><span class="line">        .into(<span class="keyword">new</span> SimpleTarget&lt;GlideDrawable&gt;()</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResourceReady</span><span class="params">(GlideDrawable resource, GlideAnimation&lt;? <span class="keyword">super</span> GlideDrawable&gt; glideAnimation)</span></span></span><br><span class="line"><span class="function">            </span>&#123;</span><br><span class="line">                gamehallBinding.gameHallBg.setImageDrawable(resource);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
-
 <h2 id="其他说法-未验证"><a href="#其他说法-未验证" class="headerlink" title="其他说法(未验证)"></a>其他说法(未验证)</h2><p>这里就不翻译了，意思就是说你将高分辨率图片放在了低分辨率文件夹下。<br>例如：图片的分辨率是属于xxhdpi的，而你将这张图片放在了drawable-xhdpi或者比这个还低的文件夹下，就会报这个错，解决的办法：<br>1.人为的将这张图片的分辨率降低(一般不这样做)<br>2.将高分辨率的图片放在drawable-xxhdpi或者drawable-xxxhdpi下即可</p>
 <p>当然，之所以会出现这些问题都是UI切图不注意大小或者工程师放置图片位置不规范导致的，如果严格的按照andorid开发规范的要求来做的话，是根本不会出现这种问题的。</p>
 <p>采用第二种方式的话，在调试安装apk的时候是没有问题的，但是在打包安装的时候会报软件包安装程序已停止的错误，原因是drawable-xhdpi文件夹下没有图片，将图片分辨率降低放入drawable-xhdpi文件夹下再次打包安装就没有问题了。</p>
@@ -519,6 +522,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

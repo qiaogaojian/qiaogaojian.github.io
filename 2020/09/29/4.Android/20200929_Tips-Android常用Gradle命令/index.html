@@ -91,7 +91,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -362,13 +366,10 @@
 <p><a target="_blank" rel="noopener" href="https://services.gradle.org/distributions/">官方的各个版本的代理下载地址</a><br>如果 gradle 初次构建缓慢，可以手动下载代理放到${USER}/.gradle/wrapper/dists下</p>
 <p>本地建立文件 gradle.properties 或者在用户的 .gradle目录下建立 gradle.properties 文件作为全局设置，参数有</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启并行编译</span></span><br><span class="line">org.gradle.parallel=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 开启守护进程</span></span><br><span class="line">org.gradle.daemon=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 按需编译</span></span><br><span class="line">org.gradle.configureondemand=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 设置编译jvm参数</span></span><br><span class="line">org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8</span><br><span class="line"><span class="comment"># 设置代理</span></span><br><span class="line">systemProp.http.proxyHost=127.0.0.1</span><br><span class="line">systemProp.http.proxyPort=10384</span><br><span class="line">systemProp.https.proxyHost=127.0.0.1</span><br><span class="line">systemProp.https.proxyPort=10384</span><br><span class="line"><span class="comment"># 开启JNI编译支持过时API</span></span><br><span class="line">android.useDeprecatedNdk=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
 <p>安装一个全局的gradle，并配置好Path变量，避免每个项目重复下载，这样后面编译项目就可以直接运行gradle build</p>
 <h3 id="快速构建命令"><a href="#快速构建命令" class="headerlink" title="快速构建命令"></a>快速构建命令</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看构建版本</span></span><br><span class="line">./gradlew -v</span><br><span class="line"><span class="comment"># 清除build文件夹</span></span><br><span class="line">./gradlew clean</span><br><span class="line"><span class="comment"># 检查依赖并编译打包</span></span><br><span class="line">./gradlew build</span><br><span class="line"><span class="comment"># 编译并安装debug包</span></span><br><span class="line">./gradlew installDebug</span><br><span class="line"><span class="comment"># 编译并打印日志</span></span><br><span class="line">./gradlew build --info</span><br><span class="line"><span class="comment"># 译并输出性能报告，性能报告一般在 构建工程根目录 build/reports/profile</span></span><br><span class="line">./gradlew build --profile</span><br><span class="line"><span class="comment"># 调试模式构建并打印堆栈日志</span></span><br><span class="line">./gradlew build --info --debug --stacktrace</span><br><span class="line"><span class="comment"># 强制更新最新依赖，清除构建并构建</span></span><br><span class="line">./gradlew clean build --refresh-dependencies</span><br></pre></td></tr></table></figure>
-
 <p>注意build命令把 debug、release环境的包都打出来的<br>如果需要指定构建使用如下命令</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编译并打Debug包</span></span><br><span class="line">./gradlew assembleDebug</span><br><span class="line"><span class="comment"># 这个是简写 assembleDebug</span></span><br><span class="line">./gradlew aD</span><br><span class="line"><span class="comment"># 编译并打Release的包</span></span><br><span class="line">./gradlew assembleRelease</span><br><span class="line"><span class="comment"># 这个是简写 assembleRelease</span></span><br><span class="line">./gradlew aR</span><br></pre></td></tr></table></figure>
-
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a03f4f6ae31d">Gradle Android-build 常用命令参数及解释</a></p>
 <p><a target="_blank" rel="noopener" href="https://droidyue.com/blog/2017/04/16/speedup-gradle-building/index.html">一些关于加速Gradle构建的个人经验</a></p>
 
@@ -529,6 +530,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

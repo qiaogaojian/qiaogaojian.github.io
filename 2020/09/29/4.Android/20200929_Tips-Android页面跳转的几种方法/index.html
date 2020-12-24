@@ -91,7 +91,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -359,15 +363,11 @@
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
         <h1 id="Android页面跳转的几种方法"><a href="#Android页面跳转的几种方法" class="headerlink" title="Android页面跳转的几种方法"></a>Android页面跳转的几种方法</h1><h2 id="一般跳转"><a href="#一般跳转" class="headerlink" title="一般跳转"></a>一般跳转</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(FirstActivity.<span class="keyword">this</span>,SecondAcvity.class);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
-
 <h2 id="跳转到新的Activity并传递数据"><a href="#跳转到新的Activity并传递数据" class="headerlink" title="跳转到新的Activity并传递数据"></a>跳转到新的Activity并传递数据</h2><p>Person实现了Serialable接口,所以所有的Person对象都是可序列化的,这时我们就可以使用Intent来传递Person对象了</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Person person = <span class="keyword">new</span> Person(<span class="string">&quot;Michael&quot;</span>,<span class="string">&quot;123&quot;</span>);</span><br><span class="line">Intent intent = <span class="keyword">new</span> Intent(FirstActivity.<span class="keyword">this</span>,SecondActivity.class);</span><br><span class="line">intent.putExtra(<span class="string">&quot;person_data&quot;</span>,person);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
-
 <p>SecondActivity获取Person数据方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person person = (Person) getIntent().getSerializableExtra(<span class="string">&quot;person_data&quot;</span>);</span><br></pre></td></tr></table></figure>
-
 <h2 id="销毁当前的Activity并跳转"><a href="#销毁当前的Activity并跳转" class="headerlink" title="销毁当前的Activity并跳转"></a>销毁当前的Activity并跳转</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>,SecondActivity.class);</span><br><span class="line">intent.putExtra(<span class="string">&quot;isBoy&quot;</span>, <span class="keyword">true</span>);</span><br><span class="line">FirstActivity.<span class="keyword">this</span>.finish();</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
-
 <h2 id="返回之前未关闭的一个Activity"><a href="#返回之前未关闭的一个Activity" class="headerlink" title="返回之前未关闭的一个Activity"></a>返回之前未关闭的一个Activity</h2><p>因为Activity是堆栈存储的,finish掉当前的Activity就可以返回之前的Activity</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FirstActivity.<span class="keyword">this</span>.finish();</span><br></pre></td></tr></table></figure>
     </div>
@@ -429,8 +429,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E7%BA%A6%E6%9D%9F%E5%B8%83%E5%B1%80%E7%94%A8%E6%B3%95/" rel="next" title="Tips-Android约束布局用法">
-                  Tips-Android约束布局用法 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E8%A7%A3%E5%86%B3Seekbar%20Thumb%E9%80%8F%E6%98%8E%E9%97%AE%E9%A2%98/" rel="next" title="Tips-Android解决Seekbar Thumb透明问题">
+                  Tips-Android解决Seekbar Thumb透明问题 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -527,6 +527,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

@@ -87,7 +87,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -343,46 +347,6 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2020/09/29/9.Tools/VS/20200929_Tips-VS%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" itemprop="url">
-            <span itemprop="name">Tips-VS主题颜色配置</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-09-29T00:00:00+08:00"
-              content="2020-09-29">
-          09-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/09/29/9.Tools/VS/20200929_Trick-VS%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95/" itemprop="url">
-            <span itemprop="name">Trick-VS插件扩展</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-09-29T00:00:00+08:00"
-              content="2020-09-29">
-          09-29
-        </time>
-      </div>
-
-      <div class="post-title">
           <a class="post-title-link" href="/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" itemprop="url">
             <span itemprop="name">Tips-VSCode主题颜色配置</span>
           </a>
@@ -425,6 +389,46 @@
       <div class="post-title">
           <a class="post-title-link" href="/2020/09/29/9.Tools/VSCode/20200929_Trick-VSCode%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE/" itemprop="url">
             <span itemprop="name">Trick-VSCode同步设置配置</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2020-09-29T00:00:00+08:00"
+              content="2020-09-29">
+          09-29
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2020/09/29/9.Tools/VS/20200929_Tips-VS%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" itemprop="url">
+            <span itemprop="name">Tips-VS主题颜色配置</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2020-09-29T00:00:00+08:00"
+              content="2020-09-29">
+          09-29
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2020/09/29/9.Tools/VS/20200929_Trick-VS%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95/" itemprop="url">
+            <span itemprop="name">Trick-VS插件扩展</span>
           </a>
       </div>
 
@@ -546,6 +550,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>
