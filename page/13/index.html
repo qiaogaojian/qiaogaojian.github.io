@@ -215,20 +215,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">180</span>
+          <span class="site-state-item-count">185</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-count">80</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -275,6 +275,454 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-Android%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">Tutorial-Android进阶技巧</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tutorial-Android%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Android进阶技巧" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tutorial-Android%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          Android 进阶技巧
+全局获取 Context
+定制一个自己的 Application 类,以便于管理程序内的一些全局的状态信息,比如说全局 Context
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+
+
+public class MyApplication extends Application
+{
+    private static Context context;
+
+    @Override
+    public void onCreate()
+    {
+        context = getApplicationContext();
+    
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-Java%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tutorial-Java%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" class="post-title-link" itemprop="url">Tutorial-Java值类型引用类型</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tutorial-Java%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Java值类型引用类型" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tutorial-Java%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tutorial-Java%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          Java值类型引用类型
+当前类
+其他类
+对象
+单例
+静态方法
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tutorial-Java%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-Java%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tutorial-Java%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF/" class="post-title-link" itemprop="url">Tutorial-Java高并发和分布式技术</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tutorial-Java%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Java高并发和分布式技术" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tutorial-Java%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tutorial-Java%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          Java高并发和分布式技术
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tutorial-Java%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-UmengPushSdk%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Tutorial-UmengPushSdk%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3/" class="post-title-link" itemprop="url">Tutorial-UmengPushSdk接入文档</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Tutorial-UmengPushSdk%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-UmengPushSdk接入文档" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tutorial-UmengPushSdk%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tutorial-UmengPushSdk%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          UmengPushSdk接入文档
+注册
+1
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tutorial-UmengPushSdk%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -513,7 +961,7 @@ asm.rar
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E5%B8%B8%E7%94%A8%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -530,7 +978,7 @@ asm.rar
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/" class="post-title-link" itemprop="url">Tips-CISP-PTE</a>
+            <a href="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E5%B8%B8%E7%94%A8%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/" class="post-title-link" itemprop="url">Tips-Asm常用汇编指令</a>
         </h2>
 
         <div class="post-meta-container">
@@ -560,7 +1008,7 @@ asm.rar
     </span>
 
   
-    <span id="/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-CISP-PTE" title="阅读次数">
+    <span id="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E5%B8%B8%E7%94%A8%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Asm常用汇编指令" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -575,8 +1023,8 @@ asm.rar
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E5%B8%B8%E7%94%A8%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E5%B8%B8%E7%94%A8%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -591,32 +1039,26 @@ asm.rar
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-          CISP-PTE
-CISP-PTE（注册信息安全专业人员-渗透测试工程师），英文为Certified Information Security Professional - Penetration Testing Engineer
+          Asm常用汇编指令
+移动指令
+mov 右边赋值给左边
+ * mov ax,10h mov 寄存器,数据
+ * mov ax,bx mov 寄存器,寄存器
+ * mov ax,ds:[0] mov 寄存器,内存单元
+ * mov ds:[0],ax mov 内存单元,寄存器
+ * mov ds,bx mov 段寄存器,寄存器
+ * mov bx,ds mov 寄存器,段寄存器
 
-大纲
- 1. Web安全基础
-    
-     * HTTP协议
-       
-       
-     * 注入漏洞
-       
-       
-     * XSS漏洞
-       
-       
-     * SSRF漏洞
-       
-       
-     * CSRF漏洞
-       
-       
-     * 文件处理漏洞
-  
+mov ds,1000h 是不允许的 段寄存器不允许直接赋值
+
+运算指令
+add 加法
+ * add ax,100h add 寄存器,数据
+ * add ax,bx add 寄存器,寄存器
+ * add ax,ds:[0
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E5%B8%B8%E7%94%A8%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -727,6 +1169,135 @@ CISP-PTE（注册信息安全专业人员-渗透测试工程师），英文为Ce
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/29/1.CS/ASM/20200929_Tips-CPU%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/" class="post-title-link" itemprop="url">Tips-CISP-PTE</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-CS/" itemprop="url" rel="index"><span itemprop="name">1.CS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-CS/ASM/" itemprop="url" rel="index"><span itemprop="name">ASM</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-CISP-PTE" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          CISP-PTE
+CISP-PTE（注册信息安全专业人员-渗透测试工程师），英文为Certified Information Security Professional - Penetration Testing Engineer
+
+大纲
+ 1. Web安全基础
+    
+     * HTTP协议
+       
+       
+     * 注入漏洞
+       
+       
+     * XSS漏洞
+       
+       
+     * SSRF漏洞
+       
+       
+     * CSRF漏洞
+       
+       
+     * 文件处理漏洞
+  
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -869,616 +1440,10 @@ c:
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Tips-AndroidStudio Log颜色配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-30 11:30:47" itemprop="dateModified" datetime="2020-09-30T11:30:47+08:00">2020-09-30</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/AS/" itemprop="url" rel="index"><span itemprop="name">AS</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-AndroidStudio Log颜色配置" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          AndroidStudio Log 颜色配置
-配置 1
-TypeColorAssert:#AA66CCDebug:#33B5E5Error:#FF4444Info:#99CC00Verbose:#FFFFFFWarning:#FFBB33配置 2
-TypeColorverbose:#BBBdebug:#33B5E5info:#9C0assert:#A6Cerror:#F44warning:#FB3备份
-setting.androidstudio.zip
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/" class="post-title-link" itemprop="url">Trick-AndroidStudio必备插件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/AS/" itemprop="url" rel="index"><span itemprop="name">AS</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-AndroidStudio必备插件" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          AndroidStudio必备插件
-GsonFormat
-Jrebel 2018.1.5
-ADB Idea
-Android Studio Prettify
-FindViewByMe
-Wakatime
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Git/20200929_Bug-gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/9.Tools/Git/20200929_Bug-gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="post-title-link" itemprop="url">Bug-gitignore不起作用的解决办法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/9.Tools/Git/20200929_Bug-gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-gitignore不起作用的解决办法" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/9.Tools/Git/20200929_Bug-gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Git/20200929_Bug-gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          gitignore不起作用的解决办法
-问题原因
-首先，.gitignore文件我们在.gitignore文件中增加需要忽略的文件并更新后，有时会出现相关文件并未被忽略的情况，即更新后的.gitignore并未生效。原因是.gitignore只能忽略未被track的文件，而git有本地缓存。如果增加的ignore文件原来被track过，则忽视.gitignore的规则。
-
-解决方案
-.gitignore文件必须存放在项目根目录下。
-首先进入项目根目录，输入git status：如果要忽略的文件或文件夹不在untracked files列表中，则说明该文件已加入git cache。
-这时，输入
-
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/9.Tools/Git/20200929_Bug-gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/" class="post-title-link" itemprop="url">Tips-git+vscode</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-git+vscode" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          VSCode 下 Git 的使用
-趟完坑,给出最简单方案.
-
-下载 git
-下载地址
-
-设置全局配置
-1
-2
-
-
-git config --global user.name "Michael"
-git config --global user.email "qiaogaojian@vip.qq.com"  //注意这里的email要和服务器账户的email保持一致
-
-
-新建项目
-
-
-克隆项目
-
-
-
-
-
-
-编辑项目
-
-
-
-
-提交项目
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/" class="post-title-link" itemprop="url">Tips-git合并指定提交到另一个分支</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-git合并指定提交到另一个分支" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          git合并分支上指定的commit
-merge 能够胜任平常大部分的合并需求。但也会遇到某些特殊的情况，例如正在开发一个新的功能，线上说有一个紧急的bug要修复。bug修好了但并不像把仍在开发的新功能代码也提交到线上去。这时候也许想要一个只合并指定某些 commit 的功能。
-
-假设分支结构如下：
-dd2e86 - 946992 - 9143a9 - a6fd86 - 5a6057 [master]
-
-|
-
-76cada-62ecb3-b886a0[feature]
-
-再假设 62ecb3 的提交修复了bug，这时候可以用
-cherry pick 合并单个 commit
-具体操作：
-1
-2
-
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%90%88%E5%B9%B6%E6%8C%87%E5%AE%9A%E6%8F%90%E4%BA%A4%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 

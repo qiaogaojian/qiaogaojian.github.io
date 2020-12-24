@@ -215,20 +215,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">180</span>
+          <span class="site-state-item-count">185</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-count">80</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -279,7 +279,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tips-C%20Sharp%E5%9F%BA%E4%BA%8EVSCode%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -296,7 +296,167 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/" class="post-title-link" itemprop="url">Tips-Unity中的碰撞</a>
+            <a href="/2020/09/29/3.Unity/20200929_Tips-C%20Sharp%E5%9F%BA%E4%BA%8EVSCode%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">Tips-C Sharp基于VSCode开发环境的搭建</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：18:20:12" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/3-Unity/" itemprop="url" rel="index"><span itemprop="name">3.Unity</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/3.Unity/20200929_Tips-C%20Sharp%E5%9F%BA%E4%BA%8EVSCode%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-C Sharp基于VSCode开发环境的搭建" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tips-C%20Sharp%E5%9F%BA%E4%BA%8EVSCode%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tips-C%20Sharp%E5%9F%BA%E4%BA%8EVSCode%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          C#基于VSCode开发环境的搭建
+下载安装 .NET Core SDK
+下载链接
+
+新建dotnet core 工程
+打开控制台
+进入工程根目录
+1
+
+
+cd d:/workspace
+
+
+创建工程目录
+1
+
+
+mkdir c#
+
+
+第一次运行
+1
+
+
+dotnet new
+
+
+列举可以创建的工程类型
+1
+
+
+dotnet new --help
+
+
+新建一个console工程
+1
+
+
+dotnet new console
+
+
+新建一些配置文件
+1
+
+
+dotnet restore
+
+
+创建完成
+1
+
+
+dotnet run
+
+
+用VSCode打开工程文件夹
+根据提示安装插件后重启
+下方状态栏
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tips-C%20Sharp%E5%9F%BA%E4%BA%8EVSCode%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">Tips-Unity中Awake( )和Start( )的小区别</a>
         </h2>
 
         <div class="post-meta-container">
@@ -322,7 +482,7 @@
     </span>
 
   
-    <span id="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Unity中的碰撞" title="阅读次数">
+    <span id="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Unity中Awake( )和Start( )的小区别" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -337,8 +497,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -353,26 +513,386 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-          Unity 中的碰撞
-碰撞的两种形式
-Collision:造成物理碰撞,触发 OnCollision 事件.
-Trigger:没有物理碰撞效果,触发 OnTrigger 事件.
-碰撞的条件
-Collision 碰撞
-1. 双方都有碰撞体
-2. 撞的一方必须有刚体
-3. 双方不可同时勾选 Kinematic 选项
-4. 双方都不可勾选 Trigger 触发器
-Trigger 触发器
-1. 双发都有碰撞体
-2. 撞的一方必要有刚体
-3. 至少有一方勾选 Trigger 触发器
-碰撞的事件
-OnTriggerEnter() OnTriggerStay() OnTriggerExit()
-OnColl
+          Unity 中 Awake( )和 Start( )的小区别
+Awake
+绑定对象 active
+实例化后不论脚本是否 enable
+只会调用一次
+Start
+绑定对象active
+脚本 enable
+只会 调用一次
+在第一次 Update 前调用,可能没有想象中的那么快,在这里初始化要想好调用顺序
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADOnGui%E5%8E%9F%E7%94%9FGUI%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADOnGui%E5%8E%9F%E7%94%9FGUI%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">Tips-Unity中OnGui原生GUI用法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/3-Unity/" itemprop="url" rel="index"><span itemprop="name">3.Unity</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADOnGui%E5%8E%9F%E7%94%9FGUI%E7%94%A8%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Unity中OnGui原生GUI用法" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADOnGui%E5%8E%9F%E7%94%9FGUI%E7%94%A8%E6%B3%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADOnGui%E5%8E%9F%E7%94%9FGUI%E7%94%A8%E6%B3%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          Unity中OnGui原生GUI用法
+Button
+1
+2
+3
+4
+5
+6
+7
+
+
+void OnGUI()
+{
+    if (GUI.Button(new Rect(10, 360, 200, 50), "开始新手引导"))
+    {
+        GuideManager.Instance.InitGuide();
+    }
+}
+
+
+Rect.x Rect.y
+按钮左下角坐标
+
+Rect.z Rect.w
+按钮的宽和高
+
+OnGUI注意事项
+坐标原点: 左上角
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADOnGui%E5%8E%9F%E7%94%9FGUI%E7%94%A8%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADSprite%E5%92%8CUI%20Image%E7%9A%84%E5%8C%BA%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADSprite%E5%92%8CUI%20Image%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">Tips-Unity中Sprite和UI Image的区别</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/3-Unity/" itemprop="url" rel="index"><span itemprop="name">3.Unity</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADSprite%E5%92%8CUI%20Image%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Unity中Sprite和UI Image的区别" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADSprite%E5%92%8CUI%20Image%E7%9A%84%E5%8C%BA%E5%88%AB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADSprite%E5%92%8CUI%20Image%E7%9A%84%E5%8C%BA%E5%88%AB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          Unity中Sprite和UI Image的区别
+渲染
+Image 通过UGUI的Image和CanvasRenderer组件组件来渲染
+Sprite 通过SpriteRenderer组件来渲染
+两者在视觉上没有任何区别（都使用默认材质时）。它们默认的渲染也都是在Transparent Geometry队列中。
+
+使用上
+Image需要位于某个Canvas下才能显示出来。场景中的Sprite可以像普通的3D游戏物体一样对待，通过Transform组件进行移动等操作，而Image则使用RectTransform进行布局，以便通过Canvas统一管理。由于RectTransform可以设置大小、对
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADSprite%E5%92%8CUI%20Image%E7%9A%84%E5%8C%BA%E5%88%AB/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/" class="post-title-link" itemprop="url">Tips-Unity中停止协程StopCoroutine</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/3-Unity/" itemprop="url" rel="index"><span itemprop="name">3.Unity</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Unity中停止协程StopCoroutine" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          Unity中停止协程StopCoroutine
+必须用字符串启动协程才能停止协程
+1
+2
+3
+4
+
+
+//要想停止协程,必须用字符启动协程
+StartCoroutine("FunctionName");
+//如果要传参
+StarCoroutine("FunctionName",object);
+
+
+停止协程
+1
+2
+3
+4
+
+
+//停止协程
+StopCoroutine("FunctionName");
+//停止所有协程(慎用)
+StopAllCoroutine();
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -511,6 +1031,125 @@ OnColl
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/" class="post-title-link" itemprop="url">Tips-Unity中的碰撞</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/3-Unity/" itemprop="url" rel="index"><span itemprop="name">3.Unity</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Unity中的碰撞" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          Unity 中的碰撞
+碰撞的两种形式
+Collision:造成物理碰撞,触发 OnCollision 事件.
+Trigger:没有物理碰撞效果,触发 OnTrigger 事件.
+碰撞的条件
+Collision 碰撞
+1. 双方都有碰撞体
+2. 撞的一方必须有刚体
+3. 双方不可同时勾选 Kinematic 选项
+4. 双方都不可勾选 Trigger 触发器
+Trigger 触发器
+1. 双发都有碰撞体
+2. 撞的一方必要有刚体
+3. 至少有一方勾选 Trigger 触发器
+碰撞的事件
+OnTriggerEnter() OnTriggerStay() OnTriggerExit()
+OnColl
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -614,6 +1253,113 @@ Resource
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" class="post-title-link" itemprop="url">Trick_Unity插件Ngui图片缝隙问题解决</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/3-Unity/" itemprop="url" rel="index"><span itemprop="name">3.Unity</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" class="post-meta-item leancloud_visitors" data-flag-title="Trick_Unity插件Ngui图片缝隙问题解决" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          Unity插件Ngui图片缝隙问题解决
+源图片的长宽必须是2的倍数 最好是2的n次方
+源图片和图集设置
+Texure Type:Sprite
+Wrap Mode: Point
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -779,714 +1525,10 @@ public bool GuideFinish
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" class="post-title-link" itemprop="url">Trick_Unity插件Ngui图片缝隙问题解决</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/3-Unity/" itemprop="url" rel="index"><span itemprop="name">3.Unity</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" class="post-meta-item leancloud_visitors" data-flag-title="Trick_Unity插件Ngui图片缝隙问题解决" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          Unity插件Ngui图片缝隙问题解决
-源图片的长宽必须是2的倍数 最好是2的n次方
-源图片和图集设置
-Texure Type:Sprite
-Wrap Mode: Point
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Trick_Unity%E6%B8%B8%E6%88%8Fdll%E7%A0%B4%E8%A7%A3_%E5%9F%BA%E4%BA%8EDump%E5%86%85%E5%AD%98%E7%9A%84%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%B8%B8%E6%88%8Fdll%E7%A0%B4%E8%A7%A3_%E5%9F%BA%E4%BA%8EDump%E5%86%85%E5%AD%98%E7%9A%84%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">Trick_Unity游戏dll破解_基于Dump内存的方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/3-Unity/" itemprop="url" rel="index"><span itemprop="name">3.Unity</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%B8%B8%E6%88%8Fdll%E7%A0%B4%E8%A7%A3_%E5%9F%BA%E4%BA%8EDump%E5%86%85%E5%AD%98%E7%9A%84%E6%96%B9%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="Trick_Unity游戏dll破解_基于Dump内存的方法" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%B8%B8%E6%88%8Fdll%E7%A0%B4%E8%A7%A3_%E5%9F%BA%E4%BA%8EDump%E5%86%85%E5%AD%98%E7%9A%84%E6%96%B9%E6%B3%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%B8%B8%E6%88%8Fdll%E7%A0%B4%E8%A7%A3_%E5%9F%BA%E4%BA%8EDump%E5%86%85%E5%AD%98%E7%9A%84%E6%96%B9%E6%B3%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          Unity游戏dll破解_基于Dump内存的方法
-windbg
-1
-2
-3
-4
-
-
-.dump /ma E:/dumps/myapp.dmp
-.load psscor4
-!SaveAllModules E:\dumps\modules
-
-
-
-Dll Memory Dumper
- * 打开游戏
- * 打开DllMemoryDumper
- * 输入游戏进程编号按Enter键
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%B8%B8%E6%88%8Fdll%E7%A0%B4%E8%A7%A3_%E5%9F%BA%E4%BA%8EDump%E5%86%85%E5%AD%98%E7%9A%84%E6%96%B9%E6%B3%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">Tutorial-2048核心算法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/3-Unity/" itemprop="url" rel="index"><span itemprop="name">3.Unity</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-2048核心算法" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          Unity3d 2048 核心算法讲解
-2048是一款非常好玩的游戏，经常让人花费好几个小时来玩它。 游戏目标是将相同值的格子“合并”在一起，合并到一起后原来格子的值翻倍。 当玩家在她想要的方向上滑动时，格子被移动到一边并且生成新的格子。 如果玩家达到了2048，那么就赢了游戏。 这篇文档主要用来介绍如何在Unity中来制作这个游戏。
-
-输入系统
-游戏实现了通过键盘的箭头键来控制格子移动的方法, 我们通过一个枚举来获取用户的输入和一个必须由我们想要使用的每个输入方法实现的接口IInputDetector。
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-
-
-public enum InputDirect
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tutorial-GameFramework%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/3.Unity/20200929_Tutorial-GameFramework%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B/" class="post-title-link" itemprop="url">Tutorial-GameFramework功能简介</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/3-Unity/" itemprop="url" rel="index"><span itemprop="name">3.Unity</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/3.Unity/20200929_Tutorial-GameFramework%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-GameFramework功能简介" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tutorial-GameFramework%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tutorial-GameFramework%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          GameFramework 记录
-GameFrameworkEntry（框架入口）
-GameFrameworkEntry使用链表来维护所有的GameFrameworkModule（框架模块），并提供对GameFrameworkModule的各种相关操作以及框架版本号信息
-
- 1. 只有在获取模块时对应模块不存在才会创建模块
-    
-    
- 2. 创建模块时，根据模块优先级决定新模块在链表中的位置
-    
-    
- 3. 轮询模块时，根据优先级决定轮询顺序（即正向遍历链表调用OnUpdate）（在UGF中，由BaseComponent来调用轮询方法）
-    
-    
- 4. 所有的
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tutorial-GameFramework%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-title-link" itemprop="url">Tutorial-PureMVC前置知识点</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/3-Unity/" itemprop="url" rel="index"><span itemprop="name">3.Unity</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-PureMVC前置知识点" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          PureMVC
-PureMVC
-
-
-
-
-
-
-
-Pattern
-单例
-单例模式
-
-观察者
-观察者模式
-
-Facade 外观
-外观模式
-
-Proxy 代理
-代理模式
-
-Mediator 中介者
-中介者模式
-
-Command 命令
-命令模式
-
-Facade
-Model
-void RegisterProxy(IProxy proxy);
-IProxy RemoveProxy(string proxyName);
-IProxy RetrieveProxy(string proxyName);
-bool HasProxy(string proxyName);
-Proxy
-void OnRegister()
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tutorial-Unity%E4%B8%ADsqlite%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/3.Unity/20200929_Tutorial-Unity%E4%B8%ADsqlite%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Tutorial-Unity中sqlite数据库的使用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/3-Unity/" itemprop="url" rel="index"><span itemprop="name">3.Unity</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/3.Unity/20200929_Tutorial-Unity%E4%B8%ADsqlite%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Unity中sqlite数据库的使用" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tutorial-Unity%E4%B8%ADsqlite%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tutorial-Unity%E4%B8%ADsqlite%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          <p>Unity中sqlite数据库的使用</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tutorial-Unity%E4%B8%ADsqlite%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
