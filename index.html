@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="行则将至">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="行则将至">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="Math,数学,Calculus,微积分,Linear Algebra,线性代数,Computer Science,计算机原理,编程,设计模式,计算机网络,计算机图形学,Computer Graphics,Unity,Unity3d,CG,HLSL,OpenGL,C#,Android,Java,GameFramework,ML,Shader,Golang,Go,Asm,Adb,BlockChain,VSCode,Web,Tools,PHP,Ubuntu,ThinkPHP,MySql,Sqlite,重构,Windows,Win10,Git,Mac,Linux,树莓派,VS,AS,Android Studio,PhpStorm,PyCharm,Vim,Rider,Jupyter,Kali,Js,JavaScript,Hexo,3dMax,Maya,Zbrush,汇编,游戏设计,Roguelike,Roguelite,地图生成,技能,FSM,NGUI,UGUI,UV,法线,光照,后端,Html,Css,C语言,C++,Python,机器学习,信息安全,操作系统,IDE,工具,效率,VR,AR,BitCoin,Eos,数据结构,算法,排序,查找,Leetcode,RoadMap,Tips,Trick,Bug,BestPratice,Tutorial,Tao​">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>行则将至</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">行则将至</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Keep going and you can go anywhere</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qiaogaojian"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">qiaogaojian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qiaogaojian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/qiaogaojian" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-git-alt fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qiaogaojian@gmail.com" title="E-Mail → mailto:qiaogaojian@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+<!--
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+-->
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+      
+
+      
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/27/9.Tools/Unity/20201227_Tutorial-DataParser/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/27/9.Tools/Unity/20201227_Tutorial-DataParser/" class="post-title-link" itemprop="url">Tutorial-DataParser</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-12-27 00:00:00 / 修改时间：22:24:29" itemprop="dateCreated datePublished" datetime="2020-12-27T00:00:00+08:00">2020-12-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Unity/" itemprop="url" rel="index"><span itemprop="name">Unity</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/12/27/9.Tools/Unity/20201227_Tutorial-DataParser/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-DataParser" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/12/27/9.Tools/Unity/20201227_Tutorial-DataParser/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/27/9.Tools/Unity/20201227_Tutorial-DataParser/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          <h1 id="����ת�������j�"><a href="#����ת�������j�" class="headerlink" title="����ת�������ĵ�"></a>����ת�������ĵ�</h1><h2 id="����"><a href="#����" class="headerlink" title="����"></a>����</h2><ol>
+<li><p>ʹ��Unity3d�򿪹���</p>
+</li>
+<li><p>�� Tools �˵� DataParser ѡ��</p>
+<p> <img src="/images/2020-12-27-21-45-45.png"></p>
+<ul>
+<li><p>Byte2Excel ѡ��: ����Ϸ��ԭʼ����������תΪExcel�ĵ�</p>
+</li>
+<li><p>Excel2Json ѡ��: �ѵ������ExcelתΪJson����, ��Ϸ����ʹ�õ���Json����</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="ʹ��"><a href="#ʹ��" class="headerlink" title="ʹ��"></a>ʹ��</h2><ol>
+<li><p>�޸� GJCS_beta/Data/ExcelData �е�Excel �ĵ�</p>
+</li>
+<li><p>ʹ��Unity���̵�Excel2Json ѡ��ת Excel �ĵ�Ϊ��Ϸ��ʹ�õ� Json ����, Ȼ��Ϳ��Խ���Ϸ��Ч����.<br>ת�����ݺ���Զ�д�뵽 GJCS_beta/Asset/Resources/jsondata Ŀ¼��, ��ϷĬ�϶�ȡ��������.</p>
+</li>
+<li><p>����ͨ������ LocalModelManager.cs �е� DataType �����Ƽ��ص���������</p>
+ <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">LocalModelManager</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">       ......</span><br><span class="line"></span><br><span class="line">       <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line">       <span class="comment"><span class="doctag">///</span> ���ü����ļ�����</span></span><br><span class="line">       <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line">       <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;param name=&quot;dataType&quot;&gt;</span> 1 json 2 bytes 3 excel <span class="doctag">&lt;/param&gt;</span></span></span><br><span class="line">       <span class="keyword">public</span> <span class="keyword">int</span> DataType &#123; <span class="keyword">get</span>;  <span class="keyword">set</span>; &#125; = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">       ......</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/24/1.CS/CG/20201224_opengl-zbuffer%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F%E8%BD%AC%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/24/1.CS/CG/20201224_opengl-zbuffer%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F%E8%BD%AC%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F/" class="post-title-link" itemprop="url">opengl-zbuffer非线性公式转线性公式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-24 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-24T00:00:00+08:00">2020-12-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-27 22:24:46" itemprop="dateModified" datetime="2020-12-27T22:24:46+08:00">2020-12-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-CS/" itemprop="url" rel="index"><span itemprop="name">1.CS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-CS/CG/" itemprop="url" rel="index"><span itemprop="name">CG</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/12/24/1.CS/CG/20201224_opengl-zbuffer%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F%E8%BD%AC%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F/" class="post-meta-item leancloud_visitors" data-flag-title="opengl-zbuffer非线性公式转线性公式" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/12/24/1.CS/CG/20201224_opengl-zbuffer%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F%E8%BD%AC%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/24/1.CS/CG/20201224_opengl-zbuffer%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F%E8%BD%AC%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>  正如<a target="_blank" rel="noopener" href="https://learnopengl.com/#!Advanced-OpenGL/Depth-testing">LearnOpenGL-高级OpenGL-深度测试</a>中所述，在OpenGL的深度值可以通过在fragment shader中调用<code>gl_FragCoord.z</code>获得，其值域为[0,1]。但是物体离我们眼睛(摄像机)的真正距离是多少呢？怎么通过OpenGL中的深度反求“真正的深度”呢？</p>
+<h3 id="推导过程"><a href="#推导过程" class="headerlink" title="推导过程"></a>推导过程</h3><p>  我们假设在FragmentShader出来的的深度值为$ z_b $ =<code>gl_FragCoord.z</code>，因为$ z_b $是值域为[0,1]，我们首先得转换回NDC坐标系下，假设NDC坐标系下的深度值为$ z_n $，OpenGL是这样转换的：</p>
+<p>$$<br>z_b=0.5z_n+0.5<br>$$</p>
+<p>  这时$ z_n $的值域为[-1,1]。<br>  我们设视角坐标下的深度值为$z_r$(也就是实际的深度值，aka.物体到我们眼睛的距离, r for real)，同时我们假设视角截面体的近平面距离=near，远平面距离=far，OpenGL是这样转换的:</p>
+<p>$$<br>z_b=\frac{1/z_r-1/near}{1/far-1/near}<br>$$</p>
+<p>  上面公式反求$ z_r $，下面令$ f=far,n=near $：</p>
+<p>$$<br>z_b=\frac{\frac{nf}{z_r}-f}{n-f}<br>$$</p>
+<p>$$<br>z_b(n-f)=\frac{nf}{z_r}-f<br>$$</p>
+<p>$$<br>\frac{nf}{z_r}=z_b(n-f)+f<br>$$</p>
+<p>$$<br>z_r=\frac{nf}{z_b(n-f)+f}<br>$$</p>
+<p>  把$z_b$带入：</p>
+<p>$$<br>z_r=\frac{nf}{0.5(z_n+1)(n-f)+f}<br>$$</p>
+<p>$$<br>z_r=\frac{2nf}{(z_n+1)(n-f)+2f}<br>$$</p>
+<p>$$<br>z_r=\frac{2nf}{f+n+z_n(n-f)}<br>$$</p>
+<p>$$<br>z_r=\frac{2nf}{f+n-z_n(f-n)}<br>$$</p>
+<p>  这就是网站上<a target="_blank" rel="noopener" href="https://learnopengl.com/#!Advanced-OpenGL/Depth-testing">LearnOpenGL-高级OpenGL-深度测试</a>给的公式的由来。但是很明显，网站上给的公式有错误，或者说该网站上面的表述不清楚。（后来作者评论区补充说明了）作者说希望转换到线性的z写入到颜色中显示距离，然而作者给出的Shader代码：</p>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#version 330 core</span></span><br><span class="line"><span class="keyword">out</span> <span class="type">vec4</span> color;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> near = <span class="number">1.0</span>;</span><br><span class="line"><span class="type">float</span> far  = <span class="number">100.0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">float</span> LinearizeDepth(<span class="type">float</span> depth)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">float</span> z = depth * <span class="number">2.0</span> - <span class="number">1.0</span>; <span class="comment">// Back to NDC</span></span><br><span class="line">    <span class="keyword">return</span> (<span class="number">2.0</span> * near * far) / (far + near - z * (far - near));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">float</span> depth = LinearizeDepth(<span class="built_in">gl_FragCoord</span>.z) / far; <span class="comment">// divide by far for demonstration</span></span><br><span class="line">    color = <span class="type">vec4</span>(<span class="type">vec3</span>(depth), <span class="number">1.0</span>f);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  函数<code>LinearizeDepth(float depth) </code>仅仅求出了$z_r$的值，从下面的验证可以看出$z_r\in[n,f]$，所以即使最后除了$far$之后$depth也是\in[n/f,1]$，而并非作者上面说的线性深度。<br>  要求线性深度，应该使用公式：</p>
+<p>$$<br>F_{depth}=\frac{z-n}{f-n}<br>$$</p>
+<p>  代码改为：</p>
+<figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="type">float</span> depth = (LinearizeDepth(<span class="built_in">gl_FragCoord</span>.z) - near)/ (far-near); <span class="comment">//非线性转线性</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>  因为</p>
+<p>$$<br>z_n\in[-1,1]<br>$$</p>
+<p>  所以分母(注意$f&gt;n$)</p>
+<p>$$<br>{f+n-z_n(f-n)}\in[2f,2n]<br>$$</p>
+<p>  所以</p>
+<p>$$<br>z_r\in[n,f]<br>$$</p>
+<p>  你问我深度值$z_r &lt; near$的怎么办？$z_r &lt; near$也就是不在视锥体内的值，早在光栅化之前给剔除了，根本不会传到fragment shader。对于$z_r &gt; far$的值亦然。</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://learnopengl.com/#!Advanced-OpenGL/Depth-testing">https://learnopengl.com/#!Advanced-OpenGL/Depth-testing</a></li>
+<li><a target="_blank" rel="noopener" href="http://web.archive.org/web/20130416194336/http://olivers.posterous.com/linear-depth-in-glsl-for-real">http://web.archive.org/web/20130416194336/http://olivers.posterous.com/linear-depth-in-glsl-for-real</a></li>
+<li><a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/6652253/getting-the-true-z-value-from-the-depth-buffer">http://stackoverflow.com/questions/6652253/getting-the-true-z-value-from-the-depth-buffer</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/16/0.Math/LinearAlgebra/20201216_Tip_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%98%93%E6%B7%B7%E6%B7%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/16/0.Math/LinearAlgebra/20201216_Tip_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%98%93%E6%B7%B7%E6%B7%86/" class="post-title-link" itemprop="url">Tip_线性代数易混淆</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-16 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-16T00:00:00+08:00">2020-12-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-27 22:08:45" itemprop="dateModified" datetime="2020-12-27T22:08:45+08:00">2020-12-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/0-Math/" itemprop="url" rel="index"><span itemprop="name">0.Math</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/0-Math/LinearAlgebra/" itemprop="url" rel="index"><span itemprop="name">LinearAlgebra</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/12/16/0.Math/LinearAlgebra/20201216_Tip_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%98%93%E6%B7%B7%E6%B7%86/" class="post-meta-item leancloud_visitors" data-flag-title="Tip_线性代数易混淆" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/12/16/0.Math/LinearAlgebra/20201216_Tip_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%98%93%E6%B7%B7%E6%B7%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/16/0.Math/LinearAlgebra/20201216_Tip_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%98%93%E6%B7%B7%E6%B7%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          <h1 id="线性代数易混淆"><a href="#线性代数易混淆" class="headerlink" title="线性代数易混淆"></a>线性代数易混淆</h1><h2 id="1-线性代数及其应用-p36-定理-4-和-p58-线性无关定理-8-中关于每一行每一列都有主元的论述-区别和联系"><a href="#1-线性代数及其应用-p36-定理-4-和-p58-线性无关定理-8-中关于每一行每一列都有主元的论述-区别和联系" class="headerlink" title="1. 线性代数及其应用 p36 定理 4 和 p58 线性无关定理 8 中关于每一行每一列都有主元的论述 区别和联系"></a>1. 线性代数及其应用 p36 定理 4 和 p58 线性无关定理 8 中关于每一行每一列都有主元的论述 区别和联系</h2><ul>
+<li><p>系数矩阵mxn每行都有主元</p>
+<p> A pivot in every row means that the linear system Ax=b has at least one solution, for every b.<br> A pivot in every row is equivalent to A having a right inverse, and equivalent to the columns of A spanning Rm (m is the number of rows).</p>
+<p> 系数矩阵的列代表着线性变换后生成空间的坐标系,行数代表生成空间的维度,如果每行都有主元,代表列一定比行多,这样在每个维度上都有独立的坐标轴,这样就可以表示出这个维度(行)所有的向量了,即可以生成Rm</p>
+</li>
+<li><p>系数矩阵mxn每行都有主元,但不是所有列都有主元</p>
+<p> 这个矩阵方程有无限个解,因为没有主元的列代表这个列所在的维度是自由变量,线性相关,n&gt;m(列&gt;行)</p>
+</li>
+<li><p>系数矩阵每列都有主元</p>
+<p> If every column has a pivot, then the linear system Ax=b has at most one solution.<br> A pivot in every column is equivalent to A having a left inverse, and equivalent to the columns of A being linearly independent.</p>
+<p> 系数矩阵的列代表着线性变换后生成空间的坐标系,系数矩阵每列都有主元,代表行一定比列多,即m&gt;=n. 虽然这个生成空间维度为m,但是只有n个独立的坐标系,只能表示维度为n的空间内所有向量,无法生成Rm</p>
+</li>
+<li><p>系数矩阵每列都有主元,但不是所有行都有主元</p>
+<p> 这个矩阵方程最终可以化简为 nxn 每行每列都有主元的矩阵下面有若干行0的矩阵, 当全是0的行所对应的函数值不为0时矛盾,无解. 不存在这种情况时,有唯一的解,线性无关,m&gt;n(行&gt;列)</p>
+</li>
+<li><p>系数矩阵每行和每列都有主元</p>
+<p> If both hold (which can happen only if A is a square matrix), we get that the system Ax=b has unique solution for every b.</p>
+<p> 这个矩阵是方阵有唯一的解,线性无关,m=n(行=列)</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/10/2.TA/20201110_Tao_%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/10/2.TA/20201110_Tao_%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A/" class="post-title-link" itemprop="url">Tao_心得体会</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-10 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-10T00:00:00+08:00">2020-11-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-16 00:17:06" itemprop="dateModified" datetime="2020-12-16T00:17:06+08:00">2020-12-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/2-TA/" itemprop="url" rel="index"><span itemprop="name">2.TA</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/11/10/2.TA/20201110_Tao_%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A/" class="post-meta-item leancloud_visitors" data-flag-title="Tao_心得体会" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/10/2.TA/20201110_Tao_%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/10/2.TA/20201110_Tao_%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          <h1 id="心得体会"><a href="#心得体会" class="headerlink" title="心得体会"></a>心得体会</h1><h2 id="美的本质是一切有利于生存-繁衍-发展的事物"><a href="#美的本质是一切有利于生存-繁衍-发展的事物" class="headerlink" title="美的本质是一切有利于生存 繁衍 发展的事物"></a>美的本质是一切有利于生存 繁衍 发展的事物</h2><h2 id="明暗交界线在与光线平行的地方（光线与面的法线垂直的地方）"><a href="#明暗交界线在与光线平行的地方（光线与面的法线垂直的地方）" class="headerlink" title="明暗交界线在与光线平行的地方（光线与面的法线垂直的地方）"></a>明暗交界线在与光线平行的地方（光线与面的法线垂直的地方）</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/2.TA/20201029_Roadmap-TA%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%9B%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/29/2.TA/20201029_Roadmap-TA%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%9B%BE/" class="post-title-link" itemprop="url">Roadmap-TA学习路线图</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-30 20:09:57" itemprop="dateModified" datetime="2020-10-30T20:09:57+08:00">2020-10-30</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/2-TA/" itemprop="url" rel="index"><span itemprop="name">2.TA</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/10/29/2.TA/20201029_Roadmap-TA%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%9B%BE/" class="post-meta-item leancloud_visitors" data-flag-title="Roadmap-TA学习路线图" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/29/2.TA/20201029_Roadmap-TA%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%9B%BE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/2.TA/20201029_Roadmap-TA%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%9B%BE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          <h1 id="TA"><a href="#TA" class="headerlink" title="TA"></a>TA</h1><h2 id="原画"><a href="#原画" class="headerlink" title="原画"></a>原画</h2><h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><h4 id="Sai"><a href="#Sai" class="headerlink" title="Sai"></a>Sai</h4><h4 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h4><h4 id="Spine"><a href="#Spine" class="headerlink" title="Spine"></a>Spine</h4><h4 id="Live2d"><a href="#Live2d" class="headerlink" title="Live2d"></a>Live2d</h4><h4 id="AE"><a href="#AE" class="headerlink" title="AE"></a>AE</h4><h3 id="线条"><a href="#线条" class="headerlink" title="线条"></a>线条</h3><h4 id="排线"><a href="#排线" class="headerlink" title="排线"></a>排线</h4><h5 id="横"><a href="#横" class="headerlink" title="横"></a>横</h5><h5 id="竖"><a href="#竖" class="headerlink" title="竖"></a>竖</h5><h5 id="斜"><a href="#斜" class="headerlink" title="斜"></a>斜</h5><h4 id="连线"><a href="#连线" class="headerlink" title="连线"></a>连线</h4><h4 id="描摹"><a href="#描摹" class="headerlink" title="描摹"></a>描摹</h4><h4 id="临摹"><a href="#临摹" class="headerlink" title="临摹"></a>临摹</h4><h3 id="透视"><a href="#透视" class="headerlink" title="透视"></a>透视</h3><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><h3 id="动态"><a href="#动态" class="headerlink" title="动态"></a>动态</h3><h3 id="色彩"><a href="#色彩" class="headerlink" title="色彩"></a>色彩</h3><h3 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h3><h4 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h4><h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4><h4 id="道具"><a href="#道具" class="headerlink" title="道具"></a>道具</h4><h2 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h2><h3 id="3dMax"><a href="#3dMax" class="headerlink" title="3dMax"></a>3dMax</h3><h3 id="Maya"><a href="#Maya" class="headerlink" title="Maya"></a>Maya</h3><h3 id="Zbrush"><a href="#Zbrush" class="headerlink" title="Zbrush"></a>Zbrush</h3><h3 id="Blender"><a href="#Blender" class="headerlink" title="Blender"></a>Blender</h3><h2 id="图形学"><a href="#图形学" class="headerlink" title="图形学"></a>图形学</h2><h3 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h3><h3 id="CG-HLGL"><a href="#CG-HLGL" class="headerlink" title="CG/HLGL"></a>CG/HLGL</h3><h3 id="Unity3d"><a href="#Unity3d" class="headerlink" title="Unity3d"></a>Unity3d</h3><h3 id="UE4"><a href="#UE4" class="headerlink" title="UE4"></a>UE4</h3>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/2.TA/20201029_Roadmap-%E6%95%99%E7%A8%8B%E5%88%97%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/29/2.TA/20201029_Roadmap-%E6%95%99%E7%A8%8B%E5%88%97%E8%A1%A8/" class="post-title-link" itemprop="url">Roadmap-教程列表</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-30 20:09:57" itemprop="dateModified" datetime="2020-10-30T20:09:57+08:00">2020-10-30</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/2-TA/" itemprop="url" rel="index"><span itemprop="name">2.TA</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/10/29/2.TA/20201029_Roadmap-%E6%95%99%E7%A8%8B%E5%88%97%E8%A1%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Roadmap-教程列表" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/29/2.TA/20201029_Roadmap-%E6%95%99%E7%A8%8B%E5%88%97%E8%A1%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/2.TA/20201029_Roadmap-%E6%95%99%E7%A8%8B%E5%88%97%E8%A1%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          <h1 id="最新稀有ke等"><a href="#最新稀有ke等" class="headerlink" title="最新稀有ke等"></a>最新稀有ke等</h1><h2 id="最新稀有ke"><a href="#最新稀有ke" class="headerlink" title="最新稀有ke"></a>最新稀有ke</h2><h3 id="原生正太"><a href="#原生正太" class="headerlink" title="原生正太"></a>原生正太</h3><h4 id="2019古风角色插画创作班"><a href="#2019古风角色插画创作班" class="headerlink" title="2019古风角色插画创作班"></a>2019古风角色插画创作班</h4><h3 id="稀有lesson等多个文件"><a href="#稀有lesson等多个文件" class="headerlink" title="稀有lesson等多个文件"></a>稀有lesson等多个文件</h3><h4 id="2019莫那-竺阴-男性角色绘制2019"><a href="#2019莫那-竺阴-男性角色绘制2019" class="headerlink" title="2019莫那 竺阴 男性角色绘制2019"></a>2019莫那 竺阴 男性角色绘制2019</h4><h3 id="挽彤"><a href="#挽彤" class="headerlink" title="挽彤"></a>挽彤</h3><h3 id="撒呀酱2020"><a href="#撒呀酱2020" class="headerlink" title="撒呀酱2020"></a>撒呀酱2020</h3><h3 id="企鹅妈妈等多个文件"><a href="#企鹅妈妈等多个文件" class="headerlink" title="企鹅妈妈等多个文件"></a>企鹅妈妈等多个文件</h3><h4 id="2018-莫那-日系厚涂专题班-第四期（2017-2018）-15r"><a href="#2018-莫那-日系厚涂专题班-第四期（2017-2018）-15r" class="headerlink" title="2018 [莫那] 日系厚涂专题班 第四期（2017-2018） 15r"></a>2018 [莫那] 日系厚涂专题班 第四期（2017-2018） 15r</h4><h3 id="脐带老妖厚涂插画班-2019年9月"><a href="#脐带老妖厚涂插画班-2019年9月" class="headerlink" title="脐带老妖厚涂插画班 2019年9月"></a>脐带老妖厚涂插画班 2019年9月</h3><h3 id="莫那日系少女-潭潭"><a href="#莫那日系少女-潭潭" class="headerlink" title="莫那日系少女 潭潭"></a>莫那日系少女 潭潭</h3><h3 id="莫那日系-匙"><a href="#莫那日系-匙" class="headerlink" title="莫那日系 匙"></a>莫那日系 匙</h3><h3 id="莫那插画教程"><a href="#莫那插画教程" class="headerlink" title="莫那插画教程"></a>莫那插画教程</h3><h4 id="莫那16日韩风赛璐璐"><a href="#莫那16日韩风赛璐璐" class="headerlink" title="莫那16日韩风赛璐璐"></a>莫那16日韩风赛璐璐</h4><h3 id="莫那2017小白酱原画视频"><a href="#莫那2017小白酱原画视频" class="headerlink" title="莫那2017小白酱原画视频"></a>莫那2017小白酱原画视频</h3><h3 id="莫那2017-禾祭祭服装设计（带psd）"><a href="#莫那2017-禾祭祭服装设计（带psd）" class="headerlink" title="莫那2017 禾祭祭服装设计（带psd）"></a>莫那2017 禾祭祭服装设计（带psd）</h3><h3 id="莫那-默千"><a href="#莫那-默千" class="headerlink" title="莫那-默千"></a>莫那-默千</h3><h4 id="2017古风-amp-半写实厚涂"><a href="#2017古风-amp-半写实厚涂" class="headerlink" title="2017古风&amp;半写实厚涂"></a>2017古风&amp;半写实厚涂</h4><h3 id="莫那-KOAOTO-插画系统班-第七期"><a href="#莫那-KOAOTO-插画系统班-第七期" class="headerlink" title="莫那-KOAOTO] 插画系统班 第七期"></a>莫那-KOAOTO] 插画系统班 第七期</h3><h3 id="莫那-小清新阿蛊-三期"><a href="#莫那-小清新阿蛊-三期" class="headerlink" title="莫那 小清新阿蛊 三期"></a>莫那 小清新阿蛊 三期</h3><h3 id="莫那-杯杯-厚涂色彩专题班2020"><a href="#莫那-杯杯-厚涂色彩专题班2020" class="headerlink" title="莫那 杯杯 厚涂色彩专题班2020"></a>莫那 杯杯 厚涂色彩专题班2020</h3><h3 id="莫那-Uffie-顶级日系插画进阶班"><a href="#莫那-Uffie-顶级日系插画进阶班" class="headerlink" title="莫那 [Uffie] 顶级日系插画进阶班"></a>莫那 [Uffie] 顶级日系插画进阶班</h3><h3 id="莫那-Ajimita背景氛围"><a href="#莫那-Ajimita背景氛围" class="headerlink" title="莫那 Ajimita背景氛围"></a>莫那 Ajimita背景氛围</h3><h3 id="莫那-2017-抹茶-色彩"><a href="#莫那-2017-抹茶-色彩" class="headerlink" title="莫那 2017[抹茶]色彩"></a>莫那 2017[抹茶]色彩</h3><h3 id="莫那-赤井羚-人物班2019"><a href="#莫那-赤井羚-人物班2019" class="headerlink" title="莫那 -赤井羚]人物班2019"></a>莫那 -赤井羚]人物班2019</h3><h3 id="眠川利2020"><a href="#眠川利2020" class="headerlink" title="眠川利2020"></a>眠川利2020</h3><h3 id="噜咯咯日系色彩插画"><a href="#噜咯咯日系色彩插画" class="headerlink" title="噜咯咯日系色彩插画"></a>噜咯咯日系色彩插画</h3><h3 id="君仔·唯美水彩古风sai"><a href="#君仔·唯美水彩古风sai" class="headerlink" title="君仔·唯美水彩古风sai"></a>君仔·唯美水彩古风sai</h3><h3 id="绘师anmi画集-教程绘图技法"><a href="#绘师anmi画集-教程绘图技法" class="headerlink" title="绘师anmi画集+教程绘图技法"></a>绘师anmi画集+教程绘图技法</h3><h3 id="黑沢芥子第2期等多个文件"><a href="#黑沢芥子第2期等多个文件" class="headerlink" title="黑沢芥子第2期等多个文件"></a>黑沢芥子第2期等多个文件</h3><h4 id="黑沢芥子第2期"><a href="#黑沢芥子第2期" class="headerlink" title="黑沢芥子第2期"></a>黑沢芥子第2期</h4><h3 id="饭糕33插画"><a href="#饭糕33插画" class="headerlink" title="饭糕33插画"></a>饭糕33插画</h3><h3 id="动漫线稿-表情动作绘画参考素材"><a href="#动漫线稿-表情动作绘画参考素材" class="headerlink" title="动漫线稿 表情动作绘画参考素材"></a>动漫线稿 表情动作绘画参考素材</h3><h4 id="A0247-动漫线稿-人体动态-光影表现2000张-表情动作绘画参考素材"><a href="#A0247-动漫线稿-人体动态-光影表现2000张-表情动作绘画参考素材" class="headerlink" title="A0247 动漫线稿 人体动态 光影表现2000张 表情动作绘画参考素材"></a>A0247 动漫线稿 人体动态 光影表现2000张 表情动作绘画参考素材</h4><h3 id="传统服饰素材"><a href="#传统服饰素材" class="headerlink" title="传统服饰素材"></a>传统服饰素材</h3><h3 id="白川柏川"><a href="#白川柏川" class="headerlink" title="白川柏川"></a>白川柏川</h3><h3 id="【重点】线稿临摹"><a href="#【重点】线稿临摹" class="headerlink" title="【重点】线稿临摹"></a>【重点】线稿临摹</h3><h3 id="【原生正太】2019"><a href="#【原生正太】2019" class="headerlink" title="【原生正太】2019"></a>【原生正太】2019</h3><h3 id="【银河cg学院】白子-录屏"><a href="#【银河cg学院】白子-录屏" class="headerlink" title="【银河cg学院】白子 录屏"></a>【银河cg学院】白子 录屏</h3><h3 id="【臀】画法-zip等多个文件"><a href="#【臀】画法-zip等多个文件" class="headerlink" title="【臀】画法.zip等多个文件"></a>【臀】画法.zip等多个文件</h3><h4 id="莫那-默千-1"><a href="#莫那-默千-1" class="headerlink" title="莫那-默千"></a>莫那-默千</h4><h5 id="古风-amp-半写实厚涂"><a href="#古风-amp-半写实厚涂" class="headerlink" title="古风&amp;半写实厚涂"></a>古风&amp;半写实厚涂</h5><h4 id="面瘫奶奶-第8期系统班"><a href="#面瘫奶奶-第8期系统班" class="headerlink" title="[面瘫奶奶] 第8期系统班"></a>[面瘫奶奶] 第8期系统班</h4><h4 id="12-2019-饭糕-高级人设班-第5期-全-第12期-部分-·「日系-任务"><a href="#12-2019-饭糕-高级人设班-第5期-全-第12期-部分-·「日系-任务" class="headerlink" title="12 2019 [饭糕] 高级人设班 第5期(全) + 第12期(部分) ·「日系 任务]"></a>12 2019 [饭糕] 高级人设班 第5期(全) + 第12期(部分) ·「日系 任务]</h4><h3 id="【猫君大白】11板绘课2019"><a href="#【猫君大白】11板绘课2019" class="headerlink" title="【猫君大白】11板绘课2019"></a>【猫君大白】11板绘课2019</h3><h3 id="【大触来了】栗原澈·韩系人物插画班"><a href="#【大触来了】栗原澈·韩系人物插画班" class="headerlink" title="【大触来了】栗原澈·韩系人物插画班"></a>【大触来了】栗原澈·韩系人物插画班</h3><h3 id="【sai】山药酱-日系立绘设计进阶班2019"><a href="#【sai】山药酱-日系立绘设计进阶班2019" class="headerlink" title="【sai】山药酱-日系立绘设计进阶班2019"></a>【sai】山药酱-日系立绘设计进阶班2019</h3><h3 id="【2017】墨秃人体"><a href="#【2017】墨秃人体" class="headerlink" title="【2017】墨秃人体"></a>【2017】墨秃人体</h3><h3 id="【2017】灰鸟第二期"><a href="#【2017】灰鸟第二期" class="headerlink" title="【2017】灰鸟第二期"></a>【2017】灰鸟第二期</h3><h3 id="【2017】toi专题班二期"><a href="#【2017】toi专题班二期" class="headerlink" title="【2017】toi专题班二期"></a>【2017】toi专题班二期</h3><h3 id="【2017】H喵（大眼清透少女画风）（主人体辅上色）"><a href="#【2017】H喵（大眼清透少女画风）（主人体辅上色）" class="headerlink" title="【2017】H喵（大眼清透少女画风）（主人体辅上色）"></a>【2017】H喵（大眼清透少女画风）（主人体辅上色）</h3><h3 id="莫那-灰鸟第二期"><a href="#莫那-灰鸟第二期" class="headerlink" title="[莫那]灰鸟第二期"></a>[莫那]灰鸟第二期</h3><h3 id="莫那-灰鸟插画教程"><a href="#莫那-灰鸟插画教程" class="headerlink" title="[莫那]灰鸟插画教程"></a>[莫那]灰鸟插画教程</h3><h3 id="莫那-五月养成团（阿蛊-灰鸟-toi）"><a href="#莫那-五月养成团（阿蛊-灰鸟-toi）" class="headerlink" title="[莫那] 五月养成团（阿蛊+灰鸟+toi）"></a>[莫那] 五月养成团（阿蛊+灰鸟+toi）</h3><h3 id="莫那-四月养成团（toi-灰鸟-三门-作业讲解）"><a href="#莫那-四月养成团（toi-灰鸟-三门-作业讲解）" class="headerlink" title="[莫那] 四月养成团（toi+灰鸟+三门+作业讲解）"></a>[莫那] 四月养成团（toi+灰鸟+三门+作业讲解）</h3><h3 id="莫那-人体养成团（墨秃）"><a href="#莫那-人体养成团（墨秃）" class="headerlink" title="[莫那] 人体养成团（墨秃）"></a>[莫那] 人体养成团（墨秃）</h3><h3 id="莫那-九月养成团（阿蛊-店长-糖罐包子-林木木）"><a href="#莫那-九月养成团（阿蛊-店长-糖罐包子-林木木）" class="headerlink" title="[莫那] 九月养成团（阿蛊+店长+糖罐包子+林木木）"></a>[莫那] 九月养成团（阿蛊+店长+糖罐包子+林木木）</h3><h3 id="莫那-小太阳-古风水彩专题班"><a href="#莫那-小太阳-古风水彩专题班" class="headerlink" title="[莫那-小太阳] 古风水彩专题班"></a>[莫那-小太阳] 古风水彩专题班</h3><h3 id="莫那-小白酱-游戏角色原画入门"><a href="#莫那-小白酱-游戏角色原画入门" class="headerlink" title="[莫那-小白酱] 游戏角色原画入门"></a>[莫那-小白酱] 游戏角色原画入门</h3><h3 id="莫那-三目舜-人体基础班"><a href="#莫那-三目舜-人体基础班" class="headerlink" title="[莫那-三目舜] 人体基础班"></a>[莫那-三目舜] 人体基础班</h3><h3 id="莫那-三门门-人体基础班"><a href="#莫那-三门门-人体基础班" class="headerlink" title="[莫那-三门门] 人体基础班"></a>[莫那-三门门] 人体基础班</h3><h3 id="莫那-抹茶-色彩专题班"><a href="#莫那-抹茶-色彩专题班" class="headerlink" title="[莫那-抹茶] 色彩专题班"></a>[莫那-抹茶] 色彩专题班</h3><h3 id="莫那-面瘫奶奶-插画系统班-第八期"><a href="#莫那-面瘫奶奶-插画系统班-第八期" class="headerlink" title="[莫那-面瘫奶奶] 插画系统班 第八期"></a>[莫那-面瘫奶奶] 插画系统班 第八期</h3><h3 id="莫那-禾祭祭-服装动漫设计班"><a href="#莫那-禾祭祭-服装动漫设计班" class="headerlink" title="[莫那-禾祭祭] 服装动漫设计班"></a>[莫那-禾祭祭] 服装动漫设计班</h3><h3 id="莫那-丹艾凡-日系插画班-第12期"><a href="#莫那-丹艾凡-日系插画班-第12期" class="headerlink" title="[莫那-丹艾凡] 日系插画班 第12期"></a>[莫那-丹艾凡] 日系插画班 第12期</h3><h3 id="莫那-匙-日系少女插画"><a href="#莫那-匙-日系少女插画" class="headerlink" title="[莫那-匙] 日系少女插画"></a>[莫那-匙] 日系少女插画</h3><h3 id="莫那-TOI-插画专题班-第2期【暑假班】"><a href="#莫那-TOI-插画专题班-第2期【暑假班】" class="headerlink" title="[莫那-TOI] 插画专题班 - 第2期【暑假班】"></a>[莫那-TOI] 插画专题班 - 第2期【暑假班】</h3><h3 id="莫那-TOI-插画专题班-第1期【寒假班】"><a href="#莫那-TOI-插画专题班-第1期【寒假班】" class="headerlink" title="[莫那-TOI] 插画专题班 - 第1期【寒假班】"></a>[莫那-TOI] 插画专题班 - 第1期【寒假班】</h3><h3 id="莫那-KOAOTO-插画系统班-第七期-1"><a href="#莫那-KOAOTO-插画系统班-第七期-1" class="headerlink" title="[莫那-KOAOTO] 插画系统班 第七期"></a>[莫那-KOAOTO] 插画系统班 第七期</h3><h3 id="莫那-H喵-日系插画教程-第一期"><a href="#莫那-H喵-日系插画教程-第一期" class="headerlink" title="[莫那-H喵] 日系插画教程 第一期"></a>[莫那-H喵] 日系插画教程 第一期</h3><h3 id="莫那-Ajimita-背景氛围班"><a href="#莫那-Ajimita-背景氛围班" class="headerlink" title="[莫那-Ajimita] 背景氛围班"></a>[莫那-Ajimita] 背景氛围班</h3><h3 id="布丁-日韩插画提升班教程-SAI平涂技巧"><a href="#布丁-日韩插画提升班教程-SAI平涂技巧" class="headerlink" title="[布丁] 日韩插画提升班教程-SAI平涂技巧"></a>[布丁] 日韩插画提升班教程-SAI平涂技巧</h3><h3 id="amico-零基础插画入门教学"><a href="#amico-零基础插画入门教学" class="headerlink" title="[amico]零基础插画入门教学"></a>[amico]零基础插画入门教学</h3><h3 id="rosele日系插画色彩进阶班2020"><a href="#rosele日系插画色彩进阶班2020" class="headerlink" title="rosele日系插画色彩进阶班2020"></a>rosele日系插画色彩进阶班2020</h3><h3 id="rosele日式速写-2020"><a href="#rosele日式速写-2020" class="headerlink" title="rosele日式速写 2020"></a>rosele日式速写 2020</h3><h3 id="p-阿水2019沉迷小说-日韩插画班"><a href="#p-阿水2019沉迷小说-日韩插画班" class="headerlink" title="p 阿水2019沉迷小说 日韩插画班"></a>p 阿水2019沉迷小说 日韩插画班</h3><h3 id="p-H2日韩风设计理念-有声"><a href="#p-H2日韩风设计理念-有声" class="headerlink" title="p H2日韩风设计理念 有声"></a>p H2日韩风设计理念 有声</h3><h3 id="p-39-牟真民日韩风Q版"><a href="#p-39-牟真民日韩风Q版" class="headerlink" title="p 39 牟真民日韩风Q版"></a>p 39 牟真民日韩风Q版</h3><h3 id="krenz-透视-构成-色彩2019"><a href="#krenz-透视-构成-色彩2019" class="headerlink" title="krenz 透视+构成+色彩2019"></a>krenz 透视+构成+色彩2019</h3><h3 id="B03-【莫那-白缇】纸胶带设计班"><a href="#B03-【莫那-白缇】纸胶带设计班" class="headerlink" title="B03.【莫那 白缇】纸胶带设计班"></a>B03.【莫那 白缇】纸胶带设计班</h3><h3 id="AMICO-男女人体头像班"><a href="#AMICO-男女人体头像班" class="headerlink" title="AMICO 男女人体头像班"></a>AMICO 男女人体头像班</h3><h3 id="A-狄里ds-色彩光影专题班"><a href="#A-狄里ds-色彩光影专题班" class="headerlink" title="A 狄里ds 色彩光影专题班"></a>A 狄里ds 色彩光影专题班</h3><h3 id="8潭-日系少女"><a href="#8潭-日系少女" class="headerlink" title="8潭 日系少女"></a>8潭 日系少女</h3><h3 id="2020【三门门】"><a href="#2020【三门门】" class="headerlink" title="2020【三门门】"></a>2020【三门门】</h3><h3 id="2020【金鱼骨】稀有课-全篇章"><a href="#2020【金鱼骨】稀有课-全篇章" class="headerlink" title="2020【金鱼骨】稀有课 全篇章"></a>2020【金鱼骨】稀有课 全篇章</h3><h3 id="2020ntalu今夜来补课"><a href="#2020ntalu今夜来补课" class="headerlink" title="2020ntalu今夜来补课"></a>2020ntalu今夜来补课</h3><h3 id="2020Krenz色彩6"><a href="#2020Krenz色彩6" class="headerlink" title="2020Krenz色彩6"></a>2020Krenz色彩6</h3><h3 id="2019缺水的海怪procreate"><a href="#2019缺水的海怪procreate" class="headerlink" title="2019缺水的海怪procreate"></a>2019缺水的海怪procreate</h3><h3 id="2019-e果果-插画提升"><a href="#2019-e果果-插画提升" class="headerlink" title="2019 [e果果] 插画提升"></a>2019 [e果果] 插画提升</h3><h3 id="2019-Privacy-s月半s狼叫dlolita立绘"><a href="#2019-Privacy-s月半s狼叫dlolita立绘" class="headerlink" title="2019 Privacy s月半s狼叫dlolita立绘"></a>2019 Privacy s月半s狼叫dlolita立绘</h3><h3 id="2018轻微课日韩插画特训班基础-提升"><a href="#2018轻微课日韩插画特训班基础-提升" class="headerlink" title="2018轻微课日韩插画特训班基础+提升"></a>2018轻微课日韩插画特训班基础+提升</h3><h3 id="2018口丁老师蓝铅笔第三期"><a href="#2018口丁老师蓝铅笔第三期" class="headerlink" title="2018口丁老师蓝铅笔第三期"></a>2018口丁老师蓝铅笔第三期</h3><h3 id="2018-莫那-日系厚涂专题班-第四期（2017-2018）-15r-1"><a href="#2018-莫那-日系厚涂专题班-第四期（2017-2018）-15r-1" class="headerlink" title="2018 [莫那] 日系厚涂专题班 第四期（2017-2018） 15r"></a>2018 [莫那] 日系厚涂专题班 第四期（2017-2018） 15r</h3><h3 id="1s-莫那-Ajimita背景氛围"><a href="#1s-莫那-Ajimita背景氛围" class="headerlink" title="1s 莫那 Ajimita背景氛围"></a>1s 莫那 Ajimita背景氛围</h3><h3 id="1-眠川利2020"><a href="#1-眠川利2020" class="headerlink" title="1 眠川利2020"></a>1 眠川利2020</h3><h3 id="1-洛书日式唯美插画"><a href="#1-洛书日式唯美插画" class="headerlink" title="1 洛书日式唯美插画"></a>1 洛书日式唯美插画</h3><h3 id="1-林木木-2019插画入门基础课"><a href="#1-林木木-2019插画入门基础课" class="headerlink" title="1 林木木]2019插画入门基础课"></a>1 林木木]2019插画入门基础课</h3><h3 id="1-蓝铅笔艾丹凡日系插画-12期"><a href="#1-蓝铅笔艾丹凡日系插画-12期" class="headerlink" title="1 蓝铅笔艾丹凡日系插画 12期"></a>1 蓝铅笔艾丹凡日系插画 12期</h3><h3 id="1-教主某狐仙"><a href="#1-教主某狐仙" class="headerlink" title="1 教主某狐仙"></a>1 教主某狐仙</h3><h3 id="1-灌糖包子-日式厚涂薄涂"><a href="#1-灌糖包子-日式厚涂薄涂" class="headerlink" title="1 灌糖包子 日式厚涂薄涂"></a>1 灌糖包子 日式厚涂薄涂</h3><h3 id="1-恶果果-2019插画提升班"><a href="#1-恶果果-2019插画提升班" class="headerlink" title="1 恶果果]2019插画提升班"></a>1 恶果果]2019插画提升班</h3><h3 id="1-当雨作金泽-系统课2018"><a href="#1-当雨作金泽-系统课2018" class="headerlink" title="1 当雨作金泽]系统课2018"></a>1 当雨作金泽]系统课2018</h3><h3 id="1-不是芹菜是菜芹-高级插画班"><a href="#1-不是芹菜是菜芹-高级插画班" class="headerlink" title="1 不是芹菜是菜芹 高级插画班"></a>1 不是芹菜是菜芹 高级插画班</h3><h3 id="1-2019-银河cg-krusier角色插画班"><a href="#1-2019-银河cg-krusier角色插画班" class="headerlink" title="1 2019 银河cg-krusier角色插画班"></a>1 2019 银河cg-krusier角色插画班</h3><h3 id="011-2019-丁丁框色彩光影"><a href="#011-2019-丁丁框色彩光影" class="headerlink" title="011 2019 丁丁框色彩光影"></a>011 2019 丁丁框色彩光影</h3><h2 id="wke"><a href="#wke" class="headerlink" title="wke"></a>wke</h2><h3 id="gx"><a href="#gx" class="headerlink" title="gx"></a>gx</h3><h4 id="整理等多个文件"><a href="#整理等多个文件" class="headerlink" title="整理等多个文件"></a>整理等多个文件</h4><h5 id="2019-释开达-基础人体结构绘画训练营"><a href="#2019-释开达-基础人体结构绘画训练营" class="headerlink" title="2019 [释开达] 基础人体结构绘画训练营"></a>2019 [释开达] 基础人体结构绘画训练营</h5><h5 id="应图"><a href="#应图" class="headerlink" title="应图"></a>应图</h5><h5 id="稀有lesson等多个文件-1"><a href="#稀有lesson等多个文件-1" class="headerlink" title="稀有lesson等多个文件"></a>稀有lesson等多个文件</h5><h6 id="春哥人体结构与角色设计"><a href="#春哥人体结构与角色设计" class="headerlink" title="春哥人体结构与角色设计"></a>春哥人体结构与角色设计</h6><h6 id="【阿海】男性角色创作班-2020"><a href="#【阿海】男性角色创作班-2020" class="headerlink" title="【阿海】男性角色创作班 2020"></a>【阿海】男性角色创作班 2020</h6><h6 id="2019-绘梦CG学院-画措-水彩·水墨古风CG插画班"><a href="#2019-绘梦CG学院-画措-水彩·水墨古风CG插画班" class="headerlink" title="2019 [绘梦CG学院-画措] 水彩·水墨古风CG插画班"></a>2019 [绘梦CG学院-画措] 水彩·水墨古风CG插画班</h6><h5 id="企鹅妈妈等多个文件-1"><a href="#企鹅妈妈等多个文件-1" class="headerlink" title="企鹅妈妈等多个文件"></a>企鹅妈妈等多个文件</h5><h6 id="中下游-私教班"><a href="#中下游-私教班" class="headerlink" title="中下游-私教班"></a>中下游-私教班</h6><h6 id="原画人二次元插画6期-【冷蝉】-2020"><a href="#原画人二次元插画6期-【冷蝉】-2020" class="headerlink" title="原画人二次元插画6期 【冷蝉】 2020"></a>原画人二次元插画6期 【冷蝉】 2020</h6><h6 id="兔豆尼2020"><a href="#兔豆尼2020" class="headerlink" title="兔豆尼2020"></a>兔豆尼2020</h6><h6 id="随随2期"><a href="#随随2期" class="headerlink" title="随随2期"></a>随随2期</h6><h6 id="六一-2020"><a href="#六一-2020" class="headerlink" title="六一 2020"></a>六一 2020</h6><h6 id="2018-中下游-第四期写实插画【08-18节】★★"><a href="#2018-中下游-第四期写实插画【08-18节】★★" class="headerlink" title="2018 [中下游] 第四期写实插画【08-18节】★★"></a>2018 [中下游] 第四期写实插画【08-18节】★★</h6><h6 id="2018-潭州-插画原画全套-高级原画设计"><a href="#2018-潭州-插画原画全套-高级原画设计" class="headerlink" title="2018 [潭州] 插画原画全套 高级原画设计"></a>2018 [潭州] 插画原画全套 高级原画设计</h6><h5 id="蓝铅笔逼叔漫画系统班x"><a href="#蓝铅笔逼叔漫画系统班x" class="headerlink" title="蓝铅笔逼叔漫画系统班x"></a>蓝铅笔逼叔漫画系统班x</h5><h5 id="【臀】画法-zip等多个文件-1"><a href="#【臀】画法-zip等多个文件-1" class="headerlink" title="【臀】画法.zip等多个文件"></a>【臀】画法.zip等多个文件</h5><h6 id="小清新阿蛊"><a href="#小清新阿蛊" class="headerlink" title="小清新阿蛊"></a>小清新阿蛊</h6><h5 id="2019匠人绘-全套"><a href="#2019匠人绘-全套" class="headerlink" title="2019匠人绘 全套"></a>2019匠人绘 全套</h5><h5 id="2018匠人绘-雪祥"><a href="#2018匠人绘-雪祥" class="headerlink" title="2018匠人绘 雪祥"></a>2018匠人绘 雪祥</h5><h5 id="002-v大课"><a href="#002-v大课" class="headerlink" title="002 v大课"></a>002 v大课</h5><h3 id="2020新ke"><a href="#2020新ke" class="headerlink" title="2020新ke"></a>2020新ke</h3><h4 id="运营插画速成-芝s学院-2020"><a href="#运营插画速成-芝s学院-2020" class="headerlink" title="运营插画速成 芝s学院 2020"></a>运营插画速成 芝s学院 2020</h4><h4 id="原生正太-古风角色插画创作班等多个文件"><a href="#原生正太-古风角色插画创作班等多个文件" class="headerlink" title="原生正太 古风角色插画创作班等多个文件"></a>原生正太 古风角色插画创作班等多个文件</h4><h4 id="小熊猫胖哒-时尚造型穿搭2020"><a href="#小熊猫胖哒-时尚造型穿搭2020" class="headerlink" title="小熊猫胖哒 时尚造型穿搭2020"></a>小熊猫胖哒 时尚造型穿搭2020</h4><h4 id="王朝阳-色彩与光影2020"><a href="#王朝阳-色彩与光影2020" class="headerlink" title="王朝阳 色彩与光影2020"></a>王朝阳 色彩与光影2020</h4><h4 id="彤日三潜-厚涂人物插画创作思维（20年5月更）"><a href="#彤日三潜-厚涂人物插画创作思维（20年5月更）" class="headerlink" title="彤日三潜-厚涂人物插画创作思维（20年5月更）"></a>彤日三潜-厚涂人物插画创作思维（20年5月更）</h4><h4 id="日系厚涂魔鬼班-2020"><a href="#日系厚涂魔鬼班-2020" class="headerlink" title="日系厚涂魔鬼班 2020"></a>日系厚涂魔鬼班 2020</h4><h4 id="那仁-水彩团练2020"><a href="#那仁-水彩团练2020" class="headerlink" title="那仁 水彩团练2020"></a>那仁 水彩团练2020</h4><h4 id="曼琪-AB班-2020"><a href="#曼琪-AB班-2020" class="headerlink" title="曼琪 AB班 2020"></a>曼琪 AB班 2020</h4><h4 id="蚂蚁八手王2020"><a href="#蚂蚁八手王2020" class="headerlink" title="蚂蚁八手王2020"></a>蚂蚁八手王2020</h4><h4 id="邓瑞宁子-水彩团练第四期2020"><a href="#邓瑞宁子-水彩团练第四期2020" class="headerlink" title="邓瑞宁子 水彩团练第四期2020"></a>邓瑞宁子 水彩团练第四期2020</h4><h4 id="茨舞-2020"><a href="#茨舞-2020" class="headerlink" title="茨舞 2020"></a>茨舞 2020</h4><h4 id="杯杯日系厚涂色彩专题班-2020"><a href="#杯杯日系厚涂色彩专题班-2020" class="headerlink" title="杯杯日系厚涂色彩专题班 2020"></a>杯杯日系厚涂色彩专题班 2020</h4><h4 id="【大触特训班1期】Merasgar日光圣地娅鸽月半狼叫幽灵星2019"><a href="#【大触特训班1期】Merasgar日光圣地娅鸽月半狼叫幽灵星2019" class="headerlink" title="【大触特训班1期】Merasgar日光圣地娅鸽月半狼叫幽灵星2019"></a>【大触特训班1期】Merasgar日光圣地娅鸽月半狼叫幽灵星2019</h4><h4 id="【阿海】男性角色创作班-2020-1"><a href="#【阿海】男性角色创作班-2020-1" class="headerlink" title="【阿海】男性角色创作班 2020"></a>【阿海】男性角色创作班 2020</h4><h4 id="senny-2020"><a href="#senny-2020" class="headerlink" title="senny 2020"></a>senny 2020</h4><h2 id="课程"><a href="#课程" class="headerlink" title="课程"></a>课程</h2><h3 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h3><h4 id="鱼雨桐插画课-2020"><a href="#鱼雨桐插画课-2020" class="headerlink" title="鱼雨桐插画课 2020"></a>鱼雨桐插画课 2020</h4><h4 id="酥卷-2020"><a href="#酥卷-2020" class="headerlink" title="酥卷 2020"></a>酥卷 2020</h4><h4 id="p-匠人绘人物设计"><a href="#p-匠人绘人物设计" class="headerlink" title="p 匠人绘人物设计"></a>p 匠人绘人物设计</h4><h4 id="minor-头像-2020"><a href="#minor-头像-2020" class="headerlink" title="minor 头像 2020"></a>minor 头像 2020</h4><h4 id="2020-舞小仙-插画创作进阶课程√"><a href="#2020-舞小仙-插画创作进阶课程√" class="headerlink" title="2020 [舞小仙] 插画创作进阶课程√"></a>2020 [舞小仙] 插画创作进阶课程√</h4><h4 id="1"><a href="#1" class="headerlink" title="1"></a>1</h4><h5 id="站酷-威廉姆斯的-AI商业插画【速】"><a href="#站酷-威廉姆斯的-AI商业插画【速】" class="headerlink" title="站酷 威廉姆斯的 AI商业插画【速】"></a>站酷 威廉姆斯的 AI商业插画【速】</h5><h5 id="壹零商业插画班2018★★-1"><a href="#壹零商业插画班2018★★-1" class="headerlink" title="壹零商业插画班2018★★(1)"></a>壹零商业插画班2018★★(1)</h5><h5 id="壹零商业插画班2018★★"><a href="#壹零商业插画班2018★★" class="headerlink" title="壹零商业插画班2018★★"></a>壹零商业插画班2018★★</h5><h5 id="壹零商业插画班2018"><a href="#壹零商业插画班2018" class="headerlink" title="壹零商业插画班2018"></a>壹零商业插画班2018</h5><h5 id="小新插画26-41gb"><a href="#小新插画26-41gb" class="headerlink" title="小新插画26.41gb"></a>小新插画26.41gb</h5><h5 id="汤小圆"><a href="#汤小圆" class="headerlink" title="汤小圆"></a>汤小圆</h5><h5 id="零基础扁平肌理拼贴商业插画-HOHO猴-amp-胡小白"><a href="#零基础扁平肌理拼贴商业插画-HOHO猴-amp-胡小白" class="headerlink" title="零基础扁平肌理拼贴商业插画(HOHO猴&amp;胡小白)"></a>零基础扁平肌理拼贴商业插画(HOHO猴&amp;胡小白)</h5><h5 id="兰子云-贵莲"><a href="#兰子云-贵莲" class="headerlink" title="兰子云 贵莲"></a>兰子云 贵莲</h5><h5 id="嘎罗丨可乐-实用商业插画全能班-2019-最新等多个文件"><a href="#嘎罗丨可乐-实用商业插画全能班-2019-最新等多个文件" class="headerlink" title="嘎罗丨可乐] 实用商业插画全能班 (2019) 最新等多个文件"></a>嘎罗丨可乐] 实用商业插画全能班 (2019) 最新等多个文件</h5><h5 id="儿童噪点插画视频教程-·「儿插-iPad」-2019"><a href="#儿童噪点插画视频教程-·「儿插-iPad」-2019" class="headerlink" title="儿童噪点插画视频教程 ·「儿插 iPad」(2019)"></a>儿童噪点插画视频教程 ·「儿插 iPad」(2019)</h5><h5 id="斑马斑马-板绘插画教程"><a href="#斑马斑马-板绘插画教程" class="headerlink" title="斑马斑马 板绘插画教程"></a>斑马斑马 板绘插画教程</h5><h5 id="【优设】肌理插画-2019"><a href="#【优设】肌理插画-2019" class="headerlink" title="【优设】肌理插画 2019"></a>【优设】肌理插画 2019</h5><h5 id="周小馋-AI插画教程-·-30天萌漫之旅"><a href="#周小馋-AI插画教程-·-30天萌漫之旅" class="headerlink" title="[周小馋] AI插画教程 · 30天萌漫之旅"></a>[周小馋] AI插画教程 · 30天萌漫之旅</h5><h5 id="钟小朋友-儿童插画课（18板绘＊无声-17手绘）"><a href="#钟小朋友-儿童插画课（18板绘＊无声-17手绘）" class="headerlink" title="[钟小朋友] 儿童插画课（18板绘＊无声+17手绘）"></a>[钟小朋友] 儿童插画课（18板绘＊无声+17手绘）</h5><h5 id="中下游-中下游的温暖插画世界"><a href="#中下游-中下游的温暖插画世界" class="headerlink" title="[中下游] 中下游的温暖插画世界"></a>[中下游] 中下游的温暖插画世界</h5><h5 id="张兜兜-儿童插画课-·「儿插-iPad-procreate」-2018"><a href="#张兜兜-儿童插画课-·「儿插-iPad-procreate」-2018" class="headerlink" title="[张兜兜] 儿童插画课 ·「儿插 iPad procreate」(2018)"></a>[张兜兜] 儿童插画课 ·「儿插 iPad procreate」(2018)</h5><h5 id="造物课堂-X-哲-Tititi-综合材料绘画-三节全-·「儿插-水粉-彩铅"><a href="#造物课堂-X-哲-Tititi-综合材料绘画-三节全-·「儿插-水粉-彩铅" class="headerlink" title="[造物课堂 X 哲-Tititi] 综合材料绘画 三节全 ·「儿插 水粉 彩铅]"></a>[造物课堂 X 哲-Tititi] 综合材料绘画 三节全 ·「儿插 水粉 彩铅]</h5><h5 id="造物课堂-X-啃了个鸡-像素插画-·「商插-像素-人物」"><a href="#造物课堂-X-啃了个鸡-像素插画-·「商插-像素-人物」" class="headerlink" title="[造物课堂 X 啃了个鸡] 像素插画 ·「商插 像素 人物」"></a>[造物课堂 X 啃了个鸡] 像素插画 ·「商插 像素 人物」</h5><h5 id="柚子-2017儿童插画课"><a href="#柚子-2017儿童插画课" class="headerlink" title="[柚子] 2017儿童插画课"></a>[柚子] 2017儿童插画课</h5><h5 id="柚子-2016插画课-·「儿插」"><a href="#柚子-2016插画课-·「儿插」" class="headerlink" title="[柚子] 2016插画课 ·「儿插」"></a>[柚子] 2016插画课 ·「儿插」</h5><h5 id="优设课堂-邹闫零基础手绘-2018"><a href="#优设课堂-邹闫零基础手绘-2018" class="headerlink" title="[优设课堂] 邹闫零基础手绘 (2018)"></a>[优设课堂] 邹闫零基础手绘 (2018)</h5><h5 id="优设课堂-小光老师的手绘课"><a href="#优设课堂-小光老师的手绘课" class="headerlink" title="[优设课堂] 小光老师的手绘课"></a>[优设课堂] 小光老师的手绘课</h5><h5 id="优设课堂-手绘基础训练营-第07期（橙子老师）"><a href="#优设课堂-手绘基础训练营-第07期（橙子老师）" class="headerlink" title="[优设课堂] 手绘基础训练营 - 第07期（橙子老师）"></a>[优设课堂] 手绘基础训练营 - 第07期（橙子老师）</h5><h5 id="优设课堂-手绘基础训练营-第02期（橙子老师）"><a href="#优设课堂-手绘基础训练营-第02期（橙子老师）" class="headerlink" title="[优设课堂] 手绘基础训练营 - 第02期（橙子老师）"></a>[优设课堂] 手绘基础训练营 - 第02期（橙子老师）</h5><h5 id="优设-VikesTan-轻质感噪点人物插画（2019）"><a href="#优设-VikesTan-轻质感噪点人物插画（2019）" class="headerlink" title="[优设-VikesTan] 轻质感噪点人物插画（2019）"></a>[优设-VikesTan] 轻质感噪点人物插画（2019）</h5><h5 id="一粒王药师-板绘商业儿插"><a href="#一粒王药师-板绘商业儿插" class="headerlink" title="[一粒王药师] 板绘商业儿插"></a>[一粒王药师] 板绘商业儿插</h5><h5 id="杨小洋-板绘森系少女-·「商插-唯美」-2018"><a href="#杨小洋-板绘森系少女-·「商插-唯美」-2018" class="headerlink" title="[杨小洋] 板绘森系少女 ·「商插 唯美」(2018)"></a>[杨小洋] 板绘森系少女 ·「商插 唯美」(2018)</h5><h5 id="小新-水彩暑假班（2019）最新★"><a href="#小新-水彩暑假班（2019）最新★" class="headerlink" title="[小新] 水彩暑假班（2019）最新★"></a>[小新] 水彩暑假班（2019）最新★</h5><h5 id="小新-数码平日班-2019"><a href="#小新-数码平日班-2019" class="headerlink" title="[小新] 数码平日班 (2019)"></a>[小新] 数码平日班 (2019)</h5><h5 id="小新-儿童插画课-15-17"><a href="#小新-儿童插画课-15-17" class="headerlink" title="[小新] 儿童插画课 15+17"></a>[小新] 儿童插画课 15+17</h5><h5 id="小黑牙-PS唯美少女插画-·「商插-唯美-人物」-2017"><a href="#小黑牙-PS唯美少女插画-·「商插-唯美-人物」-2017" class="headerlink" title="[小黑牙] PS唯美少女插画 ·「商插 唯美 人物」(2017)"></a>[小黑牙] PS唯美少女插画 ·「商插 唯美 人物」(2017)</h5><h5 id="小艾-儿童绘本课-·「儿插-绘本」-2018"><a href="#小艾-儿童绘本课-·「儿插-绘本」-2018" class="headerlink" title="[小艾] 儿童绘本课 ·「儿插 绘本」(2018)"></a>[小艾] 儿童绘本课 ·「儿插 绘本」(2018)</h5><h5 id="吾空空-商业插画基础班-2018"><a href="#吾空空-商业插画基础班-2018" class="headerlink" title="[吾空空] 商业插画基础班 (2018)"></a>[吾空空] 商业插画基础班 (2018)</h5><h5 id="温特耳-插画课-2018"><a href="#温特耳-插画课-2018" class="headerlink" title="[温特耳] 插画课 (2018)"></a>[温特耳] 插画课 (2018)</h5><h5 id="王云飞-跟王云飞学线圈插画"><a href="#王云飞-跟王云飞学线圈插画" class="headerlink" title="[王云飞] 跟王云飞学线圈插画"></a>[王云飞] 跟王云飞学线圈插画</h5><h5 id="田小状-iPad插画课-·「商插-iPad」-2018"><a href="#田小状-iPad插画课-·「商插-iPad」-2018" class="headerlink" title="[田小状] iPad插画课 ·「商插 iPad」(2018)"></a>[田小状] iPad插画课 ·「商插 iPad」(2018)</h5><h5 id="孙无力-插画进阶事务所-第一期-·「潮流-商插」-2019"><a href="#孙无力-插画进阶事务所-第一期-·「潮流-商插」-2019" class="headerlink" title="[孙无力] 插画进阶事务所 第一期 ·「潮流 商插」(2019)"></a>[孙无力] 插画进阶事务所 第一期 ·「潮流 商插」(2019)</h5><h5 id="孙胜蓝-PS板绘仿水彩风-·「商插-儿插」-2018"><a href="#孙胜蓝-PS板绘仿水彩风-·「商插-儿插」-2018" class="headerlink" title="[孙胜蓝] PS板绘仿水彩风 ·「商插 儿插」(2018)"></a>[孙胜蓝] PS板绘仿水彩风 ·「商插 儿插」(2018)</h5><h5 id="释开达-插画师养成记-·-基础篇-2018"><a href="#释开达-插画师养成记-·-基础篇-2018" class="headerlink" title="[释开达] 插画师养成记 · 基础篇 (2018)"></a>[释开达] 插画师养成记 · 基础篇 (2018)</h5><h5 id="肉山阿姨-综合插画课（2018）稀有★"><a href="#肉山阿姨-综合插画课（2018）稀有★" class="headerlink" title="[肉山阿姨] 综合插画课（2018）稀有★"></a>[肉山阿姨] 综合插画课（2018）稀有★</h5><h5 id="企鹅妈妈-商业插画课-第10期-·「商插」-2018"><a href="#企鹅妈妈-商业插画课-第10期-·「商插」-2018" class="headerlink" title="[企鹅妈妈] 商业插画课 第10期 ·「商插」(2018)"></a>[企鹅妈妈] 商业插画课 第10期 ·「商插」(2018)</h5><h5 id="企鹅妈妈-商业插画课-第08期-·「商插」"><a href="#企鹅妈妈-商业插画课-第08期-·「商插」" class="headerlink" title="[企鹅妈妈] 商业插画课 第08期 ·「商插」"></a>[企鹅妈妈] 商业插画课 第08期 ·「商插」</h5><h5 id="喵呜-儿童插画绘本-·「儿插」-2018"><a href="#喵呜-儿童插画绘本-·「儿插」-2018" class="headerlink" title="[喵呜] 儿童插画绘本 ·「儿插」(2018)"></a>[喵呜] 儿童插画绘本 ·「儿插」(2018)</h5><h5 id="米奈-插画课【缺14-15节】-2019-稀有★★★★★"><a href="#米奈-插画课【缺14-15节】-2019-稀有★★★★★" class="headerlink" title="[米奈] 插画课【缺14.15节】(2019) 稀有★★★★★"></a>[米奈] 插画课【缺14.15节】(2019) 稀有★★★★★</h5><h5 id="猫一-零基础PS手绘板教程动物特别篇-2018"><a href="#猫一-零基础PS手绘板教程动物特别篇-2018" class="headerlink" title="[猫一] 零基础PS手绘板教程动物特别篇 (2018)"></a>[猫一] 零基础PS手绘板教程动物特别篇 (2018)</h5><h5 id="猫矮maoi-动态插画课-·「商插-动态」"><a href="#猫矮maoi-动态插画课-·「商插-动态」" class="headerlink" title="[猫矮maoi] 动态插画课 ·「商插 动态」"></a>[猫矮maoi] 动态插画课 ·「商插 动态」</h5><h5 id="马骁-通过插画学AI"><a href="#马骁-通过插画学AI" class="headerlink" title="[马骁] 通过插画学AI"></a>[马骁] 通过插画学AI</h5><h5 id="鹿溟山-幻想类古风手绘-·「古风-手绘-颜彩-商插」"><a href="#鹿溟山-幻想类古风手绘-·「古风-手绘-颜彩-商插」" class="headerlink" title="[鹿溟山] 幻想类古风手绘 ·「古风 手绘 颜彩 商插」"></a>[鹿溟山] 幻想类古风手绘 ·「古风 手绘 颜彩 商插」</h5><h5 id="柳汽水-丝网板绘教程（17年底-18）"><a href="#柳汽水-丝网板绘教程（17年底-18）" class="headerlink" title="[柳汽水] 丝网板绘教程（17年底-18）"></a>[柳汽水] 丝网板绘教程（17年底-18）</h5><h5 id="李舜-教你画卡通IP-2018"><a href="#李舜-教你画卡通IP-2018" class="headerlink" title="[李舜] 教你画卡通IP (2018)"></a>[李舜] 教你画卡通IP (2018)</h5><h5 id="蓝贵莲-商业插画班-2018"><a href="#蓝贵莲-商业插画班-2018" class="headerlink" title="[蓝贵莲] 商业插画班 (2018)"></a>[蓝贵莲] 商业插画班 (2018)</h5><h5 id="果子-插画课【三节】"><a href="#果子-插画课【三节】" class="headerlink" title="[果子] 插画课【三节】"></a>[果子] 插画课【三节】</h5><h5 id="干干-iPad插画课程-·「儿插-绘本-iPad-procreate」-2018"><a href="#干干-iPad插画课程-·「儿插-绘本-iPad-procreate」-2018" class="headerlink" title="[干干] iPad插画课程 ·「儿插 绘本 iPad procreate」(2018)"></a>[干干] iPad插画课程 ·「儿插 绘本 iPad procreate」(2018)</h5><h5 id="嘎罗丨可乐-噪点风格插画绘制-2018"><a href="#嘎罗丨可乐-噪点风格插画绘制-2018" class="headerlink" title="[嘎罗丨可乐] 噪点风格插画绘制 (2018)"></a>[嘎罗丨可乐] 噪点风格插画绘制 (2018)</h5><h5 id="嘎罗丨可乐-实用商业插画全能班-2019-最新★"><a href="#嘎罗丨可乐-实用商业插画全能班-2019-最新★" class="headerlink" title="[嘎罗丨可乐] 实用商业插画全能班 (2019) 最新★"></a>[嘎罗丨可乐] 实用商业插画全能班 (2019) 最新★</h5><h5 id="嘎罗丨可乐-复古插画课"><a href="#嘎罗丨可乐-复古插画课" class="headerlink" title="[嘎罗丨可乐] 复古插画课"></a>[嘎罗丨可乐] 复古插画课</h5><h5 id="付璐-商业插画之时尚人物篇-2018"><a href="#付璐-商业插画之时尚人物篇-2018" class="headerlink" title="[付璐] 商业插画之时尚人物篇 (2018)"></a>[付璐] 商业插画之时尚人物篇 (2018)</h5><h5 id="付璐-商业插画之时尚风景篇-2018"><a href="#付璐-商业插画之时尚风景篇-2018" class="headerlink" title="[付璐] 商业插画之时尚风景篇 (2018)"></a>[付璐] 商业插画之时尚风景篇 (2018)</h5><h5 id="饭太稀-插画教程-2018"><a href="#饭太稀-插画教程-2018" class="headerlink" title="[饭太稀] 插画教程 (2018)"></a>[饭太稀] 插画教程 (2018)</h5><h5 id="大狐-扁平化插画-2018"><a href="#大狐-扁平化插画-2018" class="headerlink" title="[大狐] 扁平化插画 (2018)"></a>[大狐] 扁平化插画 (2018)</h5><h5 id="包子-零基础AI商业插画全能班-2018"><a href="#包子-零基础AI商业插画全能班-2018" class="headerlink" title="[包子] 零基础AI商业插画全能班 (2018)"></a>[包子] 零基础AI商业插画全能班 (2018)</h5><h5 id="斑马斑马-PS插画课-2018"><a href="#斑马斑马-PS插画课-2018" class="headerlink" title="[斑马斑马] PS插画课 (2018)"></a>[斑马斑马] PS插画课 (2018)</h5><h5 id="阿佑-脑洞插画课-2018"><a href="#阿佑-脑洞插画课-2018" class="headerlink" title="[阿佑] 脑洞插画课 (2018)"></a>[阿佑] 脑洞插画课 (2018)</h5><h5 id="阿布酱-动态插画视频教程"><a href="#阿布酱-动态插画视频教程" class="headerlink" title="[阿布酱] 动态插画视频教程"></a>[阿布酱] 动态插画视频教程</h5><h5 id="y园糖-唐园园运营插画速成教程-2018"><a href="#y园糖-唐园园运营插画速成教程-2018" class="headerlink" title="[y园糖] 唐园园运营插画速成教程 (2018)"></a>[y园糖] 唐园园运营插画速成教程 (2018)</h5><h5 id="wnuo-板绘人物插画-2018"><a href="#wnuo-板绘人物插画-2018" class="headerlink" title="[wnuo] 板绘人物插画 (2018)"></a>[wnuo] 板绘人物插画 (2018)</h5><h5 id="William-Dalebout-AI商业插画进阶-色彩设计与应用"><a href="#William-Dalebout-AI商业插画进阶-色彩设计与应用" class="headerlink" title="[William Dalebout] AI商业插画进阶-色彩设计与应用"></a>[William Dalebout] AI商业插画进阶-色彩设计与应用</h5><h5 id="William-Dalebout-AI商业插画"><a href="#William-Dalebout-AI商业插画" class="headerlink" title="[William Dalebout] AI商业插画"></a>[William Dalebout] AI商业插画</h5><h5 id="vivi-森系插画课"><a href="#vivi-森系插画课" class="headerlink" title="[vivi] 森系插画课"></a>[vivi] 森系插画课</h5><h5 id="T酱-插画课-·「商插」"><a href="#T酱-插画课-·「商插」" class="headerlink" title="[T酱] 插画课 ·「商插」"></a>[T酱] 插画课 ·「商插」</h5><h5 id="SijaHong六厘-艺术装饰插画【1-10节全】·「商插」-2018"><a href="#SijaHong六厘-艺术装饰插画【1-10节全】·「商插」-2018" class="headerlink" title="[SijaHong六厘] 艺术装饰插画【1-10节全】·「商插」(2018)"></a>[SijaHong六厘] 艺术装饰插画【1-10节全】·「商插」(2018)</h5><h5 id="Rwds-插画课-第一期-·「商插」-2019"><a href="#Rwds-插画课-第一期-·「商插」-2019" class="headerlink" title="[Rwds] 插画课 第一期 ·「商插」(2019)"></a>[Rwds] 插画课 第一期 ·「商插」(2019)</h5><h5 id="Rwds-2-5D插画-第一期-·「商插」-2019"><a href="#Rwds-2-5D插画-第一期-·「商插」-2019" class="headerlink" title="[Rwds] 2.5D插画 第一期 ·「商插」(2019)"></a>[Rwds] 2.5D插画 第一期 ·「商插」(2019)</h5><h5 id="Mochy-插画基础课程-第65期-·「商插」"><a href="#Mochy-插画基础课程-第65期-·「商插」" class="headerlink" title="[Mochy] 插画基础课程-第65期 ·「商插」"></a>[Mochy] 插画基础课程-第65期 ·「商插」</h5><h5 id="kunatata-iPad插画课-·「商插-iPad-procreate」-2018"><a href="#kunatata-iPad插画课-·「商插-iPad-procreate」-2018" class="headerlink" title="[kunatata] iPad插画课 ·「商插 iPad procreate」(2018)"></a>[kunatata] iPad插画课 ·「商插 iPad procreate」(2018)</h5><h5 id="Heyzeem-商业动态表情包设计-2018"><a href="#Heyzeem-商业动态表情包设计-2018" class="headerlink" title="[Heyzeem] 商业动态表情包设计 (2018)"></a>[Heyzeem] 商业动态表情包设计 (2018)</h5><h5 id="guangyuan-欧美风插画课-·「商插」"><a href="#guangyuan-欧美风插画课-·「商插」" class="headerlink" title="[guangyuan] 欧美风插画课 ·「商插」"></a>[guangyuan] 欧美风插画课 ·「商插」</h5><h5 id="biubiu-PS水彩插画课-2018"><a href="#biubiu-PS水彩插画课-2018" class="headerlink" title="[biubiu] PS水彩插画课 (2018)"></a>[biubiu] PS水彩插画课 (2018)</h5><h5 id="y园糖运营插画速成教程6-07gb"><a href="#y园糖运营插画速成教程6-07gb" class="headerlink" title="y园糖运营插画速成教程6.07gb"></a>y园糖运营插画速成教程6.07gb</h5><h5 id="56-2020-熊吉-插画与动画前期设计-❤★★★★★pro"><a href="#56-2020-熊吉-插画与动画前期设计-❤★★★★★pro" class="headerlink" title="56 2020 [熊吉] 插画与动画前期设计 ❤★★★★★pro"></a>56 2020 [熊吉] 插画与动画前期设计 ❤★★★★★pro</h5><h5 id="32-钟小朋友18板绘-17手绘"><a href="#32-钟小朋友18板绘-17手绘" class="headerlink" title="32. 钟小朋友18板绘+17手绘"></a>32. 钟小朋友18板绘+17手绘</h5><h5 id="2019-米奈-插画课【缺14-15节】"><a href="#2019-米奈-插画课【缺14-15节】" class="headerlink" title="2019[米奈] 插画课【缺14.15节】"></a>2019[米奈] 插画课【缺14.15节】</h5><h5 id="2018-三户人-插画班★★★★★"><a href="#2018-三户人-插画班★★★★★" class="headerlink" title="2018 [三户人] 插画班★★★★★"></a>2018 [三户人] 插画班★★★★★</h5><h5 id="2016柚子儿童数码插画"><a href="#2016柚子儿童数码插画" class="headerlink" title="2016柚子儿童数码插画"></a>2016柚子儿童数码插画</h5>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-01%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%EF%BC%88VCS%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-01%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%EF%BC%88VCS%EF%BC%89/" class="post-title-link" itemprop="url">Tutorial-01什么是版本控制系统（VCS）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-30 20:09:57" itemprop="dateModified" datetime="2020-10-30T20:09:57+08:00">2020-10-30</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/Git-%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">Git 原理详解及实用指南</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-01%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%EF%BC%88VCS%EF%BC%89/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-01什么是版本控制系统（VCS）" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-01%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%EF%BC%88VCS%EF%BC%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-01%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%EF%BC%88VCS%EF%BC%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          <h1 id="什么是版本控制系统（VCS）"><a href="#什么是版本控制系统（VCS）" class="headerlink" title="什么是版本控制系统（VCS）"></a>什么是版本控制系统（VCS）</h1><p>很多人认为 Git 难以理解的第一个门槛在于：所谓的「Git 是一个分布式版本控制系统」这句话的具体含义不够清楚。其实分布式版本控制系统（Distributed Version Control System - DVCS）这个定义并不难，不过一步一步来，我先告诉你，什么是版本控制系统（Version Control System - VCS）。</p>
+<h3 id="版本控制：最基本功能"><a href="#版本控制：最基本功能" class="headerlink" title="版本控制：最基本功能"></a>版本控制：最基本功能</h3><blockquote>
+<p>版本控制系统（VCS）最基本的功能是版本控制。所谓版本控制，意思就是在文件的修改历程中保留修改历史，让你可以方便地撤销之前对文件的修改操作。</p>
+</blockquote>
+<p>最简化的版本控制模型，是大多数主流文本编辑器都有的「撤销（Undo）」功能：你本来想删除一个字符，却在按删除键之前不小心选中了全文，结果一下子整篇文档都被删光了，没关系，按一下「撤销」(Ctrl + Z 或 ⌘ + Z 或 U 等等，具体和你的操作系统以及编辑器有关），删掉的文字就都回来了。这其实是文本编辑器帮你自动保存了之前的内容，当你按下「撤销」的时候，它就帮你把内容回退到上一个状态；同理，按一次是会退到上一个版本，按两次就是回退到上上一个版本。</p>
+<p>写程序的时候同样也难免会遇到「写错」的情况，所以程序的 VCS，当然也会需要版本控制功能，这样当你发现「昨天有一行代码写错了」，你就不用凭着记忆把那段代码背出来，而只需要在 VCS 中选择撤回到昨天的那个版本。</p>
+<h3 id="主动提交：程序代码和普通文本的区别"><a href="#主动提交：程序代码和普通文本的区别" class="headerlink" title="主动提交：程序代码和普通文本的区别"></a>主动提交：程序代码和普通文本的区别</h3><p>VCS 和文本编辑器的撤销功能比起来，有一个很重要的区别是：程序代码的修改的生命周期非常长。一次代码的修改，在几天后、几个月后、几年后都有可能需要被翻出来。如果依然采用「每次改动自动保存」的形式来保留修改历史，将会导致改动历史非常频繁和无章可循，这样，历史代码的查找、阅读和回退就会很困难了。所以，和文本编辑器的撤销功能不同，VCS 保存修改历史，使用的是<strong>主动提交改动</strong>的机制。</p>
+<p>在你写了一段完整的代码（例如修复了一个 bug）之后，使用 commit 命令把改动和对改动的描述信息提交，这次改动就被记录到版本历史中了。之后如果你希望回退到这个版本，就可以从 VCS 的历史日志中方便地找到它。</p>
+<h3 id="多人合作的同步需求：中央仓库"><a href="#多人合作的同步需求：中央仓库" class="headerlink" title="多人合作的同步需求：中央仓库"></a>多人合作的同步需求：中央仓库</h3><p>代码可以一个人写，但更多的时候会是多个人共同开发。那么自然地，就需要有一个中央仓库作为代码的存储中心：所有人的改动都会上传到这里，所有人都能也都能看到和下载到别人上传的改动。</p>
+<p>这样，解决了同步的需求，多个人在不同的机器上开发同一个程序就成了可能。</p>
+<p><strong>版本控制</strong>、<strong>主动提交</strong>、<strong>中央仓库</strong>这三个要素，共同构成了版本控制系统（VCS）的核心：开发团队中的每个人向中央仓库主动提交自己的改动和同步别人的改动，并在需要的时候查看和操作历史版本，这就是版本控制系统。</p>
+<h2 id="中央式版本控制系统"><a href="#中央式版本控制系统" class="headerlink" title="中央式版本控制系统"></a>中央式版本控制系统</h2><p>最初的版本控制系统，是中央式版本控制系统（Centralized VCS），也就是前面我讲的这种。Git 是分布式的版本控制系统（Distributed VCS），它和中央式的区别我在下节说，现在先说一下中央式版本控制系统的工作模型。</p>
+<h3 id="工作模型"><a href="#工作模型" class="headerlink" title="工作模型"></a>工作模型</h3><p>假设你在一个三人团队，你们计划开发一个软件或者系统，并决定使用中央式 VCS 来管理代码。于是：</p>
+<ol>
+<li>作为项目的主工程师，你独自一人花两天时间搭建了项目的框架；</li>
+<li>然后，你在公司的服务器（这个服务器可以是公司内的设备，也可以是你们买的云服务）上<strong>创建了一个中央仓库，并把你的代码提交到了中央仓库上</strong>；</li>
+<li>你的两个队友<strong>从中央仓库取到了你的初始代码</strong>，从此刻开始，你们三人开始<strong>并行开发</strong>；</li>
+<li>在之后的开发过程中，你们三人为了工作方便，总是每人独立负责开发一个功能，在这个功能开发完成后，这个人就把他的这些<strong>新代码提交到中央仓库</strong>；</li>
+<li>每次当有人把代码提交到中央仓库的时候，另外两个人就可以选择<strong>把这些代码同步到自己的机器上</strong>，保持自己的本地代码总是最新的。</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/30/1600a9978ea4bec3?w=424&h=313&f=jpeg&s=15661" alt="中央式 VCS"></p>
+<p>中央式 VCS</p>
+<p>而对于团队中的每个人来说，就会更简单一点：</p>
+<ol>
+<li>第一次加入团队时，把中央仓库的代码取下来；</li>
+<li>写完的新功能提交到中央仓库；</li>
+<li>同事提交到中央仓库的新代码，及时同步下来。</li>
+</ol>
+<p>这样，一个三人的团队就成功做到了各自在自己的电脑上开发同一个项目，并且互不影响，就好像你们三个人是在同一台电脑上操作一样。</p>
+<p>这就是中央式 VCS 最基本的工作模型。当然，实际的开发工作并没有简单到这种程度，因为你时常会需要处理代码冲突、查看版本历史、回退代码版本等；另外，Git 属于分布式 VCS，它的概念也比中央式 VCS 要复杂一些。但这些概念你需要一步步地理解和吸收，你现在只需要先知道中央式 VCS 的这个基本工作模型，其他的内容我会在后面慢慢地全部讲清楚。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-02%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%EF%BC%88DVCS)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-02%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%EF%BC%88DVCS)/" class="post-title-link" itemprop="url">Tutorial-02什么是分布式版本控制系统（DVCS)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-30 20:09:57" itemprop="dateModified" datetime="2020-10-30T20:09:57+08:00">2020-10-30</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/Git-%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">Git 原理详解及实用指南</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-02%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%EF%BC%88DVCS)/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-02什么是分布式版本控制系统（DVCS)" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-02%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%EF%BC%88DVCS)/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-02%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%EF%BC%88DVCS)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          <h1 id="什么是分布式版本控制系统（DVCS）"><a href="#什么是分布式版本控制系统（DVCS）" class="headerlink" title="什么是分布式版本控制系统（DVCS）"></a>什么是分布式版本控制系统（DVCS）</h1><p>分布式 VCS （Distributed VCS / DVCS）和中央式的区别在于，分布式 VCS 除了中央仓库之外，还有本地仓库：团队中每一个成员的机器上都有一份本地仓库，这个仓库里包含了所有的版本历史，或者换句话说，每个人在自己的机器上就可以提交代码、查看历史，而无需联网和中央仓库交互——当然，取而代之的，你需要和本地仓库交互。</p>
+<p>中央式 VCS 的中央仓库有两个主要功能：<strong>保存版本历史</strong>、<strong>同步团队代码</strong>。而在分布式 VCS 中，保存版本历史的工作转交到了每个团队成员的本地仓库中，中央仓库就只剩下了同步团队代码这一个主要任务。它的中央仓库依然也保存了历史版本，但这份历史版本更多的是作为团队间的同步中转站。</p>
+<h2 id="工作模型"><a href="#工作模型" class="headerlink" title="工作模型"></a>工作模型</h2><p>依然以三人团队为例，分布式 VCS 的工作模型大致是这样：</p>
+<ol>
+<li>首先，你作为主工程师，独立搭建了项目架构，<strong>并把这些代码提交到了本地仓库</strong>；</li>
+<li>然后，你在服务器上创建了一个中央仓库，并把 1 中的提交<strong>从本地仓库推送到了服务器的中央仓库</strong>；</li>
+<li>其他同事<strong>把中央仓库的所有内容克隆到本地，拥有了各自的本地仓库</strong>，从此刻开始，你们三人开始并行开发；</li>
+<li>在之后的开发过程中，你们三人总是每人独立负责开发一个功能，在这个功能开发过程中，<strong>一个人会把它的每一步改动提交到本地仓库</strong>。注意：由于本地提交无需立即上传到中央仓库，所以每一步提交不必是一个完整功能，而可以是功能中的一个步骤或块。</li>
+<li>在一个人把某个功能开发完成之后，他就可以把这个功能相关的所有提交<strong>从本地仓库推送到中央仓库</strong>；</li>
+<li>每次当有人把新的提交推送到中央仓库的时候，另外两个人就可以选择<strong>把这些提交同步到自己的机器上，并把它们和自己的本地代码合并</strong>。</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/30/1600a9a4a20c2e6e?w=657&h=446&f=jpeg&s=30737" alt="分布式 VCS"></p>
+<p>分布式 VCS</p>
+<p>可以看出，这个工作模型和上一节讲的「中央式 VCS 的工作模型」很相似，只是把代码的提交和上传过程拆开了。</p>
+<p>另外，和上节讲的中央式 VCS 工作模型一样，这个也只是分布式 VCS 的一个最基本的工作模型，实际的开发工作会比这个麻烦和复杂。但这是个核心模型，你把它理解了，就可以更好地看懂后面的内容。</p>
+<h2 id="优点与缺点"><a href="#优点与缺点" class="headerlink" title="优点与缺点"></a>优点与缺点</h2><p>分布式 VCS 的优点：</p>
+<ol>
+<li>大多数的操作可以在本地进行，所以速度更快，而且由于无需联网，所以即使不在公司甚至没有在联网，你也可以提交代码、查看历史，从而极大地减小了开发者的网络条件和物理位置的限制（例如，你可以在飞机上提交代码、切换分支等等）；</li>
+<li>由于可以提交到本地，所以你可以分步提交代码，把代码提交做得更细，而不是一个提交包含很多代码，难以 review 也难以回溯。</li>
+</ol>
+<p>分布式 VCS 的缺点：</p>
+<ol>
+<li>由于每一个机器都有完整的本地仓库，所以初次获取项目（Git 术语：clone）的时候会比较耗时；</li>
+<li>由于每个机器都有完整的本地仓库，所以本地占用的存储比中央式 VCS 要高。</li>
+</ol>
+<blockquote>
+<p>对于一般的程序项目而言，由于项目的大多数内容都是文本形式的代码，所以工程的体积都并不是很大，再加上文本内容自身的特点，VCS 可以利用算法来把仓库的体积极大地压缩。这就导致，在实际中，Git 等分布式 VCS 的仓库体积并不大，初次获取项目的耗时和本地仓库的存储占用都很小。所以对于大多数的程序项目而言，分布式 VCS 「尺寸大、初次下载慢」的问题其实并不严重。</p>
+<p>不过也有一些例外，比如游戏开发。游戏的开发中有大量的大尺寸数据和媒体文件，并且这些文件的格式也不容易压缩尺寸，如果用分布式 VCS 会导致仓库的体积非常庞大。所以一些大型游戏的开发会选择中央式的 VCS 来管理代码。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-03%E4%B8%8A%E6%89%8B%201%EF%BC%9A%E6%96%B0%E5%85%AC%E5%8F%B8%E7%94%A8%20Git%20%E7%AE%A1%E7%90%86%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%80%8E%E4%B9%88%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%EF%BC%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-03%E4%B8%8A%E6%89%8B%201%EF%BC%9A%E6%96%B0%E5%85%AC%E5%8F%B8%E7%94%A8%20Git%20%E7%AE%A1%E7%90%86%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%80%8E%E4%B9%88%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%EF%BC%9F/" class="post-title-link" itemprop="url">Tutorial-03上手 1：新公司用 Git 管理代码，怎么快速上手？</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-30 20:09:57" itemprop="dateModified" datetime="2020-10-30T20:09:57+08:00">2020-10-30</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/Git-%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">Git 原理详解及实用指南</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-03%E4%B8%8A%E6%89%8B%201%EF%BC%9A%E6%96%B0%E5%85%AC%E5%8F%B8%E7%94%A8%20Git%20%E7%AE%A1%E7%90%86%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%80%8E%E4%B9%88%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%EF%BC%9F/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-03上手 1：新公司用 Git 管理代码，怎么快速上手？" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-03%E4%B8%8A%E6%89%8B%201%EF%BC%9A%E6%96%B0%E5%85%AC%E5%8F%B8%E7%94%A8%20Git%20%E7%AE%A1%E7%90%86%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%80%8E%E4%B9%88%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%EF%BC%9F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-03%E4%B8%8A%E6%89%8B%201%EF%BC%9A%E6%96%B0%E5%85%AC%E5%8F%B8%E7%94%A8%20Git%20%E7%AE%A1%E7%90%86%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%80%8E%E4%B9%88%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%EF%BC%9F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          <h1 id="上手-1：新公司用-Git-管理代码，怎么快速上手？"><a href="#上手-1：新公司用-Git-管理代码，怎么快速上手？" class="headerlink" title="上手 1：新公司用 Git 管理代码，怎么快速上手？"></a>上手 1：新公司用 Git 管理代码，怎么快速上手？</h1><blockquote>
+<p>已经有 Git 经验的可以跳过这一节</p>
+</blockquote>
+<p>刚进入新公司，被告知团队是用 Git 管理项目代码的，而你却从来没用过 Git。纵然同事告诉你「没事，先自学一下」「有问题可以问我」，但你肯定不想一进公司就花太多时间在自我学习上，也不想过多地打扰这些刚认识的同事。怎么办？</p>
+<p>对你来说，最重要的是，<strong>先知道 Git 怎么用</strong>。先把最基本的掌握了，至于正规团队使用 Git 有什么额外要求、Git 有什么高级用法、Git 的原理这些，都可以放在这之后。万事开头难，你先把 Git 最基本的使用掌握了，后面的再一步一步来。</p>
+<h2 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h2><p>点击<a target="_blank" rel="noopener" href="https://git-scm.com/">这里</a>去下载个 Git ，安装到你的机器上。或者如果你喜欢用 Homebrew 或 apt 什么的来安装都好，总之，把它安装好。</p>
+<p>装好以后，就可以正式开始上手 Git 了。</p>
+<h2 id="先建个练习项目"><a href="#先建个练习项目" class="headerlink" title="先建个练习项目"></a>先建个练习项目</h2><p>学习的时候最好别拿团队的正式项目练手，先在 GitHub 上建一个自己的练习项目。</p>
+<ol>
+<li><p>访问 <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>（用别的平台比如 bitbucket 什么的也行）</p>
+</li>
+<li><p>注册或登录您的账号</p>
+</li>
+<li><p>点击右上角的「New Repository」来新建远程仓库  </p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eecb7d0d26d?w=388&h=218&f=jpeg&s=24709" alt="建立一个新的仓库"></p>
+<p>建立一个新的仓库</p>
+</li>
+<li><p>进入仓库设置页面填写信息：其中 ① 是你的仓库名，这个仓库名同样会被 GitHub 设置为你的仓库的根目录的名称；② 是为 <code>.gitignore</code> 设置项目类型，<code>.gitignore</code> 是 Git 仓库中的一个特殊的文本文件，它里面记录了你不希望提交到仓库的目录和文件的名称或类型，例如你的 <code>/build</code> 目录；把 ① 和 ② 填好之后，就可以点 ③ 来完成远程仓库的创建了  </p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eecb9a7cb5c?w=783&h=666&f=jpeg&s=94304" alt="创建仓库界面"></p>
+<p>创建仓库界面</p>
+</li>
+</ol>
+<p>创建完的远程仓库大概长这样：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eecc08acc7a?w=1004&h=477&f=jpeg&s=124926" alt="刚创建好的 GitHub 仓库"></p>
+<p>刚创建好的 GitHub 仓库</p>
+<p>点击右边的「Clone or download」，然后把仓库的 <code>clone</code> 地址复制到剪贴板：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eecbe9d91ba?w=432&h=239&f=jpeg&s=51332" alt="复制仓库的 Clone 链接"></p>
+<p>复制仓库的 Clone 链接</p>
+<blockquote>
+<p>clone 地址是什么？下面马上就说啦！</p>
+</blockquote>
+<h2 id="把远程仓库取到本地"><a href="#把远程仓库取到本地" class="headerlink" title="把远程仓库取到本地"></a>把远程仓库取到本地</h2><p>接下来就可以把远程仓库取下来了。取的方式很简单：在 Terminal 或 cmd 中切换到你希望放置项目的目录中，然后输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone 你刚复制的地址</span><br></pre></td></tr></table></figure>
+
+<p>Git 就会把你的远程仓库 clone 到本地。在这个过程中，你可能会需要输入你的 GitHub 用户名和密码：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eecb23c5e2c?w=494&h=89&f=jpeg&s=40931" alt="用 git clone 把仓库下载到本地"></p>
+<p>用 git clone 把仓库下载到本地</p>
+<p>输入正确的用户名和密码以后，你会看到你的当前目录下多了一个新的子目录，它的名字和刚才新建的 GitHub 仓库名一致：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eecc52dd0df?w=239&h=149&f=jpeg&s=25831"></p>
+<p>进入这个目录，你会发现这里除了你刚才添加的 <code>LICENSE</code> 和 <code>.gitignore</code> 文件外，还有一个叫做 <code>.git</code> 的隐藏目录。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eecfd325c41?w=194&h=74&f=jpeg&s=8256"></p>
+<p>这个 <code>.git</code> 目录，就是你的<strong>本地仓库（Local Repository）</strong>，你的所有版本信息都会存在这里。而 <code>.git</code> 所在的这个根目录，称为 Git 的<strong>工作目录（Working Directory）</strong>，它保存了你当前从仓库中签出（checkout）的内容。现在你在项目的目录下输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eecf54621c9?w=564&h=125&f=jpeg&s=33417" alt="仓库的提交历史"></p>
+<p>仓库的提交历史</p>
+<p>在这里你只能看到一个提交，这个提交是 GitHub 帮你做的，它的内容是创建你的初始 <code>.gitignore</code> 和 <code>LICENSE</code> 这两个文件。图中第一行中的 <code>commit</code> 右边的那一大串字符（09773235…21411），是这个 <code>commit</code> 的 SHA-1 校验和（如果不知道什么是 SHA-1，你可以暂时把它简单理解为这个 <code>commit</code> 的 ID）；后面括号里的内容（HEAD -&gt; master …）稍后再讲；第一行的下面，依次是这个 <code>commit</code> 的作者、提交日期和提交信息，其中提交信息记录了这个提交做了什么，是提交者填写的（当然，这条提交信息是 GitHub 帮你写的）。</p>
+<p>简单看一下这些信息，然后按 <code>q</code> 键退出吧，往下继续。</p>
+<h2 id="自己写个提交试试"><a href="#自己写个提交试试" class="headerlink" title="自己写个提交试试"></a>自己写个提交试试</h2><p>把远程仓库取到本地之后，你就可以开始尝试提交代码了。不过为了方便，你不必真的写代码，你可以在工作目录下创建一个文本文件，例如 <code>shopping list.txt</code>。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eed08a0b366?w=221&h=140&f=jpeg&s=16054" alt="添加文件 shopping list.txt"></p>
+<p>添加文件 shopping list.txt</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eed0acc2a32?w=377&h=297&f=jpeg&s=37455" alt="shopping list.txt 中的内容"></p>
+<p>shopping list.txt 中的内容</p>
+<p>Git 的提交是用的 <code>commit</code> 指令。不过……你现在还不能直接提交。你现在在 Terminal 输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<p><code>status</code> 是用来查看工作目录当前状态的指令：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eed116f72c0?w=544&h=176&f=jpeg&s=47987" alt="输入 git status 后的输出画面"></p>
+<p>输入 git status 后的输出画面</p>
+<p>这段文字表述了很多项信息：</p>
+<ol>
+<li>你在 <code>master</code> branch</li>
+<li>当前 branch 没有落后于 <code>origin/master</code></li>
+<li>你有 untracked files （未追踪的文件），文件名是 <code>shopping list.txt</code>。</li>
+<li>你可以使用 <code>git add</code> 来开始追踪文件。</li>
+</ol>
+<p>其中前两条你可以暂时先不理，branch 的东西我在后面会讲。关于后两条，简单说一下：</p>
+<p>从上面的信息可以看出，<code>shopping list.txt</code> 这个文件目前属于 “untracked” 状态，它的意思是 Git 仓库对它没有进行任何记录，你在提交的时候不会把它提交上去，查看提交历史也不会看到它。总之，对于 Git 仓库来说，它是不存在的。</p>
+<p>而你现在想提交这个文件，所以首先，你需要用 <code>add</code> 指令来让 Git 开始跟踪它：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add shopping\ list.txt</span><br></pre></td></tr></table></figure>
+
+<p>输入这行代码，Terminal 不会给你反馈信息。但这时你再执行一次 <code>git status</code>，你会发现显示内容变了：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eed35435376?w=422&h=171&f=jpeg&s=45159"></p>
+<p>可以看到，<code>shopping list.txt</code> 的文字变成了绿色，它的前面多了「new file:」的标记，而它的描述也从 “Untracked files” 变成了 “Changes to be commited”。这些都说明一点：<code>shopping list.txt</code> 这个文件的状态从 “untracked”（未跟踪）变成了 “staged”（已暂存），意思是这个文件中被改动的部分（也就是这整个文件啦）被记录进了 staging area（暂存区）。</p>
+<blockquote>
+<p>解释一下 “stage” 这个词，这个词对我们中国人可能有一些理解难度。按我们英语课本上的内容来看，stage 是一个名词，它的意思是「舞台」。可是不论从词性还是词义，「舞台」都不太能解释 “stage” 或 “staging area” 的意思。实质上，Git 中的 stage 取自这个词的另一个意思：组织和准备某个事件。而 “staging area” 的意思也并不是「舞台区域」，而是「用来汇集物品或材料以备使用的区域」的意思。</p>
+<p>所以 stage 这个词在 Git 里，是「集中收集改动以待提交」的意思；而 staging area ，就是一个「汇集待提交的文件改动的地方」。简称「暂存」和「暂存区」。至于 staged 表示「已暂存」，就不用再解释了吧？</p>
+</blockquote>
+<p>所谓的 staging area，是 <code>.git</code> 目录下一个叫做 <code>index</code> 的文件（嗯，它的文件名并不叫 <code>stage</code> ）。你通过 <code>add</code> 指令暂存的内容，都会被写进这个文件里。</p>
+<p>现在文件已经放进了暂存区，就可以提交了。提交的方式是用 <code>commit</code> 指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eed3ddc3f9d?w=490&h=178&f=jpeg&s=44375"></p>
+<p>然后你会进入这样一个界面，这个界面是用来填写提交信息（commit message）的。根据操作系统以及设置的不同，这个界面的编辑器可能是 nano 或者 vi 或者别的什么，总之如果你不会用它，那么建议你尽快上网搜搜它的用法，因为 Git 的操作会经常用到它。在这里我只简单说一下它的最基本用法：</p>
+<ul>
+<li><p>在初始状态下，你是在命令模式，不能编辑这个文件，你需要按一下 “i”（小写）来切换到插入模式，然后就可以输入你的提交信息了：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eed429cc14f?w=489&h=162&f=jpeg&s=44723"></p>
+</li>
+<li><p>在输入完成后别按回车，而是要按 ESC 键返回到命令模式，然后连续输入两个大写的 “Z”（用 Shift 键或 Capslock 键都可以），就保存并退出了。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eed4633cb32?w=303&h=72&f=jpeg&s=24364"></p>
+</li>
+</ul>
+<p>这样，一次提交就完成了。如上图这样，从界面中你可以看到这次提交的简单信息。这时如果你再执行一次刚才执行过的 <code>git log</code>（还记得这个指令是什么意思吗？它会列出你的提交历史）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eed48338e87?w=546&h=218&f=jpeg&s=59227"></p>
+<p>可以看到，你的这条提交被列在了最上面，现在你的提交历史中有两条记录了。这说明，你已经成功做了一次提交到本地仓库，它已经被保存在了 <code>.git</code> 这个目录里的某个地方了。</p>
+<h2 id="再来个提交"><a href="#再来个提交" class="headerlink" title="再来个提交"></a>再来个提交</h2><p>想来想去，我还是觉得把「女装」列在购物清单有点太羞耻了，所以还是把它删掉吧：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eed765d27b4?w=324&h=279&f=jpeg&s=33364"></p>
+<p>嗯删掉以后脸不烫了，赶紧把它提交上去。提交之前先看看文件状态是个好习惯：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eed76a5786c?w=536&h=183&f=jpeg&s=55563"></p>
+<p>可以看到，<code>shopping list.txt</code> 又变红了，不过这次它左边的文字不是 “New file:” 而是 “modified:”，而且上方显示它的状态也不是 “Untracked” 而是 “not staged for commit”，意思很明确：Git 已经认识这个文件了，它不是个新文件，但它有了一些改动。所以虽然状态的显示有点不同，但处理方式还是一样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add shopping\ list.txt</span><br></pre></td></tr></table></figure>
+
+<p>这时再 <code>status</code> 一下，就会看到 <code>shopping list.txt</code> 已经 staged (“to be commited”) 了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eed7d63ed73?w=390&h=160&f=jpeg&s=40794"></p>
+<p>好，最后一步，<code>commit</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eed8407958e?w=479&h=194&f=jpeg&s=53932"></p>
+<p>这时再看看 <code>log</code>，你已经有三条 <code>commit</code>s 了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eed8a40b0d1?w=549&h=322&f=jpeg&s=86888"></p>
+<h2 id="把提交推送到中央仓库"><a href="#把提交推送到中央仓库" class="headerlink" title="把提交推送到中央仓库"></a>把提交推送到中央仓库</h2><p>到现在为止，已经写了两条提交，但它们都还在本地仓库。为了把代码分享出去，你还需要把这些提交上传到中央仓库。如果你现在再看一下 <code>status</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eedaf16746f?w=384&h=106&f=jpeg&s=31550"></p>
+<p>你会看到，Git 提示你的当前 branch 已经领先于（ “ahead of” ）’origin/master’ 两个提交了。就像上面我说的，branch 这个概念我到后面再讲，<code>origin/master</code> 的中的 <code>origin</code> 是远端仓库的名称，是你在用 <code>clone</code> 指令初始化本地仓库时 Git 自动帮你起的默认名称；<code>master</code> 是 <code>origin</code> 上的分支名称。不过对于现在来说，可以暂时把 <code>origin/master</code> 简单理解为「中央仓库」。也就是说，这句话是告诉你，你的本地仓库已经领先中央仓库两个提交了。这两个提交很明显就是指的刚才那两个关于 <code>shopping list.txt</code> 的提交。</p>
+<p>而这句话的下面也说明了，你可以使用 <code>git push</code> 来把你的本地提交发布（即上传到中央仓库）。所以很简单，照做吧：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/23/15fe7d31d8a19082?w=429&h=188&f=jpeg&s=45198" alt="提交本地仓库到远程服务器"></p>
+<p>提交本地仓库到远程服务器</p>
+<p>由于这是联网操作，所以在这个过程 GitHub 会再次向你索要账户和密码。填入正确的账户和密码，<code>push</code> 操作就完成了。这时你再去你的 GitHub 仓库页面看一下：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1eedc8aba324?w=999&h=263&f=jpeg&s=57810" alt="GitHub 的仓库页面可以看到相应的更新"></p>
+<p>GitHub 的仓库页面可以看到相应的更新</p>
+<p>你会发现 <code>shopping list.txt</code> 文件已经在上面了，并且 <code>commits</code> 的数量从一个变成了 3 个。这说明你已经成功把本地仓库的提交推送到了服务器。</p>
+<blockquote>
+<p>如果觉得一遍遍地输入密码很烦，可以按照<a target="_blank" rel="noopener" href="https://help.github.com/articles/caching-your-github-password-in-git/">这个页面</a> 提供的方案来把密码保存起来。</p>
+<p>另外还有一个更简单但安全性低一些的方案。执行这行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config credential.helper store</span><br></pre></td></tr></table></figure>
+
+<p>在这之后你只需要再输入一次密码， Git 就会把你的密码保存下来，这之后就再也不用输入了。说它「安全性低」，是因为这条指令会让 Git 把你的密码以明文形式保存在你的电脑上。具体这两种保存密码的方案选择哪个，看你自己了。</p>
+</blockquote>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>在这一节里，描述了 Git 的最基本的工作模型：</p>
+<ol>
+<li>从 GitHub 把中央仓库 clone 到本地（使用命令： <code>git clone</code>）</li>
+<li>把写完的代码提交（先用 <code>git add 文件名</code> 把文件添加到暂存区，再用 <code>git commit</code> 提交）<ul>
+<li>在这个过程中，可以使用 <code>git status</code> 来随时查看工作目录的状态</li>
+<li>每个文件有 “changed / unstaged”（已修改）, “staged”（已修改并暂存）, “commited”（已提交） 三种状态，以及一种特殊状态 “untracked”（未跟踪）</li>
+</ul>
+</li>
+<li>提交一次或多次之后，把本地提交 <code>push</code> 到中央仓库（<code>git push</code>）</li>
+</ol>
+<p>下一节将会讲一下在团队开发中会遇到的问题，从而以这种工作模型为基础，延伸到团队开发的基本工作模型。</p>
+<p>但在这之前，强烈建议你先按照这节的内容照做一遍，并尝试理解这一节中所说的工作模型。不然的话，可能会出现「小册看完了，却还是不知道怎么做」的情况。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-04%E4%B8%8A%E6%89%8B%202%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-04%E4%B8%8A%E6%89%8B%202%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B/" class="post-title-link" itemprop="url">Tutorial-04上手 2：团队工作的基本工作模型</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-30 20:09:57" itemprop="dateModified" datetime="2020-10-30T20:09:57+08:00">2020-10-30</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/Git-%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">Git 原理详解及实用指南</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-04%E4%B8%8A%E6%89%8B%202%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-04上手 2：团队工作的基本工作模型" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-04%E4%B8%8A%E6%89%8B%202%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-04%E4%B8%8A%E6%89%8B%202%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          <h1 id="上手-2：团队工作的基本工作模型"><a href="#上手-2：团队工作的基本工作模型" class="headerlink" title="上手 2：团队工作的基本工作模型"></a>上手 2：团队工作的基本工作模型</h1><p>对于 Git 来说，团队合作和个人独立工作最大的不同在于，你会提交代码，别人也会提交；你会 push，别人也会 push，因此除了把代码上传，每个人还需要把别人最新的代码下载到自己的电脑。而且，这些工作都是并行进行的。</p>
+<p>这就很复杂了！</p>
+<p>这节的内容，就是简单阐述一下团队合作中 Git 的基本工作模型。</p>
+<h2 id="把别人的新提交拿到本地"><a href="#把别人的新提交拿到本地" class="headerlink" title="把别人的新提交拿到本地"></a>把别人的新提交拿到本地</h2><p>先说一种简单的情况：你的同事刚把他写的几个提交 push 到了中央仓库，你怎么把它们取下来。</p>
+<h3 id="假装同事"><a href="#假装同事" class="headerlink" title="假装同事"></a>假装同事</h3><p>除非你能要求同事陪你练习 Git，否则，你只能一人分饰两角：时不时地模拟一下同事的操作，来达到独自一人做多人项目练习的效果。而为了模拟同事的操作，你需要在你的 <code>/git-practice</code> 目录旁再 clone 一次中央仓库到本地，来当做你的模拟同事的本地仓库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;rengwuxian&#x2F;git-practice.git git-practice-another</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意！执行这条之前别忘了先 `cd ..` 切换到父目录，不然你会把新的本地仓库创建在原先的本地仓库的工作目录内。</p>
+</blockquote>
+<p>为了目录名称不冲突，这次的 <code>clone</code> 需要加一个额外参数（上面那行代码最后的 <code>git-practice-another</code>）来手动指定本地仓库的根目录名称。在这条指令执行完成后，你就有了两个内容相同的本地仓库：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd7796267f52f3?w=274&h=153&f=jpeg&s=43143" alt="你的 git-practice 和「同事」的 git-practice-another"></p>
+<p>你的 git-practice 和「同事」的 git-practice-another</p>
+<p>现在，你就可以假装 <code>/git-practice</code> 这个目录是你的电脑上的工作目录，而那个新建的 <code>/git-practice-another</code> 是你同事的电脑上的工作目录。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd779626c48d66?w=421&h=298&f=jpeg&s=59238"></p>
+<p>如果你对这样的操作有担心，大可不必，这种操作不会有任何问题。因为 Git 的管理是目录级别，而不是设备级别的。也就是说，<code>/git-practice</code> 目录内的 <code>.git</code> 只管理 <code>/git-practice</code> 里的内容，<code>/git-practice-another</code> 目录内的 <code>.git</code> 也只管理 <code>/git-practice-another</code> 里的内容，它们之间互不知晓，也互不影响。</p>
+<h3 id="帮同事提交代码并-push-到中央仓库"><a href="#帮同事提交代码并-push-到中央仓库" class="headerlink" title="帮同事提交代码并 push 到中央仓库"></a>帮同事提交代码并 push 到中央仓库</h3><p>要在你的电脑上把同事的代码取下来，首先 GitHub 上要有你同事的新代码，也就是说，你首先要把同事的代码 push 到中央仓库去。所以第一步，切换到同事的目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd git-practice-another</span><br></pre></td></tr></table></figure>
+
+<p>现在，到了同事的工作目录，你的身份就是你的同事了。帮他写点代码吧！嗯……写点什么好呢？</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd7796252edbf5?w=299&h=87&f=jpeg&s=14033"></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd77962711f7d1?w=312&h=105&f=jpeg&s=7661" alt="嗯，「女装」"></p>
+<p>嗯，「女装」</p>
+<p>嗯，看起来不错，帮他提交吧：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add shopping\ list-colleague.txt</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd7797bd664ef4?w=489&h=170&f=jpeg&s=48053" alt="记得填写提交信息"></p>
+<p>记得填写提交信息</p>
+<p>提交完成以后，<code>push</code> 到 GitHub：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/23/15fe7f81418af938?w=1010&h=299&f=jpeg&s=68653" alt="GitHub 上已经能看到刚更新的文件"></p>
+<p>GitHub 上已经能看到刚更新的文件</p>
+<h2 id="把同事-push-的新代码取下来"><a href="#把同事-push-的新代码取下来" class="headerlink" title="把同事 push 的新代码取下来"></a>把同事 push 的新代码取下来</h2><p>GitHub 上有了同事的新代码以后，你就可以变回自己，把「他」刚 push 上去的代码取到你的仓库了。首先，切回 <code>/git-practice</code> 目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ..&#x2F;git-practice</span><br></pre></td></tr></table></figure>
+
+<p>然后，把同事的代码取下来吧！从远程仓库更新内容，用的是一个新的指令：<code>pull</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd779668e41b04?w=431&h=239&f=jpeg&s=88488" alt="用 git pull 把代码从远程仓库取下来"></p>
+<p>用 git pull 把代码从远程仓库取下来</p>
+<p>这时候再看看你的本地目录，可以看到，同事提交的 <code>shopping list-colleagure.txt</code> 已经同步到本地了。也就是说，现在你的本地仓库和同事的又一致了。</p>
+<h2 id="多人合作的基本工作模型"><a href="#多人合作的基本工作模型" class="headerlink" title="多人合作的基本工作模型"></a>多人合作的基本工作模型</h2><p>这就完成了一次简单的合作流程：</p>
+<ol>
+<li>同事 <code>commit</code> 代码到他的本地，并 <code>push</code> 到 GitHub 中央仓库</li>
+<li>你把 GitHub 的新提交通过 <code>pull</code> 指令来取到你的本地</li>
+</ol>
+<p>通过这个流程，你和同事就可以简单地合作了：你写了代码，<code>commit</code>，<code>push</code> 到 GitHub，然后他 <code>pull</code> 到他的本地；他再写代码，<code>commit</code>, <code>push</code> 到 GitHub，然后你再 <code>pull</code> 到你的本地。你来我往，配合得不亦乐乎。</p>
+<p>但是，这种合作有一个严重的问题：同一时间内，只能有一个人在工作。你和同事其中一个人写代码的时候，另一个人不能做事，必须等着他把工作做完，代码 <code>push</code> 到 GitHub 以后，自己才能把 <code>push</code> 上去的代码 <code>pull</code> 到自己的本地。而如果同时做事，就会发生冲突：当一个人先于另一个人 <code>push</code> 代码（这种情况必然会发生），那么后 <code>push</code> 的这个人就会由于中央仓库上含有本地没有的提交而导致 <code>push</code> 失败。</p>
+<blockquote>
+<p>为什么会失败？</p>
+<p>因为 Git 的<code>push</code> 其实是用本地仓库的 commits 记录去覆盖远端仓库的 commits 记录（注：这是简化概念后的说法，push 的实质和这个说法略有不同），而如果在远端仓库含有本地没有的 commits 的时候，<code>push</code> （如果成功）将会导致远端的 commits 被擦掉。这种结果当然是不可行的，因此 Git 会在 <code>push</code> 的时候进行检查，如果出现这样的情况，push 就会失败。</p>
+</blockquote>
+<p>怎么办？下面就说。</p>
+<h2 id="push-发生冲突"><a href="#push-发生冲突" class="headerlink" title="push 发生冲突"></a>push 发生冲突</h2><p>在现实的团队开发中，全队是同时并行开发的，所以必然会出现当一人 <code>push</code> 代码时，中央仓库已经被其他同事先一步 <code>push</code> 了的情况。为了不让文段显得太过混乱，这里我就不带着你一步步模拟这个过程了。如果你希望模拟的话，这里是步骤：</p>
+<ol>
+<li>切到 <code>git-practice-another</code> 去，假扮成你的同事做一个 <code>commit</code>，然后 <code>push</code> 到 GitHub</li>
+<li>切回 <code>git-practice</code> 变回你自己，做一个不一样的 <code>commit</code>。</li>
+</ol>
+<p>这个时候，远端中央仓库已经有了别人 <code>push</code> 的 <code>commit</code>，现在你如果 <code>push</code> 的话：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/30/1600a7635c403f2c?w=598&h=153&f=jpeg&s=54384" alt="push 被拒绝"></p>
+<p>push 被拒绝</p>
+<p>从上图中的提示语可以看出来（好吧这么长的提示语有人表示不想看），由于 GitHub 的远端仓库上含有本地仓库没有的内容，所以这次 <code>push</code> 被拒绝了。这种冲突的解决方式其实很简单：<strong>先用 <code>pull</code> 把远端仓库上的新内容取回到本地和本地合并，然后再把合并后的本地仓库向远端仓库推送</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd77967acc6821?w=518&h=128&f=jpeg&s=48512"></p>
+<p>在上面的文段里，我已经举过一次 <code>git pull</code> 的例子，但这次的 <code>git pull</code> 操作并没有像之前的那样直接结束，而是进入了上图这样的一个输入提交信息的界面。这是因为当 <code>pull</code> 操作发现不仅远端仓库包含本地没有的 <code>commit</code>s，而且本地仓库也包含远端没有的 <code>commit</code>s 时，它就会把远端和本地的独有 <code>commit</code>s 进行合并，自动生成一个新的 <code>commit</code> ，而上图的这个界面，就是这个自动生成的 <code>commit</code> 的提交信息界面。另外，和手动的 <code>commit</code> 不同，这种 <code>commit</code> 会自动填入一个默认的提交信息，简单说明了这条 <code>commit</code> 的来由。你可以直接退出界面来使用这个自动填写的提交信息，也可以修改它来填入自己提交信息。</p>
+<blockquote>
+<p>这种「把不同的内容进行合并，生成新的提交」的操作，叫做合并（呵呵呵哈哈），它所对应的 Git 指令是 <code>merge</code>。事实上，<code>git pull</code> 这个指令的内部实现就是把远程仓库使用 <code>git fetch</code> 取下来以后再进行 <code>merge</code> 操作的。关于更多 <code>merge</code> 的介绍，我会在后面说，这节先不讲了。</p>
+</blockquote>
+<p>在退出提交信息的界面后，这次 <code>pull</code> 就完成了：远端仓库被取到了本地，并和本地仓库进行了合并。在这个时候，就可以再 <code>push</code> 一次了。由于现在本地仓库已经包含了所有远端仓库的 commits，所以这次 <code>push</code> 不会再失败：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/30/1600a786d9ac2cc5?w=486&h=157&f=jpeg&s=39987" alt="push 成功"></p>
+<p>push 成功</p>
+<p>这样，就把 <code>push</code> 时本地仓库和远端仓库内容冲突的问题解决了。</p>
+<h2 id="小结：多人合作的基本工作模型-2-0"><a href="#小结：多人合作的基本工作模型-2-0" class="headerlink" title="小结：多人合作的基本工作模型 2.0"></a>小结：多人合作的基本工作模型 2.0</h2><p>这样，就把刚才的那个「多人合作的基本工作模型」进行了改良：</p>
+<ol>
+<li>写完所有的 <code>commit</code> 后，不用考虑中央仓库是否有新的提交，直接 <code>push</code> 就好</li>
+<li>如果 <code>push</code> 失败，就用 <code>pull</code> 把本地仓库的提交和中央仓库的提交进行合并，然后再 <code>push</code> 一次</li>
+</ol>
+<p>到此为止，这个工作模型已经是一个最简单的可用的工作模型了。一个小团队如果对版本管理没有什么要求的话，这个工作模型已经可以让团队用来合作开发了。</p>
+<p>但是，这种模型由于过于简单，所以只能适用于对代码管理没太大需求的开发团队。接下来，我将介绍一种基于 branch 的工作模型，很多中小型团队的代码开发都是采用的这种工作模型。不过……需要花 4 节的时间，因为它涉及到了 Git 的一些核心理论，一些许多 Git 老手都没有真正掌握的理论。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiaogaojian</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/",
+    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":210,"height":360},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

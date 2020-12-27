@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="上手 2：团队工作的基本工作模型对于 Git 来说，团队合作和个人独立工作最大的不同在于，你会提交代码，别人也会提交；你会 push，别人也会 push，因此除了把代码上传，每个人还需要把别人最新的代码下载到自己的电脑。而且，这些工作都是并行进行的。 这就很复杂了！ 这节的内容，就是简单阐述一下团队合作中 Git 的基本工作模型。 把别人的新提交拿到本地先说一种简单的情况：你的同事刚把他写的几个提">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tutorial-04上手 2：团队工作的基本工作模型">
+<meta property="og:url" content="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-04%E4%B8%8A%E6%89%8B%202%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="行则将至">
+<meta property="og:description" content="上手 2：团队工作的基本工作模型对于 Git 来说，团队合作和个人独立工作最大的不同在于，你会提交代码，别人也会提交；你会 push，别人也会 push，因此除了把代码上传，每个人还需要把别人最新的代码下载到自己的电脑。而且，这些工作都是并行进行的。 这就很复杂了！ 这节的内容，就是简单阐述一下团队合作中 Git 的基本工作模型。 把别人的新提交拿到本地先说一种简单的情况：你的同事刚把他写的几个提">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/20/15fd7796267f52f3?w=274&h=153&f=jpeg&s=43143">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/20/15fd779626c48d66?w=421&h=298&f=jpeg&s=59238">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/20/15fd7796252edbf5?w=299&h=87&f=jpeg&s=14033">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/20/15fd77962711f7d1?w=312&h=105&f=jpeg&s=7661">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/20/15fd7797bd664ef4?w=489&h=170&f=jpeg&s=48053">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/23/15fe7f81418af938?w=1010&h=299&f=jpeg&s=68653">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/20/15fd779668e41b04?w=431&h=239&f=jpeg&s=88488">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/30/1600a7635c403f2c?w=598&h=153&f=jpeg&s=54384">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/20/15fd77967acc6821?w=518&h=128&f=jpeg&s=48512">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/30/1600a786d9ac2cc5?w=486&h=157&f=jpeg&s=39987">
+<meta property="article:published_time" content="2020-10-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-30T12:09:57.996Z">
+<meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2017/11/20/15fd7796267f52f3?w=274&h=153&f=jpeg&s=43143">
+
+
+<link rel="canonical" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-04%E4%B8%8A%E6%89%8B%202%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Tutorial-04上手 2：团队工作的基本工作模型 | 行则将至</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">行则将至</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Keep going and you can go anywhere</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8A%E6%89%8B-2%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B"><span class="nav-text">上手 2：团队工作的基本工作模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%8A%E5%88%AB%E4%BA%BA%E7%9A%84%E6%96%B0%E6%8F%90%E4%BA%A4%E6%8B%BF%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="nav-text">把别人的新提交拿到本地</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%87%E8%A3%85%E5%90%8C%E4%BA%8B"><span class="nav-text">假装同事</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%AE%E5%90%8C%E4%BA%8B%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E5%B9%B6-push-%E5%88%B0%E4%B8%AD%E5%A4%AE%E4%BB%93%E5%BA%93"><span class="nav-text">帮同事提交代码并 push 到中央仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%8A%E5%90%8C%E4%BA%8B-push-%E7%9A%84%E6%96%B0%E4%BB%A3%E7%A0%81%E5%8F%96%E4%B8%8B%E6%9D%A5"><span class="nav-text">把同事 push 的新代码取下来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E4%BA%BA%E5%90%88%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B"><span class="nav-text">多人合作的基本工作模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#push-%E5%8F%91%E7%94%9F%E5%86%B2%E7%AA%81"><span class="nav-text">push 发生冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93%EF%BC%9A%E5%A4%9A%E4%BA%BA%E5%90%88%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B-2-0"><span class="nav-text">小结：多人合作的基本工作模型 2.0</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qiaogaojian"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">qiaogaojian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">186</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qiaogaojian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/qiaogaojian" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-git-alt fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qiaogaojian@gmail.com" title="E-Mail → mailto:qiaogaojian@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+<!--
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+-->
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-04%E4%B8%8A%E6%89%8B%202%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Tutorial-04上手 2：团队工作的基本工作模型
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-30 20:09:57" itemprop="dateModified" datetime="2020-10-30T20:09:57+08:00">2020-10-30</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/Git-%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">Git 原理详解及实用指南</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-04%E4%B8%8A%E6%89%8B%202%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-04上手 2：团队工作的基本工作模型" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-04%E4%B8%8A%E6%89%8B%202%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-04%E4%B8%8A%E6%89%8B%202%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+        <h1 id="上手-2：团队工作的基本工作模型"><a href="#上手-2：团队工作的基本工作模型" class="headerlink" title="上手 2：团队工作的基本工作模型"></a>上手 2：团队工作的基本工作模型</h1><p>对于 Git 来说，团队合作和个人独立工作最大的不同在于，你会提交代码，别人也会提交；你会 push，别人也会 push，因此除了把代码上传，每个人还需要把别人最新的代码下载到自己的电脑。而且，这些工作都是并行进行的。</p>
+<p>这就很复杂了！</p>
+<p>这节的内容，就是简单阐述一下团队合作中 Git 的基本工作模型。</p>
+<h2 id="把别人的新提交拿到本地"><a href="#把别人的新提交拿到本地" class="headerlink" title="把别人的新提交拿到本地"></a>把别人的新提交拿到本地</h2><p>先说一种简单的情况：你的同事刚把他写的几个提交 push 到了中央仓库，你怎么把它们取下来。</p>
+<h3 id="假装同事"><a href="#假装同事" class="headerlink" title="假装同事"></a>假装同事</h3><p>除非你能要求同事陪你练习 Git，否则，你只能一人分饰两角：时不时地模拟一下同事的操作，来达到独自一人做多人项目练习的效果。而为了模拟同事的操作，你需要在你的 <code>/git-practice</code> 目录旁再 clone 一次中央仓库到本地，来当做你的模拟同事的本地仓库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;rengwuxian&#x2F;git-practice.git git-practice-another</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意！执行这条之前别忘了先 `cd ..` 切换到父目录，不然你会把新的本地仓库创建在原先的本地仓库的工作目录内。</p>
+</blockquote>
+<p>为了目录名称不冲突，这次的 <code>clone</code> 需要加一个额外参数（上面那行代码最后的 <code>git-practice-another</code>）来手动指定本地仓库的根目录名称。在这条指令执行完成后，你就有了两个内容相同的本地仓库：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd7796267f52f3?w=274&h=153&f=jpeg&s=43143" alt="你的 git-practice 和「同事」的 git-practice-another"></p>
+<p>你的 git-practice 和「同事」的 git-practice-another</p>
+<p>现在，你就可以假装 <code>/git-practice</code> 这个目录是你的电脑上的工作目录，而那个新建的 <code>/git-practice-another</code> 是你同事的电脑上的工作目录。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd779626c48d66?w=421&h=298&f=jpeg&s=59238"></p>
+<p>如果你对这样的操作有担心，大可不必，这种操作不会有任何问题。因为 Git 的管理是目录级别，而不是设备级别的。也就是说，<code>/git-practice</code> 目录内的 <code>.git</code> 只管理 <code>/git-practice</code> 里的内容，<code>/git-practice-another</code> 目录内的 <code>.git</code> 也只管理 <code>/git-practice-another</code> 里的内容，它们之间互不知晓，也互不影响。</p>
+<h3 id="帮同事提交代码并-push-到中央仓库"><a href="#帮同事提交代码并-push-到中央仓库" class="headerlink" title="帮同事提交代码并 push 到中央仓库"></a>帮同事提交代码并 push 到中央仓库</h3><p>要在你的电脑上把同事的代码取下来，首先 GitHub 上要有你同事的新代码，也就是说，你首先要把同事的代码 push 到中央仓库去。所以第一步，切换到同事的目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd git-practice-another</span><br></pre></td></tr></table></figure>
+
+<p>现在，到了同事的工作目录，你的身份就是你的同事了。帮他写点代码吧！嗯……写点什么好呢？</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd7796252edbf5?w=299&h=87&f=jpeg&s=14033"></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd77962711f7d1?w=312&h=105&f=jpeg&s=7661" alt="嗯，「女装」"></p>
+<p>嗯，「女装」</p>
+<p>嗯，看起来不错，帮他提交吧：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add shopping\ list-colleague.txt</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd7797bd664ef4?w=489&h=170&f=jpeg&s=48053" alt="记得填写提交信息"></p>
+<p>记得填写提交信息</p>
+<p>提交完成以后，<code>push</code> 到 GitHub：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/23/15fe7f81418af938?w=1010&h=299&f=jpeg&s=68653" alt="GitHub 上已经能看到刚更新的文件"></p>
+<p>GitHub 上已经能看到刚更新的文件</p>
+<h2 id="把同事-push-的新代码取下来"><a href="#把同事-push-的新代码取下来" class="headerlink" title="把同事 push 的新代码取下来"></a>把同事 push 的新代码取下来</h2><p>GitHub 上有了同事的新代码以后，你就可以变回自己，把「他」刚 push 上去的代码取到你的仓库了。首先，切回 <code>/git-practice</code> 目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ..&#x2F;git-practice</span><br></pre></td></tr></table></figure>
+
+<p>然后，把同事的代码取下来吧！从远程仓库更新内容，用的是一个新的指令：<code>pull</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd779668e41b04?w=431&h=239&f=jpeg&s=88488" alt="用 git pull 把代码从远程仓库取下来"></p>
+<p>用 git pull 把代码从远程仓库取下来</p>
+<p>这时候再看看你的本地目录，可以看到，同事提交的 <code>shopping list-colleagure.txt</code> 已经同步到本地了。也就是说，现在你的本地仓库和同事的又一致了。</p>
+<h2 id="多人合作的基本工作模型"><a href="#多人合作的基本工作模型" class="headerlink" title="多人合作的基本工作模型"></a>多人合作的基本工作模型</h2><p>这就完成了一次简单的合作流程：</p>
+<ol>
+<li>同事 <code>commit</code> 代码到他的本地，并 <code>push</code> 到 GitHub 中央仓库</li>
+<li>你把 GitHub 的新提交通过 <code>pull</code> 指令来取到你的本地</li>
+</ol>
+<p>通过这个流程，你和同事就可以简单地合作了：你写了代码，<code>commit</code>，<code>push</code> 到 GitHub，然后他 <code>pull</code> 到他的本地；他再写代码，<code>commit</code>, <code>push</code> 到 GitHub，然后你再 <code>pull</code> 到你的本地。你来我往，配合得不亦乐乎。</p>
+<p>但是，这种合作有一个严重的问题：同一时间内，只能有一个人在工作。你和同事其中一个人写代码的时候，另一个人不能做事，必须等着他把工作做完，代码 <code>push</code> 到 GitHub 以后，自己才能把 <code>push</code> 上去的代码 <code>pull</code> 到自己的本地。而如果同时做事，就会发生冲突：当一个人先于另一个人 <code>push</code> 代码（这种情况必然会发生），那么后 <code>push</code> 的这个人就会由于中央仓库上含有本地没有的提交而导致 <code>push</code> 失败。</p>
+<blockquote>
+<p>为什么会失败？</p>
+<p>因为 Git 的<code>push</code> 其实是用本地仓库的 commits 记录去覆盖远端仓库的 commits 记录（注：这是简化概念后的说法，push 的实质和这个说法略有不同），而如果在远端仓库含有本地没有的 commits 的时候，<code>push</code> （如果成功）将会导致远端的 commits 被擦掉。这种结果当然是不可行的，因此 Git 会在 <code>push</code> 的时候进行检查，如果出现这样的情况，push 就会失败。</p>
+</blockquote>
+<p>怎么办？下面就说。</p>
+<h2 id="push-发生冲突"><a href="#push-发生冲突" class="headerlink" title="push 发生冲突"></a>push 发生冲突</h2><p>在现实的团队开发中，全队是同时并行开发的，所以必然会出现当一人 <code>push</code> 代码时，中央仓库已经被其他同事先一步 <code>push</code> 了的情况。为了不让文段显得太过混乱，这里我就不带着你一步步模拟这个过程了。如果你希望模拟的话，这里是步骤：</p>
+<ol>
+<li>切到 <code>git-practice-another</code> 去，假扮成你的同事做一个 <code>commit</code>，然后 <code>push</code> 到 GitHub</li>
+<li>切回 <code>git-practice</code> 变回你自己，做一个不一样的 <code>commit</code>。</li>
+</ol>
+<p>这个时候，远端中央仓库已经有了别人 <code>push</code> 的 <code>commit</code>，现在你如果 <code>push</code> 的话：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/30/1600a7635c403f2c?w=598&h=153&f=jpeg&s=54384" alt="push 被拒绝"></p>
+<p>push 被拒绝</p>
+<p>从上图中的提示语可以看出来（好吧这么长的提示语有人表示不想看），由于 GitHub 的远端仓库上含有本地仓库没有的内容，所以这次 <code>push</code> 被拒绝了。这种冲突的解决方式其实很简单：<strong>先用 <code>pull</code> 把远端仓库上的新内容取回到本地和本地合并，然后再把合并后的本地仓库向远端仓库推送</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd77967acc6821?w=518&h=128&f=jpeg&s=48512"></p>
+<p>在上面的文段里，我已经举过一次 <code>git pull</code> 的例子，但这次的 <code>git pull</code> 操作并没有像之前的那样直接结束，而是进入了上图这样的一个输入提交信息的界面。这是因为当 <code>pull</code> 操作发现不仅远端仓库包含本地没有的 <code>commit</code>s，而且本地仓库也包含远端没有的 <code>commit</code>s 时，它就会把远端和本地的独有 <code>commit</code>s 进行合并，自动生成一个新的 <code>commit</code> ，而上图的这个界面，就是这个自动生成的 <code>commit</code> 的提交信息界面。另外，和手动的 <code>commit</code> 不同，这种 <code>commit</code> 会自动填入一个默认的提交信息，简单说明了这条 <code>commit</code> 的来由。你可以直接退出界面来使用这个自动填写的提交信息，也可以修改它来填入自己提交信息。</p>
+<blockquote>
+<p>这种「把不同的内容进行合并，生成新的提交」的操作，叫做合并（呵呵呵哈哈），它所对应的 Git 指令是 <code>merge</code>。事实上，<code>git pull</code> 这个指令的内部实现就是把远程仓库使用 <code>git fetch</code> 取下来以后再进行 <code>merge</code> 操作的。关于更多 <code>merge</code> 的介绍，我会在后面说，这节先不讲了。</p>
+</blockquote>
+<p>在退出提交信息的界面后，这次 <code>pull</code> 就完成了：远端仓库被取到了本地，并和本地仓库进行了合并。在这个时候，就可以再 <code>push</code> 一次了。由于现在本地仓库已经包含了所有远端仓库的 commits，所以这次 <code>push</code> 不会再失败：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/30/1600a786d9ac2cc5?w=486&h=157&f=jpeg&s=39987" alt="push 成功"></p>
+<p>push 成功</p>
+<p>这样，就把 <code>push</code> 时本地仓库和远端仓库内容冲突的问题解决了。</p>
+<h2 id="小结：多人合作的基本工作模型-2-0"><a href="#小结：多人合作的基本工作模型-2-0" class="headerlink" title="小结：多人合作的基本工作模型 2.0"></a>小结：多人合作的基本工作模型 2.0</h2><p>这样，就把刚才的那个「多人合作的基本工作模型」进行了改良：</p>
+<ol>
+<li>写完所有的 <code>commit</code> 后，不用考虑中央仓库是否有新的提交，直接 <code>push</code> 就好</li>
+<li>如果 <code>push</code> 失败，就用 <code>pull</code> 把本地仓库的提交和中央仓库的提交进行合并，然后再 <code>push</code> 一次</li>
+</ol>
+<p>到此为止，这个工作模型已经是一个最简单的可用的工作模型了。一个小团队如果对版本管理没有什么要求的话，这个工作模型已经可以让团队用来合作开发了。</p>
+<p>但是，这种模型由于过于简单，所以只能适用于对代码管理没太大需求的开发团队。接下来，我将介绍一种基于 branch 的工作模型，很多中小型团队的代码开发都是采用的这种工作模型。不过……需要花 4 节的时间，因为它涉及到了 Git 的一些核心理论，一些许多 Git 老手都没有真正掌握的理论。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="qiaogaojian 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="qiaogaojian 支付宝">
+        <span>支付宝</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.png" alt="qiaogaojian 比特币">
+        <span>比特币</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>qiaogaojian
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-04%E4%B8%8A%E6%89%8B%202%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B/" title="Tutorial-04上手 2：团队工作的基本工作模型">http://example.com/2020/10/29/9.Tools/Git/Git 原理详解及实用指南/20201029_Tutorial-04上手 2：团队工作的基本工作模型/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-05%E8%BF%9B%E9%98%B6%201%EF%BC%9AHEAD%E3%80%81master%20%E4%B8%8E%20branch/" rel="prev" title="Tutorial-05进阶 1：HEAD、master 与 branch">
+                  <i class="fa fa-chevron-left"></i> Tutorial-05进阶 1：HEAD、master 与 branch
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-03%E4%B8%8A%E6%89%8B%201%EF%BC%9A%E6%96%B0%E5%85%AC%E5%8F%B8%E7%94%A8%20Git%20%E7%AE%A1%E7%90%86%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%80%8E%E4%B9%88%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%EF%BC%9F/" rel="next" title="Tutorial-03上手 1：新公司用 Git 管理代码，怎么快速上手？">
+                  Tutorial-03上手 1：新公司用 Git 管理代码，怎么快速上手？ <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiaogaojian</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-04%E4%B8%8A%E6%89%8B%202%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B/",
+    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":210,"height":360},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
