@@ -21,22 +21,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="前言 正如LearnOpenGL-高级OpenGL-深度测试中所述，在OpenGL的深度值可以通过在fragment shader中调用gl_FragCoord.z获得，其值域为[0,1]。但是物体离我们眼睛(摄像机)的真正距离是多少呢？怎么通过OpenGL中的深度反求“真正的深度”呢？  推导过程 \[\begin{align} x &amp;&#x3D; a +b+c+d\\ &amp;&#x3D; e +f\\ &amp;&#x3D; g \e">
+  <meta name="description" content="前言 正如LearnOpenGL-高级OpenGL-深度测试中所述，在OpenGL的深度值可以通过在fragment shader中调用gl_FragCoord.z获得，其值域为[0,1]。但是物体离我们眼睛(摄像机)的真正距离是多少呢？怎么通过OpenGL中的深度反求“真正的深度”呢？  推导过程 我们假设在FragmentShader出来的的深度值为$ z_b $ &#x3D;gl_FragCoord.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="opengl-zbuffer非线性公式转线性公式">
 <meta property="og:url" content="http://example.com/2020/12/24/1.CS/CG/20201224_opengl-zbuffer%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F%E8%BD%AC%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F/index.html">
 <meta property="og:site_name" content="行则将至">
-<meta property="og:description" content="前言 正如LearnOpenGL-高级OpenGL-深度测试中所述，在OpenGL的深度值可以通过在fragment shader中调用gl_FragCoord.z获得，其值域为[0,1]。但是物体离我们眼睛(摄像机)的真正距离是多少呢？怎么通过OpenGL中的深度反求“真正的深度”呢？  推导过程 \[\begin{align} x &amp;&#x3D; a +b+c+d\\ &amp;&#x3D; e +f\\ &amp;&#x3D; g \e">
+<meta property="og:description" content="前言 正如LearnOpenGL-高级OpenGL-深度测试中所述，在OpenGL的深度值可以通过在fragment shader中调用gl_FragCoord.z获得，其值域为[0,1]。但是物体离我们眼睛(摄像机)的真正距离是多少呢？怎么通过OpenGL中的深度反求“真正的深度”呢？  推导过程 我们假设在FragmentShader出来的的深度值为$ z_b $ &#x3D;gl_FragCoord.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-01-14T07:55:39.703Z">
+<meta property="article:modified_time" content="2021-01-14T08:26:01.066Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="AR">
 <meta property="article:tag" content="IDE">
 <meta property="article:tag" content="Shader">
 <meta property="article:tag" content="Web">
 <meta property="article:tag" content="OpenGL">
-<meta property="article:tag" content="Math">
 <meta name="twitter:card" content="summary">
 
 
@@ -96,11 +95,7 @@
   </style>
 </noscript>
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -329,7 +324,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-01-14 15:55:39" itemprop="dateModified" datetime="2021-01-14T15:55:39+08:00">2021-01-14</time>
+        <time title="修改时间：2021-01-14 16:26:01" itemprop="dateModified" datetime="2021-01-14T16:26:01+08:00">2021-01-14</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -380,11 +375,6 @@
         <h3 id="前言">前言</h3>
 <p>  正如<a target="_blank" rel="noopener" href="https://learnopengl.com/#!Advanced-OpenGL/Depth-testing">LearnOpenGL-高级OpenGL-深度测试</a>中所述，在OpenGL的深度值可以通过在fragment shader中调用<code>gl_FragCoord.z</code>获得，其值域为[0,1]。但是物体离我们眼睛(摄像机)的真正距离是多少呢？怎么通过OpenGL中的深度反求“真正的深度”呢？</p>
 <h3 id="推导过程">推导过程</h3>
-<p><span class="math display">\[\begin{align}
-x &amp;= a +b+c+d\\
- &amp;= e +f\\
- &amp;= g
-\end{align}\]</span></p>
 <p>  我们假设在FragmentShader出来的的深度值为$ z_b $ =<code>gl_FragCoord.z</code>，因为$ z_b <span class="math inline">\(是值域为[0,1]，我们首先得转换回NDC坐标系下，假设NDC坐标系下的深度值为\)</span> z_n $，OpenGL是这样转换的：</p>
 <p><span class="math display">\[
 z_b=0.5z_n+0.5
@@ -495,7 +485,6 @@ z_r\in[n,f]
               <a href="/tags/Shader/" rel="tag"><i class="fa fa-tag"></i> Shader</a>
               <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
               <a href="/tags/OpenGL/" rel="tag"><i class="fa fa-tag"></i> OpenGL</a>
-              <a href="/tags/Math/" rel="tag"><i class="fa fa-tag"></i> Math</a>
           </div>
 
         
@@ -639,7 +628,7 @@ z_r\in[n,f]
       }
     };
     const script = document.createElement('script');
-    script.src = '/%5Bobject%20Object%5D';
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
     script.defer = true;
     document.head.appendChild(script);
   } else {
