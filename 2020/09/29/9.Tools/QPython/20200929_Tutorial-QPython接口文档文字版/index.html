@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -31,12 +31,21 @@
 <meta property="article:published_time" content="2020-09-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-29T01:11:46.111Z">
 <meta property="article:author" content="qiaogaojian">
-<meta property="article:tag" content="Android">
-<meta property="article:tag" content="Web">
-<meta property="article:tag" content="Python">
 <meta property="article:tag" content="AS">
-<meta property="article:tag" content="Html">
+<meta property="article:tag" content="AR">
 <meta property="article:tag" content="ML">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="Html">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Js">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="IDE">
+<meta property="article:tag" content="VS">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="Go">
+<meta property="article:tag" content="Adb">
+<meta property="article:tag" content="Eos">
 <meta name="twitter:card" content="summary">
 
 
@@ -96,11 +105,7 @@
   </style>
 </noscript>
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -229,20 +234,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">185</span>
+          <span class="site-state-item-count">192</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -372,8 +377,9 @@
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
         <h1 id="QPython接口文档文字版"><a href="#QPython接口文档文字版" class="headerlink" title="QPython接口文档文字版"></a>QPython接口文档文字版</h1><!-- TOC -->
+
 <ul>
-<li><a href="#qpython接口文档文字版">QPython接口文档文字版</a><ul>
+<li><a href="#qpython%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3%E6%96%87%E5%AD%97%E7%89%88">QPython接口文档文字版</a><ul>
 <li><a href="#androidfacade">AndroidFacade</a><ul>
 <li><a href="#clipboard-apis">Clipboard APIs</a><ul>
 <li><a href="#setclipboardtext">setClipboard(text)</a></li>
@@ -851,6 +857,7 @@
 </li>
 </ul>
 <!-- /TOC -->
+
 <h2 id="AndroidFacade"><a href="#AndroidFacade" class="headerlink" title="AndroidFacade"></a>AndroidFacade</h2><h3 id="Clipboard-APIs"><a href="#Clipboard-APIs" class="headerlink" title="Clipboard APIs"></a>Clipboard APIs</h3><h4 id="setClipboard-text"><a href="#setClipboard-text" class="headerlink" title="setClipboard(text)"></a>setClipboard(text)</h4><blockquote>
 <p>Put text in the clipboard</p>
 </blockquote>
@@ -875,7 +882,9 @@
 </ul>
 <blockquote>
 <p>Returns the intent that launched the script</p>
-<h4 id="startActivityForResult-action-uri-type-extras-packagename-classname"><a href="#startActivityForResult-action-uri-type-extras-packagename-classname" class="headerlink" title="startActivityForResult(action, uri, type, extras, packagename, classname)"></a>startActivityForResult(action, uri, type, extras, packagename, classname)</h4><p>Starts an activity and returns the result</p>
+</blockquote>
+<h4 id="startActivityForResult-action-uri-type-extras-packagename-classname"><a href="#startActivityForResult-action-uri-type-extras-packagename-classname" class="headerlink" title="startActivityForResult(action, uri, type, extras, packagename, classname)"></a>startActivityForResult(action, uri, type, extras, packagename, classname)</h4><blockquote>
+<p>Starts an activity and returns the result</p>
 </blockquote>
 <ul>
 <li><p>Parameters:<br>action (str) – action<br>uri(Optional) (str) – uri<br>type(Optional) (str) – MIME type/subtype of the URI<br>extras(Optional) (object) – a Map of extras to add to the Intent<br>packagename(Optional) (str) – name of package. If used, requires classname to be useful<br>classname(Optional) (str) – name of class. If used, requires packagename to be useful</p>
@@ -923,8 +932,8 @@
 </ul>
 <h4 id="getNetworkStatus"><a href="#getNetworkStatus" class="headerlink" title="getNetworkStatus()"></a>getNetworkStatus()</h4><blockquote>
 <p>Returns the status of network connection</p>
-<h3 id="PackageVersion-APIs"><a href="#PackageVersion-APIs" class="headerlink" title="PackageVersion APIs"></a>PackageVersion APIs</h3></blockquote>
-<h4 id="requiredVersion-requiredVersion"><a href="#requiredVersion-requiredVersion" class="headerlink" title="requiredVersion(requiredVersion)"></a>requiredVersion(requiredVersion)</h4><blockquote>
+</blockquote>
+<h3 id="PackageVersion-APIs"><a href="#PackageVersion-APIs" class="headerlink" title="PackageVersion APIs"></a>PackageVersion APIs</h3><h4 id="requiredVersion-requiredVersion"><a href="#requiredVersion-requiredVersion" class="headerlink" title="requiredVersion(requiredVersion)"></a>requiredVersion(requiredVersion)</h4><blockquote>
 <p>Checks if version of QPython SL4A is greater than or equal to the specified version</p>
 </blockquote>
 <ul>
@@ -1180,9 +1189,9 @@
 </blockquote>
 <ul>
 <li>Return:    A map of location information by provider<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Droid = androidhelper.Android()</span><br><span class="line">location = Droid.getLastKnownLocation().result</span><br><span class="line">location = location.get(<span class="string">&#x27;network&#x27;</span>, location.get(<span class="string">&#x27;gps&#x27;</span>))</span><br></pre></td></tr></table></figure>
-</li>
+<h3 id="GEO"><a href="#GEO" class="headerlink" title="GEO"></a>GEO</h3></li>
 </ul>
-<h3 id="GEO"><a href="#GEO" class="headerlink" title="GEO"></a>GEO</h3><h4 id="geocode-latitude-longitude-maxResults"><a href="#geocode-latitude-longitude-maxResults" class="headerlink" title="geocode(latitude, longitude, maxResults)"></a>geocode(latitude, longitude, maxResults)</h4><blockquote>
+<h4 id="geocode-latitude-longitude-maxResults"><a href="#geocode-latitude-longitude-maxResults" class="headerlink" title="geocode(latitude, longitude, maxResults)"></a>geocode(latitude, longitude, maxResults)</h4><blockquote>
 <p>Returns a list of addresses for the given latitude and longitude</p>
 </blockquote>
 <ul>
@@ -1319,9 +1328,9 @@
 </blockquote>
 <ul>
 <li>Return:    a List of Doubles [azimuth, pitch, roll]<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Droid = androidhelper.Android()</span><br><span class="line">Droid.startSensingTimed(<span class="number">1</span>, <span class="number">250</span>)</span><br><span class="line">sensor = Droid.sensorsReadOrientation().result</span><br><span class="line">Droid.stopSensing()</span><br></pre></td></tr></table></figure>
-</li>
+<h2 id="SettingsFacade"><a href="#SettingsFacade" class="headerlink" title="SettingsFacade"></a>SettingsFacade</h2></li>
 </ul>
-<h2 id="SettingsFacade"><a href="#SettingsFacade" class="headerlink" title="SettingsFacade"></a>SettingsFacade</h2><h3 id="Screen"><a href="#Screen" class="headerlink" title="Screen"></a>Screen</h3><h4 id="setScreenTimeout-value"><a href="#setScreenTimeout-value" class="headerlink" title="setScreenTimeout(value)"></a>setScreenTimeout(value)</h4><blockquote>
+<h3 id="Screen"><a href="#Screen" class="headerlink" title="Screen"></a>Screen</h3><h4 id="setScreenTimeout-value"><a href="#setScreenTimeout-value" class="headerlink" title="setScreenTimeout(value)"></a>setScreenTimeout(value)</h4><blockquote>
 <p>Sets the screen timeout to this number of seconds</p>
 </blockquote>
 <ul>
@@ -1693,19 +1702,17 @@
 </blockquote>
 <ul>
 <li><p>Parameters:<br>url (str) – url of media resource<br>tag(optional) (str) – string identifying resource (default=default)<br>play(optional) (bool) – start playing immediately</p>
-<ul>
-<li>Return:<br>true if play successful<h4 id="mediaPlayPause-tag"><a href="#mediaPlayPause-tag" class="headerlink" title="mediaPlayPause(tag)"></a>mediaPlayPause(tag)</h4></li>
-</ul>
 </li>
+<li><p>Return:<br>true if play successful</p>
+<h4 id="mediaPlayPause-tag"><a href="#mediaPlayPause-tag" class="headerlink" title="mediaPlayPause(tag)"></a>mediaPlayPause(tag)</h4></li>
 </ul>
 <blockquote>
 <p>pause playing media file</p>
 </blockquote>
 <ul>
 <li><p>Parameters:    tag (str) – string identifying resource (default=default)</p>
-<ul>
-<li>Return:    true if successful</li>
-</ul>
+</li>
+<li><p>Return:    true if successful</p>
 </li>
 </ul>
 <h4 id="mediaPlayStart-tag"><a href="#mediaPlayStart-tag" class="headerlink" title="mediaPlayStart(tag)"></a>mediaPlayStart(tag)</h4><blockquote>
@@ -1713,9 +1720,8 @@
 </blockquote>
 <ul>
 <li><p>Parameters:    tag (str) – string identifying resource (default=default)</p>
-<ul>
-<li>Return:    true if successful</li>
-</ul>
+</li>
+<li><p>Return:    true if successful</p>
 </li>
 </ul>
 <h4 id="mediaPlayClose-tag"><a href="#mediaPlayClose-tag" class="headerlink" title="mediaPlayClose(tag)"></a>mediaPlayClose(tag)</h4><blockquote>
@@ -1723,9 +1729,8 @@
 </blockquote>
 <ul>
 <li><p>Parameters:    tag (str) – string identifying resource (default=default)</p>
-<ul>
-<li>Return:    true if successful</li>
-</ul>
+</li>
+<li><p>Return:    true if successful</p>
 </li>
 </ul>
 <h4 id="mediaIsPlaying-tag"><a href="#mediaIsPlaying-tag" class="headerlink" title="mediaIsPlaying(tag)"></a>mediaIsPlaying(tag)</h4><blockquote>
@@ -1733,9 +1738,8 @@
 </blockquote>
 <ul>
 <li><p>Parameters:    tag (str) – string identifying resource (default=default)</p>
-<ul>
-<li>Return:    true if successful</li>
-</ul>
+</li>
+<li><p>Return:    true if successful</p>
 </li>
 </ul>
 <h4 id="mediaPlaySetLooping-enabled-tag"><a href="#mediaPlaySetLooping-enabled-tag" class="headerlink" title="mediaPlaySetLooping(enabled, tag)"></a>mediaPlaySetLooping(enabled, tag)</h4><blockquote>
@@ -1743,37 +1747,34 @@
 </blockquote>
 <ul>
 <li><p>Parameters:<br>enabled (bool) – default true<br>tag (str) – string identifying resource (default=default)</p>
-<ul>
-<li>Return:<br>True if successful<h4 id="mediaPlaySeek-msec-tag"><a href="#mediaPlaySeek-msec-tag" class="headerlink" title="mediaPlaySeek(msec, tag)"></a>mediaPlaySeek(msec, tag)</h4></li>
-</ul>
 </li>
+<li><p>Return:<br>True if successful</p>
+<h4 id="mediaPlaySeek-msec-tag"><a href="#mediaPlaySeek-msec-tag" class="headerlink" title="mediaPlaySeek(msec, tag)"></a>mediaPlaySeek(msec, tag)</h4></li>
 </ul>
 <blockquote>
 <p>Seek To Position</p>
 </blockquote>
 <ul>
 <li><p>Parameters:<br>msec (int) – default true<br>tag (str) – string identifying resource (default=default)</p>
-<ul>
-<li>Return:<br>New Position (in ms)<h3 id="Get-Information"><a href="#Get-Information" class="headerlink" title="Get Information"></a>Get Information</h3></li>
-</ul>
 </li>
+<li><p>Return:<br>New Position (in ms)</p>
+<h3 id="Get-Information"><a href="#Get-Information" class="headerlink" title="Get Information"></a>Get Information</h3></li>
 </ul>
 <h4 id="mediaPlayInfo-tag"><a href="#mediaPlayInfo-tag" class="headerlink" title="mediaPlayInfo(tag)"></a>mediaPlayInfo(tag)</h4><blockquote>
 <p>Information on current media</p>
 </blockquote>
 <ul>
 <li><p>Parameters:    tag (str) – string identifying resource (default=default)</p>
-<ul>
-<li>Return:    Media Information</li>
-</ul>
+</li>
+<li><p>Return:    Media Information</p>
 </li>
 </ul>
 <h4 id="mediaPlayList"><a href="#mediaPlayList" class="headerlink" title="mediaPlayList()"></a>mediaPlayList()</h4><blockquote>
 <p>Lists currently loaded media</p>
+</blockquote>
 <ul>
 <li>Return:    List of Media Tags</li>
 </ul>
-</blockquote>
 <h2 id="PreferencesFacade"><a href="#PreferencesFacade" class="headerlink" title="PreferencesFacade"></a>PreferencesFacade</h2><h3 id="prefGetValue-key-filename"><a href="#prefGetValue-key-filename" class="headerlink" title="prefGetValue(key, filename)"></a>prefGetValue(key, filename)</h3><blockquote>
 <p>Read a value from shared preferences</p>
 </blockquote>
@@ -1797,9 +1798,8 @@
 </blockquote>
 <ul>
 <li><p>Parameters:    script (str) – The absolute path of the qpython script</p>
-<ul>
-<li>Return:    bool</li>
-</ul>
+</li>
+<li><p>Return:    bool</p>
 </li>
 </ul>
 <h2 id="TextToSpeechFacade"><a href="#TextToSpeechFacade" class="headerlink" title="TextToSpeechFacade"></a>TextToSpeechFacade</h2><h3 id="ttsSpeak-message"><a href="#ttsSpeak-message" class="headerlink" title="ttsSpeak(message)"></a>ttsSpeak(message)</h3><blockquote>
@@ -1810,14 +1810,16 @@
 </ul>
 <h3 id="ttsIsSpeaking"><a href="#ttsIsSpeaking" class="headerlink" title="ttsIsSpeaking()"></a>ttsIsSpeaking()</h3><blockquote>
 <p>Returns True if speech is currently in progress</p>
-<h2 id="EyesFreeFacade"><a href="#EyesFreeFacade" class="headerlink" title="EyesFreeFacade"></a>EyesFreeFacade</h2></blockquote>
-<h3 id="ttsSpeak-message-1"><a href="#ttsSpeak-message-1" class="headerlink" title="ttsSpeak(message)"></a>ttsSpeak(message)</h3><p>Speaks the provided message via TTS</p>
+</blockquote>
+<h2 id="EyesFreeFacade"><a href="#EyesFreeFacade" class="headerlink" title="EyesFreeFacade"></a>EyesFreeFacade</h2><h3 id="ttsSpeak-message-1"><a href="#ttsSpeak-message-1" class="headerlink" title="ttsSpeak(message)"></a>ttsSpeak(message)</h3><p>Speaks the provided message via TTS</p>
 <ul>
 <li>Parameters:    message (str) – message</li>
 </ul>
 <h2 id="BluetoothFacade"><a href="#BluetoothFacade" class="headerlink" title="BluetoothFacade"></a>BluetoothFacade</h2><h3 id="bluetoothActiveConnections"><a href="#bluetoothActiveConnections" class="headerlink" title="bluetoothActiveConnections()"></a>bluetoothActiveConnections()</h3><blockquote>
 <p>Returns active Bluetooth connections</p>
-<h3 id="bluetoothWriteBinary-base64-connID"><a href="#bluetoothWriteBinary-base64-connID" class="headerlink" title="bluetoothWriteBinary(base64, connID)"></a>bluetoothWriteBinary(base64, connID)</h3><p>Send bytes over the currently open Bluetooth connection</p>
+</blockquote>
+<h3 id="bluetoothWriteBinary-base64-connID"><a href="#bluetoothWriteBinary-base64-connID" class="headerlink" title="bluetoothWriteBinary(base64, connID)"></a>bluetoothWriteBinary(base64, connID)</h3><blockquote>
+<p>Send bytes over the currently open Bluetooth connection</p>
 </blockquote>
 <ul>
 <li>Parameters:<br>base64 (str) – A base64 encoded String of the bytes to be sent<br>connID(optional) (str) – Connection id</li>
@@ -1833,10 +1835,9 @@
 </blockquote>
 <ul>
 <li><p>Parameters:<br>uuid (str) – The UUID passed here must match the UUID used by the server device<br>address(optional) (str) – The user will be presented with a list of discovered devices to choose from if an address is not provided</p>
-<ul>
-<li>Return:<br>True if the connection was established successfully<h3 id="bluetoothAccept-uuid-timeout"><a href="#bluetoothAccept-uuid-timeout" class="headerlink" title="bluetoothAccept(uuid, timeout)"></a>bluetoothAccept(uuid, timeout)</h3></li>
-</ul>
 </li>
+<li><p>Return:<br>True if the connection was established successfully</p>
+<h3 id="bluetoothAccept-uuid-timeout"><a href="#bluetoothAccept-uuid-timeout" class="headerlink" title="bluetoothAccept(uuid, timeout)"></a>bluetoothAccept(uuid, timeout)</h3></li>
 </ul>
 <blockquote>
 <p>Listens for and accepts a Bluetooth connection. Blocks until the connection is established or fails</p>
@@ -1882,33 +1883,36 @@
 </ul>
 <h3 id="bluetoothGetLocalName"><a href="#bluetoothGetLocalName" class="headerlink" title="bluetoothGetLocalName()"></a>bluetoothGetLocalName()</h3><blockquote>
 <p>Gets the Bluetooth Visible device name</p>
-<h3 id="bluetoothSetLocalName-name"><a href="#bluetoothSetLocalName-name" class="headerlink" title="bluetoothSetLocalName(name)"></a>bluetoothSetLocalName(name)</h3><p>Sets the Bluetooth Visible device name, returns True on success</p>
+</blockquote>
+<h3 id="bluetoothSetLocalName-name"><a href="#bluetoothSetLocalName-name" class="headerlink" title="bluetoothSetLocalName(name)"></a>bluetoothSetLocalName(name)</h3><blockquote>
+<p>Sets the Bluetooth Visible device name, returns True on success</p>
 </blockquote>
 <ul>
 <li>Parameters:    name (str) – New local name</li>
 </ul>
 <h3 id="bluetoothGetScanMode"><a href="#bluetoothGetScanMode" class="headerlink" title="bluetoothGetScanMode()"></a>bluetoothGetScanMode()</h3><blockquote>
 <p>Gets the scan mode for the local dongle. Return values: -1 when Bluetooth is disabled. 0 if non discoverable and non connectable. 1 connectable non discoverable. 3 connectable and discoverable.</p>
-<h3 id="bluetoothGetConnectedDeviceName-connID"><a href="#bluetoothGetConnectedDeviceName-connID" class="headerlink" title="bluetoothGetConnectedDeviceName(connID)"></a>bluetoothGetConnectedDeviceName(connID)</h3><p>Returns the name of the connected device</p>
+</blockquote>
+<h3 id="bluetoothGetConnectedDeviceName-connID"><a href="#bluetoothGetConnectedDeviceName-connID" class="headerlink" title="bluetoothGetConnectedDeviceName(connID)"></a>bluetoothGetConnectedDeviceName(connID)</h3><blockquote>
+<p>Returns the name of the connected device</p>
 </blockquote>
 <ul>
 <li>Parameters:    connID (str) – Connection id</li>
 </ul>
 <h3 id="checkBluetoothState"><a href="#checkBluetoothState" class="headerlink" title="checkBluetoothState()"></a>checkBluetoothState()</h3><blockquote>
 <p>Checks Bluetooth state</p>
+</blockquote>
 <ul>
 <li>Return:    True if Bluetooth is enabled</li>
 </ul>
-</blockquote>
 <h3 id="toggleBluetoothState-enabled-prompt"><a href="#toggleBluetoothState-enabled-prompt" class="headerlink" title="toggleBluetoothState(enabled, prompt)"></a>toggleBluetoothState(enabled, prompt)</h3><blockquote>
 <p>Toggle Bluetooth on and off</p>
 </blockquote>
 <ul>
 <li><p>Parameters:<br>enabled (bool) –<br>prompt (str) – Prompt the user to confirm changing the Bluetooth state, default=true</p>
-<ul>
-<li>Return:<br>True if Bluetooth is enabled<h3 id="bluetoothStop-connID"><a href="#bluetoothStop-connID" class="headerlink" title="bluetoothStop(connID)"></a>bluetoothStop(connID)</h3></li>
-</ul>
 </li>
+<li><p>Return:<br>True if Bluetooth is enabled</p>
+<h3 id="bluetoothStop-connID"><a href="#bluetoothStop-connID" class="headerlink" title="bluetoothStop(connID)"></a>bluetoothStop(connID)</h3></li>
 </ul>
 <blockquote>
 <p>Stops Bluetooth connection</p>
@@ -1918,31 +1922,35 @@
 </ul>
 <h3 id="bluetoothGetLocalAddress"><a href="#bluetoothGetLocalAddress" class="headerlink" title="bluetoothGetLocalAddress()"></a>bluetoothGetLocalAddress()</h3><blockquote>
 <p>Returns the hardware address of the local Bluetooth adapter</p>
-<h3 id="bluetoothDiscoveryStart"><a href="#bluetoothDiscoveryStart" class="headerlink" title="bluetoothDiscoveryStart()"></a>bluetoothDiscoveryStart()</h3><p>Start the remote device discovery process</p>
+</blockquote>
+<h3 id="bluetoothDiscoveryStart"><a href="#bluetoothDiscoveryStart" class="headerlink" title="bluetoothDiscoveryStart()"></a>bluetoothDiscoveryStart()</h3><blockquote>
+<p>Start the remote device discovery process</p>
+</blockquote>
 <ul>
 <li>Return:    true on success, false on error</li>
 </ul>
-</blockquote>
 <h3 id="bluetoothDiscoveryCancel"><a href="#bluetoothDiscoveryCancel" class="headerlink" title="bluetoothDiscoveryCancel()"></a>bluetoothDiscoveryCancel()</h3><blockquote>
 <p>Cancel the current device discovery process</p>
+</blockquote>
 <ul>
 <li>Return:    true on success, false on error</li>
 </ul>
-</blockquote>
 <h3 id="bluetoothIsDiscovering"><a href="#bluetoothIsDiscovering" class="headerlink" title="bluetoothIsDiscovering()"></a>bluetoothIsDiscovering()</h3><blockquote>
 <p>Return true if the local Bluetooth adapter is currently in the device discovery process</p>
-<h2 id="SignalStrengthFacade"><a href="#SignalStrengthFacade" class="headerlink" title="SignalStrengthFacade"></a>SignalStrengthFacade</h2></blockquote>
-<h3 id="startTrackingSignalStrengths"><a href="#startTrackingSignalStrengths" class="headerlink" title="startTrackingSignalStrengths()"></a>startTrackingSignalStrengths()</h3><blockquote>
+</blockquote>
+<h2 id="SignalStrengthFacade"><a href="#SignalStrengthFacade" class="headerlink" title="SignalStrengthFacade"></a>SignalStrengthFacade</h2><h3 id="startTrackingSignalStrengths"><a href="#startTrackingSignalStrengths" class="headerlink" title="startTrackingSignalStrengths()"></a>startTrackingSignalStrengths()</h3><blockquote>
 <p>Starts tracking signal strengths</p>
-<h3 id="readSignalStrengths"><a href="#readSignalStrengths" class="headerlink" title="readSignalStrengths()"></a>readSignalStrengths()</h3><p>Returns the current signal strengths</p>
+</blockquote>
+<h3 id="readSignalStrengths"><a href="#readSignalStrengths" class="headerlink" title="readSignalStrengths()"></a>readSignalStrengths()</h3><blockquote>
+<p>Returns the current signal strengths</p>
+</blockquote>
 <ul>
 <li>Return:    A map of gsm_signal_strength</li>
 </ul>
-</blockquote>
 <h3 id="stopTrackingSignalStrengths"><a href="#stopTrackingSignalStrengths" class="headerlink" title="stopTrackingSignalStrengths()"></a>stopTrackingSignalStrengths()</h3><blockquote>
 <p>Stops tracking signal strength</p>
-<h2 id="WebCamFacade"><a href="#WebCamFacade" class="headerlink" title="WebCamFacade"></a>WebCamFacade</h2></blockquote>
-<h3 id="webcamStart-resolutionLevel-jpegQuality-port"><a href="#webcamStart-resolutionLevel-jpegQuality-port" class="headerlink" title="webcamStart(resolutionLevel, jpegQuality, port)"></a>webcamStart(resolutionLevel, jpegQuality, port)</h3><blockquote>
+</blockquote>
+<h2 id="WebCamFacade"><a href="#WebCamFacade" class="headerlink" title="WebCamFacade"></a>WebCamFacade</h2><h3 id="webcamStart-resolutionLevel-jpegQuality-port"><a href="#webcamStart-resolutionLevel-jpegQuality-port" class="headerlink" title="webcamStart(resolutionLevel, jpegQuality, port)"></a>webcamStart(resolutionLevel, jpegQuality, port)</h3><blockquote>
 <p>Starts an MJPEG stream and returns a Tuple of address and port for the stream</p>
 </blockquote>
 <ul>
@@ -1959,15 +1967,14 @@
 </blockquote>
 <ul>
 <li><p>Parameters:<br>resolutionLevel (int) – increasing this number provides higher resolution (default=0)<br>jpegQuality (int) – a number from 0-10 (default=20)<br>filepath (str) – Path to store jpeg files</p>
-<ul>
-<li>Return:<br>True if successful<h3 id="cameraStopPreview"><a href="#cameraStopPreview" class="headerlink" title="cameraStopPreview()"></a>cameraStopPreview()</h3></li>
-</ul>
 </li>
+<li><p>Return:<br>True if successful</p>
+<h3 id="cameraStopPreview"><a href="#cameraStopPreview" class="headerlink" title="cameraStopPreview()"></a>cameraStopPreview()</h3></li>
 </ul>
 <blockquote>
 <p>Stop the preview mode</p>
-<h2 id="UiFacade"><a href="#UiFacade" class="headerlink" title="UiFacade"></a>UiFacade</h2></blockquote>
-<h3 id="Dialog"><a href="#Dialog" class="headerlink" title="Dialog"></a>Dialog</h3><h4 id="dialogCreateInput-title-message-defaultText-inputType"><a href="#dialogCreateInput-title-message-defaultText-inputType" class="headerlink" title="dialogCreateInput(title, message, defaultText, inputType)"></a>dialogCreateInput(title, message, defaultText, inputType)</h4><blockquote>
+</blockquote>
+<h2 id="UiFacade"><a href="#UiFacade" class="headerlink" title="UiFacade"></a>UiFacade</h2><h3 id="Dialog"><a href="#Dialog" class="headerlink" title="Dialog"></a>Dialog</h3><h4 id="dialogCreateInput-title-message-defaultText-inputType"><a href="#dialogCreateInput-title-message-defaultText-inputType" class="headerlink" title="dialogCreateInput(title, message, defaultText, inputType)"></a>dialogCreateInput(title, message, defaultText, inputType)</h4><blockquote>
 <p>Create a text input dialog</p>
 </blockquote>
 <ul>
@@ -2108,11 +2115,17 @@
 </ul>
 <h4 id="dialogGetResponse"><a href="#dialogGetResponse" class="headerlink" title="dialogGetResponse()"></a>dialogGetResponse()</h4><blockquote>
 <p>Returns dialog response</p>
-<h4 id="dialogGetSelectedItems"><a href="#dialogGetSelectedItems" class="headerlink" title="dialogGetSelectedItems()"></a>dialogGetSelectedItems()</h4><p>This method provides list of items user selected</p>
-<h4 id="dialogDismiss"><a href="#dialogDismiss" class="headerlink" title="dialogDismiss()"></a>dialogDismiss()</h4><p>Dismiss dialog</p>
-<h4 id="dialogShow"><a href="#dialogShow" class="headerlink" title="dialogShow()"></a>dialogShow()</h4><p>Show dialog</p>
-<h3 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h3></blockquote>
-<h4 id="fullShow-layout"><a href="#fullShow-layout" class="headerlink" title="fullShow(layout)"></a>fullShow(layout)</h4><blockquote>
+</blockquote>
+<h4 id="dialogGetSelectedItems"><a href="#dialogGetSelectedItems" class="headerlink" title="dialogGetSelectedItems()"></a>dialogGetSelectedItems()</h4><blockquote>
+<p>This method provides list of items user selected</p>
+</blockquote>
+<h4 id="dialogDismiss"><a href="#dialogDismiss" class="headerlink" title="dialogDismiss()"></a>dialogDismiss()</h4><blockquote>
+<p>Dismiss dialog</p>
+</blockquote>
+<h4 id="dialogShow"><a href="#dialogShow" class="headerlink" title="dialogShow()"></a>dialogShow()</h4><blockquote>
+<p>Show dialog</p>
+</blockquote>
+<h3 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h3><h4 id="fullShow-layout"><a href="#fullShow-layout" class="headerlink" title="fullShow(layout)"></a>fullShow(layout)</h4><blockquote>
 <p>Show Full Screen</p>
 </blockquote>
 <ul>
@@ -2120,8 +2133,12 @@
 </ul>
 <h4 id="fullDismiss"><a href="#fullDismiss" class="headerlink" title="fullDismiss()"></a>fullDismiss()</h4><blockquote>
 <p>Dismiss Full Screen</p>
-<h4 id="fullQuery"><a href="#fullQuery" class="headerlink" title="fullQuery()"></a>fullQuery()</h4><p>Get Fullscreen Properties</p>
-<h4 id="fullQueryDetail-id"><a href="#fullQueryDetail-id" class="headerlink" title="fullQueryDetail(id)"></a>fullQueryDetail(id)</h4><p>Get fullscreen properties for a specific widget</p>
+</blockquote>
+<h4 id="fullQuery"><a href="#fullQuery" class="headerlink" title="fullQuery()"></a>fullQuery()</h4><blockquote>
+<p>Get Fullscreen Properties</p>
+</blockquote>
+<h4 id="fullQueryDetail-id"><a href="#fullQueryDetail-id" class="headerlink" title="fullQueryDetail(id)"></a>fullQueryDetail(id)</h4><blockquote>
+<p>Get fullscreen properties for a specific widget</p>
 </blockquote>
 <ul>
 <li>Parameters:    id (str) – id of layout widget</li>
@@ -2169,10 +2186,10 @@
 <h3 id="Author"><a href="#Author" class="headerlink" title="Author"></a>Author</h3><p>This facade developped by Kuri65536 you can see the commit log in it.</p>
 <h3 id="APIs"><a href="#APIs" class="headerlink" title="APIs"></a>APIs</h3><h4 id="usbserialGetDeviceList"><a href="#usbserialGetDeviceList" class="headerlink" title="usbserialGetDeviceList()"></a>usbserialGetDeviceList()</h4><blockquote>
 <p>Returns USB devices reported by USB Host API.</p>
-<ul>
-<li>Return:    Returns “Map of id and string information Map<String, String></li>
-</ul>
 </blockquote>
+<ul>
+<li>Return:    Returns “Map of id and string information Map&lt;String, String&gt;</li>
+</ul>
 <h4 id="usbserialDisconnect-connID"><a href="#usbserialDisconnect-connID" class="headerlink" title="usbserialDisconnect(connID)"></a>usbserialDisconnect(connID)</h4><blockquote>
 <p>Disconnect all USB-device</p>
 </blockquote>
@@ -2181,10 +2198,10 @@
 </ul>
 <h4 id="usbserialActiveConnections"><a href="#usbserialActiveConnections" class="headerlink" title="usbserialActiveConnections()"></a>usbserialActiveConnections()</h4><blockquote>
 <p>Returns active USB-device connections.</p>
+</blockquote>
 <ul>
 <li>Return:    Returns “Active USB-device connections by Map UUID vs device-name.”</li>
 </ul>
-</blockquote>
 <h4 id="usbserialWriteBinary-base64-connID"><a href="#usbserialWriteBinary-base64-connID" class="headerlink" title="usbserialWriteBinary(base64, connID)"></a>usbserialWriteBinary(base64, connID)</h4><blockquote>
 <p>Send bytes over the currently open USB Serial connection.</p>
 </blockquote>
@@ -2202,17 +2219,16 @@
 </blockquote>
 <ul>
 <li><p>Parameters:<br>hash (str) –<br>options (str) –</p>
-<ul>
-<li>Return:<br>Returns messages the request status<h4 id="usbserialHostEnable"><a href="#usbserialHostEnable" class="headerlink" title="usbserialHostEnable()"></a>usbserialHostEnable()</h4></li>
-</ul>
 </li>
+<li><p>Return:<br>Returns messages the request status</p>
+<h4 id="usbserialHostEnable"><a href="#usbserialHostEnable" class="headerlink" title="usbserialHostEnable()"></a>usbserialHostEnable()</h4></li>
 </ul>
 <blockquote>
 <p>Requests that the host be enable for USB Serial connections.</p>
+</blockquote>
 <ul>
 <li>Return:    True if the USB Device is accesible</li>
 </ul>
-</blockquote>
 <h4 id="usbserialWrite-String-ascii-String-connID"><a href="#usbserialWrite-String-ascii-String-connID" class="headerlink" title="usbserialWrite(String ascii, String connID)"></a>usbserialWrite(String ascii, String connID)</h4><blockquote>
 <p>Sends ASCII characters over the currently open USB Serial connection</p>
 </blockquote>
@@ -2287,12 +2303,21 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
-              <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
-              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
               <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
-              <a href="/tags/Html/" rel="tag"><i class="fa fa-tag"></i> Html</a>
+              <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
               <a href="/tags/ML/" rel="tag"><i class="fa fa-tag"></i> ML</a>
+              <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
+              <a href="/tags/Html/" rel="tag"><i class="fa fa-tag"></i> Html</a>
+              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/Js/" rel="tag"><i class="fa fa-tag"></i> Js</a>
+              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
+              <a href="/tags/IDE/" rel="tag"><i class="fa fa-tag"></i> IDE</a>
+              <a href="/tags/VS/" rel="tag"><i class="fa fa-tag"></i> VS</a>
+              <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+              <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
+              <a href="/tags/Adb/" rel="tag"><i class="fa fa-tag"></i> Adb</a>
+              <a href="/tags/Eos/" rel="tag"><i class="fa fa-tag"></i> Eos</a>
           </div>
 
         
@@ -2354,7 +2379,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -2402,52 +2427,6 @@
 
 
   
-
-  
-      <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              const target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    const script = document.createElement('script');
-    script.src = '/%5Bobject%20Object%5D';
-    script.defer = true;
-    document.head.appendChild(script);
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.typesetClear();
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 <script>

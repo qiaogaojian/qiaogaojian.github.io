@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -54,7 +54,14 @@
 <meta property="article:published_time" content="2020-09-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-29T01:11:46.073Z">
 <meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="AS">
+<meta property="article:tag" content="AR">
+<meta property="article:tag" content="ML">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="Git">
 <meta property="article:tag" content="Android">
+<meta property="article:tag" content="Go">
+<meta property="article:tag" content="Tools">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5516419-eae5a492683a65c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/473/format/webp">
 
@@ -115,11 +122,7 @@
   </style>
 </noscript>
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -248,20 +251,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">185</span>
+          <span class="site-state-item-count">192</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -388,8 +391,7 @@
     <meta name="referrer" content="no-referrer"/>
         <h1 id="Android设计"><a href="#Android设计" class="headerlink" title="Android设计"></a>Android设计</h1><h2 id="UI控件"><a href="#UI控件" class="headerlink" title="UI控件"></a>UI控件</h2><h3 id="文本类"><a href="#文本类" class="headerlink" title="文本类"></a>文本类</h3><h4 id="TextView"><a href="#TextView" class="headerlink" title="TextView"></a>TextView</h4><h4 id="EditText"><a href="#EditText" class="headerlink" title="EditText"></a>EditText</h4><h4 id="AutoCompleteTextView"><a href="#AutoCompleteTextView" class="headerlink" title="AutoCompleteTextView"></a>AutoCompleteTextView</h4><h3 id="按钮类"><a href="#按钮类" class="headerlink" title="按钮类"></a>按钮类</h3><h4 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h4><h4 id="CheckBox"><a href="#CheckBox" class="headerlink" title="CheckBox"></a>CheckBox</h4><h4 id="RadioButton"><a href="#RadioButton" class="headerlink" title="RadioButton"></a>RadioButton</h4><h4 id="ToggleButton"><a href="#ToggleButton" class="headerlink" title="ToggleButton"></a>ToggleButton</h4><h4 id="ZoomButton"><a href="#ZoomButton" class="headerlink" title="ZoomButton"></a>ZoomButton</h4><h3 id="图片类"><a href="#图片类" class="headerlink" title="图片类"></a>图片类</h3><h4 id="ImageView"><a href="#ImageView" class="headerlink" title="ImageView"></a>ImageView</h4><h3 id="时间控件"><a href="#时间控件" class="headerlink" title="时间控件"></a>时间控件</h3><h4 id="Datepicker"><a href="#Datepicker" class="headerlink" title="Datepicker"></a>Datepicker</h4><h4 id="DigitalClock"><a href="#DigitalClock" class="headerlink" title="DigitalClock"></a>DigitalClock</h4><h4 id="AnalogClock"><a href="#AnalogClock" class="headerlink" title="AnalogClock"></a>AnalogClock</h4><h3 id="进度显示"><a href="#进度显示" class="headerlink" title="进度显示"></a>进度显示</h3><h4 id="ProcessBar"><a href="#ProcessBar" class="headerlink" title="ProcessBar"></a>ProcessBar</h4><h4 id="SeekBar"><a href="#SeekBar" class="headerlink" title="SeekBar"></a>SeekBar</h4><h4 id="AbsSeekBar"><a href="#AbsSeekBar" class="headerlink" title="AbsSeekBar"></a>AbsSeekBar</h4><h3 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h3><h4 id="TabHost"><a href="#TabHost" class="headerlink" title="TabHost"></a>TabHost</h4><h4 id="TabWidget"><a href="#TabWidget" class="headerlink" title="TabWidget"></a>TabWidget</h4><h2 id="UI布局"><a href="#UI布局" class="headerlink" title="UI布局"></a>UI布局</h2><h3 id="LinearLayout"><a href="#LinearLayout" class="headerlink" title="LinearLayout"></a>LinearLayout</h3><h4 id="1-方向"><a href="#1-方向" class="headerlink" title="1. 方向"></a>1. 方向</h4><ul>
 <li><p>属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">android:orientation&#x3D;&quot;horizontal&quot;     &#x2F;&#x2F;水平</span><br><span class="line">android:orientation&#x3D;&quot;vertical&quot;       &#x2F;&#x2F;垂直</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">android:orientation&#x3D;&quot;horizontal&quot;     &#x2F;&#x2F;水平</span><br><span class="line">android:orientation&#x3D;&quot;vertical&quot;       &#x2F;&#x2F;垂直</span><br></pre></td></tr></table></figure></li>
 <li><p>实例</p>
 <ul>
 <li><p>水平</p>
@@ -423,8 +425,7 @@
 </ul>
 <h4 id="3-子控件大小"><a href="#3-子控件大小" class="headerlink" title="3. 子控件大小"></a>3. 子控件大小</h4><ul>
 <li><p>属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">layout_height   &#x2F;&#x2F;高</span><br><span class="line">layout_width    &#x2F;&#x2F;宽</span><br><span class="line">layout_weight   &#x2F;&#x2F;权重</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;常用属性值</span><br><span class="line">layout_height &#x3D; &quot;wrap_content&quot;  &#x2F;&#x2F;根据控件内容的大小决定大小</span><br><span class="line">layout_height &#x3D; &quot;match_parent&quot;  &#x2F;&#x2F;子控件填满父级控件</span><br><span class="line">layout_height &#x3D; &quot;10dp&quot;          &#x2F;&#x2F;直接设置大小</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;当控件大小为&quot;0dp&quot;时,需要配合weight使用,表示比例</span><br><span class="line">layout_height &#x3D; &quot;0&quot;</span><br><span class="line">layout_weight &#x3D; &quot;1&quot;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">layout_height   &#x2F;&#x2F;高</span><br><span class="line">layout_width    &#x2F;&#x2F;宽</span><br><span class="line">layout_weight   &#x2F;&#x2F;权重</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;常用属性值</span><br><span class="line">layout_height &#x3D; &quot;wrap_content&quot;  &#x2F;&#x2F;根据控件内容的大小决定大小</span><br><span class="line">layout_height &#x3D; &quot;match_parent&quot;  &#x2F;&#x2F;子控件填满父级控件</span><br><span class="line">layout_height &#x3D; &quot;10dp&quot;          &#x2F;&#x2F;直接设置大小</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;当控件大小为&quot;0dp&quot;时,需要配合weight使用,表示比例</span><br><span class="line">layout_height &#x3D; &quot;0&quot;</span><br><span class="line">layout_weight &#x3D; &quot;1&quot;</span><br></pre></td></tr></table></figure></li>
 <li><p>实例</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;LinearLayout xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;</span><br><span class="line">    xmlns:tools&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;tools&quot;</span><br><span class="line">    android:layout_width&#x3D;&quot;match_parent&quot;</span><br><span class="line">    android:layout_height&#x3D;&quot;match_parent&quot;</span><br><span class="line">    android:orientation&#x3D;&quot;horizontal&quot;</span><br><span class="line">    android:gravity&#x3D;&quot;center&quot;</span><br><span class="line">    tools:context&#x3D;&quot;com.example.icephone_1.layouttest.MainActivity&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id&#x3D;&quot;@+id&#x2F;tx_one&quot;</span><br><span class="line">        android:textSize&#x3D;&quot;30sp&quot;</span><br><span class="line">        android:layout_width&#x3D;&quot;0dp&quot;</span><br><span class="line">        android:layout_height&#x3D;&quot;wrap_content&quot;</span><br><span class="line">        android:layout_weight&#x3D;&quot;1&quot;        &#x2F;&#x2F;设置占比例为1</span><br><span class="line">        android:text&#x3D;&quot;Hello World!&quot;</span><br><span class="line">        android:background&#x3D;&quot;#9c9292&quot;&#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id&#x3D;&quot;@+id&#x2F;tx_two&quot;</span><br><span class="line">        android:textSize&#x3D;&quot;30sp&quot;</span><br><span class="line">        android:layout_width&#x3D;&quot;0dp&quot;</span><br><span class="line">        android:layout_height&#x3D;&quot;wrap_content&quot;</span><br><span class="line">        android:layout_weight&#x3D;&quot;1&quot;        &#x2F;&#x2F;设置占比例为1</span><br><span class="line">        android:text&#x3D;&quot;Hello World!&quot;</span><br><span class="line">        android:background&#x3D;&quot;#0d6074&quot;&#x2F;&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;LinearLayout&gt;</span><br></pre></td></tr></table></figure>
 <p><img src="https://upload-images.jianshu.io/upload_images/5516419-0a9b39e283f6e1ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/478/format/webp" alt="1:1"></p>
@@ -501,8 +502,8 @@
 <p><img src="https://upload-images.jianshu.io/upload_images/3947109-fa90c68007406362.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="8"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">layout_constraintTop_toBottomOf：当前Viewr的上边在某个View的下边，可以是parent与某个View的ID</span><br></pre></td></tr></table></figure>
 <p><img src="https://upload-images.jianshu.io/upload_images/3947109-fb5e417da0f6a584.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="9"></p>
-<pre><code>许多时候我们需要让子View与父View长度相同，只需要将layout_width或者layout_height设为0dp，让子View没有长度。这样便可以随着父View进入拉伸了
-</code></pre><h5 id="下面我们来实现一个常用的底部导航栏，5个导航栏"><a href="#下面我们来实现一个常用的底部导航栏，5个导航栏" class="headerlink" title="下面我们来实现一个常用的底部导航栏，5个导航栏"></a>下面我们来实现一个常用的底部导航栏，5个导航栏</h5><p><img src="https://upload-images.jianshu.io/upload_images/3947109-8637b6569a1554f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="10"></p>
+<pre><code>许多时候我们需要让子View与父View长度相同，只需要将layout_width或者layout_height设为0dp，让子View没有长度。这样便可以随着父View进入拉伸了</code></pre>
+<h5 id="下面我们来实现一个常用的底部导航栏，5个导航栏"><a href="#下面我们来实现一个常用的底部导航栏，5个导航栏" class="headerlink" title="下面我们来实现一个常用的底部导航栏，5个导航栏"></a>下面我们来实现一个常用的底部导航栏，5个导航栏</h5><p><img src="https://upload-images.jianshu.io/upload_images/3947109-8637b6569a1554f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="10"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;android.support.constraint.ConstraintLayout xmlns:android&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res&#x2F;android&quot;</span><br><span class="line">    xmlns:app&#x3D;&quot;http:&#x2F;&#x2F;schemas.android.com&#x2F;apk&#x2F;res-auto&quot;</span><br><span class="line">    android:layout_width&#x3D;&quot;match_parent&quot;</span><br><span class="line">    android:layout_height&#x3D;&quot;match_parent&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id&#x3D;&quot;@+id&#x2F;tab0&quot;</span><br><span class="line">        android:layout_width&#x3D;&quot;0dp&quot;</span><br><span class="line">        android:layout_height&#x3D;&quot;50dp&quot;</span><br><span class="line">        android:background&#x3D;&quot;@color&#x2F;colorPrimary&quot;</span><br><span class="line">        android:gravity&#x3D;&quot;center&quot;</span><br><span class="line">        android:text&#x3D;&quot;tab1&quot;</span><br><span class="line">        android:textColor&#x3D;&quot;@color&#x2F;colorWhite&quot;</span><br><span class="line">        android:textSize&#x3D;&quot;20sp&quot;</span><br><span class="line">        app:layout_constraintBottom_toBottomOf&#x3D;&quot;parent&quot;</span><br><span class="line">        app:layout_constraintLeft_toLeftOf&#x3D;&quot;parent&quot;</span><br><span class="line">        app:layout_constraintRight_toLeftOf&#x3D;&quot;@+id&#x2F;tab1&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id&#x3D;&quot;@+id&#x2F;tab1&quot;</span><br><span class="line">        android:layout_width&#x3D;&quot;0dp&quot;</span><br><span class="line">        android:layout_height&#x3D;&quot;0dp&quot;</span><br><span class="line">        android:gravity&#x3D;&quot;center&quot;</span><br><span class="line">        android:text&#x3D;&quot;tab2&quot;</span><br><span class="line">        android:textSize&#x3D;&quot;20sp&quot;</span><br><span class="line">        app:layout_constraintBottom_toBottomOf&#x3D;&quot;parent&quot;</span><br><span class="line">        app:layout_constraintLeft_toRightOf&#x3D;&quot;@+id&#x2F;tab0&quot;</span><br><span class="line">        app:layout_constraintRight_toLeftOf&#x3D;&quot;@+id&#x2F;tab2&quot;</span><br><span class="line">        app:layout_constraintTop_toTopOf&#x3D;&quot;@+id&#x2F;tab0&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id&#x3D;&quot;@+id&#x2F;tab2&quot;</span><br><span class="line">        android:layout_width&#x3D;&quot;0dp&quot;</span><br><span class="line">        android:layout_height&#x3D;&quot;0dp&quot;</span><br><span class="line">        android:background&#x3D;&quot;@color&#x2F;colorAccent&quot;</span><br><span class="line">        android:gravity&#x3D;&quot;center&quot;</span><br><span class="line">        android:text&#x3D;&quot;tab3&quot;</span><br><span class="line">        android:textColor&#x3D;&quot;@color&#x2F;colorWhite&quot;</span><br><span class="line">        android:textSize&#x3D;&quot;20sp&quot;</span><br><span class="line">        app:layout_constraintBottom_toBottomOf&#x3D;&quot;parent&quot;</span><br><span class="line">        app:layout_constraintLeft_toRightOf&#x3D;&quot;@+id&#x2F;tab1&quot;</span><br><span class="line">        app:layout_constraintRight_toLeftOf&#x3D;&quot;@id&#x2F;tab3&quot;</span><br><span class="line">        app:layout_constraintTop_toTopOf&#x3D;&quot;@+id&#x2F;tab0&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id&#x3D;&quot;@+id&#x2F;tab3&quot;</span><br><span class="line">        android:layout_width&#x3D;&quot;0dp&quot;</span><br><span class="line">        android:layout_height&#x3D;&quot;0dp&quot;</span><br><span class="line">        android:gravity&#x3D;&quot;center&quot;</span><br><span class="line">        android:text&#x3D;&quot;tab4&quot;</span><br><span class="line">        android:textSize&#x3D;&quot;20sp&quot;</span><br><span class="line">        app:layout_constraintBottom_toBottomOf&#x3D;&quot;parent&quot;</span><br><span class="line">        app:layout_constraintLeft_toRightOf&#x3D;&quot;@+id&#x2F;tab2&quot;</span><br><span class="line">        app:layout_constraintRight_toLeftOf&#x3D;&quot;@+id&#x2F;tab4&quot;</span><br><span class="line">        app:layout_constraintTop_toTopOf&#x3D;&quot;@+id&#x2F;tab0&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id&#x3D;&quot;@+id&#x2F;tab4&quot;</span><br><span class="line">        android:layout_width&#x3D;&quot;0dp&quot;</span><br><span class="line">        android:layout_height&#x3D;&quot;0dp&quot;</span><br><span class="line">        android:background&#x3D;&quot;@color&#x2F;colorHoloOrangeLight&quot;</span><br><span class="line">        android:gravity&#x3D;&quot;center&quot;</span><br><span class="line">        android:text&#x3D;&quot;tab5&quot;</span><br><span class="line">        android:textColor&#x3D;&quot;@color&#x2F;colorWhite&quot;</span><br><span class="line">        android:textSize&#x3D;&quot;20sp&quot;</span><br><span class="line">        app:layout_constraintBottom_toBottomOf&#x3D;&quot;parent&quot;</span><br><span class="line">        app:layout_constraintLeft_toRightOf&#x3D;&quot;@+id&#x2F;tab3&quot;</span><br><span class="line">        app:layout_constraintRight_toRightOf&#x3D;&quot;parent&quot;</span><br><span class="line">        app:layout_constraintTop_toTopOf&#x3D;&quot;@+id&#x2F;tab0&quot; &#x2F;&gt;</span><br><span class="line">&lt;&#x2F;android.support.constraint.ConstraintLayout&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="当作-LinearLayout-使用"><a href="#当作-LinearLayout-使用" class="headerlink" title="当作 LinearLayout 使用"></a>当作 LinearLayout 使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">layout_constraintHorizontal_weight：横向的权重</span><br><span class="line"></span><br><span class="line">layout_constraintVertical_weight：纵向的权重</span><br></pre></td></tr></table></figure>
 <p>如果上文中的tab3要大于其他四个tab，只需要在tab3的View添加app:layout_constraintHorizontal_weight=”2”，其他View设置为1，即可</p>
@@ -514,7 +515,7 @@
 <p>假设一下场景，我们需要展示一个Banner，占屏幕的30%。</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/3947109-5d2e5f839e6e3a08.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;TextView</span><br><span class="line">    android:id&#x3D;&quot;@+id&#x2F;view0&quot;</span><br><span class="line">    android:layout_width&#x3D;&quot;0dp&quot;</span><br><span class="line">    android:layout_height&#x3D;&quot;0dp&quot;</span><br><span class="line">    android:background&#x3D;&quot;@color&#x2F;colorPrimary&quot;</span><br><span class="line">    android:gravity&#x3D;&quot;center&quot;</span><br><span class="line">    android:text&#x3D;&quot;这是一个Banner&quot;</span><br><span class="line">    android:textColor&#x3D;&quot;@color&#x2F;colorWhite&quot;</span><br><span class="line">    android:textSize&#x3D;&quot;30sp&quot;</span><br><span class="line">    app:layout_constraintBottom_toBottomOf&#x3D;&quot;parent&quot;</span><br><span class="line">    app:layout_constraintHeight_percent&#x3D;&quot;0.3&quot;</span><br><span class="line">    app:layout_constraintLeft_toLeftOf&#x3D;&quot;parent&quot;</span><br><span class="line">    app:layout_constraintRight_toRightOf&#x3D;&quot;parent&quot;</span><br><span class="line">    app:layout_constraintTop_toTopOf&#x3D;&quot;parent&quot;</span><br><span class="line">    app:layout_constraintVertical_bias&#x3D;&quot;0&quot; &#x2F;&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>只需要添加属性app:layout_constraintHeight_percent=”0.3”占父类的30%，如果仅仅设置这一个属性，你会发现Banner居中了，你还差一个属性，表示从垂直的偏移量： app:layout_constraintVertical_bias=”0”偏移量为0，如果就可以了。</p>
+<p>只需要添加属性app:layout_constraintHeight_percent=”0.3”占父类的30%，如果仅仅设置这一个属性，你会发现Banner居中了，你还差一个属性，表示从垂直的偏移量： app:layout_constraintVertical_bias=”0”偏移量为0，如果就可以了。</p>
 <p>使用百分比布局时，View必须要设置上下左右四个锚点，如果不设置就像射线一样，都不知道多大，如何百分比呢？</p>
 <p>当锚点是parent（也就是屏幕），因为分辨率不一样，使用百分比的view占的位置、大小肯定是不相同的，720的50%等于360，而1080的50%是等于590，仅仅是看起来位置相同，实际并不相同，所以当百分比与固定大小结合实现布局时，应当注意锚点不要给错了，还可以给到某个固定大小的View身上，如果View宽度是跟随父View，也应当注意。</p>
 <h3 id="FrameLayout"><a href="#FrameLayout" class="headerlink" title="FrameLayout"></a>FrameLayout</h3><p>可能是最简单的一种布局，没有任何定位方式，当我们往里面添加控件的时候，会默认把他们放到这块区域的左上角，帧布局的大小由控件中最大的子控件决定，如果控件的大小一样大的话，那么同一时刻就只能看到最上面的那个组件，后续添加的控件会覆盖前一个。由于帧布局的特性，它的应用场景并不是很多，不过它经常配合Fragment使用。</p>
@@ -578,7 +579,14 @@
 </div>
 
           <div class="post-tags">
+              <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
+              <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
+              <a href="/tags/ML/" rel="tag"><i class="fa fa-tag"></i> ML</a>
+              <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
+              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
               <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+              <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
+              <a href="/tags/Tools/" rel="tag"><i class="fa fa-tag"></i> Tools</a>
           </div>
 
         
@@ -640,7 +648,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -688,52 +696,6 @@
 
 
   
-
-  
-      <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              const target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    const script = document.createElement('script');
-    script.src = '/%5Bobject%20Object%5D';
-    script.defer = true;
-    document.head.appendChild(script);
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.typesetClear();
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 <script>

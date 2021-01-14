@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -31,6 +31,10 @@
 <meta property="article:published_time" content="2020-09-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-29T10:20:12.649Z">
 <meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="AS">
+<meta property="article:tag" content="AR">
+<meta property="article:tag" content="Js">
+<meta property="article:tag" content="Bug">
 <meta property="article:tag" content="C#">
 <meta property="article:tag" content="VSCode">
 <meta property="article:tag" content="VS">
@@ -93,11 +97,7 @@
   </style>
 </noscript>
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -226,20 +226,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">185</span>
+          <span class="site-state-item-count">192</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -373,8 +373,8 @@
 <h3 id="新建一些配置文件"><a href="#新建一些配置文件" class="headerlink" title="新建一些配置文件"></a>新建一些配置文件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet restore</span><br></pre></td></tr></table></figure>
 <h3 id="创建完成"><a href="#创建完成" class="headerlink" title="创建完成"></a>创建完成</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet run</span><br></pre></td></tr></table></figure>
 <h2 id="用VSCode打开工程文件夹"><a href="#用VSCode打开工程文件夹" class="headerlink" title="用VSCode打开工程文件夹"></a>用VSCode打开工程文件夹</h2><h2 id="根据提示安装插件后重启"><a href="#根据提示安装插件后重启" class="headerlink" title="根据提示安装插件后重启"></a>根据提示安装插件后重启</h2><h2 id="下方状态栏调试器选择-NET-Core-Launch-console-C"><a href="#下方状态栏调试器选择-NET-Core-Launch-console-C" class="headerlink" title="下方状态栏调试器选择 .NET Core Launch(console)(C#)"></a>下方状态栏调试器选择 .NET Core Launch(console)(C#)</h2><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><h2 id="根据提示创建Task-json"><a href="#根据提示创建Task-json" class="headerlink" title="根据提示创建Task.json"></a>根据提示创建Task.json</h2><h2 id="根据提示修改launch-json-把target预留位置填入相应的dll"><a href="#根据提示修改launch-json-把target预留位置填入相应的dll" class="headerlink" title="根据提示修改launch.json 把target预留位置填入相应的dll"></a>根据提示修改launch.json 把target预留位置填入相应的dll</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;program&quot; : &quot;$&#123;workspaceFolder&#125;/bin/Debug/netcoreapp2.1/C#.dll&quot;,</span><br></pre></td></tr></table></figure>
-<h2 id="再次运行调试"><a href="#再次运行调试" class="headerlink" title="再次运行调试"></a>再次运行调试</h2><h2 id="智能提示"><a href="#智能提示" class="headerlink" title="智能提示"></a>智能提示</h2><pre><code>只需要下方状态栏选择相应的解决方案即可
-</code></pre>
+<h2 id="再次运行调试"><a href="#再次运行调试" class="headerlink" title="再次运行调试"></a>再次运行调试</h2><h2 id="智能提示"><a href="#智能提示" class="headerlink" title="智能提示"></a>智能提示</h2><pre><code>只需要下方状态栏选择相应的解决方案即可</code></pre>
+
     </div>
 
     
@@ -422,6 +422,10 @@
 </div>
 
           <div class="post-tags">
+              <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
+              <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
+              <a href="/tags/Js/" rel="tag"><i class="fa fa-tag"></i> Js</a>
+              <a href="/tags/Bug/" rel="tag"><i class="fa fa-tag"></i> Bug</a>
               <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C#</a>
               <a href="/tags/VSCode/" rel="tag"><i class="fa fa-tag"></i> VSCode</a>
               <a href="/tags/VS/" rel="tag"><i class="fa fa-tag"></i> VS</a>
@@ -436,8 +440,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Tips-C%20Sharp%E4%B8%ADenum%20%E5%92%8Cstring%20int%E7%9A%84%E4%BA%92%E8%BD%AC/" rel="next" title="Tips-C Sharp中enum 和string int的互转">
-                  Tips-C Sharp中enum 和string int的互转 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADOnGui%E5%8E%9F%E7%94%9FGUI%E7%94%A8%E6%B3%95/" rel="next" title="Tips-Unity中OnGui原生GUI用法">
+                  Tips-Unity中OnGui原生GUI用法 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -486,7 +490,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -534,52 +538,6 @@
 
 
   
-
-  
-      <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              const target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    const script = document.createElement('script');
-    script.src = '/%5Bobject%20Object%5D';
-    script.defer = true;
-    document.head.appendChild(script);
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.typesetClear();
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 <script>

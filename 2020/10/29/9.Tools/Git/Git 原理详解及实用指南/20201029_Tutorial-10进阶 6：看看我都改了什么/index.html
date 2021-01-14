@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -28,17 +28,18 @@
 <meta property="og:site_name" content="行则将至">
 <meta property="og:description" content="进阶 6：看看我都改了什么 之前的章节里，说到过 git log 可以查看历史记录：  1 2   git log      事实上，如果你希望看到更多细节，比如你想看看每条 commit 具体都有那些改动，也是可以的。  log -p 查看详细历史 -p 是 --patch 的缩写，通过 -p 参数，你可以看到具体每个 commit 的改动细节：  1 2   git log -p      l">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e2cc90e9?w=533&amp;h=449&amp;f=jpeg&amp;s=134977">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0dfd781e7?w=581&amp;h=602&amp;f=jpeg&amp;s=163883">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e1ad48c7?w=539&amp;h=512&amp;f=jpeg&amp;s=139383">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e2b7738e?w=540&amp;h=330&amp;f=jpeg&amp;s=78967">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e39c0b6b?w=434&amp;h=388&amp;f=jpeg&amp;s=100518">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e2cc90e9?w=533&h=449&f=jpeg&s=134977">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0dfd781e7?w=581&h=602&f=jpeg&s=163883">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e1ad48c7?w=539&h=512&f=jpeg&s=139383">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e2b7738e?w=540&h=330&f=jpeg&s=78967">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e39c0b6b?w=434&h=388&f=jpeg&s=100518">
 <meta property="article:published_time" content="2020-10-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-10-29T02:28:29.375Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="Git">
+<meta property="article:tag" content="Go">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e2cc90e9?w=533&amp;h=449&amp;f=jpeg&amp;s=134977">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e2cc90e9?w=533&h=449&f=jpeg&s=134977">
 
 
 <link rel="canonical" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-10%E8%BF%9B%E9%98%B6%206%EF%BC%9A%E7%9C%8B%E7%9C%8B%E6%88%91%E9%83%BD%E6%94%B9%E4%BA%86%E4%BB%80%E4%B9%88/">
@@ -97,11 +98,7 @@
   </style>
 </noscript>
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -214,7 +211,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6-6%EF%BC%9A%E7%9C%8B%E7%9C%8B%E6%88%91%E9%83%BD%E6%94%B9%E4%BA%86%E4%BB%80%E4%B9%88"><span class="nav-text">进阶 6：看看我都改了什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#log-p-%E6%9F%A5%E7%9C%8B%E8%AF%A6%E7%BB%86%E5%8E%86%E5%8F%B2"><span class="nav-text">log -p 查看详细历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#log-%E2%80%94stat-%E6%9F%A5%E7%9C%8B%E7%AE%80%E8%A6%81%E7%BB%9F%E8%AE%A1"><span class="nav-text">log —stat 查看简要统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#show-%E6%9F%A5%E7%9C%8B%E5%85%B7%E4%BD%93%E7%9A%84-commit"><span class="nav-text">show 查看具体的 commit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%8B%E5%BD%93%E5%89%8D-commit"><span class="nav-text">看当前 commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%8B%E4%BB%BB%E6%84%8F%E4%B8%80%E4%B8%AA-commit"><span class="nav-text">看任意一个 commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%8B%E6%8C%87%E5%AE%9A-commit-%E4%B8%AD%E7%9A%84%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6"><span class="nav-text">看指定 commit 中的指定文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%8B%E6%9C%AA%E6%8F%90%E4%BA%A4%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-text">看未提交的内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E5%AF%B9%E6%9A%82%E5%AD%98%E5%8C%BA%E5%92%8C%E4%B8%8A%E4%B8%80%E6%9D%A1%E6%8F%90%E4%BA%A4"><span class="nav-text">比对暂存区和上一条提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E5%AF%B9%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E5%92%8C%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="nav-text">比对工作目录和暂存区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E5%AF%B9%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E5%92%8C%E4%B8%8A%E4%B8%80%E6%9D%A1%E6%8F%90%E4%BA%A4"><span class="nav-text">比对工作目录和上一条提交</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6-6%EF%BC%9A%E7%9C%8B%E7%9C%8B%E6%88%91%E9%83%BD%E6%94%B9%E4%BA%86%E4%BB%80%E4%B9%88"><span class="nav-text">进阶 6：看看我都改了什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#log-p-%E6%9F%A5%E7%9C%8B%E8%AF%A6%E7%BB%86%E5%8E%86%E5%8F%B2"><span class="nav-text">log -p 查看详细历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#log-%E2%80%93stat-%E6%9F%A5%E7%9C%8B%E7%AE%80%E8%A6%81%E7%BB%9F%E8%AE%A1"><span class="nav-text">log –stat 查看简要统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#show-%E6%9F%A5%E7%9C%8B%E5%85%B7%E4%BD%93%E7%9A%84-commit"><span class="nav-text">show 查看具体的 commit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%8B%E5%BD%93%E5%89%8D-commit"><span class="nav-text">看当前 commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%8B%E4%BB%BB%E6%84%8F%E4%B8%80%E4%B8%AA-commit"><span class="nav-text">看任意一个 commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%8B%E6%8C%87%E5%AE%9A-commit-%E4%B8%AD%E7%9A%84%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6"><span class="nav-text">看指定 commit 中的指定文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%8B%E6%9C%AA%E6%8F%90%E4%BA%A4%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-text">看未提交的内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E5%AF%B9%E6%9A%82%E5%AD%98%E5%8C%BA%E5%92%8C%E4%B8%8A%E4%B8%80%E6%9D%A1%E6%8F%90%E4%BA%A4"><span class="nav-text">比对暂存区和上一条提交</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E5%AF%B9%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E5%92%8C%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="nav-text">比对工作目录和暂存区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E5%AF%B9%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E5%92%8C%E4%B8%8A%E4%B8%80%E6%9D%A1%E6%8F%90%E4%BA%A4"><span class="nav-text">比对工作目录和上一条提交</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -230,20 +227,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">185</span>
+          <span class="site-state-item-count">192</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -378,22 +375,22 @@
     <meta name="referrer" content="no-referrer"/>
         <h1 id="进阶-6：看看我都改了什么"><a href="#进阶-6：看看我都改了什么" class="headerlink" title="进阶 6：看看我都改了什么"></a>进阶 6：看看我都改了什么</h1><p>之前的章节里，说到过 <code>git log</code> 可以查看历史记录：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e2cc90e9?w=533&amp;h=449&amp;f=jpeg&amp;s=134977" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e2cc90e9?w=533&h=449&f=jpeg&s=134977"></p>
 <p>事实上，如果你希望看到更多细节，比如你想看看每条 <code>commit</code> 具体都有那些改动，也是可以的。</p>
 <h2 id="log-p-查看详细历史"><a href="#log-p-查看详细历史" class="headerlink" title="log -p 查看详细历史"></a>log -p 查看详细历史</h2><p><code>-p</code> 是 <code>--patch</code> 的缩写，通过 <code>-p</code> 参数，你可以看到具体每个 <code>commit</code> 的改动细节：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git log -p</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0dfd781e7?w=581&amp;h=602&amp;f=jpeg&amp;s=163883" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0dfd781e7?w=581&h=602&f=jpeg&s=163883"></p>
 <p><code>log -p</code> 可以看到每一个 <code>commit</code> 的每一行改动，所以很适合用于代码 review。</p>
-<h2 id="log-—stat-查看简要统计"><a href="#log-—stat-查看简要统计" class="headerlink" title="log —stat 查看简要统计"></a>log —stat 查看简要统计</h2><p>如果你只想大致看一下改动内容，但并不想深入每一行的细节（例如你想回顾一下自己是在哪个 <code>commit</code> 中修改了 <code>games.txt</code> 文件），那么可以把选项换成 <code>--stat</code>。</p>
+<h2 id="log-–stat-查看简要统计"><a href="#log-–stat-查看简要统计" class="headerlink" title="log –stat 查看简要统计"></a>log –stat 查看简要统计</h2><p>如果你只想大致看一下改动内容，但并不想深入每一行的细节（例如你想回顾一下自己是在哪个 <code>commit</code> 中修改了 <code>games.txt</code> 文件），那么可以把选项换成 <code>--stat</code>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git log --stat</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e1ad48c7?w=539&amp;h=512&amp;f=jpeg&amp;s=139383" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e1ad48c7?w=539&h=512&f=jpeg&s=139383"></p>
 <h2 id="show-查看具体的-commit"><a href="#show-查看具体的-commit" class="headerlink" title="show 查看具体的 commit"></a>show 查看具体的 commit</h2><p>如果你想看某个具体的 <code>commit</code> 的改动内容，可以用 <code>show</code>：</p>
 <h3 id="看当前-commit"><a href="#看当前-commit" class="headerlink" title="看当前 commit"></a>看当前 commit</h3><p>直接输入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git show</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e2b7738e?w=540&amp;h=330&amp;f=jpeg&amp;s=78967" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e2b7738e?w=540&h=330&f=jpeg&s=78967"></p>
 <h3 id="看任意一个-commit"><a href="#看任意一个-commit" class="headerlink" title="看任意一个 commit"></a>看任意一个 commit</h3><p>在 <code>show</code> 后面加上这个 <code>commit</code> 的引用（<code>branch</code> 或 <code>HEAD</code> 标记）或它的 <code>SHA-1</code> 码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git show 5e68b0d8</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e39c0b6b?w=434&amp;h=388&amp;f=jpeg&amp;s=100518" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe1ee0e39c0b6b?w=434&h=388&f=jpeg&s=100518"></p>
 <h3 id="看指定-commit-中的指定文件"><a href="#看指定-commit-中的指定文件" class="headerlink" title="看指定 commit 中的指定文件"></a>看指定 commit 中的指定文件</h3><p>在 <code>commit</code> 的引用或 <code>SHA-1</code> 后输入文件名：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git show 5e68b0d8 shopping\ list.txt</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="看未提交的内容"><a href="#看未提交的内容" class="headerlink" title="看未提交的内容"></a>看未提交的内容</h2><p>如果你想看未提交的内容，可以用 <code>diff</code>。</p>
@@ -408,19 +405,19 @@
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这一节介绍了一些查看改动内容的方法，大致有这么几类：</p>
 <ol>
 <li>查看历史中的多个 <code>commit</code>：<code>log</code><ol>
-<li>查看详细改动： <code>git log -p</code></li>
-<li>查看大致改动：<code>git log --stat</code></li>
+<li> 查看详细改动： <code>git log -p</code></li>
+<li> 查看大致改动：<code>git log --stat</code></li>
 </ol>
 </li>
 <li>查看具体某个 <code>commit</code>：<code>show</code><ol>
-<li>要看最新 <code>commit</code> ，直接输入 <code>git show</code> ；要看指定 <code>commit</code> ，输入 <code>git show commit的引用或SHA-1</code></li>
-<li>如果还要指定文件，在 <code>git show</code> 的最后加上文件名</li>
+<li> 要看最新 <code>commit</code> ，直接输入 <code>git show</code> ；要看指定 <code>commit</code> ，输入 <code>git show commit的引用或SHA-1</code></li>
+<li> 如果还要指定文件，在 <code>git show</code> 的最后加上文件名</li>
 </ol>
 </li>
 <li>查看未提交的内容：<code>diff</code><ol>
-<li>查看暂存区和上一条 <code>commit</code> 的区别：<code>git diff --staged</code>（或 <code>--cached</code>）</li>
-<li>查看工作目录和暂存区的区别：<code>git diff</code> 不加选项参数</li>
-<li>查看工作目录和上一条 <code>commit</code> 的区别：<code>git diff HEAD</code></li>
+<li> 查看暂存区和上一条 <code>commit</code> 的区别：<code>git diff --staged</code>（或 <code>--cached</code>）</li>
+<li> 查看工作目录和暂存区的区别：<code>git diff</code> 不加选项参数</li>
+<li> 查看工作目录和上一条 <code>commit</code> 的区别：<code>git diff HEAD</code></li>
 </ol>
 </li>
 </ol>
@@ -473,14 +470,15 @@
 
           <div class="post-tags">
               <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
+              <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-11%E9%AB%98%E7%BA%A7%201%EF%BC%9A%E4%B8%8D%E5%96%9C%E6%AC%A2%20merge%20%E7%9A%84%E5%88%86%E5%8F%89%EF%BC%9F%E7%94%A8%20rebase%20%E5%90%A7/" rel="prev" title="Tutorial-11高级 1：不喜欢 merge 的分叉？用 rebase 吧">
-                  <i class="fa fa-chevron-left"></i> Tutorial-11高级 1：不喜欢 merge 的分叉？用 rebase 吧
+                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-12%E9%AB%98%E7%BA%A7%202%EF%BC%9A%E5%88%9A%E5%88%9A%E6%8F%90%E4%BA%A4%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%8F%91%E7%8E%B0%E5%86%99%E9%94%99%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F/" rel="prev" title="Tutorial-12高级 2：刚刚提交的代码，发现写错了怎么办？">
+                  <i class="fa fa-chevron-left"></i> Tutorial-12高级 2：刚刚提交的代码，发现写错了怎么办？
                 </a>
             </div>
             <div class="post-nav-item">
@@ -534,7 +532,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -582,52 +580,6 @@
 
 
   
-
-  
-      <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              const target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    const script = document.createElement('script');
-    script.src = '/%5Bobject%20Object%5D';
-    script.defer = true;
-    document.head.appendChild(script);
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.typesetClear();
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 <script>

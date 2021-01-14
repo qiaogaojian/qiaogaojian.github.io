@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="Unity游戏开发中的生命周期 C#对象的生命周期 了解对象生命周期前，要先理解类、对象与引用是怎么回事。 类 是定义在代码文件中，保存在硬盘上 ，是对象的蓝本，它描述了对象在内存中大概是什么样子的。   对象 我们都知道.net将值类型存储在栈中，引用类型存储在堆中，这样做的原因是栈中的数据是轻量级的，而堆中的数据是重量级，目的是在应用程序在操作它们的时候比较方便存取，从而提高程序的运行速度。">
+  <meta name="description" content="Unity游戏开发中的生命周期 C#对象的生命周期 了解对象生命周期前，要先理解类、对象与引用是怎么回事。 类 是定义在代码文件中，保存在硬盘上 ，是对象的蓝本，它描述了对象在内存中大概是什么样子的。  对象 我们都知道.net将值类型存储在栈中，引用类型存储在堆中，这样做的原因是栈中的数据是轻量级的，而堆中的数据是重量级，目的是在应用程序在操作它们的时候比较方便存取，从而提高程序的运行速度。 创">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tutorial-Unity游戏开发中的生命周期">
 <meta property="og:url" content="http://example.com/2020/09/29/3.Unity/20200929_Tutorial-Unity%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
 <meta property="og:site_name" content="行则将至">
-<meta property="og:description" content="Unity游戏开发中的生命周期 C#对象的生命周期 了解对象生命周期前，要先理解类、对象与引用是怎么回事。 类 是定义在代码文件中，保存在硬盘上 ，是对象的蓝本，它描述了对象在内存中大概是什么样子的。   对象 我们都知道.net将值类型存储在栈中，引用类型存储在堆中，这样做的原因是栈中的数据是轻量级的，而堆中的数据是重量级，目的是在应用程序在操作它们的时候比较方便存取，从而提高程序的运行速度。">
+<meta property="og:description" content="Unity游戏开发中的生命周期 C#对象的生命周期 了解对象生命周期前，要先理解类、对象与引用是怎么回事。 类 是定义在代码文件中，保存在硬盘上 ，是对象的蓝本，它描述了对象在内存中大概是什么样子的。  对象 我们都知道.net将值类型存储在栈中，引用类型存储在堆中，这样做的原因是栈中的数据是轻量级的，而堆中的数据是重量级，目的是在应用程序在操作它们的时候比较方便存取，从而提高程序的运行速度。 创">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://docs.unity3d.com/uploads/Main/monobehaviour_flowchart.svg">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3947109-fdee82c2071ad1a4.png">
@@ -35,8 +35,13 @@
 <meta property="article:published_time" content="2020-09-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-29T01:11:46.129Z">
 <meta property="article:author" content="qiaogaojian">
-<meta property="article:tag" content="C#">
+<meta property="article:tag" content="AR">
 <meta property="article:tag" content="Unity">
+<meta property="article:tag" content="Unity3d">
+<meta property="article:tag" content="ML">
+<meta property="article:tag" content="Html">
+<meta property="article:tag" content="C#">
+<meta property="article:tag" content="NGUI">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://docs.unity3d.com/uploads/Main/monobehaviour_flowchart.svg">
@@ -98,11 +103,7 @@
   </style>
 </noscript>
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -215,7 +216,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unity%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-text">Unity游戏开发中的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-text">C#对象的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3%E5%AF%B9%E8%B1%A1%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%89%8D%EF%BC%8C%E8%A6%81%E5%85%88%E7%90%86%E8%A7%A3%E7%B1%BB%E3%80%81%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%BC%95%E7%94%A8%E6%98%AF%E6%80%8E%E4%B9%88%E5%9B%9E%E4%BA%8B%E3%80%82"><span class="nav-text">了解对象生命周期前，要先理解类、对象与引用是怎么回事。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB"><span class="nav-text">类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1"><span class="nav-text">对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-text">引用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%EF%BC%9A"><span class="nav-text">对象的生命周期：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E8%A6%81%E7%BB%8F%E8%BF%87%E4%B8%89%E6%AD%A5%EF%BC%9A"><span class="nav-text">创建一个对象实例要经过三步：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E8%AE%A1%E7%AE%97%E6%96%B0%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E8%A6%81%E7%94%A8%E5%A4%9A%E5%B0%91%E5%9C%B0%E5%9D%80"><span class="nav-text">1. 计算新的对象实例要用多少地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%A6%82%E6%9E%9C%E5%A0%86%E4%B8%AD%E7%9A%84%E5%9C%B0%E5%9D%80%E5%A4%9F%E7%94%A8%EF%BC%8C%E5%B0%B1%E5%B0%86%E8%B0%83%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E8%BF%99%E4%B8%AA%E5%AF%B9%E8%B1%A1%E5%B0%86%E6%8A%8A%E5%AE%83%E6%94%BE%E5%9C%A8%E5%86%85%E5%AD%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-text">2. 如果堆中的地址够用，就将调用构造函数创建这个对象将把它放在内存指针指向的位置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E8%BF%94%E5%9B%9E%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BC%95%E7%94%A8%EF%BC%8C%E5%B9%B6%E5%B0%86%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E5%BA%94%E8%AF%A5%E5%AD%98%E6%94%BE%E7%9A%84%E5%9C%B0%E5%9D%80%E3%80%82"><span class="nav-text">3. 返回对象的引用，并将指针指向下一个对象应该存放的地址。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%88%B0%E4%BA%86%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E4%BA%86%EF%BC%81"><span class="nav-text">接下来到了垃圾回收了！</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#0%E4%BB%A3%E6%8C%87%E7%9A%84%E6%98%AF%E4%BB%8E%E6%9D%A5%E6%B2%A1%E6%9C%89%E8%A2%AB%E6%A0%87%E8%AE%B0%E8%BF%87%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%9A%84%E6%96%B0%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%E8%88%AC%E6%98%AF%E5%87%BD%E6%95%B0%E5%9F%9F%E5%86%85%E7%9A%84%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%A2%AB%E8%A7%86%E4%B8%BA%E6%9C%80%E5%85%88%E6%94%B6%E9%9B%86%E7%9A%84%E5%AF%B9%E8%B1%A1%EF%BC%89"><span class="nav-text">0代指的是从来没有被标记过垃圾收集的新对象（一般是函数域内的对象，被视为最先收集的对象）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1%E4%BB%A3%E6%98%AF%E6%8C%87%E5%9C%A8%E4%B8%8A%E4%B8%80%E6%AC%A1%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E4%B8%AD%E6%B2%A1%E6%9C%89%E8%A2%AB%E5%9B%9E%E6%94%B6%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="nav-text">1代是指在上一次垃圾收集中没有被回收的对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%E4%BB%A3%E6%98%AF%E5%9C%A8%E4%B8%80%E6%AC%A1%E4%BB%A5%E4%B8%8A%E6%B2%A1%E6%9C%89%E8%A2%AB%E5%9B%9E%E6%94%B6%E7%9A%84%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%E8%88%AC%E6%98%AF%E5%BA%94%E8%AF%A5%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%A0%B9%E7%BA%A7%EF%BC%89"><span class="nav-text">2代是在一次以上没有被回收的对象（一般是应该程序的根级）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%91%E6%83%B3%E5%B0%B1%E6%88%91%E7%9A%84%E7%90%86%E8%A7%A3%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E%E4%B8%80%E4%B8%8B%EF%BC%9A"><span class="nav-text">我想就我的理解简要说明一下：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-GC%E5%8F%AA%E6%94%B6%E9%9B%86%E6%89%98%E7%AE%A1%E5%A0%86%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%E3%80%82"><span class="nav-text">1. GC只收集托管堆中的对象。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E6%89%80%E6%9C%89%E5%80%BC%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%98%E9%87%8F%E9%83%BD%E5%9C%A8%E6%A0%88%E4%B8%AD%E5%88%86%E9%85%8D%EF%BC%8C%E8%B6%85%E5%87%BA%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%90%8E%E7%AB%8B%E5%8D%B3%E9%87%8A%E6%94%BE%E6%A0%88%E7%A9%BA%E9%97%B4%EF%BC%8C%E8%BF%99%E4%B8%80%E7%82%B9%E4%B8%8EVC6%E5%AE%8C%E5%85%A8%E4%B8%80%E6%A0%B7%E3%80%82"><span class="nav-text">2. 所有值类型的变量都在栈中分配，超出作用域后立即释放栈空间，这一点与VC6完全一样。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E5%8C%BA%E5%88%AB%E7%B1%BB%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%98%E9%87%8F%E5%92%8C%E7%B1%BB%E7%9A%84%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%BF%99%E6%98%AF%E4%B8%A4%E4%B8%AA%E4%B8%8D%E5%90%8C%E7%9A%84%E6%A6%82%E5%BF%B5%E3%80%82"><span class="nav-text">3. 区别类类型的变量和类的对象，这是两个不同的概念。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unity-Monobehaviour%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-text">Unity Monobehaviour对象的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E9%9D%99%E6%80%81%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">1、静态构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E9%9D%9E%E9%9D%99%E6%80%81%E6%9E%84%E9%80%A0%E5%99%A8"><span class="nav-text">2、非静态构造器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81Awake"><span class="nav-text">3、Awake</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81Start"><span class="nav-text">4、Start</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81Update"><span class="nav-text">5、Update</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81FixedUpdate"><span class="nav-text">6、FixedUpdate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81LateUpdate"><span class="nav-text">7、LateUpdate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%E3%80%81OnGUI"><span class="nav-text">8、OnGUI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9%E3%80%81OnDestroy"><span class="nav-text">9、OnDestroy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10%E3%80%81OnEnable"><span class="nav-text">10、OnEnable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11%E3%80%81OnDisable"><span class="nav-text">11、OnDisable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-text">脚本执行顺序总结：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%88%B6%E7%BA%A7%E6%93%8D%E4%BD%9C%E5%AD%90%E7%BA%A7"><span class="nav-text">父级操作子级</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E5%A6%82%E6%9E%9C%E5%9C%A8%E7%88%B6%E7%BA%A7%E7%9A%84Awake%E6%96%B9%E6%B3%95%E9%87%8C%E9%9D%A2%E8%AE%BE%E7%BD%AE%E5%AD%90%E7%BA%A7%E7%9A%84%E8%84%9A%E6%9C%AC%E4%B8%8D%E5%8F%AF%E7%94%A8"><span class="nav-text">1. 如果在父级的Awake方法里面设置子级的脚本不可用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E5%A6%82%E6%9E%9C%E5%9C%A8%E7%88%B6%E7%BA%A7%E7%9A%84Start%E6%96%B9%E6%B3%95%E9%87%8C%E9%9D%A2%E8%AE%BE%E7%BD%AE%E5%AD%90%E7%BA%A7%E7%9A%84%E8%84%9A%E6%9C%AC%E4%B8%8D%E5%8F%AF%E7%94%A8"><span class="nav-text">2. 如果在父级的Start方法里面设置子级的脚本不可用</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%90%E7%BA%A7%E6%93%8D%E4%BD%9C%E7%88%B6%E7%BA%A7"><span class="nav-text">子级操作父级</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E5%A6%82%E6%9E%9C%E5%9C%A8%E5%AD%90%E7%BA%A7%E7%9A%84Awake%E6%96%B9%E6%B3%95%E9%87%8C%E9%9D%A2%E8%AE%BE%E7%BD%AE%E7%88%B6%E7%BA%A7%E7%9A%84%E8%84%9A%E6%9C%AC%E4%B8%8D%E5%8F%AF%E7%94%A8"><span class="nav-text">1. 如果在子级的Awake方法里面设置父级的脚本不可用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E5%A6%82%E6%9E%9C%E5%9C%A8%E5%AD%90%E7%BA%A7%E7%9A%84Start%E6%96%B9%E6%B3%95%E9%87%8C%E9%9D%A2%E8%AE%BE%E7%BD%AE%E7%88%B6%E7%BA%A7%E7%9A%84%E8%84%9A%E6%9C%AC%E4%B8%8D%E5%8F%AF%E7%94%A8"><span class="nav-text">2. 如果在子级的Start方法里面设置父级的脚本不可用</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#OnBecameVisible-%E5%92%8C-OnBecameInvisible"><span class="nav-text">OnBecameVisible 和 OnBecameInvisible</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E5%BD%93%E4%B8%80%E5%BC%80%E5%A7%8B%E5%8A%A0%E8%BD%BD%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%97%B6%EF%BC%9A"><span class="nav-text">1. 当一开始加载一个对象时：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E5%BD%93%E7%A7%BB%E5%8A%A8%E5%AF%B9%E8%B1%A1%E6%97%B6%EF%BC%9A"><span class="nav-text">2. 当移动对象时：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#test1"><span class="nav-text"># test1</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#test2"><span class="nav-text">## test2</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unity%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-text">Unity游戏开发中的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-text">C#对象的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3%E5%AF%B9%E8%B1%A1%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%89%8D%EF%BC%8C%E8%A6%81%E5%85%88%E7%90%86%E8%A7%A3%E7%B1%BB%E3%80%81%E5%AF%B9%E8%B1%A1%E4%B8%8E%E5%BC%95%E7%94%A8%E6%98%AF%E6%80%8E%E4%B9%88%E5%9B%9E%E4%BA%8B%E3%80%82"><span class="nav-text">了解对象生命周期前，要先理解类、对象与引用是怎么回事。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B1%BB"><span class="nav-text">类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1"><span class="nav-text">对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-text">引用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%EF%BC%9A"><span class="nav-text">对象的生命周期：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E8%A6%81%E7%BB%8F%E8%BF%87%E4%B8%89%E6%AD%A5%EF%BC%9A"><span class="nav-text">创建一个对象实例要经过三步：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E8%AE%A1%E7%AE%97%E6%96%B0%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%AE%9E%E4%BE%8B%E8%A6%81%E7%94%A8%E5%A4%9A%E5%B0%91%E5%9C%B0%E5%9D%80"><span class="nav-text">1. 计算新的对象实例要用多少地址</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%A6%82%E6%9E%9C%E5%A0%86%E4%B8%AD%E7%9A%84%E5%9C%B0%E5%9D%80%E5%A4%9F%E7%94%A8%EF%BC%8C%E5%B0%B1%E5%B0%86%E8%B0%83%E7%94%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E8%BF%99%E4%B8%AA%E5%AF%B9%E8%B1%A1%E5%B0%86%E6%8A%8A%E5%AE%83%E6%94%BE%E5%9C%A8%E5%86%85%E5%AD%98%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-text">2. 如果堆中的地址够用，就将调用构造函数创建这个对象将把它放在内存指针指向的位置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E8%BF%94%E5%9B%9E%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BC%95%E7%94%A8%EF%BC%8C%E5%B9%B6%E5%B0%86%E6%8C%87%E9%92%88%E6%8C%87%E5%90%91%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E5%BA%94%E8%AF%A5%E5%AD%98%E6%94%BE%E7%9A%84%E5%9C%B0%E5%9D%80%E3%80%82"><span class="nav-text">3. 返回对象的引用，并将指针指向下一个对象应该存放的地址。</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%88%B0%E4%BA%86%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E4%BA%86%EF%BC%81"><span class="nav-text">接下来到了垃圾回收了！</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#0%E4%BB%A3%E6%8C%87%E7%9A%84%E6%98%AF%E4%BB%8E%E6%9D%A5%E6%B2%A1%E6%9C%89%E8%A2%AB%E6%A0%87%E8%AE%B0%E8%BF%87%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%9A%84%E6%96%B0%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%E8%88%AC%E6%98%AF%E5%87%BD%E6%95%B0%E5%9F%9F%E5%86%85%E7%9A%84%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%A2%AB%E8%A7%86%E4%B8%BA%E6%9C%80%E5%85%88%E6%94%B6%E9%9B%86%E7%9A%84%E5%AF%B9%E8%B1%A1%EF%BC%89"><span class="nav-text">0代指的是从来没有被标记过垃圾收集的新对象（一般是函数域内的对象，被视为最先收集的对象）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1%E4%BB%A3%E6%98%AF%E6%8C%87%E5%9C%A8%E4%B8%8A%E4%B8%80%E6%AC%A1%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E4%B8%AD%E6%B2%A1%E6%9C%89%E8%A2%AB%E5%9B%9E%E6%94%B6%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="nav-text">1代是指在上一次垃圾收集中没有被回收的对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%E4%BB%A3%E6%98%AF%E5%9C%A8%E4%B8%80%E6%AC%A1%E4%BB%A5%E4%B8%8A%E6%B2%A1%E6%9C%89%E8%A2%AB%E5%9B%9E%E6%94%B6%E7%9A%84%E5%AF%B9%E8%B1%A1%EF%BC%88%E4%B8%80%E8%88%AC%E6%98%AF%E5%BA%94%E8%AF%A5%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%A0%B9%E7%BA%A7%EF%BC%89"><span class="nav-text">2代是在一次以上没有被回收的对象（一般是应该程序的根级）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%91%E6%83%B3%E5%B0%B1%E6%88%91%E7%9A%84%E7%90%86%E8%A7%A3%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E%E4%B8%80%E4%B8%8B%EF%BC%9A"><span class="nav-text">我想就我的理解简要说明一下：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-GC%E5%8F%AA%E6%94%B6%E9%9B%86%E6%89%98%E7%AE%A1%E5%A0%86%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%E3%80%82"><span class="nav-text">1. GC只收集托管堆中的对象。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E6%89%80%E6%9C%89%E5%80%BC%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%98%E9%87%8F%E9%83%BD%E5%9C%A8%E6%A0%88%E4%B8%AD%E5%88%86%E9%85%8D%EF%BC%8C%E8%B6%85%E5%87%BA%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%90%8E%E7%AB%8B%E5%8D%B3%E9%87%8A%E6%94%BE%E6%A0%88%E7%A9%BA%E9%97%B4%EF%BC%8C%E8%BF%99%E4%B8%80%E7%82%B9%E4%B8%8EVC6%E5%AE%8C%E5%85%A8%E4%B8%80%E6%A0%B7%E3%80%82"><span class="nav-text">2. 所有值类型的变量都在栈中分配，超出作用域后立即释放栈空间，这一点与VC6完全一样。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E5%8C%BA%E5%88%AB%E7%B1%BB%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%98%E9%87%8F%E5%92%8C%E7%B1%BB%E7%9A%84%E5%AF%B9%E8%B1%A1%EF%BC%8C%E8%BF%99%E6%98%AF%E4%B8%A4%E4%B8%AA%E4%B8%8D%E5%90%8C%E7%9A%84%E6%A6%82%E5%BF%B5%E3%80%82"><span class="nav-text">3. 区别类类型的变量和类的对象，这是两个不同的概念。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unity-Monobehaviour%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-text">Unity Monobehaviour对象的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E9%9D%99%E6%80%81%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">1、静态构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E9%9D%9E%E9%9D%99%E6%80%81%E6%9E%84%E9%80%A0%E5%99%A8"><span class="nav-text">2、非静态构造器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81Awake"><span class="nav-text">3、Awake</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81Start"><span class="nav-text">4、Start</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81Update"><span class="nav-text">5、Update</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81FixedUpdate"><span class="nav-text">6、FixedUpdate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81LateUpdate"><span class="nav-text">7、LateUpdate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%E3%80%81OnGUI"><span class="nav-text">8、OnGUI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9%E3%80%81OnDestroy"><span class="nav-text">9、OnDestroy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10%E3%80%81OnEnable"><span class="nav-text">10、OnEnable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11%E3%80%81OnDisable"><span class="nav-text">11、OnDisable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-text">脚本执行顺序总结：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%88%B6%E7%BA%A7%E6%93%8D%E4%BD%9C%E5%AD%90%E7%BA%A7"><span class="nav-text">父级操作子级</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E5%A6%82%E6%9E%9C%E5%9C%A8%E7%88%B6%E7%BA%A7%E7%9A%84Awake%E6%96%B9%E6%B3%95%E9%87%8C%E9%9D%A2%E8%AE%BE%E7%BD%AE%E5%AD%90%E7%BA%A7%E7%9A%84%E8%84%9A%E6%9C%AC%E4%B8%8D%E5%8F%AF%E7%94%A8"><span class="nav-text">1. 如果在父级的Awake方法里面设置子级的脚本不可用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E5%A6%82%E6%9E%9C%E5%9C%A8%E7%88%B6%E7%BA%A7%E7%9A%84Start%E6%96%B9%E6%B3%95%E9%87%8C%E9%9D%A2%E8%AE%BE%E7%BD%AE%E5%AD%90%E7%BA%A7%E7%9A%84%E8%84%9A%E6%9C%AC%E4%B8%8D%E5%8F%AF%E7%94%A8"><span class="nav-text">2. 如果在父级的Start方法里面设置子级的脚本不可用</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AD%90%E7%BA%A7%E6%93%8D%E4%BD%9C%E7%88%B6%E7%BA%A7"><span class="nav-text">子级操作父级</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E5%A6%82%E6%9E%9C%E5%9C%A8%E5%AD%90%E7%BA%A7%E7%9A%84Awake%E6%96%B9%E6%B3%95%E9%87%8C%E9%9D%A2%E8%AE%BE%E7%BD%AE%E7%88%B6%E7%BA%A7%E7%9A%84%E8%84%9A%E6%9C%AC%E4%B8%8D%E5%8F%AF%E7%94%A8"><span class="nav-text">1. 如果在子级的Awake方法里面设置父级的脚本不可用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E5%A6%82%E6%9E%9C%E5%9C%A8%E5%AD%90%E7%BA%A7%E7%9A%84Start%E6%96%B9%E6%B3%95%E9%87%8C%E9%9D%A2%E8%AE%BE%E7%BD%AE%E7%88%B6%E7%BA%A7%E7%9A%84%E8%84%9A%E6%9C%AC%E4%B8%8D%E5%8F%AF%E7%94%A8"><span class="nav-text">2. 如果在子级的Start方法里面设置父级的脚本不可用</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#OnBecameVisible-%E5%92%8C-OnBecameInvisible"><span class="nav-text">OnBecameVisible 和 OnBecameInvisible</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E5%BD%93%E4%B8%80%E5%BC%80%E5%A7%8B%E5%8A%A0%E8%BD%BD%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%97%B6%EF%BC%9A"><span class="nav-text">1. 当一开始加载一个对象时：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E5%BD%93%E7%A7%BB%E5%8A%A8%E5%AF%B9%E8%B1%A1%E6%97%B6%EF%BC%9A"><span class="nav-text">2. 当移动对象时：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -231,20 +232,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">185</span>
+          <span class="site-state-item-count">192</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -369,11 +370,11 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Unity游戏开发中的生命周期"><a href="#Unity游戏开发中的生命周期" class="headerlink" title="Unity游戏开发中的生命周期"></a>Unity游戏开发中的生命周期</h1><h2 id="C-对象的生命周期"><a href="#C-对象的生命周期" class="headerlink" title="C#对象的生命周期"></a>C#对象的生命周期</h2><h3 id="了解对象生命周期前，要先理解类、对象与引用是怎么回事。"><a href="#了解对象生命周期前，要先理解类、对象与引用是怎么回事。" class="headerlink" title="了解对象生命周期前，要先理解类、对象与引用是怎么回事。"></a>了解对象生命周期前，要先理解类、对象与引用是怎么回事。</h3><h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><pre><code>是定义在代码文件中，保存在硬盘上 ，是对象的蓝本，它描述了对象在内存中大概是什么样子的。
-</code></pre><h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><pre><code>我们都知道.net将值类型存储在栈中，引用类型存储在堆中，这样做的原因是栈中的数据是轻量级的，而堆中的数据是重量级，目的是在应用程序在操作它们的时候比较方便存取，从而提高程序的运行速度。
-创建一个对象实例，用new+类名+（），就创建了一个对象实例，创建的这个对象实例是引用类型，被存储在托管堆中，以后就不用管它了，new关键字返回一个对象实例存在的地址，这个存储地址（引用）变量，被放在栈中，实际上应用程序在运行时都是操作的这个引用。
-</code></pre><h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><pre><code>上面说了，就是指 堆数据在堆中的地址,存储在栈上。
-</code></pre><h3 id="对象的生命周期："><a href="#对象的生命周期：" class="headerlink" title="对象的生命周期："></a>对象的生命周期：</h3><p>在传统的非托管C++中，用构造函数创建对象实例，清除内存中的对象实例用析构函数，也就是必须要程序员手写消灭对象实例的方法，这样做的话，如果析构函数执行失败，或是由于程序员的疏忽，忘记了析构代码，那么该对象所占有的内存会一直存在内存中（直到应用程序结束），那么这样很容易造成内存资源的浪费，有效的内存空间得不到充分的利用，从而造成内存泄露。</p>
+        <h1 id="Unity游戏开发中的生命周期"><a href="#Unity游戏开发中的生命周期" class="headerlink" title="Unity游戏开发中的生命周期"></a>Unity游戏开发中的生命周期</h1><h2 id="C-对象的生命周期"><a href="#C-对象的生命周期" class="headerlink" title="C#对象的生命周期"></a>C#对象的生命周期</h2><h3 id="了解对象生命周期前，要先理解类、对象与引用是怎么回事。"><a href="#了解对象生命周期前，要先理解类、对象与引用是怎么回事。" class="headerlink" title="了解对象生命周期前，要先理解类、对象与引用是怎么回事。"></a>了解对象生命周期前，要先理解类、对象与引用是怎么回事。</h3><h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><pre><code>是定义在代码文件中，保存在硬盘上 ，是对象的蓝本，它描述了对象在内存中大概是什么样子的。</code></pre>
+<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><pre><code>我们都知道.net将值类型存储在栈中，引用类型存储在堆中，这样做的原因是栈中的数据是轻量级的，而堆中的数据是重量级，目的是在应用程序在操作它们的时候比较方便存取，从而提高程序的运行速度。
+创建一个对象实例，用new+类名+（），就创建了一个对象实例，创建的这个对象实例是引用类型，被存储在托管堆中，以后就不用管它了，new关键字返回一个对象实例存在的地址，这个存储地址（引用）变量，被放在栈中，实际上应用程序在运行时都是操作的这个引用。</code></pre>
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><pre><code>上面说了，就是指 堆数据在堆中的地址,存储在栈上。</code></pre>
+<h3 id="对象的生命周期："><a href="#对象的生命周期：" class="headerlink" title="对象的生命周期："></a>对象的生命周期：</h3><p>在传统的非托管C++中，用构造函数创建对象实例，清除内存中的对象实例用析构函数，也就是必须要程序员手写消灭对象实例的方法，这样做的话，如果析构函数执行失败，或是由于程序员的疏忽，忘记了析构代码，那么该对象所占有的内存会一直存在内存中（直到应用程序结束），那么这样很容易造成内存资源的浪费，有效的内存空间得不到充分的利用，从而造成内存泄露。</p>
 <p>那么在.net框架中，这样的情况将不再存在，.net中不用程序显示回收内存，自带的垃圾收集器会帮我们解决这一困扰，那么垃圾收集器是如何工作的呢？</p>
 <p>还是先说下创建对象实例时的内存管理：实际上内存分配存在一个内存指针，它总是指向下一个对象应该放置位置，即当创建一个对象实例，看内存指针在哪里，就将这个对象实例放在指针指向的位置，然后指针再移动到下一个可以存放对象的地址，等待下一个对象的到来。</p>
 <h4 id="创建一个对象实例要经过三步："><a href="#创建一个对象实例要经过三步：" class="headerlink" title="创建一个对象实例要经过三步："></a>创建一个对象实例要经过三步：</h4><h5 id="1-计算新的对象实例要用多少地址"><a href="#1-计算新的对象实例要用多少地址" class="headerlink" title="1. 计算新的对象实例要用多少地址"></a>1. 计算新的对象实例要用多少地址</h5><h5 id="2-如果堆中的地址够用，就将调用构造函数创建这个对象将把它放在内存指针指向的位置"><a href="#2-如果堆中的地址够用，就将调用构造函数创建这个对象将把它放在内存指针指向的位置" class="headerlink" title="2. 如果堆中的地址够用，就将调用构造函数创建这个对象将把它放在内存指针指向的位置"></a>2. 如果堆中的地址够用，就将调用构造函数创建这个对象将把它放在内存指针指向的位置</h5><h5 id="3-返回对象的引用，并将指针指向下一个对象应该存放的地址。"><a href="#3-返回对象的引用，并将指针指向下一个对象应该存放的地址。" class="headerlink" title="3. 返回对象的引用，并将指针指向下一个对象应该存放的地址。"></a>3. 返回对象的引用，并将指针指向下一个对象应该存放的地址。</h5><h4 id="接下来到了垃圾回收了！"><a href="#接下来到了垃圾回收了！" class="headerlink" title="接下来到了垃圾回收了！"></a>接下来到了垃圾回收了！</h4><p>如果在计算新对象所用空间时发现空闲内在已经不够用了，那么.net就会调用垃圾收集程序做一次垃圾收集。CLR逐个排查不可达的对象，对么在托管堆中这个排查会浪费大量的时间，为了优化这个排查过程，将堆上的每一个对象对归属为某一个代中。CLR将内存中的对象分为0~2代（.net2.0中）。其中</p>
@@ -394,7 +395,7 @@
 <h3 id="9、OnDestroy"><a href="#9、OnDestroy" class="headerlink" title="9、OnDestroy"></a>9、OnDestroy</h3><p>当前脚本销毁时调用</p>
 <h3 id="10、OnEnable"><a href="#10、OnEnable" class="headerlink" title="10、OnEnable"></a>10、OnEnable</h3><p>脚本可用时被调用、如果脚本是不可用的，将不会被调用！</p>
 <h3 id="11、OnDisable"><a href="#11、OnDisable" class="headerlink" title="11、OnDisable"></a>11、OnDisable</h3><p>如果脚本被设置为不可用将会被执行，程序结束时也会执行一次！</p>
-<p><strong>OnEnable</strong> 和 <strong>OnDisable</strong> 只受脚本的可用状态的影响（enabled）,而 <strong>OnBecameVisible</strong> 和 <strong>OnBecameInvisible</strong> 是受对象是否可见的影响！即使脚本设置为不可用，<strong>OnBecameVisible</strong> 和 <strong>OnBecameInvisible</strong> 也会被执行，主要是看对象是否在场景中显示了！</p>
+<p><strong>OnEnable</strong> 和 <strong>OnDisable</strong> 只受脚本的可用状态的影响（enabled）,而 <strong>OnBecameVisible</strong> 和 <strong>OnBecameInvisible</strong> 是受对象是否可见的影响！即使脚本设置为不可用，<strong>OnBecameVisible</strong> 和 <strong>OnBecameInvisible</strong> 也会被执行，主要是看对象是否在场景中显示了！</p>
 <h3 id="脚本执行顺序总结："><a href="#脚本执行顺序总结：" class="headerlink" title="脚本执行顺序总结："></a>脚本执行顺序总结：</h3><p>假如现在有三个GameObject对象：a1 &gt; a2 &gt; a3 (a1为a2的父节点，a2为a1的父节点，unity执行脚本的顺序是从上往下执行，也就是说先执行父节点上的脚本，再去执行子节点的脚本，子节点上如果有多个脚本，那么也是自上而下的顺序执行)，这三个对象对应各有一个脚本：s1，s2，s3，且这三个脚本代码都一样，都有</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Awake</span><br><span class="line">Start</span><br><span class="line">Update</span><br><span class="line">LateUpdate</span><br><span class="line">FixUpdate</span><br></pre></td></tr></table></figure>
 <p>那么当运行程序时，程序会进行分组，即把s1，s2，s3中的Awake方法组成一组，把Start方法组成一组，把Update方法组成一组，把LateUpdate方法组成一组，把FixUpdate方法组成一组，最后按照Awake，Start，FixUpdate，Update，LateUpdate（FixUpdate和Update顺序不确定）的顺序依次执行！</p>
@@ -414,15 +415,14 @@
 <blockquote>
 <p>总结：关键是看设置脚本不可用的位置：</p>
 </blockquote>
-<h5 id="父级操作子级"><a href="#父级操作子级" class="headerlink" title="父级操作子级"></a>父级操作子级</h5><h6 id="1-如果在父级的Awake方法里面设置子级的脚本不可用"><a href="#1-如果在父级的Awake方法里面设置子级的脚本不可用" class="headerlink" title="1. 如果在父级的Awake方法里面设置子级的脚本不可用"></a>1. 如果在父级的Awake方法里面设置子级的脚本不可用</h6><pre><code>那么仅仅只会执行子级里面的Awake方法，当子级被激活后（enabled=true），会先执行OnEnable，然后执行Start方法，Update等帧序列方法都会开始执行
-</code></pre><h6 id="2-如果在父级的Start方法里面设置子级的脚本不可用"><a href="#2-如果在父级的Start方法里面设置子级的脚本不可用" class="headerlink" title="2. 如果在父级的Start方法里面设置子级的脚本不可用"></a>2. 如果在父级的Start方法里面设置子级的脚本不可用</h6><pre><code>那么会执行子集里面的Awake，OnEnable和OnDisable方法，当子级被激活后（enabled=true），会先执行OnEnable，然后执行Start方法，Update等帧序列方法也都会开始执行
-</code></pre><h5 id="子级操作父级"><a href="#子级操作父级" class="headerlink" title="子级操作父级"></a>子级操作父级</h5><h6 id="1-如果在子级的Awake方法里面设置父级的脚本不可用"><a href="#1-如果在子级的Awake方法里面设置父级的脚本不可用" class="headerlink" title="1. 如果在子级的Awake方法里面设置父级的脚本不可用"></a>1. 如果在子级的Awake方法里面设置父级的脚本不可用</h6><pre><code>那么会执行父级里面的Awake，OnEnable和OnDisable方法，当父级被激活后（enabled=true），会先执行OnEnable，然后执行Start方法，Update等帧序列方法都会开始执行
-</code></pre><h6 id="2-如果在子级的Start方法里面设置父级的脚本不可用"><a href="#2-如果在子级的Start方法里面设置父级的脚本不可用" class="headerlink" title="2. 如果在子级的Start方法里面设置父级的脚本不可用"></a>2. 如果在子级的Start方法里面设置父级的脚本不可用</h6><pre><code>那么会执行父集里面的Awake，OnEnable，Start和OnDisable方法，当父级被激活后（enabled=true），会先执行OnEnable，Update等帧序列方法也都会开始执行
-</code></pre><blockquote>
+<h5 id="父级操作子级"><a href="#父级操作子级" class="headerlink" title="父级操作子级"></a>父级操作子级</h5><h6 id="1-如果在父级的Awake方法里面设置子级的脚本不可用"><a href="#1-如果在父级的Awake方法里面设置子级的脚本不可用" class="headerlink" title="1. 如果在父级的Awake方法里面设置子级的脚本不可用"></a>1. 如果在父级的Awake方法里面设置子级的脚本不可用</h6><pre><code>那么仅仅只会执行子级里面的Awake方法，当子级被激活后（enabled=true），会先执行OnEnable，然后执行Start方法，Update等帧序列方法都会开始执行</code></pre>
+<h6 id="2-如果在父级的Start方法里面设置子级的脚本不可用"><a href="#2-如果在父级的Start方法里面设置子级的脚本不可用" class="headerlink" title="2. 如果在父级的Start方法里面设置子级的脚本不可用"></a>2. 如果在父级的Start方法里面设置子级的脚本不可用</h6><pre><code>那么会执行子集里面的Awake，OnEnable和OnDisable方法，当子级被激活后（enabled=true），会先执行OnEnable，然后执行Start方法，Update等帧序列方法也都会开始执行</code></pre>
+<h5 id="子级操作父级"><a href="#子级操作父级" class="headerlink" title="子级操作父级"></a>子级操作父级</h5><h6 id="1-如果在子级的Awake方法里面设置父级的脚本不可用"><a href="#1-如果在子级的Awake方法里面设置父级的脚本不可用" class="headerlink" title="1. 如果在子级的Awake方法里面设置父级的脚本不可用"></a>1. 如果在子级的Awake方法里面设置父级的脚本不可用</h6><pre><code>那么会执行父级里面的Awake，OnEnable和OnDisable方法，当父级被激活后（enabled=true），会先执行OnEnable，然后执行Start方法，Update等帧序列方法都会开始执行</code></pre>
+<h6 id="2-如果在子级的Start方法里面设置父级的脚本不可用"><a href="#2-如果在子级的Start方法里面设置父级的脚本不可用" class="headerlink" title="2. 如果在子级的Start方法里面设置父级的脚本不可用"></a>2. 如果在子级的Start方法里面设置父级的脚本不可用</h6><pre><code>那么会执行父集里面的Awake，OnEnable，Start和OnDisable方法，当父级被激活后（enabled=true），会先执行OnEnable，Update等帧序列方法也都会开始执行</code></pre>
+<blockquote>
 <p>如果被激活的脚本之前没有调用Start方法，那么当此脚本被激活后，会调用一次Start方法！具体，看生命周期第一幅图，在文章后面！</p>
 </blockquote>
-<h5 id="OnBecameVisible-和-OnBecameInvisible"><a href="#OnBecameVisible-和-OnBecameInvisible" class="headerlink" title="OnBecameVisible 和 OnBecameInvisible"></a>OnBecameVisible 和 OnBecameInvisible</h5><h6 id="1-当一开始加载一个对象时："><a href="#1-当一开始加载一个对象时：" class="headerlink" title="1. 当一开始加载一个对象时："></a>1. 当一开始加载一个对象时：</h6><div class="table-container">
-<table>
+<h5 id="OnBecameVisible-和-OnBecameInvisible"><a href="#OnBecameVisible-和-OnBecameInvisible" class="headerlink" title="OnBecameVisible 和 OnBecameInvisible"></a>OnBecameVisible 和 OnBecameInvisible</h5><h6 id="1-当一开始加载一个对象时："><a href="#1-当一开始加载一个对象时：" class="headerlink" title="1. 当一开始加载一个对象时："></a>1. 当一开始加载一个对象时：</h6><table>
 <thead>
 <tr>
 <th>Game</th>
@@ -431,39 +431,38 @@
 <th>OnBecameInvisible</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Game 显示</td>
 <td>Scene 显示</td>
-<td>OnBecameInvisible   不执行</td>
-<td>OnBecameInvisible   执行</td>
+<td>OnBecameInvisible   不执行</td>
+<td>OnBecameInvisible   执行</td>
 </tr>
 <tr>
 <td>Game 不显示</td>
 <td>Scene 不显示</td>
-<td>OnBecameInvisible   不执行</td>
+<td>OnBecameInvisible   不执行</td>
 <td>OnBecameVisible 不执行</td>
 </tr>
 <tr>
 <td>Game 不显示</td>
 <td>Scene 显示</td>
-<td>OnBecameInvisible   不执行</td>
+<td>OnBecameInvisible   不执行</td>
 <td>OnBecameVisible 执行</td>
 </tr>
 <tr>
 <td>Game 显示</td>
 <td>Scene 不显示</td>
-<td>OnBecameInvisible   不执行</td>
+<td>OnBecameInvisible   不执行</td>
 <td>OnBecameVisible 执行</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <blockquote>
 <p>小结：只要Game和Scene中有一个显示了，OnBecameVisible 就会执行！而OnBecameInvisible 一直都不会执行</p>
 </blockquote>
-<h6 id="2-当移动对象时："><a href="#2-当移动对象时：" class="headerlink" title="2. 当移动对象时："></a>2. 当移动对象时：</h6><pre><code>game 和 scene 对象必须在两个场景中同时消失  OnBecameInVisible 才执行, scene 和 game 只要有一方进入了场景 OnBecameVisible 就执行了.
-</code></pre><h6 id="test1"><a href="#test1" class="headerlink" title="# test1"></a># test1</h6><h6 id="test2"><a href="#test2" class="headerlink" title="## test2"></a>## test2</h6>
+<h6 id="2-当移动对象时："><a href="#2-当移动对象时：" class="headerlink" title="2. 当移动对象时："></a>2. 当移动对象时：</h6><pre><code>game 和 scene 对象必须在两个场景中同时消失  OnBecameInVisible 才执行, scene 和 game 只要有一方进入了场景 OnBecameVisible 就执行了.</code></pre>
+<p>####### test1</p>
+<p>######## test2</p>
+
     </div>
 
     
@@ -511,8 +510,13 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C#</a>
+              <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
               <a href="/tags/Unity/" rel="tag"><i class="fa fa-tag"></i> Unity</a>
+              <a href="/tags/Unity3d/" rel="tag"><i class="fa fa-tag"></i> Unity3d</a>
+              <a href="/tags/ML/" rel="tag"><i class="fa fa-tag"></i> ML</a>
+              <a href="/tags/Html/" rel="tag"><i class="fa fa-tag"></i> Html</a>
+              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C#</a>
+              <a href="/tags/NGUI/" rel="tag"><i class="fa fa-tag"></i> NGUI</a>
               <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
           </div>
 
@@ -575,7 +579,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -623,52 +627,6 @@
 
 
   
-
-  
-      <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              const target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    const script = document.createElement('script');
-    script.src = '/%5Bobject%20Object%5D';
-    script.defer = true;
-    document.head.appendChild(script);
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.typesetClear();
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 <script>

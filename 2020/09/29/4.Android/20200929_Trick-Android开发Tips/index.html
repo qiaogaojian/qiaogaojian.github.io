@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -33,19 +33,26 @@
 <meta property="article:published_time" content="2020-09-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-29T01:11:46.059Z">
 <meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="AS">
+<meta property="article:tag" content="AR">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="ML">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="Html">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Js">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="Bug">
+<meta property="article:tag" content="IDE">
+<meta property="article:tag" content="VS">
 <meta property="article:tag" content="效率">
 <meta property="article:tag" content="Android">
-<meta property="article:tag" content="Web">
-<meta property="article:tag" content="Windows">
-<meta property="article:tag" content="数据结构">
-<meta property="article:tag" content="工具">
-<meta property="article:tag" content="AR">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="Android Studio">
 <meta property="article:tag" content="Go">
-<meta property="article:tag" content="Html">
-<meta property="article:tag" content="Tools">
+<meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="Tips">
+<meta property="article:tag" content="Android Studio">
+<meta property="article:tag" content="Tools">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/context_usage.png">
 
@@ -106,11 +113,7 @@
   </style>
 </noscript>
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -239,20 +242,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">185</span>
+          <span class="site-state-item-count">192</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -413,8 +416,7 @@
 <li><p>Linkify.addLinks() 这个类可以更方便的为文本添加超链接。</p>
 </li>
 <li><p>android.media.ThumbnailUtils这个类主要是用来处理缩略图相关的工作,比如:用来获取媒体（图片、视频）的缩略图</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">createVideoThumbnail(String filePath, <span class="keyword">int</span> kind)</span><br><span class="line">extractThumbnail(Bitmap source, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">createVideoThumbnail(String filePath, <span class="keyword">int</span> kind)</span><br><span class="line">extractThumbnail(Bitmap source, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span><br></pre></td></tr></table></figure></li>
 <li><p>模块间有消息需要传递时，使用LocalBroadcastManager替代Listener进行模块解耦。除了解耦，这样发送消息和执行消息差一个线程循环，可以减小方法的调用链，我这就碰到一次方法调用链太长导致StackOverflow的问题。</p>
 </li>
 <li><p><strong>静态变量不要直接或者间接引用Activity、Service等。这会使用Activity以及它所引用的所有对象无法释放，然后，用户操作时间一长，内存就会狂升。</strong></p>
@@ -432,8 +434,7 @@
 <li><p>Application的生命周期就是进程的生命周期。只有进程被干掉时，Application才会销毁。哪怕是没有Activity、Service在运行，Application也会存在。所以，为了减少内存压力，尽量不要在Application里面引用大对象、Context等。</p>
 </li>
 <li><p><strong>设置全屏方法有2种:1.通过代码设置，2通过manifest文件设置。用代码设置全屏时app在我们应用运行后，可能会看到短暂的状态栏，然后才全屏，而第二种方法是不会有这种情况的,所以推荐第二种。</strong></p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法1:</span></span><br><span class="line"><span class="comment">//无title</span></span><br><span class="line">requestWindowFeature(Window.FEATURE_NO_TITLE);</span><br><span class="line">getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN,WindowManager.LayoutParams. FLAG_FULLSCREEN);</span><br><span class="line"><span class="comment">//必须在setContentView()之前调用</span></span><br><span class="line">setContentView(R.layout.main);</span><br><span class="line"></span><br><span class="line"><span class="comment">//方法2:</span></span><br><span class="line">&lt;activity android:name=<span class="string">&quot;.&quot;</span></span><br><span class="line">    android:theme=<span class="string">&quot;@android:style/Theme.NoTitleBar.Fullscreen&quot;</span> <span class="comment">//全屏主题</span></span><br><span class="line">    android:label=<span class="string">&quot;@string/app_name&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方法1:</span></span><br><span class="line"><span class="comment">//无title</span></span><br><span class="line">requestWindowFeature(Window.FEATURE_NO_TITLE);</span><br><span class="line">getWindow().setFlags(WindowManager.LayoutParams. FLAG_FULLSCREEN,WindowManager.LayoutParams. FLAG_FULLSCREEN);</span><br><span class="line"><span class="comment">//必须在setContentView()之前调用</span></span><br><span class="line">setContentView(R.layout.main);</span><br><span class="line"></span><br><span class="line"><span class="comment">//方法2:</span></span><br><span class="line">&lt;activity android:name=<span class="string">&quot;.&quot;</span></span><br><span class="line">    android:theme=<span class="string">&quot;@android:style/Theme.NoTitleBar.Fullscreen&quot;</span> <span class="comment">//全屏主题</span></span><br><span class="line">    android:label=<span class="string">&quot;@string/app_name&quot;</span> /&gt;</span><br></pre></td></tr></table></figure></li>
 <li><p>viewpager 的 setCurrentItem 一定要在 setAdapter 方法之后调用才会有效果.</p>
 </li>
 <li><p>判断手机是不是飞行模式 boolean isEnabled = Settings.System.getInt(context.getContentResolver(), Settings.System.AIRPLANE_MODE_ON, 0) == 1;</p>
@@ -443,11 +444,9 @@
 <p>  再在 TabLayout 的布局文件里设置 app:tabTextAppearance=”@style/CustomTabLayoutTextAppearance” 即可。</p>
   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.TabLayout</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">&quot;@+id/event_tab_layout&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">app:tebMode</span>=<span class="string">&quot;fixed&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">app:tabTextAppearance</span>=<span class="string">&quot;@style/CustomTabLayoutTextAppearance&quot;</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br></pre></td></tr></table></figure></li>
 <li><p>遍历HashMap的最佳方法</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printMap</span><span class="params">(Map map)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(Map.Entry m : map.entrySet())</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(m.getKey() + <span class="string">&quot;:&quot;</span> + m.getValue());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printMap</span><span class="params">(Map map)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(Map.Entry m : map.entrySet())</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(m.getKey() + <span class="string">&quot;:&quot;</span> + m.getValue());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>使用Java在一个区间内产生随机整数数</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">randInt</span><span class="params">(<span class="keyword">int</span> min, <span class="keyword">int</span> max)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Random rand = <span class="keyword">new</span> Random();</span><br><span class="line">    <span class="keyword">int</span> randomNum = rand.nextInt((max - min) + <span class="number">1</span>) + min;</span><br><span class="line">    <span class="keyword">return</span> randomNum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">randInt</span><span class="params">(<span class="keyword">int</span> min, <span class="keyword">int</span> max)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Random rand = <span class="keyword">new</span> Random();</span><br><span class="line">    <span class="keyword">int</span> randomNum = rand.nextInt((max - min) + <span class="number">1</span>) + min;</span><br><span class="line">    <span class="keyword">return</span> randomNum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 <li><p>如果子类实现Serializable接口而父类未实现时，父类不会被序列化，但此时父类必须有个无参构造方法，否则会抛InvalidClassException异常。</p>
 </li>
 <li><p>transient关键字修饰变量可以限制序列化。</p>
@@ -457,7 +456,30 @@
 <li><p>华为手机无法显示log解决方案,.拨号界面输入(<em>#</em>#2846579#<em>#</em>) Service menu will appear.Go to “ProjectMenu” -&gt; “Background Setting” -&gt; “Log Setting”Open “Log switch” and set it to ON.Open “Log level setting” and set the log level you wish.</p>
 </li>
 <li><p>后台service经常因为重启之类的出现onStartCommand()中的Intent传递的参数为null， 通过在onStartCommand()中的返回值改成return super.onStartCommand(intent, Service.START_REDELIVER_INTENT, startId); 可以解决问题。下面介绍几个flag的意思</p>
-<p>  | flag | 解释 |<br>  | ——————- |:——————-|<br>  | START_STICKY | 如果service进程被kill掉，保留service的状态为开始状态，但不保留递送的intent对象。随后系统会尝试重新创建service，由于服务状态为开始状态，所以创建服务后一定会调用onStartCommand(Intent,int,int)方法。如果在此期间没有任何启动命令被传递到service，那么参数Intent将为null。 |<br>  | START_NOT_STICKY | “非粘性的”。使用这个返回值时，如果在执行完onStartCommand后，服务被异常kill掉，系统不会自动重启该服务。 |<br>  |START_REDELIVER_INTENT|重传Intent。使用这个返回值时，如果在执行完onStartCommand后，服务被异常kill掉，系统会自动重启该服务，并将Intent的值传入。|<br>  |START_STICKY_COMPATIBILITY|START_STICKY的兼容版本，但不保证服务被kill后一定能重启。 |</p>
+<table>
+<thead>
+<tr>
+<th>flag</th>
+<th align="left">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>START_STICKY</td>
+<td align="left">如果service进程被kill掉，保留service的状态为开始状态，但不保留递送的intent对象。随后系统会尝试重新创建service，由于服务状态为开始状态，所以创建服务后一定会调用onStartCommand(Intent,int,int)方法。如果在此期间没有任何启动命令被传递到service，那么参数Intent将为null。</td>
+</tr>
+<tr>
+<td>START_NOT_STICKY</td>
+<td align="left">“非粘性的”。使用这个返回值时，如果在执行完onStartCommand后，服务被异常kill掉，系统不会自动重启该服务。</td>
+</tr>
+<tr>
+<td>START_REDELIVER_INTENT</td>
+<td align="left">重传Intent。使用这个返回值时，如果在执行完onStartCommand后，服务被异常kill掉，系统会自动重启该服务，并将Intent的值传入。</td>
+</tr>
+<tr>
+<td>START_STICKY_COMPATIBILITY</td>
+<td align="left">START_STICKY的兼容版本，但不保证服务被kill后一定能重启。</td>
+</tr>
+</tbody></table>
 </li>
 <li><p>不能在Activity没有完全显示时显示PopupWindow和Dialog</p>
 </li>
@@ -603,7 +625,7 @@
 </li>
 <li><p>GradientDrawable 有个阴影效果还不错，以为是切的图片，一看代码，什么鬼= =！</p>
 </li>
-<li><p>有朋友提到了在自定义View时有些方法在开启硬件加速的时候没有效果的问题，在API16之后确实有很多方法不支持硬件加速，通常我们关闭硬件加速都是在清单文件中通过<application android:hardwareAccelerated="false" ...>，其实android也提供了针对特定View关闭硬件加速的方法,调用View.setLayerType(View.LAYER_TYPE_SOFTWARE, null);即可。</p>
+<li><p>有朋友提到了在自定义View时有些方法在开启硬件加速的时候没有效果的问题，在API16之后确实有很多方法不支持硬件加速，通常我们关闭硬件加速都是在清单文件中通过&lt;application android:hardwareAccelerated=”false” …&gt;，其实android也提供了针对特定View关闭硬件加速的方法,调用View.setLayerType(View.LAYER_TYPE_SOFTWARE, null);即可。</p>
 </li>
 <li><p>PointF，graphics包中的一个类，我们经常见到在处理Touch事件的时候分别定义一个downX，一个downY用来存储一个坐标，如果坐标少还好，如果要记录的坐标过多那代码就不好看了。用PointF(float x, float y);来描述一个坐标点会清楚很多。</p>
 </li>
@@ -644,11 +666,9 @@
 <li><p>Log.wtf()的意思是What a Terrible Failure,而不是What The Fuck!</p>
 </li>
 <li><p>使用RenderScript虚化图片效果。如果你的app的minSDK为16或者更低，你需要使用support模式，因为很多方法都是在API 17之后添加的。renderscriptTargetApi最高到23，但是你应该把它设置到能保持脚本中使用到的功能完整的最低API。如果你想在support模式下target API 21+你必须使用gradle-plugin 2.1.0 和 buildToolsVersion “23.0.3” 或者以上。需要在gradle中添加renderscriptTargetApi 18,renderscriptSupportModeEnabled true 这两句话</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">blurBitmap</span><span class="params">(Context context, Bitmap src, <span class="keyword">int</span> radius)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Bitmap dest = src.copy(src.getConfig(), <span class="keyword">true</span>);</span><br><span class="line">    RenderScript rs = RenderScript.create(context);</span><br><span class="line">    Allocation allocation = Allocation.createFromBitmap(rs, src);</span><br><span class="line">    Type t = allocation.getType();</span><br><span class="line">    Allocation blurredAllocation = Allocation.createTyped(rs, t);</span><br><span class="line">    ScriptIntrinsicBlur blurScript = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));</span><br><span class="line">    blurScript.setRadius(radius);</span><br><span class="line">    blurScript.setInput(allocation);</span><br><span class="line">    blurScript.forEach(blurredAllocation);</span><br><span class="line">    blurredAllocation.copyTo(dest);</span><br><span class="line">    allocation.destroy();</span><br><span class="line">    blurredAllocation.destroy();</span><br><span class="line">    blurScript.destroy();</span><br><span class="line">    t.destroy();</span><br><span class="line">    rs.destroy();</span><br><span class="line">    <span class="keyword">return</span> dest;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">blurBitmap</span><span class="params">(Context context, Bitmap src, <span class="keyword">int</span> radius)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Bitmap dest = src.copy(src.getConfig(), <span class="keyword">true</span>);</span><br><span class="line">    RenderScript rs = RenderScript.create(context);</span><br><span class="line">    Allocation allocation = Allocation.createFromBitmap(rs, src);</span><br><span class="line">    Type t = allocation.getType();</span><br><span class="line">    Allocation blurredAllocation = Allocation.createTyped(rs, t);</span><br><span class="line">    ScriptIntrinsicBlur blurScript = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));</span><br><span class="line">    blurScript.setRadius(radius);</span><br><span class="line">    blurScript.setInput(allocation);</span><br><span class="line">    blurScript.forEach(blurredAllocation);</span><br><span class="line">    blurredAllocation.copyTo(dest);</span><br><span class="line">    allocation.destroy();</span><br><span class="line">    blurredAllocation.destroy();</span><br><span class="line">    blurScript.destroy();</span><br><span class="line">    t.destroy();</span><br><span class="line">    rs.destroy();</span><br><span class="line">    <span class="keyword">return</span> dest;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>如果想把一个view保存为Bitmap，正常情况下用第一种方法就可以了，但是如果是ScrollView，则必须采用第二种方法。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">createBitmap</span><span class="params">(View v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    v.setDrawingCacheEnabled(<span class="keyword">true</span>);</span><br><span class="line">    v.buildDrawingCache();</span><br><span class="line">    Bitmap bitmap = Bitmap.createBitmap(v.getDrawingCache());</span><br><span class="line">    v.setDrawingCacheEnabled(<span class="keyword">false</span>);</span><br><span class="line">    <span class="keyword">return</span> bitmap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">createBitmap</span><span class="params">(ScrollView v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> width = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> height = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, i &lt; v.getChildCount(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        width += v.getChildAt(i).getWidth();</span><br><span class="line">        height += v.getChildAt(i).getHeight();</span><br><span class="line">    &#125;</span><br><span class="line">    Bitmap bitmap = bitmap.createBitmap(width,height,Config.ARGB_8888);</span><br><span class="line">    Canvas canvas = <span class="keyword">new</span> Canvas(bitmap);</span><br><span class="line">    v.draw(canvas);</span><br><span class="line">    <span class="keyword">return</span> bitmap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">createBitmap</span><span class="params">(View v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    v.setDrawingCacheEnabled(<span class="keyword">true</span>);</span><br><span class="line">    v.buildDrawingCache();</span><br><span class="line">    Bitmap bitmap = Bitmap.createBitmap(v.getDrawingCache());</span><br><span class="line">    v.setDrawingCacheEnabled(<span class="keyword">false</span>);</span><br><span class="line">    <span class="keyword">return</span> bitmap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">createBitmap</span><span class="params">(ScrollView v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> width = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> height = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, i &lt; v.getChildCount(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        width += v.getChildAt(i).getWidth();</span><br><span class="line">        height += v.getChildAt(i).getHeight();</span><br><span class="line">    &#125;</span><br><span class="line">    Bitmap bitmap = bitmap.createBitmap(width,height,Config.ARGB_8888);</span><br><span class="line">    Canvas canvas = <span class="keyword">new</span> Canvas(bitmap);</span><br><span class="line">    v.draw(canvas);</span><br><span class="line">    <span class="keyword">return</span> bitmap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>当Activity LauncherMode 为singleTask singleInstance时,使用startActivityForResult会立马返回，不能正常调用。具体请看<a target="_blank" rel="noopener" href="http://www.360doc.com/content/15/0123/14/12928831_443085580.shtml">链接</a></p>
 </li>
 <li><p>当PopupWindow中有EditText控件时,因为Popupwindow 默认没有获取到焦点，需要手动设置焦点，这样子view才能获取到事件的监听。所以你需要在创建完popwindow后设置他的焦点，popupWindow.setFocusable(true);就可以让EditText获取焦点。</p>
@@ -660,8 +680,7 @@
 <li><p>tools标签可以很好的帮助开发者实时预览xml的效果,通过tools:background可以预览控件所占的控件,tools:visibility可以把一个gone的控件在预览的时候展示出来,并且运行以后tools标签的内容不会展示出来.</p>
 </li>
 <li><p>android studio 2.1起已经支持jdk8了,使用的时候要在gradle中加上,需要把buildToolsVersion更新到24以上的版本</p>
-  <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    defaultConfig</span><br><span class="line">    &#123;</span><br><span class="line">        jackOptions</span><br><span class="line">        &#123;</span><br><span class="line">            enabled <span class="keyword">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    compileOptions</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">targetCompatibility</span> <span class="number">1.8</span></span><br><span class="line">        <span class="keyword">sourceCompatibility</span> <span class="number">1.8</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    defaultConfig</span><br><span class="line">    &#123;</span><br><span class="line">        jackOptions</span><br><span class="line">        &#123;</span><br><span class="line">            enabled <span class="keyword">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    compileOptions</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">targetCompatibility</span> <span class="number">1.8</span></span><br><span class="line">        <span class="keyword">sourceCompatibility</span> <span class="number">1.8</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>6.0之后getResources().getColor()方法被废弃了，大家可以用ContextCompat.getColor(context, R.color.color_name)替换，ContextCompat 是 v4 包里的，请放心使用，另外还有getDrawable()等方法</p>
 </li>
 <li><p>SharedPreference.Editor的apply是异步操作，不会返回成功的状态，而commit是同步操作，因此，在多个并发的提交commit的时候，他们会等待正在处理的commit保存到磁盘后再操作下一个数据，从而降低了效率。</p>
@@ -673,8 +692,7 @@
 <li><p>Activity的onDestory方法调用时机是不确定的（有时候离开界面很久之后才会调用onDestory方法），应该避免指望通过onDestory方法去释放与Activity相关的资源，否则会导致一些随机bug</p>
 </li>
 <li><p>.gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。那么解决方法就是先把本地缓存删除（改变成未track状态），然后再提交：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m &#39;update .gitignore&#39;</span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m &#39;update .gitignore&#39;</span><br></pre></td></tr></table></figure></li>
 <li><p>时间戳请使用long或者String类型接收，遇到的坑,由于项目中的model好多都是通过GsonFormat生成的，服务器给的json中的时间戳都是10位的，导致了GsonFormat自动解析成了int, 当测试人员选择时间为2100年的时候时间戳是4开头的十位 用int类型接收越界了,导致报错</p>
 </li>
 <li><p>为你的app添加默认布局样式,比如:每一个控件都需要写width和height属性,然而很多的控件的宽高属性都是wrap_content,那么我们可以通过在style文件添加如下样式:</p>
@@ -682,8 +700,7 @@
 <p>  这样,控件的宽高默认都是wrap_content样式啦。</p>
 </li>
 <li><p>在style中写的样式通过视同parent标签来扩展你的样式,这样更高效,这里官方的建议是，只有Android自带的style才用parent标签，如果是自定义的style，直接用.符号来连接就行。如Fill.Height。</p>
-  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;Fill&quot;</span>&gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:layout_width&quot;</span>&gt;</span>fill_parent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:layout_height&quot;</span>&gt;</span>fill_parent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;Fill.Height&quot;</span> &gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:orientation&quot;</span>&gt;</span>vertical<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;Fill&quot;</span>&gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:layout_width&quot;</span>&gt;</span>fill_parent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:layout_height&quot;</span>&gt;</span>fill_parent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;Fill.Height&quot;</span> &gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:orientation&quot;</span>&gt;</span>vertical<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
 <li><p>Android上的应用切换按钮列出的其实不是应用而是Task，所以你会看到有的应用在切换视图里有多个任务。如果你的应用中有逻辑上相互独立的部分，或者想在多窗口环境下并排显示应用的两个不同部分，这种情况就适合多任务了。使用manifest属性(静态)或者 intent flags(动态)可以实现这一点,详见<a target="_blank" rel="noopener" href="http://v.youku.com/v_show/id_XMTU2ODk4NDg2NA==.html?f=26587294">视频</a></p>
 <p>  <img src="https://raw.githubusercontent.com/jiang111/awesome-android-tips/master/img/multy_task1.jpg" alt="img"></p>
 </li>
@@ -704,17 +721,13 @@
 <li><p>Android中的四大组件千万不要通过new的方式创建出来。</p>
 </li>
 <li><p>测试app的时候,我们大都想要将debug和release版本同时安装到手机里,可以通过在gradle中修改applicationid来实现:</p>
-  <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        debug &#123;</span><br><span class="line">            applicationIdSuffix <span class="string">&#x27;.debug&#x27;</span></span><br><span class="line">            versionNameSuffix <span class="string">&#x27;-DEBUG&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">        release &#123;</span><br><span class="line">            <span class="comment">//...</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        debug &#123;</span><br><span class="line">            applicationIdSuffix <span class="string">&#x27;.debug&#x27;</span></span><br><span class="line">            versionNameSuffix <span class="string">&#x27;-DEBUG&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">        release &#123;</span><br><span class="line">            <span class="comment">//...</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>同样,在Support Library 24.2.0中增加RecyclerView 在快速滚动时的回调接口,SnapHelper是官方的一个实现OnFlingListener 的 一个抽象类,LinearSnapHelper 则是一个完整的实现.LinearSnapHelper默认实现的功能是类似ViewPager,在滚动结束后,会选择列表某一条居中展示(这里有开始位置展示,或者结束位置显示点我).例如:</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LinearLayoutManager linearLayoutManager = <span class="keyword">new</span> LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, <span class="keyword">false</span>);</span><br><span class="line">recyclerView.setLayoutManager(linearLayoutManager);</span><br><span class="line">LinearSnapHelper snapHelper = <span class="keyword">new</span> LinearSnapHelper();</span><br><span class="line">snapHelper.attachToRecyclerView(recyclerView);</span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LinearLayoutManager linearLayoutManager = <span class="keyword">new</span> LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL, <span class="keyword">false</span>);</span><br><span class="line">recyclerView.setLayoutManager(linearLayoutManager);</span><br><span class="line">LinearSnapHelper snapHelper = <span class="keyword">new</span> LinearSnapHelper();</span><br><span class="line">snapHelper.attachToRecyclerView(recyclerView);</span><br></pre></td></tr></table></figure></li>
 <li><p>Android中推荐使用的数据结构 :</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ArrayMap&lt;K,V&gt; in place of HashMap&lt;K,V&gt;</span><br><span class="line">ArraySet&lt;K,V&gt; in place of HashSet&lt;K,V&gt;</span><br><span class="line">SparseArray&lt;V&gt; in place of HashMap&lt;Integer,V&gt;</span><br><span class="line">SparseBooleanArray in place of HashMap&lt;Integer,Boolean&gt;</span><br><span class="line">SparseIntArray in place of HashMap&lt;Integer,Integer&gt;</span><br><span class="line">SparseLongArray in place of HashMap&lt;Integer,Long&gt;</span><br><span class="line">LongSparseArray&lt;V&gt; in place of HashMap&lt;Long,V&gt;</span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ArrayMap&lt;K,V&gt; in place of HashMap&lt;K,V&gt;</span><br><span class="line">ArraySet&lt;K,V&gt; in place of HashSet&lt;K,V&gt;</span><br><span class="line">SparseArray&lt;V&gt; in place of HashMap&lt;Integer,V&gt;</span><br><span class="line">SparseBooleanArray in place of HashMap&lt;Integer,Boolean&gt;</span><br><span class="line">SparseIntArray in place of HashMap&lt;Integer,Integer&gt;</span><br><span class="line">SparseLongArray in place of HashMap&lt;Integer,Long&gt;</span><br><span class="line">LongSparseArray&lt;V&gt; in place of HashMap&lt;Long,V&gt;</span><br></pre></td></tr></table></figure></li>
 <li><p>生成GUID(由于java中只能生成UUID,所以这里要转换一下):</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> UUID.randomUUID().toString().toUpperCase().replaceAll(<span class="string">&quot;-&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> UUID.randomUUID().toString().toUpperCase().replaceAll(<span class="string">&quot;-&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br></pre></td></tr></table></figure></li>
 <li><p>业务场景：需要定时后台扫描数据库，上传本地照片至云端，定时任务采用何种模式: 1.Handler或者Timer定时一般为秒级别的任务,Timer会启动额外线程，而Handler可以不用。 2.无论是Handler还是Timer都需要依赖于进程存活 3.利用Handler实现定时任务的类:HandlerTimer 4.如果时间较长，则需要使用AlarmManager 5.另外，我们对于这种业务应该优先考虑是否可以基于事件通知。 6.如果是加入媒体库的文件，我们可以使用registerContentObserver监听媒体库文件变化。</p>
 </li>
 <li><p>把Activity作为参数传给一个静态方法,会影响这个Activity的正常销毁吗? 1.内存泄露与方法是否是静态与否无关，与内部的方法体实现有关系。 2.内存泄露可以简单理解成：生命周期长的对象不正确持有了持有了生命周期短的对象，导致生命周期短的对象无法回收。 3.比如Activity实例被Application对象持有，Activity实例被静态变量持有。</p>
@@ -736,22 +749,18 @@
 <li><p>使用Toast时，建议定义一个全局的Toast对象，这样可以避免连续显示Toast时不能取消上一次Toast消息的情况（如果你有连续弹出Toast的情况，避免使用Toast.makeText）；</p>
 </li>
 <li><p>尽量避免给window和Activity同时都设置了背景，这样会造成过渡绘制，可以通过在给Activity设置主题时，去掉windowBackground背景的方式减少一层过渡绘制，有时候为了避免进入Activity时会黑屏或者白屏（和主题有关），会在给Activity设置主题的时候给window设置背景，如果这种情况下给Activity也设置了背景，是会增加一倍内存的：</p>
-  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:windowBackground&quot;</span>&gt;</span>@null<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:windowBackground&quot;</span>&gt;</span>@null<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
 <li><p>设置中更改字体为特大之类的会影响到app的字体样式，解决方法有: 1.将所有字体使用的单位换成dp，不再使用sp.这样不是很靠谱，并不是所有人都能做到。</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Configuration configuration = getResources().getConfiguration();</span><br><span class="line">configuration.fontScale = (<span class="keyword">float</span>) <span class="number">1</span>;</span><br><span class="line"><span class="comment">//0.85 小, 1 标准大小, 1.15 大，1.3 超大 ，1.45 特大</span></span><br><span class="line">DisplayMetrics metrics = <span class="keyword">new</span> DisplayMetrics();</span><br><span class="line">getWindowManager().getDefaultDisplay().getMetrics(metrics);</span><br><span class="line">metrics.scaledDensity = configuration.fontScale * metrics.density;</span><br><span class="line">getBaseContext().getResources().updateConfiguration(configuration, metrics);</span><br><span class="line"><span class="comment">//（ps:dialog popupwindow 除外,这两种需要在控件中重新设置fontScale)</span></span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Configuration configuration = getResources().getConfiguration();</span><br><span class="line">configuration.fontScale = (<span class="keyword">float</span>) <span class="number">1</span>;</span><br><span class="line"><span class="comment">//0.85 小, 1 标准大小, 1.15 大，1.3 超大 ，1.45 特大</span></span><br><span class="line">DisplayMetrics metrics = <span class="keyword">new</span> DisplayMetrics();</span><br><span class="line">getWindowManager().getDefaultDisplay().getMetrics(metrics);</span><br><span class="line">metrics.scaledDensity = configuration.fontScale * metrics.density;</span><br><span class="line">getBaseContext().getResources().updateConfiguration(configuration, metrics);</span><br><span class="line"><span class="comment">//（ps:dialog popupwindow 除外,这两种需要在控件中重新设置fontScale)</span></span><br></pre></td></tr></table></figure></li>
 <li><p>Android中新引入的替代枚举的注解有IntDef和StringDef,这里以IntDef做例子说明一下</p>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Colors</span> </span>&#123;</span><br><span class="line">    <span class="meta">@IntDef(&#123;RED, GREEN, YELLOW&#125;)</span></span><br><span class="line">    <span class="comment">//声明必要的int常量,使用@IntDef修饰LightColors,参数设置为待枚举的集合</span></span><br><span class="line">    <span class="meta">@Retention(RetentionPolicy.SOURCE)</span></span><br><span class="line">    <span class="comment">//使用@Retention(RetentionPolicy.SOURCE)指定注解仅存在与源码中,不加入到class文件中</span></span><br><span class="line">    <span class="keyword">public</span> <span class="meta">@interface</span> LightColors&#123;&#125;</span><br><span class="line">    <span class="comment">//声明一个注解为LightColors</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> RED = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> GREEN = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> YELLOW = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//用法</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setColor</span><span class="params">(<span class="meta">@Colors</span>.LightColors <span class="keyword">int</span> color)</span> </span>&#123;</span><br><span class="line">        Log.d(<span class="string">&quot;MainActivity&quot;</span>, <span class="string">&quot;setColor color=&quot;</span> + color);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用的该方法的时候</span></span><br><span class="line">setColor(Colors.GREEN);</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>PathInterpolatorCompat 很方便的使用它来创建各种插值曲线，举个非常简单的例子：</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Path path = <span class="keyword">new</span> Path();</span><br><span class="line">path.cubicTo(<span class="number">0.2f</span>, <span class="number">0f</span>, <span class="number">0.1f</span>, <span class="number">1f</span>, <span class="number">0.5f</span>, <span class="number">1f</span>);</span><br><span class="line">path.lineTo(<span class="number">1f</span>, <span class="number">1f</span>);</span><br><span class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(view, View.TRANSLATION_X, <span class="number">500</span>);</span><br><span class="line">animator.setInterpolator(PathInterpolatorCompat.create(path));</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Path path = <span class="keyword">new</span> Path();</span><br><span class="line">path.cubicTo(<span class="number">0.2f</span>, <span class="number">0f</span>, <span class="number">0.1f</span>, <span class="number">1f</span>, <span class="number">0.5f</span>, <span class="number">1f</span>);</span><br><span class="line">path.lineTo(<span class="number">1f</span>, <span class="number">1f</span>);</span><br><span class="line">ObjectAnimator animator = ObjectAnimator.ofFloat(view, View.TRANSLATION_X, <span class="number">500</span>);</span><br><span class="line">animator.setInterpolator(PathInterpolatorCompat.create(path));</span><br><span class="line">animator.start();</span><br></pre></td></tr></table></figure></li>
 <li><p>检测当前网络能否访问远程服务器(国内通过ping百度来检测)</p>
-  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isNetWorkAvailable</span><span class="params">(<span class="keyword">final</span> Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Runtime runtime = Runtime.getRuntime();</span><br><span class="line">            Process pingProcess = runtime.exec(<span class="string">&quot;/system/bin/ping -c 1 www.baidu.com&quot;</span>);</span><br><span class="line">            <span class="keyword">int</span> exitCode = pingProcess.waitFor(); <span class="comment">//0 代表连通，2代表不通</span></span><br><span class="line">            <span class="keyword">return</span> (exitCode == <span class="number">0</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ``</span><br><span class="line"></span><br><span class="line">- 拦截系统返回键(onBackPressed())，使App不退出，而是进入后台运行</span><br><span class="line"></span><br><span class="line">    ``` java</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBackPressed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    moveTaskToBack(<span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isNetWorkAvailable</span><span class="params">(<span class="keyword">final</span> Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Runtime runtime = Runtime.getRuntime();</span><br><span class="line">            Process pingProcess = runtime.exec(<span class="string">&quot;/system/bin/ping -c 1 www.baidu.com&quot;</span>);</span><br><span class="line">            <span class="keyword">int</span> exitCode = pingProcess.waitFor(); <span class="comment">//0 代表连通，2代表不通</span></span><br><span class="line">            <span class="keyword">return</span> (exitCode == <span class="number">0</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ``</span><br><span class="line"></span><br><span class="line">- 拦截系统返回键(onBackPressed())，使App不退出，而是进入后台运行</span><br><span class="line"></span><br><span class="line">    ``` java</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBackPressed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    moveTaskToBack(<span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>view.performClick() 自动调用 View 点击事件。通常按钮等控件只有在用户点击时才能触发其点击事件，该方法可以由某些特殊条件触发模拟用户点击行为。类似的还有 performLongClick() 方法。</p>
 </li>
 </ul>
@@ -803,19 +812,26 @@
 </div>
 
           <div class="post-tags">
+              <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
+              <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
+              <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
+              <a href="/tags/ML/" rel="tag"><i class="fa fa-tag"></i> ML</a>
+              <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
+              <a href="/tags/Html/" rel="tag"><i class="fa fa-tag"></i> Html</a>
+              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+              <a href="/tags/Js/" rel="tag"><i class="fa fa-tag"></i> Js</a>
+              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
+              <a href="/tags/Windows/" rel="tag"><i class="fa fa-tag"></i> Windows</a>
+              <a href="/tags/Bug/" rel="tag"><i class="fa fa-tag"></i> Bug</a>
+              <a href="/tags/IDE/" rel="tag"><i class="fa fa-tag"></i> IDE</a>
+              <a href="/tags/VS/" rel="tag"><i class="fa fa-tag"></i> VS</a>
               <a href="/tags/%E6%95%88%E7%8E%87/" rel="tag"><i class="fa fa-tag"></i> 效率</a>
               <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
-              <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
-              <a href="/tags/Windows/" rel="tag"><i class="fa fa-tag"></i> Windows</a>
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
-              <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
-              <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
-              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
-              <a href="/tags/Android-Studio/" rel="tag"><i class="fa fa-tag"></i> Android Studio</a>
               <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
-              <a href="/tags/Html/" rel="tag"><i class="fa fa-tag"></i> Html</a>
-              <a href="/tags/Tools/" rel="tag"><i class="fa fa-tag"></i> Tools</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
               <a href="/tags/Tips/" rel="tag"><i class="fa fa-tag"></i> Tips</a>
+              <a href="/tags/Android-Studio/" rel="tag"><i class="fa fa-tag"></i> Android Studio</a>
+              <a href="/tags/Tools/" rel="tag"><i class="fa fa-tag"></i> Tools</a>
           </div>
 
         
@@ -877,7 +893,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -925,52 +941,6 @@
 
 
   
-
-  
-      <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              const target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    const script = document.createElement('script');
-    script.src = '/%5Bobject%20Object%5D';
-    script.defer = true;
-    document.head.appendChild(script);
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.typesetClear();
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 <script>

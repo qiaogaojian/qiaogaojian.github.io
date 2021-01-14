@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -96,11 +96,7 @@
   </style>
 </noscript>
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -229,20 +225,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">185</span>
+          <span class="site-state-item-count">192</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -368,30 +364,32 @@
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
         <h1 id="Android离线应用接收推送方法"><a href="#Android离线应用接收推送方法" class="headerlink" title="Android离线应用接收推送方法"></a>Android离线应用接收推送方法</h1><!-- TOC -->
+
 <ul>
-<li><a href="#android离线应用接收推送方法">Android离线应用接收推送方法</a><ul>
-<li><a href="#通知栏消息离线接收">通知栏消息离线接收</a><ul>
-<li><a href="#条件">条件</a></li>
-<li><a href="#缺点">缺点</a></li>
+<li><a href="#android%E7%A6%BB%E7%BA%BF%E5%BA%94%E7%94%A8%E6%8E%A5%E6%94%B6%E6%8E%A8%E9%80%81%E6%96%B9%E6%B3%95">Android离线应用接收推送方法</a><ul>
+<li><a href="#%E9%80%9A%E7%9F%A5%E6%A0%8F%E6%B6%88%E6%81%AF%E7%A6%BB%E7%BA%BF%E6%8E%A5%E6%94%B6">通知栏消息离线接收</a><ul>
+<li><a href="#%E6%9D%A1%E4%BB%B6">条件</a></li>
+<li><a href="#%E7%BC%BA%E7%82%B9">缺点</a></li>
 </ul>
 </li>
-<li><a href="#透传离线接收消息需要用户手动操作">透传离线接收消息需要用户手动操作</a><ul>
-<li><a href="#小米miui">小米【MIUI】</a></li>
-<li><a href="#华为emotion">华为【Emotion】</a></li>
-<li><a href="#魅族flyme">魅族【Flyme】</a></li>
+<li><a href="#%E9%80%8F%E4%BC%A0%E7%A6%BB%E7%BA%BF%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF%E9%9C%80%E8%A6%81%E7%94%A8%E6%88%B7%E6%89%8B%E5%8A%A8%E6%93%8D%E4%BD%9C">透传离线接收消息需要用户手动操作</a><ul>
+<li><a href="#%E5%B0%8F%E7%B1%B3miui">小米【MIUI】</a></li>
+<li><a href="#%E5%8D%8E%E4%B8%BAemotion">华为【Emotion】</a></li>
+<li><a href="#%E9%AD%85%E6%97%8Fflyme">魅族【Flyme】</a></li>
 <li><a href="#vivofuntouch-os">VIVO【Funtouch OS】</a></li>
 <li><a href="#oppocoloros">OPPO【ColorOS】</a></li>
 </ul>
 </li>
-<li><a href="#工单回复">工单回复</a><ul>
-<li><a href="#华为">华为</a></li>
-<li><a href="#小米">小米</a></li>
+<li><a href="#%E5%B7%A5%E5%8D%95%E5%9B%9E%E5%A4%8D">工单回复</a><ul>
+<li><a href="#%E5%8D%8E%E4%B8%BA">华为</a></li>
+<li><a href="#%E5%B0%8F%E7%B1%B3">小米</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 <!-- /TOC -->
+
 <h2 id="通知栏消息离线接收"><a href="#通知栏消息离线接收" class="headerlink" title="通知栏消息离线接收"></a>通知栏消息离线接收</h2><h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><ul>
 <li><p>手机厂商自带推送</p>
 </li>
@@ -407,13 +405,13 @@
 </li>
 </ul>
 <h2 id="透传离线接收消息需要用户手动操作"><a href="#透传离线接收消息需要用户手动操作" class="headerlink" title="透传离线接收消息需要用户手动操作"></a>透传离线接收消息需要用户手动操作</h2><h3 id="小米【MIUI】"><a href="#小米【MIUI】" class="headerlink" title="小米【MIUI】"></a>小米【MIUI】</h3><p>自启动管理：需要把应用加到【自启动管理】列表，否则杀进程或重新开机后进程无法开启<br>通知栏设置：应用默认都是显示通知栏通知，如果关闭，则收到通知也不会提示<br>网络助手：可以手动禁止已安装的第三方程序访问2G/3G和WIFI的网络和设置以后新安装程序是否允许访问2G/3G和WIFI的网络<br>MIUI 7 神隐模式： 允许应用进行自定义配置模式，应用在后台保持联网可用，否则应用进入后台时，应用无法正常接收消息。【设置】下电量和性能中【神隐模式】</p>
-<p><img src="/images/2019-08-07-12-24-56.png" alt=""></p>
+<p><img src="/images/2019-08-07-12-24-56.png"></p>
 <h3 id="华为【Emotion】"><a href="#华为【Emotion】" class="headerlink" title="华为【Emotion】"></a>华为【Emotion】</h3><p>自启动管理：需要把应用加到【自启动管理】列表，否则杀进程或重新开机后进程不会开启，只能手动开启应用<br>后台应用保护：需要手动把应用加到此列表，否则设备进入睡眠后会自动杀掉应用进程，只有手动开启应用才能恢复运行<br>通知管理：应用状态有三种：提示、允许、禁止。禁止应用则通知栏不会有任何提醒</p>
 <h3 id="魅族【Flyme】"><a href="#魅族【Flyme】" class="headerlink" title="魅族【Flyme】"></a>魅族【Flyme】</h3><p>自启动管理：需要把应用加到【自启动管理】列表，否则杀进程或重新开机后进程无法开启<br>通知栏推送：关闭应用通知则收到消息不会有任何展示<br>省电管理： 安全中心里设置省电模式，在【待机耗电管理】中允许应用待机时，保持允许，否则手机休眠或者应用闲置一段时间，无法正常接收消息。</p>
 <h3 id="VIVO【Funtouch-OS】"><a href="#VIVO【Funtouch-OS】" class="headerlink" title="VIVO【Funtouch OS】"></a>VIVO【Funtouch OS】</h3><p>内存一键清理：需要将应用加入【白名单】列表，否则系统自带的“一键加速”，会杀掉进程<br>自启动管理：需要将应用加入“i管家”中的【自启动管理】列表，否则重启手机后进程不会自启。但强制手动杀进程，即使加了这个列表中，后续进程也无法自启动。</p>
 <h3 id="OPPO【ColorOS】"><a href="#OPPO【ColorOS】" class="headerlink" title="OPPO【ColorOS】"></a>OPPO【ColorOS】</h3><p>冻结应用管理：需要将应用加入纯净后台，否则锁屏状态下无法及时收到消息<br>自启动管理：将应用加入【自启动管理】列表的同时，还需要到设置-应用程序-正在运行里锁定应用进程，否则杀进程或者开机后进程不会开启，只能手动开启应用</p>
-<h2 id="工单回复"><a href="#工单回复" class="headerlink" title="工单回复"></a>工单回复</h2><h3 id="华为"><a href="#华为" class="headerlink" title="华为"></a>华为</h3><p><img src="/images/2019-08-08-10-24-46.png" alt=""></p>
-<h3 id="小米"><a href="#小米" class="headerlink" title="小米"></a>小米</h3><p><img src="/images/2019-08-08-10-26-19.png" alt=""></p>
+<h2 id="工单回复"><a href="#工单回复" class="headerlink" title="工单回复"></a>工单回复</h2><h3 id="华为"><a href="#华为" class="headerlink" title="华为"></a>华为</h3><p><img src="/images/2019-08-08-10-24-46.png"></p>
+<h3 id="小米"><a href="#小米" class="headerlink" title="小米"></a>小米</h3><p><img src="/images/2019-08-08-10-26-19.png"></p>
 
     </div>
 
@@ -470,13 +468,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/" rel="prev" title="Tutorial-Android进阶技巧">
-                  <i class="fa fa-chevron-left"></i> Tutorial-Android进阶技巧
+                <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/" rel="prev" title="Tutorial-Android生命周期详解">
+                  <i class="fa fa-chevron-left"></i> Tutorial-Android生命周期详解
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/" rel="next" title="Tutorial-Android生命周期详解">
-                  Tutorial-Android生命周期详解 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%BC%80%E5%8F%91%E5%B8%B8%E8%A7%81%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="next" title="Tutorial-Android开发常见内存泄漏问题和对应的解决方法">
+                  Tutorial-Android开发常见内存泄漏问题和对应的解决方法 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -525,7 +523,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -573,52 +571,6 @@
 
 
   
-
-  
-      <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              const target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    const script = document.createElement('script');
-    script.src = '/%5Bobject%20Object%5D';
-    script.defer = true;
-    document.head.appendChild(script);
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.typesetClear();
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 <script>

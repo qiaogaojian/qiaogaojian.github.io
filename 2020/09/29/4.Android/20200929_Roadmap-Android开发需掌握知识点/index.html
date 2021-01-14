@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -33,24 +33,31 @@
 <meta property="article:published_time" content="2020-09-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-29T01:11:46.039Z">
 <meta property="article:author" content="qiaogaojian">
-<meta property="article:tag" content="效率">
-<meta property="article:tag" content="Android">
-<meta property="article:tag" content="数据结构">
-<meta property="article:tag" content="算法">
-<meta property="article:tag" content="工具">
+<meta property="article:tag" content="AS">
 <meta property="article:tag" content="AR">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="ML">
+<meta property="article:tag" content="Web">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="Linux">
-<meta property="article:tag" content="AS">
+<meta property="article:tag" content="Js">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="IDE">
+<meta property="article:tag" content="效率">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="Go">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="Asm">
 <meta property="article:tag" content="Android Studio">
 <meta property="article:tag" content="查找">
 <meta property="article:tag" content="OpenGL">
-<meta property="article:tag" content="Go">
 <meta property="article:tag" content="设计模式">
 <meta property="article:tag" content="Tools">
-<meta property="article:tag" content="ML">
 <meta property="article:tag" content="操作系统">
+<meta property="article:tag" content="Rider">
 <meta property="article:tag" content="排序">
+<meta property="article:tag" content="UV">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="evernotecid://F4AD3298-94D2-4DAE-AE83-A4878B7708AD/appyinxiangcom/15437193/ENResource/p54">
 
@@ -111,11 +118,7 @@
   </style>
 </noscript>
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -244,20 +247,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">185</span>
+          <span class="site-state-item-count">192</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -383,132 +386,133 @@
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
         <h1 id="Android-开发需掌握知识点"><a href="#Android-开发需掌握知识点" class="headerlink" title="Android 开发需掌握知识点"></a>Android 开发需掌握知识点</h1><!-- TOC -->
+
 <ul>
-<li><a href="#android-开发需掌握知识点">Android 开发需掌握知识点</a><ul>
-<li><a href="#网络分层模型tcpudphttphttps">网络：分层模型、TCP、UDP、HTTP、HTTPS</a><ul>
-<li><a href="#分层模型">分层模型</a></li>
+<li><a href="#android-%E5%BC%80%E5%8F%91%E9%9C%80%E6%8E%8C%E6%8F%A1%E7%9F%A5%E8%AF%86%E7%82%B9">Android 开发需掌握知识点</a><ul>
+<li><a href="#%E7%BD%91%E7%BB%9C%E5%88%86%E5%B1%82%E6%A8%A1%E5%9E%8Btcpudphttphttps">网络：分层模型、TCP、UDP、HTTP、HTTPS</a><ul>
+<li><a href="#%E5%88%86%E5%B1%82%E6%A8%A1%E5%9E%8B">分层模型</a></li>
 <li><a href="#udp">UDP</a></li>
 <li><a href="#tcp">TCP</a></li>
 <li><a href="#http">HTTP</a></li>
 <li><a href="#https">HTTPS</a></li>
 </ul>
 </li>
-<li><a href="#算法数据结构常用算法">算法：数据结构、常用算法</a><ul>
-<li><a href="#数据结构">数据结构</a></li>
-<li><a href="#常用算法">常用算法</a></li>
+<li><a href="#%E7%AE%97%E6%B3%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95">算法：数据结构、常用算法</a><ul>
+<li><a href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a></li>
+<li><a href="#%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95">常用算法</a></li>
 </ul>
 </li>
-<li><a href="#java-基础stringbuilder泛型擦除exceptionio容器">Java 基础：StringBuilder、泛型擦除、Exception、IO、容器</a><ul>
+<li><a href="#java-%E5%9F%BA%E7%A1%80stringbuilder%E6%B3%9B%E5%9E%8B%E6%93%A6%E9%99%A4exceptionio%E5%AE%B9%E5%99%A8">Java 基础：StringBuilder、泛型擦除、Exception、IO、容器</a><ul>
 <li><a href="#stringbuilder">StringBuilder</a></li>
-<li><a href="#泛型擦除">泛型擦除</a></li>
-<li><a href="#exception-和-error">Exception 和 Error</a></li>
+<li><a href="#%E6%B3%9B%E5%9E%8B%E6%93%A6%E9%99%A4">泛型擦除</a></li>
+<li><a href="#exception-%E5%92%8C-error">Exception 和 Error</a></li>
 <li><a href="#io--nio-okio">IO 、 NIO、 OKIO</a></li>
 <li><a href="#arraylistlinkedlist">ArrayList、LinkedList</a></li>
 <li><a href="#hashmap-hashtablehashset">HashMap 、HashTable、HashSet</a></li>
 <li><a href="#arraymapsparsearray">ArrayMap、SparseArray</a></li>
-<li><a href="#concurrent-集合">Concurrent 集合</a></li>
-<li><a href="#lrucache-原理">LRUCache 原理</a></li>
+<li><a href="#concurrent-%E9%9B%86%E5%90%88">Concurrent 集合</a></li>
+<li><a href="#lrucache-%E5%8E%9F%E7%90%86">LRUCache 原理</a></li>
 </ul>
 </li>
-<li><a href="#java-同步volatilewaitsynchronized可重入锁乐观锁死锁">Java 同步：volatile、wait、synchronized、可重入锁、乐观锁、死锁</a><ul>
-<li><a href="#volatile-关键字">volatile 关键字</a></li>
-<li><a href="#wait-和-sleep">wait 和 sleep</a></li>
+<li><a href="#java-%E5%90%8C%E6%AD%A5volatilewaitsynchronized%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81%E4%B9%90%E8%A7%82%E9%94%81%E6%AD%BB%E9%94%81">Java 同步：volatile、wait、synchronized、可重入锁、乐观锁、死锁</a><ul>
+<li><a href="#volatile-%E5%85%B3%E9%94%AE%E5%AD%97">volatile 关键字</a></li>
+<li><a href="#wait-%E5%92%8C-sleep">wait 和 sleep</a></li>
 <li><a href="#waitnotifynotifyall">wait、notify、notifyAll</a></li>
-<li><a href="#lock-和-synchronized">lock 和 synchronized</a></li>
-<li><a href="#synchronized-原理">Synchronized 原理</a></li>
-<li><a href="#可重入锁">可重入锁</a></li>
-<li><a href="#公平锁">公平锁</a></li>
-<li><a href="#乐观锁和悲观锁">乐观锁和悲观锁</a></li>
-<li><a href="#死锁-4-个必要条件">死锁 4 个必要条件</a></li>
+<li><a href="#lock-%E5%92%8C-synchronized">lock 和 synchronized</a></li>
+<li><a href="#synchronized-%E5%8E%9F%E7%90%86">Synchronized 原理</a></li>
+<li><a href="#%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81">可重入锁</a></li>
+<li><a href="#%E5%85%AC%E5%B9%B3%E9%94%81">公平锁</a></li>
+<li><a href="#%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81">乐观锁和悲观锁</a></li>
+<li><a href="#%E6%AD%BB%E9%94%81-4-%E4%B8%AA%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6">死锁 4 个必要条件</a></li>
 </ul>
 </li>
-<li><a href="#java-设计模式六大原则23-种设计模式动态代理">Java 设计模式：六大原则、23 种设计模式、动态代理</a><ul>
-<li><a href="#六大原则">六大原则</a></li>
-<li><a href="#java-23-种设计模式按目的分类为5711">Java 23 种设计模式（按目的分类为：5+7+11）</a><ul>
-<li><a href="#创建型5描述怎么创建对象">创建型（5）：描述怎么创建对象</a></li>
-<li><a href="#结构型7描述如何将类或对象按某种规则组成更大的结构">结构型（7）：描述如何将类或对象按某种规则组成更大的结构</a></li>
-<li><a href="#行为型11描述类或对象之间怎么相互协作怎样分配职责">行为型（11）：描述类或对象之间怎么相互协作，怎样分配职责</a></li>
+<li><a href="#java-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%9923-%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86">Java 设计模式：六大原则、23 种设计模式、动态代理</a><ul>
+<li><a href="#%E5%85%AD%E5%A4%A7%E5%8E%9F%E5%88%99">六大原则</a></li>
+<li><a href="#java-23-%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%8C%89%E7%9B%AE%E7%9A%84%E5%88%86%E7%B1%BB%E4%B8%BA5711">Java 23 种设计模式（按目的分类为：5+7+11）</a><ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E5%9E%8B5%E6%8F%8F%E8%BF%B0%E6%80%8E%E4%B9%88%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1">创建型（5）：描述怎么创建对象</a></li>
+<li><a href="#%E7%BB%93%E6%9E%84%E5%9E%8B7%E6%8F%8F%E8%BF%B0%E5%A6%82%E4%BD%95%E5%B0%86%E7%B1%BB%E6%88%96%E5%AF%B9%E8%B1%A1%E6%8C%89%E6%9F%90%E7%A7%8D%E8%A7%84%E5%88%99%E7%BB%84%E6%88%90%E6%9B%B4%E5%A4%A7%E7%9A%84%E7%BB%93%E6%9E%84">结构型（7）：描述如何将类或对象按某种规则组成更大的结构</a></li>
+<li><a href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B11%E6%8F%8F%E8%BF%B0%E7%B1%BB%E6%88%96%E5%AF%B9%E8%B1%A1%E4%B9%8B%E9%97%B4%E6%80%8E%E4%B9%88%E7%9B%B8%E4%BA%92%E5%8D%8F%E4%BD%9C%E6%80%8E%E6%A0%B7%E5%88%86%E9%85%8D%E8%81%8C%E8%B4%A3">行为型（11）：描述类或对象之间怎么相互协作，怎样分配职责</a></li>
 </ul>
 </li>
-<li><a href="#动态代理原理及实现">动态代理原理及实现</a></li>
+<li><a href="#%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0">动态代理原理及实现</a></li>
 </ul>
 </li>
-<li><a href="#jvm内存模型内存结构gc四种引用classloader">JVM：内存模型、内存结构、GC、四种引用、ClassLoader</a><ul>
+<li><a href="#jvm%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84gc%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8classloader">JVM：内存模型、内存结构、GC、四种引用、ClassLoader</a><ul>
 <li><a href="#jvm">JVM</a></li>
-<li><a href="#jvm-内存模型">JVM 内存模型</a></li>
-<li><a href="#jvm-内存结构">JVM 内存结构</a><ul>
-<li><a href="#线程私有">线程私有：</a></li>
-<li><a href="#线程共享">线程共享：</a></li>
+<li><a href="#jvm-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B">JVM 内存模型</a></li>
+<li><a href="#jvm-%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84">JVM 内存结构</a><ul>
+<li><a href="#%E7%BA%BF%E7%A8%8B%E7%A7%81%E6%9C%89">线程私有：</a></li>
+<li><a href="#%E7%BA%BF%E7%A8%8B%E5%85%B1%E4%BA%AB">线程共享：</a></li>
 </ul>
 </li>
 <li><a href="#gc">GC</a></li>
 <li><a href="#minor-gcmajor-gcfull-gc">Minor GC/Major GC/Full GC</a></li>
-<li><a href="#四种引用">四种引用</a></li>
+<li><a href="#%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8">四种引用</a></li>
 <li><a href="#classloader">ClassLoader</a><ul>
-<li><a href="#类的生命周期1加载2验证3准备4解析5初始化6使用7卸载">类的生命周期：1.加载；2.验证；3.准备；4.解析；5.初始化；6.使用；7.卸载</a></li>
-<li><a href="#类加载过程">类加载过程：</a></li>
-<li><a href="#类加载时机">类加载时机：</a></li>
-<li><a href="#类加载器负责加载-class-文件">类加载器：负责加载 class 文件</a></li>
-<li><a href="#双亲委托模型">双亲委托模型：</a></li>
+<li><a href="#%E7%B1%BB%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F1%E5%8A%A0%E8%BD%BD2%E9%AA%8C%E8%AF%813%E5%87%86%E5%A4%874%E8%A7%A3%E6%9E%905%E5%88%9D%E5%A7%8B%E5%8C%966%E4%BD%BF%E7%94%A87%E5%8D%B8%E8%BD%BD">类的生命周期：1.加载；2.验证；3.准备；4.解析；5.初始化；6.使用；7.卸载</a></li>
+<li><a href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B">类加载过程：</a></li>
+<li><a href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%97%B6%E6%9C%BA">类加载时机：</a></li>
+<li><a href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E8%B4%9F%E8%B4%A3%E5%8A%A0%E8%BD%BD-class-%E6%96%87%E4%BB%B6">类加载器：负责加载 class 文件</a></li>
+<li><a href="#%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%89%98%E6%A8%A1%E5%9E%8B">双亲委托模型：</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#android-基础activityview-绘制动画windowsurfaceview事件分发">Android 基础：Activity、View 绘制、动画、Window、SurfaceView、事件分发</a><ul>
-<li><a href="#activity-生命周期">Activity 生命周期</a></li>
-<li><a href="#activity-启动模式">Activity 启动模式</a></li>
-<li><a href="#view-工作原理">View 工作原理</a></li>
-<li><a href="#measurespec-测量规则">MeasureSpec 测量规则</a></li>
-<li><a href="#view-动画帧动画及属性动画">View 动画、帧动画及属性动画</a></li>
+<li><a href="#android-%E5%9F%BA%E7%A1%80activityview-%E7%BB%98%E5%88%B6%E5%8A%A8%E7%94%BBwindowsurfaceview%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91">Android 基础：Activity、View 绘制、动画、Window、SurfaceView、事件分发</a><ul>
+<li><a href="#activity-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">Activity 生命周期</a></li>
+<li><a href="#activity-%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F">Activity 启动模式</a></li>
+<li><a href="#view-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86">View 工作原理</a></li>
+<li><a href="#measurespec-%E6%B5%8B%E9%87%8F%E8%A7%84%E5%88%99">MeasureSpec 测量规则</a></li>
+<li><a href="#view-%E5%8A%A8%E7%94%BB%E5%B8%A7%E5%8A%A8%E7%94%BB%E5%8F%8A%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB">View 动画、帧动画及属性动画</a></li>
 <li><a href="#window-windowmanagerwmssurfaceflinger">Window 、WindowManager、WMS、SurfaceFlinger</a></li>
 <li><a href="#surfaceviewtextureviewsurfacetextureglsurfaceview">SurfaceView、TextureView、SurfaceTexture、GLSurfaceView</a></li>
-<li><a href="#事件分发机制">事件分发机制</a></li>
+<li><a href="#%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91%E6%9C%BA%E5%88%B6">事件分发机制</a></li>
 </ul>
 </li>
-<li><a href="#android-通信handlerparcelableipcbinder">Android 通信：Handler、Parcelable、IPC、Binder</a><ul>
-<li><a href="#handlermessagequeuelooper-及-postdelayed-原理">Handler、MessageQueue、Looper 及 postDelayed 原理</a></li>
+<li><a href="#android-%E9%80%9A%E4%BF%A1handlerparcelableipcbinder">Android 通信：Handler、Parcelable、IPC、Binder</a><ul>
+<li><a href="#handlermessagequeuelooper-%E5%8F%8A-postdelayed-%E5%8E%9F%E7%90%86">Handler、MessageQueue、Looper 及 postDelayed 原理</a></li>
 <li><a href="#serializableparcelable">Serializable、Parcelable</a></li>
-<li><a href="#linux-ipc-方式">Linux IPC 方式</a></li>
+<li><a href="#linux-ipc-%E6%96%B9%E5%BC%8F">Linux IPC 方式</a></li>
 <li><a href="#binder">Binder</a></li>
-<li><a href="#android-为什么选择-binder">Android 为什么选择 binder</a></li>
-<li><a href="#android-ipc-方式">Android IPC 方式</a></li>
+<li><a href="#android-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9-binder">Android 为什么选择 binder</a></li>
+<li><a href="#android-ipc-%E6%96%B9%E5%BC%8F">Android IPC 方式</a></li>
 </ul>
 </li>
-<li><a href="#android-系统系统架构dalvikart系统启动类加载器apk-打包apk-安装">Android 系统：系统架构、Dalvik、ART、系统启动、类加载器、Apk 打包、Apk 安装</a><ul>
-<li><a href="#android-系统架构cf9840b8beafe6eac387a2a0fe150c25jpegevernotecidf4ad3298-94d2-4dae-ae83-a4878b7708adappyinxiangcom15437193enresourcep54">Android 系统架构<img src="evernotecid://F4AD3298-94D2-4DAE-AE83-A4878B7708AD/appyinxiangcom/15437193/ENResource/p54" alt="cf9840b8beafe6eac387a2a0fe150c25.jpeg"></a></li>
-<li><a href="#dalvik-和-art">Dalvik 和 ART</a></li>
-<li><a href="#android-系统启动流程">Android 系统启动流程</a></li>
-<li><a href="#android-类加载器">Android 类加载器</a></li>
-<li><a href="#apk-打包流程">APK 打包流程</a></li>
-<li><a href="#app-安装过程">App 安装过程</a></li>
+<li><a href="#android-%E7%B3%BB%E7%BB%9F%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84dalvikart%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8apk-%E6%89%93%E5%8C%85apk-%E5%AE%89%E8%A3%85">Android 系统：系统架构、Dalvik、ART、系统启动、类加载器、Apk 打包、Apk 安装</a><ul>
+<li><a href="#android-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84cf9840b8beafe6eac387a2a0fe150c25jpegevernotecidf4ad3298-94d2-4dae-ae83-a4878b7708adappyinxiangcom15437193enresourcep54">Android 系统架构<img src="evernotecid://F4AD3298-94D2-4DAE-AE83-A4878B7708AD/appyinxiangcom/15437193/ENResource/p54" alt="cf9840b8beafe6eac387a2a0fe150c25.jpeg"></a></li>
+<li><a href="#dalvik-%E5%92%8C-art">Dalvik 和 ART</a></li>
+<li><a href="#android-%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B">Android 系统启动流程</a></li>
+<li><a href="#android-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8">Android 类加载器</a></li>
+<li><a href="#apk-%E6%89%93%E5%8C%85%E6%B5%81%E7%A8%8B">APK 打包流程</a></li>
+<li><a href="#app-%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B">App 安装过程</a></li>
 </ul>
 </li>
-<li><a href="#android-优化网络优化卡顿优化内存优化瘦包内存泄漏anrnative-crash">Android 优化：网络优化、卡顿优化、内存优化、瘦包、内存泄漏、ANR、Native Crash</a><ul>
-<li><a href="#网络优化及检测">网络优化及检测</a></li>
-<li><a href="#ui-卡顿优化">UI 卡顿优化</a></li>
-<li><a href="#内存优化">内存优化</a><ul>
-<li><a href="#内存问题">内存问题</a></li>
-<li><a href="#检测工具">检测工具</a></li>
+<li><a href="#android-%E4%BC%98%E5%8C%96%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96%E5%8D%A1%E9%A1%BF%E4%BC%98%E5%8C%96%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96%E7%98%A6%E5%8C%85%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8Fanrnative-crash">Android 优化：网络优化、卡顿优化、内存优化、瘦包、内存泄漏、ANR、Native Crash</a><ul>
+<li><a href="#%E7%BD%91%E7%BB%9C%E4%BC%98%E5%8C%96%E5%8F%8A%E6%A3%80%E6%B5%8B">网络优化及检测</a></li>
+<li><a href="#ui-%E5%8D%A1%E9%A1%BF%E4%BC%98%E5%8C%96">UI 卡顿优化</a></li>
+<li><a href="#%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96">内存优化</a><ul>
+<li><a href="#%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98">内存问题</a></li>
+<li><a href="#%E6%A3%80%E6%B5%8B%E5%B7%A5%E5%85%B7">检测工具</a></li>
 </ul>
 </li>
-<li><a href="#瘦包">瘦包</a></li>
-<li><a href="#内存泄漏场景及规避">内存泄漏场景及规避</a></li>
-<li><a href="#anr-问题及分析">ANR 问题及分析</a><ul>
-<li><a href="#anr-分类">anr 分类</a></li>
-<li><a href="#anr-发生过程">anr 发生过程</a></li>
-<li><a href="#监控-anr">监控 anr</a></li>
-<li><a href="#分析-anr">分析 anr</a></li>
-<li><a href="#避免-anr">避免 anr</a></li>
+<li><a href="#%E7%98%A6%E5%8C%85">瘦包</a></li>
+<li><a href="#%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E5%9C%BA%E6%99%AF%E5%8F%8A%E8%A7%84%E9%81%BF">内存泄漏场景及规避</a></li>
+<li><a href="#anr-%E9%97%AE%E9%A2%98%E5%8F%8A%E5%88%86%E6%9E%90">ANR 问题及分析</a><ul>
+<li><a href="#anr-%E5%88%86%E7%B1%BB">anr 分类</a></li>
+<li><a href="#anr-%E5%8F%91%E7%94%9F%E8%BF%87%E7%A8%8B">anr 发生过程</a></li>
+<li><a href="#%E7%9B%91%E6%8E%A7-anr">监控 anr</a></li>
+<li><a href="#%E5%88%86%E6%9E%90-anr">分析 anr</a></li>
+<li><a href="#%E9%81%BF%E5%85%8D-anr">避免 anr</a></li>
 </ul>
 </li>
 <li><a href="#native-crash">Native Crash</a></li>
 </ul>
 </li>
-<li><a href="#其他解析-xml进程保活播放器lintcicdaopjetpack">其他：解析 XML、进程保活、播放器、Lint、CI、CD、AOP、JetPack</a><ul>
-<li><a href="#android-解析-xml">Android 解析 XML</a></li>
-<li><a href="#热修复插件化组件化">热修复、插件化、组件化</a></li>
-<li><a href="#进程保活">进程保活</a></li>
-<li><a href="#播放器原理">播放器原理</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E8%A7%A3%E6%9E%90-xml%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB%E6%92%AD%E6%94%BE%E5%99%A8lintcicdaopjetpack">其他：解析 XML、进程保活、播放器、Lint、CI、CD、AOP、JetPack</a><ul>
+<li><a href="#android-%E8%A7%A3%E6%9E%90-xml">Android 解析 XML</a></li>
+<li><a href="#%E7%83%AD%E4%BF%AE%E5%A4%8D%E6%8F%92%E4%BB%B6%E5%8C%96%E7%BB%84%E4%BB%B6%E5%8C%96">热修复、插件化、组件化</a></li>
+<li><a href="#%E8%BF%9B%E7%A8%8B%E4%BF%9D%E6%B4%BB">进程保活</a></li>
+<li><a href="#%E6%92%AD%E6%94%BE%E5%99%A8%E5%8E%9F%E7%90%86">播放器原理</a></li>
 <li><a href="#lint">Lint</a></li>
 <li><a href="#ci">CI</a></li>
 <li><a href="#aop">AOP</a></li>
@@ -519,6 +523,7 @@
 </li>
 </ul>
 <!-- /TOC -->
+
 <h2 id="网络：分层模型、TCP、UDP、HTTP、HTTPS"><a href="#网络：分层模型、TCP、UDP、HTTP、HTTPS" class="headerlink" title="网络：分层模型、TCP、UDP、HTTP、HTTPS"></a>网络：分层模型、TCP、UDP、HTTP、HTTPS</h2><h3 id="分层模型"><a href="#分层模型" class="headerlink" title="分层模型"></a>分层模型</h3><ul>
 <li>应用层：负责处理特定的应用程序细节，如 HTTP、FTP、DNS</li>
 <li>运输层：为两台主机提供端到端的基础通信，如 TCP、UDP</li>
@@ -532,21 +537,25 @@
 <li>应用：DHCP、DNS、QUCI、VXLAN、GTP-U、TFTP、SNMP</li>
 </ul>
 <h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><ul>
-<li>TCP 头结构：来源端口、目的端口、序号、确认序号、SYN/ACK 等状态位、窗口大小、校验和、紧急指针</li>
-<li>特点：面向字节流、有拥塞和流量控制、可靠、有序、速度慢、较重量，通过滑动窗口实现流量控制、用塞控制</li>
-<li>适用场景：文件传输、浏览器等</li>
-<li>应用：HTTP、HTTPS、RTMP、FTP、SMTP、POP3</li>
-<li><p>三次握手：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. C-&gt;S：SYN，seq&#x3D;x（你能听到吗？）</span><br><span class="line">2. S-&gt;C：SYN，seq&#x3D;y，ack&#x3D;x+1（我能听到，你能听到吗？）</span><br><span class="line">3. C-&gt;S：ACK，seq&#x3D;x+1，ack&#x3D;y+1（我能听到，开始吧）两方都要能确保：我说的话，你能听到；你说的话，我能听到。所以需要三次握手&#96;</span><br></pre></td></tr></table></figure>
+<li><p>TCP 头结构：来源端口、目的端口、序号、确认序号、SYN/ACK 等状态位、窗口大小、校验和、紧急指针</p>
 </li>
+<li><p>特点：面向字节流、有拥塞和流量控制、可靠、有序、速度慢、较重量，通过滑动窗口实现流量控制、用塞控制</p>
+</li>
+<li><p>适用场景：文件传输、浏览器等</p>
+</li>
+<li><p>应用：HTTP、HTTPS、RTMP、FTP、SMTP、POP3</p>
+</li>
+<li><p>三次握手：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. C-&gt;S：SYN，seq&#x3D;x（你能听到吗？）</span><br><span class="line">2. S-&gt;C：SYN，seq&#x3D;y，ack&#x3D;x+1（我能听到，你能听到吗？）</span><br><span class="line">3. C-&gt;S：ACK，seq&#x3D;x+1，ack&#x3D;y+1（我能听到，开始吧）两方都要能确保：我说的话，你能听到；你说的话，我能听到。所以需要三次握手&#96;</span><br></pre></td></tr></table></figure></li>
 <li><p>四次挥手:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. C-&gt;S：FIN，seq&#x3D;p（我说完了）</span><br><span class="line">2. S-&gt;C：ACK，ack&#x3D;p+1（我知道了，等一下，我可能还没说完）</span><br><span class="line">3. S-&gt;C：FIN，seq&#x3D;q，ACK，ack&#x3D;p+1（我也说完了）</span><br><span class="line">4. C-&gt;S：ACK，ack&#x3D;q+1（我知道了，结束吧）</span><br><span class="line">S 收到 C 结束的消息后 S 可能还没说完，没法立即回复结束标示，只能等说完后再告诉 C ：我说完了</span><br></pre></td></tr></table></figure>
+<h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3></li>
+<li><p>超文本传输协议，明文传输，默认 80 端口</p>
 </li>
-</ul>
-<h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><ul>
-<li>超文本传输协议，明文传输，默认 80 端口</li>
-<li>POST 和 GET：Get 参数放在 url 中；Post 参数放在 request Body 中</li>
-<li>访问网页过程：DNS 域名解析、TCP 三次握手建立连接、发起 HTTP 请求</li>
+<li><p>POST 和 GET：Get 参数放在 url 中；Post 参数放在 request Body 中</p>
+</li>
+<li><p>访问网页过程：DNS 域名解析、TCP 三次握手建立连接、发起 HTTP 请求</p>
+</li>
 </ul>
 <h3 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h3><ul>
 <li>默认 443 端口，使用 SSL 协议对 HTTP 传输数据进行了加密，安全</li>
@@ -1166,24 +1175,31 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E6%95%88%E7%8E%87/" rel="tag"><i class="fa fa-tag"></i> 效率</a>
-              <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
-              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
-              <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
+              <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
               <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
+              <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
+              <a href="/tags/ML/" rel="tag"><i class="fa fa-tag"></i> ML</a>
+              <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
               <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
               <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
-              <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
+              <a href="/tags/Js/" rel="tag"><i class="fa fa-tag"></i> Js</a>
+              <a href="/tags/Windows/" rel="tag"><i class="fa fa-tag"></i> Windows</a>
+              <a href="/tags/IDE/" rel="tag"><i class="fa fa-tag"></i> IDE</a>
+              <a href="/tags/%E6%95%88%E7%8E%87/" rel="tag"><i class="fa fa-tag"></i> 效率</a>
+              <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+              <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+              <a href="/tags/Asm/" rel="tag"><i class="fa fa-tag"></i> Asm</a>
               <a href="/tags/Android-Studio/" rel="tag"><i class="fa fa-tag"></i> Android Studio</a>
               <a href="/tags/%E6%9F%A5%E6%89%BE/" rel="tag"><i class="fa fa-tag"></i> 查找</a>
               <a href="/tags/OpenGL/" rel="tag"><i class="fa fa-tag"></i> OpenGL</a>
-              <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
               <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"><i class="fa fa-tag"></i> 设计模式</a>
               <a href="/tags/Tools/" rel="tag"><i class="fa fa-tag"></i> Tools</a>
-              <a href="/tags/ML/" rel="tag"><i class="fa fa-tag"></i> ML</a>
               <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"><i class="fa fa-tag"></i> 操作系统</a>
+              <a href="/tags/Rider/" rel="tag"><i class="fa fa-tag"></i> Rider</a>
               <a href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag"><i class="fa fa-tag"></i> 排序</a>
+              <a href="/tags/UV/" rel="tag"><i class="fa fa-tag"></i> UV</a>
           </div>
 
         
@@ -1245,7 +1261,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1293,52 +1309,6 @@
 
 
   
-
-  
-      <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              const target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    const script = document.createElement('script');
-    script.src = '/%5Bobject%20Object%5D';
-    script.defer = true;
-    document.head.appendChild(script);
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.typesetClear();
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 <script>

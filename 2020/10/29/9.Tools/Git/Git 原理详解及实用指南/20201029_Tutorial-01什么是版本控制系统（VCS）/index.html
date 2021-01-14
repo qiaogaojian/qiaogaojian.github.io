@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -28,15 +28,17 @@
 <meta property="og:site_name" content="行则将至">
 <meta property="og:description" content="什么是版本控制系统（VCS） 很多人认为 Git 难以理解的第一个门槛在于：所谓的「Git 是一个分布式版本控制系统」这句话的具体含义不够清楚。其实分布式版本控制系统（Distributed Version Control System - DVCS）这个定义并不难，不过一步一步来，我先告诉你，什么是版本控制系统（Version Control System - VCS）。  版本控制：最基本功能">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/30/1600a9978ea4bec3?w=424&amp;h=313&amp;f=jpeg&amp;s=15661">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/30/1600a9978ea4bec3?w=424&h=313&f=jpeg&s=15661">
 <meta property="article:published_time" content="2020-10-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-10-29T03:18:18.746Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="Git">
+<meta property="article:tag" content="Bug">
+<meta property="article:tag" content="Go">
 <meta property="article:tag" content="查找">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2017/11/30/1600a9978ea4bec3?w=424&amp;h=313&amp;f=jpeg&amp;s=15661">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2017/11/30/1600a9978ea4bec3?w=424&h=313&f=jpeg&s=15661">
 
 
 <link rel="canonical" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-01%E4%BB%80%E4%B9%88%E6%98%AF%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%EF%BC%88VCS%EF%BC%89/">
@@ -95,11 +97,7 @@
   </style>
 </noscript>
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -228,20 +226,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">185</span>
+          <span class="site-state-item-count">192</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -388,19 +386,19 @@
 <h2 id="中央式版本控制系统"><a href="#中央式版本控制系统" class="headerlink" title="中央式版本控制系统"></a>中央式版本控制系统</h2><p>最初的版本控制系统，是中央式版本控制系统（Centralized VCS），也就是前面我讲的这种。Git 是分布式的版本控制系统（Distributed VCS），它和中央式的区别我在下节说，现在先说一下中央式版本控制系统的工作模型。</p>
 <h3 id="工作模型"><a href="#工作模型" class="headerlink" title="工作模型"></a>工作模型</h3><p>假设你在一个三人团队，你们计划开发一个软件或者系统，并决定使用中央式 VCS 来管理代码。于是：</p>
 <ol>
-<li>作为项目的主工程师，你独自一人花两天时间搭建了项目的框架；</li>
-<li>然后，你在公司的服务器（这个服务器可以是公司内的设备，也可以是你们买的云服务）上<strong>创建了一个中央仓库，并把你的代码提交到了中央仓库上</strong>；</li>
-<li>你的两个队友<strong>从中央仓库取到了你的初始代码</strong>，从此刻开始，你们三人开始<strong>并行开发</strong>；</li>
-<li>在之后的开发过程中，你们三人为了工作方便，总是每人独立负责开发一个功能，在这个功能开发完成后，这个人就把他的这些<strong>新代码提交到中央仓库</strong>；</li>
-<li>每次当有人把代码提交到中央仓库的时候，另外两个人就可以选择<strong>把这些代码同步到自己的机器上</strong>，保持自己的本地代码总是最新的。</li>
+<li> 作为项目的主工程师，你独自一人花两天时间搭建了项目的框架；</li>
+<li> 然后，你在公司的服务器（这个服务器可以是公司内的设备，也可以是你们买的云服务）上<strong>创建了一个中央仓库，并把你的代码提交到了中央仓库上</strong>；</li>
+<li> 你的两个队友<strong>从中央仓库取到了你的初始代码</strong>，从此刻开始，你们三人开始<strong>并行开发</strong>；</li>
+<li> 在之后的开发过程中，你们三人为了工作方便，总是每人独立负责开发一个功能，在这个功能开发完成后，这个人就把他的这些<strong>新代码提交到中央仓库</strong>；</li>
+<li> 每次当有人把代码提交到中央仓库的时候，另外两个人就可以选择<strong>把这些代码同步到自己的机器上</strong>，保持自己的本地代码总是最新的。</li>
 </ol>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/30/1600a9978ea4bec3?w=424&amp;h=313&amp;f=jpeg&amp;s=15661" alt="中央式 VCS"></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/30/1600a9978ea4bec3?w=424&h=313&f=jpeg&s=15661" alt="中央式 VCS"></p>
 <p>中央式 VCS</p>
 <p>而对于团队中的每个人来说，就会更简单一点：</p>
 <ol>
-<li>第一次加入团队时，把中央仓库的代码取下来；</li>
-<li>写完的新功能提交到中央仓库；</li>
-<li>同事提交到中央仓库的新代码，及时同步下来。</li>
+<li> 第一次加入团队时，把中央仓库的代码取下来；</li>
+<li> 写完的新功能提交到中央仓库；</li>
+<li> 同事提交到中央仓库的新代码，及时同步下来。</li>
 </ol>
 <p>这样，一个三人的团队就成功做到了各自在自己的电脑上开发同一个项目，并且互不影响，就好像你们三个人是在同一台电脑上操作一样。</p>
 <p>这就是中央式 VCS 最基本的工作模型。当然，实际的开发工作并没有简单到这种程度，因为你时常会需要处理代码冲突、查看版本历史、回退代码版本等；另外，Git 属于分布式 VCS，它的概念也比中央式 VCS 要复杂一些。但这些概念你需要一步步地理解和吸收，你现在只需要先知道中央式 VCS 的这个基本工作模型，其他的内容我会在后面慢慢地全部讲清楚。</p>
@@ -453,6 +451,8 @@
 
           <div class="post-tags">
               <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
+              <a href="/tags/Bug/" rel="tag"><i class="fa fa-tag"></i> Bug</a>
+              <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
               <a href="/tags/%E6%9F%A5%E6%89%BE/" rel="tag"><i class="fa fa-tag"></i> 查找</a>
               <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"><i class="fa fa-tag"></i> 操作系统</a>
           </div>
@@ -461,13 +461,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-02%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%EF%BC%88DVCS)/" rel="prev" title="Tutorial-02什么是分布式版本控制系统（DVCS)">
-                  <i class="fa fa-chevron-left"></i> Tutorial-02什么是分布式版本控制系统（DVCS)
+                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-03%E4%B8%8A%E6%89%8B%201%EF%BC%9A%E6%96%B0%E5%85%AC%E5%8F%B8%E7%94%A8%20Git%20%E7%AE%A1%E7%90%86%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%80%8E%E4%B9%88%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%EF%BC%9F/" rel="prev" title="Tutorial-03上手 1：新公司用 Git 管理代码，怎么快速上手？">
+                  <i class="fa fa-chevron-left"></i> Tutorial-03上手 1：新公司用 Git 管理代码，怎么快速上手？
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/29/2.TA/20201029_Roadmap-%E6%95%99%E7%A8%8B%E5%88%97%E8%A1%A8/" rel="next" title="Roadmap-教程列表">
-                  Roadmap-教程列表 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/10/29/2.TA/20201029_Roadmap-TA%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF%E5%9B%BE/" rel="next" title="Roadmap-TA学习路线图">
+                  Roadmap-TA学习路线图 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -516,7 +516,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -564,52 +564,6 @@
 
 
   
-
-  
-      <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              const target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    const script = document.createElement('script');
-    script.src = '/%5Bobject%20Object%5D';
-    script.defer = true;
-    document.head.appendChild(script);
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.typesetClear();
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 <script>

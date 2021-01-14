@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -28,15 +28,17 @@
 <meta property="og:site_name" content="行则将至">
 <meta property="og:description" content="高级 2：刚刚提交的代码，发现写错了怎么办？ 刚提交了一个代码，发现有几个字写错了：    怎么修复？  当场再写一个修复这几个错别字的 commit？可以是可以，不过还有一个更加优雅和简单的解决方法：commit -—amend。  “amend” 是「修正」的意思。在提交时，如果加上 --amend 参数，Git 不会在当前 commit 上增加 commit，而是会把当前 commit 里的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fdf01882286d88?w=286&amp;h=178&amp;f=jpeg&amp;s=30022">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fdf0187ef5dbbb?w=557&amp;h=137&amp;f=jpeg&amp;s=41733">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fdf0187f2f4b2d?w=420&amp;h=370&amp;f=gif&amp;s=54907">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fdf01882286d88?w=286&h=178&f=jpeg&s=30022">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fdf0187ef5dbbb?w=557&h=137&f=jpeg&s=41733">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fdf0187f2f4b2d?w=420&h=370&f=gif&s=54907">
 <meta property="article:published_time" content="2020-10-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-10-29T02:28:29.375Z">
 <meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="AR">
 <meta property="article:tag" content="Git">
+<meta property="article:tag" content="Go">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fdf01882286d88?w=286&amp;h=178&amp;f=jpeg&amp;s=30022">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2017/11/21/15fdf01882286d88?w=286&h=178&f=jpeg&s=30022">
 
 
 <link rel="canonical" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-12%E9%AB%98%E7%BA%A7%202%EF%BC%9A%E5%88%9A%E5%88%9A%E6%8F%90%E4%BA%A4%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%8F%91%E7%8E%B0%E5%86%99%E9%94%99%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F/">
@@ -95,11 +97,7 @@
   </style>
 </noscript>
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -228,20 +226,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">185</span>
+          <span class="site-state-item-count">192</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">80</span>
+        <span class="site-state-item-count">85</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -375,15 +373,15 @@
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
         <h1 id="高级-2：刚刚提交的代码，发现写错了怎么办？"><a href="#高级-2：刚刚提交的代码，发现写错了怎么办？" class="headerlink" title="高级 2：刚刚提交的代码，发现写错了怎么办？"></a>高级 2：刚刚提交的代码，发现写错了怎么办？</h1><p>刚提交了一个代码，发现有几个字写错了：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fdf01882286d88?w=286&amp;h=178&amp;f=jpeg&amp;s=30022" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fdf01882286d88?w=286&h=178&f=jpeg&s=30022"></p>
 <p>怎么修复？</p>
 <p>当场再写一个修复这几个错别字的 <code>commit</code>？可以是可以，不过还有一个更加优雅和简单的解决方法：<code>commit -—amend</code>。</p>
 <p>“amend” 是「修正」的意思。在提交时，如果加上 <code>--amend</code> 参数，Git 不会在当前 <code>commit</code> 上增加 <code>commit</code>，而是会把当前 <code>commit</code> 里的内容和暂存区（stageing area）里的内容合并起来后创建一个新的 <code>commit</code>，<strong>用这个新的 <code>commit</code> 把当前 <code>commit</code> 替换掉</strong>。所以 <code>commit --amend</code> 做的事就是它的字面意思：对最新一条 <code>commit</code> 进行修正。</p>
 <p>具体地，对于上面这个错误，你就可以把文件中的错别字修改好之后，输入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add 笑声.txt</span><br><span class="line">git commit --amend</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fdf0187ef5dbbb?w=557&amp;h=137&amp;f=jpeg&amp;s=41733" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fdf0187ef5dbbb?w=557&h=137&f=jpeg&s=41733"></p>
 <p>Git 会把你带到提交信息编辑界面。可以看到，提交信息默认是当前提交的提交信息。你可以修改或者保留它，然后保存退出。然后，你的最新 <code>commit</code> 就被更新了。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fdf0187f2f4b2d?w=420&amp;h=370&amp;f=gif&amp;s=54907" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fdf0187f2f4b2d?w=420&h=370&f=gif&s=54907"></p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这一节的内容只有一点：用 <code>commit --amend</code> 可以修复当前提交的错误。使用方式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br></pre></td></tr></table></figure>
 <p>需要注意的有一点：<code>commit --amend</code> 并不是直接修改原 <code>commit</code> 的内容，而是生成一条新的 <code>commit</code>。</p>
@@ -435,20 +433,22 @@
 </div>
 
           <div class="post-tags">
+              <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
               <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
+              <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-13%E9%AB%98%E7%BA%A7%203%EF%BC%9A%E5%86%99%E9%94%99%E7%9A%84%E4%B8%8D%E6%98%AF%E6%9C%80%E6%96%B0%E7%9A%84%E6%8F%90%E4%BA%A4%EF%BC%8C%E8%80%8C%E6%98%AF%E5%80%92%E6%95%B0%E7%AC%AC%E4%BA%8C%E4%B8%AA%EF%BC%9F/" rel="prev" title="Tutorial-13高级 3：写错的不是最新的提交，而是倒数第二个？">
-                  <i class="fa fa-chevron-left"></i> Tutorial-13高级 3：写错的不是最新的提交，而是倒数第二个？
+                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-11%E9%AB%98%E7%BA%A7%201%EF%BC%9A%E4%B8%8D%E5%96%9C%E6%AC%A2%20merge%20%E7%9A%84%E5%88%86%E5%8F%89%EF%BC%9F%E7%94%A8%20rebase%20%E5%90%A7/" rel="prev" title="Tutorial-11高级 1：不喜欢 merge 的分叉？用 rebase 吧">
+                  <i class="fa fa-chevron-left"></i> Tutorial-11高级 1：不喜欢 merge 的分叉？用 rebase 吧
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-11%E9%AB%98%E7%BA%A7%201%EF%BC%9A%E4%B8%8D%E5%96%9C%E6%AC%A2%20merge%20%E7%9A%84%E5%88%86%E5%8F%89%EF%BC%9F%E7%94%A8%20rebase%20%E5%90%A7/" rel="next" title="Tutorial-11高级 1：不喜欢 merge 的分叉？用 rebase 吧">
-                  Tutorial-11高级 1：不喜欢 merge 的分叉？用 rebase 吧 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-10%E8%BF%9B%E9%98%B6%206%EF%BC%9A%E7%9C%8B%E7%9C%8B%E6%88%91%E9%83%BD%E6%94%B9%E4%BA%86%E4%BB%80%E4%B9%88/" rel="next" title="Tutorial-10进阶 6：看看我都改了什么">
+                  Tutorial-10进阶 6：看看我都改了什么 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -497,7 +497,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -545,52 +545,6 @@
 
 
   
-
-  
-      <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              const target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    const script = document.createElement('script');
-    script.src = '/%5Bobject%20Object%5D';
-    script.defer = true;
-    document.head.appendChild(script);
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.typesetClear();
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 <script>
