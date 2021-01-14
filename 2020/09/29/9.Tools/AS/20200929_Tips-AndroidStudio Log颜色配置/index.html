@@ -94,7 +94,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -207,7 +211,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AndroidStudio-Log-%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE"><span class="nav-text">AndroidStudio Log 颜色配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-1"><span class="nav-text">配置 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-2"><span class="nav-text">配置 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%87%E4%BB%BD"><span class="nav-text">备份</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#androidstudio-log-%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE"><span class="nav-text">AndroidStudio Log 颜色配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-1"><span class="nav-text">配置 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-2"><span class="nav-text">配置 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%87%E4%BB%BD"><span class="nav-text">备份</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -371,71 +375,79 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="AndroidStudio-Log-颜色配置"><a href="#AndroidStudio-Log-颜色配置" class="headerlink" title="AndroidStudio Log 颜色配置"></a>AndroidStudio Log 颜色配置</h1><h2 id="配置-1"><a href="#配置-1" class="headerlink" title="配置 1"></a>配置 1</h2><table>
+        <h1 id="androidstudio-log-颜色配置">AndroidStudio Log 颜色配置</h1>
+<h2 id="配置-1">配置 1</h2>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th><strong>Type</strong></th>
 <th><strong>Color</strong></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>Assert:</td>
 <td>#AA66CC</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Debug:</td>
 <td>#33B5E5</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Error:</td>
 <td>#FF4444</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Info:</td>
 <td>#99CC00</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Verbose:</td>
 <td>#FFFFFF</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Warning:</td>
 <td>#FFBB33</td>
 </tr>
-</tbody></table>
-<h2 id="配置-2"><a href="#配置-2" class="headerlink" title="配置 2"></a>配置 2</h2><table>
+</tbody>
+</table>
+<h2 id="配置-2">配置 2</h2>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>Type</th>
 <th>Color</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>verbose:</td>
 <td><strong>#BBB</strong></td>
 </tr>
-<tr>
+<tr class="even">
 <td>debug:</td>
 <td><strong>#33B5E5</strong></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>info:</td>
 <td><strong>#9C0</strong></td>
 </tr>
-<tr>
+<tr class="even">
 <td>assert:</td>
 <td><strong>#A6C</strong></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>error:</td>
 <td><strong>#F44</strong></td>
 </tr>
-<tr>
+<tr class="even">
 <td>warning:</td>
 <td><strong>#FB3</strong></td>
 </tr>
-</tbody></table>
-<h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><p><a href="/download/setting.androidstudio.zip">setting.androidstudio.zip</a></p>
+</tbody>
+</table>
+<h2 id="备份">备份</h2>
+<p><a href="/download/setting.androidstudio.zip">setting.androidstudio.zip</a></p>
 
     </div>
 
@@ -494,13 +506,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/" rel="prev" title="Trick-AndroidStudio必备插件">
-                  <i class="fa fa-chevron-left"></i> Trick-AndroidStudio必备插件
+                <a href="/2020/09/29/9.Tools/Git/20200929_Bug-gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" rel="prev" title="Bug-gitignore不起作用的解决办法">
+                  <i class="fa fa-chevron-left"></i> Bug-gitignore不起作用的解决办法
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/1.CS/ASM/20200929_Tips-CPU%E7%9A%84%E5%86%85%E5%AD%98%E4%BF%9D%E6%8A%A4/" rel="next" title="Tips-CPU的内存保护">
-                  Tips-CPU的内存保护 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/" rel="next" title="Trick-AndroidStudio必备插件">
+                  Trick-AndroidStudio必备插件 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -597,6 +609,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

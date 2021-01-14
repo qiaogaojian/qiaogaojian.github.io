@@ -38,8 +38,8 @@
 <meta property="article:modified_time" content="2020-09-29T01:11:46.046Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="AR">
-<meta property="article:tag" content="ML">
 <meta property="article:tag" content="Android">
+<meta property="article:tag" content="ML">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/749aabcc6fd96f41ff3179f1e1012294/xmlnote/7FE5D942C3A344CFB7DDEC99CC1CF47B/3744">
 
@@ -100,7 +100,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -213,7 +217,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android%E5%BC%80%E5%8F%91%E4%B8%AD-dp-sp-px-%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-text">Android开发中 dp sp px 的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-text">基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#drawable%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9C%89"><span class="nav-text">drawable文件夹有</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dpi%E6%8C%87%E5%83%8F%E7%B4%A0-%E8%8B%B1%E5%AF%B8"><span class="nav-text">dpi指像素&#x2F;英寸</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E4%BD%93"><span class="nav-text">字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB"><span class="nav-text">对应关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%AE%89%E5%8D%93%E6%9C%BA%E5%9E%8B%E5%90%84%E7%A7%8D%E5%B0%BA%E5%AF%B8%E4%B8%8B%E7%9A%84PX%E4%B8%8EDP%E3%80%81SP%E7%9A%84%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB"><span class="nav-text">1、安卓机型各种尺寸下的PX与DP、SP的对应关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E8%B7%9D%E7%A6%BB%E5%8D%95%E4%BD%8DDP%E4%B8%8EPX%E7%9A%84%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB"><span class="nav-text">2、距离单位DP与PX的对应关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%AD%97%E4%BD%93%E5%8D%95%E4%BD%8DSP%E4%B8%8EPX%E7%9A%84%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB"><span class="nav-text">3、字体单位SP与PX的对应关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#android%E5%BC%80%E5%8F%91%E4%B8%AD-dp-sp-px-%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-text">Android开发中 dp sp px 的理解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-text">基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#drawable%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9C%89"><span class="nav-text">drawable文件夹有</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dpi%E6%8C%87%E5%83%8F%E7%B4%A0%E8%8B%B1%E5%AF%B8"><span class="nav-text">dpi指像素&#x2F;英寸</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E4%BD%93"><span class="nav-text">字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB"><span class="nav-text">对应关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%8D%93%E6%9C%BA%E5%9E%8B%E5%90%84%E7%A7%8D%E5%B0%BA%E5%AF%B8%E4%B8%8B%E7%9A%84px%E4%B8%8Edpsp%E7%9A%84%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB"><span class="nav-text">1、安卓机型各种尺寸下的PX与DP、SP的对应关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%9D%E7%A6%BB%E5%8D%95%E4%BD%8Ddp%E4%B8%8Epx%E7%9A%84%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB"><span class="nav-text">2、距离单位DP与PX的对应关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93%E5%8D%95%E4%BD%8Dsp%E4%B8%8Epx%E7%9A%84%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB"><span class="nav-text">3、字体单位SP与PX的对应关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -367,33 +371,52 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Android开发中-dp-sp-px-的理解"><a href="#Android开发中-dp-sp-px-的理解" class="headerlink" title="Android开发中 dp sp px 的理解"></a>Android开发中 dp sp px 的理解</h1><h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><ul>
-<li><p>px ： 其实就是像素单位，比如我们通常说的手机分辨列表800*400都是px的单位</p>
-</li>
-<li><p>dp ： 设备独立像素 (device independent pixels) 也叫 dip ，在不同的像素密度的设备上会自动适配</p>
-</li>
-<li><p>sp ： 同dp相似，还会根据用户手机系统的字体大小来缩放</p>
-</li>
+        <h1 id="android开发中-dp-sp-px-的理解">Android开发中 dp sp px 的理解</h1>
+<h2 id="基础概念">基础概念</h2>
+<ul>
+<li><p>px ： 其实就是像素单位，比如我们通常说的手机分辨列表800*400都是px的单位</p></li>
+<li><p>dp ： 设备独立像素 (device independent pixels) 也叫 dip ，在不同的像素密度的设备上会自动适配</p></li>
+<li><p>sp ： 同dp相似，还会根据用户手机系统的字体大小来缩放</p></li>
 </ul>
-<h3 id="drawable文件夹有"><a href="#drawable文件夹有" class="headerlink" title="drawable文件夹有"></a>drawable文件夹有</h3><p>ldpi、mdpi、hdpi、xhdpi四种。</p>
-<h3 id="dpi指像素-英寸"><a href="#dpi指像素-英寸" class="headerlink" title="dpi指像素/英寸"></a>dpi指像素/英寸</h3><p>而ldpi指dpi120，</p>
-<p>mdpi指dpi160， icon48<em>48    一般指320</em>480，是标准的 dp大约是1.5倍的pix</p>
-<p>hdpi指dpi240，  icon72<em>72   480</em>800</p>
-<p>xhdpi指dpi320,   icon96<em>96   720</em>1280</p>
-<p>xxhdpi指dpi480   icon144<em>144 1080</em>1920</p>
-<p><img src="https://note.youdao.com/yws/public/resource/749aabcc6fd96f41ff3179f1e1012294/xmlnote/7FE5D942C3A344CFB7DDEC99CC1CF47B/3744" alt="dp1"></p>
-<p><img src="https://note.youdao.com/yws/public/resource/749aabcc6fd96f41ff3179f1e1012294/xmlnote/A342AAD9D65B4C1C9A4E0EC9EBB75932/3746" alt="dp2"></p>
+<h3 id="drawable文件夹有">drawable文件夹有</h3>
+<p>ldpi、mdpi、hdpi、xhdpi四种。</p>
+<h3 id="dpi指像素英寸">dpi指像素/英寸</h3>
+<p>而ldpi指dpi120，</p>
+<p>mdpi指dpi160， icon48<em>48 一般指320</em>480，是标准的 dp大约是1.5倍的pix</p>
+<p>hdpi指dpi240， icon72<em>72 480</em>800</p>
+<p>xhdpi指dpi320, icon96<em>96 720</em>1280</p>
+<p>xxhdpi指dpi480 icon144<em>144 1080</em>1920</p>
+<figure>
+<img src="https://note.youdao.com/yws/public/resource/749aabcc6fd96f41ff3179f1e1012294/xmlnote/7FE5D942C3A344CFB7DDEC99CC1CF47B/3744" alt="dp1" /><figcaption aria-hidden="true">dp1</figcaption>
+</figure>
+<figure>
+<img src="https://note.youdao.com/yws/public/resource/749aabcc6fd96f41ff3179f1e1012294/xmlnote/A342AAD9D65B4C1C9A4E0EC9EBB75932/3746" alt="dp2" /><figcaption aria-hidden="true">dp2</figcaption>
+</figure>
 <p>状态栏高度：50 px</p>
 <p>导航栏高度：96 px</p>
 <p>标签栏高度：96 px</p>
-<p>Android最近出的手机都几乎去掉了实体键，把功能键移到了屏幕中，当然高度也是和标签栏一样的：96 px<br>内容区域高度为：1038 px （1280-50-96-96=1038）</p>
-<p><img src="https://note.youdao.com/yws/public/resource/749aabcc6fd96f41ff3179f1e1012294/xmlnote/70B39302D43E4B6D818FAF46DFCB4643/4802" alt="sp"></p>
+<p>Android最近出的手机都几乎去掉了实体键，把功能键移到了屏幕中，当然高度也是和标签栏一样的：96 px 内容区域高度为：1038 px （1280-50-96-96=1038）</p>
+<figure>
+<img src="https://note.youdao.com/yws/public/resource/749aabcc6fd96f41ff3179f1e1012294/xmlnote/70B39302D43E4B6D818FAF46DFCB4643/4802" alt="sp" /><figcaption aria-hidden="true">sp</figcaption>
+</figure>
 <p>切图720*1280就行了</p>
-<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><p>字号采用12sp(small)、14sp(normal)、18sp(large)、22sp(larger),40sp(huge)等四个级别来设计</p>
-<h2 id="对应关系"><a href="#对应关系" class="headerlink" title="对应关系"></a>对应关系</h2><h3 id="1、安卓机型各种尺寸下的PX与DP、SP的对应关系"><a href="#1、安卓机型各种尺寸下的PX与DP、SP的对应关系" class="headerlink" title="1、安卓机型各种尺寸下的PX与DP、SP的对应关系"></a>1、安卓机型各种尺寸下的PX与DP、SP的对应关系</h3><p><img src="https://upload-images.jianshu.io/upload_images/3947109-2d302aef8242565c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1"></p>
-<h3 id="2、距离单位DP与PX的对应关系"><a href="#2、距离单位DP与PX的对应关系" class="headerlink" title="2、距离单位DP与PX的对应关系"></a>2、距离单位DP与PX的对应关系</h3><p><img src="https://upload-images.jianshu.io/upload_images/3947109-bbf61041ea078b69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2"></p>
-<h3 id="3、字体单位SP与PX的对应关系"><a href="#3、字体单位SP与PX的对应关系" class="headerlink" title="3、字体单位SP与PX的对应关系"></a>3、字体单位SP与PX的对应关系</h3><p><img src="https://upload-images.jianshu.io/upload_images/3947109-885fd2ebd692e437.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="3"></p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="http://www.sohu.com/a/215512768_114819">一款APP设计的从0到1之：Android设计规范篇</a></p>
+<h2 id="字体">字体</h2>
+<p>字号采用12sp(small)、14sp(normal)、18sp(large)、22sp(larger),40sp(huge)等四个级别来设计</p>
+<h2 id="对应关系">对应关系</h2>
+<h3 id="安卓机型各种尺寸下的px与dpsp的对应关系">1、安卓机型各种尺寸下的PX与DP、SP的对应关系</h3>
+<figure>
+<img src="https://upload-images.jianshu.io/upload_images/3947109-2d302aef8242565c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1" /><figcaption aria-hidden="true">1</figcaption>
+</figure>
+<h3 id="距离单位dp与px的对应关系">2、距离单位DP与PX的对应关系</h3>
+<figure>
+<img src="https://upload-images.jianshu.io/upload_images/3947109-bbf61041ea078b69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2" /><figcaption aria-hidden="true">2</figcaption>
+</figure>
+<h3 id="字体单位sp与px的对应关系">3、字体单位SP与PX的对应关系</h3>
+<figure>
+<img src="https://upload-images.jianshu.io/upload_images/3947109-885fd2ebd692e437.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="3" /><figcaption aria-hidden="true">3</figcaption>
+</figure>
+<h2 id="参考链接">参考链接</h2>
+<p><a target="_blank" rel="noopener" href="http://www.sohu.com/a/215512768_114819">一款APP设计的从0到1之：Android设计规范篇</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010413574/article/details/52790253">Android hdpi ldpi mdpi xhdpi xxhdpi适配详解</a></p>
 
     </div>
@@ -444,16 +467,16 @@
 
           <div class="post-tags">
               <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
-              <a href="/tags/ML/" rel="tag"><i class="fa fa-tag"></i> ML</a>
               <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+              <a href="/tags/ML/" rel="tag"><i class="fa fa-tag"></i> ML</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/" rel="prev" title="Tips-Android开发中的Handler">
-                  <i class="fa fa-chevron-left"></i> Tips-Android开发中的Handler
+                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" rel="prev" title="Tips-Android开发规范">
+                  <i class="fa fa-chevron-left"></i> Tips-Android开发规范
                 </a>
             </div>
             <div class="post-nav-item">
@@ -555,6 +578,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

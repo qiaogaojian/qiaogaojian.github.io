@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="Android开发配置ADB环境变量 D:\Android\AndroidSdk\platform-tools 是 adb 程序所在目录, 只需要把这个目录添加到系统环境变量的 path 中, 即可在任意地方使用adb命令">
+  <meta name="description" content="Android开发配置ADB环境变量 D:-tools 是 adb 程序所在目录, 只需要把这个目录添加到系统环境变量的 path 中, 即可在任意地方使用adb命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tips-Android开发配置ADB环境变量">
 <meta property="og:url" content="http://example.com/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E9%85%8D%E7%BD%AEADB%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/index.html">
 <meta property="og:site_name" content="行则将至">
-<meta property="og:description" content="Android开发配置ADB环境变量 D:\Android\AndroidSdk\platform-tools 是 adb 程序所在目录, 只需要把这个目录添加到系统环境变量的 path 中, 即可在任意地方使用adb命令">
+<meta property="og:description" content="Android开发配置ADB环境变量 D:-tools 是 adb 程序所在目录, 只需要把这个目录添加到系统环境变量的 path 中, 即可在任意地方使用adb命令">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-29T01:11:46.048Z">
@@ -93,7 +93,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -206,7 +210,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android%E5%BC%80%E5%8F%91%E9%85%8D%E7%BD%AEADB%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">Android开发配置ADB环境变量</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#android%E5%BC%80%E5%8F%91%E9%85%8D%E7%BD%AEadb%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">Android开发配置ADB环境变量</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -360,7 +364,8 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Android开发配置ADB环境变量"><a href="#Android开发配置ADB环境变量" class="headerlink" title="Android开发配置ADB环境变量"></a>Android开发配置ADB环境变量</h1><p>D:\Android\AndroidSdk\platform-tools 是 adb 程序所在目录, 只需要把这个目录添加到系统环境变量的 path 中, 即可在任意地方使用adb命令</p>
+        <h1 id="android开发配置adb环境变量">Android开发配置ADB环境变量</h1>
+<p>D:-tools 是 adb 程序所在目录, 只需要把这个目录添加到系统环境变量的 path 中, 即可在任意地方使用adb命令</p>
 
     </div>
 
@@ -423,8 +428,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" rel="next" title="Tips-Android开发规范">
-                  Tips-Android开发规范 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/" rel="next" title="Tips-Android开发中的Handler">
+                  Tips-Android开发中的Handler <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -521,6 +526,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

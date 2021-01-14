@@ -87,7 +87,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -279,7 +283,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tutorial-Unity%E4%B8%ADsqlite%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -296,7 +300,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/3.Unity/20200929_Tutorial-Unity%E4%B8%ADsqlite%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Tutorial-Unity中sqlite数据库的使用</a>
+            <a href="/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">Tutorial-2048核心算法</a>
         </h2>
 
         <div class="post-meta-container">
@@ -322,7 +326,7 @@
     </span>
 
   
-    <span id="/2020/09/29/3.Unity/20200929_Tutorial-Unity%E4%B8%ADsqlite%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Unity中sqlite数据库的使用" title="阅读次数">
+    <span id="/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-2048核心算法" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -337,8 +341,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tutorial-Unity%E4%B8%ADsqlite%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tutorial-Unity%E4%B8%ADsqlite%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -353,10 +357,160 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-          <p>Unity中sqlite数据库的使用</p>
+          Unity3d 2048 核心算法讲解
+2048是一款非常好玩的游戏，经常让人花费好几个小时来玩它。 游戏目标是将相同值的格子“合并”在一起，合并到一起后原来格子的值翻倍。 当玩家在她想要的方向上滑动时，格子被移动到一边并且生成新的格子。 如果玩家达到了2048，那么就赢了游戏。 这篇文档主要用来介绍如何在Unity中来制作这个游戏。
+
+输入系统
+游戏实现了通过键盘的箭头键来控制格子移动的方法, 我们通过一个枚举来获取用户的输入和一个必须由我们想要使用的每个输入方法实现的接口IInputDetector。
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+
+public enum InputDirect
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tutorial-Unity%E4%B8%ADsqlite%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/">
+              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-title-link" itemprop="url">Tutorial-PureMVC前置知识点</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/3-Unity/" itemprop="url" rel="index"><span itemprop="name">3.Unity</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-PureMVC前置知识点" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          PureMVC
+PureMVC
+
+123Pattern
+单例
+单例模式
+
+观察者
+观察者模式
+
+Facade 外观
+外观模式
+
+Proxy 代理
+代理模式
+
+Mediator 中介者
+中介者模式
+
+Command 命令
+命令模式
+
+Facade
+Model
+void RegisterProxy(IProxy proxy);
+IProxy RemoveProxy(string proxyName);
+IProxy RetrieveProxy(string proxyName);
+bool HasProxy(string proxyName);
+Proxy
+void OnRegister();
+v
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -464,7 +618,7 @@ C#对象的生命周期
 
 对象
 我们都知道.net将值类型存储在栈中，引用类型存储在堆中，这样做的原因是栈中的数据是轻量级的，而堆中的数据是重量级，目的是在应用程序在操作它们的时候比较方便存取，从而提高程序的运行速度。
-创建一个对象实例，用new+类名+（），就创建了一个对象实例，创建的这个对象实例是引用类型，被存储在托管堆中，以后就不用管它了，new关键字返回一个对象实例存在的地址，这个存储地址（引用）变量，被放在栈
+创建一个对象实例，用new+类名+（），就创建了一个对象实例，创建的这个对象实例是引用类型，被存储在托管堆中，以后就不用管它了，new关键字返回一个对象实例存在的地址，这个存储地址（引用）变量，被放在
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/29/3.Unity/20200929_Tutorial-Unity%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/#more" rel="contents">
@@ -574,9 +728,7 @@ C#对象的生命周期
 包含xxxhdpi资源
 应用图标放在mipmap-folder文件夹
 为debug和release划分不同的资源文件夹
-
-
-尽量使用shapes和selectors
+image尽量使用shapes和selectors
 避免深层次的布局
 尽量使用Gradle引入依赖
 使用Retrofit管理网络请求
@@ -587,123 +739,10 @@ C#对象的生命周期
 IO操作不要放到UI线程
 使用Style复用UI属性
 大量连接String时使用StringBuilder
-Return
+Ret
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/29/4.Android/20200929_BestPractice-Android%E5%BC%80%E5%8F%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADApplication%E5%92%8CActivity%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F%E5%BC%82%E5%B8%B8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADApplication%E5%92%8CActivity%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F%E5%BC%82%E5%B8%B8/" class="post-title-link" itemprop="url">Bug-Android中Application和Activity的启动顺序异常</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADApplication%E5%92%8CActivity%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F%E5%BC%82%E5%B8%B8/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-Android中Application和Activity的启动顺序异常" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADApplication%E5%92%8CActivity%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F%E5%BC%82%E5%B8%B8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADApplication%E5%92%8CActivity%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F%E5%BC%82%E5%B8%B8/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          Android中Application和Activity的启动顺序异常
-发现Activity的OnCreate() 先执行 Application中的OnCreate() 不执行
-错误分析
-没有在 AndroidManifest 文件中指明 Application:name 属性
-
-知识扩展
-application 创建以后就会调用onCreate()
-接下来才去查找对应的Activity并创建,并执行一列表的生命周期
-只要知道这两个类的生命周期即可
-
-Application, Activity, ContentProvider启动顺序
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADApplication%E5%92%8CActivity%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F%E5%BC%82%E5%B8%B8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -915,125 +954,13 @@ Application, Activity, ContentProvider启动顺序
     <meta name="referrer" content="no-referrer"/>
           AAPT2 error: check logs for details
 解决方法
-今天写的布局文件中存在一个错误的属性: android:layout_to=”@id/item_mg_bg_x”
-因为之前项目没有build成功 这个错误没有被IDE检查出来 导致Aapt2报错 把错误的属性改了就好了
+今天写的布局文件中存在一个错误的属性: android:layout_to="@id/item_mg_bg_x" 因为之前项目没有build成功 这个错误没有被IDE检查出来 导致Aapt2报错 把错误的属性改了就好了
 
 参考链接
 AAPT2 error: check logs for details
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/29/4.Android/20200929_Bug-AAPT2_error_check_logs_for_details/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADwebview%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E%E8%AE%BE%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADwebview%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">Bug-Android中webview背景透明设置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADwebview%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E%E8%AE%BE%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-Android中webview背景透明设置" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADwebview%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E%E8%AE%BE%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADwebview%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          Android中 agentweb 背景透明设置
-agentweb在webview的基础上包了一层view 因此需要设置webview以及它的父级view才能实现透明,否则默认是白色背景
-
-1
-2
-
-
-mAgentWeb.getWebCreator().getWebView().setBackgroundColor(0x00000000);
-mAgentWeb.getWebCreator().getWebParentLayout().setBackgroundColor(0x00000000);
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADwebview%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E%E8%AE%BE%E7%BD%AE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1139,6 +1066,117 @@ ScrollView里只放一个元素.当ScrollView里的元素想填满ScrollView时�
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADApplication%E5%92%8CActivity%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F%E5%BC%82%E5%B8%B8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADApplication%E5%92%8CActivity%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F%E5%BC%82%E5%B8%B8/" class="post-title-link" itemprop="url">Bug-Android中Application和Activity的启动顺序异常</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADApplication%E5%92%8CActivity%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F%E5%BC%82%E5%B8%B8/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-Android中Application和Activity的启动顺序异常" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADApplication%E5%92%8CActivity%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F%E5%BC%82%E5%B8%B8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADApplication%E5%92%8CActivity%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F%E5%BC%82%E5%B8%B8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          Android中Application和Activity的启动顺序异常
+发现Activity的OnCreate() 先执行 Application中的OnCreate() 不执行
+错误分析
+没有在 AndroidManifest 文件中指明 Application:name 属性
+
+知识扩展
+application 创建以后就会调用onCreate() 接下来才去查找对应的Activity并创建,并执行一列表的生命周期 只要知道这两个类的生命周期即可
+
+Application, Activity, ContentProvider启动顺序
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADApplication%E5%92%8CActivity%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F%E5%BC%82%E5%B8%B8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1285,7 +1323,7 @@ public void onPageFinished(WebView view, String url)
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%AD%E9%A1%B6%E9%83%A8UI%E9%98%BB%E6%8C%A1%E5%BA%95%E9%83%A8UI%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADwebview%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E%E8%AE%BE%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1302,7 +1340,7 @@ public void onPageFinished(WebView view, String url)
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%AD%E9%A1%B6%E9%83%A8UI%E9%98%BB%E6%8C%A1%E5%BA%95%E9%83%A8UI%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/" class="post-title-link" itemprop="url">Bug-Android中顶部UI阻挡底部UI点击事件</a>
+            <a href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADwebview%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">Bug-Android中webview背景透明设置</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1328,7 +1366,7 @@ public void onPageFinished(WebView view, String url)
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%AD%E9%A1%B6%E9%83%A8UI%E9%98%BB%E6%8C%A1%E5%BA%95%E9%83%A8UI%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-Android中顶部UI阻挡底部UI点击事件" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADwebview%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E%E8%AE%BE%E7%BD%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-Android中webview背景透明设置" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -1343,8 +1381,8 @@ public void onPageFinished(WebView view, String url)
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%AD%E9%A1%B6%E9%83%A8UI%E9%98%BB%E6%8C%A1%E5%BA%95%E9%83%A8UI%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%AD%E9%A1%B6%E9%83%A8UI%E9%98%BB%E6%8C%A1%E5%BA%95%E9%83%A8UI%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADwebview%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E%E8%AE%BE%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADwebview%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E%E8%AE%BE%E7%BD%AE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1359,23 +1397,18 @@ public void onPageFinished(WebView view, String url)
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-          Android中顶部UI阻隔底部UI点击事件
-错误分析
-今天接到一个bug: 在播放一个全屏webp动画时,竟然可以点击下面被遮挡的按钮并触发点击事件,最终通过设置xml文件属性解决, webp 组件为 Fresco 的 SimpleDraweeView
+          Android中 agentweb 背景透明设置
+agentweb在webview的基础上包了一层view 因此需要设置webview以及它的父级view才能实现透明,否则默认是白色背景
 
 1
 2
 
 
-android:focusable="true"
-android:clickable="true"
-
-
-参考引用
-Android: How to prevent any touch events from being passed from a view to the one underneath it?
+mAgentWeb.getWebCreator().getWebView().setBackgroundColor(0x00000000);
+mAgentWeb.getWebCreator().getWebParentLayout().setBackgroundColor(0x00000000);
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%AD%E9%A1%B6%E9%83%A8UI%E9%98%BB%E6%8C%A1%E5%BA%95%E9%83%A8UI%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADwebview%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E%E8%AE%BE%E7%BD%AE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1489,6 +1522,52 @@ Android: How to prevent any touch events from being passed from a view to the on
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

@@ -92,7 +92,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -205,7 +209,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PHPStorm%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5502%E9%97%AE%E9%A2%98"><span class="nav-text">PHPStorm打开网页502问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEPHP%E8%A7%A3%E9%87%8A%E5%99%A8"><span class="nav-text">设置PHP解释器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">设置服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apply-gt-OK"><span class="nav-text">Apply &#x3D;&gt; OK</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#phpstorm%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5502%E9%97%AE%E9%A2%98"><span class="nav-text">PHPStorm打开网页502问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEphp%E8%A7%A3%E9%87%8A%E5%99%A8"><span class="nav-text">设置PHP解释器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">设置服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#apply-ok"><span class="nav-text">Apply &#x3D;&gt; OK</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -363,25 +367,23 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="PHPStorm打开网页502问题"><a href="#PHPStorm打开网页502问题" class="headerlink" title="PHPStorm打开网页502问题"></a>PHPStorm打开网页502问题</h1><h2 id="设置PHP解释器"><a href="#设置PHP解释器" class="headerlink" title="设置PHP解释器"></a>设置PHP解释器</h2><p>File =&gt; Setting =&gt; Languages &amp; Frameworks =&gt; PHP</p>
+        <h1 id="phpstorm打开网页502问题">PHPStorm打开网页502问题</h1>
+<h2 id="设置php解释器">设置PHP解释器</h2>
+<p>File =&gt; Setting =&gt; Languages &amp; Frameworks =&gt; PHP</p>
 <ul>
-<li><p>设置语言版本</p>
-</li>
-<li><p>设置解释器路径</p>
-</li>
+<li><p>设置语言版本</p></li>
+<li><p>设置解释器路径</p></li>
 </ul>
-<h2 id="设置服务器"><a href="#设置服务器" class="headerlink" title="设置服务器"></a>设置服务器</h2><p>File =&gt; Setting =&gt; Build, Execution, Deployment =&gt; Deployment</p>
+<h2 id="设置服务器">设置服务器</h2>
+<p>File =&gt; Setting =&gt; Build, Execution, Deployment =&gt; Deployment</p>
 <ul>
-<li><p>添加新的部署</p>
-</li>
-<li><p>选择 In place 类型</p>
-</li>
-<li><p>server root: localhost</p>
-</li>
-<li><p>local path: D:\xampp\htdocs</p>
-</li>
+<li><p>添加新的部署</p></li>
+<li><p>选择 In place 类型</p></li>
+<li><p>server root: localhost</p></li>
+<li><p>local path: D:</p></li>
 </ul>
-<h2 id="Apply-gt-OK"><a href="#Apply-gt-OK" class="headerlink" title="Apply =&gt; OK"></a>Apply =&gt; OK</h2>
+<h2 id="apply-ok">Apply =&gt; OK</h2>
+
     </div>
 
     
@@ -540,6 +542,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

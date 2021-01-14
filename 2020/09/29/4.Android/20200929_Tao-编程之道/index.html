@@ -32,8 +32,8 @@
 <meta property="article:modified_time" content="2020-09-29T01:11:46.041Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="AR">
-<meta property="article:tag" content="Git">
 <meta property="article:tag" content="Bug">
+<meta property="article:tag" content="Git">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="重构">
 <meta name="twitter:card" content="summary">
@@ -95,7 +95,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -208,7 +212,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E5%87%86%E5%88%99"><span class="nav-text">编程准则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8"><span class="nav-text">代码大全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clean-Code"><span class="nav-text">Clean Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E6%9E%84"><span class="nav-text">重构</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E5%87%86%E5%88%99"><span class="nav-text">编程准则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8"><span class="nav-text">代码大全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clean-code"><span class="nav-text">Clean Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E6%9E%84"><span class="nav-text">重构</span></a></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -362,45 +366,32 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="编程准则"><a href="#编程准则" class="headerlink" title="编程准则"></a>编程准则</h1><ol>
-<li><p>使用有意义的名字</p>
-</li>
-<li><p>杜绝重复代码</p>
-</li>
-<li><p>避免类之间的内部调用,类与类之间只允许通过接口调用</p>
-</li>
-<li><p>想清楚之后再开始写代码 想清楚包括 做什么(需求) 和 怎么做(伪代码) 要写下来!</p>
-</li>
-<li><p>遇到问题先看官方文档</p>
-</li>
-<li><p>不炫技,代码易读性处于首要位置,能简单的实现的就不要复杂</p>
-</li>
-<li><p>不用的代码尽早删除,少既是多</p>
-</li>
-<li><p>保持一个方法中的代码再同一个抽象层</p>
-</li>
-<li><p>坚持契约式编程,输入进来不管三七二十一先验合法性,不合法的情况下有默认输出</p>
-</li>
-<li><p>尽可能减少函数和类的行数</p>
-</li>
-<li><p>只要有错误发生的可能性,这种错误就一定会发生,写代码不要有侥幸心理</p>
-</li>
-<li><p>逻辑复杂的地方多加注释,修改代码时要及时更新注释</p>
-</li>
-<li><p>提交代码要及时,少量,多次 不要积攒一大堆后再提交</p>
-</li>
-<li><p>编码过程中要杜绝不确定性,负责的程序出错了,不管什么原因,不管是不是你写的,都是你的责任</p>
-</li>
-<li><p>杜绝魔法数字, 申请一个有意义的变量装载它</p>
-</li>
-<li><p>for循环不要超过2层</p>
-</li>
-<li><p>使用Git</p>
-</li>
-<li><p>Warning也是一种bug</p>
-</li>
+        <h1 id="编程准则">编程准则</h1>
+<ol type="1">
+<li><p>使用有意义的名字</p></li>
+<li><p>杜绝重复代码</p></li>
+<li><p>避免类之间的内部调用,类与类之间只允许通过接口调用</p></li>
+<li><p>想清楚之后再开始写代码 想清楚包括 做什么(需求) 和 怎么做(伪代码) 要写下来!</p></li>
+<li><p>遇到问题先看官方文档</p></li>
+<li><p>不炫技,代码易读性处于首要位置,能简单的实现的就不要复杂</p></li>
+<li><p>不用的代码尽早删除,少既是多</p></li>
+<li><p>保持一个方法中的代码再同一个抽象层</p></li>
+<li><p>坚持契约式编程,输入进来不管三七二十一先验合法性,不合法的情况下有默认输出</p></li>
+<li><p>尽可能减少函数和类的行数</p></li>
+<li><p>只要有错误发生的可能性,这种错误就一定会发生,写代码不要有侥幸心理</p></li>
+<li><p>逻辑复杂的地方多加注释,修改代码时要及时更新注释</p></li>
+<li><p>提交代码要及时,少量,多次 不要积攒一大堆后再提交</p></li>
+<li><p>编码过程中要杜绝不确定性,负责的程序出错了,不管什么原因,不管是不是你写的,都是你的责任</p></li>
+<li><p>杜绝魔法数字, 申请一个有意义的变量装载它</p></li>
+<li><p>for循环不要超过2层</p></li>
+<li><p>使用Git</p></li>
+<li><p>Warning也是一种bug</p></li>
 </ol>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><h3 id="代码大全"><a href="#代码大全" class="headerlink" title="代码大全"></a>代码大全</h3><h3 id="Clean-Code"><a href="#Clean-Code" class="headerlink" title="Clean Code"></a>Clean Code</h3><h3 id="重构"><a href="#重构" class="headerlink" title="重构"></a>重构</h3>
+<h2 id="参考">参考</h2>
+<h3 id="代码大全">代码大全</h3>
+<h3 id="clean-code">Clean Code</h3>
+<h3 id="重构">重构</h3>
+
     </div>
 
     
@@ -449,8 +440,8 @@
 
           <div class="post-tags">
               <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
-              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
               <a href="/tags/Bug/" rel="tag"><i class="fa fa-tag"></i> Bug</a>
+              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
               <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
               <a href="/tags/%E9%87%8D%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 重构</a>
           </div>
@@ -459,8 +450,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Roadmap-Leetcode%E5%88%B7%E9%A2%98%E6%8C%87%E5%8D%97/" rel="prev" title="Roadmap-Leetcode刷题指南">
-                  <i class="fa fa-chevron-left"></i> Roadmap-Leetcode刷题指南
+                <a href="/2020/09/29/4.Android/20200929_Tips-Android%20Seekbar%E6%89%A9%E5%A4%A7%E7%82%B9%E5%87%BB%E8%8C%83%E5%9B%B4/" rel="prev" title="Tips-Android Seekbar扩大点击范围">
+                  <i class="fa fa-chevron-left"></i> Tips-Android Seekbar扩大点击范围
                 </a>
             </div>
             <div class="post-nav-item">
@@ -562,6 +553,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

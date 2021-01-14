@@ -91,7 +91,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -204,7 +208,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83"><span class="nav-text">Android开发规范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-text">目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#adapter"><span class="nav-text">adapter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#application"><span class="nav-text">application</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interf"><span class="nav-text">interf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#model"><span class="nav-text">model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#network"><span class="nav-text">network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#receiver"><span class="nav-text">receiver</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rx"><span class="nav-text">rx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#service"><span class="nav-text">service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#util"><span class="nav-text">util</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#view"><span class="nav-text">view</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#viewmodel"><span class="nav-text">viewmodel</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83"><span class="nav-text">Android开发规范</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="nav-text">目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#adapter"><span class="nav-text">adapter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#application"><span class="nav-text">application</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interf"><span class="nav-text">interf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#model"><span class="nav-text">model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#network"><span class="nav-text">network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#receiver"><span class="nav-text">receiver</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rx"><span class="nav-text">rx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#service"><span class="nav-text">service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#util"><span class="nav-text">util</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#view"><span class="nav-text">view</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#viewmodel"><span class="nav-text">viewmodel</span></a></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -358,7 +362,20 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Android开发规范"><a href="#Android开发规范" class="headerlink" title="Android开发规范"></a>Android开发规范</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><h3 id="adapter"><a href="#adapter" class="headerlink" title="adapter"></a>adapter</h3><h3 id="application"><a href="#application" class="headerlink" title="application"></a>application</h3><h3 id="interf"><a href="#interf" class="headerlink" title="interf"></a>interf</h3><h3 id="model"><a href="#model" class="headerlink" title="model"></a>model</h3><h3 id="network"><a href="#network" class="headerlink" title="network"></a>network</h3><h3 id="receiver"><a href="#receiver" class="headerlink" title="receiver"></a>receiver</h3><h3 id="rx"><a href="#rx" class="headerlink" title="rx"></a>rx</h3><h3 id="service"><a href="#service" class="headerlink" title="service"></a>service</h3><h3 id="util"><a href="#util" class="headerlink" title="util"></a>util</h3><h3 id="view"><a href="#view" class="headerlink" title="view"></a>view</h3><h3 id="viewmodel"><a href="#viewmodel" class="headerlink" title="viewmodel"></a>viewmodel</h3>
+        <h1 id="android开发规范">Android开发规范</h1>
+<h2 id="目录结构">目录结构</h2>
+<h3 id="adapter">adapter</h3>
+<h3 id="application">application</h3>
+<h3 id="interf">interf</h3>
+<h3 id="model">model</h3>
+<h3 id="network">network</h3>
+<h3 id="receiver">receiver</h3>
+<h3 id="rx">rx</h3>
+<h3 id="service">service</h3>
+<h3 id="util">util</h3>
+<h3 id="view">view</h3>
+<h3 id="viewmodel">viewmodel</h3>
+
     </div>
 
     
@@ -413,13 +430,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E9%85%8D%E7%BD%AEADB%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="prev" title="Tips-Android开发配置ADB环境变量">
-                  <i class="fa fa-chevron-left"></i> Tips-Android开发配置ADB环境变量
+                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/" rel="prev" title="Tips-Android开发中的Handler">
+                  <i class="fa fa-chevron-left"></i> Tips-Android开发中的Handler
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/" rel="next" title="Tips-Android开发中的Handler">
-                  Tips-Android开发中的Handler <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/" rel="next" title="Tips-Android开发中dp_sp_px理解">
+                  Tips-Android开发中dp_sp_px理解 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -516,6 +533,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

@@ -87,7 +87,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -275,6 +279,125 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-Android%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Trick-Android%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/" class="post-title-link" itemprop="url">Trick-Android快速生成代码</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Trick-Android%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-Android快速生成代码" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-Android%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-Android%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          Android快速生成代码
+for循环
+遍历集合的时候，对象.for就可以生成迭代循环遍历：
+1.fori可以这样：
+1.forr可以反向：
+1数字.for也可以：
+1判空
+在写代码的时候，判空是不可避免的。判空可以这样，对象.null：
+1非空可以这样，对象.notnull：
+1if
+if可是我们最常用的了，但是我劝你再也不要写if()了，试试任何可以判断的语句后面加上.if：
+11instance也可以很炫酷
+1try catch
+选择要包裹的代码块，然后按下ctrl + alt + t 就可以调出下边这个键，进行选择即可，非常方便
+
+1参考链接
+Android studio 上非常好用的
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Trick-Android%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -539,9 +662,7 @@ public class MainActivity extends Activity
     <meta name="referrer" content="no-referrer"/>
           Android程序中Activity的生命周期
 生命周期图
-
-
-代码示例
+生命周期代码示例
 1
 2
 3
@@ -601,260 +722,9 @@ package com.example.helloworld;
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
-
-
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/29/4.Android/20200929_Trick-Android%E7%A8%8B%E5%BA%8F%E4%B8%ADActivity%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/" class="post-title-link" itemprop="url">Trick-Android自定义软键盘enter键</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-Android自定义软键盘enter键" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          自定义Android软键盘enter键
-问题描述
-你在EditText上输入以后，想在下一行输入框输入，可能需要去点击下一行输入框，让它获取焦点，也可能要隐藏软键盘，在点击输入框，弹出软键盘。或者已经到了最后一行输入框，输入完毕以后，要点击登录，注册，或者链接按钮，可能要去隐藏它，感觉操作狠繁琐。用户体验不好，有没有解决办法呢？
-
-解决办法
-设置EditText的Ime Options属性。
-软键盘，最常用的enter键事件有： 把EditText的Ime Options属性设置成不同的值，Enter键上可以显示不同的文字或图案
-actionNone : 回车键，按下后光标到下一行
-actio
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/" class="post-title-link" itemprop="url">Trick-RxJava实现间隔调用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-RxJava实现间隔调用" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          RxJava实现间隔调用
-代码
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-
-
-Observable.interval(1, TimeUnit.SECONDS, Schedulers.trampoline())
-.take(6)
-.subscribeOn(Schedulers.io())
-.observeOn(AndroidSchedulers.mainThread())
-.subscribe(new Observer<Long>() {
-    @Override
-    public void onSu
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -992,6 +862,114 @@ private String modelNum(int num)
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/29/4.Android/20200929_Trick-Java%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E4%BD%8D%E7%9A%84%E6%96%B9%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/" class="post-title-link" itemprop="url">Trick-Android自定义软键盘enter键</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-Android自定义软键盘enter键" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          自定义Android软键盘enter键
+问题描述
+你在EditText上输入以后，想在下一行输入框输入，可能需要去点击下一行输入框，让它获取焦点，也可能要隐藏软键盘，在点击输入框，弹出软键盘。或者已经到了最后一行输入框，输入完毕以后，要点击登录，注册，或者链接按钮，可能要去隐藏它，感觉操作狠繁琐。用户体验不好，有没有解决办法呢？
+
+解决办法
+设置EditText的Ime Options属性。 软键盘，最常用的enter键事件有： 把EditText的Ime Options属性设置成不同的值，Enter键上可以显示不同的文字或图案 actionNone : 回车键，按下后光标到下一行 actio
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1267,7 +1245,7 @@ Observable.timer(1, TimeUnit.SECONDS).subscribe(new Observer<Long>() {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-adb%E8%BF%9E%E6%8E%A5mumu%E6%A8%A1%E6%8B%9F%E5%99%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1284,7 +1262,7 @@ Observable.timer(1, TimeUnit.SECONDS).subscribe(new Observer<Long>() {
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Trick-adb%E8%BF%9E%E6%8E%A5mumu%E6%A8%A1%E6%8B%9F%E5%99%A8/" class="post-title-link" itemprop="url">Trick-adb连接mumu模拟器</a>
+            <a href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/" class="post-title-link" itemprop="url">Trick-RxJava实现间隔调用</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1310,7 +1288,7 @@ Observable.timer(1, TimeUnit.SECONDS).subscribe(new Observer<Long>() {
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Trick-adb%E8%BF%9E%E6%8E%A5mumu%E6%A8%A1%E6%8B%9F%E5%99%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-adb连接mumu模拟器" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Trick-RxJava实现间隔调用" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -1325,8 +1303,8 @@ Observable.timer(1, TimeUnit.SECONDS).subscribe(new Observer<Long>() {
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-adb%E8%BF%9E%E6%8E%A5mumu%E6%A8%A1%E6%8B%9F%E5%99%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-adb%E8%BF%9E%E6%8E%A5mumu%E6%A8%A1%E6%8B%9F%E5%99%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1341,26 +1319,45 @@ Observable.timer(1, TimeUnit.SECONDS).subscribe(new Observer<Long>() {
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-          adb 连接 mumu 模拟器
-Windows 平台
+          RxJava实现间隔调用
+代码
 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
 
 
-adb connect 127.0.0.1:7555
-
-
-Mac 平台
-1
-
-
-adb shell
-
-
-如果不行,可以尝试 adb kill-server,再运行连接
-.
+Observable.interval(1, TimeUnit.SECONDS, Schedulers.trampoline())
+.take(6)
+.subscribeOn(Schedulers.io())
+.observeOn(AndroidSchedulers.mainThread())
+.subscribe(new Observer<Long>() {
+    @Override
+    public void onSu
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/29/4.Android/20200929_Trick-adb%E8%BF%9E%E6%8E%A5mumu%E6%A8%A1%E6%8B%9F%E5%99%A8/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1521,7 +1518,7 @@ allprojects {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Tutorial-Android%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8D%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1538,7 +1535,7 @@ allprojects {
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Tutorial-Android内存泄漏问题</a>
+            <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8D%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/" class="post-title-link" itemprop="url">Tutorial-Android安装包反编译教程</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1564,7 +1561,7 @@ allprojects {
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Android内存泄漏问题" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8D%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-Android安装包反编译教程" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -1579,8 +1576,8 @@ allprojects {
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8D%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8D%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1595,24 +1592,25 @@ allprojects {
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-          Android内存泄漏问题
-什么是内存泄漏
-Android虚拟机的垃圾回收采用的是根搜索算法。GC会从根节点（GC Roots）开始对heap进行遍历。到最后，部分没有直接或者间接引用到GC Roots的就是需要回收的垃圾，会被GC回收掉。但是当对象不再被应用程序使用，仍然被生命周期长的对象引用，垃圾回收器无法回收,这就叫内存泄漏.
+          Android安装包反编译教程
+ * Android安装包反编译教程 * 工具下载
+    * 用apktool反编译apk得到图片、XML配置、语言资源等文件
+    * 使用dex2jar反编译apk得到Java源代码
+    * 使用jd-gui打开classes-dex2jar.jar就可以看到源代码了
+   
+   
 
-内存泄露的根本原因
-长生命周期的对象持有短生命周期的对象。短周期对象就无法及时释放。
-
-哪些情况会造成内存泄漏
- * 错误使用单例造成的内存泄漏
+工具下载
+ * apktool ——(资源文件获取，可以提取出图片文件和布局文件进行使用查看)
    
- * Handler造成的内存泄漏
    
- * 线程造成的内存泄漏
+ * dex2jar——(将apk反编译成java源码(classes.dex转化成jar文件))
    
- * 非静态内部类创建静态实例
+   
+ * jd-gui——(查看APK中cl
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8D%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1726,6 +1724,52 @@ Android虚拟机的垃圾回收采用的是根搜索算法。GC会从根节点�
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

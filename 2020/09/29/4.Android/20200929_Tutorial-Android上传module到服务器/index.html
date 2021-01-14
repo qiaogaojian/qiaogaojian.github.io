@@ -33,9 +33,9 @@
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="AS">
 <meta property="article:tag" content="AR">
-<meta property="article:tag" content="Java">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="Go">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
 
 
@@ -95,7 +95,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -208,7 +212,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android%E4%B8%8A%E4%BC%A0module%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">Android上传module到服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEmaven%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80-%E7%94%A8%E6%88%B7%E5%90%8D-%E5%AF%86%E7%A0%81"><span class="nav-text">配置maven仓库地址 用户名 密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-gradle-properties"><span class="nav-text">配置 gradle.properties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-build-gralde"><span class="nav-text">配置 build.gralde</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#android%E4%B8%8A%E4%BC%A0module%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">Android上传module到服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEmaven%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80-%E7%94%A8%E6%88%B7%E5%90%8D-%E5%AF%86%E7%A0%81"><span class="nav-text">配置maven仓库地址 用户名 密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-gradle.properties"><span class="nav-text">配置 gradle.properties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-build.gralde"><span class="nav-text">配置 build.gralde</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -362,24 +366,27 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Android上传module到服务器"><a href="#Android上传module到服务器" class="headerlink" title="Android上传module到服务器"></a>Android上传module到服务器</h1><!-- TOC -->
-
+        <h1 id="android上传module到服务器">Android上传module到服务器</h1>
+<!-- TOC -->
 <ul>
-<li><a href="#android%E4%B8%8A%E4%BC%A0module%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8">Android上传module到服务器</a><ul>
-<li><a href="#%E9%85%8D%E7%BD%AEmaven%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80-%E7%94%A8%E6%88%B7%E5%90%8D-%E5%AF%86%E7%A0%81">配置maven仓库地址 用户名 密码</a></li>
-<li><a href="#%E9%85%8D%E7%BD%AE-gradleproperties">配置 gradle.properties</a></li>
-<li><a href="#%E9%85%8D%E7%BD%AE-buildgralde">配置 build.gralde</a></li>
-</ul>
-</li>
+<li><a href="#android上传module到服务器">Android上传module到服务器</a>
+<ul>
+<li><a href="#配置maven仓库地址-用户名-密码">配置maven仓库地址 用户名 密码</a></li>
+<li><a href="#配置-gradleproperties">配置 gradle.properties</a></li>
+<li><a href="#配置-buildgralde">配置 build.gralde</a></li>
+</ul></li>
 </ul>
 <!-- /TOC -->
-
-<h2 id="配置maven仓库地址-用户名-密码"><a href="#配置maven仓库地址-用户名-密码" class="headerlink" title="配置maven仓库地址 用户名 密码"></a>配置maven仓库地址 用户名 密码</h2><p>项目级build.gradle</p>
+<h2 id="配置maven仓库地址-用户名-密码">配置maven仓库地址 用户名 密码</h2>
+<p>项目级build.gradle</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">        <span class="comment">// maven仓库</span></span><br><span class="line">        maven &#123;</span><br><span class="line">            credentials &#123;</span><br><span class="line">                username <span class="string">&#x27;qiaogaojian&#x27;</span></span><br><span class="line">                password <span class="string">&#x27;123456&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">            url <span class="string">&#x27;http://47.94.255.178:8081/repository/android&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="配置-gradle-properties"><a href="#配置-gradle-properties" class="headerlink" title="配置 gradle.properties"></a>配置 gradle.properties</h2><p>在mudule文件夹内新建gradle.properties文件,配置信息如下</p>
+<h2 id="配置-gradle.properties">配置 gradle.properties</h2>
+<p>在mudule文件夹内新建gradle.properties文件,配置信息如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">aar_url= http:<span class="comment">//47.94.255.178:8081/repository/android/</span></span><br><span class="line">username = qiaogaojian</span><br><span class="line">password = <span class="number">123456</span></span><br><span class="line">sdk_version = <span class="number">1.0</span>.<span class="number">0</span></span><br><span class="line">artifactId = locale</span><br><span class="line">groupId = com.sdbean.localize</span><br></pre></td></tr></table></figure>
-<h2 id="配置-build-gralde"><a href="#配置-build-gralde" class="headerlink" title="配置 build.gralde"></a>配置 build.gralde</h2><p>在module级build.gradle内新建上传任务 gradle执行这个任务即可上传到服务器</p>
+<h2 id="配置-build.gralde">配置 build.gralde</h2>
+<p>在module级build.gradle内新建上传任务 gradle执行这个任务即可上传到服务器</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: <span class="string">&#x27;maven&#x27;</span></span><br><span class="line">uploadArchives &#123;</span><br><span class="line">    repositories.mavenDeployer &#123;</span><br><span class="line">        repository(url: project.aar_url) &#123;</span><br><span class="line">            authentication(userName: project.username, password: project.password)</span><br><span class="line">        &#125;</span><br><span class="line">        pom.version = project.sdk_version</span><br><span class="line">        pom.artifactId = project.artifactId</span><br><span class="line">        pom.groupId = project.groupId</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -429,22 +436,22 @@
           <div class="post-tags">
               <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
               <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
-              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
               <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
               <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
+              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" rel="prev" title="Tutorial-Android内存泄漏问题">
-                  <i class="fa fa-chevron-left"></i> Tutorial-Android内存泄漏问题
+                <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8D%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/" rel="prev" title="Tutorial-Android安装包反编译教程">
+                  <i class="fa fa-chevron-left"></i> Tutorial-Android安装包反编译教程
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Trick-adb%E8%BF%9E%E6%8E%A5mumu%E6%A8%A1%E6%8B%9F%E5%99%A8/" rel="next" title="Trick-adb连接mumu模拟器">
-                  Trick-adb连接mumu模拟器 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8/" rel="next" title="Trick-RxJava实现间隔调用">
+                  Trick-RxJava实现间隔调用 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -541,6 +548,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

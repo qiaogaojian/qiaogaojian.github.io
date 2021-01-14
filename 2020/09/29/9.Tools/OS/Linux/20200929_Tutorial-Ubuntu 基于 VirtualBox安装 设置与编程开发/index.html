@@ -34,15 +34,15 @@
 <meta property="article:tag" content="AS">
 <meta property="article:tag" content="AR">
 <meta property="article:tag" content="Unity">
-<meta property="article:tag" content="Web">
-<meta property="article:tag" content="Ubuntu">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="Js">
-<meta property="article:tag" content="Git">
-<meta property="article:tag" content="Windows">
-<meta property="article:tag" content="IDE">
 <meta property="article:tag" content="VSCode">
 <meta property="article:tag" content="VS">
+<meta property="article:tag" content="Js">
+<meta property="article:tag" content="IDE">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="Linux">
 <meta property="article:tag" content="编程">
 <meta name="twitter:card" content="summary">
 
@@ -103,7 +103,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -216,7 +220,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu-VirtualBox%E5%AE%89%E8%A3%85%E4%B8%8E%E8%AE%BE%E7%BD%AE"><span class="nav-text">Ubuntu VirtualBox安装与设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="nav-text">一.系统安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C-%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE"><span class="nav-text">二.基本设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%9B%B4%E6%96%B0%E6%BA%90"><span class="nav-text">1.更新源</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1%E6%96%B9%E6%B3%95%E4%B8%80"><span class="nav-text">1.1方法一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="nav-text">1.2方法二</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%AE%BE%E7%BD%AE%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6"><span class="nav-text">2.设置共享文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%AE%BE%E7%BD%AEUbuntu%E5%A4%96%E8%A7%82"><span class="nav-text">3.设置Ubuntu外观</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1%E8%AE%BE%E7%BD%AELauncher%E5%88%B0%E5%BA%95%E9%83%A8"><span class="nav-text">3.1设置Launcher到底部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2%E8%AE%BE%E7%BD%AE%E4%B8%BB%E9%A2%98"><span class="nav-text">3.2设置主题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89-%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91"><span class="nav-text">三.编程开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BB%A5%E5%A4%AA%E5%9D%8ADapp%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-text">1.以太坊Dapp开发环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E5%AE%89%E8%A3%85Node-js"><span class="nav-text">1.1 安装Node.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E5%AE%89%E8%A3%85%E8%8A%82%E7%82%B9%E4%BB%BF%E7%9C%9F%E5%99%A8"><span class="nav-text">1.2 安装节点仿真器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E5%AE%89%E8%A3%85solidity%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-text">1.3 安装solidity编译器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-%E5%AE%89%E8%A3%85web3"><span class="nav-text">1.4 安装web3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-%E5%AE%89%E8%A3%85truffle%E6%A1%86%E6%9E%B6"><span class="nav-text">1.5 安装truffle框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-%E5%AE%89%E8%A3%85webpack"><span class="nav-text">1.6 安装webpack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%BB%BADapp%E9%A1%B9%E7%9B%AE"><span class="nav-text">新建Dapp项目</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu-virtualbox%E5%AE%89%E8%A3%85%E4%B8%8E%E8%AE%BE%E7%BD%AE"><span class="nav-text">Ubuntu VirtualBox安装与设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80.%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="nav-text">一.系统安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C.%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE"><span class="nav-text">二.基本设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%BA%90"><span class="nav-text">1.更新源</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="nav-text">1.1方法一</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="nav-text">1.2方法二</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6"><span class="nav-text">2.设置共享文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AEubuntu%E5%A4%96%E8%A7%82"><span class="nav-text">3.设置Ubuntu外观</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AElauncher%E5%88%B0%E5%BA%95%E9%83%A8"><span class="nav-text">3.1设置Launcher到底部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%BB%E9%A2%98"><span class="nav-text">3.2设置主题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89.%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91"><span class="nav-text">三.编程开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E5%9D%8Adapp%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-text">1.以太坊Dapp开发环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85node.js"><span class="nav-text">1.1 安装Node.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%8A%82%E7%82%B9%E4%BB%BF%E7%9C%9F%E5%99%A8"><span class="nav-text">1.2 安装节点仿真器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85solidity%E7%BC%96%E8%AF%91%E5%99%A8"><span class="nav-text">1.3 安装solidity编译器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85web3"><span class="nav-text">1.4 安装web3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85truffle%E6%A1%86%E6%9E%B6"><span class="nav-text">1.5 安装truffle框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85webpack"><span class="nav-text">1.6 安装webpack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%BB%BAdapp%E9%A1%B9%E7%9B%AE"><span class="nav-text">新建Dapp项目</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -378,33 +382,37 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Ubuntu-VirtualBox安装与设置"><a href="#Ubuntu-VirtualBox安装与设置" class="headerlink" title="Ubuntu VirtualBox安装与设置"></a>Ubuntu VirtualBox安装与设置</h1><h2 id="一-系统安装"><a href="#一-系统安装" class="headerlink" title="一.系统安装"></a>一.系统安装</h2><ul>
-<li><p>下载virtualBox 和 ubuntu-16.04.6-desktop-amd64.iso镜像</p>
-</li>
-<li><p>完成安装后打开virtualBox新建虚拟机 如果没有64位选项 重启电脑进入bios开启cpu虚拟化选项(Virtualization)</p>
-</li>
-<li><p>内存设置2G 硬盘设置30G 动态分配大小 硬盘位置选一个空间大的硬盘</p>
-</li>
-<li><p>启动虚拟机 光驱选择前面下载好的镜像进入安装程序</p>
-</li>
-<li><p>语言选择英语</p>
-</li>
-<li><p>安装完成后重启</p>
-</li>
+        <h1 id="ubuntu-virtualbox安装与设置">Ubuntu VirtualBox安装与设置</h1>
+<h2 id="一.系统安装">一.系统安装</h2>
+<ul>
+<li><p>下载virtualBox 和 ubuntu-16.04.6-desktop-amd64.iso镜像</p></li>
+<li><p>完成安装后打开virtualBox新建虚拟机 如果没有64位选项 重启电脑进入bios开启cpu虚拟化选项(Virtualization)</p></li>
+<li><p>内存设置2G 硬盘设置30G 动态分配大小 硬盘位置选一个空间大的硬盘</p></li>
+<li><p>启动虚拟机 光驱选择前面下载好的镜像进入安装程序</p></li>
+<li><p>语言选择英语</p></li>
+<li><p>安装完成后重启</p></li>
 </ul>
-<h2 id="二-基本设置"><a href="#二-基本设置" class="headerlink" title="二.基本设置"></a>二.基本设置</h2><h3 id="1-更新源"><a href="#1-更新源" class="headerlink" title="1.更新源"></a>1.更新源</h3><h4 id="1-1方法一"><a href="#1-1方法一" class="headerlink" title="1.1方法一"></a>1.1方法一</h4><p>修改 /etc/apt/sources.list</p>
+<h2 id="二.基本设置">二.基本设置</h2>
+<h3 id="更新源">1.更新源</h3>
+<h4 id="方法一">1.1方法一</h4>
+<p>修改 /etc/apt/sources.list</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#添加阿里源</span></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
 <p>然后更新</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
-<h4 id="1-2方法二"><a href="#1-2方法二" class="headerlink" title="1.2方法二"></a>1.2方法二</h4><p>打开软件更新中心选择国内的源 如aliyun</p>
-<h3 id="2-设置共享文件"><a href="#2-设置共享文件" class="headerlink" title="2.设置共享文件"></a>2.设置共享文件</h3><p>打开虚拟机设备菜单 选择安装增强功能</p>
+<h4 id="方法二">1.2方法二</h4>
+<p>打开软件更新中心选择国内的源 如aliyun</p>
+<h3 id="设置共享文件">2.设置共享文件</h3>
+<p>打开虚拟机设备菜单 选择安装增强功能</p>
 <p>安装完成后在宿主机本地新建共享文件夹hdshare 然后打开虚拟机设置选择共享文件夹选项 固定分配添加刚才新建的文件夹</p>
 <p>回到虚拟机 进入/mnt/文件夹新建文件夹hdshare</p>
 <p>执行装载命令即可完成共享</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t vboxsf hdshare /mnt/hdshare/</span><br></pre></td></tr></table></figure>
-<h3 id="3-设置Ubuntu外观"><a href="#3-设置Ubuntu外观" class="headerlink" title="3.设置Ubuntu外观"></a>3.设置Ubuntu外观</h3><h4 id="3-1设置Launcher到底部"><a href="#3-1设置Launcher到底部" class="headerlink" title="3.1设置Launcher到底部"></a>3.1设置Launcher到底部</h4><p>按下 ctrl + alt + t 打开终端输入以下命令</p>
+<h3 id="设置ubuntu外观">3.设置Ubuntu外观</h3>
+<h4 id="设置launcher到底部">3.1设置Launcher到底部</h4>
+<p>按下 ctrl + alt + t 打开终端输入以下命令</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gsettings <span class="built_in">set</span> com.canonical.Unity.Launcher launcher-position Bottom</span><br></pre></td></tr></table></figure>
-<h4 id="3-2设置主题"><a href="#3-2设置主题" class="headerlink" title="3.2设置主题"></a>3.2设置主题</h4><ul>
+<h4 id="设置主题">3.2设置主题</h4>
+<ul>
 <li>更新</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
@@ -414,8 +422,11 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:noobslab/themes</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install flatabulous-theme</span><br></pre></td></tr></table></figure>
 <p>安装Flatabulous 主题的配套图标</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:noobslab/icons</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install ultra-flat-icons</span><br></pre></td></tr></table></figure>
-<p>按Windows键，输入unity，打开unity-tweak-tool 打开主题设置选择flatabulous  打开icon设置选择ultraflat</p>
-<h2 id="三-编程开发"><a href="#三-编程开发" class="headerlink" title="三.编程开发"></a>三.编程开发</h2><h3 id="1-以太坊Dapp开发环境"><a href="#1-以太坊Dapp开发环境" class="headerlink" title="1.以太坊Dapp开发环境"></a>1.以太坊Dapp开发环境</h3><h4 id="1-1-安装Node-js"><a href="#1-1-安装Node-js" class="headerlink" title="1.1 安装Node.js"></a>1.1 安装Node.js</h4><p>进入/home/username/downloads目录下载安装包</p>
+<p>按Windows键，输入unity，打开unity-tweak-tool 打开主题设置选择flatabulous 打开icon设置选择ultraflat</p>
+<h2 id="三.编程开发">三.编程开发</h2>
+<h3 id="以太坊dapp开发环境">1.以太坊Dapp开发环境</h3>
+<h4 id="安装node.js">1.1 安装Node.js</h4>
+<p>进入/home/username/downloads目录下载安装包</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wget https://nodejs.org/dist/v8.10.0/node-v8.10.0-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
 <p>解压</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf node-v8.10.0-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
@@ -425,7 +436,7 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;export NODE_HOME=/home/dev/node8&quot;</span> &gt;&gt; .bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;export NODE_PATH=<span class="variable">$NODE_HOME</span>/lib/node_modules&quot;</span> &gt;&gt; .bashrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;export PATH=<span class="variable">$NODE_HOME</span>/bin:<span class="variable">$PATH</span>&quot;</span> &gt;&gt; .bashrc</span><br></pre></td></tr></table></figure>
 <p>设置永久环境变量</p>
 <blockquote>
-<p>/etc/profile和/etc/profile.d都是常用的设置环境的地方。其中/etc/profile.d文件夹来源于/etc/profile，在该目录下的*.sh，即以sh为后缀的文件都会被加载。<br>类似地，不推荐使用/etc/bash.bashrc，因为在图形界面环境下启动程序时，不会加载它里边的环境变量设置。</p>
+<p>/etc/profile和/etc/profile.d都是常用的设置环境的地方。其中/etc/profile.d文件夹来源于/etc/profile，在该目录下的*.sh，即以sh为后缀的文件都会被加载。 类似地，不推荐使用/etc/bash.bashrc，因为在图形界面环境下启动程序时，不会加载它里边的环境变量设置。</p>
 </blockquote>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gedit /etc/profile</span><br></pre></td></tr></table></figure>
 <p>在打开的文件后面添加下面代码</p>
@@ -434,24 +445,30 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"><span class="built_in">export</span></span><br></pre></td></tr></table></figure>
 <p>验证：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ node –v</span><br><span class="line">v8.10.0</span><br></pre></td></tr></table></figure>
-<h4 id="1-2-安装节点仿真器"><a href="#1-2-安装节点仿真器" class="headerlink" title="1.2 安装节点仿真器"></a>1.2 安装节点仿真器</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install –g ganache-cli</span><br></pre></td></tr></table></figure>
+<h4 id="安装节点仿真器">1.2 安装节点仿真器</h4>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install –g ganache-cli</span><br></pre></td></tr></table></figure>
 <p>验证：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ ganache-cli --version</span><br><span class="line">Ganache CLI v6.0.3 (ganache-core: 2.0.2)</span><br></pre></td></tr></table></figure>
-<h4 id="1-3-安装solidity编译器"><a href="#1-3-安装solidity编译器" class="headerlink" title="1.3 安装solidity编译器"></a>1.3 安装solidity编译器</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install –g solc</span><br><span class="line"><span class="comment"># 如果需要安装特定版本solc 需要在项目目录下安装 然后再设置vscode solidity插件的编译器版本</span></span><br><span class="line">npm install solc@0.4.18</span><br></pre></td></tr></table></figure>
+<h4 id="安装solidity编译器">1.3 安装solidity编译器</h4>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install –g solc</span><br><span class="line"><span class="comment"># 如果需要安装特定版本solc 需要在项目目录下安装 然后再设置vscode solidity插件的编译器版本</span></span><br><span class="line">npm install solc@0.4.18</span><br></pre></td></tr></table></figure>
 <p>如果提示没有权限,修改相应文件夹的权限</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 * -R</span><br></pre></td></tr></table></figure>
 <p>验证：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ solcjs -–version</span><br><span class="line">0.40.2+commit.3155dd80.Emscripten.clang</span><br></pre></td></tr></table></figure>
-<h4 id="1-4-安装web3"><a href="#1-4-安装web3" class="headerlink" title="1.4 安装web3"></a>1.4 安装web3</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果没有git 要先安装git</span></span><br><span class="line">sudo apt-get install git</span><br><span class="line">npm install –g web3@0.20.2</span><br></pre></td></tr></table></figure>
+<h4 id="安装web3">1.4 安装web3</h4>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果没有git 要先安装git</span></span><br><span class="line">sudo apt-get install git</span><br><span class="line">npm install –g web3@0.20.2</span><br></pre></td></tr></table></figure>
 <p>验证：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~$ node –p <span class="string">&#x27;require(&quot;web3&quot;)&#x27;</span></span><br><span class="line">&#123;[Function: Web3]</span><br><span class="line">  providers:&#123;…&#125;&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="1-5-安装truffle框架"><a href="#1-5-安装truffle框架" class="headerlink" title="1.5 安装truffle框架"></a>1.5 安装truffle框架</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install –g truffle</span><br></pre></td></tr></table></figure>
+<h4 id="安装truffle框架">1.5 安装truffle框架</h4>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install –g truffle</span><br></pre></td></tr></table></figure>
 <p>验证：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ truffle version</span><br><span class="line">Truffle v4.1.3 (core 4.1.3)</span><br></pre></td></tr></table></figure>
-<h4 id="1-6-安装webpack"><a href="#1-6-安装webpack" class="headerlink" title="1.6 安装webpack"></a>1.6 安装webpack</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install –g webpack@3.11.0</span><br></pre></td></tr></table></figure>
+<h4 id="安装webpack">1.6 安装webpack</h4>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install –g webpack@3.11.0</span><br></pre></td></tr></table></figure>
 <p>验证：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~$ webpack –v</span><br><span class="line">3.11.0</span><br></pre></td></tr></table></figure>
-<h4 id="新建Dapp项目"><a href="#新建Dapp项目" class="headerlink" title="新建Dapp项目"></a>新建Dapp项目</h4>
+<h4 id="新建dapp项目">新建Dapp项目</h4>
+
     </div>
 
     
@@ -502,15 +519,15 @@
               <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
               <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
               <a href="/tags/Unity/" rel="tag"><i class="fa fa-tag"></i> Unity</a>
-              <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
-              <a href="/tags/Ubuntu/" rel="tag"><i class="fa fa-tag"></i> Ubuntu</a>
-              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
-              <a href="/tags/Js/" rel="tag"><i class="fa fa-tag"></i> Js</a>
-              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
-              <a href="/tags/Windows/" rel="tag"><i class="fa fa-tag"></i> Windows</a>
-              <a href="/tags/IDE/" rel="tag"><i class="fa fa-tag"></i> IDE</a>
               <a href="/tags/VSCode/" rel="tag"><i class="fa fa-tag"></i> VSCode</a>
               <a href="/tags/VS/" rel="tag"><i class="fa fa-tag"></i> VS</a>
+              <a href="/tags/Js/" rel="tag"><i class="fa fa-tag"></i> Js</a>
+              <a href="/tags/IDE/" rel="tag"><i class="fa fa-tag"></i> IDE</a>
+              <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
+              <a href="/tags/Windows/" rel="tag"><i class="fa fa-tag"></i> Windows</a>
+              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
+              <a href="/tags/Ubuntu/" rel="tag"><i class="fa fa-tag"></i> Ubuntu</a>
+              <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
               <a href="/tags/%E7%BC%96%E7%A8%8B/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
           </div>
 
@@ -523,8 +540,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/" rel="next" title="Tutorial-Vim常见指令">
-                  Tutorial-Vim常见指令 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/9.Tools/VSCode/20200929_Trick-VSCode%E5%90%8C%E6%AD%A5%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE/" rel="next" title="Trick-VSCode同步设置配置">
+                  Trick-VSCode同步设置配置 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -621,6 +638,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

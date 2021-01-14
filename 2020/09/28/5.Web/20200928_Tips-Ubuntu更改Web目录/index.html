@@ -33,14 +33,14 @@
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="AS">
 <meta property="article:tag" content="AR">
+<meta property="article:tag" content="Bug">
 <meta property="article:tag" content="ML">
 <meta property="article:tag" content="Web">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="Html">
 <meta property="article:tag" content="PHP">
 <meta property="article:tag" content="ThinkPHP">
-<meta property="article:tag" content="Html">
 <meta property="article:tag" content="Ubuntu">
-<meta property="article:tag" content="Windows">
-<meta property="article:tag" content="Bug">
 <meta name="twitter:card" content="summary">
 
 
@@ -100,7 +100,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -213,7 +217,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu%E6%9B%B4%E6%94%B9Web%E7%9B%AE%E5%BD%95"><span class="nav-text">Ubuntu更改Web目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E9%86%92"><span class="nav-text">提醒</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu%E6%9B%B4%E6%94%B9web%E7%9B%AE%E5%BD%95"><span class="nav-text">Ubuntu更改Web目录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E9%86%92"><span class="nav-text">提醒</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -373,14 +377,16 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Ubuntu更改Web目录"><a href="#Ubuntu更改Web目录" class="headerlink" title="Ubuntu更改Web目录"></a>Ubuntu更改Web目录</h1><ul>
+        <h1 id="ubuntu更改web目录">Ubuntu更改Web目录</h1>
+<ul>
 <li>配置文件</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/apache2/sites-enable/000-default</span><br></pre></td></tr></table></figure>
 <p>如下所示</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ServerAdmin webmaster@localhost</span><br><span class="line">       DocumentRoot /var/www/html/thinkphp5/public</span><br><span class="line"></span><br><span class="line">       <span class="comment"># Available loglevels: trace8, ..., trace1, debug, info, notice, warn,</span></span><br><span class="line">       <span class="comment"># error, crit, alert, emerg.</span></span><br><span class="line">       <span class="comment"># It is also possible to configure the loglevel for particular</span></span><br><span class="line">       <span class="comment"># modules, e.g.</span></span><br><span class="line">       <span class="comment">#LogLevel info ssl:warn</span></span><br></pre></td></tr></table></figure>
 <p>修改 DocumentRoot 后面的目录为自己想要的Web目录</p>
-<h2 id="提醒"><a href="#提醒" class="headerlink" title="提醒"></a>提醒</h2><p>Windows环境下配置文件如下</p>
+<h2 id="提醒">提醒</h2>
+<p>Windows环境下配置文件如下</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">..\apache\conf\httpd.conf</span><br></pre></td></tr></table></figure>
 <p>还是修改 DocumentRoot 对应的值</p>
 
@@ -433,22 +439,22 @@
           <div class="post-tags">
               <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
               <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
+              <a href="/tags/Bug/" rel="tag"><i class="fa fa-tag"></i> Bug</a>
               <a href="/tags/ML/" rel="tag"><i class="fa fa-tag"></i> ML</a>
               <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
+              <a href="/tags/Windows/" rel="tag"><i class="fa fa-tag"></i> Windows</a>
+              <a href="/tags/Html/" rel="tag"><i class="fa fa-tag"></i> Html</a>
               <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
               <a href="/tags/ThinkPHP/" rel="tag"><i class="fa fa-tag"></i> ThinkPHP</a>
-              <a href="/tags/Html/" rel="tag"><i class="fa fa-tag"></i> Html</a>
               <a href="/tags/Ubuntu/" rel="tag"><i class="fa fa-tag"></i> Ubuntu</a>
-              <a href="/tags/Windows/" rel="tag"><i class="fa fa-tag"></i> Windows</a>
-              <a href="/tags/Bug/" rel="tag"><i class="fa fa-tag"></i> Bug</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/28/5.Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/" rel="prev" title="Tutorail-Ubuntu安装LAMP环境">
-                  <i class="fa fa-chevron-left"></i> Tutorail-Ubuntu安装LAMP环境
+                <a href="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/" rel="prev" title="Tips-mysql_设置字符集">
+                  <i class="fa fa-chevron-left"></i> Tips-mysql_设置字符集
                 </a>
             </div>
             <div class="post-nav-item">
@@ -550,6 +556,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

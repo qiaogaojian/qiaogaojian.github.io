@@ -87,7 +87,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -423,8 +427,8 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2020/09/28/5.Web/20200928_Tips-PHP%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Composer%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url">
-            <span itemprop="name">Tips-PHP包管理工具Composer的使用</span>
+          <a class="post-title-link" href="/2020/09/28/5.Web/20200928_Tips-PHP%E4%B8%ADecho%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%A4%84%E7%90%86/" itemprop="url">
+            <span itemprop="name">Tips-PHP中echo括号的处理</span>
           </a>
       </div>
 
@@ -443,8 +447,8 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2020/09/28/5.Web/20200928_Tips-PHP%E4%B8%ADecho%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%A4%84%E7%90%86/" itemprop="url">
-            <span itemprop="name">Tips-PHP中echo括号的处理</span>
+          <a class="post-title-link" href="/2020/09/28/5.Web/20200928_Tips-PHP%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Composer%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url">
+            <span itemprop="name">Tips-PHP包管理工具Composer的使用</span>
           </a>
       </div>
 
@@ -646,6 +650,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

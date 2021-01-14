@@ -87,7 +87,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -275,6 +279,130 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-18%E9%AB%98%E7%BA%A7%208%EF%BC%9Acheckout%20%E7%9A%84%E6%9C%AC%E8%B4%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-18%E9%AB%98%E7%BA%A7%208%EF%BC%9Acheckout%20%E7%9A%84%E6%9C%AC%E8%B4%A8/" class="post-title-link" itemprop="url">Tutorial-18高级 8：checkout 的本质</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-10-29 00:00:00 / 修改时间：10:28:29" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/Git-%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">Git 原理详解及实用指南</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-18%E9%AB%98%E7%BA%A7%208%EF%BC%9Acheckout%20%E7%9A%84%E6%9C%AC%E8%B4%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-18高级 8：checkout 的本质" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-18%E9%AB%98%E7%BA%A7%208%EF%BC%9Acheckout%20%E7%9A%84%E6%9C%AC%E8%B4%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-18%E9%AB%98%E7%BA%A7%208%EF%BC%9Acheckout%20%E7%9A%84%E6%9C%AC%E8%B4%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          高级 8：checkout 的本质
+在前面的 branch 的部分，我说到 checkout 可以用来切换 branch：
+
+1
+
+
+git checkout branch2
+
+
+checkoutcheckout
+
+不过实质上，checkout 并不止可以切换 branch。checkout 本质上的功能其实是：签出（ checkout ）指定的 commit。
+
+git checkout branch名 的本质，其实是把 HEAD 指向指定的 branch，然后签出这个 branch 所对应的 commit 的工作目录。所以同样的，checkout 的目标也可以不是 branch，而直接指定
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-18%E9%AB%98%E7%BA%A7%208%EF%BC%9Acheckout%20%E7%9A%84%E6%9C%AC%E8%B4%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -479,7 +607,7 @@
 branch 用完就删是好习惯，但有的时候，不小心手残删了一个还有用的 branch ，或者把一个 branch 删掉了才想起来它还有用，怎么办？
 
 reflog ：引用的 log
-reflog 是 “reference log” 的缩写，使用它可以查看 Git 仓库中的引用的移动记录。如果不指定引用，它会显示 HEAD 的移动记录。假如你误删了 branch1 这个 branch，那么你可以查看一下 HEAD 的移动历史：
+reflog 是 "reference log" 的缩写，使用它可以查看 Git 仓库中的引用的移动记录。如果不指定引用，它会显示 HEAD 的移动记录。假如你误删了 branch1 这个 branch，那么你可以查看一下 HEAD 的移动历史：
 
 1
 2
@@ -495,120 +623,6 @@ git reflog
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-20%E9%AB%98%E7%BA%A7%2010%EF%BC%9Abranch%20%E5%88%A0%E8%BF%87%E4%BA%86%E6%89%8D%E6%83%B3%E8%B5%B7%E6%9D%A5%E6%9C%89%E7%94%A8%EF%BC%9F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-22%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-22%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">Tutorial-22总结</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-10-29 00:00:00 / 修改时间：10:28:29" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/Git-%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">Git 原理详解及实用指南</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-22%E6%80%BB%E7%BB%93/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-22总结" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-22%E6%80%BB%E7%BB%93/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-22%E6%80%BB%E7%BB%93/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          总结
-Git 内容非常多，这本小册我已经尽量克制，可是还是写了二十多节出来。尽管这样，有些很有用的内容我依然没有写出来。因为我写这本小册的目的是解决大部分人「学不会 Git」和「用了很久却总用不好 Git」这两个问题，所以我在这本小册里重点讲的也是 Git 的学习和使用中那些既重要又困难的关键点。
-
-如果你在整个阅读过程中是边读边练的，相信读到这里，你对 Git 已经有一个较为全面和深刻的认识了。接下来你只要在平时使用 Git 的过程中多留心一些，找机会把这本小册中的内容应用在实战，很快就可以成为众人眼中的「Git 高手」了。当然，到时候你也许也会发现，其实大家眼中的「Git 高手」远没有那么
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-22%E6%80%BB%E7%BB%93/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -729,6 +743,120 @@ Git 内容非常多，这本小册我已经尽量克制，可是还是写了二�
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-21%E9%A2%9D%E5%A4%96%E8%AF%B4%E7%82%B9%EF%BC%9A.gitignore%E2%80%94%E2%80%94%E6%8E%92%E9%99%A4%E4%B8%8D%E6%83%B3%E8%A2%AB%E7%AE%A1%E7%90%86%E7%9A%84%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-22%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-22%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">Tutorial-22总结</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-10-29 00:00:00 / 修改时间：10:28:29" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/Git-%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">Git 原理详解及实用指南</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-22%E6%80%BB%E7%BB%93/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-22总结" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-22%E6%80%BB%E7%BB%93/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-22%E6%80%BB%E7%BB%93/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          总结
+Git 内容非常多，这本小册我已经尽量克制，可是还是写了二十多节出来。尽管这样，有些很有用的内容我依然没有写出来。因为我写这本小册的目的是解决大部分人「学不会 Git」和「用了很久却总用不好 Git」这两个问题，所以我在这本小册里重点讲的也是 Git 的学习和使用中那些既重要又困难的关键点。
+
+如果你在整个阅读过程中是边读边练的，相信读到这里，你对 Git 已经有一个较为全面和深刻的认识了。接下来你只要在平时使用 Git 的过程中多留心一些，找机会把这本小册中的内容应用在实战，很快就可以成为众人眼中的「Git 高手」了。当然，到时候你也许也会发现，其实大家眼中的「Git 高手」远没有那么
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-22%E6%80%BB%E7%BB%93/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -948,18 +1076,18 @@ OnDraw()
 绘制的关键: Canvas
 绘制类方法
 颜色
-####### drawColor(Color.parse(“#66660000”))
+drawColor(Color.parse("#66660000"))
 
-####### drawRGB(int r, int g, int b)
+drawRGB(int r, int g, int b)
 
-####### drawARGB(int a, int r, int g, int b)
+drawARGB(int a, int r, int g, int b)
 
 点
-####### drawPoint(float x, float y, Paint paint) 
+drawPoint(float x, float y, Paint paint)
 
-####### drawPoints(float[] pts, Paint paint)
+drawPoints(float[] pts, Paint paint)
 
-####### draw
+drawPoints(float[] pts, int offset, int count, Paint 
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/10/13/4.Android/20201013-Tutorial-Android%E5%BC%80%E5%8F%91%E8%BF%9B%E9%98%B6-%E8%87%AA%E5%AE%9A%E4%B9%89View/#more" rel="contents">
@@ -1319,123 +1447,6 @@ Unity3d shader
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/09/8.Notes/Rule/20201009_Tao-%E5%AD%A6%E4%B9%A0%E5%87%86%E5%88%99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/09/8.Notes/Rule/20201009_Tao-%E5%AD%A6%E4%B9%A0%E5%87%86%E5%88%99/" class="post-title-link" itemprop="url">Tao-学习准则</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-09 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-09T00:00:00+08:00">2020-10-09</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-12 16:37:03" itemprop="dateModified" datetime="2020-10-12T16:37:03+08:00">2020-10-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/8-Notes/" itemprop="url" rel="index"><span itemprop="name">8.Notes</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/8-Notes/Rule/" itemprop="url" rel="index"><span itemprop="name">Rule</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/10/09/8.Notes/Rule/20201009_Tao-%E5%AD%A6%E4%B9%A0%E5%87%86%E5%88%99/" class="post-meta-item leancloud_visitors" data-flag-title="Tao-学习准则" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/10/09/8.Notes/Rule/20201009_Tao-%E5%AD%A6%E4%B9%A0%E5%87%86%E5%88%99/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/09/8.Notes/Rule/20201009_Tao-%E5%AD%A6%E4%B9%A0%E5%87%86%E5%88%99/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          学习准则
-目标导向
-学习路线
-试错成长
-总结输出
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/09/8.Notes/Rule/20201009_Tao-%E5%AD%A6%E4%B9%A0%E5%87%86%E5%88%99/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1528,6 +1539,52 @@ Unity3d shader
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

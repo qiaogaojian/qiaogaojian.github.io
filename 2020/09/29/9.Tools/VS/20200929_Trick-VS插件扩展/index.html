@@ -91,7 +91,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -204,7 +208,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VS%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95"><span class="nav-text">VS插件扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CodeMaid"><span class="nav-text">CodeMaid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Enhanced-Syntax-Highlighting"><span class="nav-text">Enhanced-Syntax-Highlighting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Region-Highlights"><span class="nav-text">Region Highlights</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vs%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95"><span class="nav-text">VS插件扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#codemaid"><span class="nav-text">CodeMaid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#enhanced-syntax-highlighting"><span class="nav-text">Enhanced-Syntax-Highlighting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#region-highlights"><span class="nav-text">Region Highlights</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -362,7 +366,11 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="VS插件扩展"><a href="#VS插件扩展" class="headerlink" title="VS插件扩展"></a>VS插件扩展</h1><h2 id="CodeMaid"><a href="#CodeMaid" class="headerlink" title="CodeMaid"></a>CodeMaid</h2><h2 id="Enhanced-Syntax-Highlighting"><a href="#Enhanced-Syntax-Highlighting" class="headerlink" title="Enhanced-Syntax-Highlighting"></a>Enhanced-Syntax-Highlighting</h2><h2 id="Region-Highlights"><a href="#Region-Highlights" class="headerlink" title="Region Highlights"></a>Region Highlights</h2>
+        <h1 id="vs插件扩展">VS插件扩展</h1>
+<h2 id="codemaid">CodeMaid</h2>
+<h2 id="enhanced-syntax-highlighting">Enhanced-Syntax-Highlighting</h2>
+<h2 id="region-highlights">Region Highlights</h2>
+
     </div>
 
     
@@ -417,13 +425,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/9.Tools/Utils/20200929_Tips-Nano%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" rel="prev" title="Tips-Nano编辑器的基本用法">
-                  <i class="fa fa-chevron-left"></i> Tips-Nano编辑器的基本用法
+                <a href="/2020/09/29/9.Tools/VS/20200929_Trick-VS%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/" rel="prev" title="Trick-VS快捷键设置">
+                  <i class="fa fa-chevron-left"></i> Trick-VS快捷键设置
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/9.Tools/VS/20200929_Trick-VS%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE/" rel="next" title="Trick-VS快捷键设置">
-                  Trick-VS快捷键设置 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/9.Tools/VS/20200929_Tips-VS%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/" rel="next" title="Tips-VS主题颜色配置">
+                  Tips-VS主题颜色配置 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -520,6 +528,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

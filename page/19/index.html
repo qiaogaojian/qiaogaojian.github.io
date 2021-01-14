@@ -87,7 +87,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -279,7 +283,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/28/5.Web/20200928_Tips-PHP%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Composer%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -296,7 +300,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/" class="post-title-link" itemprop="url">Tips-mysql_设置字符集</a>
+            <a href="/2020/09/28/5.Web/20200928_Tips-PHP%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Composer%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Tips-PHP包管理工具Composer的使用</a>
         </h2>
 
         <div class="post-meta-container">
@@ -328,7 +332,7 @@
     </span>
 
   
-    <span id="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-mysql_设置字符集" title="阅读次数">
+    <span id="/2020/09/28/5.Web/20200928_Tips-PHP%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Composer%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-PHP包管理工具Composer的使用" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -343,8 +347,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/28/5.Web/20200928_Tips-PHP%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Composer%E7%9A%84%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/28/5.Web/20200928_Tips-PHP%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Composer%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -359,35 +363,48 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-          mysql设置字符集
- * 查看当前数据库字符集
-   
-   1
-   2
-   3
-   4
-   5
-   6
-   7
-   8
-   9
-   10
-   11
-   12
-   13
-   14
-   15
-   
-   
-   mysql> show variables like "%char%";
-   
-   //输出
-   +--------------------------+--------------------------------+
-   | Variable_name            | Value                          |
+          PHP包管理工具Composer的使用
+安装
+下载
+链接
 
+安装
+ * 把下载的 composer.phar 文件, 移动到php的有php.exe的文件目录下
+   
+   
+ * 新建 composer.bat 文件 内容如下
+   
+   
+
+1
+2
+
+
+@ECHO OFF
+php "%~dp0composer.phar" %*
+
+
+配置环境变量
+把php目录加入系统环境变量
+
+测试
+打开cmd 输入composer -v 如果出现composer字符图案则说明安装成功
+
+生成json
+项目根目录下输入以下命令
+
+1
+
+
+composer init
+
+
+如果没有tls 输入以下命令
+
+1
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/#more" rel="contents">
+              <a class="btn" href="/2020/09/28/5.Web/20200928_Tips-PHP%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Composer%E7%9A%84%E4%BD%BF%E7%94%A8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -684,6 +701,140 @@ ServerAdmin webmaster@localhost
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/" class="post-title-link" itemprop="url">Tips-mysql_设置字符集</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-28T00:00:00+08:00">2020-09-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-29 09:11:46" itemprop="dateModified" datetime="2020-09-29T09:11:46+08:00">2020-09-29</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-Web/" itemprop="url" rel="index"><span itemprop="name">5.Web</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-mysql_设置字符集" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          mysql设置字符集
+ * 查看当前数据库字符集
+   
+   1
+   2
+   3
+   4
+   5
+   6
+   7
+   8
+   9
+   10
+   11
+   12
+   13
+   14
+   15
+   
+   
+   mysql> show variables like "%char%";
+   
+   //输出
+   +--------------------------+--------------------------------+
+   | Variable_name            | Value                          |
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/28/5.Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -787,9 +938,7 @@ sudo apt-get install apache2
 
 
 添加阿里云安全组外网80端口访问
-
-
-测试
+image.png测试
 浏览器输入IP,如果出现It works代表安装成功
 
 查看状态
@@ -809,8 +958,7 @@ service apache2 status
 service apache2 start
 // 停止服务
 service apache2 stop
-// 重启服务
-serv
+// 重启
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/28/5.Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/#more" rel="contents">
@@ -1139,270 +1287,6 @@ AlphaGo简介
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/9.Tools/20200926_Tips-%E7%AC%94%E8%AE%B0%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/26/9.Tools/20200926_Tips-%E7%AC%94%E8%AE%B0%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/" class="post-title-link" itemprop="url">Tips-笔记说明文档</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-  <!--
-    <span class="post-meta-item-icon">
-      <i class="fas fa-thumbtack"></i>
-    </span>
-  -->
-     <span class="post-meta-item-text">
-        <font color=7D26CD>置顶</font>
-     </span>
-    <span class="post-meta-divider"></span>
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-22 11:11:09" itemprop="dateModified" datetime="2020-10-22T11:11:09+08:00">2020-10-22</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/26/9.Tools/20200926_Tips-%E7%AC%94%E8%AE%B0%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-笔记说明文档" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/26/9.Tools/20200926_Tips-%E7%AC%94%E8%AE%B0%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/9.Tools/20200926_Tips-%E7%AC%94%E8%AE%B0%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          笔记说明文档
-命名规则
-命名由三部分组成: 时间_分类-名字
-
-除了_ - 外不能有特殊字符
-
-分类说明
-0.RoadMap 路线图
-学习路径/学习规划/学习资源
-
-1.Tips 小知识
-零碎知识点
-
-2.Trick
-小技巧/快捷操作
-
-3.Bug
-错误记录
-
-4.BestPratice
-最佳实践
-
-5.Tutorial
-系统性的知识总结
-
-6.Tao​
-心得体会/经验总结
-
-其他
-笔记中图片放在/images 路径下
-外链图片加载失败的情况太普遍,弃用
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/26/9.Tools/20200926_Tips-%E7%AC%94%E8%AE%B0%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-title-link" itemprop="url">Roadmap_微积分知识体系</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-29 09:11:46" itemprop="dateModified" datetime="2020-09-29T09:11:46+08:00">2020-09-29</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/0-Math/" itemprop="url" rel="index"><span itemprop="name">0.Math</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/0-Math/Calculus/" itemprop="url" rel="index"><span itemprop="name">Calculus</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-meta-item leancloud_visitors" data-flag-title="Roadmap_微积分知识体系" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          微积分知识体系
-微积分1
-微积分2
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/0.Math/LinearAlgebra/20200926_Roadmap_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1517,6 +1401,121 @@ AlphaGo简介
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-title-link" itemprop="url">Roadmap_微积分知识体系</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-01-14 15:42:24" itemprop="dateModified" datetime="2021-01-14T15:42:24+08:00">2021-01-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/0-Math/" itemprop="url" rel="index"><span itemprop="name">0.Math</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/0-Math/Calculus/" itemprop="url" rel="index"><span itemprop="name">Calculus</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="post-meta-item leancloud_visitors" data-flag-title="Roadmap_微积分知识体系" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          微积分知识体系
+微积分1
+微积分2
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/26/0.Math/Calculus/20200926_Roadmap_%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/8.Notes/Goal/20200926_Roadmap-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1604,12 +1603,12 @@ AlphaGo简介
           内功修炼
  1.  数学 (用到什么学什么)
      
-      线性代数/概率论与统计/离散数学/微积分
+     线性代数/概率论与统计/离散数学/微积分
      
      
  2.  计算机组成结构 (过一遍)
      
-      深入理解计算机系统
+     深入理解计算机系统
      
      
  3.  汇编语言 (过一遍)
@@ -1629,7 +1628,7 @@ AlphaGo简介
  7.  计算机网络 (重点)
      
      
- 8.  数据结构和算法 (重
+ 8.  数据结构和算法 (重点)
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/26/8.Notes/Goal/20200926_Roadmap-%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/#more" rel="contents">
@@ -1746,6 +1745,52 @@ AlphaGo简介
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

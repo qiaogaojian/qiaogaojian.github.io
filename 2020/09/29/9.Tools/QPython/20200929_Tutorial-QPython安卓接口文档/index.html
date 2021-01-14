@@ -34,10 +34,10 @@
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="AS">
 <meta property="article:tag" content="AR">
-<meta property="article:tag" content="Web">
-<meta property="article:tag" content="Python">
 <meta property="article:tag" content="IDE">
 <meta property="article:tag" content="Android">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/2019-08-22_164930.png">
 
@@ -98,7 +98,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -211,7 +215,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#QPython%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="nav-text">QPython接口文档</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AndroidFacade"><span class="nav-text">AndroidFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Clipboard-APIs"><span class="nav-text">- Clipboard APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intent-amp-startActivity-APIs"><span class="nav-text">- Intent &amp; startActivity APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SendBroadcast-APIs"><span class="nav-text">- SendBroadcast APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vibrate"><span class="nav-text">- Vibrate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NetworkStatus"><span class="nav-text">- NetworkStatus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PackageVersion-APIs"><span class="nav-text">- PackageVersion APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#System-APIs"><span class="nav-text">- System APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SendEmail"><span class="nav-text">- SendEmail</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Toast-getInput-getPassword-notify-APIs"><span class="nav-text">- Toast, getInput, getPassword, notify APIs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ApplicationManagerFacade"><span class="nav-text">ApplicationManagerFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Manager-APIs"><span class="nav-text">- Manager APIs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CameraFacade"><span class="nav-text">CameraFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CommonIntentsFacade"><span class="nav-text">CommonIntentsFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Barcode"><span class="nav-text">- Barcode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#View-APIs"><span class="nav-text">- View APIs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ContactsFacade"><span class="nav-text">ContactsFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EventFacade"><span class="nav-text">EventFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LocationFacade"><span class="nav-text">LocationFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Providers-APIs"><span class="nav-text">- Providers APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Location-APIs"><span class="nav-text">- Location APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GEO"><span class="nav-text">- GEO</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PhoneFacade"><span class="nav-text">PhoneFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PhoneStat-APIs"><span class="nav-text">- PhoneStat APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Call-amp-Dia-APIs"><span class="nav-text">- Call &amp; Dia APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get-information-APIs"><span class="nav-text">- Get information APIs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MediaRecorderFacade"><span class="nav-text">MediaRecorderFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Audio"><span class="nav-text">- Audio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Video-APIs"><span class="nav-text">- Video APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stop"><span class="nav-text">- Stop</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SensorManagerFacade"><span class="nav-text">SensorManagerFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Start-amp-Stop"><span class="nav-text">- Start &amp; Stop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-data-APIs"><span class="nav-text">- Read data APIs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SettingsFacade"><span class="nav-text">SettingsFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Screen"><span class="nav-text">- Screen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AirplanerMode"><span class="nav-text">- AirplanerMode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ringer-Silent-Mode"><span class="nav-text">- Ringer Silent Mode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vibrate-Mode"><span class="nav-text">- Vibrate Mode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ringer-amp-Media-Volume"><span class="nav-text">- Ringer &amp; Media Volume</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Screen-Brightness"><span class="nav-text">- Screen Brightness</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SmsFacade"><span class="nav-text">SmsFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpeechRecognitionFacade"><span class="nav-text">SpeechRecognitionFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ToneGeneratorFacade"><span class="nav-text">ToneGeneratorFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WakeLockFacade"><span class="nav-text">WakeLockFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WifiFacade"><span class="nav-text">WifiFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BatteryManagerFacade"><span class="nav-text">BatteryManagerFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ActivityResultFacade"><span class="nav-text">ActivityResultFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MediaPlayerFacade"><span class="nav-text">MediaPlayerFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Control"><span class="nav-text">- Control</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get-Information"><span class="nav-text">- Get Information</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PreferencesFacade"><span class="nav-text">PreferencesFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QPyInterfaceFacade"><span class="nav-text">QPyInterfaceFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TextToSpeechFacade"><span class="nav-text">TextToSpeechFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EyesFreeFacade"><span class="nav-text">EyesFreeFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BluetoothFacade"><span class="nav-text">BluetoothFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SignalStrengthFacade"><span class="nav-text">SignalStrengthFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebCamFacade"><span class="nav-text">WebCamFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UiFacade"><span class="nav-text">UiFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dialog"><span class="nav-text">- Dialog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NFC"><span class="nav-text">- NFC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Progress"><span class="nav-text">- Progress</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Alert"><span class="nav-text">- Alert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dialog-Control"><span class="nav-text">- Dialog Control</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layout"><span class="nav-text">- Layout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebView"><span class="nav-text">- WebView</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#USB-Host-Serial-Facade"><span class="nav-text">USB Host Serial Facade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Requirements"><span class="nav-text">- Requirements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Status"><span class="nav-text">- Status</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Author"><span class="nav-text">- Author</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#APIs"><span class="nav-text">- APIs</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#qpython%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="nav-text">QPython接口文档</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#androidfacade"><span class="nav-text">AndroidFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#clipboard-apis"><span class="nav-text">- Clipboard APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#intent-startactivity-apis"><span class="nav-text">- Intent &amp; startActivity APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sendbroadcast-apis"><span class="nav-text">- SendBroadcast APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vibrate"><span class="nav-text">- Vibrate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#networkstatus"><span class="nav-text">- NetworkStatus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#packageversion-apis"><span class="nav-text">- PackageVersion APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#system-apis"><span class="nav-text">- System APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sendemail"><span class="nav-text">- SendEmail</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toast-getinput-getpassword-notify-apis"><span class="nav-text">- Toast, getInput, getPassword, notify APIs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#applicationmanagerfacade"><span class="nav-text">ApplicationManagerFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#manager-apis"><span class="nav-text">- Manager APIs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#camerafacade"><span class="nav-text">CameraFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#commonintentsfacade"><span class="nav-text">CommonIntentsFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#barcode"><span class="nav-text">- Barcode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#view-apis"><span class="nav-text">- View APIs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#contactsfacade"><span class="nav-text">ContactsFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eventfacade"><span class="nav-text">EventFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#locationfacade"><span class="nav-text">LocationFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#providers-apis"><span class="nav-text">- Providers APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#location-apis"><span class="nav-text">- Location APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#geo"><span class="nav-text">- GEO</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#phonefacade"><span class="nav-text">PhoneFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#phonestat-apis"><span class="nav-text">- PhoneStat APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#call-dia-apis"><span class="nav-text">- Call &amp; Dia APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get-information-apis"><span class="nav-text">- Get information APIs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mediarecorderfacade"><span class="nav-text">MediaRecorderFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#audio"><span class="nav-text">- Audio</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#video-apis"><span class="nav-text">- Video APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stop"><span class="nav-text">- Stop</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sensormanagerfacade"><span class="nav-text">SensorManagerFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#start-stop"><span class="nav-text">- Start &amp; Stop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#read-data-apis"><span class="nav-text">- Read data APIs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#settingsfacade"><span class="nav-text">SettingsFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#screen"><span class="nav-text">- Screen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#airplanermode"><span class="nav-text">- AirplanerMode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ringer-silent-mode"><span class="nav-text">- Ringer Silent Mode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vibrate-mode"><span class="nav-text">- Vibrate Mode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ringer-media-volume"><span class="nav-text">- Ringer &amp; Media Volume</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#screen-brightness"><span class="nav-text">- Screen Brightness</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#smsfacade"><span class="nav-text">SmsFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#speechrecognitionfacade"><span class="nav-text">SpeechRecognitionFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tonegeneratorfacade"><span class="nav-text">ToneGeneratorFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wakelockfacade"><span class="nav-text">WakeLockFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wififacade"><span class="nav-text">WifiFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#batterymanagerfacade"><span class="nav-text">BatteryManagerFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#activityresultfacade"><span class="nav-text">ActivityResultFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mediaplayerfacade"><span class="nav-text">MediaPlayerFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#control"><span class="nav-text">- Control</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get-information"><span class="nav-text">- Get Information</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#preferencesfacade"><span class="nav-text">PreferencesFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qpyinterfacefacade"><span class="nav-text">QPyInterfaceFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#texttospeechfacade"><span class="nav-text">TextToSpeechFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eyesfreefacade"><span class="nav-text">EyesFreeFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bluetoothfacade"><span class="nav-text">BluetoothFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#signalstrengthfacade"><span class="nav-text">SignalStrengthFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webcamfacade"><span class="nav-text">WebCamFacade</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uifacade"><span class="nav-text">UiFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dialog"><span class="nav-text">- Dialog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nfc"><span class="nav-text">- NFC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#progress"><span class="nav-text">- Progress</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#alert"><span class="nav-text">- Alert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dialog-control"><span class="nav-text">- Dialog Control</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#layout"><span class="nav-text">- Layout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webview"><span class="nav-text">- WebView</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#usb-host-serial-facade"><span class="nav-text">USB Host Serial Facade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#requirements"><span class="nav-text">- Requirements</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#status"><span class="nav-text">- Status</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#author"><span class="nav-text">- Author</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apis"><span class="nav-text">- APIs</span></a></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -369,11 +373,13 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="QPython接口文档"><a href="#QPython接口文档" class="headerlink" title="QPython接口文档"></a>QPython接口文档</h1><!-- TOC -->
-
+        <h1 id="qpython接口文档">QPython接口文档</h1>
+<!-- TOC -->
 <ul>
-<li><a href="#qpython%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3">QPython接口文档</a><ul>
-<li><a href="#androidfacade">AndroidFacade</a><ul>
+<li><a href="#qpython接口文档">QPython接口文档</a>
+<ul>
+<li><a href="#androidfacade">AndroidFacade</a>
+<ul>
 <li><a href="#--clipboard-apis">- Clipboard APIs</a></li>
 <li><a href="#--intent--startactivity-apis">- Intent &amp; startActivity APIs</a></li>
 <li><a href="#--sendbroadcast-apis">- SendBroadcast APIs</a></li>
@@ -383,52 +389,51 @@
 <li><a href="#--system-apis">- System APIs</a></li>
 <li><a href="#--sendemail">- SendEmail</a></li>
 <li><a href="#--toast-getinput-getpassword-notify-apis">- Toast, getInput, getPassword, notify APIs</a></li>
-</ul>
-</li>
-<li><a href="#applicationmanagerfacade">ApplicationManagerFacade</a><ul>
+</ul></li>
+<li><a href="#applicationmanagerfacade">ApplicationManagerFacade</a>
+<ul>
 <li><a href="#--manager-apis">- Manager APIs</a></li>
-</ul>
-</li>
+</ul></li>
 <li><a href="#camerafacade">CameraFacade</a></li>
-<li><a href="#commonintentsfacade">CommonIntentsFacade</a><ul>
+<li><a href="#commonintentsfacade">CommonIntentsFacade</a>
+<ul>
 <li><a href="#--barcode">- Barcode</a></li>
 <li><a href="#--view-apis">- View APIs</a></li>
-</ul>
-</li>
+</ul></li>
 <li><a href="#contactsfacade">ContactsFacade</a></li>
 <li><a href="#eventfacade">EventFacade</a></li>
-<li><a href="#locationfacade">LocationFacade</a><ul>
+<li><a href="#locationfacade">LocationFacade</a>
+<ul>
 <li><a href="#--providers-apis">- Providers APIs</a></li>
 <li><a href="#--location-apis">- Location APIs</a></li>
 <li><a href="#--geo">- GEO</a></li>
-</ul>
-</li>
-<li><a href="#phonefacade">PhoneFacade</a><ul>
+</ul></li>
+<li><a href="#phonefacade">PhoneFacade</a>
+<ul>
 <li><a href="#--phonestat-apis">- PhoneStat APIs</a></li>
 <li><a href="#--call--dia-apis">- Call &amp; Dia APIs</a></li>
 <li><a href="#--get-information-apis">- Get information APIs</a></li>
-</ul>
-</li>
-<li><a href="#mediarecorderfacade">MediaRecorderFacade</a><ul>
+</ul></li>
+<li><a href="#mediarecorderfacade">MediaRecorderFacade</a>
+<ul>
 <li><a href="#--audio">- Audio</a></li>
 <li><a href="#--video-apis">- Video APIs</a></li>
 <li><a href="#--stop">- Stop</a></li>
-</ul>
-</li>
-<li><a href="#sensormanagerfacade">SensorManagerFacade</a><ul>
+</ul></li>
+<li><a href="#sensormanagerfacade">SensorManagerFacade</a>
+<ul>
 <li><a href="#--start--stop">- Start &amp; Stop</a></li>
 <li><a href="#--read-data-apis">- Read data APIs</a></li>
-</ul>
-</li>
-<li><a href="#settingsfacade">SettingsFacade</a><ul>
+</ul></li>
+<li><a href="#settingsfacade">SettingsFacade</a>
+<ul>
 <li><a href="#--screen">- Screen</a></li>
 <li><a href="#--airplanermode">- AirplanerMode</a></li>
 <li><a href="#--ringer-silent-mode">- Ringer Silent Mode</a></li>
 <li><a href="#--vibrate-mode">- Vibrate Mode</a></li>
 <li><a href="#--ringer--media-volume">- Ringer &amp; Media Volume</a></li>
 <li><a href="#--screen-brightness">- Screen Brightness</a></li>
-</ul>
-</li>
+</ul></li>
 <li><a href="#smsfacade">SmsFacade</a></li>
 <li><a href="#speechrecognitionfacade">SpeechRecognitionFacade</a></li>
 <li><a href="#tonegeneratorfacade">ToneGeneratorFacade</a></li>
@@ -436,11 +441,11 @@
 <li><a href="#wififacade">WifiFacade</a></li>
 <li><a href="#batterymanagerfacade">BatteryManagerFacade</a></li>
 <li><a href="#activityresultfacade">ActivityResultFacade</a></li>
-<li><a href="#mediaplayerfacade">MediaPlayerFacade</a><ul>
+<li><a href="#mediaplayerfacade">MediaPlayerFacade</a>
+<ul>
 <li><a href="#--control">- Control</a></li>
 <li><a href="#--get-information">- Get Information</a></li>
-</ul>
-</li>
+</ul></li>
 <li><a href="#preferencesfacade">PreferencesFacade</a></li>
 <li><a href="#qpyinterfacefacade">QPyInterfaceFacade</a></li>
 <li><a href="#texttospeechfacade">TextToSpeechFacade</a></li>
@@ -448,7 +453,8 @@
 <li><a href="#bluetoothfacade">BluetoothFacade</a></li>
 <li><a href="#signalstrengthfacade">SignalStrengthFacade</a></li>
 <li><a href="#webcamfacade">WebCamFacade</a></li>
-<li><a href="#uifacade">UiFacade</a><ul>
+<li><a href="#uifacade">UiFacade</a>
+<ul>
 <li><a href="#--dialog">- Dialog</a></li>
 <li><a href="#--nfc">- NFC</a></li>
 <li><a href="#--progress">- Progress</a></li>
@@ -456,24 +462,93 @@
 <li><a href="#--dialog-control">- Dialog Control</a></li>
 <li><a href="#--layout">- Layout</a></li>
 <li><a href="#--webview">- WebView</a></li>
-</ul>
-</li>
-<li><a href="#usb-host-serial-facade">USB Host Serial Facade</a><ul>
+</ul></li>
+<li><a href="#usb-host-serial-facade">USB Host Serial Facade</a>
+<ul>
 <li><a href="#--requirements">- Requirements</a></li>
 <li><a href="#--status">- Status</a></li>
 <li><a href="#--author">- Author</a></li>
 <li><a href="#--apis">- APIs</a></li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
 </ul>
 <!-- /TOC -->
-
 <blockquote>
 <p>To simplify QPython SL4A development in IDEs with a “hepler” class derived from the default Android class containing SL4A(Script Layer for Android) facade functions &amp; API documentation</p>
 </blockquote>
-<h2 id="AndroidFacade"><a href="#AndroidFacade" class="headerlink" title="AndroidFacade"></a>AndroidFacade</h2><h3 id="Clipboard-APIs"><a href="#Clipboard-APIs" class="headerlink" title="- Clipboard APIs"></a>- Clipboard APIs</h3><h3 id="Intent-amp-startActivity-APIs"><a href="#Intent-amp-startActivity-APIs" class="headerlink" title="- Intent &amp; startActivity APIs"></a>- Intent &amp; startActivity APIs</h3><h3 id="SendBroadcast-APIs"><a href="#SendBroadcast-APIs" class="headerlink" title="- SendBroadcast APIs"></a>- SendBroadcast APIs</h3><h3 id="Vibrate"><a href="#Vibrate" class="headerlink" title="- Vibrate"></a>- Vibrate</h3><h3 id="NetworkStatus"><a href="#NetworkStatus" class="headerlink" title="- NetworkStatus"></a>- NetworkStatus</h3><h3 id="PackageVersion-APIs"><a href="#PackageVersion-APIs" class="headerlink" title="- PackageVersion APIs"></a>- PackageVersion APIs</h3><h3 id="System-APIs"><a href="#System-APIs" class="headerlink" title="- System APIs"></a>- System APIs</h3><h3 id="SendEmail"><a href="#SendEmail" class="headerlink" title="- SendEmail"></a>- SendEmail</h3><h3 id="Toast-getInput-getPassword-notify-APIs"><a href="#Toast-getInput-getPassword-notify-APIs" class="headerlink" title="- Toast, getInput, getPassword, notify APIs"></a>- Toast, getInput, getPassword, notify APIs</h3><h2 id="ApplicationManagerFacade"><a href="#ApplicationManagerFacade" class="headerlink" title="ApplicationManagerFacade"></a>ApplicationManagerFacade</h2><h3 id="Manager-APIs"><a href="#Manager-APIs" class="headerlink" title="- Manager APIs"></a>- Manager APIs</h3><h2 id="CameraFacade"><a href="#CameraFacade" class="headerlink" title="CameraFacade"></a>CameraFacade</h2><h2 id="CommonIntentsFacade"><a href="#CommonIntentsFacade" class="headerlink" title="CommonIntentsFacade"></a>CommonIntentsFacade</h2><h3 id="Barcode"><a href="#Barcode" class="headerlink" title="- Barcode"></a>- Barcode</h3><h3 id="View-APIs"><a href="#View-APIs" class="headerlink" title="- View APIs"></a>- View APIs</h3><h2 id="ContactsFacade"><a href="#ContactsFacade" class="headerlink" title="ContactsFacade"></a>ContactsFacade</h2><h2 id="EventFacade"><a href="#EventFacade" class="headerlink" title="EventFacade"></a>EventFacade</h2><h2 id="LocationFacade"><a href="#LocationFacade" class="headerlink" title="LocationFacade"></a>LocationFacade</h2><h3 id="Providers-APIs"><a href="#Providers-APIs" class="headerlink" title="- Providers APIs"></a>- Providers APIs</h3><h3 id="Location-APIs"><a href="#Location-APIs" class="headerlink" title="- Location APIs"></a>- Location APIs</h3><h3 id="GEO"><a href="#GEO" class="headerlink" title="- GEO"></a>- GEO</h3><h2 id="PhoneFacade"><a href="#PhoneFacade" class="headerlink" title="PhoneFacade"></a>PhoneFacade</h2><h3 id="PhoneStat-APIs"><a href="#PhoneStat-APIs" class="headerlink" title="- PhoneStat APIs"></a>- PhoneStat APIs</h3><h3 id="Call-amp-Dia-APIs"><a href="#Call-amp-Dia-APIs" class="headerlink" title="- Call &amp; Dia APIs"></a>- Call &amp; Dia APIs</h3><h3 id="Get-information-APIs"><a href="#Get-information-APIs" class="headerlink" title="- Get information APIs"></a>- Get information APIs</h3><h2 id="MediaRecorderFacade"><a href="#MediaRecorderFacade" class="headerlink" title="MediaRecorderFacade"></a>MediaRecorderFacade</h2><h3 id="Audio"><a href="#Audio" class="headerlink" title="- Audio"></a>- Audio</h3><h3 id="Video-APIs"><a href="#Video-APIs" class="headerlink" title="- Video APIs"></a>- Video APIs</h3><h3 id="Stop"><a href="#Stop" class="headerlink" title="- Stop"></a>- Stop</h3><h2 id="SensorManagerFacade"><a href="#SensorManagerFacade" class="headerlink" title="SensorManagerFacade"></a>SensorManagerFacade</h2><h3 id="Start-amp-Stop"><a href="#Start-amp-Stop" class="headerlink" title="- Start &amp; Stop"></a>- Start &amp; Stop</h3><h3 id="Read-data-APIs"><a href="#Read-data-APIs" class="headerlink" title="- Read data APIs"></a>- Read data APIs</h3><h2 id="SettingsFacade"><a href="#SettingsFacade" class="headerlink" title="SettingsFacade"></a>SettingsFacade</h2><h3 id="Screen"><a href="#Screen" class="headerlink" title="- Screen"></a>- Screen</h3><h3 id="AirplanerMode"><a href="#AirplanerMode" class="headerlink" title="- AirplanerMode"></a>- AirplanerMode</h3><h3 id="Ringer-Silent-Mode"><a href="#Ringer-Silent-Mode" class="headerlink" title="- Ringer Silent Mode"></a>- Ringer Silent Mode</h3><h3 id="Vibrate-Mode"><a href="#Vibrate-Mode" class="headerlink" title="- Vibrate Mode"></a>- Vibrate Mode</h3><h3 id="Ringer-amp-Media-Volume"><a href="#Ringer-amp-Media-Volume" class="headerlink" title="- Ringer &amp; Media Volume"></a>- Ringer &amp; Media Volume</h3><h3 id="Screen-Brightness"><a href="#Screen-Brightness" class="headerlink" title="- Screen Brightness"></a>- Screen Brightness</h3><h2 id="SmsFacade"><a href="#SmsFacade" class="headerlink" title="SmsFacade"></a>SmsFacade</h2><h2 id="SpeechRecognitionFacade"><a href="#SpeechRecognitionFacade" class="headerlink" title="SpeechRecognitionFacade"></a>SpeechRecognitionFacade</h2><h2 id="ToneGeneratorFacade"><a href="#ToneGeneratorFacade" class="headerlink" title="ToneGeneratorFacade"></a>ToneGeneratorFacade</h2><h2 id="WakeLockFacade"><a href="#WakeLockFacade" class="headerlink" title="WakeLockFacade"></a>WakeLockFacade</h2><h2 id="WifiFacade"><a href="#WifiFacade" class="headerlink" title="WifiFacade"></a>WifiFacade</h2><h2 id="BatteryManagerFacade"><a href="#BatteryManagerFacade" class="headerlink" title="BatteryManagerFacade"></a>BatteryManagerFacade</h2><h2 id="ActivityResultFacade"><a href="#ActivityResultFacade" class="headerlink" title="ActivityResultFacade"></a>ActivityResultFacade</h2><h2 id="MediaPlayerFacade"><a href="#MediaPlayerFacade" class="headerlink" title="MediaPlayerFacade"></a>MediaPlayerFacade</h2><h3 id="Control"><a href="#Control" class="headerlink" title="- Control"></a>- Control</h3><h3 id="Get-Information"><a href="#Get-Information" class="headerlink" title="- Get Information"></a>- Get Information</h3><h2 id="PreferencesFacade"><a href="#PreferencesFacade" class="headerlink" title="PreferencesFacade"></a>PreferencesFacade</h2><h2 id="QPyInterfaceFacade"><a href="#QPyInterfaceFacade" class="headerlink" title="QPyInterfaceFacade"></a>QPyInterfaceFacade</h2><h2 id="TextToSpeechFacade"><a href="#TextToSpeechFacade" class="headerlink" title="TextToSpeechFacade"></a>TextToSpeechFacade</h2><h2 id="EyesFreeFacade"><a href="#EyesFreeFacade" class="headerlink" title="EyesFreeFacade"></a>EyesFreeFacade</h2><h2 id="BluetoothFacade"><a href="#BluetoothFacade" class="headerlink" title="BluetoothFacade"></a>BluetoothFacade</h2><h2 id="SignalStrengthFacade"><a href="#SignalStrengthFacade" class="headerlink" title="SignalStrengthFacade"></a>SignalStrengthFacade</h2><h2 id="WebCamFacade"><a href="#WebCamFacade" class="headerlink" title="WebCamFacade"></a>WebCamFacade</h2><h2 id="UiFacade"><a href="#UiFacade" class="headerlink" title="UiFacade"></a>UiFacade</h2><h3 id="Dialog"><a href="#Dialog" class="headerlink" title="- Dialog"></a>- Dialog</h3><h3 id="NFC"><a href="#NFC" class="headerlink" title="- NFC"></a>- NFC</h3><h3 id="Progress"><a href="#Progress" class="headerlink" title="- Progress"></a>- Progress</h3><h3 id="Alert"><a href="#Alert" class="headerlink" title="- Alert"></a>- Alert</h3><h3 id="Dialog-Control"><a href="#Dialog-Control" class="headerlink" title="- Dialog Control"></a>- Dialog Control</h3><h3 id="Layout"><a href="#Layout" class="headerlink" title="- Layout"></a>- Layout</h3><h3 id="WebView"><a href="#WebView" class="headerlink" title="- WebView"></a>- WebView</h3><h2 id="USB-Host-Serial-Facade"><a href="#USB-Host-Serial-Facade" class="headerlink" title="USB Host Serial Facade"></a>USB Host Serial Facade</h2><h3 id="Requirements"><a href="#Requirements" class="headerlink" title="- Requirements"></a>- Requirements</h3><h3 id="Status"><a href="#Status" class="headerlink" title="- Status"></a>- Status</h3><h3 id="Author"><a href="#Author" class="headerlink" title="- Author"></a>- Author</h3><h3 id="APIs"><a href="#APIs" class="headerlink" title="- APIs"></a>- APIs</h3><p><img src="/images/2019-08-22_164930.png" alt="所有api"></p>
+<h2 id="androidfacade">AndroidFacade</h2>
+<h3 id="clipboard-apis">- Clipboard APIs</h3>
+<h3 id="intent-startactivity-apis">- Intent &amp; startActivity APIs</h3>
+<h3 id="sendbroadcast-apis">- SendBroadcast APIs</h3>
+<h3 id="vibrate">- Vibrate</h3>
+<h3 id="networkstatus">- NetworkStatus</h3>
+<h3 id="packageversion-apis">- PackageVersion APIs</h3>
+<h3 id="system-apis">- System APIs</h3>
+<h3 id="sendemail">- SendEmail</h3>
+<h3 id="toast-getinput-getpassword-notify-apis">- Toast, getInput, getPassword, notify APIs</h3>
+<h2 id="applicationmanagerfacade">ApplicationManagerFacade</h2>
+<h3 id="manager-apis">- Manager APIs</h3>
+<h2 id="camerafacade">CameraFacade</h2>
+<h2 id="commonintentsfacade">CommonIntentsFacade</h2>
+<h3 id="barcode">- Barcode</h3>
+<h3 id="view-apis">- View APIs</h3>
+<h2 id="contactsfacade">ContactsFacade</h2>
+<h2 id="eventfacade">EventFacade</h2>
+<h2 id="locationfacade">LocationFacade</h2>
+<h3 id="providers-apis">- Providers APIs</h3>
+<h3 id="location-apis">- Location APIs</h3>
+<h3 id="geo">- GEO</h3>
+<h2 id="phonefacade">PhoneFacade</h2>
+<h3 id="phonestat-apis">- PhoneStat APIs</h3>
+<h3 id="call-dia-apis">- Call &amp; Dia APIs</h3>
+<h3 id="get-information-apis">- Get information APIs</h3>
+<h2 id="mediarecorderfacade">MediaRecorderFacade</h2>
+<h3 id="audio">- Audio</h3>
+<h3 id="video-apis">- Video APIs</h3>
+<h3 id="stop">- Stop</h3>
+<h2 id="sensormanagerfacade">SensorManagerFacade</h2>
+<h3 id="start-stop">- Start &amp; Stop</h3>
+<h3 id="read-data-apis">- Read data APIs</h3>
+<h2 id="settingsfacade">SettingsFacade</h2>
+<h3 id="screen">- Screen</h3>
+<h3 id="airplanermode">- AirplanerMode</h3>
+<h3 id="ringer-silent-mode">- Ringer Silent Mode</h3>
+<h3 id="vibrate-mode">- Vibrate Mode</h3>
+<h3 id="ringer-media-volume">- Ringer &amp; Media Volume</h3>
+<h3 id="screen-brightness">- Screen Brightness</h3>
+<h2 id="smsfacade">SmsFacade</h2>
+<h2 id="speechrecognitionfacade">SpeechRecognitionFacade</h2>
+<h2 id="tonegeneratorfacade">ToneGeneratorFacade</h2>
+<h2 id="wakelockfacade">WakeLockFacade</h2>
+<h2 id="wififacade">WifiFacade</h2>
+<h2 id="batterymanagerfacade">BatteryManagerFacade</h2>
+<h2 id="activityresultfacade">ActivityResultFacade</h2>
+<h2 id="mediaplayerfacade">MediaPlayerFacade</h2>
+<h3 id="control">- Control</h3>
+<h3 id="get-information">- Get Information</h3>
+<h2 id="preferencesfacade">PreferencesFacade</h2>
+<h2 id="qpyinterfacefacade">QPyInterfaceFacade</h2>
+<h2 id="texttospeechfacade">TextToSpeechFacade</h2>
+<h2 id="eyesfreefacade">EyesFreeFacade</h2>
+<h2 id="bluetoothfacade">BluetoothFacade</h2>
+<h2 id="signalstrengthfacade">SignalStrengthFacade</h2>
+<h2 id="webcamfacade">WebCamFacade</h2>
+<h2 id="uifacade">UiFacade</h2>
+<h3 id="dialog">- Dialog</h3>
+<h3 id="nfc">- NFC</h3>
+<h3 id="progress">- Progress</h3>
+<h3 id="alert">- Alert</h3>
+<h3 id="dialog-control">- Dialog Control</h3>
+<h3 id="layout">- Layout</h3>
+<h3 id="webview">- WebView</h3>
+<h2 id="usb-host-serial-facade">USB Host Serial Facade</h2>
+<h3 id="requirements">- Requirements</h3>
+<h3 id="status">- Status</h3>
+<h3 id="author">- Author</h3>
+<h3 id="apis">- APIs</h3>
+<figure>
+<img src="/images/2019-08-22_164930.png" alt="所有api" /><figcaption aria-hidden="true">所有api</figcaption>
+</figure>
 
     </div>
 
@@ -524,10 +599,10 @@
           <div class="post-tags">
               <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
               <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
-              <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
-              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
               <a href="/tags/IDE/" rel="tag"><i class="fa fa-tag"></i> IDE</a>
               <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+              <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
+              <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
           </div>
 
         
@@ -637,6 +712,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

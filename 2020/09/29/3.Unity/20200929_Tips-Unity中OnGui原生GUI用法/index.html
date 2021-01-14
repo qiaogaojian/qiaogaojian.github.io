@@ -32,9 +32,9 @@
 <meta property="article:modified_time" content="2020-09-29T01:11:46.122Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="Unity">
-<meta property="article:tag" content="IDE">
 <meta property="article:tag" content="C#">
 <meta property="article:tag" content="NGUI">
+<meta property="article:tag" content="IDE">
 <meta name="twitter:card" content="summary">
 
 
@@ -94,7 +94,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -207,7 +211,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unity%E4%B8%ADOnGui%E5%8E%9F%E7%94%9FGUI%E7%94%A8%E6%B3%95"><span class="nav-text">Unity中OnGui原生GUI用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Button"><span class="nav-text">Button</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Rect-x-Rect-y"><span class="nav-text">Rect.x Rect.y</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rect-z-Rect-w"><span class="nav-text">Rect.z Rect.w</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OnGUI%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-text">OnGUI注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%90%E6%A0%87%E5%8E%9F%E7%82%B9-%E5%B7%A6%E4%B8%8A%E8%A7%92"><span class="nav-text">坐标原点: 左上角</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#unity%E4%B8%ADongui%E5%8E%9F%E7%94%9Fgui%E7%94%A8%E6%B3%95"><span class="nav-text">Unity中OnGui原生GUI用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#button"><span class="nav-text">Button</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rect.x-rect.y"><span class="nav-text">Rect.x Rect.y</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rect.z-rect.w"><span class="nav-text">Rect.z Rect.w</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ongui%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-text">OnGUI注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%90%E6%A0%87%E5%8E%9F%E7%82%B9-%E5%B7%A6%E4%B8%8A%E8%A7%92"><span class="nav-text">坐标原点: 左上角</span></a></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -361,10 +365,16 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Unity中OnGui原生GUI用法"><a href="#Unity中OnGui原生GUI用法" class="headerlink" title="Unity中OnGui原生GUI用法"></a>Unity中OnGui原生GUI用法</h1><h2 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (GUI.Button(<span class="keyword">new</span> Rect(<span class="number">10</span>, <span class="number">360</span>, <span class="number">200</span>, <span class="number">50</span>), <span class="string">&quot;开始新手引导&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        GuideManager.Instance.InitGuide();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Rect-x-Rect-y"><a href="#Rect-x-Rect-y" class="headerlink" title="Rect.x Rect.y"></a>Rect.x Rect.y</h3><p>按钮左下角坐标</p>
-<h3 id="Rect-z-Rect-w"><a href="#Rect-z-Rect-w" class="headerlink" title="Rect.z Rect.w"></a>Rect.z Rect.w</h3><p>按钮的宽和高</p>
-<h2 id="OnGUI注意事项"><a href="#OnGUI注意事项" class="headerlink" title="OnGUI注意事项"></a>OnGUI注意事项</h2><h3 id="坐标原点-左上角"><a href="#坐标原点-左上角" class="headerlink" title="坐标原点: 左上角"></a>坐标原点: 左上角</h3>
+        <h1 id="unity中ongui原生gui用法">Unity中OnGui原生GUI用法</h1>
+<h2 id="button">Button</h2>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">OnGUI</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (GUI.Button(<span class="keyword">new</span> Rect(<span class="number">10</span>, <span class="number">360</span>, <span class="number">200</span>, <span class="number">50</span>), <span class="string">&quot;开始新手引导&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        GuideManager.Instance.InitGuide();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="rect.x-rect.y">Rect.x Rect.y</h3>
+<p>按钮左下角坐标</p>
+<h3 id="rect.z-rect.w">Rect.z Rect.w</h3>
+<p>按钮的宽和高</p>
+<h2 id="ongui注意事项">OnGUI注意事项</h2>
+<h3 id="坐标原点-左上角">坐标原点: 左上角</h3>
+
     </div>
 
     
@@ -413,22 +423,22 @@
 
           <div class="post-tags">
               <a href="/tags/Unity/" rel="tag"><i class="fa fa-tag"></i> Unity</a>
-              <a href="/tags/IDE/" rel="tag"><i class="fa fa-tag"></i> IDE</a>
               <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C#</a>
               <a href="/tags/NGUI/" rel="tag"><i class="fa fa-tag"></i> NGUI</a>
+              <a href="/tags/IDE/" rel="tag"><i class="fa fa-tag"></i> IDE</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Tips-C%20Sharp%E5%9F%BA%E4%BA%8EVSCode%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA/" rel="prev" title="Tips-C Sharp基于VSCode开发环境的搭建">
-                  <i class="fa fa-chevron-left"></i> Tips-C Sharp基于VSCode开发环境的搭建
+                <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADSprite%E5%92%8CUI%20Image%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="prev" title="Tips-Unity中Sprite和UI Image的区别">
+                  <i class="fa fa-chevron-left"></i> Tips-Unity中Sprite和UI Image的区别
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Tips-C%20Sharp%E4%B8%ADenum%20%E5%92%8Cstring%20int%E7%9A%84%E4%BA%92%E8%BD%AC/" rel="next" title="Tips-C Sharp中enum 和string int的互转">
-                  Tips-C Sharp中enum 和string int的互转 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADAwake(%20)%E5%92%8CStart(%20)%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB/" rel="next" title="Tips-Unity中Awake( )和Start( )的小区别">
+                  Tips-Unity中Awake( )和Start( )的小区别 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -525,6 +535,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

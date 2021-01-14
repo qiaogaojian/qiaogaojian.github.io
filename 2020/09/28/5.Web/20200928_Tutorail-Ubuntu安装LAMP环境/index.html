@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="Ubuntu安装LAMP环境 更新 1   sudo apt-get update   安装git 1   sudo apt-get install git   安装Apache 1   sudo apt-get install apache2   添加阿里云安全组外网80端口访问   测试 浏览器输入IP,如果出现It works代表安装成功  查看状态 1 2 3 4 5 6 7 8   &#x2F;&#x2F;">
+  <meta name="description" content="Ubuntu安装LAMP环境 更新 1   sudo apt-get update   安装git 1   sudo apt-get install git   安装Apache 1   sudo apt-get install apache2   添加阿里云安全组外网80端口访问 image.png测试 浏览器输入IP,如果出现It works代表安装成功  查看状态 1 2 3 4 5 6 7">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tutorail-Ubuntu安装LAMP环境">
 <meta property="og:url" content="http://example.com/2020/09/28/5.Web/20200928_Tutorail-Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83/index.html">
 <meta property="og:site_name" content="行则将至">
-<meta property="og:description" content="Ubuntu安装LAMP环境 更新 1   sudo apt-get update   安装git 1   sudo apt-get install git   安装Apache 1   sudo apt-get install apache2   添加阿里云安全组外网80端口访问   测试 浏览器输入IP,如果出现It works代表安装成功  查看状态 1 2 3 4 5 6 7 8   &#x2F;&#x2F;">
+<meta property="og:description" content="Ubuntu安装LAMP环境 更新 1   sudo apt-get update   安装git 1   sudo apt-get install git   安装Apache 1   sudo apt-get install apache2   添加阿里云安全组外网80端口访问 image.png测试 浏览器输入IP,如果出现It works代表安装成功  查看状态 1 2 3 4 5 6 7">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3947109-fc72e93e1a263173.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="article:published_time" content="2020-09-27T16:00:00.000Z">
@@ -34,16 +34,16 @@
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="AS">
 <meta property="article:tag" content="AR">
+<meta property="article:tag" content="IDE">
 <meta property="article:tag" content="ML">
 <meta property="article:tag" content="Web">
+<meta property="article:tag" content="Html">
+<meta property="article:tag" content="Git">
 <meta property="article:tag" content="PHP">
 <meta property="article:tag" content="ThinkPHP">
-<meta property="article:tag" content="Html">
 <meta property="article:tag" content="Ubuntu">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="MySql">
-<meta property="article:tag" content="Git">
-<meta property="article:tag" content="IDE">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/3947109-fc72e93e1a263173.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
@@ -104,7 +104,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -217,7 +221,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu%E5%AE%89%E8%A3%85LAMP%E7%8E%AF%E5%A2%83"><span class="nav-text">Ubuntu安装LAMP环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0"><span class="nav-text">更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85git"><span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Apache"><span class="nav-text">安装Apache</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%89%E5%85%A8%E7%BB%84%E5%A4%96%E7%BD%9180%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE"><span class="nav-text">添加阿里云安全组外网80端口访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%81"><span class="nav-text">查看状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web%E7%9B%AE%E5%BD%95"><span class="nav-text">Web目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%9B%AE%E5%BD%95"><span class="nav-text">安装目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE"><span class="nav-text">全局配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%91%E5%90%AC%E7%AB%AF%E5%8F%A3"><span class="nav-text">监听端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA"><span class="nav-text">虚拟主机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85MySql"><span class="nav-text">安装MySql</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95-1"><span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%81-1"><span class="nav-text">查看状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%9B%91%E5%90%AC%E7%AB%AF%E5%8F%A3%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-text">查看监听端口的情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85PHP"><span class="nav-text">安装PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%85%B6%E4%BB%96%E6%A8%A1%E5%9D%97"><span class="nav-text">安装其他模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1"><span class="nav-text">重启服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90"><span class="nav-text">修改权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85phpMyAdmin"><span class="nav-text">安装phpMyAdmin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-Apache-rewrite%E6%A8%A1%E5%9D%97"><span class="nav-text">启动 Apache rewrite模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1-1"><span class="nav-text">重启服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95-2"><span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEApache"><span class="nav-text">配置Apache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu%E5%AE%89%E8%A3%85lamp%E7%8E%AF%E5%A2%83"><span class="nav-text">Ubuntu安装LAMP环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0"><span class="nav-text">更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85git"><span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85apache"><span class="nav-text">安装Apache</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%89%E5%85%A8%E7%BB%84%E5%A4%96%E7%BD%9180%E7%AB%AF%E5%8F%A3%E8%AE%BF%E9%97%AE"><span class="nav-text">添加阿里云安全组外网80端口访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%81"><span class="nav-text">查看状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web%E7%9B%AE%E5%BD%95"><span class="nav-text">Web目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%9B%AE%E5%BD%95"><span class="nav-text">安装目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE"><span class="nav-text">全局配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%91%E5%90%AC%E7%AB%AF%E5%8F%A3"><span class="nav-text">监听端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA"><span class="nav-text">虚拟主机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85mysql"><span class="nav-text">安装MySql</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95-1"><span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%81-1"><span class="nav-text">查看状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%9B%91%E5%90%AC%E7%AB%AF%E5%8F%A3%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-text">查看监听端口的情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85php"><span class="nav-text">安装PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%85%B6%E4%BB%96%E6%A8%A1%E5%9D%97"><span class="nav-text">安装其他模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1"><span class="nav-text">重启服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90"><span class="nav-text">修改权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85phpmyadmin"><span class="nav-text">安装phpMyAdmin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-apache-rewrite%E6%A8%A1%E5%9D%97"><span class="nav-text">启动 Apache rewrite模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1-1"><span class="nav-text">重启服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95-2"><span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEapache"><span class="nav-text">配置Apache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -377,54 +381,80 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Ubuntu安装LAMP环境"><a href="#Ubuntu安装LAMP环境" class="headerlink" title="Ubuntu安装LAMP环境"></a>Ubuntu安装LAMP环境</h1><h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
-<h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
-<h2 id="安装Apache"><a href="#安装Apache" class="headerlink" title="安装Apache"></a>安装Apache</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install apache2</span><br></pre></td></tr></table></figure>
-<h3 id="添加阿里云安全组外网80端口访问"><a href="#添加阿里云安全组外网80端口访问" class="headerlink" title="添加阿里云安全组外网80端口访问"></a>添加阿里云安全组外网80端口访问</h3><p><img src="https://upload-images.jianshu.io/upload_images/3947109-fc72e93e1a263173.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>浏览器输入IP,如果出现It works代表安装成功</p>
-<h3 id="查看状态"><a href="#查看状态" class="headerlink" title="查看状态"></a>查看状态</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 服务状态</span><br><span class="line">service apache2 status</span><br><span class="line">// 启动服务</span><br><span class="line">service apache2 start</span><br><span class="line">// 停止服务</span><br><span class="line">service apache2 stop</span><br><span class="line">// 重启服务</span><br><span class="line">service apache2 restart</span><br></pre></td></tr></table></figure>
-<h3 id="Web目录"><a href="#Web目录" class="headerlink" title="Web目录"></a>Web目录</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/var/www</span><br></pre></td></tr></table></figure>
-<h3 id="安装目录"><a href="#安装目录" class="headerlink" title="安装目录"></a>安装目录</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/apache2</span><br></pre></td></tr></table></figure>
-<h3 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/apache2/apache2.conf</span><br></pre></td></tr></table></figure>
-<h3 id="监听端口"><a href="#监听端口" class="headerlink" title="监听端口"></a>监听端口</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">etc/apache2/ports.conf</span><br></pre></td></tr></table></figure>
-<h3 id="虚拟主机"><a href="#虚拟主机" class="headerlink" title="虚拟主机"></a>虚拟主机</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/apache2/sites-enabled/000-default.conf</span><br></pre></td></tr></table></figure>
-<h2 id="安装MySql"><a href="#安装MySql" class="headerlink" title="安装MySql"></a>安装MySql</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server mysql-client</span><br></pre></td></tr></table></figure>
-<h3 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line">showdatabases;</span><br></pre></td></tr></table></figure>
-<h3 id="查看状态-1"><a href="#查看状态-1" class="headerlink" title="查看状态"></a>查看状态</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysql status/start/stop/restart</span><br></pre></td></tr></table></figure>
-<h3 id="查看监听端口的情况"><a href="#查看监听端口的情况" class="headerlink" title="查看监听端口的情况"></a>查看监听端口的情况</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tunpl 或 netstat -tap</span><br></pre></td></tr></table></figure>
-<h2 id="安装PHP"><a href="#安装PHP" class="headerlink" title="安装PHP"></a>安装PHP</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php</span><br></pre></td></tr></table></figure>
+        <h1 id="ubuntu安装lamp环境">Ubuntu安装LAMP环境</h1>
+<h2 id="更新">更新</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+<h2 id="安装git">安装git</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br></pre></td></tr></table></figure>
+<h2 id="安装apache">安装Apache</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install apache2</span><br></pre></td></tr></table></figure>
+<h3 id="添加阿里云安全组外网80端口访问">添加阿里云安全组外网80端口访问</h3>
+<figure>
+<img src="https://upload-images.jianshu.io/upload_images/3947109-fc72e93e1a263173.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png" /><figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<h3 id="测试">测试</h3>
+<p>浏览器输入IP,如果出现It works代表安装成功</p>
+<h3 id="查看状态">查看状态</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 服务状态</span><br><span class="line">service apache2 status</span><br><span class="line">// 启动服务</span><br><span class="line">service apache2 start</span><br><span class="line">// 停止服务</span><br><span class="line">service apache2 stop</span><br><span class="line">// 重启服务</span><br><span class="line">service apache2 restart</span><br></pre></td></tr></table></figure>
+<h3 id="web目录">Web目录</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/var/www</span><br></pre></td></tr></table></figure>
+<h3 id="安装目录">安装目录</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/apache2</span><br></pre></td></tr></table></figure>
+<h3 id="全局配置">全局配置</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/apache2/apache2.conf</span><br></pre></td></tr></table></figure>
+<h3 id="监听端口">监听端口</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">etc/apache2/ports.conf</span><br></pre></td></tr></table></figure>
+<h3 id="虚拟主机">虚拟主机</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/apache2/sites-enabled/000-default.conf</span><br></pre></td></tr></table></figure>
+<h2 id="安装mysql">安装MySql</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server mysql-client</span><br></pre></td></tr></table></figure>
+<h3 id="测试-1">测试</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line">showdatabases;</span><br></pre></td></tr></table></figure>
+<h3 id="查看状态-1">查看状态</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysql status/start/stop/restart</span><br></pre></td></tr></table></figure>
+<h3 id="查看监听端口的情况">查看监听端口的情况</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tunpl 或 netstat -tap</span><br></pre></td></tr></table></figure>
+<h2 id="安装php">安装PHP</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php</span><br></pre></td></tr></table></figure>
 <p>测试</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br></pre></td></tr></table></figure>
-<h2 id="安装其他模块"><a href="#安装其他模块" class="headerlink" title="安装其他模块"></a>安装其他模块</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libapache2-mod-php7.0</span><br><span class="line">sudo apt-get install php7.0-mysql</span><br></pre></td></tr></table></figure>
-<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service apache2 restart</span><br><span class="line">service mysql restart</span><br></pre></td></tr></table></figure>
+<h2 id="安装其他模块">安装其他模块</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libapache2-mod-php7.0</span><br><span class="line">sudo apt-get install php7.0-mysql</span><br></pre></td></tr></table></figure>
+<h3 id="重启服务">重启服务</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service apache2 restart</span><br><span class="line">service mysql restart</span><br></pre></td></tr></table></figure>
 <p>测试Apache能否解析PHP</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nano /var/www/html/phpinfo.php</span><br><span class="line">文件中写：&lt;?php <span class="built_in">echo</span> phpinfo();?&gt;</span><br><span class="line">浏览器访问：http://ubuntu地址/phpinfo.php，出现PHP Version网页</span><br></pre></td></tr></table></figure>
-<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 /var/www</span><br></pre></td></tr></table></figure>
-<h2 id="安装phpMyAdmin"><a href="#安装phpMyAdmin" class="headerlink" title="安装phpMyAdmin"></a>安装phpMyAdmin</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install phpmyadmin</span><br></pre></td></tr></table></figure>
+<h2 id="修改权限">修改权限</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 /var/www</span><br></pre></td></tr></table></figure>
+<h2 id="安装phpmyadmin">安装phpMyAdmin</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install phpmyadmin</span><br></pre></td></tr></table></figure>
 <p>服务器选择apache2</p>
 <p>配置数据库密码</p>
 <p>创建phpMyAdmin快捷方式</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /usr/share/phpmyadmin /var/www/html</span><br></pre></td></tr></table></figure>
-<h2 id="启动-Apache-rewrite模块"><a href="#启动-Apache-rewrite模块" class="headerlink" title="启动 Apache rewrite模块"></a>启动 Apache rewrite模块</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod rewrite</span><br></pre></td></tr></table></figure>
+<h2 id="启动-apache-rewrite模块">启动 Apache rewrite模块</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo a2enmod rewrite</span><br></pre></td></tr></table></figure>
 <ul>
 <li>开启rewrite模块后还要进入 etc/apache2/ 目录 打开 apache2.conf 文件</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory /var/www/&gt;</span><br><span class="line">        Options Indexes FollowSymLinks</span><br><span class="line">        AllowOverride All</span><br><span class="line">        Require all granted</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>把 AllowOverride 选项改为 All</p>
-</li>
-<li><p>把下面的内容保存为.htaccess文件放到应用入口文件的同级目录下</p>
-</li>
+<li><p>把 AllowOverride 选项改为 All</p></li>
+<li><p>把下面的内容保存为.htaccess文件放到应用入口文件的同级目录下</p></li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule mod_rewrite.c&gt;</span><br><span class="line">RewriteEngine on</span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</span><br><span class="line">RewriteRule ^(.*)$ index.php/<span class="variable">$1</span> [QSA,PT,L]</span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="重启服务-1"><a href="#重启服务-1" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service php7.0-fpm restart</span><br><span class="line">service apache2 restart</span><br></pre></td></tr></table></figure>
-<h3 id="测试-2"><a href="#测试-2" class="headerlink" title="测试"></a>测试</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 访问</span><br><span class="line">http://serverurl/phpmyadmin</span><br></pre></td></tr></table></figure>
-<h2 id="配置Apache"><a href="#配置Apache" class="headerlink" title="配置Apache"></a>配置Apache</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/apache2/apache2.conf</span><br></pre></td></tr></table></figure>
+<h3 id="重启服务-1">重启服务</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service php7.0-fpm restart</span><br><span class="line">service apache2 restart</span><br></pre></td></tr></table></figure>
+<h3 id="测试-2">测试</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 访问</span><br><span class="line">http://serverurl/phpmyadmin</span><br></pre></td></tr></table></figure>
+<h2 id="配置apache">配置Apache</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/apache2/apache2.conf</span><br></pre></td></tr></table></figure>
 <p>添加配置</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AddType application/x-httpd-php .php .htm .html</span><br><span class="line">AddDefaultCharset UTF-8</span><br></pre></td></tr></table></figure>
 <p>重启Apache服务</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service apache2 restart</span><br></pre></td></tr></table></figure>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.linuxidc.com/Linux/2016-10/136327.htm">Ubuntu 16.04搭建LAMP开发环境</a></p>
+<h2 id="参考链接">参考链接</h2>
+<p><a target="_blank" rel="noopener" href="https://www.linuxidc.com/Linux/2016-10/136327.htm">Ubuntu 16.04搭建LAMP开发环境</a></p>
 <p><a target="_blank" rel="noopener" href="http://www.mamicode.com/info-detail-2073578.html">阿里云 Ubuntu 16.04 搭建LAMP环境</a></p>
 <p><a target="_blank" rel="noopener" href="http://www.edbiji.com/doccenter/showdoc/26/nav/1281.html">Thinkphp隐藏index.php入口文件</a></p>
 
@@ -477,16 +507,16 @@
           <div class="post-tags">
               <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
               <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
+              <a href="/tags/IDE/" rel="tag"><i class="fa fa-tag"></i> IDE</a>
               <a href="/tags/ML/" rel="tag"><i class="fa fa-tag"></i> ML</a>
               <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
+              <a href="/tags/Html/" rel="tag"><i class="fa fa-tag"></i> Html</a>
+              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
               <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
               <a href="/tags/ThinkPHP/" rel="tag"><i class="fa fa-tag"></i> ThinkPHP</a>
-              <a href="/tags/Html/" rel="tag"><i class="fa fa-tag"></i> Html</a>
               <a href="/tags/Ubuntu/" rel="tag"><i class="fa fa-tag"></i> Ubuntu</a>
               <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
               <a href="/tags/MySql/" rel="tag"><i class="fa fa-tag"></i> MySql</a>
-              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
-              <a href="/tags/IDE/" rel="tag"><i class="fa fa-tag"></i> IDE</a>
           </div>
 
         
@@ -498,8 +528,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/28/5.Web/20200928_Tips-Ubuntu%E6%9B%B4%E6%94%B9Web%E7%9B%AE%E5%BD%95/" rel="next" title="Tips-Ubuntu更改Web目录">
-                  Tips-Ubuntu更改Web目录 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/28/5.Web/20200928_Tips-mysql_%E8%AE%BE%E7%BD%AE%E5%AD%97%E7%AC%A6%E9%9B%86/" rel="next" title="Tips-mysql_设置字符集">
+                  Tips-mysql_设置字符集 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -596,6 +626,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

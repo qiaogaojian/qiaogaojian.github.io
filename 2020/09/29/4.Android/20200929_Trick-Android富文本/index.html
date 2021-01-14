@@ -32,10 +32,10 @@
 <meta property="article:modified_time" content="2020-09-29T01:11:46.057Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="AR">
+<meta property="article:tag" content="Android">
 <meta property="article:tag" content="ML">
 <meta property="article:tag" content="Html">
 <meta property="article:tag" content="Java">
-<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
 
 
@@ -95,7 +95,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -208,7 +212,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android%E5%AF%8C%E6%96%87%E6%9C%AC"><span class="nav-text">Android富文本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Html-fromHtml"><span class="nav-text">Html.fromHtml()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spannable"><span class="nav-text">Spannable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#android%E5%AF%8C%E6%96%87%E6%9C%AC"><span class="nav-text">Android富文本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#html.fromhtml"><span class="nav-text">Html.fromHtml()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spannable"><span class="nav-text">Spannable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -362,9 +366,13 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Android富文本"><a href="#Android富文本" class="headerlink" title="Android富文本"></a>Android富文本</h1><h2 id="Html-fromHtml"><a href="#Html-fromHtml" class="headerlink" title="Html.fromHtml()"></a>Html.fromHtml()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String nameContent = <span class="string">&quot;&lt;font color=#ffffff&gt;您的 &lt;/font&gt;&quot;</span> + <span class="string">&quot;&lt;font color=#FFBC55&gt;&quot;</span> + cardName + <span class="string">&quot;&lt;/font&gt;&quot;</span> + <span class="string">&quot;&lt;font color=#ffffff&gt; 还未到期&lt;br&gt;是否继续购买延长时间？&lt;/font&gt;&quot;</span>;</span><br><span class="line">binding.tvName.setText(Html.fromHtml(nameContent));</span><br></pre></td></tr></table></figure>
-<h2 id="Spannable"><a href="#Spannable" class="headerlink" title="Spannable"></a>Spannable</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">String    prefix      = <span class="string">&quot;您的 &quot;</span>;</span><br><span class="line">String    suffix      = <span class="string">&quot; 还未到期\n是否继续购买延长时间？&quot;</span>;</span><br><span class="line">String    nameContent = prefix + cardName + suffix;</span><br><span class="line">Spannable spannable   = <span class="keyword">new</span> SpannableString(nameContent);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里的span只能用new 因为多次set同一个span 后面的会把前面的覆盖掉</span></span><br><span class="line">ForegroundColorSpan yellowColorSpan = <span class="keyword">new</span> ForegroundColorSpan(getActivity().getResources().getColor(R.color.dull_yellow));</span><br><span class="line">spannable.setSpan(<span class="keyword">new</span> ForegroundColorSpan(getActivity().getResources().getColor(R.color.white)), <span class="number">0</span>, prefix.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</span><br><span class="line">spannable.setSpan(yellowColorSpan, prefix.length(), (prefix + cardName).length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">spannable.setSpan(<span class="keyword">new</span> ForegroundColorSpan(getActivity().getResources().getColor(R.color.white)), (prefix + cardName).length(), nameContent.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">binding.tvName.setText(spannable, TextView.BufferType.SPANNABLE);</span><br></pre></td></tr></table></figure>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/4032676/how-can-i-change-the-color-of-a-part-of-a-textview">How can I change the color of a part of a TextView?</a></p>
+        <h1 id="android富文本">Android富文本</h1>
+<h2 id="html.fromhtml">Html.fromHtml()</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String nameContent = <span class="string">&quot;&lt;font color=#ffffff&gt;您的 &lt;/font&gt;&quot;</span> + <span class="string">&quot;&lt;font color=#FFBC55&gt;&quot;</span> + cardName + <span class="string">&quot;&lt;/font&gt;&quot;</span> + <span class="string">&quot;&lt;font color=#ffffff&gt; 还未到期&lt;br&gt;是否继续购买延长时间？&lt;/font&gt;&quot;</span>;</span><br><span class="line">binding.tvName.setText(Html.fromHtml(nameContent));</span><br></pre></td></tr></table></figure>
+<h2 id="spannable">Spannable</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">String    prefix      = <span class="string">&quot;您的 &quot;</span>;</span><br><span class="line">String    suffix      = <span class="string">&quot; 还未到期\n是否继续购买延长时间？&quot;</span>;</span><br><span class="line">String    nameContent = prefix + cardName + suffix;</span><br><span class="line">Spannable spannable   = <span class="keyword">new</span> SpannableString(nameContent);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里的span只能用new 因为多次set同一个span 后面的会把前面的覆盖掉</span></span><br><span class="line">ForegroundColorSpan yellowColorSpan = <span class="keyword">new</span> ForegroundColorSpan(getActivity().getResources().getColor(R.color.dull_yellow));</span><br><span class="line">spannable.setSpan(<span class="keyword">new</span> ForegroundColorSpan(getActivity().getResources().getColor(R.color.white)), <span class="number">0</span>, prefix.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);</span><br><span class="line">spannable.setSpan(yellowColorSpan, prefix.length(), (prefix + cardName).length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">spannable.setSpan(<span class="keyword">new</span> ForegroundColorSpan(getActivity().getResources().getColor(R.color.white)), (prefix + cardName).length(), nameContent.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);</span><br><span class="line">binding.tvName.setText(spannable, TextView.BufferType.SPANNABLE);</span><br></pre></td></tr></table></figure>
+<h2 id="参考链接">参考链接</h2>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/4032676/how-can-i-change-the-color-of-a-part-of-a-textview">How can I change the color of a part of a TextView?</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/050ffa5b762c">Android富文本实现图文混排</a></p>
 
     </div>
@@ -415,23 +423,23 @@
 
           <div class="post-tags">
               <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
+              <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
               <a href="/tags/ML/" rel="tag"><i class="fa fa-tag"></i> ML</a>
               <a href="/tags/Html/" rel="tag"><i class="fa fa-tag"></i> Html</a>
               <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
-              <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Trick-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="Trick-Android开发中常用adb命令的使用">
-                  <i class="fa fa-chevron-left"></i> Trick-Android开发中常用adb命令的使用
+                <a href="/2020/09/29/4.Android/20200929_Trick-Android%E5%B8%83%E5%B1%80%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" rel="prev" title="Trick-Android布局图片预览内存泄漏问题">
+                  <i class="fa fa-chevron-left"></i> Trick-Android布局图片预览内存泄漏问题
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Trick-Android%E5%B8%83%E5%B1%80%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" rel="next" title="Trick-Android布局图片预览内存泄漏问题">
-                  Trick-Android布局图片预览内存泄漏问题 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/4.Android/20200929_Trick-Android%E4%B8%AD%E8%BF%9E%E7%BB%AD%E7%A9%BA%E6%A0%BC%E5%8F%AA%E6%98%BE%E7%A4%BA%E4%B8%80%E4%B8%AA%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="next" title="Trick-Android中连续空格只显示一个的解决方法">
+                  Trick-Android中连续空格只显示一个的解决方法 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -528,6 +536,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

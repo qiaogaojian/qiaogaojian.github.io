@@ -87,7 +87,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -296,6 +300,26 @@
     <header class="post-header">
       <div class="post-meta-container">
         <time itemprop="dateCreated"
+              datetime="2020-12-24T00:00:00+08:00"
+              content="2020-12-24">
+          12-24
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/2020/12/24/1.CS/CG/20201224_opengl-zbuffer%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F%E8%BD%AC%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F/" itemprop="url">
+            <span itemprop="name">opengl-zbuffer非线性公式转线性公式</span>
+          </a>
+      </div>
+
+      
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
               datetime="2020-09-29T00:00:00+08:00"
               content="2020-09-29">
           09-29
@@ -446,6 +470,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

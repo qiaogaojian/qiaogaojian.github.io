@@ -92,7 +92,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -205,7 +209,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3"><span class="nav-text">Unity插件Ngui图片缝隙问题解决</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E5%9B%BE%E7%89%87%E7%9A%84%E9%95%BF%E5%AE%BD%E5%BF%85%E9%A1%BB%E6%98%AF2%E7%9A%84%E5%80%8D%E6%95%B0-%E6%9C%80%E5%A5%BD%E6%98%AF2%E7%9A%84n%E6%AC%A1%E6%96%B9"><span class="nav-text">源图片的长宽必须是2的倍数 最好是2的n次方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E5%9B%BE%E7%89%87%E5%92%8C%E5%9B%BE%E9%9B%86%E8%AE%BE%E7%BD%AE"><span class="nav-text">源图片和图集设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Texure-Type-Sprite"><span class="nav-text">Texure Type:Sprite</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wrap-Mode-Point"><span class="nav-text">Wrap Mode: Point</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#unity%E6%8F%92%E4%BB%B6ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3"><span class="nav-text">Unity插件Ngui图片缝隙问题解决</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E5%9B%BE%E7%89%87%E7%9A%84%E9%95%BF%E5%AE%BD%E5%BF%85%E9%A1%BB%E6%98%AF2%E7%9A%84%E5%80%8D%E6%95%B0-%E6%9C%80%E5%A5%BD%E6%98%AF2%E7%9A%84n%E6%AC%A1%E6%96%B9"><span class="nav-text">源图片的长宽必须是2的倍数 最好是2的n次方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E5%9B%BE%E7%89%87%E5%92%8C%E5%9B%BE%E9%9B%86%E8%AE%BE%E7%BD%AE"><span class="nav-text">源图片和图集设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#texure-typesprite"><span class="nav-text">Texure Type:Sprite</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wrap-mode-point"><span class="nav-text">Wrap Mode: Point</span></a></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -359,7 +363,12 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Unity插件Ngui图片缝隙问题解决"><a href="#Unity插件Ngui图片缝隙问题解决" class="headerlink" title="Unity插件Ngui图片缝隙问题解决"></a>Unity插件Ngui图片缝隙问题解决</h1><h2 id="源图片的长宽必须是2的倍数-最好是2的n次方"><a href="#源图片的长宽必须是2的倍数-最好是2的n次方" class="headerlink" title="源图片的长宽必须是2的倍数 最好是2的n次方"></a>源图片的长宽必须是2的倍数 最好是2的n次方</h2><h2 id="源图片和图集设置"><a href="#源图片和图集设置" class="headerlink" title="源图片和图集设置"></a>源图片和图集设置</h2><h3 id="Texure-Type-Sprite"><a href="#Texure-Type-Sprite" class="headerlink" title="Texure Type:Sprite"></a>Texure Type:Sprite</h3><h3 id="Wrap-Mode-Point"><a href="#Wrap-Mode-Point" class="headerlink" title="Wrap Mode: Point"></a>Wrap Mode: Point</h3>
+        <h1 id="unity插件ngui图片缝隙问题解决">Unity插件Ngui图片缝隙问题解决</h1>
+<h2 id="源图片的长宽必须是2的倍数-最好是2的n次方">源图片的长宽必须是2的倍数 最好是2的n次方</h2>
+<h2 id="源图片和图集设置">源图片和图集设置</h2>
+<h3 id="texure-typesprite">Texure Type:Sprite</h3>
+<h3 id="wrap-mode-point">Wrap Mode: Point</h3>
+
     </div>
 
     
@@ -415,13 +424,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/" rel="prev" title="Tutorial-2048核心算法">
-                  <i class="fa fa-chevron-left"></i> Tutorial-2048核心算法
+                <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/" rel="prev" title="Tips-Unity中的路径">
+                  <i class="fa fa-chevron-left"></i> Tips-Unity中的路径
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/" rel="next" title="Tips-Unity中的路径">
-                  Tips-Unity中的路径 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/" rel="next" title="Tips-Unity中的碰撞">
+                  Tips-Unity中的碰撞 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -518,6 +527,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

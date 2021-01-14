@@ -92,7 +92,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -205,7 +209,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unity-%E4%B8%AD-Awake-%E5%92%8C-Start-%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB"><span class="nav-text">Unity 中 Awake( )和 Start( )的小区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Awake"><span class="nav-text">Awake</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%AF%B9%E8%B1%A1-active"><span class="nav-text">绑定对象 active</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%90%8E%E4%B8%8D%E8%AE%BA%E8%84%9A%E6%9C%AC%E6%98%AF%E5%90%A6-enable"><span class="nav-text">实例化后不论脚本是否 enable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AA%E4%BC%9A%E8%B0%83%E7%94%A8%E4%B8%80%E6%AC%A1"><span class="nav-text">只会调用一次</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Start"><span class="nav-text">Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%AF%B9%E8%B1%A1active"><span class="nav-text">绑定对象active</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC-enable"><span class="nav-text">脚本 enable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AA%E4%BC%9A-%E8%B0%83%E7%94%A8%E4%B8%80%E6%AC%A1"><span class="nav-text">只会 调用一次</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E7%AC%AC%E4%B8%80%E6%AC%A1-Update-%E5%89%8D%E8%B0%83%E7%94%A8-%E5%8F%AF%E8%83%BD%E6%B2%A1%E6%9C%89%E6%83%B3%E8%B1%A1%E4%B8%AD%E7%9A%84%E9%82%A3%E4%B9%88%E5%BF%AB-%E5%9C%A8%E8%BF%99%E9%87%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A6%81%E6%83%B3%E5%A5%BD%E8%B0%83%E7%94%A8%E9%A1%BA%E5%BA%8F"><span class="nav-text">在第一次 Update 前调用,可能没有想象中的那么快,在这里初始化要想好调用顺序</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#unity-%E4%B8%AD-awake-%E5%92%8C-start-%E7%9A%84%E5%B0%8F%E5%8C%BA%E5%88%AB"><span class="nav-text">Unity 中 Awake( )和 Start( )的小区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#awake"><span class="nav-text">Awake</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%AF%B9%E8%B1%A1-active"><span class="nav-text">绑定对象 active</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%90%8E%E4%B8%8D%E8%AE%BA%E8%84%9A%E6%9C%AC%E6%98%AF%E5%90%A6-enable"><span class="nav-text">实例化后不论脚本是否 enable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AA%E4%BC%9A%E8%B0%83%E7%94%A8%E4%B8%80%E6%AC%A1"><span class="nav-text">只会调用一次</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#start"><span class="nav-text">Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E5%AF%B9%E8%B1%A1active"><span class="nav-text">绑定对象active</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC-enable"><span class="nav-text">脚本 enable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AA%E4%BC%9A-%E8%B0%83%E7%94%A8%E4%B8%80%E6%AC%A1"><span class="nav-text">只会 调用一次</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E7%AC%AC%E4%B8%80%E6%AC%A1-update-%E5%89%8D%E8%B0%83%E7%94%A8%E5%8F%AF%E8%83%BD%E6%B2%A1%E6%9C%89%E6%83%B3%E8%B1%A1%E4%B8%AD%E7%9A%84%E9%82%A3%E4%B9%88%E5%BF%AB%E5%9C%A8%E8%BF%99%E9%87%8C%E5%88%9D%E5%A7%8B%E5%8C%96%E8%A6%81%E6%83%B3%E5%A5%BD%E8%B0%83%E7%94%A8%E9%A1%BA%E5%BA%8F"><span class="nav-text">在第一次 Update 前调用,可能没有想象中的那么快,在这里初始化要想好调用顺序</span></a></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -359,7 +363,17 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Unity-中-Awake-和-Start-的小区别"><a href="#Unity-中-Awake-和-Start-的小区别" class="headerlink" title="Unity 中 Awake( )和 Start( )的小区别"></a>Unity 中 Awake( )和 Start( )的小区别</h1><h2 id="Awake"><a href="#Awake" class="headerlink" title="Awake"></a>Awake</h2><h3 id="绑定对象-active"><a href="#绑定对象-active" class="headerlink" title="绑定对象 active"></a>绑定对象 active</h3><h3 id="实例化后不论脚本是否-enable"><a href="#实例化后不论脚本是否-enable" class="headerlink" title="实例化后不论脚本是否 enable"></a>实例化后不论脚本是否 enable</h3><h3 id="只会调用一次"><a href="#只会调用一次" class="headerlink" title="只会调用一次"></a>只会调用一次</h3><h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h2><h3 id="绑定对象active"><a href="#绑定对象active" class="headerlink" title="绑定对象active"></a>绑定对象active</h3><h3 id="脚本-enable"><a href="#脚本-enable" class="headerlink" title="脚本 enable"></a>脚本 enable</h3><h3 id="只会-调用一次"><a href="#只会-调用一次" class="headerlink" title="只会 调用一次"></a>只会 调用一次</h3><h3 id="在第一次-Update-前调用-可能没有想象中的那么快-在这里初始化要想好调用顺序"><a href="#在第一次-Update-前调用-可能没有想象中的那么快-在这里初始化要想好调用顺序" class="headerlink" title="在第一次 Update 前调用,可能没有想象中的那么快,在这里初始化要想好调用顺序"></a>在第一次 Update 前调用,可能没有想象中的那么快,在这里初始化要想好调用顺序</h3>
+        <h1 id="unity-中-awake-和-start-的小区别">Unity 中 Awake( )和 Start( )的小区别</h1>
+<h2 id="awake">Awake</h2>
+<h3 id="绑定对象-active">绑定对象 active</h3>
+<h3 id="实例化后不论脚本是否-enable">实例化后不论脚本是否 enable</h3>
+<h3 id="只会调用一次">只会调用一次</h3>
+<h2 id="start">Start</h2>
+<h3 id="绑定对象active">绑定对象active</h3>
+<h3 id="脚本-enable">脚本 enable</h3>
+<h3 id="只会-调用一次">只会 调用一次</h3>
+<h3 id="在第一次-update-前调用可能没有想象中的那么快在这里初始化要想好调用顺序">在第一次 Update 前调用,可能没有想象中的那么快,在这里初始化要想好调用顺序</h3>
+
     </div>
 
     
@@ -415,8 +429,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/" rel="prev" title="Tips-Unity中停止协程StopCoroutine">
-                  <i class="fa fa-chevron-left"></i> Tips-Unity中停止协程StopCoroutine
+                <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADOnGui%E5%8E%9F%E7%94%9FGUI%E7%94%A8%E6%B3%95/" rel="prev" title="Tips-Unity中OnGui原生GUI用法">
+                  <i class="fa fa-chevron-left"></i> Tips-Unity中OnGui原生GUI用法
                 </a>
             </div>
             <div class="post-nav-item">
@@ -518,6 +532,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

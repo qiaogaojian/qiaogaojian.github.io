@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="PureMVC PureMVC        Pattern 单例 单例模式  观察者 观察者模式  Facade 外观 外观模式  Proxy 代理 代理模式  Mediator 中介者 中介者模式  Command 命令 命令模式  Facade Model void RegisterProxy(IProxy proxy); IProxy RemoveProxy(string proxyNam">
+  <meta name="description" content="PureMVC PureMVC  123Pattern 单例 单例模式  观察者 观察者模式  Facade 外观 外观模式  Proxy 代理 代理模式  Mediator 中介者 中介者模式  Command 命令 命令模式  Facade Model void RegisterProxy(IProxy proxy); IProxy RemoveProxy(string proxyName);">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tutorial-PureMVC前置知识点">
 <meta property="og:url" content="http://example.com/2020/09/29/3.Unity/20200929_Tutorial-PureMVC%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%E7%82%B9/index.html">
 <meta property="og:site_name" content="行则将至">
-<meta property="og:description" content="PureMVC PureMVC        Pattern 单例 单例模式  观察者 观察者模式  Facade 外观 外观模式  Proxy 代理 代理模式  Mediator 中介者 中介者模式  Command 命令 命令模式  Facade Model void RegisterProxy(IProxy proxy); IProxy RemoveProxy(string proxyNam">
+<meta property="og:description" content="PureMVC PureMVC  123Pattern 单例 单例模式  观察者 观察者模式  Facade 外观 外观模式  Proxy 代理 代理模式  Mediator 中介者 中介者模式  Command 命令 命令模式  Facade Model void RegisterProxy(IProxy proxy); IProxy RemoveProxy(string proxyName);">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/2020-08-24-13-33-15.png">
 <meta property="og:image" content="http://example.com/images/2020-08-24-13-37-46.png">
@@ -99,7 +99,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -212,7 +216,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PureMVC"><span class="nav-text">PureMVC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pattern"><span class="nav-text">Pattern</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E4%BE%8B"><span class="nav-text">单例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%82%E5%AF%9F%E8%80%85"><span class="nav-text">观察者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Facade-%E5%A4%96%E8%A7%82"><span class="nav-text">Facade 外观</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proxy-%E4%BB%A3%E7%90%86"><span class="nav-text">Proxy 代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mediator-%E4%B8%AD%E4%BB%8B%E8%80%85"><span class="nav-text">Mediator 中介者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Command-%E5%91%BD%E4%BB%A4"><span class="nav-text">Command 命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Facade"><span class="nav-text">Facade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Model"><span class="nav-text">Model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#void-RegisterProxy-IProxy-proxy"><span class="nav-text">void RegisterProxy(IProxy proxy);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IProxy-RemoveProxy-string-proxyName"><span class="nav-text">IProxy RemoveProxy(string proxyName);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IProxy-RetrieveProxy-string-proxyName"><span class="nav-text">IProxy RetrieveProxy(string proxyName);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bool-HasProxy-string-proxyName"><span class="nav-text">bool HasProxy(string proxyName);</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proxy"><span class="nav-text">Proxy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#void-OnRegister"><span class="nav-text">void OnRegister();</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#void-OnRemove"><span class="nav-text">void OnRemove();</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#View"><span class="nav-text">View</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#void-RegisterMediator-IMediator-mediator"><span class="nav-text">void RegisterMediator(IMediator mediator);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IMediator-RemoveMediator-string-mediatorName"><span class="nav-text">IMediator RemoveMediator(string mediatorName);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IMediator-RetrieveMediator-string-mediatorName"><span class="nav-text">IMediator RetrieveMediator(string mediatorName);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bool-HasMediator-string-mediatorName"><span class="nav-text">bool HasMediator(string mediatorName);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#void-RegisterObserver-string-notificationName-IObserver-observer"><span class="nav-text">void RegisterObserver(string notificationName, IObserver observer);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#void-RemoveObserver-string-notificationName-object-notifyContext"><span class="nav-text">void RemoveObserver(string notificationName, object notifyContext);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#void-NotifyObservers-INotification-note"><span class="nav-text">void NotifyObservers(INotification note);</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mediator"><span class="nav-text">Mediator</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#void-OnRegister-1"><span class="nav-text">void OnRegister();</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#void-OnRemove-1"><span class="nav-text">void OnRemove();</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#IList-ListNotificationInterests"><span class="nav-text">IList ListNotificationInterests();</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#void-HandleNotification-INotification-notification"><span class="nav-text">void HandleNotification(INotification notification);</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller"><span class="nav-text">Controller</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#void-RegisterCommand-string-notificationName-Type-commandType"><span class="nav-text">void RegisterCommand(string notificationName, Type commandType);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#void-RemoveCommand-string-notificationName"><span class="nav-text">void RemoveCommand(string notificationName);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#void-ExecuteCommand-INotification-notification"><span class="nav-text">void ExecuteCommand(INotification notification);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bool-HasCommand-string-notificationName"><span class="nav-text">bool HasCommand(string notificationName);</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Command"><span class="nav-text">Command</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#void-Execute-INotification-notification"><span class="nav-text">void Execute(INotification notification);</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Init-Process"><span class="nav-text">Init Process</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#App"><span class="nav-text">App</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AppFacade"><span class="nav-text">AppFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#InitializeModel"><span class="nav-text">InitializeModel()</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Facade-InitializeModel"><span class="nav-text">Facade.InitializeModel()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Facade-RegisterProxy"><span class="nav-text">Facade.RegisterProxy()</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#InitializeController"><span class="nav-text">InitializeController()</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Facade-InitializeController"><span class="nav-text">Facade.InitializeController()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Facade-RegisterCommand"><span class="nav-text">Facade.RegisterCommand()</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#InitializeView"><span class="nav-text">InitializeView()</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Facade-InitializeView"><span class="nav-text">Facade.InitializeView()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Facade-RegiesterMediator"><span class="nav-text">Facade.RegiesterMediator()</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notify-Process"><span class="nav-text">Notify Process</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#View-1"><span class="nav-text">View</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RegisterObserver-string-notificationName-IObserver-observer"><span class="nav-text">RegisterObserver(string notificationName, IObserver observer)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#m-observerMap-notificationName-Add-observer"><span class="nav-text">m_observerMap[notificationName].Add(observer)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NotifyObservers-INotification-notification"><span class="nav-text">NotifyObservers(INotification notification)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#observer-i-NotifyObserver-notification"><span class="nav-text">observer[i].NotifyObserver(notification);</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#type-GetMethod-methodName-f-Invoke-context-new-object-notification"><span class="nav-text">type.GetMethod(methodName,f).Invoke(context,new object[] { notification });</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#puremvc"><span class="nav-text">PureMVC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pattern"><span class="nav-text">Pattern</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E4%BE%8B"><span class="nav-text">单例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%82%E5%AF%9F%E8%80%85"><span class="nav-text">观察者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#facade-%E5%A4%96%E8%A7%82"><span class="nav-text">Facade 外观</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proxy-%E4%BB%A3%E7%90%86"><span class="nav-text">Proxy 代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mediator-%E4%B8%AD%E4%BB%8B%E8%80%85"><span class="nav-text">Mediator 中介者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#command-%E5%91%BD%E4%BB%A4"><span class="nav-text">Command 命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#facade"><span class="nav-text">Facade</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#model"><span class="nav-text">Model</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#void-registerproxyiproxy-proxy"><span class="nav-text">void RegisterProxy(IProxy proxy);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#iproxy-removeproxystring-proxyname"><span class="nav-text">IProxy RemoveProxy(string proxyName);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#iproxy-retrieveproxystring-proxyname"><span class="nav-text">IProxy RetrieveProxy(string proxyName);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bool-hasproxystring-proxyname"><span class="nav-text">bool HasProxy(string proxyName);</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proxy"><span class="nav-text">Proxy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#void-onregister"><span class="nav-text">void OnRegister();</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#void-onremove"><span class="nav-text">void OnRemove();</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#view"><span class="nav-text">View</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#void-registermediatorimediator-mediator"><span class="nav-text">void RegisterMediator(IMediator mediator);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#imediator-removemediatorstring-mediatorname"><span class="nav-text">IMediator RemoveMediator(string mediatorName);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#imediator-retrievemediatorstring-mediatorname"><span class="nav-text">IMediator RetrieveMediator(string mediatorName);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bool-hasmediatorstring-mediatorname"><span class="nav-text">bool HasMediator(string mediatorName);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#void-registerobserverstring-notificationname-iobserver-observer"><span class="nav-text">void RegisterObserver(string notificationName, IObserver observer);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#void-removeobserverstring-notificationname-object-notifycontext"><span class="nav-text">void RemoveObserver(string notificationName, object notifyContext);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#void-notifyobserversinotification-note"><span class="nav-text">void NotifyObservers(INotification note);</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mediator"><span class="nav-text">Mediator</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#void-onregister-1"><span class="nav-text">void OnRegister();</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#void-onremove-1"><span class="nav-text">void OnRemove();</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ilist-listnotificationinterests"><span class="nav-text">IList ListNotificationInterests();</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#void-handlenotificationinotification-notification"><span class="nav-text">void HandleNotification(INotification notification);</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#controller"><span class="nav-text">Controller</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#void-registercommandstring-notificationname-type-commandtype"><span class="nav-text">void RegisterCommand(string notificationName, Type commandType);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#void-removecommandstring-notificationname"><span class="nav-text">void RemoveCommand(string notificationName);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#void-executecommandinotification-notification"><span class="nav-text">void ExecuteCommand(INotification notification);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bool-hascommandstring-notificationname"><span class="nav-text">bool HasCommand(string notificationName);</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#command"><span class="nav-text">Command</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#void-executeinotification-notification"><span class="nav-text">void Execute(INotification notification);</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#init-process"><span class="nav-text">Init Process</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#app"><span class="nav-text">App</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#appfacade"><span class="nav-text">AppFacade</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#initializemodel"><span class="nav-text">InitializeModel()</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#facade.initializemodel"><span class="nav-text">Facade.InitializeModel()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#facade.registerproxy"><span class="nav-text">Facade.RegisterProxy()</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#initializecontroller"><span class="nav-text">InitializeController()</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#facade.initializecontroller"><span class="nav-text">Facade.InitializeController()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#facade.registercommand"><span class="nav-text">Facade.RegisterCommand()</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#initializeview"><span class="nav-text">InitializeView()</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#facade.initializeview"><span class="nav-text">Facade.InitializeView()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#facade.regiestermediator"><span class="nav-text">Facade.RegiesterMediator()</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#notify-process"><span class="nav-text">Notify Process</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#view-1"><span class="nav-text">View</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#registerobserverstring-notificationname-iobserver-observer"><span class="nav-text">RegisterObserver(string notificationName, IObserver observer)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#m_observermapnotificationname.addobserver-1"><span class="nav-text">m_observerMap[notificationName].Add(observer)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#notifyobserversinotification-notification"><span class="nav-text">NotifyObservers(INotification notification)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#observeri.notifyobservernotification"><span class="nav-text">observer[i].NotifyObserver(notification);</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#type.getmethodmethodnamef.invokecontextnew-object-notification"><span class="nav-text">type.GetMethod(methodName,f).Invoke(context,new object[] { notification });</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -366,34 +370,96 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="PureMVC"><a href="#PureMVC" class="headerlink" title="PureMVC"></a>PureMVC</h1><p><a target="_blank" rel="noopener" href="https://www.gameres.com/822910.html">PureMVC</a></p>
-<p><img src="/images/2020-08-24-13-33-15.png" alt="1"></p>
-<p><img src="/images/2020-08-24-13-37-46.png" alt="2"></p>
-<p><img src="/images/2020-08-24-14-49-51.png" alt="3"></p>
-<h2 id="Pattern"><a href="#Pattern" class="headerlink" title="Pattern"></a>Pattern</h2><h3 id="单例"><a href="#单例" class="headerlink" title="单例"></a>单例</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/singleton-pattern.html">单例模式</a></p>
-<h3 id="观察者"><a href="#观察者" class="headerlink" title="观察者"></a>观察者</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/observer-pattern.html">观察者模式</a></p>
-<h3 id="Facade-外观"><a href="#Facade-外观" class="headerlink" title="Facade 外观"></a>Facade 外观</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/facade-pattern.html">外观模式</a></p>
-<h3 id="Proxy-代理"><a href="#Proxy-代理" class="headerlink" title="Proxy 代理"></a>Proxy 代理</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/proxy-pattern.html">代理模式</a></p>
-<h3 id="Mediator-中介者"><a href="#Mediator-中介者" class="headerlink" title="Mediator 中介者"></a>Mediator 中介者</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/mediator-pattern.html">中介者模式</a></p>
-<h3 id="Command-命令"><a href="#Command-命令" class="headerlink" title="Command 命令"></a>Command 命令</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/command-pattern.html">命令模式</a></p>
-<h2 id="Facade"><a href="#Facade" class="headerlink" title="Facade"></a>Facade</h2><h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><h4 id="void-RegisterProxy-IProxy-proxy"><a href="#void-RegisterProxy-IProxy-proxy" class="headerlink" title="void RegisterProxy(IProxy proxy);"></a>void RegisterProxy(IProxy proxy);</h4><h4 id="IProxy-RemoveProxy-string-proxyName"><a href="#IProxy-RemoveProxy-string-proxyName" class="headerlink" title="IProxy RemoveProxy(string proxyName);"></a>IProxy RemoveProxy(string proxyName);</h4><h4 id="IProxy-RetrieveProxy-string-proxyName"><a href="#IProxy-RetrieveProxy-string-proxyName" class="headerlink" title="IProxy RetrieveProxy(string proxyName);"></a>IProxy RetrieveProxy(string proxyName);</h4><h4 id="bool-HasProxy-string-proxyName"><a href="#bool-HasProxy-string-proxyName" class="headerlink" title="bool HasProxy(string proxyName);"></a>bool HasProxy(string proxyName);</h4><h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><h4 id="void-OnRegister"><a href="#void-OnRegister" class="headerlink" title="void OnRegister();"></a>void OnRegister();</h4><h4 id="void-OnRemove"><a href="#void-OnRemove" class="headerlink" title="void OnRemove();"></a>void OnRemove();</h4><h3 id="View"><a href="#View" class="headerlink" title="View"></a>View</h3><h4 id="void-RegisterMediator-IMediator-mediator"><a href="#void-RegisterMediator-IMediator-mediator" class="headerlink" title="void RegisterMediator(IMediator mediator);"></a>void RegisterMediator(IMediator mediator);</h4><h4 id="IMediator-RemoveMediator-string-mediatorName"><a href="#IMediator-RemoveMediator-string-mediatorName" class="headerlink" title="IMediator RemoveMediator(string mediatorName);"></a>IMediator RemoveMediator(string mediatorName);</h4><h4 id="IMediator-RetrieveMediator-string-mediatorName"><a href="#IMediator-RetrieveMediator-string-mediatorName" class="headerlink" title="IMediator RetrieveMediator(string mediatorName);"></a>IMediator RetrieveMediator(string mediatorName);</h4><h4 id="bool-HasMediator-string-mediatorName"><a href="#bool-HasMediator-string-mediatorName" class="headerlink" title="bool HasMediator(string mediatorName);"></a>bool HasMediator(string mediatorName);</h4><h4 id="void-RegisterObserver-string-notificationName-IObserver-observer"><a href="#void-RegisterObserver-string-notificationName-IObserver-observer" class="headerlink" title="void RegisterObserver(string notificationName, IObserver observer);"></a>void RegisterObserver(string notificationName, IObserver observer);</h4><h4 id="void-RemoveObserver-string-notificationName-object-notifyContext"><a href="#void-RemoveObserver-string-notificationName-object-notifyContext" class="headerlink" title="void RemoveObserver(string notificationName, object notifyContext);"></a>void RemoveObserver(string notificationName, object notifyContext);</h4><h4 id="void-NotifyObservers-INotification-note"><a href="#void-NotifyObservers-INotification-note" class="headerlink" title="void NotifyObservers(INotification note);"></a>void NotifyObservers(INotification note);</h4><h3 id="Mediator"><a href="#Mediator" class="headerlink" title="Mediator"></a>Mediator</h3><h4 id="void-OnRegister-1"><a href="#void-OnRegister-1" class="headerlink" title="void OnRegister();"></a>void OnRegister();</h4><h4 id="void-OnRemove-1"><a href="#void-OnRemove-1" class="headerlink" title="void OnRemove();"></a>void OnRemove();</h4><h4 id="IList-ListNotificationInterests"><a href="#IList-ListNotificationInterests" class="headerlink" title="IList ListNotificationInterests();"></a>IList<string> ListNotificationInterests();</h4><h4 id="void-HandleNotification-INotification-notification"><a href="#void-HandleNotification-INotification-notification" class="headerlink" title="void HandleNotification(INotification notification);"></a>void HandleNotification(INotification notification);</h4><h3 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h3><h4 id="void-RegisterCommand-string-notificationName-Type-commandType"><a href="#void-RegisterCommand-string-notificationName-Type-commandType" class="headerlink" title="void RegisterCommand(string notificationName, Type commandType);"></a>void RegisterCommand(string notificationName, Type commandType);</h4><h4 id="void-RemoveCommand-string-notificationName"><a href="#void-RemoveCommand-string-notificationName" class="headerlink" title="void RemoveCommand(string notificationName);"></a>void RemoveCommand(string notificationName);</h4><h4 id="void-ExecuteCommand-INotification-notification"><a href="#void-ExecuteCommand-INotification-notification" class="headerlink" title="void ExecuteCommand(INotification notification);"></a>void ExecuteCommand(INotification notification);</h4><h4 id="bool-HasCommand-string-notificationName"><a href="#bool-HasCommand-string-notificationName" class="headerlink" title="bool HasCommand(string notificationName);"></a>bool HasCommand(string notificationName);</h4><h3 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h3><h4 id="void-Execute-INotification-notification"><a href="#void-Execute-INotification-notification" class="headerlink" title="void Execute(INotification notification);"></a>void Execute(INotification notification);</h4><h2 id="Init-Process"><a href="#Init-Process" class="headerlink" title="Init Process"></a>Init Process</h2><h3 id="App"><a href="#App" class="headerlink" title="App"></a>App</h3><h4 id="AppFacade"><a href="#AppFacade" class="headerlink" title="AppFacade"></a>AppFacade</h4><h5 id="InitializeModel"><a href="#InitializeModel" class="headerlink" title="InitializeModel()"></a>InitializeModel()</h5><h6 id="Facade-InitializeModel"><a href="#Facade-InitializeModel" class="headerlink" title="Facade.InitializeModel()"></a>Facade.InitializeModel()</h6><p>####### m_model = Model.Instance</p>
-<p>######## m_proxyMap = new Dictionary&lt;string, IProxy&gt;()</p>
-<h6 id="Facade-RegisterProxy"><a href="#Facade-RegisterProxy" class="headerlink" title="Facade.RegisterProxy()"></a>Facade.RegisterProxy()</h6><p>####### m_model.RegisterProxy(proxy)</p>
-<p>######## m_proxyMap[proxy.ProxyName] = proxy</p>
-<h5 id="InitializeController"><a href="#InitializeController" class="headerlink" title="InitializeController()"></a>InitializeController()</h5><h6 id="Facade-InitializeController"><a href="#Facade-InitializeController" class="headerlink" title="Facade.InitializeController()"></a>Facade.InitializeController()</h6><p>####### m_controller = Controller.Instance</p>
-<p>######## m_commandMap = new Dictionary&lt;string, ICommand&gt;()</p>
-<p>######## m_view = View.Instance;</p>
-<h6 id="Facade-RegisterCommand"><a href="#Facade-RegisterCommand" class="headerlink" title="Facade.RegisterCommand()"></a>Facade.RegisterCommand()</h6><p>####### m_controller.RegisterCommand(notificationName, commandType)</p>
-<p>######## m_view.RegisterObserver(notificationName, new Observer(“executeCommand”, this));</p>
-<p>######## m_commandMap[notificationName] = commandType;</p>
-<h5 id="InitializeView"><a href="#InitializeView" class="headerlink" title="InitializeView()"></a>InitializeView()</h5><h6 id="Facade-InitializeView"><a href="#Facade-InitializeView" class="headerlink" title="Facade.InitializeView()"></a>Facade.InitializeView()</h6><p>####### m_view = View.Instance</p>
-<p>######## m_mediatorMap = new Dictionary&lt;string, IMediator&gt;();</p>
-<p>######## m_observerMap = new Dictionary&lt;string, IList<IObserver>&gt;();</p>
-<h6 id="Facade-RegiesterMediator"><a href="#Facade-RegiesterMediator" class="headerlink" title="Facade.RegiesterMediator()"></a>Facade.RegiesterMediator()</h6><p>####### m_view.RegisterMediator(mediator);</p>
-<p>######## m_mediatorMap[mediator.MediatorName] = mediator;</p>
-<p>######## IObserver observer = new Observer(“handleNotification”, mediator)</p>
-<p>######## m_observerMap[notificationName].Add(observer)</p>
-<h2 id="Notify-Process"><a href="#Notify-Process" class="headerlink" title="Notify Process"></a>Notify Process</h2><h3 id="View-1"><a href="#View-1" class="headerlink" title="View"></a>View</h3><h4 id="RegisterObserver-string-notificationName-IObserver-observer"><a href="#RegisterObserver-string-notificationName-IObserver-observer" class="headerlink" title="RegisterObserver(string notificationName, IObserver observer)"></a>RegisterObserver(string notificationName, IObserver observer)</h4><h5 id="m-observerMap-notificationName-Add-observer"><a href="#m-observerMap-notificationName-Add-observer" class="headerlink" title="m_observerMap[notificationName].Add(observer)"></a>m_observerMap[notificationName].Add(observer)</h5><h4 id="NotifyObservers-INotification-notification"><a href="#NotifyObservers-INotification-notification" class="headerlink" title="NotifyObservers(INotification notification)"></a>NotifyObservers(INotification notification)</h4><h5 id="observer-i-NotifyObserver-notification"><a href="#observer-i-NotifyObserver-notification" class="headerlink" title="observer[i].NotifyObserver(notification);"></a>observer[i].NotifyObserver(notification);</h5><h6 id="type-GetMethod-methodName-f-Invoke-context-new-object-notification"><a href="#type-GetMethod-methodName-f-Invoke-context-new-object-notification" class="headerlink" title="type.GetMethod(methodName,f).Invoke(context,new object[] { notification });"></a>type.GetMethod(methodName,f).Invoke(context,new object[] { notification });</h6>
+        <h1 id="puremvc">PureMVC</h1>
+<p><a target="_blank" rel="noopener" href="https://www.gameres.com/822910.html">PureMVC</a></p>
+<figure>
+<img src="/images/2020-08-24-13-33-15.png" alt="1" /><figcaption aria-hidden="true">1</figcaption>
+</figure>
+<figure>
+<img src="/images/2020-08-24-13-37-46.png" alt="2" /><figcaption aria-hidden="true">2</figcaption>
+</figure>
+<figure>
+<img src="/images/2020-08-24-14-49-51.png" alt="3" /><figcaption aria-hidden="true">3</figcaption>
+</figure>
+<h2 id="pattern">Pattern</h2>
+<h3 id="单例">单例</h3>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/singleton-pattern.html">单例模式</a></p>
+<h3 id="观察者">观察者</h3>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/observer-pattern.html">观察者模式</a></p>
+<h3 id="facade-外观">Facade 外观</h3>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/facade-pattern.html">外观模式</a></p>
+<h3 id="proxy-代理">Proxy 代理</h3>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/proxy-pattern.html">代理模式</a></p>
+<h3 id="mediator-中介者">Mediator 中介者</h3>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/mediator-pattern.html">中介者模式</a></p>
+<h3 id="command-命令">Command 命令</h3>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/design-pattern/command-pattern.html">命令模式</a></p>
+<h2 id="facade">Facade</h2>
+<h3 id="model">Model</h3>
+<h4 id="void-registerproxyiproxy-proxy">void RegisterProxy(IProxy proxy);</h4>
+<h4 id="iproxy-removeproxystring-proxyname">IProxy RemoveProxy(string proxyName);</h4>
+<h4 id="iproxy-retrieveproxystring-proxyname">IProxy RetrieveProxy(string proxyName);</h4>
+<h4 id="bool-hasproxystring-proxyname">bool HasProxy(string proxyName);</h4>
+<h3 id="proxy">Proxy</h3>
+<h4 id="void-onregister">void OnRegister();</h4>
+<h4 id="void-onremove">void OnRemove();</h4>
+<h3 id="view">View</h3>
+<h4 id="void-registermediatorimediator-mediator">void RegisterMediator(IMediator mediator);</h4>
+<h4 id="imediator-removemediatorstring-mediatorname">IMediator RemoveMediator(string mediatorName);</h4>
+<h4 id="imediator-retrievemediatorstring-mediatorname">IMediator RetrieveMediator(string mediatorName);</h4>
+<h4 id="bool-hasmediatorstring-mediatorname">bool HasMediator(string mediatorName);</h4>
+<h4 id="void-registerobserverstring-notificationname-iobserver-observer">void RegisterObserver(string notificationName, IObserver observer);</h4>
+<h4 id="void-removeobserverstring-notificationname-object-notifycontext">void RemoveObserver(string notificationName, object notifyContext);</h4>
+<h4 id="void-notifyobserversinotification-note">void NotifyObservers(INotification note);</h4>
+<h3 id="mediator">Mediator</h3>
+<h4 id="void-onregister-1">void OnRegister();</h4>
+<h4 id="void-onremove-1">void OnRemove();</h4>
+<h4 id="ilist-listnotificationinterests">IList<string> ListNotificationInterests();</h4>
+<h4 id="void-handlenotificationinotification-notification">void HandleNotification(INotification notification);</h4>
+<h3 id="controller">Controller</h3>
+<h4 id="void-registercommandstring-notificationname-type-commandtype">void RegisterCommand(string notificationName, Type commandType);</h4>
+<h4 id="void-removecommandstring-notificationname">void RemoveCommand(string notificationName);</h4>
+<h4 id="void-executecommandinotification-notification">void ExecuteCommand(INotification notification);</h4>
+<h4 id="bool-hascommandstring-notificationname">bool HasCommand(string notificationName);</h4>
+<h3 id="command">Command</h3>
+<h4 id="void-executeinotification-notification">void Execute(INotification notification);</h4>
+<h2 id="init-process">Init Process</h2>
+<h3 id="app">App</h3>
+<h4 id="appfacade">AppFacade</h4>
+<h5 id="initializemodel">InitializeModel()</h5>
+<h6 id="facade.initializemodel">Facade.InitializeModel()</h6>
+<p class="heading" id="m_model-model.instance">m_model = Model.Instance</p>
+<p class="heading" id="m_proxymap-new-dictionarystring-iproxy">m_proxyMap = new Dictionary&lt;string, IProxy&gt;()</p>
+<h6 id="facade.registerproxy">Facade.RegisterProxy()</h6>
+<p class="heading" id="m_model.registerproxyproxy">m_model.RegisterProxy(proxy)</p>
+<p class="heading" id="m_proxymapproxy.proxyname-proxy">m_proxyMap[proxy.ProxyName] = proxy</p>
+<h5 id="initializecontroller">InitializeController()</h5>
+<h6 id="facade.initializecontroller">Facade.InitializeController()</h6>
+<p class="heading" id="m_controller-controller.instance">m_controller = Controller.Instance</p>
+<p class="heading" id="m_commandmap-new-dictionarystring-icommand">m_commandMap = new Dictionary&lt;string, ICommand&gt;()</p>
+<p class="heading" id="m_view-view.instance">m_view = View.Instance;</p>
+<h6 id="facade.registercommand">Facade.RegisterCommand()</h6>
+<p class="heading" id="m_controller.registercommandnotificationname-commandtype">m_controller.RegisterCommand(notificationName, commandType)</p>
+<p class="heading" id="m_view.registerobservernotificationname-new-observerexecutecommand-this">m_view.RegisterObserver(notificationName, new Observer("executeCommand", this));</p>
+<p class="heading" id="m_commandmapnotificationname-commandtype">m_commandMap[notificationName] = commandType;</p>
+<h5 id="initializeview">InitializeView()</h5>
+<h6 id="facade.initializeview">Facade.InitializeView()</h6>
+<p class="heading" id="m_view-view.instance-1">m_view = View.Instance</p>
+<p class="heading" id="m_mediatormap-new-dictionarystring-imediator">m_mediatorMap = new Dictionary&lt;string, IMediator&gt;();</p>
+<p class="heading" id="m_observermap-new-dictionarystring-ilist">m_observerMap = new Dictionary&lt;string, IList<IObserver>&gt;();</p>
+<h6 id="facade.regiestermediator">Facade.RegiesterMediator()</h6>
+<p class="heading" id="m_view.registermediatormediator">m_view.RegisterMediator(mediator);</p>
+<p class="heading" id="m_mediatormapmediator.mediatorname-mediator">m_mediatorMap[mediator.MediatorName] = mediator;</p>
+<p class="heading" id="iobserver-observer-new-observerhandlenotification-mediator">IObserver observer = new Observer("handleNotification", mediator)</p>
+<p class="heading" id="m_observermapnotificationname.addobserver">m_observerMap[notificationName].Add(observer)</p>
+<h2 id="notify-process">Notify Process</h2>
+<h3 id="view-1">View</h3>
+<h4 id="registerobserverstring-notificationname-iobserver-observer">RegisterObserver(string notificationName, IObserver observer)</h4>
+<h5 id="m_observermapnotificationname.addobserver-1">m_observerMap[notificationName].Add(observer)</h5>
+<h4 id="notifyobserversinotification-notification">NotifyObservers(INotification notification)</h4>
+<h5 id="observeri.notifyobservernotification">observer[i].NotifyObserver(notification);</h5>
+<h6 id="type.getmethodmethodnamef.invokecontextnew-object-notification">type.GetMethod(methodName,f).Invoke(context,new object[] { notification });</h6>
+
     </div>
 
     
@@ -452,13 +518,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Tutorial-Unity%E4%B8%ADsqlite%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="Tutorial-Unity中sqlite数据库的使用">
-                  <i class="fa fa-chevron-left"></i> Tutorial-Unity中sqlite数据库的使用
+                <a href="/2020/09/29/3.Unity/20200929_Tutorial-Unity%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" rel="prev" title="Tutorial-Unity游戏开发中的生命周期">
+                  <i class="fa fa-chevron-left"></i> Tutorial-Unity游戏开发中的生命周期
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%B8%B8%E6%88%8Fdll%E7%A0%B4%E8%A7%A3_%E5%9F%BA%E4%BA%8EDump%E5%86%85%E5%AD%98%E7%9A%84%E6%96%B9%E6%B3%95/" rel="next" title="Trick_Unity游戏dll破解_基于Dump内存的方法">
-                  Trick_Unity游戏dll破解_基于Dump内存的方法 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/3.Unity/20200929_Tutorial-2048%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/" rel="next" title="Tutorial-2048核心算法">
+                  Tutorial-2048核心算法 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -555,6 +621,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

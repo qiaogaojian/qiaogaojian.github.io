@@ -93,7 +93,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -206,7 +210,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Asm%E5%B8%B8%E7%94%A8%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4"><span class="nav-text">Asm常用汇编指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E6%8C%87%E4%BB%A4"><span class="nav-text">移动指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mov-%E5%8F%B3%E8%BE%B9%E8%B5%8B%E5%80%BC%E7%BB%99%E5%B7%A6%E8%BE%B9"><span class="nav-text">mov             右边赋值给左边</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E6%8C%87%E4%BB%A4"><span class="nav-text">运算指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#add-%E5%8A%A0%E6%B3%95"><span class="nav-text">add            加法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sub-%E5%87%8F%E6%B3%95"><span class="nav-text">sub            减法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inc-%E8%87%AA%E5%A2%9E1"><span class="nav-text">inc            自增1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E7%A7%BB%E6%8C%87%E4%BB%A4"><span class="nav-text">转移指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jmp-%E8%B7%B3%E8%BD%AC%E5%91%BD%E4%BB%A4"><span class="nav-text">jmp             跳转命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loop-%E5%BE%AA%E7%8E%AF%E5%91%BD%E4%BB%A4"><span class="nav-text">loop            循环命令</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#asm%E5%B8%B8%E7%94%A8%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4"><span class="nav-text">Asm常用汇编指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E6%8C%87%E4%BB%A4"><span class="nav-text">移动指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mov-%E5%8F%B3%E8%BE%B9%E8%B5%8B%E5%80%BC%E7%BB%99%E5%B7%A6%E8%BE%B9"><span class="nav-text">mov 右边赋值给左边</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E6%8C%87%E4%BB%A4"><span class="nav-text">运算指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#add-%E5%8A%A0%E6%B3%95"><span class="nav-text">add 加法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sub-%E5%87%8F%E6%B3%95"><span class="nav-text">sub 减法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inc-%E8%87%AA%E5%A2%9E1"><span class="nav-text">inc 自增1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E7%A7%BB%E6%8C%87%E4%BB%A4"><span class="nav-text">转移指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jmp-%E8%B7%B3%E8%BD%AC%E5%91%BD%E4%BB%A4"><span class="nav-text">jmp 跳转命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loop-%E5%BE%AA%E7%8E%AF%E5%91%BD%E4%BB%A4"><span class="nav-text">loop 循环命令</span></a></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -364,40 +368,50 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Asm常用汇编指令"><a href="#Asm常用汇编指令" class="headerlink" title="Asm常用汇编指令"></a>Asm常用汇编指令</h1><h2 id="移动指令"><a href="#移动指令" class="headerlink" title="移动指令"></a>移动指令</h2><h3 id="mov-右边赋值给左边"><a href="#mov-右边赋值给左边" class="headerlink" title="mov             右边赋值给左边"></a>mov             右边赋值给左边</h3><ul>
-<li>mov ax,10h        mov 寄存器,数据</li>
-<li>mov ax,bx         mov 寄存器,寄存器</li>
-<li>mov ax,ds:[0]     mov 寄存器,内存单元</li>
-<li>mov ds:[0],ax     mov 内存单元,寄存器</li>
-<li>mov ds,bx         mov 段寄存器,寄存器</li>
-<li>mov bx,ds         mov 寄存器,段寄存器</li>
+        <h1 id="asm常用汇编指令">Asm常用汇编指令</h1>
+<h2 id="移动指令">移动指令</h2>
+<h3 id="mov-右边赋值给左边">mov 右边赋值给左边</h3>
+<ul>
+<li>mov ax,10h mov 寄存器,数据</li>
+<li>mov ax,bx mov 寄存器,寄存器</li>
+<li>mov ax,ds:[0] mov 寄存器,内存单元</li>
+<li>mov ds:[0],ax mov 内存单元,寄存器</li>
+<li>mov ds,bx mov 段寄存器,寄存器</li>
+<li>mov bx,ds mov 寄存器,段寄存器</li>
 </ul>
 <blockquote>
-<p>mov ds,1000h 是不允许的  段寄存器不允许直接赋值</p>
+<p>mov ds,1000h 是不允许的 段寄存器不允许直接赋值</p>
 </blockquote>
-<h2 id="运算指令"><a href="#运算指令" class="headerlink" title="运算指令"></a>运算指令</h2><h3 id="add-加法"><a href="#add-加法" class="headerlink" title="add            加法"></a>add            加法</h3><ul>
-<li>add ax,100h      add 寄存器,数据</li>
-<li>add ax,bx        add 寄存器,寄存器</li>
-<li>add ax,ds:[0]    add 寄存器,内存单元</li>
-<li>add ds:[0],ax    add 内存单元,寄存器</li>
+<h2 id="运算指令">运算指令</h2>
+<h3 id="add-加法">add 加法</h3>
+<ul>
+<li>add ax,100h add 寄存器,数据</li>
+<li>add ax,bx add 寄存器,寄存器</li>
+<li>add ax,ds:[0] add 寄存器,内存单元</li>
+<li>add ds:[0],ax add 内存单元,寄存器</li>
 </ul>
-<h3 id="sub-减法"><a href="#sub-减法" class="headerlink" title="sub            减法"></a>sub            减法</h3><ul>
-<li>sub ax,1h        sub 寄存器,数据</li>
-<li>sub ax,bx        sub 寄存器,寄存器</li>
-<li>sub ax,ds[0]     sub 寄存器,内存单元</li>
-<li>sub [0],ax       sub 内存单元,寄存器</li>
+<h3 id="sub-减法">sub 减法</h3>
+<ul>
+<li>sub ax,1h sub 寄存器,数据</li>
+<li>sub ax,bx sub 寄存器,寄存器</li>
+<li>sub ax,ds[0] sub 寄存器,内存单元</li>
+<li>sub [0],ax sub 内存单元,寄存器</li>
 </ul>
 <blockquote>
-<p>add ds,ax 是不允许的<br>sub ds,ax 是不允许的</p>
+<p>add ds,ax 是不允许的 sub ds,ax 是不允许的</p>
 </blockquote>
-<h3 id="inc-自增1"><a href="#inc-自增1" class="headerlink" title="inc            自增1"></a>inc            自增1</h3><ul>
-<li>inc ax           inc 寄存器</li>
+<h3 id="inc-自增1">inc 自增1</h3>
+<ul>
+<li>inc ax inc 寄存器</li>
 </ul>
-<h2 id="转移指令"><a href="#转移指令" class="headerlink" title="转移指令"></a>转移指令</h2><h3 id="jmp-跳转命令"><a href="#jmp-跳转命令" class="headerlink" title="jmp             跳转命令"></a>jmp             跳转命令</h3><ul>
-<li>jmp addFunction   jmp 标志符</li>
+<h2 id="转移指令">转移指令</h2>
+<h3 id="jmp-跳转命令">jmp 跳转命令</h3>
+<ul>
+<li>jmp addFunction jmp 标志符</li>
 </ul>
-<h3 id="loop-循环命令"><a href="#loop-循环命令" class="headerlink" title="loop            循环命令"></a>loop            循环命令</h3><ul>
-<li>loop addFunction  loop 标识符  每次执行 先把 cx - 1 然后检测cx是不是等于0</li>
+<h3 id="loop-循环命令">loop 循环命令</h3>
+<ul>
+<li>loop addFunction loop 标识符 每次执行 先把 cx - 1 然后检测cx是不是等于0</li>
 </ul>
 
     </div>
@@ -456,13 +470,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7debug%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="Tips-Asm调试工具debug的使用">
-                  <i class="fa fa-chevron-left"></i> Tips-Asm调试工具debug的使用
+                <a href="/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/" rel="prev" title="Tips-CISP-PTE">
+                  <i class="fa fa-chevron-left"></i> Tips-CISP-PTE
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E4%B8%ADCPU%E5%AF%84%E5%AD%98%E5%99%A8%E5%88%86%E7%B1%BB%E4%BB%8B%E7%BB%8D/" rel="next" title="Tips-Asm中CPU寄存器分类介绍">
-                  Tips-Asm中CPU寄存器分类介绍 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7debug%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="next" title="Tips-Asm调试工具debug的使用">
+                  Tips-Asm调试工具debug的使用 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -559,6 +573,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

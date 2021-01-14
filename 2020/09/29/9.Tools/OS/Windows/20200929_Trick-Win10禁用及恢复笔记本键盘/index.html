@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="Win10禁用及恢复笔记本键盘 首先进入Windows&#x2F;System32   1. 禁用          以管理员身份进入cmd，输入：sc config i8042prt start&#x3D; disabled     然后重启            2. 启用          以管理员身份进入cmd，输入：sc config i8042prt start&#x3D; auto     然后重启">
+  <meta name="description" content="Win10禁用及恢复笔记本键盘 首先进入Windows&#x2F;System32   1. 禁用          以管理员身份进入cmd，输入：sc config i8042prt start&#x3D; disabled 然后重启            2. 启用          以管理员身份进入cmd，输入：sc config i8042prt start&#x3D; auto 然后重启">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Trick-Win10禁用及恢复笔记本键盘">
 <meta property="og:url" content="http://example.com/2020/09/29/9.Tools/OS/Windows/20200929_Trick-Win10%E7%A6%81%E7%94%A8%E5%8F%8A%E6%81%A2%E5%A4%8D%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%94%AE%E7%9B%98/index.html">
 <meta property="og:site_name" content="行则将至">
-<meta property="og:description" content="Win10禁用及恢复笔记本键盘 首先进入Windows&#x2F;System32   1. 禁用          以管理员身份进入cmd，输入：sc config i8042prt start&#x3D; disabled     然后重启            2. 启用          以管理员身份进入cmd，输入：sc config i8042prt start&#x3D; auto     然后重启">
+<meta property="og:description" content="Win10禁用及恢复笔记本键盘 首先进入Windows&#x2F;System32   1. 禁用          以管理员身份进入cmd，输入：sc config i8042prt start&#x3D; disabled 然后重启            2. 启用          以管理员身份进入cmd，输入：sc config i8042prt start&#x3D; auto 然后重启">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-29T01:11:46.109Z">
@@ -93,7 +93,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -206,7 +210,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Win10%E7%A6%81%E7%94%A8%E5%8F%8A%E6%81%A2%E5%A4%8D%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%94%AE%E7%9B%98"><span class="nav-text">Win10禁用及恢复笔记本键盘</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#win10%E7%A6%81%E7%94%A8%E5%8F%8A%E6%81%A2%E5%A4%8D%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%94%AE%E7%9B%98"><span class="nav-text">Win10禁用及恢复笔记本键盘</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -368,14 +372,13 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Win10禁用及恢复笔记本键盘"><a href="#Win10禁用及恢复笔记本键盘" class="headerlink" title="Win10禁用及恢复笔记本键盘"></a>Win10禁用及恢复笔记本键盘</h1><p>首先进入Windows/System32</p>
-<ol>
+        <h1 id="win10禁用及恢复笔记本键盘">Win10禁用及恢复笔记本键盘</h1>
+<p>首先进入Windows/System32</p>
+<ol type="1">
 <li><p>禁用</p>
-<p>以管理员身份进入cmd，输入：sc config i8042prt start= disabled<br>然后重启</p>
-</li>
+<p>以管理员身份进入cmd，输入：sc config i8042prt start= disabled 然后重启</p></li>
 <li><p>启用</p>
-<p>以管理员身份进入cmd，输入：sc config i8042prt start= auto<br>然后重启</p>
-</li>
+<p>以管理员身份进入cmd，输入：sc config i8042prt start= auto 然后重启</p></li>
 </ol>
 
     </div>
@@ -537,6 +540,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

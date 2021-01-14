@@ -93,7 +93,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -206,7 +210,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#adb-%E8%BF%9E%E6%8E%A5-mumu-%E6%A8%A1%E6%8B%9F%E5%99%A8"><span class="nav-text">adb 连接 mumu 模拟器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-%E5%B9%B3%E5%8F%B0"><span class="nav-text">Windows 平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-%E5%B9%B3%E5%8F%B0"><span class="nav-text">Mac 平台</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#adb-%E8%BF%9E%E6%8E%A5-mumu-%E6%A8%A1%E6%8B%9F%E5%99%A8"><span class="nav-text">adb 连接 mumu 模拟器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#windows-%E5%B9%B3%E5%8F%B0"><span class="nav-text">Windows 平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mac-%E5%B9%B3%E5%8F%B0"><span class="nav-text">Mac 平台</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -360,10 +364,13 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="adb-连接-mumu-模拟器"><a href="#adb-连接-mumu-模拟器" class="headerlink" title="adb 连接 mumu 模拟器"></a>adb 连接 mumu 模拟器</h1><h2 id="Windows-平台"><a href="#Windows-平台" class="headerlink" title="Windows 平台"></a>Windows 平台</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb connect 127.0.0.1:7555</span><br></pre></td></tr></table></figure>
-<h2 id="Mac-平台"><a href="#Mac-平台" class="headerlink" title="Mac 平台"></a>Mac 平台</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br></pre></td></tr></table></figure>
+        <h1 id="adb-连接-mumu-模拟器">adb 连接 mumu 模拟器</h1>
+<h2 id="windows-平台">Windows 平台</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb connect 127.0.0.1:7555</span><br></pre></td></tr></table></figure>
+<h2 id="mac-平台">Mac 平台</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>如果不行,可以尝试 adb kill-server,再运行连接<br>.</p>
+<p>如果不行,可以尝试 adb kill-server,再运行连接 .</p>
 </blockquote>
 
     </div>
@@ -422,13 +429,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E4%B8%8A%E4%BC%A0module%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="prev" title="Tutorial-Android上传module到服务器">
-                  <i class="fa fa-chevron-left"></i> Tutorial-Android上传module到服务器
+                <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB%E8%AF%A6%E8%A7%A3/" rel="prev" title="Tutorial-Android属性动画详解">
+                  <i class="fa fa-chevron-left"></i> Tutorial-Android属性动画详解
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E5%BB%B6%E8%BF%9F%E8%B0%83%E7%94%A8/" rel="next" title="Trick-RxJava实现延迟调用">
-                  Trick-RxJava实现延迟调用 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" rel="next" title="Tutorial-Android内存泄漏问题">
+                  Tutorial-Android内存泄漏问题 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -525,6 +532,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

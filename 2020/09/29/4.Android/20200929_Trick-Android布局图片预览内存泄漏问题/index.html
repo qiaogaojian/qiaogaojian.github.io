@@ -33,11 +33,11 @@
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="AS">
 <meta property="article:tag" content="AR">
-<meta property="article:tag" content="ML">
 <meta property="article:tag" content="Android">
+<meta property="article:tag" content="ML">
 <meta property="article:tag" content="Go">
-<meta property="article:tag" content="Tips">
 <meta property="article:tag" content="Android Studio">
+<meta property="article:tag" content="Tips">
 <meta property="article:tag" content="Tools">
 <meta name="twitter:card" content="summary">
 
@@ -98,7 +98,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -211,7 +215,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android%E5%B8%83%E5%B1%80%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98"><span class="nav-text">Android布局图片预览内存泄漏问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-common-usage"><span class="nav-text">2 common usage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#refer"><span class="nav-text">refer</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#android%E5%B8%83%E5%B1%80%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98"><span class="nav-text">Android布局图片预览内存泄漏问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#common-usage"><span class="nav-text">2 common usage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#refer"><span class="nav-text">refer</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -365,7 +369,8 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Android布局图片预览内存泄漏问题"><a href="#Android布局图片预览内存泄漏问题" class="headerlink" title="Android布局图片预览内存泄漏问题"></a>Android布局图片预览内存泄漏问题</h1><p>Sometimes, when we write a layout file, we want to preview the result and if the layout has an ImageView then we also want to see the image by just giving the image resources in xml. Beware of that, by the time you set image resource in image view for only preview purpose, don’t forget to remove it. If we forget to remove it, then in the runtime the image will be loaded and suck the app memory.</p>
+        <h1 id="android布局图片预览内存泄漏问题">Android布局图片预览内存泄漏问题</h1>
+<p>Sometimes, when we write a layout file, we want to preview the result and if the layout has an ImageView then we also want to see the image by just giving the image resources in xml. Beware of that, by the time you set image resource in image view for only preview purpose, don’t forget to remove it. If we forget to remove it, then in the runtime the image will be loaded and suck the app memory.</p>
 <p>It would seem fine if the image is only loaded once but what if the sample image is on item layout, and we use the layout in recycler view (listview)? the sample image will be loaded in every single item you have in the list. Just multiply it with the size of the image, that is how the app becomes a memory sucker.</p>
 <p>I made this mistake, and fortunately I used a really big image, so the exception was always raised.</p>
 <p>Here is the example of pre set image resources</p>
@@ -374,13 +379,13 @@
 <p>but after open the activity with only 3 items with that layout, it jumped into 90mb, scroll a little bit, OOM was raised.</p>
 <p>So don’t forget to remove android:src after you finish preview, and you’ll probably save a good memory Hope it’s usefull.</p>
 <p><a target="_blank" rel="noopener" href="http://tools.android.com/tips/layout-designtime-attributes">Use tools:src instead of android:src to get the preview image in Android Studio with zero impact on runtime</a></p>
-<h2 id="2-common-usage"><a href="#2-common-usage" class="headerlink" title="2 common usage"></a>2 common usage</h2><ul>
-<li><p>tools:text</p>
-</li>
-<li><p>tools:src</p>
-</li>
+<h2 id="common-usage">2 common usage</h2>
+<ul>
+<li><p>tools:text</p></li>
+<li><p>tools:src</p></li>
 </ul>
-<h2 id="refer"><a href="#refer" class="headerlink" title="refer"></a>refer</h2><p><a target="_blank" rel="noopener" href="https://developer.android.com/studio/write/tool-attributes">Tools attributes reference</a></p>
+<h2 id="refer">refer</h2>
+<p><a target="_blank" rel="noopener" href="https://developer.android.com/studio/write/tool-attributes">Tools attributes reference</a></p>
 
     </div>
 
@@ -431,11 +436,11 @@
           <div class="post-tags">
               <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
               <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
-              <a href="/tags/ML/" rel="tag"><i class="fa fa-tag"></i> ML</a>
               <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+              <a href="/tags/ML/" rel="tag"><i class="fa fa-tag"></i> ML</a>
               <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
-              <a href="/tags/Tips/" rel="tag"><i class="fa fa-tag"></i> Tips</a>
               <a href="/tags/Android-Studio/" rel="tag"><i class="fa fa-tag"></i> Android Studio</a>
+              <a href="/tags/Tips/" rel="tag"><i class="fa fa-tag"></i> Tips</a>
               <a href="/tags/Tools/" rel="tag"><i class="fa fa-tag"></i> Tools</a>
           </div>
 
@@ -443,13 +448,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Trick-Android%E5%AF%8C%E6%96%87%E6%9C%AC/" rel="prev" title="Trick-Android富文本">
-                  <i class="fa fa-chevron-left"></i> Trick-Android富文本
+                <a href="/2020/09/29/4.Android/20200929_Trick-Android%E5%B7%A6%E5%8F%B3%E5%AF%B9%E9%BD%90%E5%B9%B6%E9%80%82%E9%85%8D%E5%86%85%E5%AE%B9/" rel="prev" title="Trick-Android左右对齐并适配内容">
+                  <i class="fa fa-chevron-left"></i> Trick-Android左右对齐并适配内容
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Trick-Android%E5%B7%A6%E5%8F%B3%E5%AF%B9%E9%BD%90%E5%B9%B6%E9%80%82%E9%85%8D%E5%86%85%E5%AE%B9/" rel="next" title="Trick-Android左右对齐并适配内容">
-                  Trick-Android左右对齐并适配内容 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/4.Android/20200929_Trick-Android%E5%AF%8C%E6%96%87%E6%9C%AC/" rel="next" title="Trick-Android富文本">
+                  Trick-Android富文本 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -546,6 +551,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

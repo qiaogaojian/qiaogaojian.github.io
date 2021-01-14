@@ -32,9 +32,9 @@
 <meta property="article:modified_time" content="2020-09-29T01:11:46.028Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="AR">
+<meta property="article:tag" content="Android">
 <meta property="article:tag" content="Web">
 <meta property="article:tag" content="Java">
-<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
 
 
@@ -94,7 +94,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -207,7 +211,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android%E4%B8%ADWebView%E9%97%AA%E7%83%81%E9%97%AE%E9%A2%98"><span class="nav-text">Android中WebView闪烁问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">解决方法</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#android%E4%B8%ADwebview%E9%97%AA%E7%83%81%E9%97%AE%E9%A2%98"><span class="nav-text">Android中WebView闪烁问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">解决方法</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -361,10 +365,13 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Android中WebView闪烁问题"><a href="#Android中WebView闪烁问题" class="headerlink" title="Android中WebView闪烁问题"></a>Android中WebView闪烁问题</h1><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>webView默认隐藏然后在onPageFinished回调中显示</p>
+        <h1 id="android中webview闪烁问题">Android中WebView闪烁问题</h1>
+<h2 id="解决方法">解决方法</h2>
+<p>webView默认隐藏然后在onPageFinished回调中显示</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageFinished</span><span class="params">(WebView view, String url)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//页面加载完成</span></span><br><span class="line"></span><br><span class="line">    mBinding.webviewTrans.setBackgroundColor(Color.TRANSPARENT);</span><br><span class="line">    mBinding.webviewTrans.setLayerType(WebView.LAYER_TYPE_SOFTWARE, <span class="keyword">null</span>);</span><br><span class="line">    mBinding.webviewTrans.setVisibility(View.VISIBLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在loadUrl之前 设置webView的背景为透明的</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mBinding.webviewTrans.setBackgroundColor(Color.argb(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>));</span><br><span class="line">mBinding.webviewTrans.loadUrl(webUrl);</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -413,22 +420,22 @@
 
           <div class="post-tags">
               <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
+              <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
               <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
               <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
-              <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%AD%E9%A1%B6%E9%83%A8UI%E9%98%BB%E6%8C%A1%E5%BA%95%E9%83%A8UI%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/" rel="prev" title="Bug-Android中顶部UI阻挡底部UI点击事件">
-                  <i class="fa fa-chevron-left"></i> Bug-Android中顶部UI阻挡底部UI点击事件
+                <a href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADwebview%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E%E8%AE%BE%E7%BD%AE/" rel="prev" title="Bug-Android中webview背景透明设置">
+                  <i class="fa fa-chevron-left"></i> Bug-Android中webview背景透明设置
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/" rel="next" title="Bug-Android中ScrollView内部组件高度异常">
-                  Bug-Android中ScrollView内部组件高度异常 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADApplication%E5%92%8CActivity%E7%9A%84%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F%E5%BC%82%E5%B8%B8/" rel="next" title="Bug-Android中Application和Activity的启动顺序异常">
+                  Bug-Android中Application和Activity的启动顺序异常 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -525,6 +532,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

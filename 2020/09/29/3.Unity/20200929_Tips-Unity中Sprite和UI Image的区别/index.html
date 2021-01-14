@@ -95,7 +95,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -208,7 +212,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unity%E4%B8%ADSprite%E5%92%8CUI-Image%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">Unity中Sprite和UI Image的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93"><span class="nav-text">渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%8A"><span class="nav-text">使用上</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E6%93%8E%E7%9A%84%E5%A4%84%E7%90%86%E4%B8%8A"><span class="nav-text">引擎的处理上</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B1%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%E8%BF%9B%E8%A1%8C%E6%8E%A8%E6%96%AD"><span class="nav-text">由渲染管线的基本流程进行推断</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#unity%E4%B8%ADsprite%E5%92%8Cui-image%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">Unity中Sprite和UI Image的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%B2%E6%9F%93"><span class="nav-text">渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%8A"><span class="nav-text">使用上</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E6%93%8E%E7%9A%84%E5%A4%84%E7%90%86%E4%B8%8A"><span class="nav-text">引擎的处理上</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B1%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%E8%BF%9B%E8%A1%8C%E6%8E%A8%E6%96%AD"><span class="nav-text">由渲染管线的基本流程进行推断</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -362,11 +366,16 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Unity中Sprite和UI-Image的区别"><a href="#Unity中Sprite和UI-Image的区别" class="headerlink" title="Unity中Sprite和UI Image的区别"></a>Unity中Sprite和UI Image的区别</h1><h2 id="渲染"><a href="#渲染" class="headerlink" title="渲染"></a>渲染</h2><p>Image 通过UGUI的Image和CanvasRenderer组件组件来渲染<br>Sprite 通过SpriteRenderer组件来渲染<br>两者在视觉上没有任何区别（都使用默认材质时）。它们默认的渲染也都是在Transparent Geometry队列中。</p>
-<h2 id="使用上"><a href="#使用上" class="headerlink" title="使用上"></a>使用上</h2><p>Image需要位于某个Canvas下才能显示出来。场景中的Sprite可以像普通的3D游戏物体一样对待，通过Transform组件进行移动等操作，而Image则使用RectTransform进行布局，以便通过Canvas统一管理。由于RectTransform可以设置大小、对齐方式等，Image可以说更加方便一点，这也是很多人选择使用Image的原因。</p>
-<h2 id="引擎的处理上"><a href="#引擎的处理上" class="headerlink" title="引擎的处理上"></a>引擎的处理上</h2><p>将Wireframe选项打开然后在场景中观察，就可以清楚地发现，Image为一个矩形的Sprite生成两个三角形拼成的矩形几何体，而Sprite则会根据显示内容，裁剪掉元素中的大部分透明区域，最终生成的几何体可能会有比较复杂的顶点结构。</p>
-<h2 id="由渲染管线的基本流程进行推断"><a href="#由渲染管线的基本流程进行推断" class="headerlink" title="由渲染管线的基本流程进行推断"></a>由渲染管线的基本流程进行推断</h2><p>1.Sprite由于顶点数据更加复杂，在进行顶点计算时会比Image效率更低；<br>2.Sprite会比Image执行较多的顶点着色器运算；<br>3.Image会比Sprite执行更多的片段着色器运算</p>
-<p>由于片段着色器是针对每个像素运算，Sprite通过增加顶点而裁剪掉的部分减少了相当多的运算次数，在绝大多数情况下，反而比Image拥有更好的效率（尤其是场景中有大量的2D精灵时）。SpriteRenderer会创建额外的几何体来裁剪掉多余的透明像素区域，从而减少了大量的片段着色器运算，并降低了overdraw；而Image则会创建简单的矩形几何体。随着2D元素数量的增加，这种差别会慢慢明显起来。<br>因此在2D游戏开发中，游戏场景中的元素，应该尽量使用它去渲染。而Image应该仅用于UI显示（实际上即使不考虑性能原因，由于屏幕分辨率的变化，Image可能会被Canvas改变显示位置和实际大小，如果用于游戏内元素的显示，可能会造成跟预期设计不一致的显示结果，也应该避免使用）。</p>
+        <h1 id="unity中sprite和ui-image的区别">Unity中Sprite和UI Image的区别</h1>
+<h2 id="渲染">渲染</h2>
+<p>Image 通过UGUI的Image和CanvasRenderer组件组件来渲染 Sprite 通过SpriteRenderer组件来渲染 两者在视觉上没有任何区别（都使用默认材质时）。它们默认的渲染也都是在Transparent Geometry队列中。</p>
+<h2 id="使用上">使用上</h2>
+<p>Image需要位于某个Canvas下才能显示出来。场景中的Sprite可以像普通的3D游戏物体一样对待，通过Transform组件进行移动等操作，而Image则使用RectTransform进行布局，以便通过Canvas统一管理。由于RectTransform可以设置大小、对齐方式等，Image可以说更加方便一点，这也是很多人选择使用Image的原因。</p>
+<h2 id="引擎的处理上">引擎的处理上</h2>
+<p>将Wireframe选项打开然后在场景中观察，就可以清楚地发现，Image为一个矩形的Sprite生成两个三角形拼成的矩形几何体，而Sprite则会根据显示内容，裁剪掉元素中的大部分透明区域，最终生成的几何体可能会有比较复杂的顶点结构。</p>
+<h2 id="由渲染管线的基本流程进行推断">由渲染管线的基本流程进行推断</h2>
+<p>1.Sprite由于顶点数据更加复杂，在进行顶点计算时会比Image效率更低； 2.Sprite会比Image执行较多的顶点着色器运算； 3.Image会比Sprite执行更多的片段着色器运算</p>
+<p>由于片段着色器是针对每个像素运算，Sprite通过增加顶点而裁剪掉的部分减少了相当多的运算次数，在绝大多数情况下，反而比Image拥有更好的效率（尤其是场景中有大量的2D精灵时）。SpriteRenderer会创建额外的几何体来裁剪掉多余的透明像素区域，从而减少了大量的片段着色器运算，并降低了overdraw；而Image则会创建简单的矩形几何体。随着2D元素数量的增加，这种差别会慢慢明显起来。 因此在2D游戏开发中，游戏场景中的元素，应该尽量使用它去渲染。而Image应该仅用于UI显示（实际上即使不考虑性能原因，由于屏幕分辨率的变化，Image可能会被Canvas改变显示位置和实际大小，如果用于游戏内元素的显示，可能会造成跟预期设计不一致的显示结果，也应该避免使用）。</p>
 
     </div>
 
@@ -426,13 +435,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/" rel="prev" title="Tips-Unity中的碰撞">
-                  <i class="fa fa-chevron-left"></i> Tips-Unity中的碰撞
+                <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/" rel="prev" title="Tips-Unity中停止协程StopCoroutine">
+                  <i class="fa fa-chevron-left"></i> Tips-Unity中停止协程StopCoroutine
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E5%9D%90%E6%A0%87%E7%B3%BB/" rel="next" title="Tips-Unity中的坐标系">
-                  Tips-Unity中的坐标系 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADOnGui%E5%8E%9F%E7%94%9FGUI%E7%94%A8%E6%B3%95/" rel="next" title="Tips-Unity中OnGui原生GUI用法">
+                  Tips-Unity中OnGui原生GUI用法 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -529,6 +538,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

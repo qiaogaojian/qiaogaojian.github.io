@@ -33,11 +33,11 @@
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="AS">
 <meta property="article:tag" content="AR">
+<meta property="article:tag" content="IDE">
+<meta property="article:tag" content="Android">
 <meta property="article:tag" content="ML">
 <meta property="article:tag" content="Html">
 <meta property="article:tag" content="Java">
-<meta property="article:tag" content="IDE">
-<meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
 
 
@@ -97,7 +97,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -210,7 +214,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler"><span class="nav-text">Android开发中的Handler</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84handler"><span class="nav-text">Android开发中的Handler</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -364,9 +368,11 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Android开发中的Handler"><a href="#Android开发中的Handler" class="headerlink" title="Android开发中的Handler"></a>Android开发中的Handler</h1><p>Handler机制是Android中相当经典的异步消息机制，在Android发展的历史长河中扮演着很重要的角色，无论是我们直接面对的应用层还是FrameWork层，使用的场景还是相当的多。</p>
+        <h1 id="android开发中的handler">Android开发中的Handler</h1>
+<p>Handler机制是Android中相当经典的异步消息机制，在Android发展的历史长河中扮演着很重要的角色，无论是我们直接面对的应用层还是FrameWork层，使用的场景还是相当的多。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Button mBtnTest;</span><br><span class="line"><span class="keyword">private</span> Handler mTestHandler = <span class="keyword">new</span> Handler()&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span> (msg.what)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                mBtnTest.setText(<span class="string">&quot;收到消息1&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(<span class="keyword">final</span> Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line">    mBtnTest = (Button) findViewById(R.id.btn_test);</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">                mTestHandler.sendEmptyMessage(<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2018/0522/9728.html">10分钟了解Android的Handler机制</a></p>
+<h2 id="参考链接">参考链接</h2>
+<p><a target="_blank" rel="noopener" href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2018/0522/9728.html">10分钟了解Android的Handler机制</a></p>
 
     </div>
 
@@ -417,24 +423,24 @@
           <div class="post-tags">
               <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
               <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
+              <a href="/tags/IDE/" rel="tag"><i class="fa fa-tag"></i> IDE</a>
+              <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
               <a href="/tags/ML/" rel="tag"><i class="fa fa-tag"></i> ML</a>
               <a href="/tags/Html/" rel="tag"><i class="fa fa-tag"></i> Html</a>
               <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
-              <a href="/tags/IDE/" rel="tag"><i class="fa fa-tag"></i> IDE</a>
-              <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" rel="prev" title="Tips-Android开发规范">
-                  <i class="fa fa-chevron-left"></i> Tips-Android开发规范
+                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E9%85%8D%E7%BD%AEADB%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="prev" title="Tips-Android开发配置ADB环境变量">
+                  <i class="fa fa-chevron-left"></i> Tips-Android开发配置ADB环境变量
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%ADdp_sp_px%E7%90%86%E8%A7%A3/" rel="next" title="Tips-Android开发中dp_sp_px理解">
-                  Tips-Android开发中dp_sp_px理解 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/" rel="next" title="Tips-Android开发规范">
+                  Tips-Android开发规范 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -531,6 +537,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

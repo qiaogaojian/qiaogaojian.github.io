@@ -95,7 +95,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -208,7 +212,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CPU%E5%AF%84%E5%AD%98%E5%99%A8%E5%88%86%E7%B1%BB%E4%BB%8B%E7%BB%8D"><span class="nav-text">CPU寄存器分类介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80-%E6%95%B0%E6%8D%AE%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-text">一.数据寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E5%9D%80%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-text">变址寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-text">指针寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-text">段寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E6%8C%87%E9%92%88%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-text">指令指针寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E5%BF%97%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-text">标志寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cpu%E5%AF%84%E5%AD%98%E5%99%A8%E5%88%86%E7%B1%BB%E4%BB%8B%E7%BB%8D"><span class="nav-text">CPU寄存器分类介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80.%E6%95%B0%E6%8D%AE%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-text">一.数据寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E5%9D%80%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-text">变址寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-text">指针寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-text">段寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E6%8C%87%E9%92%88%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-text">指令指针寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E5%BF%97%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-text">标志寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -366,120 +370,144 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="CPU寄存器分类介绍"><a href="#CPU寄存器分类介绍" class="headerlink" title="CPU寄存器分类介绍"></a>CPU寄存器分类介绍</h1><p>32位CPU所含有的寄存器有:<br>4个数据寄存器(EAX,EBX,ECX,EDX)<br>2个变址和指针寄存器(ESI,EDI) 2个指针寄存器(ESP,EBP)<br>6个段寄存器(ES,CS,SS,DS,FS,GS)<br>1个指令指针寄存器(EIP)1个标志寄存器(EFlags)</p>
-<h2 id="一-数据寄存器"><a href="#一-数据寄存器" class="headerlink" title="一.数据寄存器"></a>一.数据寄存器</h2><table>
+        <h1 id="cpu寄存器分类介绍">CPU寄存器分类介绍</h1>
+<p>32位CPU所含有的寄存器有: 4个数据寄存器(EAX,EBX,ECX,EDX) 2个变址和指针寄存器(ESI,EDI) 2个指针寄存器(ESP,EBP) 6个段寄存器(ES,CS,SS,DS,FS,GS) 1个指令指针寄存器(EIP)1个标志寄存器(EFlags)</p>
+<h2 id="一.数据寄存器">一.数据寄存器</h2>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>寄存器</th>
 <th>作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>EAX</td>
 <td>累加器(Accumulator),用累加器进行的操作可能需要更少时间.可用于乘,除,输入,输出等操作,使用频率很高</td>
 </tr>
-<tr>
+<tr class="even">
 <td>EBX</td>
 <td>基地址寄存器(Base Register),它可作为存储器指针来使用</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>ECX</td>
 <td>计数寄存器(Count Register),在循环和字符操作时,用它控制循环次数,在位操作中,当移多位时,要用CL来指明移位的位数</td>
 </tr>
-<tr>
+<tr class="even">
 <td>EDX</td>
 <td>数据寄存器(Data Register),在进行乘除运算时,它可作为默认的操作数参与运算,也可用于存放IO的端口地址</td>
 </tr>
-</tbody></table>
-<h2 id="变址寄存器"><a href="#变址寄存器" class="headerlink" title="变址寄存器"></a>变址寄存器</h2><table>
+</tbody>
+</table>
+<h2 id="变址寄存器">变址寄存器</h2>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>寄存器</th>
 <th>作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>ESI</td>
 <td>主要用于存放存储单元的偏移量</td>
 </tr>
-<tr>
+<tr class="even">
 <td>EDI</td>
 <td>主要用于存放存储单元的偏移量</td>
 </tr>
-</tbody></table>
-<h2 id="指针寄存器"><a href="#指针寄存器" class="headerlink" title="指针寄存器"></a>指针寄存器</h2><table>
+</tbody>
+</table>
+<h2 id="指针寄存器">指针寄存器</h2>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>寄存器</th>
 <th>作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>EBP</td>
 <td>为基指针(Base Pointer)寄存器,用它可直接存取堆栈中的数据</td>
 </tr>
-<tr>
+<tr class="even">
 <td>ESP</td>
 <td>为堆栈指针(Stack Pointer)寄存器,用它只可访问栈顶</td>
 </tr>
-</tbody></table>
-<h2 id="段寄存器"><a href="#段寄存器" class="headerlink" title="段寄存器"></a>段寄存器</h2><table>
+</tbody>
+</table>
+<h2 id="段寄存器">段寄存器</h2>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>寄存器</th>
 <th>作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>ECS</td>
 <td>代码段寄存器(Code Segment Register),其值为代码段的段值</td>
 </tr>
-<tr>
+<tr class="even">
 <td>EDS</td>
 <td>数据段寄存器(Data Segment Register),其值为数据段的段值</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>EES</td>
 <td>附加段寄存器(Extra Segment Register),其值为附加数据段的段值</td>
 </tr>
-<tr>
+<tr class="even">
 <td>ESS</td>
 <td>堆栈段寄存器(Stack Segment Register),其值为堆栈段的段值</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>EFS</td>
 <td>附加段寄存器(Extra Segment Register),其值为附加数据段的段值</td>
 </tr>
-<tr>
+<tr class="even">
 <td>EGS</td>
 <td>附加段寄存器(Extra Segment Register),其值为附加数据段的段值</td>
 </tr>
-</tbody></table>
-<h2 id="指令指针寄存器"><a href="#指令指针寄存器" class="headerlink" title="指令指针寄存器"></a>指令指针寄存器</h2><table>
+</tbody>
+</table>
+<h2 id="指令指针寄存器">指令指针寄存器</h2>
+<table>
 <thead>
-<tr>
+<tr class="header">
 <th>寄存器</th>
 <th>作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>EIP</td>
 <td>是存放下次将要执行的指令在代码段的偏移量</td>
 </tr>
-</tbody></table>
-<h2 id="标志寄存器"><a href="#标志寄存器" class="headerlink" title="标志寄存器"></a>标志寄存器</h2><table>
+</tbody>
+</table>
+<h2 id="标志寄存器">标志寄存器</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>寄存器</th>
 <th>作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>EFlags</td>
 <td>进位标志,奇偶标志,辅助进位标志,零标志,符号标志,溢出标志/追踪标志,中断允许标志,方向标志/特权标志,嵌套任务标志,重启动标志,虚拟8086方式标志VM</td>
 </tr>
-</tbody></table>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wisehead/articles/3819233.html">汇编各种寄存器介绍</a></p>
+</tbody>
+</table>
+<h2 id="参考链接">参考链接</h2>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wisehead/articles/3819233.html">汇编各种寄存器介绍</a></p>
 
     </div>
 
@@ -539,13 +567,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E5%B8%B8%E7%94%A8%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/" rel="prev" title="Tips-Asm常用汇编指令">
-                  <i class="fa fa-chevron-left"></i> Tips-Asm常用汇编指令
+                <a href="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7debug%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="Tips-Asm调试工具debug的使用">
+                  <i class="fa fa-chevron-left"></i> Tips-Asm调试工具debug的使用
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Tutorial-Java%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E6%8A%80%E6%9C%AF/" rel="next" title="Tutorial-Java高并发和分布式技术">
-                  Tutorial-Java高并发和分布式技术 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/4.Android/20200929_Tutorial-Java%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" rel="next" title="Tutorial-Java值类型引用类型">
+                  Tutorial-Java值类型引用类型 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -642,6 +670,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

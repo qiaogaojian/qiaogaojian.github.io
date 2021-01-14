@@ -92,7 +92,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -205,7 +209,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DosBox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE"><span class="nav-text">DosBox启动设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E7%BD%AE"><span class="nav-text">位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4"><span class="nav-text">指令</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#dosbox%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE"><span class="nav-text">DosBox启动设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E7%BD%AE"><span class="nav-text">位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4"><span class="nav-text">指令</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -363,9 +367,13 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="DosBox启动设置"><a href="#DosBox启动设置" class="headerlink" title="DosBox启动设置"></a>DosBox启动设置</h1><h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>c:/用户/用户名/appdata/local/dosbox/dosbox-0.74.conf</p>
-<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>配置文件末尾添加以下指令:</p>
+        <h1 id="dosbox启动设置">DosBox启动设置</h1>
+<h2 id="位置">位置</h2>
+<p>c:/用户/用户名/appdata/local/dosbox/dosbox-0.74.conf</p>
+<h2 id="指令">指令</h2>
+<p>配置文件末尾添加以下指令:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mount c: d:\asm</span><br><span class="line"><span class="built_in">set</span> PATH=%PATH%;c:\;</span><br><span class="line">c:</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -524,6 +532,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

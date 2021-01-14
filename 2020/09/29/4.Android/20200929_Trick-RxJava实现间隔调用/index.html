@@ -31,10 +31,10 @@
 <meta property="article:published_time" content="2020-09-28T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-09-29T01:11:46.071Z">
 <meta property="article:author" content="qiaogaojian">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="IDE">
 <meta property="article:tag" content="VS">
+<meta property="article:tag" content="IDE">
 <meta property="article:tag" content="Android">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
 
 
@@ -94,7 +94,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -207,7 +211,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RxJava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8"><span class="nav-text">RxJava实现间隔调用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#rxjava%E5%AE%9E%E7%8E%B0%E9%97%B4%E9%9A%94%E8%B0%83%E7%94%A8"><span class="nav-text">RxJava实现间隔调用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -361,9 +365,12 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="RxJava实现间隔调用"><a href="#RxJava实现间隔调用" class="headerlink" title="RxJava实现间隔调用"></a>RxJava实现间隔调用</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Observable.interval(<span class="number">1</span>, TimeUnit.SECONDS, Schedulers.trampoline())</span><br><span class="line">.take(<span class="number">6</span>)</span><br><span class="line">.subscribeOn(Schedulers.io())</span><br><span class="line">.observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">.subscribe(<span class="keyword">new</span> Observer&lt;Long&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSubscribe</span><span class="params">(Disposable d)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onSubscribe&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Long value)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onNext:&quot;</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onError&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onComplete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onComplete&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+        <h1 id="rxjava实现间隔调用">RxJava实现间隔调用</h1>
+<h2 id="代码">代码</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Observable.interval(<span class="number">1</span>, TimeUnit.SECONDS, Schedulers.trampoline())</span><br><span class="line">.take(<span class="number">6</span>)</span><br><span class="line">.subscribeOn(Schedulers.io())</span><br><span class="line">.observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">.subscribe(<span class="keyword">new</span> Observer&lt;Long&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSubscribe</span><span class="params">(Disposable d)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onSubscribe&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Long value)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onNext:&quot;</span> + value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onError&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onComplete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onComplete&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>如果涉及到对UI的操作 需要设置好线程</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Observable.interval(<span class="number">1</span>, TimeUnit.SECONDS, Schedulers.trampoline())</span><br><span class="line">                 .take(<span class="number">59</span>)</span><br><span class="line">                 .subscribeOn(Schedulers.io())                 <span class="comment">// io线程</span></span><br><span class="line">                 .observeOn(AndroidSchedulers.mainThread())    <span class="comment">// 主线程</span></span><br><span class="line">                 .subscribe(<span class="keyword">new</span> Observer&lt;Long&gt;()</span><br><span class="line">                 &#123;</span><br><span class="line">                     <span class="meta">@Override</span></span><br><span class="line">                     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span></span></span><br><span class="line"><span class="function">                     </span>&#123;</span><br><span class="line">                         <span class="keyword">if</span> (activityRegBinding.etPhoneNumber.getText().length() == <span class="number">11</span>)</span><br><span class="line">                         &#123;</span><br><span class="line">                             mainView.setSendBtnState(<span class="number">2</span>);</span><br><span class="line">                         &#125; <span class="keyword">else</span></span><br><span class="line">                         &#123;</span><br><span class="line">                             mainView.setSendBtnState(<span class="number">1</span>);</span><br><span class="line">                         &#125;</span><br><span class="line">                     &#125;</span><br><span class="line"></span><br><span class="line">                     <span class="meta">@Override</span></span><br><span class="line">                     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span></span></span><br><span class="line"><span class="function">                     </span>&#123;</span><br><span class="line"></span><br><span class="line">                     &#125;</span><br><span class="line"></span><br><span class="line">                     <span class="meta">@Override</span></span><br><span class="line">                     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Long aLong)</span></span></span><br><span class="line"><span class="function">                     </span>&#123;</span><br><span class="line">                         activityRegBinding.tvSendCode.setText(String.format(<span class="string">&quot;(%ss)后重发&quot;</span>, (<span class="number">59</span> - aLong) + <span class="string">&quot;&quot;</span>));</span><br><span class="line">                     &#125;</span><br><span class="line">                 &#125;);</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -411,23 +418,23 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
-              <a href="/tags/IDE/" rel="tag"><i class="fa fa-tag"></i> IDE</a>
               <a href="/tags/VS/" rel="tag"><i class="fa fa-tag"></i> VS</a>
+              <a href="/tags/IDE/" rel="tag"><i class="fa fa-tag"></i> IDE</a>
               <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Trick-Java%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E4%BD%8D%E7%9A%84%E6%96%B9%E6%B3%95/" rel="prev" title="Trick-Java保留小数位的方法">
-                  <i class="fa fa-chevron-left"></i> Trick-Java保留小数位的方法
+                <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E4%B8%8A%E4%BC%A0module%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="prev" title="Tutorial-Android上传module到服务器">
+                  <i class="fa fa-chevron-left"></i> Tutorial-Android上传module到服务器
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Trick-Android%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BD%AF%E9%94%AE%E7%9B%98enter%E9%94%AE/" rel="next" title="Trick-Android自定义软键盘enter键">
-                  Trick-Android自定义软键盘enter键 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E5%BB%B6%E8%BF%9F%E8%B0%83%E7%94%A8/" rel="next" title="Trick-RxJava实现延迟调用">
+                  Trick-RxJava实现延迟调用 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -524,6 +531,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

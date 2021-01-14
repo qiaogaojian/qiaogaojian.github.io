@@ -95,7 +95,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -208,7 +212,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TechArt"><span class="nav-text">TechArt</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Algebra"><span class="nav-text">Linear Algebra</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unity3d-shader"><span class="nav-text">Unity3d shader</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#techart"><span class="nav-text">TechArt</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linear-algebra"><span class="nav-text">Linear Algebra</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unity3d-shader"><span class="nav-text">Unity3d shader</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -372,7 +376,10 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="TechArt"><a href="#TechArt" class="headerlink" title="TechArt"></a>TechArt</h1><h2 id="Linear-Algebra"><a href="#Linear-Algebra" class="headerlink" title="Linear Algebra"></a>Linear Algebra</h2><h2 id="Unity3d-shader"><a href="#Unity3d-shader" class="headerlink" title="Unity3d shader"></a>Unity3d shader</h2>
+        <h1 id="techart">TechArt</h1>
+<h2 id="linear-algebra">Linear Algebra</h2>
+<h2 id="unity3d-shader">Unity3d shader</h2>
+
     </div>
 
     
@@ -534,6 +541,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

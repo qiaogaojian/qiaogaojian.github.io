@@ -96,7 +96,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -209,7 +213,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VSCode%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%B0%E5%BD%95"><span class="nav-text">VSCode正则表达式记录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0"><span class="nav-text">正则表达式学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VSCode-%E6%AD%A3%E5%88%99%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95"><span class="nav-text">VSCode 正则使用记录</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vscode%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%B0%E5%BD%95"><span class="nav-text">VSCode正则表达式记录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0"><span class="nav-text">正则表达式学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vscode-%E6%AD%A3%E5%88%99%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95"><span class="nav-text">VSCode 正则使用记录</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -373,19 +377,19 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="VSCode正则表达式记录"><a href="#VSCode正则表达式记录" class="headerlink" title="VSCode正则表达式记录"></a>VSCode正则表达式记录</h1><h2 id="正则表达式学习"><a href="#正则表达式学习" class="headerlink" title="正则表达式学习"></a>正则表达式学习</h2><h2 id="VSCode-正则使用记录"><a href="#VSCode-正则使用记录" class="headerlink" title="VSCode 正则使用记录"></a>VSCode 正则使用记录</h2><ul>
+        <h1 id="vscode正则表达式记录">VSCode正则表达式记录</h1>
+<h2 id="正则表达式学习">正则表达式学习</h2>
+<h2 id="vscode-正则使用记录">VSCode 正则使用记录</h2>
+<ul>
 <li><p>匹配反编译后的注释</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一代</span></span><br><span class="line">//.*</span><br><span class="line"><span class="comment"># 第二代</span></span><br><span class="line">// Token: .*</span><br></pre></td></tr></table></figure>
-<p><img src="/images/2021-01-08-17-05-44.png"></p>
-</li>
+<p><img src="/images/2021-01-08-17-05-44.png" /></p></li>
 <li><p>首尾过滤 + 排除</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/(?:(?!/)[\s\S])*,</span><br></pre></td></tr></table></figure>
-<p><img src="/images/2021-01-08-17-03-47.png"></p>
-</li>
+<p><img src="/images/2021-01-08-17-03-47.png" /></p></li>
 <li><p>空白行</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^\s*(?=\r?$)\n</span><br></pre></td></tr></table></figure>
-<p><img src="/images/2021-01-08-17-16-23.png"></p>
-</li>
+<p><img src="/images/2021-01-08-17-16-23.png" /></p></li>
 </ul>
 
     </div>
@@ -448,8 +452,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/9.Tools/Utils/20200929_Tips-kitymind_%E5%AE%89%E8%A3%85/" rel="next" title="Tips-kitymind_安装">
-                  Tips-kitymind_安装 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/9.Tools/Vim/20200929_Tutorial-Vim%E5%B8%B8%E8%A7%81%E6%8C%87%E4%BB%A4/" rel="next" title="Tutorial-Vim常见指令">
+                  Tutorial-Vim常见指令 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -546,6 +550,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

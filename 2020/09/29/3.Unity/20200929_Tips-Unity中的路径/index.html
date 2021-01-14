@@ -34,15 +34,15 @@
 <meta property="article:tag" content="AS">
 <meta property="article:tag" content="AR">
 <meta property="article:tag" content="Unity">
+<meta property="article:tag" content="C#">
+<meta property="article:tag" content="Js">
+<meta property="article:tag" content="Android">
 <meta property="article:tag" content="ML">
 <meta property="article:tag" content="Web">
-<meta property="article:tag" content="Html">
-<meta property="article:tag" content="Js">
 <meta property="article:tag" content="Windows">
-<meta property="article:tag" content="C#">
-<meta property="article:tag" content="Android">
 <meta property="article:tag" content="Mac">
 <meta property="article:tag" content="FSM">
+<meta property="article:tag" content="Html">
 <meta name="twitter:card" content="summary">
 
 
@@ -102,7 +102,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -215,7 +219,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unity-%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="nav-text">Unity 中的路径</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Application-persistentDataPath"><span class="nav-text">Application.persistentDataPath</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Resources"><span class="nav-text">Resources</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StreamingAssets"><span class="nav-text">StreamingAssets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IOS"><span class="nav-text">IOS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android"><span class="nav-text">Android</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows"><span class="nav-text">Windows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mac"><span class="nav-text">Mac</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows-Web-Player"><span class="nav-text">Windows Web Player</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-text">参考文档</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#unity-%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="nav-text">Unity 中的路径</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#application.persistentdatapath"><span class="nav-text">Application.persistentDataPath</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#resources"><span class="nav-text">Resources</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#streamingassets"><span class="nav-text">StreamingAssets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ios"><span class="nav-text">IOS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#android"><span class="nav-text">Android</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#windows"><span class="nav-text">Windows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mac"><span class="nav-text">Mac</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#windows-web-player"><span class="nav-text">Windows Web Player</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-text">参考文档</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -369,159 +373,190 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Unity-中的路径"><a href="#Unity-中的路径" class="headerlink" title="Unity 中的路径"></a>Unity 中的路径</h1><h2 id="Application-persistentDataPath"><a href="#Application-persistentDataPath" class="headerlink" title="Application.persistentDataPath"></a>Application.persistentDataPath</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">string</span> userPath = Application.persistentDataPath + <span class="string">&quot;/user.json&quot;</span>;</span><br></pre></td></tr></table></figure>
+        <h1 id="unity-中的路径">Unity 中的路径</h1>
+<h2 id="application.persistentdatapath">Application.persistentDataPath</h2>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">string</span> userPath = Application.persistentDataPath + <span class="string">&quot;/user.json&quot;</span>;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>Application.persistentDataPath 是最合适用来存放下载资源的地方</p>
-</li>
-<li><p>全平台可修可改可新建.</p>
-</li>
-<li><p>只有在项目第一次运行之后才能找到这个路径,所以不合适预先存放东西</p>
-</li>
-<li><p>IOS 上该目录下的东西可以被 iCloud 自动备份</p>
-</li>
+<li><p>Application.persistentDataPath 是最合适用来存放下载资源的地方</p></li>
+<li><p>全平台可修可改可新建.</p></li>
+<li><p>只有在项目第一次运行之后才能找到这个路径,所以不合适预先存放东西</p></li>
+<li><p>IOS 上该目录下的东西可以被 iCloud 自动备份</p></li>
 </ul>
-<h2 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Resources.Load()</span><br></pre></td></tr></table></figure>
+<h2 id="resources">Resources</h2>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Resources.Load()</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>Resources 文件夹是一个只读的文件夹</p>
-</li>
-<li><p>建议这个文件夹下只放 Prefab 或者一些 Object 对象</p>
-</li>
-<li><p>放在这里的资源文件不管项目中有没有使用都会被打包.</p>
-</li>
+<li><p>Resources 文件夹是一个只读的文件夹</p></li>
+<li><p>建议这个文件夹下只放 Prefab 或者一些 Object 对象</p></li>
+<li><p>放在这里的资源文件不管项目中有没有使用都会被打包.</p></li>
 </ul>
-<h2 id="StreamingAssets"><a href="#StreamingAssets" class="headerlink" title="StreamingAssets"></a>StreamingAssets</h2><p>下面是 Unity 官方给的代码,适合读取文件,我用的就是这个</p>
+<h2 id="streamingassets">StreamingAssets</h2>
+<p>下面是 Unity 官方给的代码,适合读取文件,我用的就是这个</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ExampleClass</span> : <span class="title">MonoBehaviour</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">string</span> filePath = System.IO.Path.Combine(Application.streamingAssetsPath, <span class="string">&quot;MyFile&quot;</span>);</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">string</span> result = <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="function">IEnumerator <span class="title">Example</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (filePath.Contains(<span class="string">&quot;://&quot;</span>)) &#123;</span><br><span class="line">      WWW www = <span class="keyword">new</span> WWW(filePath);</span><br><span class="line">      <span class="keyword">yield</span> <span class="keyword">return</span> www;</span><br><span class="line">      result = www.text;</span><br><span class="line">    &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">      result = System.IO.File.ReadAllText(filePath);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>下面是网上的代码,不太好,因为 Android 设备最好用 www 读取</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">if</span> UNITY_EDITOR</span></span><br><span class="line">  <span class="keyword">string</span> filepath = Application.dataPath +<span class="string">&quot;/StreamingAssets&quot;</span>+<span class="string">&quot;/my.xml&quot;</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span> UNITY_IPHONE</span></span><br><span class="line">  <span class="keyword">string</span> filepath = Application.dataPath +<span class="string">&quot;/Raw&quot;</span>+<span class="string">&quot;/my.xml&quot;</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">elif</span> UNITY_ANDROID</span></span><br><span class="line">  <span class="keyword">string</span> filepath = <span class="string">&quot;jar:file://&quot;</span> + Application.dataPath + <span class="string">&quot;!/assets/&quot;</span>+<span class="string">&quot;/my.xml;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>StreamingAssets 一般用来存放视频等文件,文件不会被 Unity 加密</p>
-</li>
-<li><p>在 pc/Mac 电脑中可实现对文件实施“增删查改”等操作，但在移动端只支持读取操作。</p>
-</li>
-<li><p>只读的物件适合放这里</p>
-</li>
+<li><p>StreamingAssets 一般用来存放视频等文件,文件不会被 Unity 加密</p></li>
+<li><p>在 pc/Mac 电脑中可实现对文件实施“增删查改”等操作，但在移动端只支持读取操作。</p></li>
+<li><p>只读的物件适合放这里</p></li>
 </ul>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="IOS"><a href="#IOS" class="headerlink" title="IOS"></a>IOS</h3><table>
+<h2 id="实例">实例</h2>
+<h3 id="ios">IOS</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>类型</th>
 <th>路径</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>Application.dataPath :</td>
 <td>Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Application.streamingAssetsPath :</td>
 <td>Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/xxx.app/Data/Raw</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Application.persistentDataPath :</td>
 <td>Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Documents</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Application.temporaryCachePath :</td>
 <td>Application/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Library/Caches</td>
 </tr>
-</tbody></table>
-<h3 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h3><table>
+</tbody>
+</table>
+<h3 id="android">Android</h3>
+<table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 57%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>类型</th>
 <th>路径</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>Application.dataPath :</td>
 <td>/data/app/xxx.xxx.xxx.apk</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Application.streamingAssetsPath :</td>
 <td>jar:file:///data/app/xxx.xxx.xxx.apk/!/assets</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Application.persistentDataPath :</td>
 <td>/data/data/xxx.xxx.xxx/files</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Application.temporaryCachePath :</td>
 <td>/data/data/xxx.xxx.xxx/cache</td>
 </tr>
-</tbody></table>
-<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><table>
+</tbody>
+</table>
+<h3 id="windows">Windows</h3>
+<table>
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 62%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>类型</th>
 <th>路径</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>Application.dataPath :</td>
 <td>/Assets</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Application.streamingAssetsPath :</td>
 <td>/Assets/StreamingAssets</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Application.persistentDataPath :</td>
 <td>C:/Users/xxxx/AppData/LocalLow/CompanyName/ProductName</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Application.temporaryCachePath :</td>
 <td>C:/Users/xxxx/AppData/Local/Temp/CompanyName/ProductName</td>
 </tr>
-</tbody></table>
-<h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><table>
+</tbody>
+</table>
+<h3 id="mac">Mac</h3>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 68%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>类型</th>
 <th>路径</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>Application.dataPath :</td>
 <td>/Assets</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Application.streamingAssetsPath :</td>
 <td>/Assets/StreamingAssets</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Application.persistentDataPath :</td>
 <td>/Users/xxxx/Library/Caches/CompanyName/Product Name</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Application.temporaryCachePath :</td>
 <td>/var/folders/57/6b4_9w8113x2fsmzx_yhrhvh0000gn/T/CompanyName/Product Name</td>
 </tr>
-</tbody></table>
-<h3 id="Windows-Web-Player"><a href="#Windows-Web-Player" class="headerlink" title="Windows Web Player"></a>Windows Web Player</h3><table>
+</tbody>
+</table>
+<h3 id="windows-web-player">Windows Web Player</h3>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 68%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>类型</th>
 <th>路径</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>Application.dataPath :</td>
 <td>file:///D:/MyGame/WebPlayer (即导包后保存的文件夹，html 文件所在文件夹)</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Application.streamingAssetsPath :</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Application.persistentDataPath :</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>Application.temporaryCachePath :</td>
 <td></td>
 </tr>
-</tbody></table>
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/nanwei/p/8795949.html">参考文档</a></p>
+</tbody>
+</table>
+<h2 id="参考文档">参考文档</h2>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/nanwei/p/8795949.html">参考文档</a></p>
 
     </div>
 
@@ -573,28 +608,28 @@
               <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
               <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
               <a href="/tags/Unity/" rel="tag"><i class="fa fa-tag"></i> Unity</a>
+              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C#</a>
+              <a href="/tags/Js/" rel="tag"><i class="fa fa-tag"></i> Js</a>
+              <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
               <a href="/tags/ML/" rel="tag"><i class="fa fa-tag"></i> ML</a>
               <a href="/tags/Web/" rel="tag"><i class="fa fa-tag"></i> Web</a>
-              <a href="/tags/Html/" rel="tag"><i class="fa fa-tag"></i> Html</a>
-              <a href="/tags/Js/" rel="tag"><i class="fa fa-tag"></i> Js</a>
               <a href="/tags/Windows/" rel="tag"><i class="fa fa-tag"></i> Windows</a>
-              <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C#</a>
-              <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
               <a href="/tags/Mac/" rel="tag"><i class="fa fa-tag"></i> Mac</a>
               <a href="/tags/FSM/" rel="tag"><i class="fa fa-tag"></i> FSM</a>
+              <a href="/tags/Html/" rel="tag"><i class="fa fa-tag"></i> Html</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" rel="prev" title="Trick_Unity插件Ngui图片缝隙问题解决">
-                  <i class="fa fa-chevron-left"></i> Trick_Unity插件Ngui图片缝隙问题解决
+                <a href="/2020/09/29/3.Unity/20200929_Trick_Unity%E4%B8%AD%E8%87%AA%E5%B8%A6%E6%95%B0%E6%8D%AE%E5%9B%BA%E5%8C%96%E7%9A%84%E5%B1%9E%E6%80%A7/" rel="prev" title="Trick_Unity中自带数据固化的属性">
+                  <i class="fa fa-chevron-left"></i> Trick_Unity中自带数据固化的属性
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Trick_Unity%E4%B8%AD%E8%87%AA%E5%B8%A6%E6%95%B0%E6%8D%AE%E5%9B%BA%E5%8C%96%E7%9A%84%E5%B1%9E%E6%80%A7/" rel="next" title="Trick_Unity中自带数据固化的属性">
-                  Trick_Unity中自带数据固化的属性 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" rel="next" title="Trick_Unity插件Ngui图片缝隙问题解决">
+                  Trick_Unity插件Ngui图片缝隙问题解决 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -691,6 +726,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

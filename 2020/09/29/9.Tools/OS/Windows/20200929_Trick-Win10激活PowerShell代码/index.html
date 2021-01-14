@@ -92,7 +92,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -205,7 +209,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Win10%E6%BF%80%E6%B4%BBPowerShell%E4%BB%A3%E7%A0%81"><span class="nav-text">Win10激活PowerShell代码</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#win10%E6%BF%80%E6%B4%BBpowershell%E4%BB%A3%E7%A0%81"><span class="nav-text">Win10激活PowerShell代码</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -367,7 +371,9 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Win10激活PowerShell代码"><a href="#Win10激活PowerShell代码" class="headerlink" title="Win10激活PowerShell代码"></a>Win10激活PowerShell代码</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PS C:\WINDOWS\system32&gt; slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX</span><br><span class="line">PS C:\WINDOWS\system32&gt; slmgr /skms kms.digiboy.ir</span><br><span class="line">PS C:\WINDOWS\system32&gt; slmgr /ato</span><br></pre></td></tr></table></figure>
+        <h1 id="win10激活powershell代码">Win10激活PowerShell代码</h1>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PS C:\WINDOWS\system32&gt; slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX</span><br><span class="line">PS C:\WINDOWS\system32&gt; slmgr /skms kms.digiboy.ir</span><br><span class="line">PS C:\WINDOWS\system32&gt; slmgr /ato</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -526,6 +532,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

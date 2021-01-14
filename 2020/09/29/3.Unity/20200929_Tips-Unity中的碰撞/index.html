@@ -91,7 +91,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -204,7 +208,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unity-%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E"><span class="nav-text">Unity 中的碰撞</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A2%B0%E6%92%9E%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%BD%A2%E5%BC%8F"><span class="nav-text">碰撞的两种形式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Collision-%E9%80%A0%E6%88%90%E7%89%A9%E7%90%86%E7%A2%B0%E6%92%9E-%E8%A7%A6%E5%8F%91-OnCollision-%E4%BA%8B%E4%BB%B6"><span class="nav-text">Collision:造成物理碰撞,触发 OnCollision 事件.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trigger-%E6%B2%A1%E6%9C%89%E7%89%A9%E7%90%86%E7%A2%B0%E6%92%9E%E6%95%88%E6%9E%9C-%E8%A7%A6%E5%8F%91-OnTrigger-%E4%BA%8B%E4%BB%B6"><span class="nav-text">Trigger:没有物理碰撞效果,触发 OnTrigger 事件.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A2%B0%E6%92%9E%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="nav-text">碰撞的条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Collision-%E7%A2%B0%E6%92%9E"><span class="nav-text">Collision 碰撞</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%8F%8C%E6%96%B9%E9%83%BD%E6%9C%89%E7%A2%B0%E6%92%9E%E4%BD%93"><span class="nav-text">1. 双方都有碰撞体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%92%9E%E7%9A%84%E4%B8%80%E6%96%B9%E5%BF%85%E9%A1%BB%E6%9C%89%E5%88%9A%E4%BD%93"><span class="nav-text">2. 撞的一方必须有刚体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%8F%8C%E6%96%B9%E4%B8%8D%E5%8F%AF%E5%90%8C%E6%97%B6%E5%8B%BE%E9%80%89-Kinematic-%E9%80%89%E9%A1%B9"><span class="nav-text">3. 双方不可同时勾选 Kinematic 选项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%8F%8C%E6%96%B9%E9%83%BD%E4%B8%8D%E5%8F%AF%E5%8B%BE%E9%80%89-Trigger-%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-text">4. 双方都不可勾选 Trigger 触发器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trigger-%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-text">Trigger 触发器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%8F%8C%E5%8F%91%E9%83%BD%E6%9C%89%E7%A2%B0%E6%92%9E%E4%BD%93"><span class="nav-text">1. 双发都有碰撞体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%92%9E%E7%9A%84%E4%B8%80%E6%96%B9%E5%BF%85%E8%A6%81%E6%9C%89%E5%88%9A%E4%BD%93"><span class="nav-text">2. 撞的一方必要有刚体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E8%87%B3%E5%B0%91%E6%9C%89%E4%B8%80%E6%96%B9%E5%8B%BE%E9%80%89-Trigger-%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-text">3. 至少有一方勾选 Trigger 触发器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A2%B0%E6%92%9E%E7%9A%84%E4%BA%8B%E4%BB%B6"><span class="nav-text">碰撞的事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OnTriggerEnter-OnTriggerStay-OnTriggerExit"><span class="nav-text">OnTriggerEnter() OnTriggerStay() OnTriggerExit()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OnCollisionEnter-OnCollisionStay-OnCollisionExit"><span class="nav-text">OnCollisionEnter() OnCollisionStay() OnCollisionExit()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Enter-%E4%BA%8B%E4%BB%B6%E8%A1%A8%E7%A4%BA%E4%B8%A4%E7%89%A9%E4%BD%93%E6%8E%A5%E8%A7%A6%E7%9A%84%E7%9E%AC%E9%97%B4-%E4%BC%9A%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1"><span class="nav-text">1. Enter 事件表示两物体接触的瞬间,会执行一次</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Stay-%E4%BA%8B%E4%BB%B6%E8%A1%A8%E7%A4%BA%E4%B8%A4%E7%89%A9%E4%BD%93%E6%8C%81%E7%BB%AD%E6%8E%A5%E8%A7%A6-%E4%BC%9A%E4%B8%8D%E6%96%AD%E6%89%A7%E8%A1%8C"><span class="nav-text">2. Stay 事件表示两物体持续接触,会不断执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Exit-%E4%BA%8B%E4%BB%B6%E8%A1%A8%E7%A4%BA%E5%BD%93%E4%B8%A4%E7%89%A9%E4%BD%93%E5%88%86%E5%BC%80%E7%9E%AC%E9%97%B4-%E4%BC%9A%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1"><span class="nav-text">3. Exit 事件表示当两物体分开瞬间,会执行一次</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#unity-%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E"><span class="nav-text">Unity 中的碰撞</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A2%B0%E6%92%9E%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%BD%A2%E5%BC%8F"><span class="nav-text">碰撞的两种形式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#collision%E9%80%A0%E6%88%90%E7%89%A9%E7%90%86%E7%A2%B0%E6%92%9E%E8%A7%A6%E5%8F%91-oncollision-%E4%BA%8B%E4%BB%B6."><span class="nav-text">Collision:造成物理碰撞,触发 OnCollision 事件.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#trigger%E6%B2%A1%E6%9C%89%E7%89%A9%E7%90%86%E7%A2%B0%E6%92%9E%E6%95%88%E6%9E%9C%E8%A7%A6%E5%8F%91-ontrigger-%E4%BA%8B%E4%BB%B6."><span class="nav-text">Trigger:没有物理碰撞效果,触发 OnTrigger 事件.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A2%B0%E6%92%9E%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="nav-text">碰撞的条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#collision-%E7%A2%B0%E6%92%9E"><span class="nav-text">Collision 碰撞</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8C%E6%96%B9%E9%83%BD%E6%9C%89%E7%A2%B0%E6%92%9E%E4%BD%93"><span class="nav-text">1. 双方都有碰撞体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%92%9E%E7%9A%84%E4%B8%80%E6%96%B9%E5%BF%85%E9%A1%BB%E6%9C%89%E5%88%9A%E4%BD%93"><span class="nav-text">2. 撞的一方必须有刚体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8C%E6%96%B9%E4%B8%8D%E5%8F%AF%E5%90%8C%E6%97%B6%E5%8B%BE%E9%80%89-kinematic-%E9%80%89%E9%A1%B9"><span class="nav-text">3. 双方不可同时勾选 Kinematic 选项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8C%E6%96%B9%E9%83%BD%E4%B8%8D%E5%8F%AF%E5%8B%BE%E9%80%89-trigger-%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-text">4. 双方都不可勾选 Trigger 触发器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#trigger-%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-text">Trigger 触发器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8C%E5%8F%91%E9%83%BD%E6%9C%89%E7%A2%B0%E6%92%9E%E4%BD%93"><span class="nav-text">1. 双发都有碰撞体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%92%9E%E7%9A%84%E4%B8%80%E6%96%B9%E5%BF%85%E8%A6%81%E6%9C%89%E5%88%9A%E4%BD%93"><span class="nav-text">2. 撞的一方必要有刚体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%B3%E5%B0%91%E6%9C%89%E4%B8%80%E6%96%B9%E5%8B%BE%E9%80%89-trigger-%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="nav-text">3. 至少有一方勾选 Trigger 触发器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A2%B0%E6%92%9E%E7%9A%84%E4%BA%8B%E4%BB%B6"><span class="nav-text">碰撞的事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ontriggerenter-ontriggerstay-ontriggerexit"><span class="nav-text">OnTriggerEnter() OnTriggerStay() OnTriggerExit()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#oncollisionenter-oncollisionstay-oncollisionexit"><span class="nav-text">OnCollisionEnter() OnCollisionStay() OnCollisionExit()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#enter-%E4%BA%8B%E4%BB%B6%E8%A1%A8%E7%A4%BA%E4%B8%A4%E7%89%A9%E4%BD%93%E6%8E%A5%E8%A7%A6%E7%9A%84%E7%9E%AC%E9%97%B4%E4%BC%9A%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1"><span class="nav-text">1. Enter 事件表示两物体接触的瞬间,会执行一次</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#stay-%E4%BA%8B%E4%BB%B6%E8%A1%A8%E7%A4%BA%E4%B8%A4%E7%89%A9%E4%BD%93%E6%8C%81%E7%BB%AD%E6%8E%A5%E8%A7%A6%E4%BC%9A%E4%B8%8D%E6%96%AD%E6%89%A7%E8%A1%8C"><span class="nav-text">2. Stay 事件表示两物体持续接触,会不断执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exit-%E4%BA%8B%E4%BB%B6%E8%A1%A8%E7%A4%BA%E5%BD%93%E4%B8%A4%E7%89%A9%E4%BD%93%E5%88%86%E5%BC%80%E7%9E%AC%E9%97%B4%E4%BC%9A%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AC%A1"><span class="nav-text">3. Exit 事件表示当两物体分开瞬间,会执行一次</span></a></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -358,7 +362,27 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Unity-中的碰撞"><a href="#Unity-中的碰撞" class="headerlink" title="Unity 中的碰撞"></a>Unity 中的碰撞</h1><h2 id="碰撞的两种形式"><a href="#碰撞的两种形式" class="headerlink" title="碰撞的两种形式"></a>碰撞的两种形式</h2><h3 id="Collision-造成物理碰撞-触发-OnCollision-事件"><a href="#Collision-造成物理碰撞-触发-OnCollision-事件" class="headerlink" title="Collision:造成物理碰撞,触发 OnCollision 事件."></a>Collision:造成物理碰撞,触发 OnCollision 事件.</h3><h3 id="Trigger-没有物理碰撞效果-触发-OnTrigger-事件"><a href="#Trigger-没有物理碰撞效果-触发-OnTrigger-事件" class="headerlink" title="Trigger:没有物理碰撞效果,触发 OnTrigger 事件."></a>Trigger:没有物理碰撞效果,触发 OnTrigger 事件.</h3><h2 id="碰撞的条件"><a href="#碰撞的条件" class="headerlink" title="碰撞的条件"></a>碰撞的条件</h2><h3 id="Collision-碰撞"><a href="#Collision-碰撞" class="headerlink" title="Collision 碰撞"></a>Collision 碰撞</h3><h4 id="1-双方都有碰撞体"><a href="#1-双方都有碰撞体" class="headerlink" title="1. 双方都有碰撞体"></a>1. 双方都有碰撞体</h4><h4 id="2-撞的一方必须有刚体"><a href="#2-撞的一方必须有刚体" class="headerlink" title="2. 撞的一方必须有刚体"></a>2. 撞的一方必须有刚体</h4><h4 id="3-双方不可同时勾选-Kinematic-选项"><a href="#3-双方不可同时勾选-Kinematic-选项" class="headerlink" title="3. 双方不可同时勾选 Kinematic 选项"></a>3. 双方不可同时勾选 Kinematic 选项</h4><h4 id="4-双方都不可勾选-Trigger-触发器"><a href="#4-双方都不可勾选-Trigger-触发器" class="headerlink" title="4. 双方都不可勾选 Trigger 触发器"></a>4. 双方都不可勾选 Trigger 触发器</h4><h3 id="Trigger-触发器"><a href="#Trigger-触发器" class="headerlink" title="Trigger 触发器"></a>Trigger 触发器</h3><h4 id="1-双发都有碰撞体"><a href="#1-双发都有碰撞体" class="headerlink" title="1. 双发都有碰撞体"></a>1. 双发都有碰撞体</h4><h4 id="2-撞的一方必要有刚体"><a href="#2-撞的一方必要有刚体" class="headerlink" title="2. 撞的一方必要有刚体"></a>2. 撞的一方必要有刚体</h4><h4 id="3-至少有一方勾选-Trigger-触发器"><a href="#3-至少有一方勾选-Trigger-触发器" class="headerlink" title="3. 至少有一方勾选 Trigger 触发器"></a>3. 至少有一方勾选 Trigger 触发器</h4><h2 id="碰撞的事件"><a href="#碰撞的事件" class="headerlink" title="碰撞的事件"></a>碰撞的事件</h2><h3 id="OnTriggerEnter-OnTriggerStay-OnTriggerExit"><a href="#OnTriggerEnter-OnTriggerStay-OnTriggerExit" class="headerlink" title="OnTriggerEnter() OnTriggerStay() OnTriggerExit()"></a>OnTriggerEnter() OnTriggerStay() OnTriggerExit()</h3><h3 id="OnCollisionEnter-OnCollisionStay-OnCollisionExit"><a href="#OnCollisionEnter-OnCollisionStay-OnCollisionExit" class="headerlink" title="OnCollisionEnter() OnCollisionStay() OnCollisionExit()"></a>OnCollisionEnter() OnCollisionStay() OnCollisionExit()</h3><h3 id="1-Enter-事件表示两物体接触的瞬间-会执行一次"><a href="#1-Enter-事件表示两物体接触的瞬间-会执行一次" class="headerlink" title="1. Enter 事件表示两物体接触的瞬间,会执行一次"></a>1. Enter 事件表示两物体接触的瞬间,会执行一次</h3><h3 id="2-Stay-事件表示两物体持续接触-会不断执行"><a href="#2-Stay-事件表示两物体持续接触-会不断执行" class="headerlink" title="2. Stay 事件表示两物体持续接触,会不断执行"></a>2. Stay 事件表示两物体持续接触,会不断执行</h3><h3 id="3-Exit-事件表示当两物体分开瞬间-会执行一次"><a href="#3-Exit-事件表示当两物体分开瞬间-会执行一次" class="headerlink" title="3. Exit 事件表示当两物体分开瞬间,会执行一次"></a>3. Exit 事件表示当两物体分开瞬间,会执行一次</h3>
+        <h1 id="unity-中的碰撞">Unity 中的碰撞</h1>
+<h2 id="碰撞的两种形式">碰撞的两种形式</h2>
+<h3 id="collision造成物理碰撞触发-oncollision-事件.">Collision:造成物理碰撞,触发 OnCollision 事件.</h3>
+<h3 id="trigger没有物理碰撞效果触发-ontrigger-事件.">Trigger:没有物理碰撞效果,触发 OnTrigger 事件.</h3>
+<h2 id="碰撞的条件">碰撞的条件</h2>
+<h3 id="collision-碰撞">Collision 碰撞</h3>
+<h4 id="双方都有碰撞体">1. 双方都有碰撞体</h4>
+<h4 id="撞的一方必须有刚体">2. 撞的一方必须有刚体</h4>
+<h4 id="双方不可同时勾选-kinematic-选项">3. 双方不可同时勾选 Kinematic 选项</h4>
+<h4 id="双方都不可勾选-trigger-触发器">4. 双方都不可勾选 Trigger 触发器</h4>
+<h3 id="trigger-触发器">Trigger 触发器</h3>
+<h4 id="双发都有碰撞体">1. 双发都有碰撞体</h4>
+<h4 id="撞的一方必要有刚体">2. 撞的一方必要有刚体</h4>
+<h4 id="至少有一方勾选-trigger-触发器">3. 至少有一方勾选 Trigger 触发器</h4>
+<h2 id="碰撞的事件">碰撞的事件</h2>
+<h3 id="ontriggerenter-ontriggerstay-ontriggerexit">OnTriggerEnter() OnTriggerStay() OnTriggerExit()</h3>
+<h3 id="oncollisionenter-oncollisionstay-oncollisionexit">OnCollisionEnter() OnCollisionStay() OnCollisionExit()</h3>
+<h3 id="enter-事件表示两物体接触的瞬间会执行一次">1. Enter 事件表示两物体接触的瞬间,会执行一次</h3>
+<h3 id="stay-事件表示两物体持续接触会不断执行">2. Stay 事件表示两物体持续接触,会不断执行</h3>
+<h3 id="exit-事件表示当两物体分开瞬间会执行一次">3. Exit 事件表示当两物体分开瞬间,会执行一次</h3>
+
     </div>
 
     
@@ -413,13 +437,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Trick_Unity%E4%B8%AD%E8%87%AA%E5%B8%A6%E6%95%B0%E6%8D%AE%E5%9B%BA%E5%8C%96%E7%9A%84%E5%B1%9E%E6%80%A7/" rel="prev" title="Trick_Unity中自带数据固化的属性">
-                  <i class="fa fa-chevron-left"></i> Trick_Unity中自带数据固化的属性
+                <a href="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" rel="prev" title="Trick_Unity插件Ngui图片缝隙问题解决">
+                  <i class="fa fa-chevron-left"></i> Trick_Unity插件Ngui图片缝隙问题解决
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%ADSprite%E5%92%8CUI%20Image%E7%9A%84%E5%8C%BA%E5%88%AB/" rel="next" title="Tips-Unity中Sprite和UI Image的区别">
-                  Tips-Unity中Sprite和UI Image的区别 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E5%9D%90%E6%A0%87%E7%B3%BB/" rel="next" title="Tips-Unity中的坐标系">
+                  Tips-Unity中的坐标系 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -516,6 +540,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

@@ -87,7 +87,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -663,8 +667,8 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2020/09/29/4.Android/20200929_Trick-Android%E5%B7%A6%E5%8F%B3%E5%AF%B9%E9%BD%90%E5%B9%B6%E9%80%82%E9%85%8D%E5%86%85%E5%AE%B9/" itemprop="url">
-            <span itemprop="name">Trick-Android左右对齐并适配内容</span>
+          <a class="post-title-link" href="/2020/09/29/4.Android/20200929_Trick-Android%E5%AF%8C%E6%96%87%E6%9C%AC/" itemprop="url">
+            <span itemprop="name">Trick-Android富文本</span>
           </a>
       </div>
 
@@ -703,8 +707,8 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2020/09/29/4.Android/20200929_Trick-Android%E5%AF%8C%E6%96%87%E6%9C%AC/" itemprop="url">
-            <span itemprop="name">Trick-Android富文本</span>
+          <a class="post-title-link" href="/2020/09/29/4.Android/20200929_Trick-Android%E5%B7%A6%E5%8F%B3%E5%AF%B9%E9%BD%90%E5%B9%B6%E9%80%82%E9%85%8D%E5%86%85%E5%AE%B9/" itemprop="url">
+            <span itemprop="name">Trick-Android左右对齐并适配内容</span>
           </a>
       </div>
 
@@ -863,8 +867,8 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2020/09/29/4.Android/20200929_Tutorial-Android_UI%E8%AE%BE%E8%AE%A1/" itemprop="url">
-            <span itemprop="name">Tutorial-Android_UI设计</span>
+          <a class="post-title-link" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" itemprop="url">
+            <span itemprop="name">Tutorial-Android架构设计</span>
           </a>
       </div>
 
@@ -883,8 +887,8 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2020/09/29/4.Android/20200929_Tutorial-Android%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" itemprop="url">
-            <span itemprop="name">Tutorial-Android架构设计</span>
+          <a class="post-title-link" href="/2020/09/29/4.Android/20200929_Tutorial-Android_UI%E8%AE%BE%E8%AE%A1/" itemprop="url">
+            <span itemprop="name">Tutorial-Android_UI设计</span>
           </a>
       </div>
 
@@ -1186,6 +1190,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

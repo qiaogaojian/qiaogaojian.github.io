@@ -96,7 +96,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -209,7 +213,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Asm%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7debug%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">Asm调试工具debug的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-text">下载</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#asm%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7debug%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">Asm调试工具debug的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-text">下载</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -367,7 +371,8 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Asm调试工具debug的使用"><a href="#Asm调试工具debug的使用" class="headerlink" title="Asm调试工具debug的使用"></a>Asm调试工具debug的使用</h1><ol>
+        <h1 id="asm调试工具debug的使用">Asm调试工具debug的使用</h1>
+<ol type="1">
 <li>-r 修改寄存器</li>
 <li>-d 段地址:偏移地址 - 偏移地址</li>
 <li>-u 将后续的字节翻译成汇编指令 查看汇编指令: 段地址 : 偏移地址</li>
@@ -378,7 +383,8 @@
 <li>-q 退出debug</li>
 <li>-g 段地址:偏移地址 命令直接跳到地址</li>
 </ol>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="/download/asm.rar">asm.rar</a></p>
+<h2 id="下载">下载</h2>
+<p><a href="/download/asm.rar">asm.rar</a></p>
 
     </div>
 
@@ -439,13 +445,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/1.CS/ASM/20200929_Tips-CISP-PTE/" rel="prev" title="Tips-CISP-PTE">
-                  <i class="fa fa-chevron-left"></i> Tips-CISP-PTE
+                <a href="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E5%B8%B8%E7%94%A8%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/" rel="prev" title="Tips-Asm常用汇编指令">
+                  <i class="fa fa-chevron-left"></i> Tips-Asm常用汇编指令
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E5%B8%B8%E7%94%A8%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4/" rel="next" title="Tips-Asm常用汇编指令">
-                  Tips-Asm常用汇编指令 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/1.CS/ASM/20200929_Tips-Asm%E4%B8%ADCPU%E5%AF%84%E5%AD%98%E5%99%A8%E5%88%86%E7%B1%BB%E4%BB%8B%E7%BB%8D/" rel="next" title="Tips-Asm中CPU寄存器分类介绍">
+                  Tips-Asm中CPU寄存器分类介绍 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -542,6 +548,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

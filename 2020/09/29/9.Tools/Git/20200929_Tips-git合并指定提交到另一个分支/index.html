@@ -32,8 +32,8 @@
 <meta property="article:modified_time" content="2020-09-29T01:11:46.096Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="AS">
-<meta property="article:tag" content="Git">
 <meta property="article:tag" content="Bug">
+<meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
 
 
@@ -93,7 +93,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -206,7 +210,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E4%B8%8A%E6%8C%87%E5%AE%9A%E7%9A%84commit"><span class="nav-text">git合并分支上指定的commit</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%87%E8%AE%BE%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="nav-text">假设分支结构如下：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%8D%E5%81%87%E8%AE%BE-62ecb3-%E7%9A%84%E6%8F%90%E4%BA%A4%E4%BF%AE%E5%A4%8D%E4%BA%86bug%EF%BC%8C%E8%BF%99%E6%97%B6%E5%80%99%E5%8F%AF%E4%BB%A5%E7%94%A8"><span class="nav-text">再假设 62ecb3 的提交修复了bug，这时候可以用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cherry-pick-%E5%90%88%E5%B9%B6%E5%8D%95%E4%B8%AA-commit"><span class="nav-text">cherry pick 合并单个 commit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="nav-text">具体操作：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cherry-pick-%E8%BF%9E%E7%BB%AD%E5%A4%9A%E4%B8%AAcommit"><span class="nav-text">cherry pick 连续多个commit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="nav-text">操作：</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E4%B8%8A%E6%8C%87%E5%AE%9A%E7%9A%84commit"><span class="nav-text">git合并分支上指定的commit</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%87%E8%AE%BE%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84%E5%A6%82%E4%B8%8B"><span class="nav-text">假设分支结构如下：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%8D%E5%81%87%E8%AE%BE-62ecb3-%E7%9A%84%E6%8F%90%E4%BA%A4%E4%BF%AE%E5%A4%8D%E4%BA%86bug%E8%BF%99%E6%97%B6%E5%80%99%E5%8F%AF%E4%BB%A5%E7%94%A8"><span class="nav-text">再假设 62ecb3 的提交修复了bug，这时候可以用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cherry-pick-%E5%90%88%E5%B9%B6%E5%8D%95%E4%B8%AA-commit"><span class="nav-text">cherry pick 合并单个 commit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C"><span class="nav-text">具体操作：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cherry-pick-%E8%BF%9E%E7%BB%AD%E5%A4%9A%E4%B8%AAcommit"><span class="nav-text">cherry pick 连续多个commit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-text">操作：</span></a></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -364,17 +368,24 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="git合并分支上指定的commit"><a href="#git合并分支上指定的commit" class="headerlink" title="git合并分支上指定的commit"></a>git合并分支上指定的commit</h1><blockquote>
+        <h1 id="git合并分支上指定的commit">git合并分支上指定的commit</h1>
+<blockquote>
 <p>merge 能够胜任平常大部分的合并需求。但也会遇到某些特殊的情况，例如正在开发一个新的功能，线上说有一个紧急的bug要修复。bug修好了但并不像把仍在开发的新功能代码也提交到线上去。这时候也许想要一个只合并指定某些 commit 的功能。</p>
 </blockquote>
-<h2 id="假设分支结构如下："><a href="#假设分支结构如下：" class="headerlink" title="假设分支结构如下："></a>假设分支结构如下：</h2><p>dd2e86 - 946992 - 9143a9 - a6fd86 - 5a6057 [master]</p>
-<p>|</p>
+<h2 id="假设分支结构如下">假设分支结构如下：</h2>
+<p>dd2e86 - 946992 - 9143a9 - a6fd86 - 5a6057 [master]</p>
+<div class="line-block"></div>
 <p>76cada-62ecb3-b886a0[feature]</p>
-<h2 id="再假设-62ecb3-的提交修复了bug，这时候可以用"><a href="#再假设-62ecb3-的提交修复了bug，这时候可以用" class="headerlink" title="再假设 62ecb3 的提交修复了bug，这时候可以用"></a>再假设 62ecb3 的提交修复了bug，这时候可以用</h2><h2 id="cherry-pick-合并单个-commit"><a href="#cherry-pick-合并单个-commit" class="headerlink" title="cherry pick 合并单个 commit"></a>cherry pick 合并单个 commit</h2><h3 id="具体操作："><a href="#具体操作：" class="headerlink" title="具体操作："></a>具体操作：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git cherry-pick 62ecb3</span><br></pre></td></tr></table></figure>
+<h2 id="再假设-62ecb3-的提交修复了bug这时候可以用">再假设 62ecb3 的提交修复了bug，这时候可以用</h2>
+<h2 id="cherry-pick-合并单个-commit">cherry pick 合并单个 commit</h2>
+<h3 id="具体操作">具体操作：</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git cherry-pick 62ecb3</span><br></pre></td></tr></table></figure>
 <p>就这么简单。62ecb3 已经应用在 master 上了（作为一个新的commit）。</p>
-<h2 id="cherry-pick-连续多个commit"><a href="#cherry-pick-连续多个commit" class="headerlink" title="cherry pick 连续多个commit"></a>cherry pick 连续多个commit</h2><p>cherry pick 虽好，但一次只能合并一个commit。合并多个就要用到 rebase 了。再次假设想要把 76cada 和 62ecb3 合并到 master 上。</p>
-<h3 id="操作："><a href="#操作：" class="headerlink" title="操作："></a>操作：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b newbranch 62ecb3</span><br><span class="line">git rebase —onto master 76cada^</span><br></pre></td></tr></table></figure>
-<p>76cada^ 表示从 76cada 的 commit 开始合并（作为新的commit）。这样就完成了 76cada 到 62ecb3<br> 合并到 master。</p>
+<h2 id="cherry-pick-连续多个commit">cherry pick 连续多个commit</h2>
+<p>cherry pick 虽好，但一次只能合并一个commit。合并多个就要用到 rebase 了。再次假设想要把 76cada 和 62ecb3 合并到 master 上。</p>
+<h3 id="操作">操作：</h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b newbranch 62ecb3</span><br><span class="line">git rebase —onto master 76cada^</span><br></pre></td></tr></table></figure>
+<p>76cada^ 表示从 76cada 的 commit 开始合并（作为新的commit）。这样就完成了 76cada 到 62ecb3 合并到 master。</p>
 
     </div>
 
@@ -424,21 +435,21 @@
 
           <div class="post-tags">
               <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
-              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
               <a href="/tags/Bug/" rel="tag"><i class="fa fa-tag"></i> Bug</a>
+              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/" rel="prev" title="Tips-git多账号配置">
-                  <i class="fa fa-chevron-left"></i> Tips-git多账号配置
+                <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/" rel="prev" title="Tips-git+vscode">
+                  <i class="fa fa-chevron-left"></i> Tips-git+vscode
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git+vscode/" rel="next" title="Tips-git+vscode">
-                  Tips-git+vscode <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/9.Tools/Git/20200929_Bug-gitignore%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" rel="next" title="Bug-gitignore不起作用的解决办法">
+                  Bug-gitignore不起作用的解决办法 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -535,6 +546,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

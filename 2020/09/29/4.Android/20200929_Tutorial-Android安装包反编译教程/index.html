@@ -34,11 +34,11 @@
 <meta property="article:tag" content="AS">
 <meta property="article:tag" content="AR">
 <meta property="article:tag" content="工具">
-<meta property="article:tag" content="ML">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="Git">
 <meta property="article:tag" content="Android">
+<meta property="article:tag" content="ML">
+<meta property="article:tag" content="Git">
 <meta property="article:tag" content="Go">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
 
 
@@ -98,7 +98,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -211,7 +215,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8D%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B"><span class="nav-text">Android安装包反编译教程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E4%B8%8B%E8%BD%BD"><span class="nav-text">工具下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8apktool%E5%8F%8D%E7%BC%96%E8%AF%91apk%E5%BE%97%E5%88%B0%E5%9B%BE%E7%89%87%E3%80%81XML%E9%85%8D%E7%BD%AE%E3%80%81%E8%AF%AD%E8%A8%80%E8%B5%84%E6%BA%90%E7%AD%89%E6%96%87%E4%BB%B6"><span class="nav-text">用apktool反编译apk得到图片、XML配置、语言资源等文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8dex2jar%E5%8F%8D%E7%BC%96%E8%AF%91apk%E5%BE%97%E5%88%B0Java%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="nav-text">使用dex2jar反编译apk得到Java源代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8jd-gui%E6%89%93%E5%BC%80classes-dex2jar-jar%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E6%BA%90%E4%BB%A3%E7%A0%81%E4%BA%86"><span class="nav-text">使用jd-gui打开classes-dex2jar.jar就可以看到源代码了</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#android%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8D%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B"><span class="nav-text">Android安装包反编译教程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E4%B8%8B%E8%BD%BD"><span class="nav-text">工具下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8apktool%E5%8F%8D%E7%BC%96%E8%AF%91apk%E5%BE%97%E5%88%B0%E5%9B%BE%E7%89%87xml%E9%85%8D%E7%BD%AE%E8%AF%AD%E8%A8%80%E8%B5%84%E6%BA%90%E7%AD%89%E6%96%87%E4%BB%B6"><span class="nav-text">用apktool反编译apk得到图片、XML配置、语言资源等文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8dex2jar%E5%8F%8D%E7%BC%96%E8%AF%91apk%E5%BE%97%E5%88%B0java%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="nav-text">使用dex2jar反编译apk得到Java源代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8jd-gui%E6%89%93%E5%BC%80classes-dex2jar.jar%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E6%BA%90%E4%BB%A3%E7%A0%81%E4%BA%86"><span class="nav-text">使用jd-gui打开classes-dex2jar.jar就可以看到源代码了</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -365,38 +369,38 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="Android安装包反编译教程"><a href="#Android安装包反编译教程" class="headerlink" title="Android安装包反编译教程"></a>Android安装包反编译教程</h1><!-- TOC -->
-
+        <h1 id="android安装包反编译教程">Android安装包反编译教程</h1>
+<!-- TOC -->
 <ul>
-<li><a href="#android%E5%AE%89%E8%A3%85%E5%8C%85%E5%8F%8D%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B">Android安装包反编译教程</a><ul>
-<li><a href="#%E5%B7%A5%E5%85%B7%E4%B8%8B%E8%BD%BD">工具下载</a></li>
-<li><a href="#%E7%94%A8apktool%E5%8F%8D%E7%BC%96%E8%AF%91apk%E5%BE%97%E5%88%B0%E5%9B%BE%E7%89%87xml%E9%85%8D%E7%BD%AE%E8%AF%AD%E8%A8%80%E8%B5%84%E6%BA%90%E7%AD%89%E6%96%87%E4%BB%B6">用apktool反编译apk得到图片、XML配置、语言资源等文件</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8dex2jar%E5%8F%8D%E7%BC%96%E8%AF%91apk%E5%BE%97%E5%88%B0java%E6%BA%90%E4%BB%A3%E7%A0%81">使用dex2jar反编译apk得到Java源代码</a></li>
-<li><a href="#%E4%BD%BF%E7%94%A8jd-gui%E6%89%93%E5%BC%80classes-dex2jarjar%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E6%BA%90%E4%BB%A3%E7%A0%81%E4%BA%86">使用jd-gui打开classes-dex2jar.jar就可以看到源代码了</a></li>
-</ul>
-</li>
+<li><a href="#android安装包反编译教程">Android安装包反编译教程</a>
+<ul>
+<li><a href="#工具下载">工具下载</a></li>
+<li><a href="#用apktool反编译apk得到图片xml配置语言资源等文件">用apktool反编译apk得到图片、XML配置、语言资源等文件</a></li>
+<li><a href="#使用dex2jar反编译apk得到java源代码">使用dex2jar反编译apk得到Java源代码</a></li>
+<li><a href="#使用jd-gui打开classes-dex2jarjar就可以看到源代码了">使用jd-gui打开classes-dex2jar.jar就可以看到源代码了</a></li>
+</ul></li>
 </ul>
 <!-- /TOC -->
-
-<h2 id="工具下载"><a href="#工具下载" class="headerlink" title="工具下载"></a>工具下载</h2><ul>
-<li><p><a target="_blank" rel="noopener" href="https://bitbucket.org/iBotPeaches/apktool/downloads/">apktool ——(资源文件获取，可以提取出图片文件和布局文件进行使用查看)</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/dex2jar/files/">dex2jar——(将apk反编译成java源码(classes.dex转化成jar文件))</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="http://java-decompiler.github.io/">jd-gui——(查看APK中classes.dex转化成出的jar文件，即源码文件)</a></p>
-</li>
+<h2 id="工具下载">工具下载</h2>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://bitbucket.org/iBotPeaches/apktool/downloads/">apktool ——(资源文件获取，可以提取出图片文件和布局文件进行使用查看)</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/dex2jar/files/">dex2jar——(将apk反编译成java源码(classes.dex转化成jar文件))</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="http://java-decompiler.github.io/">jd-gui——(查看APK中classes.dex转化成出的jar文件，即源码文件)</a></p></li>
 </ul>
-<h2 id="用apktool反编译apk得到图片、XML配置、语言资源等文件"><a href="#用apktool反编译apk得到图片、XML配置、语言资源等文件" class="headerlink" title="用apktool反编译apk得到图片、XML配置、语言资源等文件"></a>用apktool反编译apk得到图片、XML配置、语言资源等文件</h2><p>1、打开命令行工具(cmd) &amp; cd到工具所在目录</p>
+<h2 id="用apktool反编译apk得到图片xml配置语言资源等文件">用apktool反编译apk得到图片、XML配置、语言资源等文件</h2>
+<p>1、打开命令行工具(cmd) &amp; cd到工具所在目录</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> D:\逆向\tool</span><br></pre></td></tr></table></figure>
 <p>2、用apktool反编译得到图片等</p>
 <p>注意：“[]”内为你的具体值。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">java -jar [apktool_2.3.4.jar] d -f [apk地址] -o [输出的目录名称]</span><br><span class="line">//---------------------正确结果------------------</span><br><span class="line">I: Using Apktool 2.3.4 on com.yc.flagfit2_1.2.9_29.apk</span><br><span class="line">I: Loading resource table...</span><br><span class="line">I: Decoding AndroidManifest.xml with resources...</span><br><span class="line">S: WARNING: Could not write to (C:\Users\Administrator\AppData\Local\apktool\fra</span><br><span class="line">mework), using C:\Users\ADMINI~1\AppData\Local\Temp\ instead...</span><br><span class="line">S: Please be aware this is a volatile directory and frameworks could go missing,</span><br><span class="line"> please utilize --frame-path <span class="keyword">if</span> the default storage directory is unavailable</span><br><span class="line">I: Loading resource table from file: C:\Users\ADMINI~1\AppData\Local\Temp\1.apk</span><br><span class="line">I: Regular manifest package...</span><br><span class="line">I: Decoding file-resources...</span><br><span class="line">I: Decoding values */* XMLs...</span><br><span class="line">I: Baksmaling classes.dex...</span><br><span class="line">I: Copying assets and libs...</span><br><span class="line">I: Copying unknown files...</span><br><span class="line">I: Copying original files...</span><br></pre></td></tr></table></figure>
-<h2 id="使用dex2jar反编译apk得到Java源代码"><a href="#使用dex2jar反编译apk得到Java源代码" class="headerlink" title="使用dex2jar反编译apk得到Java源代码"></a>使用dex2jar反编译apk得到Java源代码</h2><p>1、解压apk得到classes.dex。</p>
+<h2 id="使用dex2jar反编译apk得到java源代码">使用dex2jar反编译apk得到Java源代码</h2>
+<p>1、解压apk得到classes.dex。</p>
 <p>2、将classes.dex放到dex2jar-2.0文件夹内。</p>
 <p>3、cmd输入命令：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d2j-dex2jar.bat classes.dex</span><br></pre></td></tr></table></figure>
 <p>得到classes-dex2jar.jar</p>
-<h2 id="使用jd-gui打开classes-dex2jar-jar就可以看到源代码了"><a href="#使用jd-gui打开classes-dex2jar-jar就可以看到源代码了" class="headerlink" title="使用jd-gui打开classes-dex2jar.jar就可以看到源代码了"></a>使用jd-gui打开classes-dex2jar.jar就可以看到源代码了</h2>
+<h2 id="使用jd-gui打开classes-dex2jar.jar就可以看到源代码了">使用jd-gui打开classes-dex2jar.jar就可以看到源代码了</h2>
+
     </div>
 
     
@@ -447,24 +451,24 @@
               <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
               <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
               <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
-              <a href="/tags/ML/" rel="tag"><i class="fa fa-tag"></i> ML</a>
-              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
-              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
               <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
+              <a href="/tags/ML/" rel="tag"><i class="fa fa-tag"></i> ML</a>
+              <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
               <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
+              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%BC%80%E5%8F%91%E4%B9%8B%E9%81%93%E7%A8%B3%E5%AE%9A%E5%85%BC%E5%AE%B9%E9%AB%98%E6%95%88/" rel="prev" title="Tutorial-Android开发之道稳定兼容高效">
-                  <i class="fa fa-chevron-left"></i> Tutorial-Android开发之道稳定兼容高效
+                <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" rel="prev" title="Tutorial-Android内存泄漏问题">
+                  <i class="fa fa-chevron-left"></i> Tutorial-Android内存泄漏问题
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" rel="next" title="Tutorial-Android内存泄漏问题">
-                  Tutorial-Android内存泄漏问题 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/4.Android/20200929_Tutorial-Android%E4%B8%8A%E4%BC%A0module%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="next" title="Tutorial-Android上传module到服务器">
+                  Tutorial-Android上传module到服务器 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -561,6 +565,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

@@ -91,7 +91,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -204,7 +208,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VR%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">VR的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%B8%E6%88%8F"><span class="nav-text">游戏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%99%E8%82%B2"><span class="nav-text">教育</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0"><span class="nav-text">语言学习</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vr%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">VR的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%B8%E6%88%8F"><span class="nav-text">游戏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%99%E8%82%B2"><span class="nav-text">教育</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0"><span class="nav-text">语言学习</span></a></li></ol></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -358,7 +362,11 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="VR的应用"><a href="#VR的应用" class="headerlink" title="VR的应用"></a>VR的应用</h1><h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><h2 id="教育"><a href="#教育" class="headerlink" title="教育"></a>教育</h2><h3 id="语言学习"><a href="#语言学习" class="headerlink" title="语言学习"></a>语言学习</h3>
+        <h1 id="vr的应用">VR的应用</h1>
+<h2 id="游戏">游戏</h2>
+<h2 id="教育">教育</h2>
+<h3 id="语言学习">语言学习</h3>
+
     </div>
 
     
@@ -418,8 +426,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-21%E9%A2%9D%E5%A4%96%E8%AF%B4%E7%82%B9%EF%BC%9A.gitignore%E2%80%94%E2%80%94%E6%8E%92%E9%99%A4%E4%B8%8D%E6%83%B3%E8%A2%AB%E7%AE%A1%E7%90%86%E7%9A%84%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95/" rel="next" title="Tutorial-21额外说点：">
-                  Tutorial-21额外说点： <i class="fa fa-chevron-right"></i>
+                <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-22%E6%80%BB%E7%BB%93/" rel="next" title="Tutorial-22总结">
+                  Tutorial-22总结 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -516,6 +524,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

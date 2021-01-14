@@ -21,12 +21,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="正则表达式的高阶使用 1.Back reference 这里我们先举个例子，当我们需要匹配类似“taobao taobao”，“jingdong jingdong”这样的内容时，我们的正则表达式怎么写呢？  1   \b(\w+)\b\s+(\1)   taobao taobao taobao taobao taobao 淘宝 淘宝 淘宝 淘宝 淘宝 淘宝  下面解释一下具体的含义：这里 \b(\">
+  <meta name="description" content="正则表达式的高阶使用 1.Back reference 这里我们先举个例子，当我们需要匹配类似“taobao taobao”，“jingdong jingdong”这样的内容时，我们的正则表达式怎么写呢？  1   \b(\w+)\b\s+(\1)   taobao taobao taobao taobao taobao 淘宝 淘宝 淘宝 淘宝 淘宝 淘宝  下面解释一下具体的含义：这里 +)，(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tutorial-6 正则表达式的高阶使用">
 <meta property="og:url" content="http://example.com/2021/01/09/9.Tools/Regex/20210109_Tutorial-6%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E9%AB%98%E9%98%B6%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="行则将至">
-<meta property="og:description" content="正则表达式的高阶使用 1.Back reference 这里我们先举个例子，当我们需要匹配类似“taobao taobao”，“jingdong jingdong”这样的内容时，我们的正则表达式怎么写呢？  1   \b(\w+)\b\s+(\1)   taobao taobao taobao taobao taobao 淘宝 淘宝 淘宝 淘宝 淘宝 淘宝  下面解释一下具体的含义：这里 \b(\">
+<meta property="og:description" content="正则表达式的高阶使用 1.Back reference 这里我们先举个例子，当我们需要匹配类似“taobao taobao”，“jingdong jingdong”这样的内容时，我们的正则表达式怎么写呢？  1   \b(\w+)\b\s+(\1)   taobao taobao taobao taobao taobao 淘宝 淘宝 淘宝 淘宝 淘宝 淘宝  下面解释一下具体的含义：这里 +)，(">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-08T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-01-14T06:49:45.848Z">
@@ -94,7 +94,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -207,7 +211,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E9%AB%98%E9%98%B6%E4%BD%BF%E7%94%A8"><span class="nav-text">正则表达式的高阶使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Back-reference"><span class="nav-text">1.Back reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%9B%B6%E5%AE%BD%E6%96%AD%E8%A8%80"><span class="nav-text">2.零宽断言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%B9%B3%E8%A1%A1%E7%BB%84%E5%90%88%E9%80%92%E5%BD%92%E5%8C%B9%E9%85%8D"><span class="nav-text">3.平衡组合递归匹配</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E9%AB%98%E9%98%B6%E4%BD%BF%E7%94%A8"><span class="nav-text">正则表达式的高阶使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#back-reference"><span class="nav-text">1.Back reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%B6%E5%AE%BD%E6%96%AD%E8%A8%80"><span class="nav-text">2.零宽断言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E7%BB%84%E5%90%88%E9%80%92%E5%BD%92%E5%8C%B9%E9%85%8D"><span class="nav-text">3.平衡组合递归匹配</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -371,30 +375,27 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="正则表达式的高阶使用"><a href="#正则表达式的高阶使用" class="headerlink" title="正则表达式的高阶使用"></a>正则表达式的高阶使用</h1><h2 id="1-Back-reference"><a href="#1-Back-reference" class="headerlink" title="1.Back reference"></a>1.Back reference</h2><p>这里我们先举个例子，当我们需要匹配类似“taobao taobao”，“jingdong jingdong”这样的内容时，我们的正则表达式怎么写呢？</p>
+        <h1 id="正则表达式的高阶使用">正则表达式的高阶使用</h1>
+<h2 id="back-reference">1.Back reference</h2>
+<p>这里我们先举个例子，当我们需要匹配类似“taobao taobao”，“jingdong jingdong”这样的内容时，我们的正则表达式怎么写呢？</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\b(\w+)\b\s+(\1)</span><br></pre></td></tr></table></figure>
 <p>taobao taobao taobao taobao taobao 淘宝 淘宝 淘宝 淘宝 淘宝 淘宝</p>
-<p>下面解释一下具体的含义：这里 \b(\w+)\b 表示匹配的内容为字符串，(\1) 表示后向引用第1分组的内容进行匹配，所以，最终我们就能匹配到上面我们提到的场景的内容。</p>
-<h2 id="2-零宽断言"><a href="#2-零宽断言" class="headerlink" title="2.零宽断言"></a>2.零宽断言</h2><p>  零宽断言有正向、负向、先行、后行，一共有4种组合形式：</p>
+<p>下面解释一下具体的含义：这里 +)，(\1) 表示后向引用第1分组的内容进行匹配，所以，最终我们就能匹配到上面我们提到的场景的内容。</p>
+<h2 id="零宽断言">2.零宽断言</h2>
+<p>零宽断言有正向、负向、先行、后行，一共有4种组合形式：</p>
 <ul>
-<li><p>(?=exp) 零宽正向先行断言： 匹配exp前面的位置</p>
-</li>
-<li><p>(?&lt;=exp) 零宽正向后行断言：匹配exp后面的位置</p>
-</li>
-<li><p>(?!exp) 零宽负向先行断言：  匹配后面跟的不是exp的位置</p>
-</li>
-<li><p>(?&lt;!exp) 零宽负向后行断言：匹配前面不是exp的位置</p>
-</li>
+<li><p>(?=exp) 零宽正向先行断言： 匹配exp前面的位置</p></li>
+<li><p>(?&lt;=exp) 零宽正向后行断言：匹配exp后面的位置</p></li>
+<li><p>(?!exp) 零宽负向先行断言： 匹配后面跟的不是exp的位置</p></li>
+<li><p>(?&lt;!exp) 零宽负向后行断言：匹配前面不是exp的位置</p></li>
 </ul>
-<h2 id="3-平衡组合递归匹配"><a href="#3-平衡组合递归匹配" class="headerlink" title="3.平衡组合递归匹配"></a>3.平衡组合递归匹配</h2><p>这里我们先提出一个匹配特定内容的问题：如何把  xx &lt;aa <bbb>  <bbb>  aa&gt; yy 这样的字符里，最长的配对的尖括号内的内容捕获出来？</p>
+<h2 id="平衡组合递归匹配">3.平衡组合递归匹配</h2>
+<p>这里我们先提出一个匹配特定内容的问题：如何把 xx &lt;aa <bbb> <bbb> aa&gt; yy 这样的字符里，最长的配对的尖括号内的内容捕获出来？</p>
 <p>这里我们可以使用平衡组递归进行匹配，思路如下：</p>
-<ol>
-<li><p>我们可以使用 （?’group’） 把捕获的内容命名为group，并压入堆栈（Stack）</p>
-</li>
-<li><p>通过 （?’-group’）从堆栈上弹出最后压入堆栈的名为group的捕获内容，如果堆栈本来为空，则本分组的匹配失败。</p>
-</li>
-<li><p>通过（?(group)yes|no）来判断，如果堆栈上存在以名为group的捕获内容的话，继续匹配yes部分的表达式，否则继续匹配no部分。</p>
-</li>
+<ol type="1">
+<li><p>我们可以使用 （?'group'） 把捕获的内容命名为group，并压入堆栈（Stack）</p></li>
+<li><p>通过 （?'-group'）从堆栈上弹出最后压入堆栈的名为group的捕获内容，如果堆栈本来为空，则本分组的匹配失败。</p></li>
+<li><p>通过（?(group)yes|no）来判断，如果堆栈上存在以名为group的捕获内容的话，继续匹配yes部分的表达式，否则继续匹配no部分。</p></li>
 </ol>
 <p>需要注意的是：目前仅仅 .Net 支持平衡组递归匹配，其他语言例如Java、JavaScript 目前都不支持。</p>
 
@@ -558,6 +559,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>

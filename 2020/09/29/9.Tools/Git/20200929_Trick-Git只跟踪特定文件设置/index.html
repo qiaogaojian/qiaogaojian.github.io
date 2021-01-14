@@ -91,7 +91,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="headband"></div>
@@ -204,7 +208,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8D%E5%BF%BD%E7%95%A5git%E8%AE%BE%E7%BD%AE"><span class="nav-text">不忽略git设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%BD%E7%95%A5%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E9%99%A4%E4%BA%86%E6%9F%90%E4%BA%9B%E7%B1%BB%E5%9E%8B"><span class="nav-text">忽略所有文件除了某些类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%87%E8%AE%BE%E5%8F%AA%E8%B7%9F%E8%B8%AA-Scripts-%E7%9B%AE%E5%BD%95%E5%92%8C%E8%84%9A%E6%9C%AC-md%E6%96%87%E4%BB%B6"><span class="nav-text">假设只跟踪 Scripts 目录和脚本&#x2F;md文件</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8D%E5%BF%BD%E7%95%A5git%E8%AE%BE%E7%BD%AE"><span class="nav-text">不忽略git设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%BD%E7%95%A5%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E9%99%A4%E4%BA%86%E6%9F%90%E4%BA%9B%E7%B1%BB%E5%9E%8B"><span class="nav-text">忽略所有文件除了某些类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%87%E8%AE%BE%E5%8F%AA%E8%B7%9F%E8%B8%AA-scripts-%E7%9B%AE%E5%BD%95%E5%92%8C%E8%84%9A%E6%9C%ACmd%E6%96%87%E4%BB%B6"><span class="nav-text">假设只跟踪 Scripts 目录和脚本&#x2F;md文件</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -368,9 +372,13 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h1 id="不忽略git设置"><a href="#不忽略git设置" class="headerlink" title="不忽略git设置"></a>不忽略git设置</h1><h2 id="忽略所有文件除了某些类型"><a href="#忽略所有文件除了某些类型" class="headerlink" title="忽略所有文件除了某些类型"></a>忽略所有文件除了某些类型</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*/*</span><br><span class="line">!.cs</span><br></pre></td></tr></table></figure>
-<h2 id="假设只跟踪-Scripts-目录和脚本-md文件"><a href="#假设只跟踪-Scripts-目录和脚本-md文件" class="headerlink" title="假设只跟踪 Scripts 目录和脚本/md文件"></a>假设只跟踪 Scripts 目录和脚本/md文件</h2><p>编辑.gitignore文件(.gitignore)<br>忽略所有文件，注意放在开头</p>
+        <h1 id="不忽略git设置">不忽略git设置</h1>
+<h2 id="忽略所有文件除了某些类型">忽略所有文件除了某些类型</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*/*</span><br><span class="line">!.cs</span><br></pre></td></tr></table></figure>
+<h2 id="假设只跟踪-scripts-目录和脚本md文件">假设只跟踪 Scripts 目录和脚本/md文件</h2>
+<p>编辑.gitignore文件(.gitignore) 忽略所有文件，注意放在开头</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 忽略所有文件和目录</span></span><br><span class="line">/*</span><br><span class="line">*.*</span><br><span class="line"><span class="comment"># 除Scripts文件夹 和脚本/md文件外</span></span><br><span class="line">!/Scripts</span><br><span class="line">!*.cs</span><br><span class="line">!*.md</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -425,13 +433,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E6%81%A2%E5%A4%8D%E5%88%A0%E9%99%A4%E7%9A%84stash%E4%BB%A3%E7%A0%81/" rel="prev" title="Tips-git恢复删除的stash代码">
-                  <i class="fa fa-chevron-left"></i> Tips-git恢复删除的stash代码
+                <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/" rel="prev" title="Tips-git多账号配置">
+                  <i class="fa fa-chevron-left"></i> Tips-git多账号配置
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E9%85%8D%E7%BD%AE/" rel="next" title="Tips-git多账号配置">
-                  Tips-git多账号配置 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/09/29/9.Tools/Git/20200929_Tips-git%E6%81%A2%E5%A4%8D%E5%88%A0%E9%99%A4%E7%9A%84stash%E4%BB%A3%E7%A0%81/" rel="next" title="Tips-git恢复删除的stash代码">
+                  Tips-git恢复删除的stash代码 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -528,6 +536,52 @@
 
 
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '/%5Bobject%20Object%5D';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script>
