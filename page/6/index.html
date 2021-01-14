@@ -387,7 +387,7 @@ Image需要位于某个Canvas下才能显示出来。场景中的Sprite可以像
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -404,7 +404,7 @@ Image需要位于某个Canvas下才能显示出来。场景中的Sprite可以像
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/" class="post-title-link" itemprop="url">Tips-Unity中的碰撞</a>
+            <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/" class="post-title-link" itemprop="url">Tips-Unity中停止协程StopCoroutine</a>
         </h2>
 
         <div class="post-meta-container">
@@ -430,7 +430,7 @@ Image需要位于某个Canvas下才能显示出来。场景中的Sprite可以像
     </span>
 
   
-    <span id="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Unity中的碰撞" title="阅读次数">
+    <span id="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Unity中停止协程StopCoroutine" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -445,8 +445,8 @@ Image需要位于某个Canvas下才能显示出来。场景中的Sprite可以像
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -461,26 +461,34 @@ Image需要位于某个Canvas下才能显示出来。场景中的Sprite可以像
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-          Unity 中的碰撞
-碰撞的两种形式
-Collision:造成物理碰撞,触发 OnCollision 事件.
-Trigger:没有物理碰撞效果,触发 OnTrigger 事件.
-碰撞的条件
-Collision 碰撞
-1. 双方都有碰撞体
-2. 撞的一方必须有刚体
-3. 双方不可同时勾选 Kinematic 选项
-4. 双方都不可勾选 Trigger 触发器
-Trigger 触发器
-1. 双发都有碰撞体
-2. 撞的一方必要有刚体
-3. 至少有一方勾选 Trigger 触发器
-碰撞的事件
-OnTriggerEnter() OnTriggerStay() OnTriggerExit()
-OnColl
+          Unity中停止协程StopCoroutine
+必须用字符串启动协程才能停止协程
+1
+2
+3
+4
+
+
+//要想停止协程,必须用字符启动协程
+StartCoroutine("FunctionName");
+//如果要传参
+StarCoroutine("FunctionName",object);
+
+
+停止协程
+1
+2
+3
+4
+
+
+//停止协程
+StopCoroutine("FunctionName");
+//停止所有协程(慎用)
+StopAllCoroutine();
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -594,6 +602,125 @@ OnColl
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E5%9D%90%E6%A0%87%E7%B3%BB/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/" class="post-title-link" itemprop="url">Tips-Unity中的碰撞</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/3-Unity/" itemprop="url" rel="index"><span itemprop="name">3.Unity</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Unity中的碰撞" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          Unity 中的碰撞
+碰撞的两种形式
+Collision:造成物理碰撞,触发 OnCollision 事件.
+Trigger:没有物理碰撞效果,触发 OnTrigger 事件.
+碰撞的条件
+Collision 碰撞
+1. 双方都有碰撞体
+2. 撞的一方必须有刚体
+3. 双方不可同时勾选 Kinematic 选项
+4. 双方都不可勾选 Trigger 触发器
+Trigger 触发器
+1. 双发都有碰撞体
+2. 撞的一方必要有刚体
+3. 至少有一方勾选 Trigger 触发器
+碰撞的事件
+OnTriggerEnter() OnTriggerStay() OnTriggerExit()
+OnColl
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -973,133 +1100,6 @@ Wrap Mode: Point
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/29/3.Unity/20200929_Trick_Unity%E6%8F%92%E4%BB%B6Ngui%E5%9B%BE%E7%89%87%E7%BC%9D%E9%9A%99%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/" class="post-title-link" itemprop="url">Tips-Unity中停止协程StopCoroutine</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/3-Unity/" itemprop="url" rel="index"><span itemprop="name">3.Unity</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/" class="post-meta-item leancloud_visitors" data-flag-title="Tips-Unity中停止协程StopCoroutine" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          Unity中停止协程StopCoroutine
-必须用字符串启动协程才能停止协程
-1
-2
-3
-4
-
-
-//要想停止协程,必须用字符启动协程
-StartCoroutine("FunctionName");
-//如果要传参
-StarCoroutine("FunctionName",object);
-
-
-停止协程
-1
-2
-3
-4
-
-
-//停止协程
-StopCoroutine("FunctionName");
-//停止所有协程(慎用)
-StopAllCoroutine();
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

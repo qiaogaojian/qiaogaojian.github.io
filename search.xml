@@ -45,6 +45,25 @@
       </tags>
   </entry>
   <entry>
+    <title>Tutorial-2 匹配任意字符</title>
+    <url>/2021/01/09/9.Tools/Regex/20210109_Tutorial-2%20%E5%8C%B9%E9%85%8D%E4%BB%BB%E6%84%8F%E5%AD%97%E7%AC%A6/</url>
+    <content><![CDATA[<ul>
+<li><p>vscode</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">.* <span class="comment"># 表示匹配任意长度的字符串.</span></span><br><span class="line"></span><br><span class="line">.? <span class="comment"># 表示匹配长度为1的任意字符串.</span></span><br></pre></td></tr></table></figure></li>
+<li><p>其他</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">* <span class="comment"># 表示匹配任意长度的字符串.</span></span><br><span class="line"></span><br><span class="line">? <span class="comment"># 表示匹配长度为1的任意字符串.</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>Regex</category>
+      </categories>
+      <tags>
+        <tag>VSCode</tag>
+        <tag>VS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tutorial-1 正则表达式</title>
     <url>/2021/01/09/9.Tools/Regex/20210109_Tutorial-1%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="正则表达式">正则表达式</h1>
@@ -77,25 +96,6 @@
         <tag>VS</tag>
         <tag>Js</tag>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tutorial-2 匹配任意字符</title>
-    <url>/2021/01/09/9.Tools/Regex/20210109_Tutorial-2%20%E5%8C%B9%E9%85%8D%E4%BB%BB%E6%84%8F%E5%AD%97%E7%AC%A6/</url>
-    <content><![CDATA[<ul>
-<li><p>vscode</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">.* <span class="comment"># 表示匹配任意长度的字符串.</span></span><br><span class="line"></span><br><span class="line">.? <span class="comment"># 表示匹配长度为1的任意字符串.</span></span><br></pre></td></tr></table></figure></li>
-<li><p>其他</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">* <span class="comment"># 表示匹配任意长度的字符串.</span></span><br><span class="line"></span><br><span class="line">? <span class="comment"># 表示匹配长度为1的任意字符串.</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>Regex</category>
-      </categories>
-      <tags>
-        <tag>VSCode</tag>
-        <tag>VS</tag>
       </tags>
   </entry>
   <entry>
@@ -376,15 +376,15 @@
     <content><![CDATA[<h3 id="前言">前言</h3>
 <p>  正如<a href="https://learnopengl.com/#!Advanced-OpenGL/Depth-testing">LearnOpenGL-高级OpenGL-深度测试</a>中所述，在OpenGL的深度值可以通过在fragment shader中调用<code>gl_FragCoord.z</code>获得，其值域为[0,1]。但是物体离我们眼睛(摄像机)的真正距离是多少呢？怎么通过OpenGL中的深度反求“真正的深度”呢？</p>
 <h3 id="推导过程">推导过程</h3>
-<p>  我们假设在FragmentShader出来的的深度值为$ z_b $ =<code>gl_FragCoord.z</code>，因为$ z_b <span class="math inline">\(是值域为[0,1]，我们首先得转换回NDC坐标系下，假设NDC坐标系下的深度值为\)</span> z_n $，OpenGL是这样转换的：</p>
+<p>  我们假设在FragmentShader出来的的深度值为<span class="math inline">\(z_b\)</span>= <code>gl_FragCoord.z</code>，因为<span class="math inline">\(z_b\)</span>是值域为[0,1]，我们首先得转换回NDC坐标系下，假设NDC坐标系下的深度值为<span class="math inline">\(z_n\)</span>，OpenGL是这样转换的：</p>
 <p><span class="math display">\[
 z_b=0.5z_n+0.5
 \]</span></p>
-<p>  这时$ z_n <span class="math inline">\(的值域为[-1,1]。   我们设视角坐标下的深度值为\)</span>z_r$(也就是实际的深度值，aka.物体到我们眼睛的距离, r for real)，同时我们假设视角截面体的近平面距离=near，远平面距离=far，OpenGL是这样转换的:</p>
+<p>  这时<span class="math inline">\(z_n\)</span>的值域为[-1,1]。   我们设视角坐标下的深度值为<span class="math inline">\(z_r\)</span>(也就是实际的深度值，aka.物体到我们眼睛的距离, r for real)，同时我们假设视角截面体的近平面距离=near，远平面距离=far，OpenGL是这样转换的:</p>
 <p><span class="math display">\[
 z_b=\frac{1/z_r-1/near}{1/far-1/near}
 \]</span></p>
-<p>  上面公式反求$ z_r <span class="math inline">\(，下面令\)</span> f=far,n=near $：</p>
+<p>  上面公式反求<span class="math inline">\(z_r\)</span>，下面令<span class="math inline">\(f=far,n=near\)</span>：</p>
 <p><span class="math display">\[
 z_b=\frac{\frac{nf}{z_r}-f}{n-f}
 \]</span></p>
@@ -414,7 +414,9 @@ z_r=\frac{2nf}{f+n-z_n(f-n)}
 <p><span class="math display">\[
 F_{depth}=\frac{z-n}{f-n}
 \]</span></p>
-<p>  代码改为： <figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="type">float</span> depth = (LinearizeDepth(<span class="built_in">gl_FragCoord</span>.z) - near)/ (far-near); <span class="comment">//非线性转线性</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure> ### 验证   因为</p>
+<p>  代码改为： <figure class="highlight glsl"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="type">float</span> depth = (LinearizeDepth(<span class="built_in">gl_FragCoord</span>.z) - near)/ (far-near); <span class="comment">//非线性转线性</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<h3 id="验证">验证</h3>
+<p>  因为</p>
 <p><span class="math display">\[
 z_n\in[-1,1]
 \]</span></p>
@@ -1076,118 +1078,6 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
-    <title>Tutorial-04上手 2：团队工作的基本工作模型</title>
-    <url>/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-04%E4%B8%8A%E6%89%8B%202%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<h1 id="上手-2团队工作的基本工作模型">上手 2：团队工作的基本工作模型</h1>
-<p>对于 Git 来说，团队合作和个人独立工作最大的不同在于，你会提交代码，别人也会提交；你会 push，别人也会 push，因此除了把代码上传，每个人还需要把别人最新的代码下载到自己的电脑。而且，这些工作都是并行进行的。</p>
-<p>这就很复杂了！</p>
-<p>这节的内容，就是简单阐述一下团队合作中 Git 的基本工作模型。</p>
-<h2 id="把别人的新提交拿到本地">把别人的新提交拿到本地</h2>
-<p>先说一种简单的情况：你的同事刚把他写的几个提交 push 到了中央仓库，你怎么把它们取下来。</p>
-<h3 id="假装同事">假装同事</h3>
-<p>除非你能要求同事陪你练习 Git，否则，你只能一人分饰两角：时不时地模拟一下同事的操作，来达到独自一人做多人项目练习的效果。而为了模拟同事的操作，你需要在你的 <code>/git-practice</code> 目录旁再 clone 一次中央仓库到本地，来当做你的模拟同事的本地仓库：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;rengwuxian&#x2F;git-practice.git git-practice-another</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意！执行这条之前别忘了先 `cd ..` 切换到父目录，不然你会把新的本地仓库创建在原先的本地仓库的工作目录内。</p>
-</blockquote>
-<p>为了目录名称不冲突，这次的 <code>clone</code> 需要加一个额外参数（上面那行代码最后的 <code>git-practice-another</code>）来手动指定本地仓库的根目录名称。在这条指令执行完成后，你就有了两个内容相同的本地仓库：</p>
-<figure>
-<img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd7796267f52f3?w=274&amp;h=153&amp;f=jpeg&amp;s=43143" alt="你的 git-practice 和「同事」的 git-practice-another" /><figcaption aria-hidden="true">你的 git-practice 和「同事」的 git-practice-another</figcaption>
-</figure>
-<p>你的 git-practice 和「同事」的 git-practice-another</p>
-<p>现在，你就可以假装 <code>/git-practice</code> 这个目录是你的电脑上的工作目录，而那个新建的 <code>/git-practice-another</code> 是你同事的电脑上的工作目录。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd779626c48d66?w=421&amp;h=298&amp;f=jpeg&amp;s=59238" /></p>
-<p>如果你对这样的操作有担心，大可不必，这种操作不会有任何问题。因为 Git 的管理是目录级别，而不是设备级别的。也就是说，<code>/git-practice</code> 目录内的 <code>.git</code> 只管理 <code>/git-practice</code> 里的内容，<code>/git-practice-another</code> 目录内的 <code>.git</code> 也只管理 <code>/git-practice-another</code> 里的内容，它们之间互不知晓，也互不影响。</p>
-<h3 id="帮同事提交代码并-push-到中央仓库">帮同事提交代码并 push 到中央仓库</h3>
-<p>要在你的电脑上把同事的代码取下来，首先 GitHub 上要有你同事的新代码，也就是说，你首先要把同事的代码 push 到中央仓库去。所以第一步，切换到同事的目录：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd git-practice-another</span><br></pre></td></tr></table></figure>
-<p>现在，到了同事的工作目录，你的身份就是你的同事了。帮他写点代码吧！嗯……写点什么好呢？</p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd7796252edbf5?w=299&amp;h=87&amp;f=jpeg&amp;s=14033" /></p>
-<figure>
-<img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd77962711f7d1?w=312&amp;h=105&amp;f=jpeg&amp;s=7661" alt="嗯，「女装」" /><figcaption aria-hidden="true">嗯，「女装」</figcaption>
-</figure>
-<p>嗯，「女装」</p>
-<p>嗯，看起来不错，帮他提交吧：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add shopping\ list-colleague.txt</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd7797bd664ef4?w=489&amp;h=170&amp;f=jpeg&amp;s=48053" alt="记得填写提交信息" /><figcaption aria-hidden="true">记得填写提交信息</figcaption>
-</figure>
-<p>记得填写提交信息</p>
-<p>提交完成以后，<code>push</code> 到 GitHub：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://user-gold-cdn.xitu.io/2017/11/23/15fe7f81418af938?w=1010&amp;h=299&amp;f=jpeg&amp;s=68653" alt="GitHub 上已经能看到刚更新的文件" /><figcaption aria-hidden="true">GitHub 上已经能看到刚更新的文件</figcaption>
-</figure>
-<p>GitHub 上已经能看到刚更新的文件</p>
-<h2 id="把同事-push-的新代码取下来">把同事 push 的新代码取下来</h2>
-<p>GitHub 上有了同事的新代码以后，你就可以变回自己，把「他」刚 push 上去的代码取到你的仓库了。首先，切回 <code>/git-practice</code> 目录：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ..&#x2F;git-practice</span><br></pre></td></tr></table></figure>
-<p>然后，把同事的代码取下来吧！从远程仓库更新内容，用的是一个新的指令：<code>pull</code>。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd779668e41b04?w=431&amp;h=239&amp;f=jpeg&amp;s=88488" alt="用 git pull 把代码从远程仓库取下来" /><figcaption aria-hidden="true">用 git pull 把代码从远程仓库取下来</figcaption>
-</figure>
-<p>用 git pull 把代码从远程仓库取下来</p>
-<p>这时候再看看你的本地目录，可以看到，同事提交的 <code>shopping list-colleagure.txt</code> 已经同步到本地了。也就是说，现在你的本地仓库和同事的又一致了。</p>
-<h2 id="多人合作的基本工作模型">多人合作的基本工作模型</h2>
-<p>这就完成了一次简单的合作流程：</p>
-<ol type="1">
-<li>同事 <code>commit</code> 代码到他的本地，并 <code>push</code> 到 GitHub 中央仓库</li>
-<li>你把 GitHub 的新提交通过 <code>pull</code> 指令来取到你的本地</li>
-</ol>
-<p>通过这个流程，你和同事就可以简单地合作了：你写了代码，<code>commit</code>，<code>push</code> 到 GitHub，然后他 <code>pull</code> 到他的本地；他再写代码，<code>commit</code>, <code>push</code> 到 GitHub，然后你再 <code>pull</code> 到你的本地。你来我往，配合得不亦乐乎。</p>
-<p>但是，这种合作有一个严重的问题：同一时间内，只能有一个人在工作。你和同事其中一个人写代码的时候，另一个人不能做事，必须等着他把工作做完，代码 <code>push</code> 到 GitHub 以后，自己才能把 <code>push</code> 上去的代码 <code>pull</code> 到自己的本地。而如果同时做事，就会发生冲突：当一个人先于另一个人 <code>push</code> 代码（这种情况必然会发生），那么后 <code>push</code> 的这个人就会由于中央仓库上含有本地没有的提交而导致 <code>push</code> 失败。</p>
-<blockquote>
-<p>为什么会失败？</p>
-<p>因为 Git 的<code>push</code> 其实是用本地仓库的 commits 记录去覆盖远端仓库的 commits 记录（注：这是简化概念后的说法，push 的实质和这个说法略有不同），而如果在远端仓库含有本地没有的 commits 的时候，<code>push</code> （如果成功）将会导致远端的 commits 被擦掉。这种结果当然是不可行的，因此 Git 会在 <code>push</code> 的时候进行检查，如果出现这样的情况，push 就会失败。</p>
-</blockquote>
-<p>怎么办？下面就说。</p>
-<h2 id="push-发生冲突">push 发生冲突</h2>
-<p>在现实的团队开发中，全队是同时并行开发的，所以必然会出现当一人 <code>push</code> 代码时，中央仓库已经被其他同事先一步 <code>push</code> 了的情况。为了不让文段显得太过混乱，这里我就不带着你一步步模拟这个过程了。如果你希望模拟的话，这里是步骤：</p>
-<ol type="1">
-<li>切到 <code>git-practice-another</code> 去，假扮成你的同事做一个 <code>commit</code>，然后 <code>push</code> 到 GitHub</li>
-<li>切回 <code>git-practice</code> 变回你自己，做一个不一样的 <code>commit</code>。</li>
-</ol>
-<p>这个时候，远端中央仓库已经有了别人 <code>push</code> 的 <code>commit</code>，现在你如果 <code>push</code> 的话：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://user-gold-cdn.xitu.io/2017/11/30/1600a7635c403f2c?w=598&amp;h=153&amp;f=jpeg&amp;s=54384" alt="push 被拒绝" /><figcaption aria-hidden="true">push 被拒绝</figcaption>
-</figure>
-<p>push 被拒绝</p>
-<p>从上图中的提示语可以看出来（好吧这么长的提示语有人表示不想看），由于 GitHub 的远端仓库上含有本地仓库没有的内容，所以这次 <code>push</code> 被拒绝了。这种冲突的解决方式其实很简单：<strong>先用 <code>pull</code> 把远端仓库上的新内容取回到本地和本地合并，然后再把合并后的本地仓库向远端仓库推送</strong>。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd77967acc6821?w=518&amp;h=128&amp;f=jpeg&amp;s=48512" /></p>
-<p>在上面的文段里，我已经举过一次 <code>git pull</code> 的例子，但这次的 <code>git pull</code> 操作并没有像之前的那样直接结束，而是进入了上图这样的一个输入提交信息的界面。这是因为当 <code>pull</code> 操作发现不仅远端仓库包含本地没有的 <code>commit</code>s，而且本地仓库也包含远端没有的 <code>commit</code>s 时，它就会把远端和本地的独有 <code>commit</code>s 进行合并，自动生成一个新的 <code>commit</code> ，而上图的这个界面，就是这个自动生成的 <code>commit</code> 的提交信息界面。另外，和手动的 <code>commit</code> 不同，这种 <code>commit</code> 会自动填入一个默认的提交信息，简单说明了这条 <code>commit</code> 的来由。你可以直接退出界面来使用这个自动填写的提交信息，也可以修改它来填入自己提交信息。</p>
-<blockquote>
-<p>这种「把不同的内容进行合并，生成新的提交」的操作，叫做合并（呵呵呵哈哈），它所对应的 Git 指令是 <code>merge</code>。事实上，<code>git pull</code> 这个指令的内部实现就是把远程仓库使用 <code>git fetch</code> 取下来以后再进行 <code>merge</code> 操作的。关于更多 <code>merge</code> 的介绍，我会在后面说，这节先不讲了。</p>
-</blockquote>
-<p>在退出提交信息的界面后，这次 <code>pull</code> 就完成了：远端仓库被取到了本地，并和本地仓库进行了合并。在这个时候，就可以再 <code>push</code> 一次了。由于现在本地仓库已经包含了所有远端仓库的 commits，所以这次 <code>push</code> 不会再失败：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://user-gold-cdn.xitu.io/2017/11/30/1600a786d9ac2cc5?w=486&amp;h=157&amp;f=jpeg&amp;s=39987" alt="push 成功" /><figcaption aria-hidden="true">push 成功</figcaption>
-</figure>
-<p>push 成功</p>
-<p>这样，就把 <code>push</code> 时本地仓库和远端仓库内容冲突的问题解决了。</p>
-<h2 id="小结多人合作的基本工作模型-2.0">小结：多人合作的基本工作模型 2.0</h2>
-<p>这样，就把刚才的那个「多人合作的基本工作模型」进行了改良：</p>
-<ol type="1">
-<li>写完所有的 <code>commit</code> 后，不用考虑中央仓库是否有新的提交，直接 <code>push</code> 就好</li>
-<li>如果 <code>push</code> 失败，就用 <code>pull</code> 把本地仓库的提交和中央仓库的提交进行合并，然后再 <code>push</code> 一次</li>
-</ol>
-<p>到此为止，这个工作模型已经是一个最简单的可用的工作模型了。一个小团队如果对版本管理没有什么要求的话，这个工作模型已经可以让团队用来合作开发了。</p>
-<p>但是，这种模型由于过于简单，所以只能适用于对代码管理没太大需求的开发团队。接下来，我将介绍一种基于 branch 的工作模型，很多中小型团队的代码开发都是采用的这种工作模型。不过……需要花 4 节的时间，因为它涉及到了 Git 的一些核心理论，一些许多 Git 老手都没有真正掌握的理论。</p>
-]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>Git</category>
-        <category>Git 原理详解及实用指南</category>
-      </categories>
-      <tags>
-        <tag>Go</tag>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tutorial-05进阶 1：HEAD、master 与 branch</title>
     <url>/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-05%E8%BF%9B%E9%98%B6%201%EF%BC%9AHEAD%E3%80%81master%20%E4%B8%8E%20branch/</url>
     <content><![CDATA[<h1 id="进阶-1headmaster-与-branch">进阶 1：HEAD、master 与 branch</h1>
@@ -1467,141 +1357,6 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
-    <title>Tutorial-08进阶 4：Feature Branching：最流行的工作流</title>
-    <url>/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-08%E8%BF%9B%E9%98%B6%204%EF%BC%9AFeature%20Branching%EF%BC%9A%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/</url>
-    <content><![CDATA[<h1 id="进阶-4feature-branching最流行的工作流">进阶 4：Feature Branching：最流行的工作流</h1>
-<p>在前面的《上手 2》这一节里，我介绍了一种最基本的团队工作模型。在这种模型里，所有人都工作在 <code>master</code> 上，写完了的 <code>commit</code> 可以通过 <code>push</code> 来发送到中央仓库，并且可以使用 <code>pull</code> 来获取到别人的最新 <code>commit</code>s。</p>
-<p>这种工作模型解决了团队合作最基本的问题：多人并行开发和版本管理。事实上，这也是早期的 VCS——中央式 VCS 的工作模型。</p>
-<p>但这种工作模型也有它的限制：使用这种工作模型时，每个人的代码在被大家看到的时候，就是它进入正式的生产库的时候。所有人的工作都会被直接 <code>push</code> 到 <code>master</code>，这导致每个人的代码在正式启用前无法被别人看到（严格来讲是有办法的，别人可以直接从你的电脑上 <code>pull</code> ，Git 的「分布式」不是说说的。但——这种做法超级不方便），这样就让代码在正式启用前的讨论和 review（审阅）非常不方便。现在的商业团队，开发项目多是采用「边开发边发布、边开发边更新、边开发边修复」的持续开发策略，所以代码分享的不便会极大地影响团队的开发效率。</p>
-<p>这一节，我将介绍的是目前最流行（不论是中国还是世界）的团队开发的工作流：Feature Branching。</p>
-<h2 id="简介">简介</h2>
-<p>这种工作流的核心内容可以总结为两点：</p>
-<ol type="1">
-<li>任何新的功能（feature）或 bug 修复全都新建一个 <code>branch</code> 来写；</li>
-<li><code>branch</code> 写完后，合并到 <code>master</code>，然后删掉这个 <code>branch</code>。</li>
-</ol>
-<figure>
-<img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbfe362c4?w=600&amp;h=476&amp;f=gif&amp;s=627308" alt="Feature Branching" /><figcaption aria-hidden="true">Feature Branching</figcaption>
-</figure>
-<p>Feature Branching</p>
-<p>这就是这种工作流最基本的模型。</p>
-<p>从上面的动图来看，这种工作流似乎没什么特别之处。但实质上，Feature Branching 这种工作流，为团队开发时两个关键的问题——代码分享和一人多任务——提供了解决方案。</p>
-<h2 id="代码分享">1. 代码分享</h2>
-<p>假设你在一个叫做「掘金」的团队工作，现在你要开发一个叫做「掘金小册」的功能（呵呵），于是你创建了一个新的 <code>branch</code> 叫做 <code>books</code>，然后开始在 <code>books</code> 上进行开发工作。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout -b books</span><br></pre></td></tr></table></figure>
-<p>在十几个 <code>commit</code>s 过后，「掘金小册」的基本功能开发完毕，你就把代码 <code>push</code> 到中央仓库（例如 GitHub）去，然后告诉同事：「嘿，小册的基本功能写完了，分支名是 <code>books</code>，谁有空的话帮我 review 一下吧。」</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin books</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://user-gold-cdn.xitu.io/2017/11/29/16007bb30da619c5?w=590&amp;h=854&amp;f=gif&amp;s=143898" alt="把 books push 到中央仓库" /><figcaption aria-hidden="true">把 books push 到中央仓库</figcaption>
-</figure>
-<p>把 books push 到中央仓库</p>
-<p>然后你的同事明明正好有空，他就从中央仓库拉下来了你的代码开始读：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 明明的电脑：</span><br><span class="line">git pull</span><br><span class="line">git chekcout books</span><br></pre></td></tr></table></figure>
-<p>读完以后，明明对你说说，嗯我看完了，我觉得不错，可以合并到 <code>master</code>！</p>
-<p>于是你就把 <code>books</code> 合并到了 <code>master</code> 上去：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git pull # merge 之前 pull 一下，让 master 更新到和远程仓库同步</span><br><span class="line">git merge books</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://user-gold-cdn.xitu.io/2017/11/29/160087ca5a7d901a?w=484&amp;h=672&amp;f=gif&amp;s=579053" alt="把 books 合并到 master" /><figcaption aria-hidden="true">把 books 合并到 master</figcaption>
-</figure>
-<p>把 books 合并到 master</p>
-<p>紧接着，你把合并后的结果 <code>push</code> 到了中央仓库，并删掉了 <code>books</code> 这个 <code>branch</code>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push</span><br><span class="line">git branch -d books</span><br><span class="line">git push origin -d books # 用 -d 参数把远程仓库的 branch 也删了</span><br></pre></td></tr></table></figure>
-<figure>
-<img src="https://user-gold-cdn.xitu.io/2017/11/29/1600877abc63a4d9?w=482&amp;h=594&amp;f=gif&amp;s=492135" alt="把 master push 上去，并删除本地和远程的 books" /><figcaption aria-hidden="true">把 master push 上去，并删除本地和远程的 books</figcaption>
-</figure>
-<p>把 master push 上去，并删除本地和远程的 books</p>
-<h3 id="如果同事有意见">如果同事有意见</h3>
-<p>上面讲的是明明对你的代码没有意见，而假如他在你的代码里看到了问题，例如他跑来对你说：「嘿，你的代码缩进为什么用的是 TAB？快改成空格，不然砍死你哦。」</p>
-<p>这时，你就可以把你的缩进改成空格，然后做一个新的提交，再 <code>push</code> 上去，然后通知他：「我改完啦！」</p>
-<p>明明 <code>pull</code> 下来你的新提交看了看：「嗯，这下可以合并了。」</p>
-<p>于是你依照上面的那一套操作，把代码合并进 <code>master</code>，并 <code>push</code> 了上去，然后删掉了 <code>books</code>。</p>
-<p>瞧，代码在同事竖大拇指之前都不会正式发布到 <code>master</code>，挺方便的吧？</p>
-<h3 id="pull-request">Pull Request</h3>
-<p>事实上，上面讲的这个流程，还可以利用 Pull Request 来进一步简化。</p>
-<p>Pull Request 并不是 Git 的内容，而是一些 Git 仓库服务提供方（例如 GitHub）所提供的一种便捷功能，它可以让团队的成员方便地讨论一个 <code>branch</code> ，并在讨论结束后一键合并这个 <code>branch</code> 到 <code>master</code>。</p>
-<p>同样是把写好的 <code>branch</code> 给同事看，使用 Pull Request 的话你可以这样做：</p>
-<ol type="1">
-<li><p>把 <code>branch</code> <code>push</code> 到中央仓库；</p></li>
-<li><p>在中央仓库处创建一个 Pull Request。以 GitHub 为例：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbe5190a4?w=1000&amp;h=465&amp;f=jpeg&amp;s=135485" /></p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbeda949d?w=882&amp;h=669&amp;f=jpeg&amp;s=158636" /></p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edc112a514?w=796&amp;h=616&amp;f=jpeg&amp;s=145692" /></p>
-<p>然后你的同事就可以在 GitHub 上看到你创建的 Pull Request 了。他们可以在 GitHub 的这个页面查看你的 <code>commit</code>s，也可以给你评论表示赞同或提意见，你接下来也可以根据他们的意见把新的 <code>commit</code>s <code>push</code> 上来，这也页面会随着你新的 <code>push</code> 而展示出最新的 <code>commits</code>。</p>
-<p>在讨论结束以后，你们一致认为这个 <code>branch</code> 可以合并了，你只需要点一下页面中那个绿色的 "Merge pull request" 按钮，GitHub 就会自动地在中央仓库帮你把 <code>branch</code> 合并到 <code>master</code> 了：</p>
-<figure>
-<img src="https://user-gold-cdn.xitu.io/2017/11/30/1600884104e5bb94?w=458&amp;h=594&amp;f=gif&amp;s=129309" alt="&quot;Merge pull request&quot; 按钮自动在中央仓库 merge" /><figcaption aria-hidden="true">"Merge pull request" 按钮自动在中央仓库 merge</figcaption>
-</figure>
-<p>"Merge pull request" 按钮自动在中央仓库 merge</p>
-<p>然后你只要在本地 <code>pull</code> 一下，把最新的内容拉到你的电脑上，这件事情就算完成了。</p>
-<p>另外，GitHub 还设计了一个贴心的 "Delete branch" 按钮，方便你在合并之后一键删除 <code>branch</code>。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbfbe3b64?w=793&amp;h=132&amp;f=jpeg&amp;s=22712" /></p></li>
-</ol>
-<h2 id="一人多任务">2. 一人多任务</h2>
-<p>除了代码分享的便捷，基于 Feature Branch 的工作流对于一人多任务的工作需求也提供了很好的支持。</p>
-<p>安安心心做事不被打扰，做完一件再做下一件自然是很美好的事，但现实往往不能这样。对于程序员来说，一种很常见的情况是，你正在认真写着代码，忽然同事过来跟你说：「内个……你这个功能先放一放吧，我们最新讨论出要做另一个更重要的功能，你来做一下吧。」</p>
-<p>其实，虽然这种情况确实有点烦，但如果你是在独立的 <code>branch</code> 上做事，切换任务是很简单的。你只要稍微把目前未提交的代码简单收尾一下，然后做一个带有「未完成」标记的提交（例如，在提交信息里标上「TODO」），然后回到 <code>master</code> 去创建一个新的 <code>branch</code> 就好了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git checkout -b new_feature</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>上面这两行代码有更简单的操作方式，不过为了小册内容的简洁性，我就不引入更多的内容了，有兴趣的话可以自己搜索一下。</p>
-</blockquote>
-<p>如果有一天需要回来继续做这个 <code>branch</code>，你只要用 <code>checkout</code> 切回来，就可以继续了。</p>
-<h2 id="小结">小结</h2>
-<p>这一节介绍了 Feature Branching 这种工作流。它的概念很简单：</p>
-<ol type="1">
-<li>每个新功能都新建一个 <code>branch</code> 来写；</li>
-<li>写完以后，把代码分享给同事看；写的过程中，也可以分享给同事讨论。另外，借助 GitHub 等服务提供方的 Pull Request 功能，可以让代码分享变得更加方便；</li>
-<li>分支确定可以合并后，把分支合并到 <code>master</code> ，并删除分支。</li>
-</ol>
-<p>这种工作流由于功能强大，而且概念和使用方式都很简单，所以很受欢迎。再加上 GitHub 等平台提供了 Pull Request 的支持，目前这种工作流是商业项目开发中最为流行的工作流。</p>
-]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>Git</category>
-        <category>Git 原理详解及实用指南</category>
-      </categories>
-      <tags>
-        <tag>AS</tag>
-        <tag>Bug</tag>
-        <tag>效率</tag>
-        <tag>Go</tag>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tutorial-09进阶 5：关于 add</title>
-    <url>/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-09%E8%BF%9B%E9%98%B6%205%EF%BC%9A%E5%85%B3%E4%BA%8E%20add/</url>
-    <content><![CDATA[<h1 id="进阶-5关于-add">进阶 5：关于 add</h1>
-<p>前面说过了可以通过 <code>add</code> 来把改动的内容放进暂存区。这一节关于 <code>add</code> 再多说两点。都是基础的东西，但对新学 Git 的人可能有些用处。</p>
-<h2 id="add-后面加个点-.全部暂存">1. add 后面加个点 "."：全部暂存</h2>
-<p><code>add</code> 指令除了 <code>git add 文件名</code> 这种用法外，还可以使用 <code>add .</code> 来直接把工作目录下的所有改动全部放进暂存区：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe36e3ee159b2e?w=623&amp;h=341&amp;f=jpeg&amp;s=82623" /></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git status</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe36e3ed623762?w=383&amp;h=183&amp;f=jpeg&amp;s=46814" /></p>
-<p>这个用法没什么特别的好处，但就一个字：方便（咦？）。你在用的时候会更加深刻地体会到。</p>
-<h2 id="add-添加的是文件改动而不是文件名">2. add 添加的是文件改动，而不是文件名</h2>
-<p>假如你修改了文件 <code>a.txt</code>，然后把它 <code>add</code> 进了暂存区：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add a.txt</span><br><span class="line">git status</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe36e3ee50d1a6?w=386&amp;h=149&amp;f=jpeg&amp;s=40273" /></p>
-<p>然后你又往 <code>a.txt</code> 里写了几行东西。这时候你再 <code>status</code> 一下的话：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe36e3ed9f9877?w=618&amp;h=221&amp;f=jpeg&amp;s=56939" /></p>
-<p>你会发现你的 <code>a.txt</code> 既在 "Changes to be commited" 的暂存区，又在 "Changes not staged for commit"。不用觉得奇怪，这是因为通过 <code>add</code> 添加进暂存区的不是文件名，而是具体的文件改动内容。你在 <code>add</code> 时的改动都被添加进了暂存区，但在 <code>add</code> 之后的新改动并不会自动被添加进暂存区。在这时如果你提交：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>那么你那些新的改动是不会被提交的。</p>
-<p>这种逻辑也许会让新学 Git 的人有点困惑和感到麻烦，但当你使用 Git 一段时间后，你会发现这种设计很巧妙，而且不但不麻烦，还很方便。具体的原因我就不长篇大论地说了，你以后慢慢体会吧。</p>
-]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>Git</category>
-        <category>Git 原理详解及实用指南</category>
-      </categories>
-      <tags>
-        <tag>Go</tag>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tutorial-10进阶 6：看看我都改了什么</title>
     <url>/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-10%E8%BF%9B%E9%98%B6%206%EF%BC%9A%E7%9C%8B%E7%9C%8B%E6%88%91%E9%83%BD%E6%94%B9%E4%BA%86%E4%BB%80%E4%B9%88/</url>
     <content><![CDATA[<h1 id="进阶-6看看我都改了什么">进阶 6：看看我都改了什么</h1>
@@ -1664,6 +1419,40 @@ z_r\in[n,f]
 <li>查看工作目录和上一条 <code>commit</code> 的区别：<code>git diff HEAD</code></li>
 </ol></li>
 </ol>
+]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>Git</category>
+        <category>Git 原理详解及实用指南</category>
+      </categories>
+      <tags>
+        <tag>Go</tag>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tutorial-09进阶 5：关于 add</title>
+    <url>/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-09%E8%BF%9B%E9%98%B6%205%EF%BC%9A%E5%85%B3%E4%BA%8E%20add/</url>
+    <content><![CDATA[<h1 id="进阶-5关于-add">进阶 5：关于 add</h1>
+<p>前面说过了可以通过 <code>add</code> 来把改动的内容放进暂存区。这一节关于 <code>add</code> 再多说两点。都是基础的东西，但对新学 Git 的人可能有些用处。</p>
+<h2 id="add-后面加个点-.全部暂存">1. add 后面加个点 "."：全部暂存</h2>
+<p><code>add</code> 指令除了 <code>git add 文件名</code> 这种用法外，还可以使用 <code>add .</code> 来直接把工作目录下的所有改动全部放进暂存区：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe36e3ee159b2e?w=623&amp;h=341&amp;f=jpeg&amp;s=82623" /></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git status</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe36e3ed623762?w=383&amp;h=183&amp;f=jpeg&amp;s=46814" /></p>
+<p>这个用法没什么特别的好处，但就一个字：方便（咦？）。你在用的时候会更加深刻地体会到。</p>
+<h2 id="add-添加的是文件改动而不是文件名">2. add 添加的是文件改动，而不是文件名</h2>
+<p>假如你修改了文件 <code>a.txt</code>，然后把它 <code>add</code> 进了暂存区：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add a.txt</span><br><span class="line">git status</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe36e3ee50d1a6?w=386&amp;h=149&amp;f=jpeg&amp;s=40273" /></p>
+<p>然后你又往 <code>a.txt</code> 里写了几行东西。这时候你再 <code>status</code> 一下的话：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe36e3ed9f9877?w=618&amp;h=221&amp;f=jpeg&amp;s=56939" /></p>
+<p>你会发现你的 <code>a.txt</code> 既在 "Changes to be commited" 的暂存区，又在 "Changes not staged for commit"。不用觉得奇怪，这是因为通过 <code>add</code> 添加进暂存区的不是文件名，而是具体的文件改动内容。你在 <code>add</code> 时的改动都被添加进了暂存区，但在 <code>add</code> 之后的新改动并不会自动被添加进暂存区。在这时如果你提交：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>那么你那些新的改动是不会被提交的。</p>
+<p>这种逻辑也许会让新学 Git 的人有点困惑和感到麻烦，但当你使用 Git 一段时间后，你会发现这种设计很巧妙，而且不但不麻烦，还很方便。具体的原因我就不长篇大论地说了，你以后慢慢体会吧。</p>
 ]]></content>
       <categories>
         <category>9.Tools</category>
@@ -1819,38 +1608,6 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
-    <title>Tutorial-14高级 4：比错还错，想直接丢弃刚写的提交？</title>
-    <url>/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-14%E9%AB%98%E7%BA%A7%204%EF%BC%9A%E6%AF%94%E9%94%99%E8%BF%98%E9%94%99%EF%BC%8C%E6%83%B3%E7%9B%B4%E6%8E%A5%E4%B8%A2%E5%BC%83%E5%88%9A%E5%86%99%E7%9A%84%E6%8F%90%E4%BA%A4%EF%BC%9F/</url>
-    <content><![CDATA[<h1 id="高级-4比错还错想直接丢弃刚写的提交">高级 4：比错还错，想直接丢弃刚写的提交？</h1>
-<p>有的时候，刚写完的 <code>commit</code> 写得实在太烂，连自己的都看不下去，与其修改它还不如丢掉重写。这种情况，就可以用 <code>reset</code> 来丢弃最新的提交。</p>
-<h2 id="reset---hard-丢弃最新的提交">reset --hard 丢弃最新的提交</h2>
-<p>比如你刚写了一个 <code>commit</code>：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe19c8a6101d7f?w=484&amp;h=270&amp;f=gif&amp;s=136318" /></p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe19c8a2f08fa1?w=624&amp;h=289&amp;f=jpeg&amp;s=103942" /></p>
-<p>写完回头看了看，你觉得「不行这得重新写」。那么你可以用 <code>reset --hard</code> 来撤销这条 <code>commit</code>。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>HEAD 表示 HEAD^ 往回数一个位置的 <code>commit</code> ，上节刚说过，记得吧？</p>
-</blockquote>
-<p><code>HEAD^</code> 表示你要恢复到哪个 <code>commit</code>。因为你要撤销最新的一个 <code>commit</code>，所以你需要恢复到它的父 <code>commit</code> ，也就是 <code>HEAD^</code>。那么在这行之后，你的最新一条就被撤销了：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe19c8a3235853?w=466&amp;h=262&amp;f=gif&amp;s=120940" /></p>
-<p>不过，就像图上显示的，你被撤销的那条提交并没有消失，只是你不再用到它了。如果你在撤销它之前记下了它的 <code>SHA-1</code> 码，那么你还可以通过 <code>SHA-1</code> 来找到他它。</p>
-<h2 id="小结">小结</h2>
-<p>这一节的内容是撤销最新的提交，方式是通过 <code>reset --hard</code>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git reset --hard 目标commit</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>Git</category>
-        <category>Git 原理详解及实用指南</category>
-      </categories>
-      <tags>
-        <tag>AR</tag>
-        <tag>Go</tag>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tutorial-15高级 5：想丢弃的也不是最新的提交？</title>
     <url>/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-15%E9%AB%98%E7%BA%A7%205%EF%BC%9A%E6%83%B3%E4%B8%A2%E5%BC%83%E7%9A%84%E4%B9%9F%E4%B8%8D%E6%98%AF%E6%9C%80%E6%96%B0%E7%9A%84%E6%8F%90%E4%BA%A4%EF%BC%9F/</url>
     <content><![CDATA[<h1 id="高级-5想丢弃的也不是最新的提交">高级 5：想丢弃的也不是最新的提交？</h1>
@@ -1908,6 +1665,139 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
+    <title>Tutorial-08进阶 4：Feature Branching：最流行的工作流</title>
+    <url>/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-08%E8%BF%9B%E9%98%B6%204%EF%BC%9AFeature%20Branching%EF%BC%9A%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/</url>
+    <content><![CDATA[<h1 id="进阶-4feature-branching最流行的工作流">进阶 4：Feature Branching：最流行的工作流</h1>
+<p>在前面的《上手 2》这一节里，我介绍了一种最基本的团队工作模型。在这种模型里，所有人都工作在 <code>master</code> 上，写完了的 <code>commit</code> 可以通过 <code>push</code> 来发送到中央仓库，并且可以使用 <code>pull</code> 来获取到别人的最新 <code>commit</code>s。</p>
+<p>这种工作模型解决了团队合作最基本的问题：多人并行开发和版本管理。事实上，这也是早期的 VCS——中央式 VCS 的工作模型。</p>
+<p>但这种工作模型也有它的限制：使用这种工作模型时，每个人的代码在被大家看到的时候，就是它进入正式的生产库的时候。所有人的工作都会被直接 <code>push</code> 到 <code>master</code>，这导致每个人的代码在正式启用前无法被别人看到（严格来讲是有办法的，别人可以直接从你的电脑上 <code>pull</code> ，Git 的「分布式」不是说说的。但——这种做法超级不方便），这样就让代码在正式启用前的讨论和 review（审阅）非常不方便。现在的商业团队，开发项目多是采用「边开发边发布、边开发边更新、边开发边修复」的持续开发策略，所以代码分享的不便会极大地影响团队的开发效率。</p>
+<p>这一节，我将介绍的是目前最流行（不论是中国还是世界）的团队开发的工作流：Feature Branching。</p>
+<h2 id="简介">简介</h2>
+<p>这种工作流的核心内容可以总结为两点：</p>
+<ol type="1">
+<li>任何新的功能（feature）或 bug 修复全都新建一个 <code>branch</code> 来写；</li>
+<li><code>branch</code> 写完后，合并到 <code>master</code>，然后删掉这个 <code>branch</code>。</li>
+</ol>
+<figure>
+<img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbfe362c4?w=600&amp;h=476&amp;f=gif&amp;s=627308" alt="Feature Branching" /><figcaption aria-hidden="true">Feature Branching</figcaption>
+</figure>
+<p>Feature Branching</p>
+<p>这就是这种工作流最基本的模型。</p>
+<p>从上面的动图来看，这种工作流似乎没什么特别之处。但实质上，Feature Branching 这种工作流，为团队开发时两个关键的问题——代码分享和一人多任务——提供了解决方案。</p>
+<h2 id="代码分享">1. 代码分享</h2>
+<p>假设你在一个叫做「掘金」的团队工作，现在你要开发一个叫做「掘金小册」的功能（呵呵），于是你创建了一个新的 <code>branch</code> 叫做 <code>books</code>，然后开始在 <code>books</code> 上进行开发工作。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout -b books</span><br></pre></td></tr></table></figure>
+<p>在十几个 <code>commit</code>s 过后，「掘金小册」的基本功能开发完毕，你就把代码 <code>push</code> 到中央仓库（例如 GitHub）去，然后告诉同事：「嘿，小册的基本功能写完了，分支名是 <code>books</code>，谁有空的话帮我 review 一下吧。」</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin books</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://user-gold-cdn.xitu.io/2017/11/29/16007bb30da619c5?w=590&amp;h=854&amp;f=gif&amp;s=143898" alt="把 books push 到中央仓库" /><figcaption aria-hidden="true">把 books push 到中央仓库</figcaption>
+</figure>
+<p>把 books push 到中央仓库</p>
+<p>然后你的同事明明正好有空，他就从中央仓库拉下来了你的代码开始读：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 明明的电脑：</span><br><span class="line">git pull</span><br><span class="line">git chekcout books</span><br></pre></td></tr></table></figure>
+<p>读完以后，明明对你说说，嗯我看完了，我觉得不错，可以合并到 <code>master</code>！</p>
+<p>于是你就把 <code>books</code> 合并到了 <code>master</code> 上去：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git pull # merge 之前 pull 一下，让 master 更新到和远程仓库同步</span><br><span class="line">git merge books</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://user-gold-cdn.xitu.io/2017/11/29/160087ca5a7d901a?w=484&amp;h=672&amp;f=gif&amp;s=579053" alt="把 books 合并到 master" /><figcaption aria-hidden="true">把 books 合并到 master</figcaption>
+</figure>
+<p>把 books 合并到 master</p>
+<p>紧接着，你把合并后的结果 <code>push</code> 到了中央仓库，并删掉了 <code>books</code> 这个 <code>branch</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push</span><br><span class="line">git branch -d books</span><br><span class="line">git push origin -d books # 用 -d 参数把远程仓库的 branch 也删了</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://user-gold-cdn.xitu.io/2017/11/29/1600877abc63a4d9?w=482&amp;h=594&amp;f=gif&amp;s=492135" alt="把 master push 上去，并删除本地和远程的 books" /><figcaption aria-hidden="true">把 master push 上去，并删除本地和远程的 books</figcaption>
+</figure>
+<p>把 master push 上去，并删除本地和远程的 books</p>
+<h3 id="如果同事有意见">如果同事有意见</h3>
+<p>上面讲的是明明对你的代码没有意见，而假如他在你的代码里看到了问题，例如他跑来对你说：「嘿，你的代码缩进为什么用的是 TAB？快改成空格，不然砍死你哦。」</p>
+<p>这时，你就可以把你的缩进改成空格，然后做一个新的提交，再 <code>push</code> 上去，然后通知他：「我改完啦！」</p>
+<p>明明 <code>pull</code> 下来你的新提交看了看：「嗯，这下可以合并了。」</p>
+<p>于是你依照上面的那一套操作，把代码合并进 <code>master</code>，并 <code>push</code> 了上去，然后删掉了 <code>books</code>。</p>
+<p>瞧，代码在同事竖大拇指之前都不会正式发布到 <code>master</code>，挺方便的吧？</p>
+<h3 id="pull-request">Pull Request</h3>
+<p>事实上，上面讲的这个流程，还可以利用 Pull Request 来进一步简化。</p>
+<p>Pull Request 并不是 Git 的内容，而是一些 Git 仓库服务提供方（例如 GitHub）所提供的一种便捷功能，它可以让团队的成员方便地讨论一个 <code>branch</code> ，并在讨论结束后一键合并这个 <code>branch</code> 到 <code>master</code>。</p>
+<p>同样是把写好的 <code>branch</code> 给同事看，使用 Pull Request 的话你可以这样做：</p>
+<ol type="1">
+<li><p>把 <code>branch</code> <code>push</code> 到中央仓库；</p></li>
+<li><p>在中央仓库处创建一个 Pull Request。以 GitHub 为例：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbe5190a4?w=1000&amp;h=465&amp;f=jpeg&amp;s=135485" /></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbeda949d?w=882&amp;h=669&amp;f=jpeg&amp;s=158636" /></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edc112a514?w=796&amp;h=616&amp;f=jpeg&amp;s=145692" /></p>
+<p>然后你的同事就可以在 GitHub 上看到你创建的 Pull Request 了。他们可以在 GitHub 的这个页面查看你的 <code>commit</code>s，也可以给你评论表示赞同或提意见，你接下来也可以根据他们的意见把新的 <code>commit</code>s <code>push</code> 上来，这也页面会随着你新的 <code>push</code> 而展示出最新的 <code>commits</code>。</p>
+<p>在讨论结束以后，你们一致认为这个 <code>branch</code> 可以合并了，你只需要点一下页面中那个绿色的 "Merge pull request" 按钮，GitHub 就会自动地在中央仓库帮你把 <code>branch</code> 合并到 <code>master</code> 了：</p>
+<figure>
+<img src="https://user-gold-cdn.xitu.io/2017/11/30/1600884104e5bb94?w=458&amp;h=594&amp;f=gif&amp;s=129309" alt="&quot;Merge pull request&quot; 按钮自动在中央仓库 merge" /><figcaption aria-hidden="true">"Merge pull request" 按钮自动在中央仓库 merge</figcaption>
+</figure>
+<p>"Merge pull request" 按钮自动在中央仓库 merge</p>
+<p>然后你只要在本地 <code>pull</code> 一下，把最新的内容拉到你的电脑上，这件事情就算完成了。</p>
+<p>另外，GitHub 还设计了一个贴心的 "Delete branch" 按钮，方便你在合并之后一键删除 <code>branch</code>。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/21/15fde6edbfbe3b64?w=793&amp;h=132&amp;f=jpeg&amp;s=22712" /></p></li>
+</ol>
+<h2 id="一人多任务">2. 一人多任务</h2>
+<p>除了代码分享的便捷，基于 Feature Branch 的工作流对于一人多任务的工作需求也提供了很好的支持。</p>
+<p>安安心心做事不被打扰，做完一件再做下一件自然是很美好的事，但现实往往不能这样。对于程序员来说，一种很常见的情况是，你正在认真写着代码，忽然同事过来跟你说：「内个……你这个功能先放一放吧，我们最新讨论出要做另一个更重要的功能，你来做一下吧。」</p>
+<p>其实，虽然这种情况确实有点烦，但如果你是在独立的 <code>branch</code> 上做事，切换任务是很简单的。你只要稍微把目前未提交的代码简单收尾一下，然后做一个带有「未完成」标记的提交（例如，在提交信息里标上「TODO」），然后回到 <code>master</code> 去创建一个新的 <code>branch</code> 就好了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git checkout -b new_feature</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上面这两行代码有更简单的操作方式，不过为了小册内容的简洁性，我就不引入更多的内容了，有兴趣的话可以自己搜索一下。</p>
+</blockquote>
+<p>如果有一天需要回来继续做这个 <code>branch</code>，你只要用 <code>checkout</code> 切回来，就可以继续了。</p>
+<h2 id="小结">小结</h2>
+<p>这一节介绍了 Feature Branching 这种工作流。它的概念很简单：</p>
+<ol type="1">
+<li>每个新功能都新建一个 <code>branch</code> 来写；</li>
+<li>写完以后，把代码分享给同事看；写的过程中，也可以分享给同事讨论。另外，借助 GitHub 等服务提供方的 Pull Request 功能，可以让代码分享变得更加方便；</li>
+<li>分支确定可以合并后，把分支合并到 <code>master</code> ，并删除分支。</li>
+</ol>
+<p>这种工作流由于功能强大，而且概念和使用方式都很简单，所以很受欢迎。再加上 GitHub 等平台提供了 Pull Request 的支持，目前这种工作流是商业项目开发中最为流行的工作流。</p>
+]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>Git</category>
+        <category>Git 原理详解及实用指南</category>
+      </categories>
+      <tags>
+        <tag>AS</tag>
+        <tag>Bug</tag>
+        <tag>效率</tag>
+        <tag>Go</tag>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tutorial-14高级 4：比错还错，想直接丢弃刚写的提交？</title>
+    <url>/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-14%E9%AB%98%E7%BA%A7%204%EF%BC%9A%E6%AF%94%E9%94%99%E8%BF%98%E9%94%99%EF%BC%8C%E6%83%B3%E7%9B%B4%E6%8E%A5%E4%B8%A2%E5%BC%83%E5%88%9A%E5%86%99%E7%9A%84%E6%8F%90%E4%BA%A4%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="高级-4比错还错想直接丢弃刚写的提交">高级 4：比错还错，想直接丢弃刚写的提交？</h1>
+<p>有的时候，刚写完的 <code>commit</code> 写得实在太烂，连自己的都看不下去，与其修改它还不如丢掉重写。这种情况，就可以用 <code>reset</code> 来丢弃最新的提交。</p>
+<h2 id="reset---hard-丢弃最新的提交">reset --hard 丢弃最新的提交</h2>
+<p>比如你刚写了一个 <code>commit</code>：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe19c8a6101d7f?w=484&amp;h=270&amp;f=gif&amp;s=136318" /></p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe19c8a2f08fa1?w=624&amp;h=289&amp;f=jpeg&amp;s=103942" /></p>
+<p>写完回头看了看，你觉得「不行这得重新写」。那么你可以用 <code>reset --hard</code> 来撤销这条 <code>commit</code>。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git reset --hard HEAD^</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>HEAD 表示 HEAD^ 往回数一个位置的 <code>commit</code> ，上节刚说过，记得吧？</p>
+</blockquote>
+<p><code>HEAD^</code> 表示你要恢复到哪个 <code>commit</code>。因为你要撤销最新的一个 <code>commit</code>，所以你需要恢复到它的父 <code>commit</code> ，也就是 <code>HEAD^</code>。那么在这行之后，你的最新一条就被撤销了：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe19c8a3235853?w=466&amp;h=262&amp;f=gif&amp;s=120940" /></p>
+<p>不过，就像图上显示的，你被撤销的那条提交并没有消失，只是你不再用到它了。如果你在撤销它之前记下了它的 <code>SHA-1</code> 码，那么你还可以通过 <code>SHA-1</code> 来找到他它。</p>
+<h2 id="小结">小结</h2>
+<p>这一节的内容是撤销最新的提交，方式是通过 <code>reset --hard</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git reset --hard 目标commit</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>Git</category>
+        <category>Git 原理详解及实用指南</category>
+      </categories>
+      <tags>
+        <tag>AR</tag>
+        <tag>Go</tag>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tutorial-16高级 6：代码已经 push 上去了才发现写错？</title>
     <url>/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-16%E9%AB%98%E7%BA%A7%206%EF%BC%9A%E4%BB%A3%E7%A0%81%E5%B7%B2%E7%BB%8F%20push%20%E4%B8%8A%E5%8E%BB%E4%BA%86%E6%89%8D%E5%8F%91%E7%8E%B0%E5%86%99%E9%94%99%EF%BC%9F/</url>
     <content><![CDATA[<h1 id="高级-6代码已经-push-上去了才发现写错">高级 6：代码已经 push 上去了才发现写错？</h1>
@@ -1933,6 +1823,49 @@ z_r\in[n,f]
 <li>如果出错内容在私有 <code>branch</code>：在本地把内容修正后，强制 <code>push</code> (<code>push -f</code>）一次就可以解决；</li>
 <li>如果出错内容在 <code>master</code>：不要强制 <code>push</code>，而要用 <code>revert</code> 把写错的 <code>commit</code> 撤销。</li>
 </ol>
+]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>Git</category>
+        <category>Git 原理详解及实用指南</category>
+      </categories>
+      <tags>
+        <tag>AS</tag>
+        <tag>Go</tag>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tutorial-18高级 8：checkout 的本质</title>
+    <url>/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-18%E9%AB%98%E7%BA%A7%208%EF%BC%9Acheckout%20%E7%9A%84%E6%9C%AC%E8%B4%A8/</url>
+    <content><![CDATA[<h1 id="高级-8checkout-的本质">高级 8：checkout 的本质</h1>
+<p>在前面的 <code>branch</code> 的部分，我说到 <code>checkout</code> 可以用来切换 <code>branch</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout branch2</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://user-gold-cdn.xitu.io/2017/11/30/160089d53b4f65a5?w=458&amp;h=572&amp;f=gif&amp;s=103354" alt="checkout" /><figcaption aria-hidden="true">checkout</figcaption>
+</figure>
+<p>checkout</p>
+<p>不过实质上，<code>checkout</code> 并不止可以切换 <code>branch</code>。<code>checkout</code> 本质上的功能其实是：签出（ checkout ）指定的 <code>commit</code>。</p>
+<p><code>git checkout branch名</code> 的本质，其实是把 <code>HEAD</code> 指向指定的 <code>branch</code>，然后签出这个 <code>branch</code> 所对应的 <code>commit</code> 的工作目录。所以同样的，<code>checkout</code> 的目标也可以不是 <code>branch</code>，而直接指定某个 <code>commit</code>：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout HEAD^^</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout master~5</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout 78a4bc</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout 78a4bc^</span><br></pre></td></tr></table></figure>
+<p>这些都是可以的。</p>
+<p>另外，如果你留心的话可能会发现，在 <code>git status</code> 的提示语中，Git 会告诉你可以用 <code>checkout -- 文件名</code> 的格式，通过「签出」的方式来撤销指定文件的修改：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe34cc387ba541?w=616&amp;h=160&amp;f=jpeg&amp;s=58078" /></p>
+<h2 id="小结">小结</h2>
+<p>这节的内容是对 <code>checkout</code> 的本质进行简述：</p>
+<p><code>checkout</code> 的本质是签出指定的 <code>commit</code>，所以你不止可以切换 <code>branch</code>，也可以直接指定 <code>commit</code> 作为参数，来把 <code>HEAD</code> 移动到指定的 <code>commit</code>。</p>
+<h2 id="checkout-和-reset-的不同">checkout 和 reset 的不同</h2>
+<p><code>checkout</code> 和 <code>reset</code> 都可以切换 <code>HEAD</code> 的位置，它们除了有许多细节的差异外，最大的区别在于：<code>reset</code> 在移动 <code>HEAD</code> 时会带着它所指向的 <code>branch</code> 一起移动，而 <code>checkout</code> 不会。当你用 <code>checkout</code> 指向其他地方的时候，<code>HEAD</code> 和 它所指向的 <code>branch</code> 就自动脱离了。</p>
+<p>事实上，<code>checkout</code> 有一个专门用来只让 <code>HEAD</code> 和 <code>branch</code> 脱离而不移动 <code>HEAD</code> 的用法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout --detach</span><br></pre></td></tr></table></figure>
+<p>执行这行代码，Git 就会把 <code>HEAD</code> 和 <code>branch</code> 脱离，直接指向当前 <code>commit</code>：</p>
+<figure>
+<img src="https://user-gold-cdn.xitu.io/2017/11/30/1600acce7b90b009?w=590&amp;h=472&amp;f=gif&amp;s=94227" alt="git checkout --detach" /><figcaption aria-hidden="true">git checkout --detach</figcaption>
+</figure>
+<p>git checkout --detach</p>
 ]]></content>
       <categories>
         <category>9.Tools</category>
@@ -2034,36 +1967,106 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
-    <title>Tutorial-18高级 8：checkout 的本质</title>
-    <url>/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-18%E9%AB%98%E7%BA%A7%208%EF%BC%9Acheckout%20%E7%9A%84%E6%9C%AC%E8%B4%A8/</url>
-    <content><![CDATA[<h1 id="高级-8checkout-的本质">高级 8：checkout 的本质</h1>
-<p>在前面的 <code>branch</code> 的部分，我说到 <code>checkout</code> 可以用来切换 <code>branch</code>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout branch2</span><br></pre></td></tr></table></figure>
+    <title>Tutorial-04上手 2：团队工作的基本工作模型</title>
+    <url>/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-04%E4%B8%8A%E6%89%8B%202%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[<h1 id="上手-2团队工作的基本工作模型">上手 2：团队工作的基本工作模型</h1>
+<p>对于 Git 来说，团队合作和个人独立工作最大的不同在于，你会提交代码，别人也会提交；你会 push，别人也会 push，因此除了把代码上传，每个人还需要把别人最新的代码下载到自己的电脑。而且，这些工作都是并行进行的。</p>
+<p>这就很复杂了！</p>
+<p>这节的内容，就是简单阐述一下团队合作中 Git 的基本工作模型。</p>
+<h2 id="把别人的新提交拿到本地">把别人的新提交拿到本地</h2>
+<p>先说一种简单的情况：你的同事刚把他写的几个提交 push 到了中央仓库，你怎么把它们取下来。</p>
+<h3 id="假装同事">假装同事</h3>
+<p>除非你能要求同事陪你练习 Git，否则，你只能一人分饰两角：时不时地模拟一下同事的操作，来达到独自一人做多人项目练习的效果。而为了模拟同事的操作，你需要在你的 <code>/git-practice</code> 目录旁再 clone 一次中央仓库到本地，来当做你的模拟同事的本地仓库：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;rengwuxian&#x2F;git-practice.git git-practice-another</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意！执行这条之前别忘了先 `cd ..` 切换到父目录，不然你会把新的本地仓库创建在原先的本地仓库的工作目录内。</p>
+</blockquote>
+<p>为了目录名称不冲突，这次的 <code>clone</code> 需要加一个额外参数（上面那行代码最后的 <code>git-practice-another</code>）来手动指定本地仓库的根目录名称。在这条指令执行完成后，你就有了两个内容相同的本地仓库：</p>
 <figure>
-<img src="https://user-gold-cdn.xitu.io/2017/11/30/160089d53b4f65a5?w=458&amp;h=572&amp;f=gif&amp;s=103354" alt="checkout" /><figcaption aria-hidden="true">checkout</figcaption>
+<img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd7796267f52f3?w=274&amp;h=153&amp;f=jpeg&amp;s=43143" alt="你的 git-practice 和「同事」的 git-practice-another" /><figcaption aria-hidden="true">你的 git-practice 和「同事」的 git-practice-another</figcaption>
 </figure>
-<p>checkout</p>
-<p>不过实质上，<code>checkout</code> 并不止可以切换 <code>branch</code>。<code>checkout</code> 本质上的功能其实是：签出（ checkout ）指定的 <code>commit</code>。</p>
-<p><code>git checkout branch名</code> 的本质，其实是把 <code>HEAD</code> 指向指定的 <code>branch</code>，然后签出这个 <code>branch</code> 所对应的 <code>commit</code> 的工作目录。所以同样的，<code>checkout</code> 的目标也可以不是 <code>branch</code>，而直接指定某个 <code>commit</code>：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout HEAD^^</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout master~5</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout 78a4bc</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout 78a4bc^</span><br></pre></td></tr></table></figure>
-<p>这些都是可以的。</p>
-<p>另外，如果你留心的话可能会发现，在 <code>git status</code> 的提示语中，Git 会告诉你可以用 <code>checkout -- 文件名</code> 的格式，通过「签出」的方式来撤销指定文件的修改：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2017/11/22/15fe34cc387ba541?w=616&amp;h=160&amp;f=jpeg&amp;s=58078" /></p>
-<h2 id="小结">小结</h2>
-<p>这节的内容是对 <code>checkout</code> 的本质进行简述：</p>
-<p><code>checkout</code> 的本质是签出指定的 <code>commit</code>，所以你不止可以切换 <code>branch</code>，也可以直接指定 <code>commit</code> 作为参数，来把 <code>HEAD</code> 移动到指定的 <code>commit</code>。</p>
-<h2 id="checkout-和-reset-的不同">checkout 和 reset 的不同</h2>
-<p><code>checkout</code> 和 <code>reset</code> 都可以切换 <code>HEAD</code> 的位置，它们除了有许多细节的差异外，最大的区别在于：<code>reset</code> 在移动 <code>HEAD</code> 时会带着它所指向的 <code>branch</code> 一起移动，而 <code>checkout</code> 不会。当你用 <code>checkout</code> 指向其他地方的时候，<code>HEAD</code> 和 它所指向的 <code>branch</code> 就自动脱离了。</p>
-<p>事实上，<code>checkout</code> 有一个专门用来只让 <code>HEAD</code> 和 <code>branch</code> 脱离而不移动 <code>HEAD</code> 的用法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout --detach</span><br></pre></td></tr></table></figure>
-<p>执行这行代码，Git 就会把 <code>HEAD</code> 和 <code>branch</code> 脱离，直接指向当前 <code>commit</code>：</p>
+<p>你的 git-practice 和「同事」的 git-practice-another</p>
+<p>现在，你就可以假装 <code>/git-practice</code> 这个目录是你的电脑上的工作目录，而那个新建的 <code>/git-practice-another</code> 是你同事的电脑上的工作目录。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd779626c48d66?w=421&amp;h=298&amp;f=jpeg&amp;s=59238" /></p>
+<p>如果你对这样的操作有担心，大可不必，这种操作不会有任何问题。因为 Git 的管理是目录级别，而不是设备级别的。也就是说，<code>/git-practice</code> 目录内的 <code>.git</code> 只管理 <code>/git-practice</code> 里的内容，<code>/git-practice-another</code> 目录内的 <code>.git</code> 也只管理 <code>/git-practice-another</code> 里的内容，它们之间互不知晓，也互不影响。</p>
+<h3 id="帮同事提交代码并-push-到中央仓库">帮同事提交代码并 push 到中央仓库</h3>
+<p>要在你的电脑上把同事的代码取下来，首先 GitHub 上要有你同事的新代码，也就是说，你首先要把同事的代码 push 到中央仓库去。所以第一步，切换到同事的目录：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd git-practice-another</span><br></pre></td></tr></table></figure>
+<p>现在，到了同事的工作目录，你的身份就是你的同事了。帮他写点代码吧！嗯……写点什么好呢？</p>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd7796252edbf5?w=299&amp;h=87&amp;f=jpeg&amp;s=14033" /></p>
 <figure>
-<img src="https://user-gold-cdn.xitu.io/2017/11/30/1600acce7b90b009?w=590&amp;h=472&amp;f=gif&amp;s=94227" alt="git checkout --detach" /><figcaption aria-hidden="true">git checkout --detach</figcaption>
+<img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd77962711f7d1?w=312&amp;h=105&amp;f=jpeg&amp;s=7661" alt="嗯，「女装」" /><figcaption aria-hidden="true">嗯，「女装」</figcaption>
 </figure>
-<p>git checkout --detach</p>
+<p>嗯，「女装」</p>
+<p>嗯，看起来不错，帮他提交吧：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add shopping\ list-colleague.txt</span><br><span class="line">git commit</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd7797bd664ef4?w=489&amp;h=170&amp;f=jpeg&amp;s=48053" alt="记得填写提交信息" /><figcaption aria-hidden="true">记得填写提交信息</figcaption>
+</figure>
+<p>记得填写提交信息</p>
+<p>提交完成以后，<code>push</code> 到 GitHub：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://user-gold-cdn.xitu.io/2017/11/23/15fe7f81418af938?w=1010&amp;h=299&amp;f=jpeg&amp;s=68653" alt="GitHub 上已经能看到刚更新的文件" /><figcaption aria-hidden="true">GitHub 上已经能看到刚更新的文件</figcaption>
+</figure>
+<p>GitHub 上已经能看到刚更新的文件</p>
+<h2 id="把同事-push-的新代码取下来">把同事 push 的新代码取下来</h2>
+<p>GitHub 上有了同事的新代码以后，你就可以变回自己，把「他」刚 push 上去的代码取到你的仓库了。首先，切回 <code>/git-practice</code> 目录：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ..&#x2F;git-practice</span><br></pre></td></tr></table></figure>
+<p>然后，把同事的代码取下来吧！从远程仓库更新内容，用的是一个新的指令：<code>pull</code>。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd779668e41b04?w=431&amp;h=239&amp;f=jpeg&amp;s=88488" alt="用 git pull 把代码从远程仓库取下来" /><figcaption aria-hidden="true">用 git pull 把代码从远程仓库取下来</figcaption>
+</figure>
+<p>用 git pull 把代码从远程仓库取下来</p>
+<p>这时候再看看你的本地目录，可以看到，同事提交的 <code>shopping list-colleagure.txt</code> 已经同步到本地了。也就是说，现在你的本地仓库和同事的又一致了。</p>
+<h2 id="多人合作的基本工作模型">多人合作的基本工作模型</h2>
+<p>这就完成了一次简单的合作流程：</p>
+<ol type="1">
+<li>同事 <code>commit</code> 代码到他的本地，并 <code>push</code> 到 GitHub 中央仓库</li>
+<li>你把 GitHub 的新提交通过 <code>pull</code> 指令来取到你的本地</li>
+</ol>
+<p>通过这个流程，你和同事就可以简单地合作了：你写了代码，<code>commit</code>，<code>push</code> 到 GitHub，然后他 <code>pull</code> 到他的本地；他再写代码，<code>commit</code>, <code>push</code> 到 GitHub，然后你再 <code>pull</code> 到你的本地。你来我往，配合得不亦乐乎。</p>
+<p>但是，这种合作有一个严重的问题：同一时间内，只能有一个人在工作。你和同事其中一个人写代码的时候，另一个人不能做事，必须等着他把工作做完，代码 <code>push</code> 到 GitHub 以后，自己才能把 <code>push</code> 上去的代码 <code>pull</code> 到自己的本地。而如果同时做事，就会发生冲突：当一个人先于另一个人 <code>push</code> 代码（这种情况必然会发生），那么后 <code>push</code> 的这个人就会由于中央仓库上含有本地没有的提交而导致 <code>push</code> 失败。</p>
+<blockquote>
+<p>为什么会失败？</p>
+<p>因为 Git 的<code>push</code> 其实是用本地仓库的 commits 记录去覆盖远端仓库的 commits 记录（注：这是简化概念后的说法，push 的实质和这个说法略有不同），而如果在远端仓库含有本地没有的 commits 的时候，<code>push</code> （如果成功）将会导致远端的 commits 被擦掉。这种结果当然是不可行的，因此 Git 会在 <code>push</code> 的时候进行检查，如果出现这样的情况，push 就会失败。</p>
+</blockquote>
+<p>怎么办？下面就说。</p>
+<h2 id="push-发生冲突">push 发生冲突</h2>
+<p>在现实的团队开发中，全队是同时并行开发的，所以必然会出现当一人 <code>push</code> 代码时，中央仓库已经被其他同事先一步 <code>push</code> 了的情况。为了不让文段显得太过混乱，这里我就不带着你一步步模拟这个过程了。如果你希望模拟的话，这里是步骤：</p>
+<ol type="1">
+<li>切到 <code>git-practice-another</code> 去，假扮成你的同事做一个 <code>commit</code>，然后 <code>push</code> 到 GitHub</li>
+<li>切回 <code>git-practice</code> 变回你自己，做一个不一样的 <code>commit</code>。</li>
+</ol>
+<p>这个时候，远端中央仓库已经有了别人 <code>push</code> 的 <code>commit</code>，现在你如果 <code>push</code> 的话：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://user-gold-cdn.xitu.io/2017/11/30/1600a7635c403f2c?w=598&amp;h=153&amp;f=jpeg&amp;s=54384" alt="push 被拒绝" /><figcaption aria-hidden="true">push 被拒绝</figcaption>
+</figure>
+<p>push 被拒绝</p>
+<p>从上图中的提示语可以看出来（好吧这么长的提示语有人表示不想看），由于 GitHub 的远端仓库上含有本地仓库没有的内容，所以这次 <code>push</code> 被拒绝了。这种冲突的解决方式其实很简单：<strong>先用 <code>pull</code> 把远端仓库上的新内容取回到本地和本地合并，然后再把合并后的本地仓库向远端仓库推送</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2017/11/20/15fd77967acc6821?w=518&amp;h=128&amp;f=jpeg&amp;s=48512" /></p>
+<p>在上面的文段里，我已经举过一次 <code>git pull</code> 的例子，但这次的 <code>git pull</code> 操作并没有像之前的那样直接结束，而是进入了上图这样的一个输入提交信息的界面。这是因为当 <code>pull</code> 操作发现不仅远端仓库包含本地没有的 <code>commit</code>s，而且本地仓库也包含远端没有的 <code>commit</code>s 时，它就会把远端和本地的独有 <code>commit</code>s 进行合并，自动生成一个新的 <code>commit</code> ，而上图的这个界面，就是这个自动生成的 <code>commit</code> 的提交信息界面。另外，和手动的 <code>commit</code> 不同，这种 <code>commit</code> 会自动填入一个默认的提交信息，简单说明了这条 <code>commit</code> 的来由。你可以直接退出界面来使用这个自动填写的提交信息，也可以修改它来填入自己提交信息。</p>
+<blockquote>
+<p>这种「把不同的内容进行合并，生成新的提交」的操作，叫做合并（呵呵呵哈哈），它所对应的 Git 指令是 <code>merge</code>。事实上，<code>git pull</code> 这个指令的内部实现就是把远程仓库使用 <code>git fetch</code> 取下来以后再进行 <code>merge</code> 操作的。关于更多 <code>merge</code> 的介绍，我会在后面说，这节先不讲了。</p>
+</blockquote>
+<p>在退出提交信息的界面后，这次 <code>pull</code> 就完成了：远端仓库被取到了本地，并和本地仓库进行了合并。在这个时候，就可以再 <code>push</code> 一次了。由于现在本地仓库已经包含了所有远端仓库的 commits，所以这次 <code>push</code> 不会再失败：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+<figure>
+<img src="https://user-gold-cdn.xitu.io/2017/11/30/1600a786d9ac2cc5?w=486&amp;h=157&amp;f=jpeg&amp;s=39987" alt="push 成功" /><figcaption aria-hidden="true">push 成功</figcaption>
+</figure>
+<p>push 成功</p>
+<p>这样，就把 <code>push</code> 时本地仓库和远端仓库内容冲突的问题解决了。</p>
+<h2 id="小结多人合作的基本工作模型-2.0">小结：多人合作的基本工作模型 2.0</h2>
+<p>这样，就把刚才的那个「多人合作的基本工作模型」进行了改良：</p>
+<ol type="1">
+<li>写完所有的 <code>commit</code> 后，不用考虑中央仓库是否有新的提交，直接 <code>push</code> 就好</li>
+<li>如果 <code>push</code> 失败，就用 <code>pull</code> 把本地仓库的提交和中央仓库的提交进行合并，然后再 <code>push</code> 一次</li>
+</ol>
+<p>到此为止，这个工作模型已经是一个最简单的可用的工作模型了。一个小团队如果对版本管理没有什么要求的话，这个工作模型已经可以让团队用来合作开发了。</p>
+<p>但是，这种模型由于过于简单，所以只能适用于对代码管理没太大需求的开发团队。接下来，我将介绍一种基于 branch 的工作模型，很多中小型团队的代码开发都是采用的这种工作模型。不过……需要花 4 节的时间，因为它涉及到了 Git 的一些核心理论，一些许多 Git 老手都没有真正掌握的理论。</p>
 ]]></content>
       <categories>
         <category>9.Tools</category>
@@ -2071,7 +2074,6 @@ z_r\in[n,f]
         <category>Git 原理详解及实用指南</category>
       </categories>
       <tags>
-        <tag>AS</tag>
         <tag>Go</tag>
         <tag>Git</tag>
       </tags>
@@ -3156,38 +3158,6 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
-    <title>Tips-C Sharp中enum 和string int的互转</title>
-    <url>/2020/09/29/3.Unity/20200929_Tips-C%20Sharp%E4%B8%ADenum%20%E5%92%8Cstring%20int%E7%9A%84%E4%BA%92%E8%BD%AC/</url>
-    <content><![CDATA[<h1 id="c中enum-和string-int的互转">C#中enum 和string int的互转</h1>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> Colors  </span><br><span class="line">&#123;</span><br><span class="line">    Red,</span><br><span class="line">    Green,</span><br><span class="line">    Blue,</span><br><span class="line">    Yellow</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="enum--string">Enum--&gt;String</h2>
-<h3 id="利用-object.tostring方法">利用 Object.ToString()方法：</h3>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Colors.Green.ToString()==<span class="string">&quot;Green&quot;</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="利用-enum-的静态方法-getname-与-getnames">利用 Enum 的静态方法 GetName 与 GetNames：</h3>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Enum.GetName(<span class="keyword">typeof</span>(Colors),<span class="number">3</span>))</span><br><span class="line">== Enum.GetName(<span class="keyword">typeof</span>(Colors), Colors.Blue))</span><br><span class="line">== <span class="string">&quot;Blue&quot;</span>;</span><br><span class="line"></span><br><span class="line">Enum.GetNames(<span class="keyword">typeof</span>(Colors))</span><br><span class="line">== &#123; <span class="string">&quot;Red&quot;</span>,    <span class="string">&quot;Green&quot;</span>,    <span class="string">&quot;Blue&quot;</span>,     <span class="string">&quot;Yellow&quot;</span> &#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="string--enum">String--&gt;Enum</h2>
-<h3 id="利用-enum-的静态方法-parse">利用 Enum 的静态方法 Parse：</h3>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">(Colors)Enum.Parse(<span class="keyword">typeof</span>(Colors), <span class="string">&quot;Red&quot;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="enum--int">Enum--&gt;Int</h2>
-<h3 id="因为枚举的基类型是除-char-外的整型所以可以进行强制转换">因为枚举的基类型是除 Char 外的整型，所以可以进行强制转换。</h3>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">int</span>)Colors.Red == <span class="number">0</span>;</span><br><span class="line">(<span class="keyword">byte</span>)Colors.Green == <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="int--enum">Int--&gt;Enum</h2>
-<h3 id="可以强制转换将整型转换成枚举类型">可以强制转换将整型转换成枚举类型。</h3>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Colors color = (Colors)<span class="number">2</span> ;</span><br><span class="line">color == Colors.Blue;</span><br></pre></td></tr></table></figure>
-<h3 id="利用-enum-的静态方法-toobject">利用 Enum 的静态方法 ToObject。</h3>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Colors color = (Colors)Enum.ToObject(<span class="keyword">typeof</span>(Colors), <span class="number">2</span>);</span><br><span class="line">color == Colors.Blue</span><br></pre></td></tr></table></figure>
-<h2 id="判断某个整型是否定义在枚举中的方法enum.isdefined">判断某个整型是否定义在枚举中的方法：Enum.IsDefined</h2>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Enum.IsDefined(<span class="keyword">typeof</span>(Colors), <span class="number">3</span>)) == <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>3.Unity</category>
-      </categories>
-      <tags>
-        <tag>AR</tag>
-        <tag>C#</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tao-游戏点子</title>
     <url>/2020/09/29/3.Unity/20200929_Tao-%E6%B8%B8%E6%88%8F%E7%82%B9%E5%AD%90/</url>
     <content><![CDATA[<h1 id="游戏想法">游戏想法</h1>
@@ -3238,6 +3208,38 @@ z_r\in[n,f]
       <tags>
         <tag>Roguelike</tag>
         <tag>VR</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tips-C Sharp中enum 和string int的互转</title>
+    <url>/2020/09/29/3.Unity/20200929_Tips-C%20Sharp%E4%B8%ADenum%20%E5%92%8Cstring%20int%E7%9A%84%E4%BA%92%E8%BD%AC/</url>
+    <content><![CDATA[<h1 id="c中enum-和string-int的互转">C#中enum 和string int的互转</h1>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> Colors  </span><br><span class="line">&#123;</span><br><span class="line">    Red,</span><br><span class="line">    Green,</span><br><span class="line">    Blue,</span><br><span class="line">    Yellow</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="enum--string">Enum--&gt;String</h2>
+<h3 id="利用-object.tostring方法">利用 Object.ToString()方法：</h3>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Colors.Green.ToString()==<span class="string">&quot;Green&quot;</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="利用-enum-的静态方法-getname-与-getnames">利用 Enum 的静态方法 GetName 与 GetNames：</h3>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Enum.GetName(<span class="keyword">typeof</span>(Colors),<span class="number">3</span>))</span><br><span class="line">== Enum.GetName(<span class="keyword">typeof</span>(Colors), Colors.Blue))</span><br><span class="line">== <span class="string">&quot;Blue&quot;</span>;</span><br><span class="line"></span><br><span class="line">Enum.GetNames(<span class="keyword">typeof</span>(Colors))</span><br><span class="line">== &#123; <span class="string">&quot;Red&quot;</span>,    <span class="string">&quot;Green&quot;</span>,    <span class="string">&quot;Blue&quot;</span>,     <span class="string">&quot;Yellow&quot;</span> &#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="string--enum">String--&gt;Enum</h2>
+<h3 id="利用-enum-的静态方法-parse">利用 Enum 的静态方法 Parse：</h3>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">(Colors)Enum.Parse(<span class="keyword">typeof</span>(Colors), <span class="string">&quot;Red&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="enum--int">Enum--&gt;Int</h2>
+<h3 id="因为枚举的基类型是除-char-外的整型所以可以进行强制转换">因为枚举的基类型是除 Char 外的整型，所以可以进行强制转换。</h3>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">int</span>)Colors.Red == <span class="number">0</span>;</span><br><span class="line">(<span class="keyword">byte</span>)Colors.Green == <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="int--enum">Int--&gt;Enum</h2>
+<h3 id="可以强制转换将整型转换成枚举类型">可以强制转换将整型转换成枚举类型。</h3>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Colors color = (Colors)<span class="number">2</span> ;</span><br><span class="line">color == Colors.Blue;</span><br></pre></td></tr></table></figure>
+<h3 id="利用-enum-的静态方法-toobject">利用 Enum 的静态方法 ToObject。</h3>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Colors color = (Colors)Enum.ToObject(<span class="keyword">typeof</span>(Colors), <span class="number">2</span>);</span><br><span class="line">color == Colors.Blue</span><br></pre></td></tr></table></figure>
+<h2 id="判断某个整型是否定义在枚举中的方法enum.isdefined">判断某个整型是否定义在枚举中的方法：Enum.IsDefined</h2>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">Enum.IsDefined(<span class="keyword">typeof</span>(Colors), <span class="number">3</span>)) == <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>3.Unity</category>
+      </categories>
+      <tags>
+        <tag>AR</tag>
+        <tag>C#</tag>
       </tags>
   </entry>
   <entry>
@@ -3357,34 +3359,21 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
-    <title>Tips-Unity中的碰撞</title>
-    <url>/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/</url>
-    <content><![CDATA[<h1 id="unity-中的碰撞">Unity 中的碰撞</h1>
-<h2 id="碰撞的两种形式">碰撞的两种形式</h2>
-<h3 id="collision造成物理碰撞触发-oncollision-事件.">Collision:造成物理碰撞,触发 OnCollision 事件.</h3>
-<h3 id="trigger没有物理碰撞效果触发-ontrigger-事件.">Trigger:没有物理碰撞效果,触发 OnTrigger 事件.</h3>
-<h2 id="碰撞的条件">碰撞的条件</h2>
-<h3 id="collision-碰撞">Collision 碰撞</h3>
-<h4 id="双方都有碰撞体">1. 双方都有碰撞体</h4>
-<h4 id="撞的一方必须有刚体">2. 撞的一方必须有刚体</h4>
-<h4 id="双方不可同时勾选-kinematic-选项">3. 双方不可同时勾选 Kinematic 选项</h4>
-<h4 id="双方都不可勾选-trigger-触发器">4. 双方都不可勾选 Trigger 触发器</h4>
-<h3 id="trigger-触发器">Trigger 触发器</h3>
-<h4 id="双发都有碰撞体">1. 双发都有碰撞体</h4>
-<h4 id="撞的一方必要有刚体">2. 撞的一方必要有刚体</h4>
-<h4 id="至少有一方勾选-trigger-触发器">3. 至少有一方勾选 Trigger 触发器</h4>
-<h2 id="碰撞的事件">碰撞的事件</h2>
-<h3 id="ontriggerenter-ontriggerstay-ontriggerexit">OnTriggerEnter() OnTriggerStay() OnTriggerExit()</h3>
-<h3 id="oncollisionenter-oncollisionstay-oncollisionexit">OnCollisionEnter() OnCollisionStay() OnCollisionExit()</h3>
-<h3 id="enter-事件表示两物体接触的瞬间会执行一次">1. Enter 事件表示两物体接触的瞬间,会执行一次</h3>
-<h3 id="stay-事件表示两物体持续接触会不断执行">2. Stay 事件表示两物体持续接触,会不断执行</h3>
-<h3 id="exit-事件表示当两物体分开瞬间会执行一次">3. Exit 事件表示当两物体分开瞬间,会执行一次</h3>
+    <title>Tips-Unity中停止协程StopCoroutine</title>
+    <url>/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/</url>
+    <content><![CDATA[<h1 id="unity中停止协程stopcoroutine">Unity中停止协程StopCoroutine</h1>
+<h2 id="必须用字符串启动协程才能停止协程">必须用字符串启动协程才能停止协程</h2>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">//要想停止协程,必须用字符启动协程</span></span><br><span class="line">StartCoroutine(<span class="string">&quot;FunctionName&quot;</span>);</span><br><span class="line"><span class="comment">//如果要传参</span></span><br><span class="line">StarCoroutine(<span class="string">&quot;FunctionName&quot;</span>,<span class="keyword">object</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="停止协程">停止协程</h2>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">//停止协程</span></span><br><span class="line">StopCoroutine(<span class="string">&quot;FunctionName&quot;</span>);</span><br><span class="line"><span class="comment">//停止所有协程(慎用)</span></span><br><span class="line">StopAllCoroutine();</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>3.Unity</category>
       </categories>
       <tags>
         <tag>Unity</tag>
+        <tag>AR</tag>
+        <tag>C#</tag>
       </tags>
   </entry>
   <entry>
@@ -3432,6 +3421,37 @@ z_r\in[n,f]
         <tag>NGUI</tag>
         <tag>IDE</tag>
         <tag>Shader</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tips-Unity中的碰撞</title>
+    <url>/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E7%9A%84%E7%A2%B0%E6%92%9E/</url>
+    <content><![CDATA[<h1 id="unity-中的碰撞">Unity 中的碰撞</h1>
+<h2 id="碰撞的两种形式">碰撞的两种形式</h2>
+<h3 id="collision造成物理碰撞触发-oncollision-事件.">Collision:造成物理碰撞,触发 OnCollision 事件.</h3>
+<h3 id="trigger没有物理碰撞效果触发-ontrigger-事件.">Trigger:没有物理碰撞效果,触发 OnTrigger 事件.</h3>
+<h2 id="碰撞的条件">碰撞的条件</h2>
+<h3 id="collision-碰撞">Collision 碰撞</h3>
+<h4 id="双方都有碰撞体">1. 双方都有碰撞体</h4>
+<h4 id="撞的一方必须有刚体">2. 撞的一方必须有刚体</h4>
+<h4 id="双方不可同时勾选-kinematic-选项">3. 双方不可同时勾选 Kinematic 选项</h4>
+<h4 id="双方都不可勾选-trigger-触发器">4. 双方都不可勾选 Trigger 触发器</h4>
+<h3 id="trigger-触发器">Trigger 触发器</h3>
+<h4 id="双发都有碰撞体">1. 双发都有碰撞体</h4>
+<h4 id="撞的一方必要有刚体">2. 撞的一方必要有刚体</h4>
+<h4 id="至少有一方勾选-trigger-触发器">3. 至少有一方勾选 Trigger 触发器</h4>
+<h2 id="碰撞的事件">碰撞的事件</h2>
+<h3 id="ontriggerenter-ontriggerstay-ontriggerexit">OnTriggerEnter() OnTriggerStay() OnTriggerExit()</h3>
+<h3 id="oncollisionenter-oncollisionstay-oncollisionexit">OnCollisionEnter() OnCollisionStay() OnCollisionExit()</h3>
+<h3 id="enter-事件表示两物体接触的瞬间会执行一次">1. Enter 事件表示两物体接触的瞬间,会执行一次</h3>
+<h3 id="stay-事件表示两物体持续接触会不断执行">2. Stay 事件表示两物体持续接触,会不断执行</h3>
+<h3 id="exit-事件表示当两物体分开瞬间会执行一次">3. Exit 事件表示当两物体分开瞬间,会执行一次</h3>
+]]></content>
+      <categories>
+        <category>3.Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
       </tags>
   </entry>
   <entry>
@@ -3671,24 +3691,6 @@ z_r\in[n,f]
       <tags>
         <tag>Unity</tag>
         <tag>NGUI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tips-Unity中停止协程StopCoroutine</title>
-    <url>/2020/09/29/3.Unity/20200929_Tips-Unity%E4%B8%AD%E5%81%9C%E6%AD%A2%E5%8D%8F%E7%A8%8BStopCoroutine/</url>
-    <content><![CDATA[<h1 id="unity中停止协程stopcoroutine">Unity中停止协程StopCoroutine</h1>
-<h2 id="必须用字符串启动协程才能停止协程">必须用字符串启动协程才能停止协程</h2>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">//要想停止协程,必须用字符启动协程</span></span><br><span class="line">StartCoroutine(<span class="string">&quot;FunctionName&quot;</span>);</span><br><span class="line"><span class="comment">//如果要传参</span></span><br><span class="line">StarCoroutine(<span class="string">&quot;FunctionName&quot;</span>,<span class="keyword">object</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="停止协程">停止协程</h2>
-<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="comment">//停止协程</span></span><br><span class="line">StopCoroutine(<span class="string">&quot;FunctionName&quot;</span>);</span><br><span class="line"><span class="comment">//停止所有协程(慎用)</span></span><br><span class="line">StopAllCoroutine();</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>3.Unity</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
-        <tag>AR</tag>
-        <tag>C#</tag>
       </tags>
   </entry>
   <entry>
@@ -4322,25 +4324,6 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
-    <title>Bug-Android中webview背景透明设置</title>
-    <url>/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADwebview%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E%E8%AE%BE%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="android中-agentweb-背景透明设置">Android中 agentweb 背景透明设置</h1>
-<blockquote>
-<p>agentweb在webview的基础上包了一层view 因此需要设置webview以及它的父级view才能实现透明,否则默认是白色背景</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">mAgentWeb.getWebCreator().getWebView().setBackgroundColor(<span class="number">0x00000000</span>);</span><br><span class="line">mAgentWeb.getWebCreator().getWebParentLayout().setBackgroundColor(<span class="number">0x00000000</span>);</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>AR</tag>
-        <tag>Android</tag>
-        <tag>Web</tag>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Bug-Android中WebView闪烁问题</title>
     <url>/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADWebView%E9%97%AA%E7%83%81%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="android中webview闪烁问题">Android中WebView闪烁问题</h1>
@@ -4382,6 +4365,25 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
+    <title>Bug-Android中webview背景透明设置</title>
+    <url>/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADwebview%E8%83%8C%E6%99%AF%E9%80%8F%E6%98%8E%E8%AE%BE%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="android中-agentweb-背景透明设置">Android中 agentweb 背景透明设置</h1>
+<blockquote>
+<p>agentweb在webview的基础上包了一层view 因此需要设置webview以及它的父级view才能实现透明,否则默认是白色背景</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">mAgentWeb.getWebCreator().getWebView().setBackgroundColor(<span class="number">0x00000000</span>);</span><br><span class="line">mAgentWeb.getWebCreator().getWebParentLayout().setBackgroundColor(<span class="number">0x00000000</span>);</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>AR</tag>
+        <tag>Android</tag>
+        <tag>Web</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Bug-Android异常java</title>
     <url>/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/</url>
     <content><![CDATA[<h1 id="android异常java.lang.illegalargumentexception_unable-to-create-converter-for-class">Android异常java.lang.IllegalArgumentException_Unable to create converter for class</h1>
@@ -4418,6 +4420,22 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
+    <title>Bug-Java中保留String空格</title>
+    <url>/2020/09/29/4.Android/20200929_Bug-Java%E4%B8%AD%E4%BF%9D%E7%95%99String%E7%A9%BA%E6%A0%BC/</url>
+    <content><![CDATA[<h1 id="java中保留string空格">Java中保留String空格</h1>
+<h2 id="有空格的地方用-代替">有空格的地方用  代替</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String msg = MessageFormat.format(<span class="string">&quot;您是否要花费\u0020\u0020\u0020&#123;0&#125;\u0020\u0020\u0020钻石\n&quot;</span> +</span><br><span class="line">                                                                <span class="string">&quot;点亮一个月的&#123;1&#125;徽章权限？&quot;</span>, price, name);</span><br></pre></td></tr></table></figure>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://stackoverflow.com/questions/1587056/how-to-keep-the-spaces-at-the-end-and-or-at-the-beginning-of-a-string">How to keep the spaces at the end and/or at the beginning of a String?</a></p>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Bug-trying_to_draw_too_large_ bitmap</title>
     <url>/2020/09/29/4.Android/20200929_Bug-trying_to_draw_too_large_%20bitmap/</url>
     <content><![CDATA[<h1 id="trying_to_draw_too_large_-bitmap">trying_to_draw_too_large_ bitmap</h1>
@@ -4437,22 +4455,6 @@ z_r\in[n,f]
         <tag>CG</tag>
         <tag>AR</tag>
         <tag>IDE</tag>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Bug-Java中保留String空格</title>
-    <url>/2020/09/29/4.Android/20200929_Bug-Java%E4%B8%AD%E4%BF%9D%E7%95%99String%E7%A9%BA%E6%A0%BC/</url>
-    <content><![CDATA[<h1 id="java中保留string空格">Java中保留String空格</h1>
-<h2 id="有空格的地方用-代替">有空格的地方用  代替</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String msg = MessageFormat.format(<span class="string">&quot;您是否要花费\u0020\u0020\u0020&#123;0&#125;\u0020\u0020\u0020钻石\n&quot;</span> +</span><br><span class="line">                                                                <span class="string">&quot;点亮一个月的&#123;1&#125;徽章权限？&quot;</span>, price, name);</span><br></pre></td></tr></table></figure>
-<h2 id="参考链接">参考链接</h2>
-<p><a href="https://stackoverflow.com/questions/1587056/how-to-keep-the-spaces-at-the-end-and-or-at-the-beginning-of-a-string">How to keep the spaces at the end and/or at the beginning of a String?</a></p>
-]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
         <tag>Java</tag>
       </tags>
   </entry>
@@ -4970,6 +4972,22 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
+    <title>Tips-AndroidStudio在Debug时无法attach</title>
+    <url>/2020/09/29/4.Android/20200929_Tips-AndroidStudio%E5%9C%A8Debug%E6%97%B6%E6%97%A0%E6%B3%95attach/</url>
+    <content><![CDATA[<h1 id="androidstudio在debug时无法attach">AndroidStudio在Debug时无法attach</h1>
+<p>命令行输入以下命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">adb usb</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>Bug</tag>
+        <tag>Android</tag>
+        <tag>Adb</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tips-Android Seekbar扩大点击范围</title>
     <url>/2020/09/29/4.Android/20200929_Tips-Android%20Seekbar%E6%89%A9%E5%A4%A7%E7%82%B9%E5%87%BB%E8%8C%83%E5%9B%B4/</url>
     <content><![CDATA[<h1 id="seekbar扩大点击范围">Seekbar扩大点击范围</h1>
@@ -4984,22 +5002,6 @@ z_r\in[n,f]
         <tag>AR</tag>
         <tag>IDE</tag>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tips-AndroidStudio在Debug时无法attach</title>
-    <url>/2020/09/29/4.Android/20200929_Tips-AndroidStudio%E5%9C%A8Debug%E6%97%B6%E6%97%A0%E6%B3%95attach/</url>
-    <content><![CDATA[<h1 id="androidstudio在debug时无法attach">AndroidStudio在Debug时无法attach</h1>
-<p>命令行输入以下命令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">adb usb</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>Bug</tag>
-        <tag>Android</tag>
-        <tag>Adb</tag>
       </tags>
   </entry>
   <entry>
@@ -5028,6 +5030,37 @@ z_r\in[n,f]
       </categories>
       <tags>
         <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tips-Android常用Gradle命令</title>
+    <url>/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="android常用gradle命令">Android常用Gradle命令</h1>
+<h2 id="简介">简介</h2>
+<h2 id="gradle-wrapper">gradle wrapper</h2>
+<p>每个基于gradle构建的工程都有一个gradle本地代理，叫做 gradle wrapper 在 /gradle/wrapper/gralde-wrapper.properties 目录中声明了指向目录和版本</p>
+<p><a href="https://services.gradle.org/distributions/">官方的各个版本的代理下载地址</a> 如果 gradle 初次构建缓慢，可以手动下载代理放到${USER}/.gradle/wrapper/dists下</p>
+<p>本地建立文件 gradle.properties 或者在用户的 .gradle目录下建立 gradle.properties 文件作为全局设置，参数有</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开启并行编译</span></span><br><span class="line">org.gradle.parallel=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 开启守护进程</span></span><br><span class="line">org.gradle.daemon=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 按需编译</span></span><br><span class="line">org.gradle.configureondemand=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 设置编译jvm参数</span></span><br><span class="line">org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8</span><br><span class="line"><span class="comment"># 设置代理</span></span><br><span class="line">systemProp.http.proxyHost=127.0.0.1</span><br><span class="line">systemProp.http.proxyPort=10384</span><br><span class="line">systemProp.https.proxyHost=127.0.0.1</span><br><span class="line">systemProp.https.proxyPort=10384</span><br><span class="line"><span class="comment"># 开启JNI编译支持过时API</span></span><br><span class="line">android.useDeprecatedNdk=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>安装一个全局的gradle，并配置好Path变量，避免每个项目重复下载，这样后面编译项目就可以直接运行gradle build</p>
+<h3 id="快速构建命令">快速构建命令</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看构建版本</span></span><br><span class="line">./gradlew -v</span><br><span class="line"><span class="comment"># 清除build文件夹</span></span><br><span class="line">./gradlew clean</span><br><span class="line"><span class="comment"># 检查依赖并编译打包</span></span><br><span class="line">./gradlew build</span><br><span class="line"><span class="comment"># 编译并安装debug包</span></span><br><span class="line">./gradlew installDebug</span><br><span class="line"><span class="comment"># 编译并打印日志</span></span><br><span class="line">./gradlew build --info</span><br><span class="line"><span class="comment"># 译并输出性能报告，性能报告一般在 构建工程根目录 build/reports/profile</span></span><br><span class="line">./gradlew build --profile</span><br><span class="line"><span class="comment"># 调试模式构建并打印堆栈日志</span></span><br><span class="line">./gradlew build --info --debug --stacktrace</span><br><span class="line"><span class="comment"># 强制更新最新依赖，清除构建并构建</span></span><br><span class="line">./gradlew clean build --refresh-dependencies</span><br></pre></td></tr></table></figure>
+<p>注意build命令把 debug、release环境的包都打出来的 如果需要指定构建使用如下命令</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 编译并打Debug包</span></span><br><span class="line">./gradlew assembleDebug</span><br><span class="line"><span class="comment"># 这个是简写 assembleDebug</span></span><br><span class="line">./gradlew aD</span><br><span class="line"><span class="comment"># 编译并打Release的包</span></span><br><span class="line">./gradlew assembleRelease</span><br><span class="line"><span class="comment"># 这个是简写 assembleRelease</span></span><br><span class="line">./gradlew aR</span><br></pre></td></tr></table></figure>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://www.jianshu.com/p/a03f4f6ae31d">Gradle Android-build 常用命令参数及解释</a></p>
+<p><a href="https://droidyue.com/blog/2017/04/16/speedup-gradle-building/index.html">一些关于加速Gradle构建的个人经验</a></p>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>AS</tag>
+        <tag>AR</tag>
+        <tag>Bug</tag>
+        <tag>Android</tag>
+        <tag>ML</tag>
+        <tag>Html</tag>
       </tags>
   </entry>
   <entry>
@@ -5073,23 +5106,13 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
-    <title>Tips-Android常用Gradle命令</title>
-    <url>/2020/09/29/4.Android/20200929_Tips-Android%E5%B8%B8%E7%94%A8Gradle%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h1 id="android常用gradle命令">Android常用Gradle命令</h1>
-<h2 id="简介">简介</h2>
-<h2 id="gradle-wrapper">gradle wrapper</h2>
-<p>每个基于gradle构建的工程都有一个gradle本地代理，叫做 gradle wrapper 在 /gradle/wrapper/gralde-wrapper.properties 目录中声明了指向目录和版本</p>
-<p><a href="https://services.gradle.org/distributions/">官方的各个版本的代理下载地址</a> 如果 gradle 初次构建缓慢，可以手动下载代理放到${USER}/.gradle/wrapper/dists下</p>
-<p>本地建立文件 gradle.properties 或者在用户的 .gradle目录下建立 gradle.properties 文件作为全局设置，参数有</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开启并行编译</span></span><br><span class="line">org.gradle.parallel=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 开启守护进程</span></span><br><span class="line">org.gradle.daemon=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 按需编译</span></span><br><span class="line">org.gradle.configureondemand=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 设置编译jvm参数</span></span><br><span class="line">org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8</span><br><span class="line"><span class="comment"># 设置代理</span></span><br><span class="line">systemProp.http.proxyHost=127.0.0.1</span><br><span class="line">systemProp.http.proxyPort=10384</span><br><span class="line">systemProp.https.proxyHost=127.0.0.1</span><br><span class="line">systemProp.https.proxyPort=10384</span><br><span class="line"><span class="comment"># 开启JNI编译支持过时API</span></span><br><span class="line">android.useDeprecatedNdk=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>安装一个全局的gradle，并配置好Path变量，避免每个项目重复下载，这样后面编译项目就可以直接运行gradle build</p>
-<h3 id="快速构建命令">快速构建命令</h3>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看构建版本</span></span><br><span class="line">./gradlew -v</span><br><span class="line"><span class="comment"># 清除build文件夹</span></span><br><span class="line">./gradlew clean</span><br><span class="line"><span class="comment"># 检查依赖并编译打包</span></span><br><span class="line">./gradlew build</span><br><span class="line"><span class="comment"># 编译并安装debug包</span></span><br><span class="line">./gradlew installDebug</span><br><span class="line"><span class="comment"># 编译并打印日志</span></span><br><span class="line">./gradlew build --info</span><br><span class="line"><span class="comment"># 译并输出性能报告，性能报告一般在 构建工程根目录 build/reports/profile</span></span><br><span class="line">./gradlew build --profile</span><br><span class="line"><span class="comment"># 调试模式构建并打印堆栈日志</span></span><br><span class="line">./gradlew build --info --debug --stacktrace</span><br><span class="line"><span class="comment"># 强制更新最新依赖，清除构建并构建</span></span><br><span class="line">./gradlew clean build --refresh-dependencies</span><br></pre></td></tr></table></figure>
-<p>注意build命令把 debug、release环境的包都打出来的 如果需要指定构建使用如下命令</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 编译并打Debug包</span></span><br><span class="line">./gradlew assembleDebug</span><br><span class="line"><span class="comment"># 这个是简写 assembleDebug</span></span><br><span class="line">./gradlew aD</span><br><span class="line"><span class="comment"># 编译并打Release的包</span></span><br><span class="line">./gradlew assembleRelease</span><br><span class="line"><span class="comment"># 这个是简写 assembleRelease</span></span><br><span class="line">./gradlew aR</span><br></pre></td></tr></table></figure>
+    <title>Tips-Android开发中的Handler</title>
+    <url>/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/</url>
+    <content><![CDATA[<h1 id="android开发中的handler">Android开发中的Handler</h1>
+<p>Handler机制是Android中相当经典的异步消息机制，在Android发展的历史长河中扮演着很重要的角色，无论是我们直接面对的应用层还是FrameWork层，使用的场景还是相当的多。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> Button mBtnTest;</span><br><span class="line"><span class="keyword">private</span> Handler mTestHandler = <span class="keyword">new</span> Handler()&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span> (msg.what)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                mBtnTest.setText(<span class="string">&quot;收到消息1&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(<span class="keyword">final</span> Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line">    mBtnTest = (Button) findViewById(R.id.btn_test);</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">                mTestHandler.sendEmptyMessage(<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="参考链接">参考链接</h2>
-<p><a href="https://www.jianshu.com/p/a03f4f6ae31d">Gradle Android-build 常用命令参数及解释</a></p>
-<p><a href="https://droidyue.com/blog/2017/04/16/speedup-gradle-building/index.html">一些关于加速Gradle构建的个人经验</a></p>
+<p><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2018/0522/9728.html">10分钟了解Android的Handler机制</a></p>
 ]]></content>
       <categories>
         <category>4.Android</category>
@@ -5097,10 +5120,11 @@ z_r\in[n,f]
       <tags>
         <tag>AS</tag>
         <tag>AR</tag>
-        <tag>Bug</tag>
+        <tag>IDE</tag>
         <tag>Android</tag>
         <tag>ML</tag>
         <tag>Html</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -5164,25 +5188,18 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
-    <title>Tips-Android开发中的Handler</title>
-    <url>/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Handler/</url>
-    <content><![CDATA[<h1 id="android开发中的handler">Android开发中的Handler</h1>
-<p>Handler机制是Android中相当经典的异步消息机制，在Android发展的历史长河中扮演着很重要的角色，无论是我们直接面对的应用层还是FrameWork层，使用的场景还是相当的多。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> Button mBtnTest;</span><br><span class="line"><span class="keyword">private</span> Handler mTestHandler = <span class="keyword">new</span> Handler()&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span> (msg.what)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                mBtnTest.setText(<span class="string">&quot;收到消息1&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(<span class="keyword">final</span> Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line">    mBtnTest = (Button) findViewById(R.id.btn_test);</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">3000</span>);</span><br><span class="line">                mTestHandler.sendEmptyMessage(<span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="参考链接">参考链接</h2>
-<p><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2018/0522/9728.html">10分钟了解Android的Handler机制</a></p>
+    <title>Tips-Android开发配置ADB环境变量</title>
+    <url>/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E9%85%8D%E7%BD%AEADB%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
+    <content><![CDATA[<h1 id="android开发配置adb环境变量">Android开发配置ADB环境变量</h1>
+<p>D:-tools 是 adb 程序所在目录, 只需要把这个目录添加到系统环境变量的 path 中, 即可在任意地方使用adb命令</p>
 ]]></content>
       <categories>
         <category>4.Android</category>
       </categories>
       <tags>
-        <tag>AS</tag>
-        <tag>AR</tag>
-        <tag>IDE</tag>
         <tag>Android</tag>
-        <tag>ML</tag>
-        <tag>Html</tag>
-        <tag>Java</tag>
+        <tag>Adb</tag>
+        <tag>Tools</tag>
       </tags>
   </entry>
   <entry>
@@ -5207,21 +5224,6 @@ z_r\in[n,f]
       </categories>
       <tags>
         <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tips-Android开发配置ADB环境变量</title>
-    <url>/2020/09/29/4.Android/20200929_Tips-Android%E5%BC%80%E5%8F%91%E9%85%8D%E7%BD%AEADB%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
-    <content><![CDATA[<h1 id="android开发配置adb环境变量">Android开发配置ADB环境变量</h1>
-<p>D:-tools 是 adb 程序所在目录, 只需要把这个目录添加到系统环境变量的 path 中, 即可在任意地方使用adb命令</p>
-]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>Adb</tag>
-        <tag>Tools</tag>
       </tags>
   </entry>
   <entry>
@@ -5422,6 +5424,25 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
+    <title>Trick-AndroidStudioGradle离线安装</title>
+    <url>/2020/09/29/4.Android/20200929_Trick-AndroidStudioGradle%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h1 id="androidstudiogradle离线安装">AndroidStudioGradle离线安装</h1>
+<h2 id="官网下载对应版本gradle">官网下载对应版本Gradle</h2>
+<h2 id="修改gradlewrapper">修改GradleWrapper</h2>
+<p>修改项目目录""下的，gradle-wrapper.properties文件，中的distributionUrl为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https\:&#x2F;&#x2F;services.gradle.org&#x2F;distributions&#x2F;gradle-3.3-all.zip</span><br></pre></td></tr></table></figure>
+<h2 id="安装位置">安装位置</h2>
+<p>将该gradle-3.3-all.zip文件复制到一下位置C:.gradle-all，重新打开android studio即可</p>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Android Studio</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Trick-Adb远程Wifi调试</title>
     <url>/2020/09/29/4.Android/20200929_Trick-Adb%E8%BF%9C%E7%A8%8BWifi%E8%B0%83%E8%AF%95/</url>
     <content><![CDATA[<h1 id="adb远程wifi调试">Adb远程Wifi调试</h1>
@@ -5443,25 +5464,6 @@ z_r\in[n,f]
       </categories>
       <tags>
         <tag>Adb</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Trick-AndroidStudioGradle离线安装</title>
-    <url>/2020/09/29/4.Android/20200929_Trick-AndroidStudioGradle%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<h1 id="androidstudiogradle离线安装">AndroidStudioGradle离线安装</h1>
-<h2 id="官网下载对应版本gradle">官网下载对应版本Gradle</h2>
-<h2 id="修改gradlewrapper">修改GradleWrapper</h2>
-<p>修改项目目录""下的，gradle-wrapper.properties文件，中的distributionUrl为</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https\:&#x2F;&#x2F;services.gradle.org&#x2F;distributions&#x2F;gradle-3.3-all.zip</span><br></pre></td></tr></table></figure>
-<h2 id="安装位置">安装位置</h2>
-<p>将该gradle-3.3-all.zip文件复制到一下位置C:.gradle-all，重新打开android studio即可</p>
-]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>Android Studio</tag>
       </tags>
   </entry>
   <entry>
@@ -5676,6 +5678,24 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
+    <title>Trick-Android手势事件检测GestureDetector</title>
+    <url>/2020/09/29/4.Android/20200929_Trick-Android%E6%89%8B%E5%8A%BF%E4%BA%8B%E4%BB%B6%E6%A3%80%E6%B5%8BGestureDetector/</url>
+    <content><![CDATA[<h1 id="android手势事件检测gesturedetector">Android手势事件检测GestureDetector</h1>
+<h2 id="上代码">上代码</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">float</span> FLIP_DISTANCE = <span class="number">50</span>;</span><br><span class="line">    GestureDetector mDetector;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        mDetector = <span class="keyword">new</span> GestureDetector(<span class="keyword">this</span>, <span class="keyword">new</span> OnGestureListener() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onSingleTapUp</span><span class="params">(MotionEvent e)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onShowPress</span><span class="params">(MotionEvent e)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onScroll</span><span class="params">(MotionEvent e1, MotionEvent e2, <span class="keyword">float</span> distanceX, <span class="keyword">float</span> distanceY)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLongPress</span><span class="params">(MotionEvent e)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">             *</span></span><br><span class="line"><span class="comment">             * e1 The first down motion event that started the fling. e2 The</span></span><br><span class="line"><span class="comment">             * move motion event that triggered the current onFling.</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onFling</span><span class="params">(MotionEvent e1, MotionEvent e2, <span class="keyword">float</span> velocityX, <span class="keyword">float</span> velocityY)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (e1.getX() - e2.getX() &gt; FLIP_DISTANCE) &#123;</span><br><span class="line">                    Log.i(<span class="string">&quot;MYTAG&quot;</span>, <span class="string">&quot;向左滑...&quot;</span>);</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (e2.getX() - e1.getX() &gt; FLIP_DISTANCE) &#123;</span><br><span class="line">                    Log.i(<span class="string">&quot;MYTAG&quot;</span>, <span class="string">&quot;向右滑...&quot;</span>);</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (e1.getY() - e2.getY() &gt; FLIP_DISTANCE) &#123;</span><br><span class="line">                    Log.i(<span class="string">&quot;MYTAG&quot;</span>, <span class="string">&quot;向上滑...&quot;</span>);</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (e2.getY() - e1.getY() &gt; FLIP_DISTANCE) &#123;</span><br><span class="line">                    Log.i(<span class="string">&quot;MYTAG&quot;</span>, <span class="string">&quot;向下滑...&quot;</span>);</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                Log.d(<span class="string">&quot;TAG&quot;</span>, e2.getX() + <span class="string">&quot; &quot;</span> + e2.getY());</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onDown</span><span class="params">(MotionEvent e)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mDetector.onTouchEvent(event);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>AS</tag>
+        <tag>AR</tag>
+        <tag>IDE</tag>
+        <tag>Android</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Trick-Android快速生成代码</title>
     <url>/2020/09/29/4.Android/20200929_Trick-Android%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/</url>
     <content><![CDATA[<h1 id="android快速生成代码">Android快速生成代码</h1>
@@ -5735,24 +5755,6 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
-    <title>Trick-Android手势事件检测GestureDetector</title>
-    <url>/2020/09/29/4.Android/20200929_Trick-Android%E6%89%8B%E5%8A%BF%E4%BA%8B%E4%BB%B6%E6%A3%80%E6%B5%8BGestureDetector/</url>
-    <content><![CDATA[<h1 id="android手势事件检测gesturedetector">Android手势事件检测GestureDetector</h1>
-<h2 id="上代码">上代码</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">float</span> FLIP_DISTANCE = <span class="number">50</span>;</span><br><span class="line">    GestureDetector mDetector;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        mDetector = <span class="keyword">new</span> GestureDetector(<span class="keyword">this</span>, <span class="keyword">new</span> OnGestureListener() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onSingleTapUp</span><span class="params">(MotionEvent e)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onShowPress</span><span class="params">(MotionEvent e)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onScroll</span><span class="params">(MotionEvent e1, MotionEvent e2, <span class="keyword">float</span> distanceX, <span class="keyword">float</span> distanceY)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLongPress</span><span class="params">(MotionEvent e)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">             *</span></span><br><span class="line"><span class="comment">             * e1 The first down motion event that started the fling. e2 The</span></span><br><span class="line"><span class="comment">             * move motion event that triggered the current onFling.</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onFling</span><span class="params">(MotionEvent e1, MotionEvent e2, <span class="keyword">float</span> velocityX, <span class="keyword">float</span> velocityY)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (e1.getX() - e2.getX() &gt; FLIP_DISTANCE) &#123;</span><br><span class="line">                    Log.i(<span class="string">&quot;MYTAG&quot;</span>, <span class="string">&quot;向左滑...&quot;</span>);</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (e2.getX() - e1.getX() &gt; FLIP_DISTANCE) &#123;</span><br><span class="line">                    Log.i(<span class="string">&quot;MYTAG&quot;</span>, <span class="string">&quot;向右滑...&quot;</span>);</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (e1.getY() - e2.getY() &gt; FLIP_DISTANCE) &#123;</span><br><span class="line">                    Log.i(<span class="string">&quot;MYTAG&quot;</span>, <span class="string">&quot;向上滑...&quot;</span>);</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (e2.getY() - e1.getY() &gt; FLIP_DISTANCE) &#123;</span><br><span class="line">                    Log.i(<span class="string">&quot;MYTAG&quot;</span>, <span class="string">&quot;向下滑...&quot;</span>);</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                Log.d(<span class="string">&quot;TAG&quot;</span>, e2.getX() + <span class="string">&quot; &quot;</span> + e2.getY());</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onDown</span><span class="params">(MotionEvent e)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mDetector.onTouchEvent(event);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>AS</tag>
-        <tag>AR</tag>
-        <tag>IDE</tag>
-        <tag>Android</tag>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Trick-Android程序中Activity的生命周期</title>
     <url>/2020/09/29/4.Android/20200929_Trick-Android%E7%A8%8B%E5%BA%8F%E4%B8%ADActivity%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
     <content><![CDATA[<h1 id="android程序中activity的生命周期">Android程序中Activity的生命周期</h1>
@@ -5800,6 +5802,26 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
+    <title>Trick-Java快速生成javadoc</title>
+    <url>/2020/09/29/4.Android/20200929_Trick-Java%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90javadoc/</url>
+    <content><![CDATA[<h1 id="java快速生成javadoc">Java快速生成javadoc</h1>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ javadoc -d apidoc -windowtitle API -doctitle <span class="string">&#x27;The API of javadoc&#x27;</span> -charset UTF-8 -author -version *.java</span><br></pre></td></tr></table></figure>
+<h2 id="d">-d</h2>
+<h2 id="windowtitle">-windowtitle</h2>
+<h2 id="doctitle">-doctitle</h2>
+<h2 id="charset">-charset</h2>
+<h2 id="author">-author</h2>
+<h2 id="version">-version</h2>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>AR</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Trick-Java保留小数位的方法</title>
     <url>/2020/09/29/4.Android/20200929_Trick-Java%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0%E4%BD%8D%E7%9A%84%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h1 id="java保留小数位的方法">Java保留小数位的方法</h1>
@@ -5821,38 +5843,24 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
-    <title>Trick-Java快速生成javadoc</title>
-    <url>/2020/09/29/4.Android/20200929_Trick-Java%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90javadoc/</url>
-    <content><![CDATA[<h1 id="java快速生成javadoc">Java快速生成javadoc</h1>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ javadoc -d apidoc -windowtitle API -doctitle <span class="string">&#x27;The API of javadoc&#x27;</span> -charset UTF-8 -author -version *.java</span><br></pre></td></tr></table></figure>
-<h2 id="d">-d</h2>
-<h2 id="windowtitle">-windowtitle</h2>
-<h2 id="doctitle">-doctitle</h2>
-<h2 id="charset">-charset</h2>
-<h2 id="author">-author</h2>
-<h2 id="version">-version</h2>
+    <title>Trick-adb连接mumu模拟器</title>
+    <url>/2020/09/29/4.Android/20200929_Trick-adb%E8%BF%9E%E6%8E%A5mumu%E6%A8%A1%E6%8B%9F%E5%99%A8/</url>
+    <content><![CDATA[<h1 id="adb-连接-mumu-模拟器">adb 连接 mumu 模拟器</h1>
+<h2 id="windows-平台">Windows 平台</h2>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">adb connect 127.0.0.1:7555</span><br></pre></td></tr></table></figure>
+<h2 id="mac-平台">Mac 平台</h2>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">adb shell</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果不行,可以尝试 adb kill-server,再运行连接 .</p>
+</blockquote>
 ]]></content>
       <categories>
         <category>4.Android</category>
       </categories>
       <tags>
-        <tag>AR</tag>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Trick-RxJava实现延迟调用</title>
-    <url>/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E5%BB%B6%E8%BF%9F%E8%B0%83%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="rxjava实现延迟调用">RxJava实现延迟调用</h1>
-<h2 id="代码">代码</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Observable.timer(<span class="number">1</span>, TimeUnit.SECONDS).subscribe(<span class="keyword">new</span> Observer&lt;Long&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSubscribe</span><span class="params">(Disposable d)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onSubscribe&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Long value)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;延迟了:&quot;</span> + value + <span class="string">&quot;秒.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onError&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onComplete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onComplete&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>IDE</tag>
-        <tag>Java</tag>
+        <tag>Windows</tag>
+        <tag>Mac</tag>
+        <tag>Adb</tag>
       </tags>
   </entry>
   <entry>
@@ -5875,24 +5883,18 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
-    <title>Trick-adb连接mumu模拟器</title>
-    <url>/2020/09/29/4.Android/20200929_Trick-adb%E8%BF%9E%E6%8E%A5mumu%E6%A8%A1%E6%8B%9F%E5%99%A8/</url>
-    <content><![CDATA[<h1 id="adb-连接-mumu-模拟器">adb 连接 mumu 模拟器</h1>
-<h2 id="windows-平台">Windows 平台</h2>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">adb connect 127.0.0.1:7555</span><br></pre></td></tr></table></figure>
-<h2 id="mac-平台">Mac 平台</h2>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">adb shell</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果不行,可以尝试 adb kill-server,再运行连接 .</p>
-</blockquote>
+    <title>Trick-RxJava实现延迟调用</title>
+    <url>/2020/09/29/4.Android/20200929_Trick-RxJava%E5%AE%9E%E7%8E%B0%E5%BB%B6%E8%BF%9F%E8%B0%83%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="rxjava实现延迟调用">RxJava实现延迟调用</h1>
+<h2 id="代码">代码</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Observable.timer(<span class="number">1</span>, TimeUnit.SECONDS).subscribe(<span class="keyword">new</span> Observer&lt;Long&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSubscribe</span><span class="params">(Disposable d)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onSubscribe&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Long value)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;延迟了:&quot;</span> + value + <span class="string">&quot;秒.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onError&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onComplete</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;onComplete&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>4.Android</category>
       </categories>
       <tags>
-        <tag>Windows</tag>
-        <tag>Mac</tag>
-        <tag>Adb</tag>
+        <tag>IDE</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -5928,34 +5930,6 @@ z_r\in[n,f]
         <tag>Android</tag>
         <tag>Go</tag>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tutorial-Android内存泄漏问题</title>
-    <url>/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="android内存泄漏问题">Android内存泄漏问题</h1>
-<h2 id="什么是内存泄漏">什么是内存泄漏</h2>
-<p>Android虚拟机的垃圾回收采用的是根搜索算法。GC会从根节点（GC Roots）开始对heap进行遍历。到最后，部分没有直接或者间接引用到GC Roots的就是需要回收的垃圾，会被GC回收掉。但是当对象不再被应用程序使用，仍然被生命周期长的对象引用，垃圾回收器无法回收,这就叫内存泄漏.</p>
-<h2 id="内存泄露的根本原因">内存泄露的根本原因</h2>
-<p>长生命周期的对象持有短生命周期的对象。短周期对象就无法及时释放。</p>
-<h2 id="哪些情况会造成内存泄漏">哪些情况会造成内存泄漏</h2>
-<ul>
-<li><h3 id="错误使用单例造成的内存泄漏">错误使用单例造成的内存泄漏</h3></li>
-<li><h3 id="handler造成的内存泄漏">Handler造成的内存泄漏</h3></li>
-<li><h3 id="线程造成的内存泄漏">线程造成的内存泄漏</h3></li>
-<li><h3 id="非静态内部类创建静态实例造成的内存泄漏">非静态内部类创建静态实例造成的内存泄漏</h3></li>
-<li><h3 id="资源未关闭造成的内存泄漏">资源未关闭造成的内存泄漏</h3></li>
-</ul>
-<p><a href="https://www.jianshu.com/p/f55c6187a1c0">Android内存泄漏总结和leakcanary使用</a></p>
-<p><a href="https://blog.mindorks.com/detecting-and-fixing-memory-leaks-in-android">Detecting and fixing memory leaks in android</a></p>
-]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>AR</tag>
-        <tag>Android</tag>
-        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -6008,6 +5982,49 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
+    <title>Tutorial-Android内存泄漏问题</title>
+    <url>/2020/09/29/4.Android/20200929_Tutorial-Android%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="android内存泄漏问题">Android内存泄漏问题</h1>
+<h2 id="什么是内存泄漏">什么是内存泄漏</h2>
+<p>Android虚拟机的垃圾回收采用的是根搜索算法。GC会从根节点（GC Roots）开始对heap进行遍历。到最后，部分没有直接或者间接引用到GC Roots的就是需要回收的垃圾，会被GC回收掉。但是当对象不再被应用程序使用，仍然被生命周期长的对象引用，垃圾回收器无法回收,这就叫内存泄漏.</p>
+<h2 id="内存泄露的根本原因">内存泄露的根本原因</h2>
+<p>长生命周期的对象持有短生命周期的对象。短周期对象就无法及时释放。</p>
+<h2 id="哪些情况会造成内存泄漏">哪些情况会造成内存泄漏</h2>
+<ul>
+<li><h3 id="错误使用单例造成的内存泄漏">错误使用单例造成的内存泄漏</h3></li>
+<li><h3 id="handler造成的内存泄漏">Handler造成的内存泄漏</h3></li>
+<li><h3 id="线程造成的内存泄漏">线程造成的内存泄漏</h3></li>
+<li><h3 id="非静态内部类创建静态实例造成的内存泄漏">非静态内部类创建静态实例造成的内存泄漏</h3></li>
+<li><h3 id="资源未关闭造成的内存泄漏">资源未关闭造成的内存泄漏</h3></li>
+</ul>
+<p><a href="https://www.jianshu.com/p/f55c6187a1c0">Android内存泄漏总结和leakcanary使用</a></p>
+<p><a href="https://blog.mindorks.com/detecting-and-fixing-memory-leaks-in-android">Detecting and fixing memory leaks in android</a></p>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>AR</tag>
+        <tag>Android</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tutorial-Android开发之道稳定兼容高效</title>
+    <url>/2020/09/29/4.Android/20200929_Tutorial-Android%E5%BC%80%E5%8F%91%E4%B9%8B%E9%81%93%E7%A8%B3%E5%AE%9A%E5%85%BC%E5%AE%B9%E9%AB%98%E6%95%88/</url>
+    <content><![CDATA[<h1 id="android开发之道">Android开发之道</h1>
+<h2 id="稳定">稳定</h2>
+<h2 id="兼容">兼容</h2>
+<h2 id="高效">高效</h2>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tutorial-Android属性动画详解</title>
     <url>/2020/09/29/4.Android/20200929_Tutorial-Android%E5%B1%9E%E6%80%A7%E5%8A%A8%E7%94%BB%E8%AF%A6%E8%A7%A3/</url>
     <content><![CDATA[<h1 id="android属性动画详解">Android属性动画详解</h1>
@@ -6027,21 +6044,6 @@ z_r\in[n,f]
         <tag>AR</tag>
         <tag>Android</tag>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tutorial-Android开发之道稳定兼容高效</title>
-    <url>/2020/09/29/4.Android/20200929_Tutorial-Android%E5%BC%80%E5%8F%91%E4%B9%8B%E9%81%93%E7%A8%B3%E5%AE%9A%E5%85%BC%E5%AE%B9%E9%AB%98%E6%95%88/</url>
-    <content><![CDATA[<h1 id="android开发之道">Android开发之道</h1>
-<h2 id="稳定">稳定</h2>
-<h2 id="兼容">兼容</h2>
-<h2 id="高效">高效</h2>
-]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
@@ -6203,98 +6205,6 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
-    <title>Tutorial-Android生命周期详解</title>
-    <url>/2020/09/29/4.Android/20200929_Tutorial-Android%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="android-生命周期详解">Android 生命周期详解</h1>
-<h2 id="activity">Activity</h2>
-<figure>
-<img src="/images/2019-11-04-14-58-21.png" alt="activity" /><figcaption aria-hidden="true">activity</figcaption>
-</figure>
-<h2 id="fragment">Fragment</h2>
-<figure>
-<img src="https://upload-images.jianshu.io/upload_images/6433394-2905902a1331235f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/317/format/webp" alt="fragment" /><figcaption aria-hidden="true">fragment</figcaption>
-</figure>
-<h2 id="参考链接">参考链接</h2>
-<p><a href="https://www.jianshu.com/p/c8f34229b6dc">Fragment与Fragment相互切换之间的生命周期方法</a></p>
-]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-        <tag>Web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tutorial-Java值类型引用类型</title>
-    <url>/2020/09/29/4.Android/20200929_Tutorial-Java%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/</url>
-    <content><![CDATA[<h1 id="java值类型引用类型">Java值类型引用类型</h1>
-<h2 id="当前类">当前类</h2>
-<h2 id="其他类">其他类</h2>
-<h3 id="对象">对象</h3>
-<h3 id="单例">单例</h3>
-<h3 id="静态方法">静态方法</h3>
-]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tutorial-Android进阶技巧</title>
-    <url>/2020/09/29/4.Android/20200929_Tutorial-Android%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<h1 id="android-进阶技巧">Android 进阶技巧</h1>
-<h2 id="全局获取-context">全局获取 Context</h2>
-<p>定制一个自己的 Application 类,以便于管理程序内的一些全局的状态信息,比如说全局 Context</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> <span class="keyword">extends</span> <span class="title">Application</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Context context;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        context = getApplicationContext();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Context <span class="title">getContext</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> context;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>用法</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">MyApplication.getContext();</span><br></pre></td></tr></table></figure>
-<h2 id="使用-intent-传递对象">使用 Intent 传递对象</h2>
-<h3 id="serializable-方式">Serializable 方式</h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Person person = <span class="keyword">new</span> Person();</span><br><span class="line">person.setName(<span class="string">&quot;Michael&quot;</span>);</span><br><span class="line">person.setAge(<span class="number">20</span>);</span><br><span class="line">Intent intent = <span class="keyword">new</span> Intent (FirstActivity.<span class="keyword">this</span>,SecondActivity.class);</span><br><span class="line">intent.putExtra(<span class="string">&quot;person_data&quot;</span>,person);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
-<h3 id="parcelable-方式">Parcelable 方式</h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Parcelable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">describeContents</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writeToParcel</span><span class="params">(Parcel dest,<span class="keyword">int</span> flags)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        dest.writeString(name);</span><br><span class="line">        dest.writeInt(age);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Parcelable.Creator&lt;Person&gt; CREATOR <span class="keyword">new</span> Parcelable.Creator&lt;Person&gt;()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Person <span class="title">createFromParcel</span><span class="params">(Parcel source)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            Person person = <span class="keyword">new</span> Person();</span><br><span class="line">            person.name = source.readString();</span><br><span class="line">            person.age = source.readInt();</span><br><span class="line">            <span class="keyword">return</span> person;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> Person[] newArray(<span class="keyword">int</span> size)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Person[size];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="定制自己的日志工具">定制自己的日志工具</h2>
-<p>level等于VERBOSE就可以把所有日志都打印出来,level等于NOTHING就可以把所有日志屏蔽掉</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogUtil</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> VERBOSE = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEBUG = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INFO = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> WARN = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ERROR = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NOTHING = <span class="number">6</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> level = VERBOSE;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">v</span><span class="params">(String tag, String msg)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(level &lt;= VERBOSE)</span><br><span class="line">        &#123;</span><br><span class="line">            Log.v(tag,msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">d</span><span class="params">(String tag, String msg)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(level &lt;= DEBUG)</span><br><span class="line">        &#123;</span><br><span class="line">            Log.v(tag,msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">i</span><span class="params">(String tag, String msg)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(level &lt;= INFO)</span><br><span class="line">        &#123;</span><br><span class="line">            Log.v(tag,msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">w</span><span class="params">(String tag, String msg)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(level &lt;= WARN)</span><br><span class="line">        &#123;</span><br><span class="line">            Log.v(tag,msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">e</span><span class="params">(String tag, String msg)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(level &lt;= ERROR)</span><br><span class="line">        &#123;</span><br><span class="line">            Log.v(tag,msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="动态调试">动态调试</h2>
-<p>使用 Attach debugger to Android process 调试方式更加高效 更常用</p>
-<h2 id="创建定时任务">创建定时任务</h2>
-<h3 id="alarm-机制">Alarm 机制</h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LongRunningService</span> <span class="keyword">extends</span> <span class="title">Service</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IBinder <span class="title">onBind</span><span class="params">(Intent intent)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">onStart</span><span class="params">(Intent intent, <span class="keyword">int</span> flags, <span class="keyword">int</span> startId)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line"><span class="function">            </span>&#123;</span><br><span class="line">                <span class="comment">// 具体逻辑</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">        AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);</span><br><span class="line">        <span class="keyword">int</span> anHour = <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>;</span><br><span class="line">        <span class="keyword">long</span> triggerAtTime = SystemClock.elapsedRealtime() + anHour;</span><br><span class="line">        Intent i = <span class="keyword">new</span> Intent(<span class="keyword">this</span>,LongRunndingService.class);</span><br><span class="line">        PendingIntent pi = PendingIntent.getService(<span class="keyword">this</span>,<span class="number">0</span>,i,<span class="number">0</span>);</span><br><span class="line">        manager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,triggerAtTime,pi);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onStartCommand(intent,flags,startId);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="doze-模式">Doze 模式</h3>
-<ul>
-<li><p>setAndAllowWhileIdle()</p></li>
-<li><p>setExactAndAllowWhileIdle()</p></li>
-</ul>
-<h2 id="多窗口模式编程">多窗口模式编程</h2>
-<h3 id="禁用方式-application-android-resizeableactivity-false">禁用方式: &lt;application android: resizeableActivity = "false"</h3>
-<h3 id="targetsdkversion低于24-禁用方式-activity-android-screenorientation-portrait">targetSdkVersion低于24 禁用方式: &lt;activity android: screenOrientation = "portrait"</h3>
-<h2 id="lambda-表达式">Lambda 表达式</h2>
-<h3 id="gradle-配置">gradle 配置</h3>
-<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">defaultConfig</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">    jackOptions.enable = <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">compileOptions</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">sourceCompatibility</span> JavaVersion.VERSION_1_8</span><br><span class="line">    <span class="keyword">targetCompatibility</span> JavaVersion.VERSION_1_8</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对比</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 不使用</span></span><br><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 具体逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;).start();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">    <span class="comment">// 具体逻辑</span></span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>4.Android</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>AS</tag>
-        <tag>AR</tag>
-        <tag>Bug</tag>
-        <tag>IDE</tag>
-        <tag>Android</tag>
-        <tag>Java</tag>
-        <tag>编程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tutorial-Android离线应用接收推送方法</title>
     <url>/2020/09/29/4.Android/20200929_Tutorial-Android%E7%A6%BB%E7%BA%BF%E5%BA%94%E7%94%A8%E6%8E%A5%E6%94%B6%E6%8E%A8%E9%80%81%E6%96%B9%E6%B3%95/</url>
     <content><![CDATA[<h1 id="android离线应用接收推送方法">Android离线应用接收推送方法</h1>
@@ -6359,6 +6269,98 @@ z_r\in[n,f]
       <tags>
         <tag>Android</tag>
         <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tutorial-Android生命周期详解</title>
+    <url>/2020/09/29/4.Android/20200929_Tutorial-Android%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="android-生命周期详解">Android 生命周期详解</h1>
+<h2 id="activity">Activity</h2>
+<figure>
+<img src="/images/2019-11-04-14-58-21.png" alt="activity" /><figcaption aria-hidden="true">activity</figcaption>
+</figure>
+<h2 id="fragment">Fragment</h2>
+<figure>
+<img src="https://upload-images.jianshu.io/upload_images/6433394-2905902a1331235f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/317/format/webp" alt="fragment" /><figcaption aria-hidden="true">fragment</figcaption>
+</figure>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://www.jianshu.com/p/c8f34229b6dc">Fragment与Fragment相互切换之间的生命周期方法</a></p>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tutorial-Android进阶技巧</title>
+    <url>/2020/09/29/4.Android/20200929_Tutorial-Android%E8%BF%9B%E9%98%B6%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h1 id="android-进阶技巧">Android 进阶技巧</h1>
+<h2 id="全局获取-context">全局获取 Context</h2>
+<p>定制一个自己的 Application 类,以便于管理程序内的一些全局的状态信息,比如说全局 Context</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> <span class="keyword">extends</span> <span class="title">Application</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Context context;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        context = getApplicationContext();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Context <span class="title">getContext</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> context;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">MyApplication.getContext();</span><br></pre></td></tr></table></figure>
+<h2 id="使用-intent-传递对象">使用 Intent 传递对象</h2>
+<h3 id="serializable-方式">Serializable 方式</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Person person = <span class="keyword">new</span> Person();</span><br><span class="line">person.setName(<span class="string">&quot;Michael&quot;</span>);</span><br><span class="line">person.setAge(<span class="number">20</span>);</span><br><span class="line">Intent intent = <span class="keyword">new</span> Intent (FirstActivity.<span class="keyword">this</span>,SecondActivity.class);</span><br><span class="line">intent.putExtra(<span class="string">&quot;person_data&quot;</span>,person);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+<h3 id="parcelable-方式">Parcelable 方式</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">Parcelable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">describeContents</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writeToParcel</span><span class="params">(Parcel dest,<span class="keyword">int</span> flags)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        dest.writeString(name);</span><br><span class="line">        dest.writeInt(age);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Parcelable.Creator&lt;Person&gt; CREATOR <span class="keyword">new</span> Parcelable.Creator&lt;Person&gt;()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Person <span class="title">createFromParcel</span><span class="params">(Parcel source)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            Person person = <span class="keyword">new</span> Person();</span><br><span class="line">            person.name = source.readString();</span><br><span class="line">            person.age = source.readInt();</span><br><span class="line">            <span class="keyword">return</span> person;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> Person[] newArray(<span class="keyword">int</span> size)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Person[size];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="定制自己的日志工具">定制自己的日志工具</h2>
+<p>level等于VERBOSE就可以把所有日志都打印出来,level等于NOTHING就可以把所有日志屏蔽掉</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LogUtil</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> VERBOSE = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEBUG = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INFO = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> WARN = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ERROR = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NOTHING = <span class="number">6</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> level = VERBOSE;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">v</span><span class="params">(String tag, String msg)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(level &lt;= VERBOSE)</span><br><span class="line">        &#123;</span><br><span class="line">            Log.v(tag,msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">d</span><span class="params">(String tag, String msg)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(level &lt;= DEBUG)</span><br><span class="line">        &#123;</span><br><span class="line">            Log.v(tag,msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">i</span><span class="params">(String tag, String msg)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(level &lt;= INFO)</span><br><span class="line">        &#123;</span><br><span class="line">            Log.v(tag,msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">w</span><span class="params">(String tag, String msg)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(level &lt;= WARN)</span><br><span class="line">        &#123;</span><br><span class="line">            Log.v(tag,msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">e</span><span class="params">(String tag, String msg)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(level &lt;= ERROR)</span><br><span class="line">        &#123;</span><br><span class="line">            Log.v(tag,msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="动态调试">动态调试</h2>
+<p>使用 Attach debugger to Android process 调试方式更加高效 更常用</p>
+<h2 id="创建定时任务">创建定时任务</h2>
+<h3 id="alarm-机制">Alarm 机制</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LongRunningService</span> <span class="keyword">extends</span> <span class="title">Service</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IBinder <span class="title">onBind</span><span class="params">(Intent intent)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">onStart</span><span class="params">(Intent intent, <span class="keyword">int</span> flags, <span class="keyword">int</span> startId)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line"><span class="function">            </span>&#123;</span><br><span class="line">                <span class="comment">// 具体逻辑</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">        AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);</span><br><span class="line">        <span class="keyword">int</span> anHour = <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>;</span><br><span class="line">        <span class="keyword">long</span> triggerAtTime = SystemClock.elapsedRealtime() + anHour;</span><br><span class="line">        Intent i = <span class="keyword">new</span> Intent(<span class="keyword">this</span>,LongRunndingService.class);</span><br><span class="line">        PendingIntent pi = PendingIntent.getService(<span class="keyword">this</span>,<span class="number">0</span>,i,<span class="number">0</span>);</span><br><span class="line">        manager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,triggerAtTime,pi);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onStartCommand(intent,flags,startId);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="doze-模式">Doze 模式</h3>
+<ul>
+<li><p>setAndAllowWhileIdle()</p></li>
+<li><p>setExactAndAllowWhileIdle()</p></li>
+</ul>
+<h2 id="多窗口模式编程">多窗口模式编程</h2>
+<h3 id="禁用方式-application-android-resizeableactivity-false">禁用方式: &lt;application android: resizeableActivity = "false"</h3>
+<h3 id="targetsdkversion低于24-禁用方式-activity-android-screenorientation-portrait">targetSdkVersion低于24 禁用方式: &lt;activity android: screenOrientation = "portrait"</h3>
+<h2 id="lambda-表达式">Lambda 表达式</h2>
+<h3 id="gradle-配置">gradle 配置</h3>
+<figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">defaultConfig</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">    jackOptions.enable = <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line">compileOptions</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">sourceCompatibility</span> JavaVersion.VERSION_1_8</span><br><span class="line">    <span class="keyword">targetCompatibility</span> JavaVersion.VERSION_1_8</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对比</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 不使用</span></span><br><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 具体逻辑</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;).start();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">    <span class="comment">// 具体逻辑</span></span><br><span class="line">&#125;).start();</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>AS</tag>
+        <tag>AR</tag>
+        <tag>Bug</tag>
+        <tag>IDE</tag>
+        <tag>Android</tag>
+        <tag>Java</tag>
+        <tag>编程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tutorial-Java值类型引用类型</title>
+    <url>/2020/09/29/4.Android/20200929_Tutorial-Java%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/</url>
+    <content><![CDATA[<h1 id="java值类型引用类型">Java值类型引用类型</h1>
+<h2 id="当前类">当前类</h2>
+<h2 id="其他类">其他类</h2>
+<h3 id="对象">对象</h3>
+<h3 id="单例">单例</h3>
+<h3 id="静态方法">静态方法</h3>
+]]></content>
+      <categories>
+        <category>4.Android</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -6717,6 +6719,28 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
+    <title>Trick-AndroidStudio必备插件</title>
+    <url>/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="androidstudio必备插件">AndroidStudio必备插件</h1>
+<h2 id="gsonformat">GsonFormat</h2>
+<h2 id="jrebel-2018.1.5">Jrebel 2018.1.5</h2>
+<h2 id="adb-idea">ADB Idea</h2>
+<h2 id="android-studio-prettify">Android Studio Prettify</h2>
+<h2 id="findviewbyme">FindViewByMe</h2>
+<h2 id="wakatime">Wakatime</h2>
+]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>AS</category>
+      </categories>
+      <tags>
+        <tag>IDE</tag>
+        <tag>Android</tag>
+        <tag>Android Studio</tag>
+        <tag>Adb</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tips-AndroidStudio Log颜色配置</title>
     <url>/2020/09/29/9.Tools/AS/20200929_Tips-AndroidStudio%20Log%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1 id="androidstudio-log-颜色配置">AndroidStudio Log 颜色配置</h1>
@@ -6802,28 +6826,6 @@ z_r\in[n,f]
         <tag>AR</tag>
         <tag>Bug</tag>
         <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Trick-AndroidStudio必备插件</title>
-    <url>/2020/09/29/9.Tools/AS/20200929_Trick-AndroidStudio%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/</url>
-    <content><![CDATA[<h1 id="androidstudio必备插件">AndroidStudio必备插件</h1>
-<h2 id="gsonformat">GsonFormat</h2>
-<h2 id="jrebel-2018.1.5">Jrebel 2018.1.5</h2>
-<h2 id="adb-idea">ADB Idea</h2>
-<h2 id="android-studio-prettify">Android Studio Prettify</h2>
-<h2 id="findviewbyme">FindViewByMe</h2>
-<h2 id="wakatime">Wakatime</h2>
-]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>AS</category>
-      </categories>
-      <tags>
-        <tag>IDE</tag>
-        <tag>Android</tag>
-        <tag>Android Studio</tag>
-        <tag>Adb</tag>
       </tags>
   </entry>
   <entry>
@@ -7441,6 +7443,29 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
+    <title>Trick-BeyondCompare</title>
+    <url>/2020/09/29/9.Tools/Utils/20200929_Trick-BeyondCompare.%E6%97%A0%E9%99%90%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="beyondcompare-无限使用">BeyondCompare 无限使用</h1>
+<h2 id="进入目录">进入目录</h2>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Users\ETA\AppData\Roaming\BCompare\</span><br></pre></td></tr></table></figure>
+<h2 id="修改bcompare文件-确保安装时间和上次加载时间始终为当前时间">修改BCompare文件 确保安装时间和上次加载时间始终为当前时间</h2>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">[BCompare]</span><br><span class="line">InstallTime=1533965017</span><br><span class="line">LastLoading=1533965017</span><br></pre></td></tr></table></figure>
+<h2 id="自动化">自动化</h2>
+<p>可以写一个Unity Editor工具或Python工具,获取当前用户名自动修改时间戳</p>
+]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>Utils</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+        <tag>工具</tag>
+        <tag>AS</tag>
+        <tag>AR</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tips-VS主题颜色配置</title>
     <url>/2020/09/29/9.Tools/VS/20200929_Tips-VS%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1 id="vs主题颜色配置">VS主题颜色配置</h1>
@@ -7506,29 +7531,6 @@ z_r\in[n,f]
         <tag>Unity</tag>
         <tag>VS</tag>
         <tag>Sqlite</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Trick-BeyondCompare</title>
-    <url>/2020/09/29/9.Tools/Utils/20200929_Trick-BeyondCompare.%E6%97%A0%E9%99%90%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="beyondcompare-无限使用">BeyondCompare 无限使用</h1>
-<h2 id="进入目录">进入目录</h2>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> C:\Users\ETA\AppData\Roaming\BCompare\</span><br></pre></td></tr></table></figure>
-<h2 id="修改bcompare文件-确保安装时间和上次加载时间始终为当前时间">修改BCompare文件 确保安装时间和上次加载时间始终为当前时间</h2>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">[BCompare]</span><br><span class="line">InstallTime=1533965017</span><br><span class="line">LastLoading=1533965017</span><br></pre></td></tr></table></figure>
-<h2 id="自动化">自动化</h2>
-<p>可以写一个Unity Editor工具或Python工具,获取当前用户名自动修改时间戳</p>
-]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>Utils</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
-        <tag>工具</tag>
-        <tag>AS</tag>
-        <tag>AR</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -7623,22 +7625,6 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
-    <title>Trick-VS插件扩展</title>
-    <url>/2020/09/29/9.Tools/VS/20200929_Trick-VS%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95/</url>
-    <content><![CDATA[<h1 id="vs插件扩展">VS插件扩展</h1>
-<h2 id="codemaid">CodeMaid</h2>
-<h2 id="enhanced-syntax-highlighting">Enhanced-Syntax-Highlighting</h2>
-<h2 id="region-highlights">Region Highlights</h2>
-]]></content>
-      <categories>
-        <category>9.Tools</category>
-        <category>VS</category>
-      </categories>
-      <tags>
-        <tag>VS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tips-VSCode主题颜色配置</title>
     <url>/2020/09/29/9.Tools/VSCode/20200929_Tips-VSCode%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h1 id="vscode主题颜色配置">VSCode主题颜色配置</h1>
@@ -7652,6 +7638,22 @@ z_r\in[n,f]
       <tags>
         <tag>AR</tag>
         <tag>VSCode</tag>
+        <tag>VS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Trick-VS插件扩展</title>
+    <url>/2020/09/29/9.Tools/VS/20200929_Trick-VS%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95/</url>
+    <content><![CDATA[<h1 id="vs插件扩展">VS插件扩展</h1>
+<h2 id="codemaid">CodeMaid</h2>
+<h2 id="enhanced-syntax-highlighting">Enhanced-Syntax-Highlighting</h2>
+<h2 id="region-highlights">Region Highlights</h2>
+]]></content>
+      <categories>
+        <category>9.Tools</category>
+        <category>VS</category>
+      </categories>
+      <tags>
         <tag>VS</tag>
       </tags>
   </entry>
@@ -8744,8 +8746,8 @@ z_r\in[n,f]
         <tag>工具</tag>
         <tag>AS</tag>
         <tag>AR</tag>
-        <tag>C#</tag>
         <tag>Roguelike</tag>
+        <tag>C#</tag>
         <tag>VSCode</tag>
         <tag>VS</tag>
         <tag>Js</tag>
@@ -8888,8 +8890,8 @@ z_r\in[n,f]
         <tag>ML</tag>
         <tag>Web</tag>
         <tag>Go</tag>
-        <tag>PHP</tag>
         <tag>Git</tag>
+        <tag>PHP</tag>
         <tag>Java</tag>
         <tag>Tools</tag>
       </tags>
@@ -13011,6 +13013,22 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
+    <title>Tips-PHP中echo括号的处理</title>
+    <url>/2020/09/28/5.Web/20200928_Tips-PHP%E4%B8%ADecho%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<h1 id="php中echo括号的处理">PHP中echo括号的处理</h1>
+<h2 id="关于echo">关于echo</h2>
+<p>echo 不是一个函数（它是一个语言结构）， 因此你不一定要使用小括号来指明参数，单引号，双引号都可以。 echo （不像其他语言构造）不表现得像一个函数， 所以不能总是使用一个函数的上下文。 另外，如果你想给echo 传递多个参数， 那么就不能使用小括号。</p>
+<h2 id="测试代码">测试代码</h2>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1、全部用括号包起来的情况，其中只能存在一个参数，才会被输出</span></span><br><span class="line"><span class="keyword">echo</span> (<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;#&#x27;</span>,<span class="string">&quot;aabbcc&quot;</span>);        <span class="comment">//报错 &quot;语法错误，不被期望的&#x27;,&#x27;&quot;(相当于传了多个参数)</span></span><br><span class="line"><span class="keyword">echo</span> (<span class="string">&#x27;b&#x27;</span>.<span class="string">&#x27;#&#x27;</span>.<span class="string">&quot;aabbcc&quot;</span>);        <span class="comment">//b#aabbcc</span></span><br><span class="line"><span class="keyword">echo</span> (((<span class="string">&#x27;abc&#x27;</span>)));               <span class="comment">//abc</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2、无&quot;,&quot;或&quot;.&quot;连接，但存在括号的情况会被解析为函数的调用</span></span><br><span class="line"><span class="comment">// 注意：如果存在连续三个及三个以上括号的情况，则会报错</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;str_replace&quot;</span>(<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;#&#x27;</span>,<span class="string">&quot;aabbcc&quot;</span>);   <span class="comment">//aa##cc</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;strlen&#x27;</span>(<span class="string">&#x27;abc&#x27;</span>);                   <span class="comment">//3</span></span><br><span class="line"><span class="keyword">echo</span> (<span class="string">&#x27;strlen&#x27;</span>)(<span class="string">&#x27;abc&#x27;</span>);                 <span class="comment">//3</span></span><br><span class="line"><span class="keyword">echo</span> (<span class="string">&#x27;aaa&#x27;</span>)(<span class="string">&#x27;bbb&#x27;</span>);                    <span class="comment">//报错：aaa函数未定义</span></span><br><span class="line"><span class="keyword">echo</span> (<span class="string">&#x27;strlen&#x27;</span>)(<span class="string">&#x27;abc&#x27;</span>)(<span class="string">&#x27;ss&#x27;</span>);           <span class="comment">//报错 &quot;函数名不是一个字符串&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//3、存在&quot;,&quot;或&quot;.&quot;连接的情况，即单纯的字符串顺序输出或连接</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;strlen&#x27;</span>,(<span class="string">&quot;aaa&quot;</span>);  <span class="comment">//strlenaaa</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;strlen&#x27;</span>.(<span class="string">&quot;aaa&quot;</span>);  <span class="comment">//strlenaaa</span></span><br><span class="line"><span class="keyword">echo</span> (<span class="string">&#x27;aaa&#x27;</span>).(<span class="string">&#x27;bbb&#x27;</span>);   <span class="comment">//aaabbb</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>5.Web</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tips-PHP包管理工具Composer的使用</title>
     <url>/2020/09/28/5.Web/20200928_Tips-PHP%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7Composer%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="php包管理工具composer的使用">PHP包管理工具Composer的使用</h1>
@@ -13054,19 +13072,35 @@ z_r\in[n,f]
       </tags>
   </entry>
   <entry>
-    <title>Tips-PHP中echo括号的处理</title>
-    <url>/2020/09/28/5.Web/20200928_Tips-PHP%E4%B8%ADecho%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[<h1 id="php中echo括号的处理">PHP中echo括号的处理</h1>
-<h2 id="关于echo">关于echo</h2>
-<p>echo 不是一个函数（它是一个语言结构）， 因此你不一定要使用小括号来指明参数，单引号，双引号都可以。 echo （不像其他语言构造）不表现得像一个函数， 所以不能总是使用一个函数的上下文。 另外，如果你想给echo 传递多个参数， 那么就不能使用小括号。</p>
-<h2 id="测试代码">测试代码</h2>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1、全部用括号包起来的情况，其中只能存在一个参数，才会被输出</span></span><br><span class="line"><span class="keyword">echo</span> (<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;#&#x27;</span>,<span class="string">&quot;aabbcc&quot;</span>);        <span class="comment">//报错 &quot;语法错误，不被期望的&#x27;,&#x27;&quot;(相当于传了多个参数)</span></span><br><span class="line"><span class="keyword">echo</span> (<span class="string">&#x27;b&#x27;</span>.<span class="string">&#x27;#&#x27;</span>.<span class="string">&quot;aabbcc&quot;</span>);        <span class="comment">//b#aabbcc</span></span><br><span class="line"><span class="keyword">echo</span> (((<span class="string">&#x27;abc&#x27;</span>)));               <span class="comment">//abc</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2、无&quot;,&quot;或&quot;.&quot;连接，但存在括号的情况会被解析为函数的调用</span></span><br><span class="line"><span class="comment">// 注意：如果存在连续三个及三个以上括号的情况，则会报错</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;str_replace&quot;</span>(<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;#&#x27;</span>,<span class="string">&quot;aabbcc&quot;</span>);   <span class="comment">//aa##cc</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;strlen&#x27;</span>(<span class="string">&#x27;abc&#x27;</span>);                   <span class="comment">//3</span></span><br><span class="line"><span class="keyword">echo</span> (<span class="string">&#x27;strlen&#x27;</span>)(<span class="string">&#x27;abc&#x27;</span>);                 <span class="comment">//3</span></span><br><span class="line"><span class="keyword">echo</span> (<span class="string">&#x27;aaa&#x27;</span>)(<span class="string">&#x27;bbb&#x27;</span>);                    <span class="comment">//报错：aaa函数未定义</span></span><br><span class="line"><span class="keyword">echo</span> (<span class="string">&#x27;strlen&#x27;</span>)(<span class="string">&#x27;abc&#x27;</span>)(<span class="string">&#x27;ss&#x27;</span>);           <span class="comment">//报错 &quot;函数名不是一个字符串&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//3、存在&quot;,&quot;或&quot;.&quot;连接的情况，即单纯的字符串顺序输出或连接</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;strlen&#x27;</span>,(<span class="string">&quot;aaa&quot;</span>);  <span class="comment">//strlenaaa</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;strlen&#x27;</span>.(<span class="string">&quot;aaa&quot;</span>);  <span class="comment">//strlenaaa</span></span><br><span class="line"><span class="keyword">echo</span> (<span class="string">&#x27;aaa&#x27;</span>).(<span class="string">&#x27;bbb&#x27;</span>);   <span class="comment">//aaabbb</span></span><br></pre></td></tr></table></figure>
+    <title>Tips-Ubuntu更改Web目录</title>
+    <url>/2020/09/28/5.Web/20200928_Tips-Ubuntu%E6%9B%B4%E6%94%B9Web%E7%9B%AE%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="ubuntu更改web目录">Ubuntu更改Web目录</h1>
+<ul>
+<li>配置文件</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">nano /etc/apache2/sites-enable/000-default</span><br></pre></td></tr></table></figure>
+<p>如下所示</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ServerAdmin webmaster@localhost</span><br><span class="line">       DocumentRoot /var/www/html/thinkphp5/public</span><br><span class="line"></span><br><span class="line">       <span class="comment"># Available loglevels: trace8, ..., trace1, debug, info, notice, warn,</span></span><br><span class="line">       <span class="comment"># error, crit, alert, emerg.</span></span><br><span class="line">       <span class="comment"># It is also possible to configure the loglevel for particular</span></span><br><span class="line">       <span class="comment"># modules, e.g.</span></span><br><span class="line">       <span class="comment">#LogLevel info ssl:warn</span></span><br></pre></td></tr></table></figure>
+<p>修改 DocumentRoot 后面的目录为自己想要的Web目录</p>
+<h2 id="提醒">提醒</h2>
+<p>Windows环境下配置文件如下</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">..\apache\conf\httpd.conf</span><br></pre></td></tr></table></figure>
+<p>还是修改 DocumentRoot 对应的值</p>
 ]]></content>
       <categories>
         <category>5.Web</category>
       </categories>
       <tags>
+        <tag>AS</tag>
+        <tag>AR</tag>
+        <tag>Bug</tag>
+        <tag>ML</tag>
+        <tag>Web</tag>
+        <tag>Windows</tag>
+        <tag>Html</tag>
         <tag>PHP</tag>
+        <tag>ThinkPHP</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -13116,39 +13150,7 @@ z_r\in[n,f]
         <tag>AR</tag>
         <tag>ML</tag>
         <tag>Html</tag>
-        <tag>PHP</tag>
-        <tag>ThinkPHP</tag>
         <tag>Git</tag>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tips-Ubuntu更改Web目录</title>
-    <url>/2020/09/28/5.Web/20200928_Tips-Ubuntu%E6%9B%B4%E6%94%B9Web%E7%9B%AE%E5%BD%95/</url>
-    <content><![CDATA[<h1 id="ubuntu更改web目录">Ubuntu更改Web目录</h1>
-<ul>
-<li>配置文件</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">nano /etc/apache2/sites-enable/000-default</span><br></pre></td></tr></table></figure>
-<p>如下所示</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ServerAdmin webmaster@localhost</span><br><span class="line">       DocumentRoot /var/www/html/thinkphp5/public</span><br><span class="line"></span><br><span class="line">       <span class="comment"># Available loglevels: trace8, ..., trace1, debug, info, notice, warn,</span></span><br><span class="line">       <span class="comment"># error, crit, alert, emerg.</span></span><br><span class="line">       <span class="comment"># It is also possible to configure the loglevel for particular</span></span><br><span class="line">       <span class="comment"># modules, e.g.</span></span><br><span class="line">       <span class="comment">#LogLevel info ssl:warn</span></span><br></pre></td></tr></table></figure>
-<p>修改 DocumentRoot 后面的目录为自己想要的Web目录</p>
-<h2 id="提醒">提醒</h2>
-<p>Windows环境下配置文件如下</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">..\apache\conf\httpd.conf</span><br></pre></td></tr></table></figure>
-<p>还是修改 DocumentRoot 对应的值</p>
-]]></content>
-      <categories>
-        <category>5.Web</category>
-      </categories>
-      <tags>
-        <tag>AS</tag>
-        <tag>AR</tag>
-        <tag>Bug</tag>
-        <tag>ML</tag>
-        <tag>Web</tag>
-        <tag>Windows</tag>
-        <tag>Html</tag>
         <tag>PHP</tag>
         <tag>ThinkPHP</tag>
         <tag>Ubuntu</tag>
@@ -13281,9 +13283,9 @@ z_r\in[n,f]
         <tag>ML</tag>
         <tag>Web</tag>
         <tag>Html</tag>
+        <tag>Git</tag>
         <tag>PHP</tag>
         <tag>ThinkPHP</tag>
-        <tag>Git</tag>
         <tag>Linux</tag>
         <tag>Ubuntu</tag>
         <tag>MySql</tag>
