@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="MySQL 常用函数 一、数学函数  * abs(x) 返回 x 的绝对值  * bin(x) 返回 x 的二进制（oct 返回八进制，hex 返回十六进制）  * ceiling(x) 返回大于 x 的最小整数值  * exp(x) 返回值 e（自然对数的底）的 x 次方  * floor(x) 返回小于 x 的最大整数值  * greatest(x1,x2,...,xn)返回集合中最大的值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tutorial_MySql常用函数">
+<meta property="og:url" content="http://example.com/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:site_name" content="行则将至">
+<meta property="og:description" content="MySQL 常用函数 一、数学函数  * abs(x) 返回 x 的绝对值  * bin(x) 返回 x 的二进制（oct 返回八进制，hex 返回十六进制）  * ceiling(x) 返回大于 x 的最小整数值  * exp(x) 返回值 e（自然对数的底）的 x 次方  * floor(x) 返回小于 x 的最大整数值  * greatest(x1,x2,...,xn)返回集合中最大的值">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-02-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-02T03:42:18.505Z">
+<meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="AS">
+<meta property="article:tag" content="AR">
+<meta property="article:tag" content="Go">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="MySql">
+<meta property="article:tag" content="Math">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Tutorial_MySql常用函数 | 行则将至</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">行则将至</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">人生在勤,不索何获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-text">MySQL 常用函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E6%95%B0%E5%AD%A6%E5%87%BD%E6%95%B0"><span class="nav-text">一、数学函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0%E5%B8%B8%E7%94%A8%E4%BA%8E-group-by-%E4%BB%8E%E5%8F%A5%E7%9A%84-select-%E6%9F%A5%E8%AF%A2%E4%B8%AD"><span class="nav-text">二、聚合函数(常用于 group by 从句的 select 查询中)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="nav-text">三、字符串函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0"><span class="nav-text">四、日期和时间函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E7%A4%BA%E4%BE%8B"><span class="nav-text">一些示例：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E5%8A%A0%E5%AF%86%E5%87%BD%E6%95%B0"><span class="nav-text">五、加密函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-text">示例：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E6%8E%A7%E5%88%B6%E6%B5%81%E5%87%BD%E6%95%B0"><span class="nav-text">六、控制流函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%87%BD%E6%95%B0"><span class="nav-text">七、格式化函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E7%B1%BB%E5%9E%8B%E8%BD%AC%E5%8C%96%E5%87%BD%E6%95%B0"><span class="nav-text">八、类型转化函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E5%87%BD%E6%95%B0"><span class="nav-text">九、系统信息函数</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qiaogaojian"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">qiaogaojian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qiaogaojian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/qiaogaojian" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-git-alt fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qiaogaojian@gmail.com" title="E-Mail → mailto:qiaogaojian@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+<!--
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+-->
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Tutorial_MySql常用函数
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-02-02 00:00:00 / 修改时间：11:42:18" itemprop="dateCreated datePublished" datetime="2021-02-02T00:00:00+08:00">2021-02-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-Web/" itemprop="url" rel="index"><span itemprop="name">5.Web</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial_MySql常用函数" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+        <h1 id="mysql-常用函数">MySQL 常用函数</h1>
+<h2 id="一数学函数">一、数学函数</h2>
+<ul>
+<li>abs(x) 返回 x 的绝对值</li>
+<li>bin(x) 返回 x 的二进制（oct 返回八进制，hex 返回十六进制）</li>
+<li>ceiling(x) 返回大于 x 的最小整数值</li>
+<li>exp(x) 返回值 e（自然对数的底）的 x 次方</li>
+<li>floor(x) 返回小于 x 的最大整数值</li>
+<li>greatest(x1,x2,...,xn)返回集合中最大的值</li>
+<li>least(x1,x2,...,xn) 返回集合中最小的值</li>
+<li>ln(x) 返回 x 的自然对数</li>
+<li>log(x,y)返回 x 的以 y 为底的对数</li>
+<li>mod(x,y) 返回 x/y 的模（余数）</li>
+<li>pi()返回 pi 的值（圆周率）</li>
+<li>rand()返回０到１内的随机值,可以通过提供一个参数(种子)使 rand()随机数生成器生成一个指定的值。</li>
+<li>round(x,y)返回参数 x 的四舍五入的有 y 位小数的值</li>
+<li>sign(x) 返回代表数字 x 的符号的值</li>
+<li>sqrt(x) 返回一个数的平方根</li>
+<li>truncate(x,y) 返回数字 x 截短为 y 位小数的结果</li>
+</ul>
+<h2 id="二聚合函数常用于-group-by-从句的-select-查询中">二、聚合函数(常用于 group by 从句的 select 查询中)</h2>
+<ul>
+<li>avg(col)返回指定列的平均值</li>
+<li>count(col)返回指定列中非 null 值的个数</li>
+<li>min(col)返回指定列的最小值</li>
+<li>max(col)返回指定列的最大值</li>
+<li>sum(col)返回指定列的所有值之和</li>
+<li>group_concat(col) 返回由属于一组的列值连接组合而成的结果</li>
+</ul>
+<h2 id="三字符串函数">三、字符串函数</h2>
+<ul>
+<li>ascii(char)返回字符的 ascii 码值</li>
+<li>bit_length(str)返回字符串的比特长度</li>
+<li>concat(s1,s2...,sn)将 s1,s2...,sn 连接成字符串</li>
+<li>concat_ws(sep,s1,s2...,sn)将 s1,s2...,sn 连接成字符串，并用 sep 字符间隔</li>
+<li>insert(str,x,y,instr) 将字符串 str 从第 x 位置开始，y 个字符长的子串替换为字符串 instr，返回结果</li>
+<li>find_in_set(str,list)分析逗号分隔的 list 列表，如果发现 str，返回 str 在 list 中的位置</li>
+<li>lcase(str)或 lower(str) 返回将字符串 str 中所有字符改变为小写后的结果</li>
+<li>left(str,x)返回字符串 str 中最左边的 x 个字符</li>
+<li>length(s)返回字符串 str 中的字符数</li>
+<li>ltrim(str) 从字符串 str 中切掉开头的空格</li>
+<li>position(substr,str) 返回子串 substr 在字符串 str 中第一次出现的位置</li>
+<li>quote(str) 用反斜杠转义 str 中的单引号</li>
+<li>repeat(str,srchstr,rplcstr)返回字符串 str 重复 x 次的结果</li>
+<li>reverse(str) 返回颠倒字符串 str 的结果</li>
+<li>right(str,x) 返回字符串 str 中最右边的 x 个字符</li>
+<li>rtrim(str) 返回字符串 str 尾部的空格</li>
+<li>strcmp(s1,s2)比较字符串 s1 和 s2</li>
+<li>trim(str)去除字符串首部和尾部的所有空格</li>
+<li>ucase(str)或 upper(str) 返回将字符串 str 中所有字符转变为大写后的结果</li>
+</ul>
+<h2 id="四日期和时间函数">四、日期和时间函数</h2>
+<ul>
+<li>curdate()或 current_date() 返回当前的日期</li>
+<li>curtime()或 current_time() 返回当前的时间</li>
+<li>date_add(date,interval int keyword)返回日期 date 加上间隔时间 int 的结果(int 必须按照关键字进行格式化),如：selectdate_add(current_date,interval 6 month);</li>
+<li>date_format(date,fmt) 依照指定的 fmt 格式格式化日期 date 值</li>
+<li>date_sub(date,interval int keyword)返回日期 date 加上间隔时间 int 的结果(int 必须按照关键字进行格式化),如：selectdate_sub(current_date,interval 6 month);</li>
+<li>dayofweek(date) 返回 date 所代表的一星期中的第几天(1~7)</li>
+<li>dayofmonth(date) 返回 date 是一个月的第几天(1~31)</li>
+<li>dayofyear(date) 返回 date 是一年的第几天(1~366)</li>
+<li>dayname(date) 返回 date 的星期名，如：select dayname(current_date);</li>
+<li>from_unixtime(ts,fmt) 根据指定的 fmt 格式，格式化 unix 时间戳 ts</li>
+<li>hour(time) 返回 time 的小时值(0~23)</li>
+<li>minute(time) 返回 time 的分钟值(0~59)</li>
+<li>month(date) 返回 date 的月份值(1~12)</li>
+<li>monthname(date) 返回 date 的月份名，如：select monthname(current_date);</li>
+<li>now() 返回当前的日期和时间</li>
+<li>quarter(date) 返回 date 在一年中的季度(1~4)，如 select quarter(current_date);</li>
+<li>week(date) 返回日期 date 为一年中第几周(0~53)</li>
+<li>year(date) 返回日期 date 的年份(1000~9999)</li>
+</ul>
+<h3 id="一些示例">一些示例：</h3>
+<ol type="1">
+<li>获取当前系统时间：</li>
+</ol>
+<ul>
+<li>select from_unixtime(unix_timestamp());</li>
+<li>select extract(year_month from current_date);</li>
+<li>select extract(day_second from current_date);</li>
+<li>select extract(hour_minute from current_date);</li>
+</ul>
+<ol start="2" type="1">
+<li>返回两个日期值之间的差值(月数)：</li>
+</ol>
+<ul>
+<li>select period_diff(200302,199802);</li>
+</ul>
+<ol start="3" type="1">
+<li>在 mysql 中计算年龄：</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">date_format</span>(<span class="keyword">from_days</span>(<span class="keyword">to_days</span>(<span class="keyword">now</span>())-<span class="keyword">to_days</span>(birthday)),<span class="string">&#x27;%y&#x27;</span>)+<span class="number">0</span> <span class="keyword">as</span> age <span class="keyword">from</span> employee;</span><br></pre></td></tr></table></figure>
+<p>这样，如果 brithday 是未来的年月日的话，计算结果为 0。 下面的 sql 语句计算员工的绝对年龄，即当 birthday 是未来的日期时，将得到负值。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">date_format</span>(<span class="keyword">now</span>(), <span class="string">&#x27;%y&#x27;</span>) - <span class="keyword">date_format</span>(birthday, <span class="string">&#x27;%y&#x27;</span>) -(<span class="keyword">date_format</span>(<span class="keyword">now</span>(), <span class="string">&#x27;00-%m-%d&#x27;</span>) &lt;<span class="keyword">date_format</span>(birthday, <span class="string">&#x27;00-%m-%d&#x27;</span>)) <span class="keyword">as</span> age <span class="keyword">from</span> employee</span><br></pre></td></tr></table></figure>
+<h2 id="五加密函数">五、加密函数</h2>
+<ul>
+<li>aes_encrypt(str,key) 返回用密钥 key 对字符串 str 利用高级加密标准算法加密后的结果，调用 aes_encrypt 的结果是一个二进制字符串，以 blob 类型存储</li>
+<li>aes_decrypt(str,key) 返回用密钥 key 对字符串 str 利用高级加密标准算法解密后的结果</li>
+<li>decode(str,key) 使用 key 作为密钥解密加密字符串 str</li>
+<li>encrypt(str,salt) 使用 unixcrypt()函数，用关键词 salt(一个可以惟一确定口令的字符串，就像钥匙一样)加密字符串 str</li>
+<li>encode(str,key) 使用 key 作为密钥加密字符串 str，调用 encode()的结果是一个二进制字符串，它以 blob 类型存储</li>
+<li>md5() 计算字符串 str 的 md5 校验和</li>
+<li>password(str) 返回字符串 str 的加密版本，这个加密过程是不可逆转的，和 unix 密码加密过程使用不同的算法。</li>
+<li>sha() 计算字符串 str 的安全散列算法(sha)校验和</li>
+</ul>
+<h3 id="示例">示例：</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">encrypt</span>(<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;salt&#x27;</span>);</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">encode</span>(<span class="string">&#x27;xufeng&#x27;</span>,<span class="string">&#x27;key&#x27;</span>);</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">decode</span>(<span class="keyword">encode</span>(<span class="string">&#x27;xufeng&#x27;</span>,<span class="string">&#x27;key&#x27;</span>),<span class="string">&#x27;key&#x27;</span>);<span class="comment">#加解密放在一起</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">aes_encrypt</span>(<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;key&#x27;</span>);</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">aes_decrypt</span>(<span class="keyword">aes_encrypt</span>(<span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;key&#x27;</span>),<span class="string">&#x27;key&#x27;</span>);</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">md5</span>(<span class="string">&#x27;123456&#x27;</span>);</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">sha</span>(<span class="string">&#x27;123456&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="六控制流函数">六、控制流函数</h2>
+<p>mysql 有 4 个函数是用来进行条件操作的，这些函数可以实现 sql 的条件逻辑，允许开发者将一些应用程序业务逻辑转换到数据库后台。 mysql 控制流函数：</p>
+<ul>
+<li>case when[test1] then [result1]...else [default] end 如果 testn 是真，则返回 resultn，否则返回 default</li>
+<li>case [test] when[val1] then [result]...else [default]end 如果 test 和 valn 相等，则返回 resultn，否则返回 default</li>
+<li>if(test,t,f) 如果 test 是真，返回 t；否则返回 f</li>
+<li>ifnull(arg1,arg2) 如果 arg1 不是空，返回 arg1，否则返回 arg2</li>
+<li>nullif(arg1,arg2) 如果 arg1=arg2 返回 null；否则返回 arg1</li>
+</ul>
+<p>这些函数的第一个是 ifnull()，它有两个参数，并且对第一个参数进行判断。如果第一个参数不是 null，函数就会向调用者返回第一个参数；如果是 null,将返回第二个参数。</p>
+<p>如：select ifnull(1,2), ifnull(null,10),ifnull(4*null,'false'); nullif()函数将会检验提供的两个参数是否相等，如果相等，则返回 null，如果不相等，就返回第一个参数。</p>
+<p>如：select nullif(1,1),nullif('a','b'),nullif(2+3,4+1); 和许多脚本语言提供的 if()函数一样，mysql 的 if()函数也可以建立一个简单的条件测试，这个函数有三个参数，第一个是要被判断的表达式，如果表达式为真，if()将会返回第二个参数，如果为假，if()将会返回第三个参数。</p>
+<p>如：selectif(1&lt;10,2,3),if(56&gt;100,'true','false'); if()函数在只有两种可能结果时才适合使用。然而，在现实世界中，我们可能发现在条件测试中会需要多个分支。在这种情况下，mysql 提供了 case 函数，它和 php 及 perl 语言的 switch-case 条件例程一样。</p>
+<p>case 函数的格式有些复杂，通常如下所示：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">case [expression to be evaluated]</span><br><span class="line">when [val 1] then [result 1]</span><br><span class="line">when [val 2] then [result 2]</span><br><span class="line">when [val 3] then [result 3]</span><br><span class="line">......</span><br><span class="line">when [val n] then [result n]</span><br><span class="line">else [default result]</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>这里，第一个参数是要被判断的值或表达式，接下来的是一系列的 when-then 块，每一块的第一个参数指定要比较的值，如果为真，就返回结果。所有的 when-then 块将以 else 块结束，当 end 结束了所有外部的 case 块时，如果前面的每一个块都不匹配就会返回 else 块指定的默认结果。如果没有指定 else 块，而且所有的 when-then 比较都不是真，mysql 将会返回 null。 case 函数还有另外一种句法，有时使用起来非常方便，如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">case</span><br><span class="line">when [conditional test 1] then [result 1]</span><br><span class="line">when [conditional test 2] then [result 2]</span><br><span class="line">else [default result]</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>这种条件下，返回的结果取决于相应的条件测试是否为真。 示例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;select case &#x27;green&#x27;</span><br><span class="line">when &#x27;red&#x27; then &#x27;<span class="keyword">stop</span><span class="string">&#x27;</span></span><br><span class="line"><span class="string">when &#x27;</span>green<span class="string">&#x27; then &#x27;</span><span class="keyword">go</span><span class="string">&#x27; end;</span></span><br><span class="line"><span class="string">select case 9 when 1 then &#x27;</span>a<span class="string">&#x27; when 2 then &#x27;</span>b<span class="string">&#x27; else &#x27;</span>n/a<span class="string">&#x27; end;</span></span><br><span class="line"><span class="string">select case when (2+2)=4 then &#x27;</span>ok<span class="string">&#x27; when(2+2)&lt;&gt;4 then &#x27;</span><span class="keyword">not</span> ok<span class="string">&#x27; end asstatus;</span></span><br><span class="line"><span class="string">select name,if((isactive = 1),&#x27;</span>已激活<span class="string">&#x27;,&#x27;</span>未激活<span class="string">&#x27;) as result fromuserlogininfo;</span></span><br><span class="line"><span class="string">select fname,lname,(math+sci+lit) as total,</span></span><br><span class="line"><span class="string">case when (math+sci+lit) &lt; 50 then &#x27;</span>d<span class="string">&#x27;</span></span><br><span class="line"><span class="string">when (math+sci+lit) between 50 and 150 then &#x27;</span>c<span class="string">&#x27;</span></span><br><span class="line"><span class="string">when (math+sci+lit) between 151 and 250 then &#x27;</span>b<span class="string">&#x27;</span></span><br><span class="line"><span class="string">else &#x27;</span>a<span class="string">&#x27; end</span></span><br><span class="line"><span class="string">as grade from marks;</span></span><br><span class="line"><span class="string">select if(encrypt(&#x27;</span>sue<span class="string">&#x27;,&#x27;</span>ts<span class="string">&#x27;)=upass,&#x27;</span><span class="keyword">allow</span><span class="string">&#x27;,&#x27;</span>deny<span class="string">&#x27;) as loginresultfrom users where uname = &#x27;</span>sue<span class="string">&#x27;;#一个登陆验证</span></span><br></pre></td></tr></table></figure>
+<h2 id="七格式化函数">七、格式化函数</h2>
+<ul>
+<li>date_format(date,fmt) 依照字符串 fmt 格式化日期 date 值</li>
+<li>format(x,y) 把 x 格式化为以逗号隔开的数字序列，y 是结果的小数位数</li>
+<li>inet_aton(ip) 返回 ip 地址的数字表示</li>
+<li>inet_ntoa(num) 返回数字所代表的 ip 地址</li>
+<li>time_format(time,fmt) 依照字符串 fmt 格式化时间 time 值</li>
+</ul>
+<p>其中最简单的是 format()函数，它可以把大的数值格式化为以逗号间隔的易读的序列。 示例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">format</span>(<span class="number">34234.34323432</span>,<span class="number">3</span>);</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_format</span>(<span class="keyword">now</span>(),<span class="string">&#x27;%w,%d %m %y %r&#x27;</span>);</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_format</span>(<span class="keyword">now</span>(),<span class="string">&#x27;%y-%m-%d&#x27;</span>);</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_format</span>(<span class="number">19990330</span>,<span class="string">&#x27;%y-%m-%d&#x27;</span>);</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">date_format</span>(<span class="keyword">now</span>(),<span class="string">&#x27;%h:%i %p&#x27;</span>);</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">inet_aton</span>(<span class="string">&#x27;10.122.89.47&#x27;</span>);</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">inet_ntoa</span>(<span class="number">175790383</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="八类型转化函数">八、类型转化函数</h2>
+<p>为了进行数据类型转化，mysql 提供了 cast()函数，它可以把一个值转化为指定的数据类型。类型有：binary,char,date,time,datetime,signed,unsigned</p>
+<p>示例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">cast</span>(<span class="keyword">now</span>() <span class="keyword">as</span> signed <span class="built_in">integer</span>),<span class="keyword">curdate</span>()+<span class="number">0</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="string">&#x27;f&#x27;</span>=<span class="built_in">binary</span> <span class="string">&#x27;f&#x27;</span>,<span class="string">&#x27;f&#x27;</span>=<span class="keyword">cast</span>(<span class="string">&#x27;f&#x27;</span> <span class="keyword">as</span> <span class="built_in">binary</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="九系统信息函数">九、系统信息函数</h2>
+<ul>
+<li>database() 返回当前数据库名</li>
+<li>benchmark(count,expr) 将表达式 expr 重复运行 count 次</li>
+<li>connection_id() 返回当前客户的连接 id</li>
+<li>found_rows() 返回最后一个 select 查询进行检索的总行数</li>
+<li>user()或 system_user() 返回当前登陆用户名</li>
+<li>version() 返回 mysql 服务器的版本</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">database</span>(),<span class="keyword">version</span>(),<span class="keyword">user</span>();</span><br><span class="line">selectbenchmark(9999999,log(rand()*pi()));#该例中,mysql 计算 log(rand()*pi())表达式 9999999 次。</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="qiaogaojian 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="qiaogaojian 支付宝">
+        <span>支付宝</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.png" alt="qiaogaojian 比特币">
+        <span>比特币</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>qiaogaojian
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" title="Tutorial_MySql常用函数">http://example.com/2021/02/02/5.Web/20210202_Tutorial_MySql常用函数/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 数学</a>
+              <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
+              <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
+              <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+              <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
+              <a href="/tags/MySql/" rel="tag"><i class="fa fa-tag"></i> MySql</a>
+              <a href="/tags/Math/" rel="tag"><i class="fa fa-tag"></i> Math</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="prev" title="Tutorial_MySql常用命令">
+                  <i class="fa fa-chevron-left"></i> Tutorial_MySql常用命令
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiaogaojian</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/",
+    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":210,"height":360},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

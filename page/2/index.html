@@ -215,7 +215,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">192</span>
+          <span class="site-state-item-count">194</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -275,6 +275,238 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/24/1.CS/CG/20201224_opengl-zbuffer%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F%E8%BD%AC%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/24/1.CS/CG/20201224_opengl-zbuffer%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F%E8%BD%AC%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F/" class="post-title-link" itemprop="url">opengl-zbuffer非线性公式转线性公式</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-12-24 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-24T00:00:00+08:00">2020-12-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-01-14 17:21:35" itemprop="dateModified" datetime="2021-01-14T17:21:35+08:00">2021-01-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-CS/" itemprop="url" rel="index"><span itemprop="name">1.CS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/1-CS/CG/" itemprop="url" rel="index"><span itemprop="name">CG</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/12/24/1.CS/CG/20201224_opengl-zbuffer%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F%E8%BD%AC%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F/" class="post-meta-item leancloud_visitors" data-flag-title="opengl-zbuffer非线性公式转线性公式" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/12/24/1.CS/CG/20201224_opengl-zbuffer%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F%E8%BD%AC%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/24/1.CS/CG/20201224_opengl-zbuffer%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F%E8%BD%AC%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          前言
+正如LearnOpenGL-高级OpenGL-深度测试中所述，在OpenGL的深度值可以通过在fragment shader中调用gl_FragCoord.z获得，其值域为[0,1]。但是物体离我们眼睛(摄像机)的真正距离是多少呢？怎么通过OpenGL中的深度反求“真正的深度”呢？
+
+推导过程
+我们假设在FragmentShader出来的的深度值为\(z_b\)= gl_FragCoord.z，因为\(z_b\)是值域为[0,1]，我们首先得转换回NDC坐标系下，假设NDC坐标系下的深度值为\(z_n\)，OpenGL是这样转换的：
+
+\[ z_b=0.5z_n+0.5 \]
+
+这时\(
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/24/1.CS/CG/20201224_opengl-zbuffer%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F%E8%BD%AC%E7%BA%BF%E6%80%A7%E5%85%AC%E5%BC%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/16/0.Math/LinearAlgebra/20201216_Tip_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%98%93%E6%B7%B7%E6%B7%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/16/0.Math/LinearAlgebra/20201216_Tip_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%98%93%E6%B7%B7%E6%B7%86/" class="post-title-link" itemprop="url">Tip_线性代数易混淆</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-12-16 00:00:00 / 修改时间：10:46:18" itemprop="dateCreated datePublished" datetime="2020-12-16T00:00:00+08:00">2020-12-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/0-Math/" itemprop="url" rel="index"><span itemprop="name">0.Math</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/0-Math/LinearAlgebra/" itemprop="url" rel="index"><span itemprop="name">LinearAlgebra</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/12/16/0.Math/LinearAlgebra/20201216_Tip_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%98%93%E6%B7%B7%E6%B7%86/" class="post-meta-item leancloud_visitors" data-flag-title="Tip_线性代数易混淆" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/12/16/0.Math/LinearAlgebra/20201216_Tip_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%98%93%E6%B7%B7%E6%B7%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/16/0.Math/LinearAlgebra/20201216_Tip_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%98%93%E6%B7%B7%E6%B7%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          线性代数易混淆
+1. 线性代数及其应用 p36 定理 4 和 p58 线性无关定理 8 中关于每一行每一列都有主元的论述 区别和联系
+ * 系数矩阵mxn每行都有主元
+   
+   A pivot in every row means that the linear system Ax=b has at least one solution, for every b. A pivot in every row is equivalent to A having a right inverse, and equivalent to the columns of A spanning Rm (m 
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/16/0.Math/LinearAlgebra/20201216_Tip_%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E6%98%93%E6%B7%B7%E6%B7%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1007,250 +1239,6 @@ UE4
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-05%E8%BF%9B%E9%98%B6%201%EF%BC%9AHEAD%E3%80%81master%20%E4%B8%8E%20branch/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-05%E8%BF%9B%E9%98%B6%201%EF%BC%9AHEAD%E3%80%81master%20%E4%B8%8E%20branch/" class="post-title-link" itemprop="url">Tutorial-05进阶 1：HEAD、master 与 branch</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-10-29 00:00:00 / 修改时间：10:28:29" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/Git-%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">Git 原理详解及实用指南</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-05%E8%BF%9B%E9%98%B6%201%EF%BC%9AHEAD%E3%80%81master%20%E4%B8%8E%20branch/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-05进阶 1：HEAD、master 与 branch" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-05%E8%BF%9B%E9%98%B6%201%EF%BC%9AHEAD%E3%80%81master%20%E4%B8%8E%20branch/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-05%E8%BF%9B%E9%98%B6%201%EF%BC%9AHEAD%E3%80%81master%20%E4%B8%8E%20branch/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          进阶 1：HEAD、master 与 branch
-这一节主要是几个概念的解释：HEAD、master 以及 Git 中非常重要的一个概念： branch。
-
-引用：commit 的快捷方式
-首先，再看一次 log：
-
-1
-2
-
-
-git log
-
-
-
-
-
-第一行的 commit 后面括号里的 HEAD -> master, origin/master, origin/HEAD ，是几个指向这个 commit 的引用。在 Git 的使用中，经常会需要对指定的 commit 进行操作。每一个 commit 都有一个它唯一的指定方式——它的 SHA-1 校验和，也就是上图中每个黄色的 commit
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-05%E8%BF%9B%E9%98%B6%201%EF%BC%9AHEAD%E3%80%81master%20%E4%B8%8E%20branch/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-07%E8%BF%9B%E9%98%B6%203%EF%BC%9Amerge%EF%BC%9A%E5%90%88%E5%B9%B6%20commits/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-07%E8%BF%9B%E9%98%B6%203%EF%BC%9Amerge%EF%BC%9A%E5%90%88%E5%B9%B6%20commits/" class="post-title-link" itemprop="url">Tutorial-07进阶 3：merge：合并 commits</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-10-29 00:00:00 / 修改时间：10:28:29" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/Git-%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">Git 原理详解及实用指南</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-07%E8%BF%9B%E9%98%B6%203%EF%BC%9Amerge%EF%BC%9A%E5%90%88%E5%B9%B6%20commits/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-07进阶 3：merge：合并 commits" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-07%E8%BF%9B%E9%98%B6%203%EF%BC%9Amerge%EF%BC%9A%E5%90%88%E5%B9%B6%20commits/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-07%E8%BF%9B%E9%98%B6%203%EF%BC%9Amerge%EF%BC%9A%E5%90%88%E5%B9%B6%20commits/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          进阶 3：merge：合并 commits
-前面说到，pull 的内部操作其实是把远程仓库取到本地后（使用的是 fetch），再用一次 merge 来把远端仓库的新 commits 合并到本地。这一节就说一下，merge 到底是什么。
-
-含义和用法
-merge 的意思是「合并」，它做的事也是合并：指定一个 commit，把它合并到当前的 commit 来。具体来讲，merge 做的事是：
-
-从目标 commit 和当前 commit （即 HEAD 所指向的 commit）分叉的位置起，把目标 commit 的路径上的所有 commit 的内容一并应用到当前 commit，然后自动生成一个新的
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-07%E8%BF%9B%E9%98%B6%203%EF%BC%9Amerge%EF%BC%9A%E5%90%88%E5%B9%B6%20commits/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-04%E4%B8%8A%E6%89%8B%202%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1373,7 +1361,7 @@ merge 的意思是「合并」，它做的事也是合并：指定一个 commit�
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-06%E8%BF%9B%E9%98%B6%202%EF%BC%9Apush%20%E7%9A%84%E6%9C%AC%E8%B4%A8/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-05%E8%BF%9B%E9%98%B6%201%EF%BC%9AHEAD%E3%80%81master%20%E4%B8%8E%20branch/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1390,7 +1378,7 @@ merge 的意思是「合并」，它做的事也是合并：指定一个 commit�
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-06%E8%BF%9B%E9%98%B6%202%EF%BC%9Apush%20%E7%9A%84%E6%9C%AC%E8%B4%A8/" class="post-title-link" itemprop="url">Tutorial-06进阶 2：push 的本质</a>
+            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-05%E8%BF%9B%E9%98%B6%201%EF%BC%9AHEAD%E3%80%81master%20%E4%B8%8E%20branch/" class="post-title-link" itemprop="url">Tutorial-05进阶 1：HEAD、master 与 branch</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1424,7 +1412,7 @@ merge 的意思是「合并」，它做的事也是合并：指定一个 commit�
     </span>
 
   
-    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-06%E8%BF%9B%E9%98%B6%202%EF%BC%9Apush%20%E7%9A%84%E6%9C%AC%E8%B4%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-06进阶 2：push 的本质" title="阅读次数">
+    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-05%E8%BF%9B%E9%98%B6%201%EF%BC%9AHEAD%E3%80%81master%20%E4%B8%8E%20branch/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-05进阶 1：HEAD、master 与 branch" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -1439,8 +1427,8 @@ merge 的意思是「合并」，它做的事也是合并：指定一个 commit�
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-06%E8%BF%9B%E9%98%B6%202%EF%BC%9Apush%20%E7%9A%84%E6%9C%AC%E8%B4%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-06%E8%BF%9B%E9%98%B6%202%EF%BC%9Apush%20%E7%9A%84%E6%9C%AC%E8%B4%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-05%E8%BF%9B%E9%98%B6%201%EF%BC%9AHEAD%E3%80%81master%20%E4%B8%8E%20branch/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-05%E8%BF%9B%E9%98%B6%201%EF%BC%9AHEAD%E3%80%81master%20%E4%B8%8E%20branch/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1455,16 +1443,26 @@ merge 的意思是「合并」，它做的事也是合并：指定一个 commit�
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-          进阶 2：push 的本质
-在之前的内容里，我粗略地说过，push 指令做的事是把你的本地提交上传到中央仓库去，用本地的内容来覆盖掉远端的内容。这个说法其实是不够准确的，但 Git 的知识系统比较庞大，在你对 Git 了解比较少的时候，用「上传本地提交」来解释会比较好理解；而在你知道了 branch，并且明白了 branch 的具体含义以后，我就可以告诉你 push 到底是什么了。
+          进阶 1：HEAD、master 与 branch
+这一节主要是几个概念的解释：HEAD、master 以及 Git 中非常重要的一个概念： branch。
 
-push：把 branch 上传到远端仓库
-实质上，push 做的事是：把当前 branch 的位置（即它指向哪个 commit）上传到远端仓库，并把它的路径上的 commits 一并上传。
+引用：commit 的快捷方式
+首先，再看一次 log：
 
-例如，我现在的本地
+1
+2
+
+
+git log
+
+
+
+
+
+第一行的 commit 后面括号里的 HEAD -> master, origin/master, origin/HEAD ，是几个指向这个 commit 的引用。在 Git 的使用中，经常会需要对指定的 commit 进行操作。每一个 commit 都有一个它唯一的指定方式——它的 SHA-1 校验和，也就是上图中每个黄色的 commit
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-06%E8%BF%9B%E9%98%B6%202%EF%BC%9Apush%20%E7%9A%84%E6%9C%AC%E8%B4%A8/#more" rel="contents">
+              <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-05%E8%BF%9B%E9%98%B6%201%EF%BC%9AHEAD%E3%80%81master%20%E4%B8%8E%20branch/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

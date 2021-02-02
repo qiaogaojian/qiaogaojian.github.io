@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="MySql命令大全 一.准备  1. 确认你已安装Mysql            2. 确认你已配置好Mysql环境变量            二.基础知识  1.  数据库的连接            1      2      3      4                  mysql -h -u -p      # -h host主机      # -u 用户名      # -p 密">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tutorial_MySql常用命令">
+<meta property="og:url" content="http://example.com/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="行则将至">
+<meta property="og:description" content="MySql命令大全 一.准备  1. 确认你已安装Mysql            2. 确认你已配置好Mysql环境变量            二.基础知识  1.  数据库的连接            1      2      3      4                  mysql -h -u -p      # -h host主机      # -u 用户名      # -p 密">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-02-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-03-27T01:00:45.594Z">
+<meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="AS">
+<meta property="article:tag" content="AR">
+<meta property="article:tag" content="Go">
+<meta property="article:tag" content="MySql">
+<meta property="article:tag" content="排序">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Tutorial_MySql常用命令 | 行则将至</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">行则将至</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">人生在勤,不索何获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8"><span class="nav-text">MySql命令大全</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80.%E5%87%86%E5%A4%87"><span class="nav-text">一.准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-text">二.基础知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89.%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0"><span class="nav-text">三.综合练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E4%B8%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAgbk%E7%BC%96%E7%A0%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E7%AB%8B%E5%95%86%E5%93%81%E8%A1%A8%E5%92%8C%E6%A0%8F%E7%9B%AE%E8%A1%A8%E5%AD%97%E6%AE%B5%E5%A6%82%E4%B8%8B"><span class="nav-text">连接上数据库服务器,创建一个gbk编码的数据库,建立商品表和栏目表,字段如下:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E8%A1%A8%E5%AE%8C%E6%88%90%E5%90%8E%E4%BD%9C%E4%BB%A5%E4%B8%8B%E6%93%8D%E4%BD%9C"><span class="nav-text">建表完成后,作以下操作:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B.%E6%9F%A5%E8%AF%A2%E7%9F%A5%E8%AF%86"><span class="nav-text">四.查询知识</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qiaogaojian"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">qiaogaojian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qiaogaojian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/qiaogaojian" title="Gitee → https:&#x2F;&#x2F;gitee.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-git-alt fa-fw"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qiaogaojian@gmail.com" title="E-Mail → mailto:qiaogaojian@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+<!--
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+-->
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Tutorial_MySql常用命令
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-02-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-02-02T00:00:00+08:00">2021-02-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-03-27 09:00:45" itemprop="dateModified" datetime="2020-03-27T09:00:45+08:00">2020-03-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-Web/" itemprop="url" rel="index"><span itemprop="name">5.Web</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial_MySql常用命令" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+        <h1 id="mysql命令大全">MySql命令大全</h1>
+<h2 id="一.准备">一.准备</h2>
+<ol type="1">
+<li><p>确认你已安装Mysql</p></li>
+<li><p>确认你已配置好Mysql环境变量</p></li>
+</ol>
+<h2 id="二.基础知识">二.基础知识</h2>
+<ol type="1">
+<li><p>数据库的连接</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql -h -u -p</span><br><span class="line"><span class="comment"># -h host主机</span></span><br><span class="line"><span class="comment"># -u 用户名</span></span><br><span class="line"><span class="comment"># -p 密码</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>库级知识</p>
+<p>2.1 显示数据库:</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure> 2.2 选择数据库:</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use dbname;</span><br></pre></td></tr></table></figure> 2.3 创建数据库:</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database dbname charset utf8;</span><br></pre></td></tr></table></figure> 2.3 删除数据库:</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop database dbname;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>表级操作:</p>
+<p>3.1 显示库下面的表</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show tables;</span><br></pre></td></tr></table></figure> 3.2 查看表的结构:</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">desc tableName;</span><br></pre></td></tr></table></figure> 3.3 查看表的创建过程:</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show create table  tableName;</span><br></pre></td></tr></table></figure> 3.4 创建表:</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create table tbName (</span><br><span class="line">列名称1　列类型　[列参数]　[not null default ],</span><br><span class="line">....列2...</span><br><span class="line">....</span><br><span class="line">列名称N　列类型　[列参数]　[not null default ]</span><br><span class="line">)engine myisam/innodb charset utf8/gbk</span><br></pre></td></tr></table></figure> 3.4的例子:</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> create table user (</span><br><span class="line"> id int auto_increment,</span><br><span class="line"> name varchar(20) not null default <span class="string">&#x27;&#x27;</span>,</span><br><span class="line"> age tinyint unsigned not null default 0,</span><br><span class="line">index id (id)</span><br><span class="line">)engine=innodb charset=utf8;</span><br></pre></td></tr></table></figure> &gt; 注:innodb是表引擎,也可以是myisam或其他,但最常用的是myisam和innodb, charset 常用的有utf8,gbk;</p>
+<p>3.5 修改表</p>
+<p>3.5.1 修改表之增加列:</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alter table tbName</span><br><span class="line">add 列名称１　列类型　[列参数]　[not null default ]　<span class="comment">#(add之后的旧列名之后的语法和创建表时的列声明一样)</span></span><br></pre></td></tr></table></figure> 3.5.2 修改表之修改列</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alter table tbName</span><br><span class="line">change 旧列名  新列名  列类型　[列参数]　[not null default ]</span><br></pre></td></tr></table></figure> &gt; (注:旧列名之后的语法和创建表时的列声明一样)</p>
+<p>3.5.3 修改表之减少列</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alter table tbName</span><br><span class="line">drop 列名称;</span><br></pre></td></tr></table></figure> 3.5.4 修改表之增加主键</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table tbName add primary key(主键所在列名);</span><br></pre></td></tr></table></figure> &gt; 例:alter table goods add primary key(id) 该例是把主键建立在id列上</p>
+<p>3.5.5 修改表之删除主键</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table tbName　drop primary key;</span><br></pre></td></tr></table></figure> 3.5.6 修改表之增加索引</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table tbName add [unique|fulltext] index 索引名(列名);</span><br></pre></td></tr></table></figure> 3.5.7 修改表之删除索引</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table tbName drop index 索引名;</span><br></pre></td></tr></table></figure> 3.5.8 清空表的数据</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">truncate tableName;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>列类型讲解</p>
+<p>列类型:</p>
+<p>整型:</p>
+<ul>
+<li><p>tinyint (0<sub>255/-128</sub>127)</p></li>
+<li><p>smallint (0<sub>65535/-32768</sub>32767)</p></li>
+<li><p>mediumint int bigint (参考手册11.2)</p></li>
+</ul>
+<p>参数解释:</p>
+<ul>
+<li><p>unsigned 无符号(不能为负)</p></li>
+<li><p>zerofill 0填充 M 填充后的宽度</p></li>
+</ul>
+<p>举例:</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tinyint unsigned;</span><br><span class="line">tinyint(6) zerofill;</span><br></pre></td></tr></table></figure> 数值型</p>
+<p>浮点型:</p>
+<ul>
+<li><p>float</p></li>
+<li><p>double</p></li>
+</ul>
+<p>格式:</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">float</span>(M,D)  unsigned\zerofill;</span><br></pre></td></tr></table></figure> 字符型</p>
+<ul>
+<li><p>char(m) 定长</p></li>
+<li><p>varchar(m)变长</p></li>
+<li><p>text</p></li>
+</ul>
+<p>日期时间类型</p>
+<ul>
+<li><p>year YYYY 范围:1901~2155. 可输入值2位和4位(如98,2012)</p></li>
+<li><p>date YYYY-MM-DD 如:2010-03-14</p></li>
+<li><p>time HH:MM:SS 如:19:26:32</p></li>
+<li><p>datetime YYYY-MM-DD HH:MM:SS 如:2010-03-14 19:26:32</p></li>
+<li><p>timestamp YYYY-MM-DD HH:MM:SS 特性:不用赋值,该列会为自己赋当前的具体时间</p></li>
+</ul></li>
+<li><p>增删改查基本操作</p>
+<p>5.1 插入数据</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">insert into 表名(col1,col2,……) values(val1,val2……); <span class="comment"># 插入指定列</span></span><br><span class="line">insert into 表名 values (,,,,); <span class="comment"># 插入所有列</span></span><br><span class="line">insert into 表名 values    <span class="comment"># 一次插入多行</span></span><br><span class="line">(val1,val2……),</span><br><span class="line">(val1,val2……),</span><br><span class="line">(val1,val2……);</span><br></pre></td></tr></table></figure> 5.3修改数据</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">update tablename</span><br><span class="line"><span class="built_in">set</span></span><br><span class="line">col1=newval1,</span><br><span class="line">col2=newval2,</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">colN=newvalN</span><br><span class="line"><span class="built_in">where</span> 条件;</span><br></pre></td></tr></table></figure> 5.4 删除数据</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from tablenaeme <span class="built_in">where</span> 条件;</span><br></pre></td></tr></table></figure> 5.5 select 查询</p>
+<p>5.5.1 条件查询</p>
+<p>where</p>
+<ul>
+<li><ol type="a">
+<li>条件表达式的意义，表达式为真，则该行取出</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>比较运算符 = ，!=，&lt; &gt; &lt;= &gt;=</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>like , not like ('%'匹配任意多个字符,'_'匹配任意单个字符) in , not in , between and</li>
+</ol></li>
+<li><ol start="4" type="a">
+<li>is null , is not null</li>
+</ol></li>
+</ul>
+<p>5.5.2 分组 group by</p>
+<p>一般要配合5个聚合函数使用:max,min,sum,avg,count</p>
+<p>5.5.3 筛选 having</p>
+<p>5.5.4 排序 order by</p>
+<p>5.5.5 限制 limit</p></li>
+<li><p>连接查询</p>
+<p>6.1 左连接</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.. left join .. on</span><br><span class="line">table A left join table B on tableA.col1 = tableB.col2 ;</span><br></pre></td></tr></table></figure> 例句:</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 列名 from table A left join table B on tableA.col1 = tableB.col2</span><br></pre></td></tr></table></figure> 6.2 右链接: right join</p>
+<p>6.3 内连接: inner join</p>
+<blockquote>
+<p>左右连接都是以在左边的表的数据为准,沿着左表查右表. 内连接是以两张表都有的共同部分数据为准,也就是左右连接的数据之交集.</p>
+</blockquote></li>
+<li><p>子查询</p>
+<p>where 型子查询:内层sql的返回值在where后作为条件表达式的一部分</p>
+<p>例句:</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from tableA <span class="built_in">where</span> colA = (select colB from tableB <span class="built_in">where</span> ...);</span><br></pre></td></tr></table></figure> from 型子查询:内层sql查询结果,作为一张表,供外层的sql语句再次查询</p>
+<p>例句:</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from (select * from ...) as tableName <span class="built_in">where</span> ....</span><br></pre></td></tr></table></figure></p></li>
+<li><p>字符集</p>
+<p>客服端sql编码 character_set_client</p>
+<p>服务器转化后的sql编码 character_set_connection</p>
+<p>服务器返回给客户端的结果集编码 character_set_results</p>
+<p>快速把以上3个变量设为相同值: set names 字符集</p></li>
+<li><p>存储引擎 engine=1\2</p>
+<ul>
+<li><p>Myisam 速度快 不支持事务 回滚</p></li>
+<li><p>Innodb 速度慢 支持事务,回滚</p></li>
+</ul></li>
+<li><p>事务</p>
+<p>开启事务 start transaction</p>
+<p>运行sql;</p>
+<p>提交,同时生效commit</p></li>
+<li><p>触发器 trigger</p>
+<p>监视地点:表</p>
+<p>监视行为:增 删 改</p>
+<p>触发时间:after</p>
+<p>触发事件:增 删 改</p>
+<p>创建触发器语法</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create trigger tgName</span><br><span class="line">after/before insert/delete/update</span><br><span class="line">on tableName</span><br><span class="line"><span class="keyword">for</span> each row</span><br><span class="line">sql; -- 触发语句</span><br></pre></td></tr></table></figure>
+<p>删除触发器:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop trigger tgName;</span><br></pre></td></tr></table></figure></li>
+<li><p>索引</p>
+<p>提高查询速度,但是降低了增删改的速度,所以使用索引时,要综合考虑.</p>
+<p>索引不是越多越好,一般我们在常出现于条件表达式中的列加索引.</p>
+<p>值越分散的列，索引的效果越好</p>
+<p>索引类型</p>
+<ul>
+<li><p>primary key主键索引</p></li>
+<li><p>index 普通索引</p></li>
+<li><p>unique index 唯一性索引</p></li>
+<li><p>fulltext index 全文索引</p></li>
+</ul></li>
+</ol>
+<h2 id="三.综合练习">三.综合练习</h2>
+<h3 id="连接上数据库服务器创建一个gbk编码的数据库建立商品表和栏目表字段如下">连接上数据库服务器,创建一个gbk编码的数据库,建立商品表和栏目表,字段如下:</h3>
+<ol type="1">
+<li><p>商品表:goods</p>
+<p>goods_id　--主键,</p>
+<p>goods_name -- 商品名称</p>
+<p>cat_id -- 栏目id</p>
+<p>brand_id -- 品牌id</p>
+<p>goods_sn -- 货号</p>
+<p>goods_number -- 库存量</p>
+<p>shop_price -- 价格</p>
+<p>goods_desc　--商品详细描述</p></li>
+<li><p>栏目表:category</p>
+<p>cat_id --主键</p>
+<p>cat_name -- 栏目名称</p>
+<p>parent_id -- 栏目的父id</p></li>
+</ol>
+<h3 id="建表完成后作以下操作">建表完成后,作以下操作:</h3>
+<ul>
+<li><p>删除goods表的goods_desc 字段,及货号字段</p></li>
+<li><p>并增加字段:click_count -- 点击量</p></li>
+<li><p>在goods_name列上加唯一性索引</p></li>
+<li><p>在shop_price列上加普通索引</p></li>
+<li><p>在clcik_count列上加普通索引</p></li>
+<li><p>删除click_count列上的索引</p></li>
+<li><p>对goods表插入以下数据:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 27%" />
+<col style="width: 7%" />
+<col style="width: 9%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 11%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>goods_id</th>
+<th>goods_name</th>
+<th>cat_id</th>
+<th>brand_id</th>
+<th>goods_sn</th>
+<th>goods_number</th>
+<th>shop_price</th>
+<th>click_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>KD876</td>
+<td>4</td>
+<td>8</td>
+<td>ECS000000</td>
+<td>10</td>
+<td>1388.00</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>诺基亚N85原装充电器</td>
+<td>8</td>
+<td>1</td>
+<td>ECS000004</td>
+<td>17</td>
+<td>58.00</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>诺基亚原装5800耳机</td>
+<td>8</td>
+<td>1</td>
+<td>ECS000002</td>
+<td>24</td>
+<td>68.00</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>索爱原装M2卡读卡器</td>
+<td>11</td>
+<td>7</td>
+<td>ECS000005</td>
+<td>8</td>
+<td>20.00</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>胜创KINGMAX内存卡</td>
+<td>11</td>
+<td>0</td>
+<td>ECS000006</td>
+<td>15</td>
+<td>42.00</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>诺基亚N85原装立体声耳机HS-82</td>
+<td>8</td>
+<td>1</td>
+<td>ECS000007</td>
+<td>20</td>
+<td>100.00</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>飞利浦9@9v</td>
+<td>3</td>
+<td>4</td>
+<td>ECS000008</td>
+<td>17</td>
+<td>399.00</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>诺基亚E66</td>
+<td>3</td>
+<td>1</td>
+<td>ECS000009</td>
+<td>13</td>
+<td>2298.00</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>索爱C702c</td>
+<td>3</td>
+<td>7</td>
+<td>ECS000010</td>
+<td>7</td>
+<td>1328.00</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>索爱C702c</td>
+<td>3</td>
+<td>7</td>
+<td>ECS000011</td>
+<td>1</td>
+<td>1300.00</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>摩托罗拉A810</td>
+<td>3</td>
+<td>2</td>
+<td>ECS000012</td>
+<td>8</td>
+<td>983.00</td>
+<td>14</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>诺基亚5320 XpressMusic</td>
+<td>3</td>
+<td>1</td>
+<td>ECS000013</td>
+<td>8</td>
+<td>1311.00</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>诺基亚5800XM</td>
+<td>4</td>
+<td>1</td>
+<td>ECS000014</td>
+<td>4</td>
+<td>2625.00</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>摩托罗拉A810</td>
+<td>3</td>
+<td>2</td>
+<td>ECS000015</td>
+<td>3</td>
+<td>788.00</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>恒基伟业G101</td>
+<td>2</td>
+<td>11</td>
+<td>ECS000016</td>
+<td>0</td>
+<td>823.33</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>夏新N7</td>
+<td>3</td>
+<td>5</td>
+<td>ECS000017</td>
+<td>1</td>
+<td>2300.00</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>夏新T5</td>
+<td>4</td>
+<td>5</td>
+<td>ECS000018</td>
+<td>1</td>
+<td>2878.00</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>三星SGH-F258</td>
+<td>3</td>
+<td>6</td>
+<td>ECS000019</td>
+<td>0</td>
+<td>858.00</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>三星BC01</td>
+<td>3</td>
+<td>6</td>
+<td>ECS000020</td>
+<td>13</td>
+<td>280.00</td>
+<td>14</td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>金立 A30</td>
+<td>3</td>
+<td>10</td>
+<td>ECS000021</td>
+<td>40</td>
+<td>2000.00</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td>多普达Touch HD</td>
+<td>3</td>
+<td>3</td>
+<td>ECS000022</td>
+<td>0</td>
+<td>5999.00</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>23</td>
+<td>诺基亚N96</td>
+<td>5</td>
+<td>1</td>
+<td>ECS000023</td>
+<td>8</td>
+<td>3700.00</td>
+<td>17</td>
+</tr>
+<tr class="odd">
+<td>24</td>
+<td>P806</td>
+<td>3</td>
+<td>9</td>
+<td>ECS000024</td>
+<td>148</td>
+<td>2000.00</td>
+<td>36</td>
+</tr>
+<tr class="even">
+<td>25</td>
+<td>小灵通/固话50元充值卡</td>
+<td>13</td>
+<td>0</td>
+<td>ECS000025</td>
+<td>2</td>
+<td>48.00</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>26</td>
+<td>小灵通/固话20元充值卡</td>
+<td>13</td>
+<td>0</td>
+<td>ECS000026</td>
+<td>2</td>
+<td>19.00</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>27</td>
+<td>联通100元充值卡</td>
+<td>15</td>
+<td>0</td>
+<td>ECS000027</td>
+<td>2</td>
+<td>95.00</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>28</td>
+<td>联通50元充值卡</td>
+<td>15</td>
+<td>0</td>
+<td>ECS000028</td>
+<td>0</td>
+<td>45.00</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>29</td>
+<td>移动100元充值卡</td>
+<td>14</td>
+<td>0</td>
+<td>ECS000029</td>
+<td>0</td>
+<td>90.00</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>移动20元充值卡</td>
+<td>14</td>
+<td>0</td>
+<td>ECS000030</td>
+<td>9</td>
+<td>18.00</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>31</td>
+<td>摩托罗拉E8</td>
+<td>3</td>
+<td>2</td>
+<td>ECS000031</td>
+<td>1</td>
+<td>1337.00</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>32</td>
+<td>诺基亚N85</td>
+<td>3</td>
+<td>1</td>
+<td>ECS000032</td>
+<td>1</td>
+<td>3010.00</td>
+<td>9</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+<h2 id="四.查询知识">四.查询知识</h2>
+<blockquote>
+<p>注:以下查询基于ecshop网站的商品表(ecs_goods) 在练习时可以只取部分列,方便查看.</p>
+</blockquote>
+<ol type="1">
+<li><p>基础查询 where的练习:</p>
+<p>查出满足以下条件的商品</p>
+<p>1.1 主键为32的商品</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,goods_name,shop_price</span><br><span class="line">from ecs_goods</span><br><span class="line"><span class="built_in">where</span> goods_id=32;</span><br></pre></td></tr></table></figure> 1.2:不属第3栏目的所有商品</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,cat_id,goods_name,shop_price  from ecs_goods</span><br><span class="line"><span class="built_in">where</span> cat_id!=3;</span><br></pre></td></tr></table></figure> 1.3:本店价格高于3000元的商品</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,cat_id,goods_name,shop_price  from ecs_goods</span><br><span class="line"><span class="built_in">where</span> shop_price &gt;3000;</span><br></pre></td></tr></table></figure> 1.4:本店价格低于或等于100元的商品</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,cat_id,goods_name,shop_price  from ecs_goods <span class="built_in">where</span> shop_price &lt;=100;</span><br></pre></td></tr></table></figure> 1.5:取出第4栏目或第11栏目的商品(不许用or)</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,cat_id,goods_name,shop_price  from ecs_goods</span><br><span class="line"><span class="built_in">where</span> cat_id <span class="keyword">in</span> (4,11);</span><br></pre></td></tr></table></figure> 1.6:取出100&lt;=价格&lt;=500的商品(不许用and)</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,cat_id,goods_name,shop_price  from ecs_goods</span><br><span class="line"><span class="built_in">where</span> shop_price between 100 and 500;</span><br></pre></td></tr></table></figure> 1.7:取出不属于第3栏目且不属于第11栏目的商品(and,或not in分别实现)</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,cat_id,goods_name,shop_price  from ecs_goods     <span class="built_in">where</span> cat_id!=3 and cat_id!=11;</span><br><span class="line"></span><br><span class="line">select goods_id,cat_id,goods_name,shop_price  from ecs_goods     <span class="built_in">where</span> cat_id not <span class="keyword">in</span> (3,11);</span><br></pre></td></tr></table></figure> 1.8:取出价格大于100且小于300,或者大于4000且小于5000的商品()</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,cat_id,goods_name,shop_price  from ecs_goods <span class="built_in">where</span> shop_price&gt;100 and shop_price &lt;300 or shop_price &gt;4000 and shop_price &lt;5000;</span><br></pre></td></tr></table></figure> 1.9:取出第3个栏目下面价格&lt;1000或&gt;3000,并且点击量&gt;5的系列商品</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,cat_id,goods_name,shop_price,click_count from ecs_goods <span class="built_in">where</span></span><br><span class="line">cat_id=3 and (shop_price &lt;1000 or shop_price&gt;3000) and click_count&gt;5;</span><br></pre></td></tr></table></figure> 1.10:取出第1个栏目下面的商品(注意:1栏目下面没商品,但其子栏目下有)</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,cat_id,goods_name,shop_price,click_count from ecs_goods</span><br><span class="line"><span class="built_in">where</span> cat_id <span class="keyword">in</span> (2,3,4,5);</span><br></pre></td></tr></table></figure> 1.11:取出名字以"诺基亚"开头的商品</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,cat_id,goods_name,shop_price  from ecs_goods     <span class="built_in">where</span> goods_name like <span class="string">&#x27;诺基亚%&#x27;</span>;</span><br></pre></td></tr></table></figure> 1.12:取出名字为"诺基亚Nxx"的手机</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,cat_id,goods_name,shop_price  from ecs_goods</span><br><span class="line"><span class="built_in">where</span> goods_name like <span class="string">&#x27;诺基亚N__&#x27;</span>;</span><br></pre></td></tr></table></figure> 1.13:取出名字不以"诺基亚"开头的商品</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,cat_id,goods_name,shop_price from ecs_goos</span><br><span class="line"><span class="built_in">where</span> goods_name not like <span class="string">&#x27;诺基亚%&#x27;</span>;</span><br></pre></td></tr></table></figure> 1.14:取出第3个栏目下面价格在1000到3000之间,并且点击量&gt;5 "诺基亚"开头的系列商品</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,cat_id,goods_name,shop_price  from ecs_goods <span class="built_in">where</span></span><br><span class="line">cat_id=3 and shop_price&gt;1000 and shop_price &lt;3000 and click_count&gt;5 and goods_name like <span class="string">&#x27;诺基亚%&#x27;</span>;</span><br></pre></td></tr></table></figure> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,cat_id,goods_name,shop_price  from ecs_goods <span class="built_in">where</span></span><br><span class="line">shop_price between 1000 and 3000 and cat_id=3  and click_count&gt;5 and goods_name like <span class="string">&#x27;诺基亚%&#x27;</span>;</span><br></pre></td></tr></table></figure> 1.15 一道面试题</p>
+<p>有如下表和数组</p>
+<p>把num值处于[20,29]之间,改为20</p>
+<p>num值处于[30,39]之间的,改为30</p>
+<p>mian表</p>
+<table>
+<thead>
+<tr class="header">
+<th>num</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3</td>
+</tr>
+<tr class="even">
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+</tr>
+<tr class="even">
+<td>25</td>
+</tr>
+<tr class="odd">
+<td>23</td>
+</tr>
+<tr class="even">
+<td>29</td>
+</tr>
+<tr class="odd">
+<td>34</td>
+</tr>
+<tr class="even">
+<td>37</td>
+</tr>
+<tr class="odd">
+<td>32</td>
+</tr>
+<tr class="even">
+<td>45</td>
+</tr>
+<tr class="odd">
+<td>48</td>
+</tr>
+<tr class="even">
+<td>52</td>
+</tr>
+</tbody>
+</table>
+<p>1.16 练习题:</p>
+<p>把good表中商品名为'诺基亚xxxx'的商品,改为'HTCxxxx',</p>
+<p>提示:大胆的把列看成变量,参与运算,甚至调用函数来处理 .</p>
+<p>substring(),concat()</p></li>
+<li><p>分组查询group</p>
+<p>2.1:查出最贵的商品的价格</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select max(shop_price) from ecs_goods;</span><br></pre></td></tr></table></figure> 2.2:查出最大(最新)的商品编号</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select max(goods_id) from ecs_goods;</span><br></pre></td></tr></table></figure> 2.3:查出最便宜的商品的价格</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select min(shop_price) from ecs_goods;</span><br></pre></td></tr></table></figure> 2.4:查出最旧(最小)的商品编号</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select min(goods_id) from ecs_goods;</span><br></pre></td></tr></table></figure> 2.5:查询该店所有商品的库存总量</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sum(goods_number) from ecs_goods;</span><br></pre></td></tr></table></figure> 2.6:查询所有商品的平均价</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select avg(shop_price) from ecs_goods;</span><br></pre></td></tr></table></figure> 2.7:查询该店一共有多少种商品</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count(*) from ecs_goods;</span><br></pre></td></tr></table></figure> 2.8:查询每个栏目下面</p>
+<p>最贵商品价格</p>
+<p>最低商品价格</p>
+<p>商品平均价格</p>
+<p>商品库存量</p>
+<p>商品种类</p>
+<blockquote>
+<p>提示:(5个聚合函数,sum,avg,max,min,count与group综合运用)</p>
+</blockquote>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select cat_id,max(shop_price) from ecs_goods  group by cat_id;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>having与group综合运用查询:</p>
+<p>3.1:查询该店的商品比市场价所节省的价格</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,goods_name,market_price-shop_price as j</span><br><span class="line">from ecs_goods ;</span><br></pre></td></tr></table></figure> 3.2:查询每个商品所积压的货款(提示:库存*单价)</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,goods_name,goods_number*shop_price  from ecs_goods</span><br></pre></td></tr></table></figure> 3.3:查询该店积压的总货款</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sum(goods_number*shop_price) from ecs_goods;</span><br></pre></td></tr></table></figure> 3.4:查询该店每个栏目下面积压的货款.</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select cat_id,sum(goods_number*shop_price) as k from ecs_goods group by cat_id;</span><br></pre></td></tr></table></figure> 3.5:查询比市场价省钱200元以上的商品及该商品所省的钱(where和having分别实现)</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,goods_name,market_price-shop_price  as k from ecs_goods</span><br><span class="line"><span class="built_in">where</span> market_price-shop_price &gt;200;</span><br></pre></td></tr></table></figure> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select goods_id,goods_name,market_price-shop_price  as k from ecs_goods</span><br><span class="line">having k &gt;200;</span><br></pre></td></tr></table></figure> 3.6:查询积压货款超过2W元的栏目,以及该栏目积压的货款</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select cat_id,sum(goods_number*shop_price) as k from ecs_goods group by cat_id</span><br><span class="line">having k&gt;20000</span><br></pre></td></tr></table></figure> 3.7:where-having-group综合练习题</p>
+<p>有如下表及数据</p>
+<table>
+<thead>
+<tr class="header">
+<th>name</th>
+<th>subject</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>张三</td>
+<td>数学</td>
+<td>90</td>
+</tr>
+<tr class="even">
+<td>张三</td>
+<td>语文</td>
+<td>50</td>
+</tr>
+<tr class="odd">
+<td>张三</td>
+<td>地理</td>
+<td>40</td>
+</tr>
+<tr class="even">
+<td>李四</td>
+<td>语文</td>
+<td>55</td>
+</tr>
+<tr class="odd">
+<td>李四</td>
+<td>政治</td>
+<td>45</td>
+</tr>
+<tr class="even">
+<td>王五</td>
+<td>政治</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<p>要求:查询出2门及2门以上不及格者的平均成绩</p>
+<p>一种错误做法</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select name,count(score&lt;60) as k,avg(score) from stu group by name having k&gt;=2;</span><br></pre></td></tr></table></figure> | name | k | avg(score) | |------|---|------------| | 张三 | 3 | 60.0000 | | 李四 | 2 | 50.0000 |</p>
+<p>2 rows in set (0.00 sec)</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select name,count(score&lt;60) as k,avg(score) from stu group by name;</span><br></pre></td></tr></table></figure> | name | k | avg(score) | |------|---|------------| | 张三 | 3 | 60.0000 | | 李四 | 2 | 50.0000 | | 王五 | 1 | 30.0000 |</p>
+<p>3 rows in set (0.00 sec)</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select name,count(score&lt;60) as k,avg(score) from stu group by name having k&gt;=2;</span><br></pre></td></tr></table></figure> | name | k | avg(score) | |------|---|------------| | 张三 | 3 | 60.0000 | | 李四 | 2 | 50.0000 |</p></li>
+</ol>
+<p>2 rows in set (0.00 sec)</p>
+<p>#加上赵六后错误暴露 mysql&gt; insert into stu -&gt; values -&gt; ('赵六','A',100), -&gt; ('赵六','B',99), -&gt; ('赵六','C',98); Query OK, 3 rows affected (0.05 sec) Records: 3 Duplicates: 0 Warnings: 0</p>
+<p>#错误显现 mysql&gt; select name,count(score&lt;60) as k,avg(score) from stu group by name having k&gt;=2;</p>
+<table>
+<thead>
+<tr class="header">
+<th>name</th>
+<th>k</th>
+<th>avg(score)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>张三</td>
+<td>3</td>
+<td>60.0000</td>
+</tr>
+<tr class="even">
+<td>李四</td>
+<td>2</td>
+<td>50.0000</td>
+</tr>
+<tr class="odd">
+<td>赵六</td>
+<td>3</td>
+<td>99.0000</td>
+</tr>
+</tbody>
+</table>
+<p>3 rows in set (0.00 sec)</p>
+<p>#正确思路,先查看每个人的平均成绩 mysql&gt; select name,avg(score) from stu group by name;</p>
+<table>
+<thead>
+<tr class="header">
+<th>name</th>
+<th>avg(score)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>张三</td>
+<td>60.0000</td>
+</tr>
+<tr class="even">
+<td>李四</td>
+<td>50.0000</td>
+</tr>
+<tr class="odd">
+<td>王五</td>
+<td>30.0000</td>
+</tr>
+<tr class="even">
+<td>赵六</td>
+<td>99.0000</td>
+</tr>
+</tbody>
+</table>
+<p>4 rows in set (0.00 sec)</p>
+<p>mysql&gt; # 看每个人挂科情况 mysql&gt; select name,score &lt; 60 from stu;</p>
+<table>
+<thead>
+<tr class="header">
+<th>name</th>
+<th>score &lt; 60</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>张三</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>张三</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>张三</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>李四</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>李四</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>王五</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>赵六</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>赵六</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>赵六</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>9 rows in set (0.00 sec)</p>
+<p>mysql&gt; #计算每个人的挂科科目 mysql&gt; select name,sum(score &lt; 60) from stu group by name;</p>
+<table>
+<thead>
+<tr class="header">
+<th>name</th>
+<th>sum(score &lt; 60)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>张三</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>李四</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>王五</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>赵六</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>4 rows in set (0.00 sec)</p>
+<p>#同时计算每人的平均分 mysql&gt; select name,sum(score &lt; 60),avg(score) as pj from stu group by name;</p>
+<table>
+<thead>
+<tr class="header">
+<th>name</th>
+<th>sum(score &lt; 60)</th>
+<th>pj</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>张三</td>
+<td>2</td>
+<td>60.0000</td>
+</tr>
+<tr class="even">
+<td>李四</td>
+<td>2</td>
+<td>50.0000</td>
+</tr>
+<tr class="odd">
+<td>王五</td>
+<td>1</td>
+<td>30.0000</td>
+</tr>
+<tr class="even">
+<td>赵六</td>
+<td>0</td>
+<td>99.0000</td>
+</tr>
+</tbody>
+</table>
+<p>4 rows in set (0.00 sec)</p>
+<p>#利用having筛选挂科2门以上的. mysql&gt; select name,sum(score &lt; 60) as gk ,avg(score) as pj from stu group by name having gk &gt;=2;</p>
+<table>
+<thead>
+<tr class="header">
+<th>name</th>
+<th>gk</th>
+<th>pj</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>张三</td>
+<td>2</td>
+<td>60.0000</td>
+</tr>
+<tr class="even">
+<td>李四</td>
+<td>2</td>
+<td>50.0000</td>
+</tr>
+</tbody>
+</table>
+<p>2 rows in set (0.00 sec)</p>
+<p>4: order by 与 limit查询 4.1:按价格由高到低排序 select goods_id,goods_name,shop_price from ecs_goods order by shop_price desc;</p>
+<p>4.2:按发布时间由早到晚排序 select goods_id,goods_name,add_time from ecs_goods order by add_time;</p>
+<p>4.3:接栏目由低到高排序,栏目内部按价格由高到低排序 select goods_id,cat_id,goods_name,shop_price from ecs_goods order by cat_id ,shop_price desc;</p>
+<p>4.4:取出价格最高的前三名商品 select goods_id,goods_name,shop_price from ecs_goods order by shop_price desc limit 3;</p>
+<p>4.5:取出点击量前三名到前5名的商品 select goods_id,goods_name,click_count from ecs_goods order by click_count desc limit 2,3;</p>
+<p>5 连接查询 5.1:取出所有商品的商品名,栏目名,价格 select goods_name,cat_name,shop_price from ecs_goods left join ecs_category on ecs_goods.cat_id=ecs_category.cat_id;</p>
+<p>5.2:取出第4个栏目下的商品的商品名,栏目名,价格 select goods_name,cat_name,shop_price from ecs_goods left join ecs_category on ecs_goods.cat_id=ecs_category.cat_id where ecs_goods.cat_id = 4;</p>
+<p>5.3:取出第4个栏目下的商品的商品名,栏目名,与品牌名 select goods_name,cat_name,brand_name from ecs_goods left join ecs_category on ecs_goods.cat_id=ecs_category.cat_id left join ecs_brand on ecs_goods.brand_id=ecs_brand.brand_id where ecs_goods.cat_id = 4;</p>
+<p>5.4: 用友面试题</p>
+<p>根据给出的表结构按要求写出SQL语句。 Match 赛程表</p>
+<table>
+<thead>
+<tr class="header">
+<th>字段名称</th>
+<th>字段类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>matchID</td>
+<td>int</td>
+<td>主键</td>
+</tr>
+<tr class="even">
+<td>hostTeamID</td>
+<td>int</td>
+<td>主队的ID</td>
+</tr>
+<tr class="odd">
+<td>guestTeamID</td>
+<td>int</td>
+<td>客队的ID</td>
+</tr>
+<tr class="even">
+<td>matchResult</td>
+<td>varchar(20)</td>
+<td>比赛结果，如（2:0）</td>
+</tr>
+<tr class="odd">
+<td>matchTime</td>
+<td>date</td>
+<td>比赛开始时间</td>
+</tr>
+</tbody>
+</table>
+<p>Team 参赛队伍表</p>
+<table>
+<thead>
+<tr class="header">
+<th>字段名称</th>
+<th>字段类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>teamID</td>
+<td>int</td>
+<td>主键</td>
+</tr>
+<tr class="even">
+<td>teamName</td>
+<td>varchar(20)</td>
+<td>队伍名称</td>
+</tr>
+</tbody>
+</table>
+<p>Match的hostTeamID与guestTeamID都与Team中的teamID关联 查出 2006-6-1 到2006-7-1之间举行的所有比赛，并且用以下形式列出： 拜仁 2：0 不来梅 2006-6-21</p>
+<p>mysql&gt; select * from m;</p>
+<table>
+<thead>
+<tr class="header">
+<th>mid</th>
+<th>hid</th>
+<th>gid</th>
+<th>mres</th>
+<th>matime</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>2:0</td>
+<td>2006-05-21</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2</td>
+<td>3</td>
+<td>1:2</td>
+<td>2006-06-21</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>3</td>
+<td>1</td>
+<td>2:5</td>
+<td>2006-06-25</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>2</td>
+<td>1</td>
+<td>3:2</td>
+<td>2006-07-21</td>
+</tr>
+</tbody>
+</table>
+<p>4 rows in set (0.00 sec)</p>
+<p>mysql&gt; select * from t;</p>
+<table>
+<thead>
+<tr class="header">
+<th>tid</th>
+<th>tname</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>国安</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>申花</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>公益联队</td>
+</tr>
+</tbody>
+</table>
+<p>3 rows in set (0.00 sec)</p>
+<p>mysql&gt; select hid,t1.tname as hname ,mres,gid,t2.tname as gname,matime -&gt; from -&gt; m left join t as t1 -&gt; on m.hid = t1.tid -&gt; left join t as t2 -&gt; on m.gid = t2.tid;</p>
+<table>
+<thead>
+<tr class="header">
+<th>hid</th>
+<th>hname</th>
+<th>mres</th>
+<th>gid</th>
+<th>gname</th>
+<th>matime</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>国安</td>
+<td>2:0</td>
+<td>2</td>
+<td>申花</td>
+<td>2006-05-21</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>申花</td>
+<td>1:2</td>
+<td>3</td>
+<td>公益联队</td>
+<td>2006-06-21</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>公益联队</td>
+<td>2:5</td>
+<td>1</td>
+<td>国安</td>
+<td>2006-06-25</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>申花</td>
+<td>3:2</td>
+<td>1</td>
+<td>国安</td>
+<td>2006-07-21</td>
+</tr>
+</tbody>
+</table>
+<p>4 rows in set (0.00 sec)</p>
+<p>6 union查询 6.1:把ecs_comment,ecs_feedback两个表中的数据,各取出4列,并把结果集union成一个结果集.</p>
+<p>6.2:3期学员碰到的一道面试题 A表:</p>
+<table>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>num</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>a</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>b</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>c</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>d</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>B表:</p>
+<table>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>num</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>b</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>c</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td>d</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td>e</td>
+<td>99</td>
+</tr>
+</tbody>
+</table>
+<p>要求查询出以下效果:</p>
+<table>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>num</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>a</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>b</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td>c</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td>d</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td>e</td>
+<td>99</td>
+</tr>
+</tbody>
+</table>
+<p>create table a ( id char(1), num int )engine myisam charset utf8;</p>
+<p>insert into a values ('a',5),('b',10),('c',15),('d',10);</p>
+<p>create table b ( id char(1), num int )engine myisam charset utf8;</p>
+<p>insert into b values ('b',5),('c',15),('d',20),('e',99);</p>
+<p>mysql&gt; # 合并 ,注意all的作用 mysql&gt; select * from ta -&gt; union all -&gt; select * from tb;</p>
+<table>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>num</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>a</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>b</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>c</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>d</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>b</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>c</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td>d</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td>e</td>
+<td>99</td>
+</tr>
+</tbody>
+</table>
+<p>参考答案: mysql&gt; # sum,group求和 mysql&gt; select id,sum(num) from (select * from ta union all select * from tb) as tmp group by id;</p>
+<table>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>sum(num)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>a</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>b</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td>c</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td>d</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td>e</td>
+<td>99</td>
+</tr>
+</tbody>
+</table>
+<p>5 rows in set (0.00 sec)</p>
+<p>7: 子查询: 7.1:查询出最新一行商品(以商品编号最大为最新,用子查询实现) select goods_id,goods_name from ecs_goods where goods_id =(select max(goods_id) from ecs_goods);</p>
+<p>7.2:查询出编号为19的商品的栏目名称(用左连接查询和子查询分别) 7.3:用where型子查询把ecs_goods表中的每个栏目下面最新的商品取出来 select goods_id,goods_name,cat_id from ecs_goods where goods_id in (select max(goods_id) from ecs_goods group by cat_id); 7.4:用from型子查询把ecs_goods表中的每个栏目下面最新的商品取出来 select * from (select goods_id,cat_id,goods_name from ecs_goods order by goods_id desc) as t group by cat_id; 7.5 用exists型子查询,查出所有有商品的栏目 select * from category where exists (select * from goods where goods.cat_id=category.cat_id);</p>
+<p>创建触发器:</p>
+<p>CREATE trigger tg2 after insert on ord for each row update goods set goods_number=goods_number-new.num where id=new.gid</p>
+<p>CREATE trigger tg3 after delete on ord for each row update goods set goods_number=good_number+old.num where id=old.gid</p>
+<p>CREATE trigger tg4 after update on ord for each row update goods set goods_number=goods_number+old.num-new.num where id=old.gid</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="qiaogaojian 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="qiaogaojian 支付宝">
+        <span>支付宝</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.png" alt="qiaogaojian 比特币">
+        <span>比特币</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>qiaogaojian
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="Tutorial_MySql常用命令">http://example.com/2021/02/02/5.Web/20210202_Tutorial_MySql常用命令/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"><i class="fa fa-tag"></i> 数学</a>
+              <a href="/tags/AS/" rel="tag"><i class="fa fa-tag"></i> AS</a>
+              <a href="/tags/AR/" rel="tag"><i class="fa fa-tag"></i> AR</a>
+              <a href="/tags/Go/" rel="tag"><i class="fa fa-tag"></i> Go</a>
+              <a href="/tags/MySql/" rel="tag"><i class="fa fa-tag"></i> MySql</a>
+              <a href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag"><i class="fa fa-tag"></i> 排序</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/01/09/9.Tools/Regex/20210109_Tutorial-1%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="prev" title="Tutorial-1 正则表达式">
+                  <i class="fa fa-chevron-left"></i> Tutorial-1 正则表达式
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" rel="next" title="Tutorial_MySql常用函数">
+                  Tutorial_MySql常用函数 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiaogaojian</span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/2021/02/02/5.Web/20210202_Tutorial_MySql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/",
+    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":210,"height":360},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

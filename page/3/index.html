@@ -215,7 +215,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">192</span>
+          <span class="site-state-item-count">194</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -275,6 +275,356 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-06%E8%BF%9B%E9%98%B6%202%EF%BC%9Apush%20%E7%9A%84%E6%9C%AC%E8%B4%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-06%E8%BF%9B%E9%98%B6%202%EF%BC%9Apush%20%E7%9A%84%E6%9C%AC%E8%B4%A8/" class="post-title-link" itemprop="url">Tutorial-06进阶 2：push 的本质</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-10-29 00:00:00 / 修改时间：10:28:29" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/Git-%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">Git 原理详解及实用指南</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-06%E8%BF%9B%E9%98%B6%202%EF%BC%9Apush%20%E7%9A%84%E6%9C%AC%E8%B4%A8/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-06进阶 2：push 的本质" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-06%E8%BF%9B%E9%98%B6%202%EF%BC%9Apush%20%E7%9A%84%E6%9C%AC%E8%B4%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-06%E8%BF%9B%E9%98%B6%202%EF%BC%9Apush%20%E7%9A%84%E6%9C%AC%E8%B4%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          进阶 2：push 的本质
+在之前的内容里，我粗略地说过，push 指令做的事是把你的本地提交上传到中央仓库去，用本地的内容来覆盖掉远端的内容。这个说法其实是不够准确的，但 Git 的知识系统比较庞大，在你对 Git 了解比较少的时候，用「上传本地提交」来解释会比较好理解；而在你知道了 branch，并且明白了 branch 的具体含义以后，我就可以告诉你 push 到底是什么了。
+
+push：把 branch 上传到远端仓库
+实质上，push 做的事是：把当前 branch 的位置（即它指向哪个 commit）上传到远端仓库，并把它的路径上的 commits 一并上传。
+
+例如，我现在的本地
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-06%E8%BF%9B%E9%98%B6%202%EF%BC%9Apush%20%E7%9A%84%E6%9C%AC%E8%B4%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-07%E8%BF%9B%E9%98%B6%203%EF%BC%9Amerge%EF%BC%9A%E5%90%88%E5%B9%B6%20commits/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-07%E8%BF%9B%E9%98%B6%203%EF%BC%9Amerge%EF%BC%9A%E5%90%88%E5%B9%B6%20commits/" class="post-title-link" itemprop="url">Tutorial-07进阶 3：merge：合并 commits</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-10-29 00:00:00 / 修改时间：10:28:29" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/Git-%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">Git 原理详解及实用指南</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-07%E8%BF%9B%E9%98%B6%203%EF%BC%9Amerge%EF%BC%9A%E5%90%88%E5%B9%B6%20commits/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-07进阶 3：merge：合并 commits" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-07%E8%BF%9B%E9%98%B6%203%EF%BC%9Amerge%EF%BC%9A%E5%90%88%E5%B9%B6%20commits/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-07%E8%BF%9B%E9%98%B6%203%EF%BC%9Amerge%EF%BC%9A%E5%90%88%E5%B9%B6%20commits/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          进阶 3：merge：合并 commits
+前面说到，pull 的内部操作其实是把远程仓库取到本地后（使用的是 fetch），再用一次 merge 来把远端仓库的新 commits 合并到本地。这一节就说一下，merge 到底是什么。
+
+含义和用法
+merge 的意思是「合并」，它做的事也是合并：指定一个 commit，把它合并到当前的 commit 来。具体来讲，merge 做的事是：
+
+从目标 commit 和当前 commit （即 HEAD 所指向的 commit）分叉的位置起，把目标 commit 的路径上的所有 commit 的内容一并应用到当前 commit，然后自动生成一个新的
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-07%E8%BF%9B%E9%98%B6%203%EF%BC%9Amerge%EF%BC%9A%E5%90%88%E5%B9%B6%20commits/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-08%E8%BF%9B%E9%98%B6%204%EF%BC%9AFeature%20Branching%EF%BC%9A%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-08%E8%BF%9B%E9%98%B6%204%EF%BC%9AFeature%20Branching%EF%BC%9A%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/" class="post-title-link" itemprop="url">Tutorial-08进阶 4：Feature Branching：最流行的工作流</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-10-29 00:00:00 / 修改时间：10:28:29" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/9-Tools/Git/Git-%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">Git 原理详解及实用指南</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-08%E8%BF%9B%E9%98%B6%204%EF%BC%9AFeature%20Branching%EF%BC%9A%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-08进阶 4：Feature Branching：最流行的工作流" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-08%E8%BF%9B%E9%98%B6%204%EF%BC%9AFeature%20Branching%EF%BC%9A%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-08%E8%BF%9B%E9%98%B6%204%EF%BC%9AFeature%20Branching%EF%BC%9A%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          进阶 4：Feature Branching：最流行的工作流
+在前面的《上手 2》这一节里，我介绍了一种最基本的团队工作模型。在这种模型里，所有人都工作在 master 上，写完了的 commit 可以通过 push 来发送到中央仓库，并且可以使用 pull 来获取到别人的最新 commits。
+
+这种工作模型解决了团队合作最基本的问题：多人并行开发和版本管理。事实上，这也是早期的 VCS——中央式 VCS 的工作模型。
+
+但这种工作模型也有它的限制：使用这种工作模型时，每个人的代码在被大家看到的时候，就是它进入正式的生产库的时候。所有人的工作都会被直接 push 到 master，这导致每个
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-08%E8%BF%9B%E9%98%B6%204%EF%BC%9AFeature%20Branching%EF%BC%9A%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -396,122 +746,6 @@ git status
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-09%E8%BF%9B%E9%98%B6%205%EF%BC%9A%E5%85%B3%E4%BA%8E%20add/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-08%E8%BF%9B%E9%98%B6%204%EF%BC%9AFeature%20Branching%EF%BC%9A%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-08%E8%BF%9B%E9%98%B6%204%EF%BC%9AFeature%20Branching%EF%BC%9A%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/" class="post-title-link" itemprop="url">Tutorial-08进阶 4：Feature Branching：最流行的工作流</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-10-29 00:00:00 / 修改时间：10:28:29" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/Git-%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">Git 原理详解及实用指南</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-08%E8%BF%9B%E9%98%B6%204%EF%BC%9AFeature%20Branching%EF%BC%9A%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-08进阶 4：Feature Branching：最流行的工作流" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-08%E8%BF%9B%E9%98%B6%204%EF%BC%9AFeature%20Branching%EF%BC%9A%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-08%E8%BF%9B%E9%98%B6%204%EF%BC%9AFeature%20Branching%EF%BC%9A%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          进阶 4：Feature Branching：最流行的工作流
-在前面的《上手 2》这一节里，我介绍了一种最基本的团队工作模型。在这种模型里，所有人都工作在 master 上，写完了的 commit 可以通过 push 来发送到中央仓库，并且可以使用 pull 来获取到别人的最新 commits。
-
-这种工作模型解决了团队合作最基本的问题：多人并行开发和版本管理。事实上，这也是早期的 VCS——中央式 VCS 的工作模型。
-
-但这种工作模型也有它的限制：使用这种工作模型时，每个人的代码在被大家看到的时候，就是它进入正式的生产库的时候。所有人的工作都会被直接 push 到 master，这导致每个
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-08%E8%BF%9B%E9%98%B6%204%EF%BC%9AFeature%20Branching%EF%BC%9A%E6%9C%80%E6%B5%81%E8%A1%8C%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1039,137 +1273,6 @@ rebase -i 是 rebase --interactive 的缩写形式，意为「交互式 rebase�
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-14%E9%AB%98%E7%BA%A7%204%EF%BC%9A%E6%AF%94%E9%94%99%E8%BF%98%E9%94%99%EF%BC%8C%E6%83%B3%E7%9B%B4%E6%8E%A5%E4%B8%A2%E5%BC%83%E5%88%9A%E5%86%99%E7%9A%84%E6%8F%90%E4%BA%A4%EF%BC%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-14%E9%AB%98%E7%BA%A7%204%EF%BC%9A%E6%AF%94%E9%94%99%E8%BF%98%E9%94%99%EF%BC%8C%E6%83%B3%E7%9B%B4%E6%8E%A5%E4%B8%A2%E5%BC%83%E5%88%9A%E5%86%99%E7%9A%84%E6%8F%90%E4%BA%A4%EF%BC%9F/" class="post-title-link" itemprop="url">Tutorial-14高级 4：比错还错，想直接丢弃刚写的提交？</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-10-29 00:00:00 / 修改时间：10:28:29" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/Git-%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">Git 原理详解及实用指南</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-14%E9%AB%98%E7%BA%A7%204%EF%BC%9A%E6%AF%94%E9%94%99%E8%BF%98%E9%94%99%EF%BC%8C%E6%83%B3%E7%9B%B4%E6%8E%A5%E4%B8%A2%E5%BC%83%E5%88%9A%E5%86%99%E7%9A%84%E6%8F%90%E4%BA%A4%EF%BC%9F/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-14高级 4：比错还错，想直接丢弃刚写的提交？" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-14%E9%AB%98%E7%BA%A7%204%EF%BC%9A%E6%AF%94%E9%94%99%E8%BF%98%E9%94%99%EF%BC%8C%E6%83%B3%E7%9B%B4%E6%8E%A5%E4%B8%A2%E5%BC%83%E5%88%9A%E5%86%99%E7%9A%84%E6%8F%90%E4%BA%A4%EF%BC%9F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-14%E9%AB%98%E7%BA%A7%204%EF%BC%9A%E6%AF%94%E9%94%99%E8%BF%98%E9%94%99%EF%BC%8C%E6%83%B3%E7%9B%B4%E6%8E%A5%E4%B8%A2%E5%BC%83%E5%88%9A%E5%86%99%E7%9A%84%E6%8F%90%E4%BA%A4%EF%BC%9F/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          高级 4：比错还错，想直接丢弃刚写的提交？
-有的时候，刚写完的 commit 写得实在太烂，连自己的都看不下去，与其修改它还不如丢掉重写。这种情况，就可以用 reset 来丢弃最新的提交。
-
-reset --hard 丢弃最新的提交
-比如你刚写了一个 commit：
-
-
-
-
-
-写完回头看了看，你觉得「不行这得重新写」。那么你可以用 reset --hard 来撤销这条 commit。
-
-1
-
-
-git reset --hard HEAD^
-
-
-HEAD 表示 HEAD^ 往回数一个位置的 commit ，上节刚说过，记得吧？
-
-HEAD^ 表示你要恢复到哪个 commit。因为你要撤销最新的一
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-14%E9%AB%98%E7%BA%A7%204%EF%BC%9A%E6%AF%94%E9%94%99%E8%BF%98%E9%94%99%EF%BC%8C%E6%83%B3%E7%9B%B4%E6%8E%A5%E4%B8%A2%E5%BC%83%E5%88%9A%E5%86%99%E7%9A%84%E6%8F%90%E4%BA%A4%EF%BC%9F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-15%E9%AB%98%E7%BA%A7%205%EF%BC%9A%E6%83%B3%E4%B8%A2%E5%BC%83%E7%9A%84%E4%B9%9F%E4%B8%8D%E6%98%AF%E6%9C%80%E6%96%B0%E7%9A%84%E6%8F%90%E4%BA%A4%EF%BC%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1293,7 +1396,7 @@ HEAD^ 表示你要恢复到哪个 commit。因为你要撤销最新的一
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-16%E9%AB%98%E7%BA%A7%206%EF%BC%9A%E4%BB%A3%E7%A0%81%E5%B7%B2%E7%BB%8F%20push%20%E4%B8%8A%E5%8E%BB%E4%BA%86%E6%89%8D%E5%8F%91%E7%8E%B0%E5%86%99%E9%94%99%EF%BC%9F/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-14%E9%AB%98%E7%BA%A7%204%EF%BC%9A%E6%AF%94%E9%94%99%E8%BF%98%E9%94%99%EF%BC%8C%E6%83%B3%E7%9B%B4%E6%8E%A5%E4%B8%A2%E5%BC%83%E5%88%9A%E5%86%99%E7%9A%84%E6%8F%90%E4%BA%A4%EF%BC%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1310,7 +1413,7 @@ HEAD^ 表示你要恢复到哪个 commit。因为你要撤销最新的一
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-16%E9%AB%98%E7%BA%A7%206%EF%BC%9A%E4%BB%A3%E7%A0%81%E5%B7%B2%E7%BB%8F%20push%20%E4%B8%8A%E5%8E%BB%E4%BA%86%E6%89%8D%E5%8F%91%E7%8E%B0%E5%86%99%E9%94%99%EF%BC%9F/" class="post-title-link" itemprop="url">Tutorial-16高级 6：代码已经 push 上去了才发现写错？</a>
+            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-14%E9%AB%98%E7%BA%A7%204%EF%BC%9A%E6%AF%94%E9%94%99%E8%BF%98%E9%94%99%EF%BC%8C%E6%83%B3%E7%9B%B4%E6%8E%A5%E4%B8%A2%E5%BC%83%E5%88%9A%E5%86%99%E7%9A%84%E6%8F%90%E4%BA%A4%EF%BC%9F/" class="post-title-link" itemprop="url">Tutorial-14高级 4：比错还错，想直接丢弃刚写的提交？</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1344,7 +1447,7 @@ HEAD^ 表示你要恢复到哪个 commit。因为你要撤销最新的一
     </span>
 
   
-    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-16%E9%AB%98%E7%BA%A7%206%EF%BC%9A%E4%BB%A3%E7%A0%81%E5%B7%B2%E7%BB%8F%20push%20%E4%B8%8A%E5%8E%BB%E4%BA%86%E6%89%8D%E5%8F%91%E7%8E%B0%E5%86%99%E9%94%99%EF%BC%9F/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-16高级 6：代码已经 push 上去了才发现写错？" title="阅读次数">
+    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-14%E9%AB%98%E7%BA%A7%204%EF%BC%9A%E6%AF%94%E9%94%99%E8%BF%98%E9%94%99%EF%BC%8C%E6%83%B3%E7%9B%B4%E6%8E%A5%E4%B8%A2%E5%BC%83%E5%88%9A%E5%86%99%E7%9A%84%E6%8F%90%E4%BA%A4%EF%BC%9F/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-14高级 4：比错还错，想直接丢弃刚写的提交？" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -1359,8 +1462,8 @@ HEAD^ 表示你要恢复到哪个 commit。因为你要撤销最新的一
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-16%E9%AB%98%E7%BA%A7%206%EF%BC%9A%E4%BB%A3%E7%A0%81%E5%B7%B2%E7%BB%8F%20push%20%E4%B8%8A%E5%8E%BB%E4%BA%86%E6%89%8D%E5%8F%91%E7%8E%B0%E5%86%99%E9%94%99%EF%BC%9F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-16%E9%AB%98%E7%BA%A7%206%EF%BC%9A%E4%BB%A3%E7%A0%81%E5%B7%B2%E7%BB%8F%20push%20%E4%B8%8A%E5%8E%BB%E4%BA%86%E6%89%8D%E5%8F%91%E7%8E%B0%E5%86%99%E9%94%99%EF%BC%9F/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-14%E9%AB%98%E7%BA%A7%204%EF%BC%9A%E6%AF%94%E9%94%99%E8%BF%98%E9%94%99%EF%BC%8C%E6%83%B3%E7%9B%B4%E6%8E%A5%E4%B8%A2%E5%BC%83%E5%88%9A%E5%86%99%E7%9A%84%E6%8F%90%E4%BA%A4%EF%BC%9F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-14%E9%AB%98%E7%BA%A7%204%EF%BC%9A%E6%AF%94%E9%94%99%E8%BF%98%E9%94%99%EF%BC%8C%E6%83%B3%E7%9B%B4%E6%8E%A5%E4%B8%A2%E5%BC%83%E5%88%9A%E5%86%99%E7%9A%84%E6%8F%90%E4%BA%A4%EF%BC%9F/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1375,145 +1478,30 @@ HEAD^ 表示你要恢复到哪个 commit。因为你要撤销最新的一
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-          高级 6：代码已经 push 上去了才发现写错？
-有的时候，代码 push 到了中央仓库，才发现有个 commit 写错了。这种问题的处理分两种情况：
+          高级 4：比错还错，想直接丢弃刚写的提交？
+有的时候，刚写完的 commit 写得实在太烂，连自己的都看不下去，与其修改它还不如丢掉重写。这种情况，就可以用 reset 来丢弃最新的提交。
 
-1. 出错的内容在你自己的 branch
-假如是某个你自己独立开发的 branch 出错了，不会影响到其他人，那没关系用前面几节讲的方法把写错的 commit 修改或者删除掉，然后再 push 上去就好了。不过……
+reset --hard 丢弃最新的提交
+比如你刚写了一个 commit：
 
 
 
-由于你在本地对已有的 commit 做了修改，这时你再 push 就会失败，因为中央仓库包含本地没有的 commits。但这个和前面讲过的情况不同，这次的冲突不是因为同事 push 了新的提交，而是因为你刻意修改了一些内容，
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-16%E9%AB%98%E7%BA%A7%206%EF%BC%9A%E4%BB%A3%E7%A0%81%E5%B7%B2%E7%BB%8F%20push%20%E4%B8%8A%E5%8E%BB%E4%BA%86%E6%89%8D%E5%8F%91%E7%8E%B0%E5%86%99%E9%94%99%EF%BC%9F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    
-    
-    
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-17%E9%AB%98%E7%BA%A7%207%EF%BC%9Areset%20%E7%9A%84%E6%9C%AC%E8%B4%A8%E2%80%94%E2%80%94%E4%B8%8D%E6%AD%A2%E5%8F%AF%E4%BB%A5%E6%92%A4%E9%94%80%E6%8F%90%E4%BA%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-17%E9%AB%98%E7%BA%A7%207%EF%BC%9Areset%20%E7%9A%84%E6%9C%AC%E8%B4%A8%E2%80%94%E2%80%94%E4%B8%8D%E6%AD%A2%E5%8F%AF%E4%BB%A5%E6%92%A4%E9%94%80%E6%8F%90%E4%BA%A4/" class="post-title-link" itemprop="url">Tutorial-17高级 7：reset 的本质——不止可以撤销提交</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-10-29 00:00:00 / 修改时间：10:28:29" itemprop="dateCreated datePublished" datetime="2020-10-29T00:00:00+08:00">2020-10-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/" itemprop="url" rel="index"><span itemprop="name">9.Tools</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/9-Tools/Git/Git-%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">Git 原理详解及实用指南</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-17%E9%AB%98%E7%BA%A7%207%EF%BC%9Areset%20%E7%9A%84%E6%9C%AC%E8%B4%A8%E2%80%94%E2%80%94%E4%B8%8D%E6%AD%A2%E5%8F%AF%E4%BB%A5%E6%92%A4%E9%94%80%E6%8F%90%E4%BA%A4/" class="post-meta-item leancloud_visitors" data-flag-title="Tutorial-17高级 7：reset 的本质——不止可以撤销提交" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-17%E9%AB%98%E7%BA%A7%207%EF%BC%9Areset%20%E7%9A%84%E6%9C%AC%E8%B4%A8%E2%80%94%E2%80%94%E4%B8%8D%E6%AD%A2%E5%8F%AF%E4%BB%A5%E6%92%A4%E9%94%80%E6%8F%90%E4%BA%A4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-17%E9%AB%98%E7%BA%A7%207%EF%BC%9Areset%20%E7%9A%84%E6%9C%AC%E8%B4%A8%E2%80%94%E2%80%94%E4%B8%8D%E6%AD%A2%E5%8F%AF%E4%BB%A5%E6%92%A4%E9%94%80%E6%8F%90%E4%BA%A4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          高级 7：reset 的本质——不止可以撤销提交
-前面讲到，在最新的 commit 写错时，可以用 reset --hard 来把 commit 撤销：
+写完回头看了看，你觉得「不行这得重新写」。那么你可以用 reset --hard 来撤销这条 commit。
 
 1
-2
 
 
 git reset --hard HEAD^
 
 
+HEAD 表示 HEAD^ 往回数一个位置的 commit ，上节刚说过，记得吧？
 
-用这行代码可以撤销掉当前 commit
-
-在这节里，就对 reset 多说点，说说它的本质，说说它在撤销提交之外的用途。
-
-reset 的本质：移动 HEAD 以及它所指向的 branch
-实质上，reset 这个指令虽然可以用来撤销 commit ，但它的实质行为并不是撤销，而是移动 HEAD ，并且「捎带」上 HEAD 所指向的 branch（如果有的话）。也就是说，res
+HEAD^ 表示你要恢复到哪个 commit。因为你要撤销最新的一
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-17%E9%AB%98%E7%BA%A7%207%EF%BC%9Areset%20%E7%9A%84%E6%9C%AC%E8%B4%A8%E2%80%94%E2%80%94%E4%B8%8D%E6%AD%A2%E5%8F%AF%E4%BB%A5%E6%92%A4%E9%94%80%E6%8F%90%E4%BA%A4/#more" rel="contents">
+              <a class="btn" href="/2020/10/29/9.Tools/Git/Git%20%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/20201029_Tutorial-14%E9%AB%98%E7%BA%A7%204%EF%BC%9A%E6%AF%94%E9%94%99%E8%BF%98%E9%94%99%EF%BC%8C%E6%83%B3%E7%9B%B4%E6%8E%A5%E4%B8%A2%E5%BC%83%E5%88%9A%E5%86%99%E7%9A%84%E6%8F%90%E4%BA%A4%EF%BC%9F/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
