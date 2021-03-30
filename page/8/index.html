@@ -215,7 +215,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">194</span>
+          <span class="site-state-item-count">195</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -275,6 +275,111 @@
       
 
       
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/" class="post-title-link" itemprop="url">Bug-Android中ScrollView内部组件高度异常</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-Android中ScrollView内部组件高度异常" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          Android中ScrollView内部组件高度异常
+ScrollView内部的组件被压扁
+ScrollView里只放一个元素.当ScrollView里的元素想填满ScrollView时，使用”fill_parent”是不管用的，必需为ScrollView设置：android:fillViewport=”true。 当ScrollView没有fillVeewport=“true”时, 里面的元素(比如LinearLayout)会按照wrap_content来计算(不论它是否设了”fill_parent”),而如果LinearLayout的元素设置了fill_parent,那么也是不管用的，因为
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%ADScrollView%E5%86%85%E9%83%A8%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%BC%82%E5%B8%B8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -511,6 +616,114 @@ mAgentWeb.getWebCreator().getWebParentLayout().setBackgroundColor(0x00000000);
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/" class="post-title-link" itemprop="url">Bug-Android异常java</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-Android异常java" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+          Android异常java.lang.IllegalArgumentException_Unable to create converter for class
+错误解析
+原因是这个class中 字段冲突 把命名一样的字段改一下名字即可解决问题
+
+参考链接
+Unable to create converter for class
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%AD%E9%A1%B6%E9%83%A8UI%E9%98%BB%E6%8C%A1%E5%BA%95%E9%83%A8UI%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -602,114 +815,6 @@ Android: How to prevent any touch events from being passed from a view to the on
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/29/4.Android/20200929_Bug-Android%E4%B8%AD%E9%A1%B6%E9%83%A8UI%E9%98%BB%E6%8C%A1%E5%BA%95%E9%83%A8UI%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/" class="post-title-link" itemprop="url">Bug-Android异常java</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-Android异常java" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          Android异常java.lang.IllegalArgumentException_Unable to create converter for class
-错误解析
-原因是这个class中 字段冲突 把命名一样的字段改一下名字即可解决问题
-
-参考链接
-Unable to create converter for class
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/4.Android/20200929_Bug-Android%E5%BC%82%E5%B8%B8java.lang.IllegalArgumentException_Unable%20to%20create%20converter%20for%20class/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1078,127 +1183,6 @@ Glide.with(getApplicContext())
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/" class="post-title-link" itemprop="url">Bug-天狼安卓不足</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-  
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-29 00:00:00 / 修改时间：09:11:46" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-Android/" itemprop="url" rel="index"><span itemprop="name">4.Android</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-天狼安卓不足" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          天狼安卓不足
- 1.  点广告后,主播已下线
-     
-     多次点进去结果主播已下线,降低广告点击意愿,建议优化广告时间分配
-     
-     
- 2.  没有查找好友功能
-     
-     想加好友还要先建个房,建议首页添加查找用户功能(根据id和name)
-     
-     
- 3.  gitignore不规范
-     
-     git上有很多平时开发没有用到的东西,容易冲突,建议精简git版本控制文件夹或明确开发人员提交范围:app/
-     
-     
- 4.  接口文档更改不及时
-     
-     好多次都是微信发一下接口怎么改,加什么,这样容易出错,
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-%E7%8B%BC%E4%BA%BA%E6%9D%80%E6%90%9C%E7%B4%A2%E6%88%BF%E9%97%B4%E6%A1%86%E6%97%A0%E6%B3%95%E8%BF%9B%E5%85%A5%E6%88%BF%E9%97%B4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1310,7 +1294,7 @@ Glide.with(getApplicContext())
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%A1%86%E6%9E%B6/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1327,7 +1311,7 @@ Glide.with(getApplicContext())
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%A1%86%E6%9E%B6/" class="post-title-link" itemprop="url">Roadmap-Android开发中常用框架</a>
+            <a href="/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/" class="post-title-link" itemprop="url">Bug-天狼安卓不足</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1353,7 +1337,7 @@ Glide.with(getApplicContext())
     </span>
 
   
-    <span id="/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%A1%86%E6%9E%B6/" class="post-meta-item leancloud_visitors" data-flag-title="Roadmap-Android开发中常用框架" title="阅读次数">
+    <span id="/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/" class="post-meta-item leancloud_visitors" data-flag-title="Bug-天狼安卓不足" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -1368,8 +1352,8 @@ Glide.with(getApplicContext())
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%A1%86%E6%9E%B6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%A1%86%E6%9E%B6/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1384,32 +1368,28 @@ Glide.with(getApplicContext())
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-          Android开发中常用框架
-项目中用到的
- * RxJava: JVM上的响应式扩展
-   
-   
- * RxAndroid: Android上的响应式扩展，在RxJava基础上添加了Android线程调度
-   
-   
- * RxBinding: 提供用RxJava绑定Android UI的API
-   
-   
- * RxLifecycle: 生命周期控制
-   
-   
- * OkHttp: 一个Http与Http/2的客户端
-   
-   
- * Retrofit: 类型安全的Http客户端
-   
-   
- * Fresco: 一个用于管理图像和他们使用的内存的库
-   
-  
+          天狼安卓不足
+ 1.  点广告后,主播已下线
+     
+     多次点进去结果主播已下线,降低广告点击意愿,建议优化广告时间分配
+     
+     
+ 2.  没有查找好友功能
+     
+     想加好友还要先建个房,建议首页添加查找用户功能(根据id和name)
+     
+     
+ 3.  gitignore不规范
+     
+     git上有很多平时开发没有用到的东西,容易冲突,建议精简git版本控制文件夹或明确开发人员提交范围:app/
+     
+     
+ 4.  接口文档更改不及时
+     
+     好多次都是微信发一下接口怎么改,加什么,这样容易出错,
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/29/4.Android/20200929_Roadmap-Android%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%A1%86%E6%9E%B6/#more" rel="contents">
+              <a class="btn" href="/2020/09/29/4.Android/20200929_Bug-%E5%A4%A9%E7%8B%BC%E5%AE%89%E5%8D%93%E4%B8%8D%E8%B6%B3/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
