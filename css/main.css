@@ -2582,20 +2582,18 @@ ul.breadcrumb li:last-child {
 .search-pop-overlay {
   background: rgba(0,0,0,0);
   display: flex;
-  height: 0;
+  height: 100%;
   left: 0;
   position: fixed;
   top: 0;
   transition: visibility 0.4s, background 0.4s;
   visibility: hidden;
-  width: 0;
+  width: 100%;
   z-index: 1400;
 }
 .search-active .search-pop-overlay {
   background: rgba(0,0,0,0.3);
   visibility: visible;
-  height: 100%;
-  width: 100%;
 }
 .search-popup {
   background: var(--card-bg-color);
@@ -2605,9 +2603,11 @@ ul.breadcrumb li:last-child {
   transform: scale(0);
   transition: transform 0.4s;
   width: 700px;
+  visibility: hidden;
 }
 .search-active .search-popup {
   transform: scale(1);
+  visibility: visible;
 }
 @media (max-width: 767px) {
   .search-popup {
