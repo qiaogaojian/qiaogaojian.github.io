@@ -218,20 +218,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -302,10 +302,10 @@
       <div class="post-body">
           <div class="tag-cloud">
   <div class="tag-cloud-title">
-    目前共计 3 个标签
+    目前共计 5 个标签
   </div>
   <div class="tag-cloud-tags">
-    <a href="/tags/hexo/" style="font-size: 12px;" class="tag-cloud-0">#hexo</a> <a href="/tags/share/" style="font-size: 30px;" class="tag-cloud-10">#share</a> <a href="/tags/test/" style="font-size: 12px;" class="tag-cloud-0">#test</a>
+    <a href="/tags/hexo/" style="font-size: 12px;" class="tag-cloud-0">#hexo</a> <a href="/tags/python/" style="font-size: 12px;" class="tag-cloud-0">#python</a> <a href="/tags/srcard/" style="font-size: 30px;" class="tag-cloud-10">#srcard</a> <a href="/tags/test/" style="font-size: 12px;" class="tag-cloud-0">#test</a> <a href="/tags/python/" style="font-size: 30px;" class="tag-cloud-10">python</a>
   </div>
 </div>
 
@@ -389,13 +389,33 @@
 
 
 
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  const url = element.dataset.target;
+  const pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  const pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  const fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
 
 
 <script>
 if (document.querySelectorAll('.mermaid').length) {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.7.0/dist/mermaid.min.js', () => {
     mermaid.init({
-      theme    : 'forest',
+      theme    : 'dark',
       logLevel : 3,
       flowchart: { curve     : 'linear' },
       gantt    : { axisFormat: '%m/%d/%Y' },
