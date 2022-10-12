@@ -21,15 +21,15 @@
     var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="区别 在 JS 项目里，除了能看到 &#x3D;&#x3D; 操作符来判断两个变量是否相等外，我们还会看到 &#x3D;&#x3D;&#x3D; 操作符，这两者有什么区别？ ??   * 对于 String, number 这些值类型，&#x3D;&#x3D;操作符会先把两边的变量进行类型强制转换成相同的类型再比较是否相等；&#x3D;&#x3D;&#x3D; 操作符则不会进行类型转换，而是直接进行比较。  * 对于 array, object 这些引用类型，&#x3D;&#x3D; 和&#x3D;&#x3D;&#x3D;是没有区别的，因为它们">
+  <meta name="description" content="区别 在 JS 项目里，除了能看到 &#x3D;&#x3D; 操作符来判断两个变量是否相等外，我们还会看到 &#x3D;&#x3D;&#x3D; 操作符，这两者有什么区别？  ??   * 对于 String, number 这些值类型，&#x3D;&#x3D;操作符会先把两边的变量进行类型强制转换成相同的类型再比较是否相等；&#x3D;&#x3D;&#x3D; 操作符则不会进行类型转换，而是直接进行比较。          * 对于 array, object 这些引用类型，&#x3D;&#x3D;和 &#x3D;&#x3D;&#x3D;是没">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS &#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D; 的区别">
 <meta property="og:url" content="https://qiaogaojian.github.io/516/index.html">
 <meta property="og:site_name" content="行则将至">
-<meta property="og:description" content="区别 在 JS 项目里，除了能看到 &#x3D;&#x3D; 操作符来判断两个变量是否相等外，我们还会看到 &#x3D;&#x3D;&#x3D; 操作符，这两者有什么区别？ ??   * 对于 String, number 这些值类型，&#x3D;&#x3D;操作符会先把两边的变量进行类型强制转换成相同的类型再比较是否相等；&#x3D;&#x3D;&#x3D; 操作符则不会进行类型转换，而是直接进行比较。  * 对于 array, object 这些引用类型，&#x3D;&#x3D; 和&#x3D;&#x3D;&#x3D;是没有区别的，因为它们">
+<meta property="og:description" content="区别 在 JS 项目里，除了能看到 &#x3D;&#x3D; 操作符来判断两个变量是否相等外，我们还会看到 &#x3D;&#x3D;&#x3D; 操作符，这两者有什么区别？  ??   * 对于 String, number 这些值类型，&#x3D;&#x3D;操作符会先把两边的变量进行类型强制转换成相同的类型再比较是否相等；&#x3D;&#x3D;&#x3D; 操作符则不会进行类型转换，而是直接进行比较。          * 对于 array, object 这些引用类型，&#x3D;&#x3D;和 &#x3D;&#x3D;&#x3D;是没">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-26T10:45:48.000Z">
-<meta property="article:modified_time" content="2022-10-12T12:36:47.364Z">
+<meta property="article:modified_time" content="2022-10-12T12:42:46.416Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="srcard">
 <meta property="article:tag" content="javascript">
@@ -320,7 +320,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-10-12 20:36:47" itemprop="dateModified" datetime="2022-10-12T20:36:47+08:00">2022-10-12</time>
+        <time title="修改时间：2022-10-12 20:42:46" itemprop="dateModified" datetime="2022-10-12T20:42:46+08:00">2022-10-12</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -375,20 +375,21 @@
         <h2 id="区别">区别</h2>
 <p>在 JS 项目里，除了能看到 ==
 操作符来判断两个变量是否相等外，我们还会看到 ===
-操作符，这两者有什么区别？ ??</p>
+操作符，这两者有什么区别？</p>
+<p>??</p>
 <ul>
-<li>对于 String, number 这些<strong>值类型</strong>，<code>==</code>
+<li><p>对于 String, number 这些<strong>值类型</strong>，<code>==</code>
 操作符会先把两边的变量<mark style="background: #fefe00A6;">进行类型强制转换成相同的类型再比较是否相等</mark>
-；<code>===</code> 操作符则不会进行类型转换，而是直接进行比较。</li>
-<li>对于 array, object 这些<strong>引用类型</strong>，<code>==</code> 和
-<code>===</code>
+；<code>===</code> 操作符则不会进行类型转换，而是直接进行比较。</p></li>
+<li><p>对于 array, object 这些<strong>引用类型</strong>，<code>==</code>
+和 <code>===</code>
 是没有区别的，因为它们<mark style="background: #fefe00A6;">比较的是
-“指针地址</mark> ” 。</li>
-<li><strong>值类型和引用类型之间</strong>比较，<code>==</code> 和
+“指针地址</mark> ” 。</p></li>
+<li><p><strong>值类型和引用类型之间</strong>比较，<code>==</code> 和
 <code>===</code>
 是有区别的；<code>==</code>操作符会<mark style="background: #fefe00A6;">先把高级类型转换为基础类型</mark>
 之后，进行值的比较；<code>===</code>
-操作符则不会进行转换，类型不同，直接返回 false</li>
+操作符则不会进行转换，类型不同，直接返回 false</p></li>
 </ul>
 <p>也就是说，<code>==</code>
 操作符只要求比较<mark style="background: #83d98fA6;">两个变量的值是否相等</mark>
@@ -396,39 +397,50 @@
 操作符则是要求<mark style="background: #83d98fA6;">两个变量的值和类型都要相同</mark>
 ；类似地，<code>!=</code> 操作符会去做类型强制转换，<code>!==</code>
 操作符则不会转换类型。</p>
-<p><strong>值类型</strong> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; 1;</span><br><span class="line">let b &#x3D; &#39;1&#39;;</span><br><span class="line"></span><br><span class="line">console.log(a &#x3D;&#x3D; b);</span><br><span class="line">console.log(a &#x3D;&#x3D;&#x3D; b);</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p><strong>引用类型</strong> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;*********************************&quot;);</span><br><span class="line">let a &#x3D; &#123;val:1&#125;;</span><br><span class="line">let b &#x3D; &#123;val:1&#125;;</span><br><span class="line">console.log(a&#x3D;&#x3D;b);</span><br><span class="line">console.log(a&#x3D;&#x3D;&#x3D;b);</span><br><span class="line"></span><br><span class="line">console.log(&quot;*********************************&quot;);</span><br><span class="line">c &#x3D; a;</span><br><span class="line">console.log(a&#x3D;&#x3D;c);</span><br><span class="line">console.log(a&#x3D;&#x3D;&#x3D;c);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<!--SR:!2022-10-31,22,250--></p>
+<p><strong>值类型</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">let a &#x3D; 1;</span><br><span class="line"></span><br><span class="line">let b &#x3D; &#39;1&#39;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(a &#x3D;&#x3D; b);</span><br><span class="line"></span><br><span class="line">console.log(a &#x3D;&#x3D;&#x3D; b);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>引用类型</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">console.log(&quot;*********************************&quot;);</span><br><span class="line"></span><br><span class="line">let a &#x3D; &#123;val:1&#125;;</span><br><span class="line"></span><br><span class="line">let b &#x3D; &#123;val:1&#125;;</span><br><span class="line"></span><br><span class="line">console.log(a&#x3D;&#x3D;b);</span><br><span class="line"></span><br><span class="line">console.log(a&#x3D;&#x3D;&#x3D;b);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(&quot;*********************************&quot;);</span><br><span class="line"></span><br><span class="line">c &#x3D; a;</span><br><span class="line"></span><br><span class="line">console.log(a&#x3D;&#x3D;c);</span><br><span class="line"></span><br><span class="line">console.log(a&#x3D;&#x3D;&#x3D;c);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<!--SR:!2022-10-31,22,250-->
 <h2 id="注意事项">注意事项</h2>
-<p><mark style="background: #fa518dA6;">JS == / ===注意事项: </mark>
-??</p>
+<p><mark style="background: #fa518dA6;">JS == / ===注意事项: </mark></p>
+<p>??</p>
 <ul>
-<li>对于特殊值 NaN（Not a Number）表示非数字，NaN
+<li><p>对于特殊值 NaN（Not a Number）表示非数字，NaN
 和任何数（包括它自己）做相等比较，都会返回
 false，所以<mark style="background: #83d98fA6;">判断 NaN 最好用 isNaN()
-函数</mark></li>
-<li>undefined 和 null，两者的值相比较，会返回 true。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(undefined&#x3D;&#x3D;null)</span><br><span class="line">console.log(undefined&#x3D;&#x3D;&#x3D;null)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+函数</mark></p></li>
+<li><p>undefined 和 null，两者的值相比较，会返回 true。</p></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">console.log(undefined&#x3D;&#x3D;null)</span><br><span class="line"></span><br><span class="line">console.log(undefined&#x3D;&#x3D;&#x3D;null)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
 <li>由于 == 和!=
 操作符带来的类型隐式转换规则非常繁琐，还有为了避免数据类型混淆导致出现
-bug，还是推荐使用 <code>===</code> 操作符和<code>!==</code> 操作符。
-<!--SR:!2022-11-05,27,250--></li>
+bug，还是推荐使用 <code>===</code> 操作符和<code>!==</code>
+操作符。</li>
 </ul>
+<!--SR:!2022-11-05,27,250-->
 <h2 id="stack-overflow-相关">Stack Overflow 相关</h2>
 <p>So there you have the two common sources of errors in Javascript
-comparisons: 1. comparing different types with == can lead to
-==unexpected type conversions.== 2. comparing objects and arrays is
-based on ==references not values stored inside==.</p>
+comparisons:</p>
+<ol type="1">
+<li><p>comparing different types with == can lead to ==unexpected type
+conversions.==</p></li>
+<li><p>comparing objects and arrays is based on ==references not values
+stored inside==.</p></li>
+</ol>
 <p>As the existing answer already says, Typescript is designed as a
 superset of Javascript. So it doesn't change the behaviour of these
 comparison operators. If you write <code>==</code> in Typescript, you
 get type conversions.</p>
 <p>So how is this fixed? ==With the compiler. ==If you actually do write
 code that compares incompatible types with <code>==</code> it's a
-compiler error. Try compiling the following sample:<br />
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let str &#x3D; &quot;1&quot;;</span><br><span class="line">let num &#x3D; 1;</span><br><span class="line"></span><br><span class="line">console.log(str&#x3D;&#x3D;num);</span><br></pre></td></tr></table></figure>
-<!--SR:!2022-11-02,24,250!2022-11-03,25,250!2022-11-06,28,250--></p>
-<p><strong>参考:</strong> <a
-target="_blank" rel="noopener" href="https://nowjava.com/article/44330">nowjava.com</a> <a
+compiler error. Try compiling the following sample:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">let str &#x3D; &quot;1&quot;;</span><br><span class="line"></span><br><span class="line">let num &#x3D; 1;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(str&#x3D;&#x3D;num);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<!--SR:!2022-11-02,24,250!2022-11-03,25,250!2022-11-06,28,250-->
+<p><strong>参考:</strong></p>
+<p><a target="_blank" rel="noopener" href="https://nowjava.com/article/44330">nowjava.com</a></p>
+<p><a
 target="_blank" rel="noopener" href="https://stackoverflow.com/questions/57125700/why-use-triple-equal-in-typescript">javascript
 - Why use triple-equal (<code>===</code>) in TypeScript? - Stack
 Overflow</a></p>
