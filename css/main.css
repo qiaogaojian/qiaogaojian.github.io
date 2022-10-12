@@ -2603,9 +2603,11 @@ ul.breadcrumb li:last-child {
   transform: scale(0);
   transition: transform 0.4s;
   width: 700px;
+  visibility: hidden;
 }
 .search-active .search-popup {
   transform: scale(1);
+  visibility: visible;
 }
 @media (max-width: 767px) {
   .search-popup {

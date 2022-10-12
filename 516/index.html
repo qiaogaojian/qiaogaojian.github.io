@@ -21,22 +21,22 @@
     var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="原文地址 mp.weixin.qq.com  命名规范在编写代码中起到很重要的作用，虽然不遵循命名规范，程序可能也可以运行，但是使用命名规范可以更加直观地了解代码所代表的含义。  Python 的命名规范（其它编程语言也差不多）   1. 不能以数字开头，不能出现中文。  2. 命名以字母开头，包含数字，字母（区分大小写），下划线。  3. 不能包含关键字。  下面具体说说 Python 的命名规">
+  <meta name="description" content="区别 在 JS 项目里，除了能看到 &#x3D;&#x3D; 操作符来判断两个变量是否相等外，我们还会看到 &#x3D;&#x3D;&#x3D; 操作符，这两者有什么区别？  ??   * 对于 String, number 这些值类型，&#x3D;&#x3D;操作符会先把两边的变量进行类型强制转换成相同的类型再比较是否相等；&#x3D;&#x3D;&#x3D; 操作符则不会进行类型转换，而是直接进行比较。  * 对于 array, object 这些引用类型，&#x3D;&#x3D; 和&#x3D;&#x3D;&#x3D;是没有区别的，因为它">
 <meta property="og:type" content="article">
-<meta property="og:title" content="说说 Python 的命名规范">
-<meta property="og:url" content="https://qiaogaojian.github.io/545/index.html">
+<meta property="og:title" content="JS &#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D; 的区别">
+<meta property="og:url" content="https://qiaogaojian.github.io/516/index.html">
 <meta property="og:site_name" content="行则将至">
-<meta property="og:description" content="原文地址 mp.weixin.qq.com  命名规范在编写代码中起到很重要的作用，虽然不遵循命名规范，程序可能也可以运行，但是使用命名规范可以更加直观地了解代码所代表的含义。  Python 的命名规范（其它编程语言也差不多）   1. 不能以数字开头，不能出现中文。  2. 命名以字母开头，包含数字，字母（区分大小写），下划线。  3. 不能包含关键字。  下面具体说说 Python 的命名规">
+<meta property="og:description" content="区别 在 JS 项目里，除了能看到 &#x3D;&#x3D; 操作符来判断两个变量是否相等外，我们还会看到 &#x3D;&#x3D;&#x3D; 操作符，这两者有什么区别？  ??   * 对于 String, number 这些值类型，&#x3D;&#x3D;操作符会先把两边的变量进行类型强制转换成相同的类型再比较是否相等；&#x3D;&#x3D;&#x3D; 操作符则不会进行类型转换，而是直接进行比较。  * 对于 array, object 这些引用类型，&#x3D;&#x3D; 和&#x3D;&#x3D;&#x3D;是没有区别的，因为它">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-26T05:56:11.000Z">
-<meta property="article:modified_time" content="2022-10-12T06:34:25.818Z">
+<meta property="article:published_time" content="2022-09-26T10:45:48.000Z">
+<meta property="article:modified_time" content="2022-10-12T06:34:25.815Z">
 <meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="javascript">
 <meta property="article:tag" content="srcard">
-<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://qiaogaojian.github.io/545/">
+<link rel="canonical" href="https://qiaogaojian.github.io/516/">
 
 
 <script class="page-configurations">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>说说 Python 的命名规范 | 行则将至</title>
+  <title>JS == 和 === 的区别 | 行则将至</title>
   
 
 
@@ -205,7 +205,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB"><span class="nav-text">1.类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-text">2.函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-text">3.变量</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stack-overflow-%E7%9B%B8%E5%85%B3"><span class="nav-text">Stack Overflow 相关</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -285,7 +285,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://qiaogaojian.github.io/545/">
+    <link itemprop="mainEntityOfPage" href="https://qiaogaojian.github.io/516/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -301,7 +301,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          说说 Python 的命名规范
+          JS == 和 === 的区别
         </h1>
 
         <div class="post-meta-container">
@@ -313,7 +313,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-07-26 13:56:11" itemprop="dateCreated datePublished" datetime="2022-07-26T13:56:11+08:00">2022-07-26</time>
+      <time title="创建时间：2022-09-26 18:45:48" itemprop="dateCreated datePublished" datetime="2022-09-26T18:45:48+08:00">2022-09-26</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
@@ -336,12 +336,12 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+          <a href="/categories/4-%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a>
         </span>
     </span>
 
   
-    <span id="/545/" class="post-meta-item leancloud_visitors" data-flag-title="说说 Python 的命名规范" title="阅读次数">
+    <span id="/516/" class="post-meta-item leancloud_visitors" data-flag-title="JS == 和 === 的区别" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -356,8 +356,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/545/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/545/" itemprop="commentCount"></span>
+    <a title="valine" href="/516/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/516/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -372,71 +372,67 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <blockquote>
-<p>原文地址 <a
-target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?src=11×tamp=1658813253&amp;ver=3943&amp;signature=rCEdWJcul585rSrw*vj*31qqKuqpuyjfoKsndxF88l6GQJ2nYUFoeIaXuil-zzPuDJx1HpltWSNMqT0hSJRkWO4MvJTiW4uipN7*uN2rpgW2MPfTIMNuW4k2D0SeknEl&amp;new=1">mp.weixin.qq.com</a></p>
-</blockquote>
-<p>命名规范在编写代码中起到很重要的作用，虽然不遵循命名规范，程序可能也可以运行，但是使用命名规范可以更加直观地了解代码所代表的含义。</p>
-<p>Python 的命名规范（其它编程语言也差不多）</p>
-<ol type="1">
-<li>不能以数字开头，不能出现中文。</li>
-<li>命名以字母开头，包含数字，字母（区分大小写），下划线。</li>
-<li>不能包含关键字。</li>
-</ol>
-<p>下面具体说说 Python 的命名规范:</p>
-<h2 id="类">1.类</h2>
-<p><strong>python 类命名规则?</strong></p>
-<p>??</p>
-<p><mark style="background: #be9affA6;">类</mark>
-<mark style="background: #018bffA6;">项目</mark>
-<mark style="background: #fefe00A6;">异常</mark>
-的命名遵循<strong>大驼峰</strong>规则,
-单词首字母总是大写，私有类可以下划线开头。如: <code>MyClass</code>。
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span>()：</span></span><br><span class="line"><span class="class">  <span class="title">pass</span></span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">MySchool</span>()：</span></span><br><span class="line"><span class="class">  <span class="title">pass</span></span></span><br></pre></td></tr></table></figure> <!--SR:!2022-11-08,63,250--></p>
-<h2 id="函数">2.函数</h2>
-<p><strong>Python 函数命名规则?</strong></p>
-<p>??</p>
-<p>函数名<strong>一律小写</strong>，<mark style="background: #fefe00A6;">若有多个单词用下划线隔开</mark>
-。另外，<mark style="background: #fefe00A6;">私有函数下划线开头</mark>
-。 <mark style="background: #be9affA6;">文件</mark>
-<mark style="background: #018bffA6;">包</mark>
-<mark style="background: #fefe00A6;">模块</mark>
-<mark style="background: #57e8b8A6;">函数方法</mark>
-<mark style="background: #83d98fA6;">变量</mark> 的命名规则是一样的:
-<mark style="background: #83d98fA6;">全小写 + 下划线</mark> 如:
-<code>this_is_var</code> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_func</span>(<span class="params">var1, var2</span>):</span></span><br><span class="line">  <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_private_func</span>(<span class="params">var1, var2</span>):</span></span><br><span class="line">  <span class="keyword">pass</span></span><br></pre></td></tr></table></figure> <!--SR:!2022-11-14,70,250--></p>
-<h2 id="变量">3.变量</h2>
-<p><strong>Python 变量命名规则?</strong></p>
+        <h2 id="区别">区别</h2>
+<p>在 JS 项目里，除了能看到 ==
+操作符来判断两个变量是否相等外，我们还会看到 ===
+操作符，这两者有什么区别？</p>
 <p>??</p>
 <ul>
-<li><strong>变量</strong>名最好小写，若有多个使用下划线分开 。</li>
-<li><strong>常量</strong>使用<mark style="background: #fefe00A6;">全大写</mark>
-，多个单词使用下划线隔开 。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="number">20</span></span><br><span class="line">this_is_a_variable = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">MAX_NUM = <span class="number">1000</span></span><br></pre></td></tr></table></figure>
-<!--SR:!2022-11-11,68,250--></li>
+<li>对于 String, number 这些<strong>值类型</strong>，<code>==</code>
+操作符会先把两边的变量<mark style="background: #fefe00A6;">进行类型强制转换成相同的类型再比较是否相等</mark>
+；<code>===</code> 操作符则不会进行类型转换，而是直接进行比较。</li>
+<li>对于 array, object 这些<strong>引用类型</strong>，<code>==</code> 和
+<code>===</code>
+是没有区别的，因为它们<mark style="background: #fefe00A6;">比较的是
+“指针地址</mark> ” 。</li>
+<li><strong>值类型和引用类型之间</strong>比较，<code>==</code> 和
+<code>===</code>
+是有区别的；<code>==</code>操作符会<mark style="background: #fefe00A6;">先把高级类型转换为基础类型</mark>
+之后，进行值的比较；<code>===</code>
+操作符则不会进行转换，类型不同，直接返回 false</li>
 </ul>
-<p><strong>Python 命名规约?</strong></p>
+<p>也就是说，<code>==</code>
+操作符只要求比较<mark style="background: #83d98fA6;">两个变量的值是否相等</mark>
+，<code>===</code>
+操作符则是要求<mark style="background: #83d98fA6;">两个变量的值和类型都要相同</mark>
+；类似地，<code>!=</code> 操作符会去做类型强制转换，<code>!==</code>
+操作符则不会转换类型。</p>
+<p><strong>值类型</strong> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; 1;</span><br><span class="line">let b &#x3D; &#39;1&#39;;</span><br><span class="line"></span><br><span class="line">console.log(a &#x3D;&#x3D; b);</span><br><span class="line">console.log(a &#x3D;&#x3D;&#x3D; b);</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p><strong>引用类型</strong> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;*********************************&quot;);</span><br><span class="line">let a &#x3D; &#123;val:1&#125;;</span><br><span class="line">let b &#x3D; &#123;val:1&#125;;</span><br><span class="line">console.log(a&#x3D;&#x3D;b);</span><br><span class="line">console.log(a&#x3D;&#x3D;&#x3D;b);</span><br><span class="line"></span><br><span class="line">console.log(&quot;*********************************&quot;);</span><br><span class="line">c &#x3D; a;</span><br><span class="line">console.log(a&#x3D;&#x3D;c);</span><br><span class="line">console.log(a&#x3D;&#x3D;&#x3D;c);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<!--SR:!2022-10-31,22,250--></p>
+<h2 id="注意事项">注意事项</h2>
+<p><mark style="background: #fa518dA6;">JS == / ===注意事项: </mark></p>
 <p>??</p>
-<p><img
-src="https://mmbiz.qpic.cn/mmbiz_png/IibUVnJ665WriaXQa5CcJ1j5qgLSB3nsDEn4yWicaNcbcIiaicvN6nb3dCtx3sxVaddqBgNbr2mZ0SvSoWPBLhom7aw/640?wx_fmt=png" />
-<!--SR:!2022-10-25,57,250--></p>
-<p><strong>额外补充：</strong></p>
-<p><strong>1. 缩写</strong></p>
-<p>命名应当尽量使用全拼写的单词，缩写的情况有如下两种： 1.
-常用的缩写，如 XML.ID 等，在命名时也应只大写首字母，如 XmlParser。 2.
-命名中含有长单词，对某个单词进行缩写。这时应使用约定成俗的缩写方式。</p>
-<p>例如： function 缩写为 fn text 缩写为 txt object 缩写为 obj count
-缩写为 cnt number 缩写为 num，等。</p>
-<p><strong>2. 下划线</strong></p>
-<p>一个前导下划线：表示非公有。 一个后缀下划线：避免关键字冲突。</p>
-<p>两个前导下划线：当命名一个类属性引起名称冲突时使用。
-两个前导和后缀下划线：“magic”（有特殊用图）对象或者属性，例如__init__或者__file__。绝对不要创造这样的名字，而只是使用它们。</p>
-<p>注意：关于下划线的使用存在一些争议。</p>
-<p><strong>3. 特定命名方式</strong></p>
-<p>主要是指 <code>__xxx__</code>
-形式的系统保留字命名法。项目中也可以使用这种命名，它的意义在于这种形式的变量是只读的，这种形式的类成员函数尽量不要重载。如</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>(<span class="params">object</span>):</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, id, parent = None</span>):</span></span><br><span class="line"></span><br><span class="line">self.__id__ = id</span><br><span class="line"></span><br><span class="line">self.__parent__ = parent</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__message__</span>(<span class="params">self, msgid</span>):</span></span><br></pre></td></tr></table></figure>
-<p>其中 <strong>id</strong>.<code>__parent__</code> 和
-<code>__message__</code> 都采用了系统保留字命名法。</p>
+<ul>
+<li>对于特殊值 NaN（Not a Number）表示非数字，NaN
+和任何数（包括它自己）做相等比较，都会返回
+false，所以<mark style="background: #83d98fA6;">判断 NaN 最好用 isNaN()
+函数</mark></li>
+<li>undefined 和 null，两者的值相比较，会返回 true。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(undefined&#x3D;&#x3D;null)</span><br><span class="line">console.log(undefined&#x3D;&#x3D;&#x3D;null)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>由于 == 和!=
+操作符带来的类型隐式转换规则非常繁琐，还有为了避免数据类型混淆导致出现
+bug，还是推荐使用 <code>===</code> 操作符和<code>!==</code> 操作符。
+<!--SR:!2022-11-05,27,250--></li>
+</ul>
+<h2 id="stack-overflow-相关">Stack Overflow 相关</h2>
+<p>So there you have the two common sources of errors in Javascript
+comparisons: 1. comparing different types with == can lead to
+==unexpected type conversions.== 2. comparing objects and arrays is
+based on ==references not values stored inside==.</p>
+<p>As the existing answer already says, Typescript is designed as a
+superset of Javascript. So it doesn't change the behaviour of these
+comparison operators. If you write <code>==</code> in Typescript, you
+get type conversions.</p>
+<p>So how is this fixed? ==With the compiler. ==If you actually do write
+code that compares incompatible types with <code>==</code> it's a
+compiler error. Try compiling the following sample:<br />
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let str &#x3D; &quot;1&quot;;</span><br><span class="line">let num &#x3D; 1;</span><br><span class="line"></span><br><span class="line">console.log(str&#x3D;&#x3D;num);</span><br></pre></td></tr></table></figure>
+<!--SR:!2022-11-02,24,250!2022-11-03,25,250!2022-11-06,28,250--></p>
+<p><strong>参考:</strong> <a
+target="_blank" rel="noopener" href="https://nowjava.com/article/44330">nowjava.com</a> <a
+target="_blank" rel="noopener" href="https://stackoverflow.com/questions/57125700/why-use-triple-equal-in-typescript">javascript
+- Why use triple-equal (<code>===</code>) in TypeScript? - Stack
+Overflow</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">
     </div>
 
@@ -476,7 +472,7 @@ src="https://mmbiz.qpic.cn/mmbiz_png/IibUVnJ665WriaXQa5CcJ1j5qgLSB3nsDEn4yWicaNc
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://qiaogaojian.github.io/545/" title="说说 Python 的命名规范">https://qiaogaojian.github.io/545/</a>
+      <a href="https://qiaogaojian.github.io/516/" title="JS &#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D; 的区别">https://qiaogaojian.github.io/516/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -485,18 +481,21 @@ src="https://mmbiz.qpic.cn/mmbiz_png/IibUVnJ665WriaXQa5CcJ1j5qgLSB3nsDEn4yWicaNc
 </div>
 
           <div class="post-tags">
+              <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
               <a href="/tags/srcard/" rel="tag"><i class="fa fa-tag"></i> srcard</a>
-              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/542/" rel="prev" title="深入浅出 python 闭包">
+                  <i class="fa fa-chevron-left"></i> 深入浅出 python 闭包
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/542/" rel="next" title="深入浅出 python 闭包">
-                  深入浅出 python 闭包 <i class="fa fa-chevron-right"></i>
+                <a href="/522/" rel="next" title="flask 参数传递的4种方式">
+                  flask 参数传递的4种方式 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -679,7 +678,7 @@ NexT.utils.loadComments('#valine-comments', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
     new Valine(Object.assign({
       el  : '#valine-comments',
-      path: "/545/",
+      path: "/516/",
     }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
     ));
   }, window.Valine);
