@@ -1,8 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>VSCode 使用 MSVC 编译器搭建 OpenGL 开发环境</title>
+    <url>/229/</url>
+    <content><![CDATA[<blockquote>
+<p>原文地址 <a
+href="https://github.com/qiaogaojian/cpp_learn-opengl">github.com</a></p>
+</blockquote>
+<p>因为 windows 环境下使用 g++ 编译器 assimp 库链接失败, 报错 "undefined
+reference to'Assimp::Importer::Importer()", 后来发现使用 MSVC
+编译器没有这个问题, 踩了几个坑终于搭建成功, 在此记录一下基于VSCode +
+MSVC编译器的 OpenGL 开发环境配置.</p>
+<p>另外, mingw/g++ 开发环境在 g++ 分支 visual studio 开发环境在 vs2019
+分支.</p>
+<h3 id="安装所需软件">1. 安装所需软件</h3>
+<ul>
+<li><p>VSCode 安装 C++ extension</p></li>
+<li><p>下载安装 <a
+href="https://github.com/assimp/assimp/releases/tag/v3.3.1/">assimp-sdk-3.3.1-setup_vs2017.exe</a></p></li>
+<li><p>安装带 C++ build tools 的 Visual Studio, 下载独立的 <a
+href="https://visualstudio.microsoft.com/zh-hant/visual-cpp-build-tools/">C++
+build tools</a> 也可以.</p></li>
+<li><p>其他所用的库在<a
+href="https://github.com/qiaogaojian/learn-opengl.git">项目</a>中的
+include 文件夹里</p></li>
+</ul>
+<h3 id="配置环境变量">2. 配置环境变量</h3>
+<ul>
+<li>Path 中添加 assimp 库</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">D:\Opengl\Assimp\bin\x86  <span class="comment"># 这样就不需要把assimp.dll放到build目录了</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>新建 INCLUDE 环境变量, 添加以下目录</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\include</span><br><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\atlmfc\include</span><br><span class="line">D:\Program\VS2019\VS\Common7\Tools</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\ucrt</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\um</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\shared</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\winrt</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\cppwinrt</span><br></pre></td></tr></table></figure>
+<ul>
+<li>新建 LIB 环境变量, 添加以下目录</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\lib\x86</span><br><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\atlmfc\lib\x86</span><br><span class="line">D:\Program\VS2019\VS\VC\Auxiliary\VS\lib\x86</span><br><span class="line">D:\Program\VS2019\VS\VC\Auxiliary\VS\UnitTest\lib</span><br><span class="line">D:\Windows Kits\10\lib\10.0.19041.0\ucrt\x86</span><br><span class="line">D:\Windows Kits\10\lib\10.0.19041.0\um\x86</span><br></pre></td></tr></table></figure>
+<h3 id="配置-vscode">3. 配置 vscode</h3>
+<ul>
+<li>新建目录 OpenGl 并使用 VSCode 打开, <code>.vscode</code> 目录下
+(没有就新建) 创建 <code>settings.json</code>, 配置以下内容</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;terminal.integrated.shell.windows&quot;</span>:   <span class="string">&quot;C:\\Windows\\Sysnative\\cmd.exe&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;terminal.integrated.shellArgs.windows&quot;</span>: [</span><br><span class="line">	<span class="string">&quot;/k&quot;</span>,</span><br><span class="line">	<span class="string">&quot;D:/Program Files/VS2019/VS/Common7/Tools/VsDevCmd.bat&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">&quot;files.encoding&quot;</span>: <span class="string">&quot;gb2312&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;files.associations&quot;</span>: &#123;</span><br><span class="line">	<span class="attr">&quot;*.json&quot;</span>: <span class="string">&quot;jsonc&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;*.cfg&quot;</span>: <span class="string">&quot;ini&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;*.fsh&quot;</span>: <span class="string">&quot;glsl&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;stack&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;iostream&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;ostream&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;*.tcc&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;cctype&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;clocale&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;cmath&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;cstdint&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;cstdio&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;cstdlib&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;cwchar&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;cwctype&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;exception&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;initializer_list&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;iosfwd&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;istream&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;limits&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;new&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;stdexcept&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;streambuf&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;system_error&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;type_traits&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;typeinfo&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;utility&quot;</span>: <span class="string">&quot;cpp&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;iomanip&quot;</span>: <span class="string">&quot;cpp&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>.vscode 下创建 <code>c_cpp_properties.json</code></li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">	&#123;</span><br><span class="line">	  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;Win32&quot;</span>,</span><br><span class="line">	  <span class="attr">&quot;includePath&quot;</span>: [</span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span>,</span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/utils&quot;</span>,</span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glm/glm&quot;</span>,</span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span>,</span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glfw/include&quot;</span>,</span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/assimp/include&quot;</span>,</span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span></span><br><span class="line">	  ],</span><br><span class="line">	  <span class="attr">&quot;defines&quot;</span>: [<span class="string">&quot;_DEBUG&quot;</span>, <span class="string">&quot;gb2312&quot;</span>, <span class="string">&quot;_gb2312&quot;</span>],</span><br><span class="line">	  <span class="attr">&quot;intelliSenseMode&quot;</span>: <span class="string">&quot;msvc-x64&quot;</span>,</span><br><span class="line">	  <span class="attr">&quot;browse&quot;</span>: &#123;</span><br><span class="line">		<span class="attr">&quot;path&quot;</span>: [</span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span>,</span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/utils&quot;</span>,</span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glm/glm&quot;</span>,</span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span>,</span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glfw/include&quot;</span>,</span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/assimp/include&quot;</span>,</span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span></span><br><span class="line">		],</span><br><span class="line">		<span class="attr">&quot;limitSymbolsToIncludedHeaders&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">		<span class="attr">&quot;databaseFilename&quot;</span>: <span class="string">&quot;&quot;</span></span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">&quot;version&quot;</span>: <span class="number">4</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>.vscode 下创建 <code>tasks.json</code></li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;version&quot;</span>: <span class="string">&quot;2.0.0&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;tasks&quot;</span>: [</span><br><span class="line">	&#123;</span><br><span class="line">	  <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;cppbuild&quot;</span>,</span><br><span class="line">	  <span class="attr">&quot;label&quot;</span>: <span class="string">&quot;compile&quot;</span>,</span><br><span class="line">	  <span class="attr">&quot;command&quot;</span>: <span class="string">&quot;cl&quot;</span>,</span><br><span class="line">	  <span class="attr">&quot;args&quot;</span>: [</span><br><span class="line">		<span class="string">&quot;/Od&quot;</span>,</span><br><span class="line">		<span class="string">&quot;/Zi&quot;</span>,</span><br><span class="line">		<span class="string">&quot;/EHsc&quot;</span>,</span><br><span class="line">		<span class="string">&quot;/MD&quot;</span>,</span><br><span class="line">		<span class="string">&quot;/W4&quot;</span>,</span><br><span class="line">		<span class="string">&quot;/Fd:&quot;</span>,</span><br><span class="line">		<span class="string">&quot;build/&quot;</span>,</span><br><span class="line">		<span class="string">&quot;/Fo:&quot;</span>,</span><br><span class="line">		<span class="string">&quot;build/&quot;</span>,</span><br><span class="line">		<span class="string">&quot;/Fe:&quot;</span>,</span><br><span class="line">		<span class="string">&quot;build/&quot;</span>,</span><br><span class="line">		<span class="string">&quot;$&#123;file&#125;&quot;</span>,</span><br><span class="line">		<span class="string">&quot;include/utils/shader_loader.cpp&quot;</span>,</span><br><span class="line">		<span class="string">&quot;include/utils/stb_image.cpp&quot;</span>,</span><br><span class="line">		<span class="string">&quot;include/assimp/lib/assimp.lib&quot;</span>,</span><br><span class="line">		<span class="string">&quot;include/glfw/lib-vc2019/glfw3.lib&quot;</span>,</span><br><span class="line">		<span class="string">&quot;include/glad/lib/glad.o&quot;</span>,</span><br><span class="line">		<span class="string">&quot;include/msvc/OpenGL32.Lib&quot;</span>,</span><br><span class="line">		<span class="string">&quot;include/msvc/User32.Lib&quot;</span>,</span><br><span class="line">		<span class="string">&quot;include/msvc/Gdi32.Lib&quot;</span>,</span><br><span class="line">		<span class="string">&quot;include/msvc/shell32.lib&quot;</span>,</span><br><span class="line">		<span class="string">&quot;/Iinclude/glfw/include&quot;</span>,</span><br><span class="line">		<span class="string">&quot;/Iinclude/glad/include&quot;</span>,</span><br><span class="line">		<span class="string">&quot;/Iinclude/glm&quot;</span>,</span><br><span class="line">		<span class="string">&quot;/Iinclude/utils&quot;</span>,</span><br><span class="line">		<span class="string">&quot;/Iinclude/assimp/include&quot;</span>,</span><br><span class="line">		<span class="string">&quot;/Link /NODEFAULTLIB:msvcrt.lib&quot;</span></span><br><span class="line">	  ],</span><br><span class="line">	  <span class="attr">&quot;options&quot;</span>: &#123;</span><br><span class="line">		<span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span></span><br><span class="line">	  &#125;,</span><br><span class="line">	  <span class="attr">&quot;problemMatcher&quot;</span>: [<span class="string">&quot;$msCompile&quot;</span>],</span><br><span class="line">	  <span class="attr">&quot;group&quot;</span>: &#123;</span><br><span class="line">		<span class="attr">&quot;kind&quot;</span>: <span class="string">&quot;build&quot;</span>,</span><br><span class="line">		<span class="attr">&quot;isDefault&quot;</span>: <span class="literal">true</span></span><br><span class="line">	  &#125;,</span><br><span class="line">	  <span class="attr">&quot;detail&quot;</span>: <span class="string">&quot;cl.exe&quot;</span></span><br><span class="line">	&#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>.vscode 下创建 <code>launch.json</code></p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">	<span class="attr">&quot;configurations&quot;</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">&quot;name&quot;</span>: <span class="string">&quot;(Windows) Launch&quot;</span>,</span><br><span class="line">			<span class="attr">&quot;type&quot;</span>: <span class="string">&quot;cppvsdbg&quot;</span>,</span><br><span class="line">			<span class="attr">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">			<span class="attr">&quot;program&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;\\build\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span>,</span><br><span class="line">			<span class="attr">&quot;args&quot;</span>: [],</span><br><span class="line">			<span class="attr">&quot;stopAtEntry&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">			<span class="attr">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span>,</span><br><span class="line">			<span class="attr">&quot;environment&quot;</span>: [],</span><br><span class="line">			<span class="attr">&quot;externalConsole&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">			<span class="attr">&quot;preLaunchTask&quot;</span>: <span class="string">&quot;compile&quot;</span></span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="注意事项">注意事项</h3>
+<ol type="1">
+<li><p>要确保环境变量和项目中的库保持一致 要么都是 x86 要么都是
+x64</p></li>
+<li><p>确保使用 vsdevcmd 进行编译</p></li>
+<li><p>遇到 "undefined reference to xxx", 先检查 tasks.json
+链接缺失的库, 再检查环境变量</p></li>
+<li><p>编译时需要引用 build 文件夹, 但是 build 文件夹 git 已忽略,
+因此需要自己提前新建好</p></li>
+</ol>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>3.理论</category>
+        <category>计算机</category>
+        <category>图形学</category>
+        <category>OpenGL</category>
+      </categories>
+      <tags>
+        <tag>mscv</tag>
+        <tag>opengl</tag>
+        <tag>vscode</tag>
+        <tag>cpp</tag>
+        <tag>开发环境</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用 LaTeX 公式符号</title>
-    <url>/636/</url>
+    <url>/640/</url>
     <content><![CDATA[<h2 id="希腊字符">希腊字符</h2>
 <p><span class="math inline">\(\theta\)</span></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\theta</span><br></pre></td></tr></table></figure>
@@ -27,7 +106,7 @@
 <!--SR:!2022-11-21,61,210--></p>
 <p><strong>Q: latex 叉乘表示?</strong></p>
 <p><span class="math inline">\(1 \times 2\)</span> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 \times 2</span><br></pre></td></tr></table></figure>
-<!--SR:!2022-10-15,54,230--></p>
+<!--SR:!2023-02-21,129,230--></p>
 <h2 id="除号-divide">除号 divide</h2>
 <p><strong>Q: latex 除法表示?</strong></p>
 <p><span class="math inline">\(1 \div 2\)</span> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 \div 2</span><br></pre></td></tr></table></figure>
@@ -202,11 +281,11 @@ href="https://blog.csdn.net/foreverdengwei/article/details/8189243">latex
   </entry>
   <entry>
     <title>Obsidian+Hexo Markdown 测试</title>
-    <url>/1176/</url>
+    <url>/1180/</url>
     <content><![CDATA[<h1 id="双链测试">双链测试</h1>
-<p><a href="../1177">test_note1</a></p>
-<p><a href="../1178">test_note2</a></p>
-<p><a href="../1180">test_note2</a></p>
+<p><a href="../1181">test_note1</a></p>
+<p><a href="../1182">test_note2</a></p>
+<p><a href="../1184">test_note2</a></p>
 <h1 id="markdown-示例">Markdown 示例</h1>
 <p>Markdown简易入门教程<br />
 使用方式：打开 Source Mode 就可以看到所有markdown格式，照着来用就行了  
@@ -377,37 +456,18 @@ role="doc-backlink">↩︎</a></p></li>
       </categories>
       <tags>
         <tag>markdown</tag>
-        <tag>test</tag>
         <tag>obsidian</tag>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>test_note2</title>
-    <url>/1178/</url>
-    <content><![CDATA[<h1 id="双链测试笔记-2">双链测试笔记 2</h1>
-<p><a href="../1176/#图表">Obsidian+Hexo Markdown 测试</a></p>
-<p><a href="../1177">test_note1</a></p>
-<p><a href="../1180">test_note2</a></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>9.输出</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
         <tag>test</tag>
-        <tag>obsidian</tag>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
     <title>test_note1</title>
-    <url>/1177/</url>
+    <url>/1181/</url>
     <content><![CDATA[<h1 id="双链测试笔记-1">双链测试笔记 1</h1>
-<p><a href="../1176/#公式">Obsidian+Hexo Markdown 测试</a></p>
-<p><a href="../1178/#Branch%202">test_note2</a></p>
-<p><a href="../1180">test_note2</a></p>
+<p><a href="../1180/#公式">Obsidian+Hexo Markdown 测试</a></p>
+<p><a href="../1182/#Branch%202">test_note2</a></p>
+<p><a href="../1184">test_note2</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>9.输出</category>
@@ -415,19 +475,38 @@ role="doc-backlink">↩︎</a></p></li>
       </categories>
       <tags>
         <tag>markdown</tag>
-        <tag>test</tag>
         <tag>obsidian</tag>
         <tag>hexo</tag>
+        <tag>test</tag>
       </tags>
   </entry>
   <entry>
     <title>test_note2</title>
-    <url>/1180/</url>
+    <url>/1182/</url>
+    <content><![CDATA[<h1 id="双链测试笔记-2">双链测试笔记 2</h1>
+<p><a href="../1180/#图表">Obsidian+Hexo Markdown 测试</a></p>
+<p><a href="../1181">test_note1</a></p>
+<p><a href="../1184">test_note2</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>9.输出</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+        <tag>obsidian</tag>
+        <tag>hexo</tag>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test_note2</title>
+    <url>/1184/</url>
     <content><![CDATA[<h1 id="双链测试笔记-3">双链测试笔记 3</h1>
 <p>双链测试笔记 3 和 双链测试笔记 2 同名, 用于测试同名笔记的双链解析</p>
-<p><a href="../1176/#链接">Obsidian+Hexo Markdown 测试</a></p>
-<p><a href="../1177">test_note1</a></p>
-<p><a href="../1178/#Branch%202">test_note2</a></p>
+<p><a href="../1180/#链接">Obsidian+Hexo Markdown 测试</a></p>
+<p><a href="../1181">test_note1</a></p>
+<p><a href="../1182/#Branch%202">test_note2</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>9.输出</category>
@@ -436,14 +515,14 @@ role="doc-backlink">↩︎</a></p></li>
       </categories>
       <tags>
         <tag>markdown</tag>
-        <tag>test</tag>
         <tag>obsidian</tag>
         <tag>hexo</tag>
+        <tag>test</tag>
       </tags>
   </entry>
   <entry>
     <title>flask 参数传递的4种方式</title>
-    <url>/522/</url>
+    <url>/526/</url>
     <content><![CDATA[<blockquote>
 <p>原文地址 <a
 href="http://h3blog.com/article/flask-params/">h3blog.com</a></p>
@@ -474,13 +553,13 @@ http://127.0.0.1:5000/name?name=www.h3blog.com <figure class="highlight sh"><tab
         <category>Python</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>python</tag>
+        <tag>srcard</tag>
       </tags>
   </entry>
   <entry>
     <title>JS == 和 === 的区别</title>
-    <url>/516/</url>
+    <url>/520/</url>
     <content><![CDATA[<h2 id="区别">区别</h2>
 <p>在 JS 项目里，除了能看到 ==
 操作符来判断两个变量是否相等外，我们还会看到 ===
@@ -554,7 +633,7 @@ Overflow</a></p>
   </entry>
   <entry>
     <title>深入浅出 python 闭包</title>
-    <url>/542/</url>
+    <url>/546/</url>
     <content><![CDATA[<blockquote>
 <p>原文地址 <a
 href="https://zhuanlan.zhihu.com/p/22229197">zhuanlan.zhihu.com</a></p>
@@ -625,7 +704,7 @@ href="https://link.zhihu.com/?target=http%3A//www.jb51.net/article/54498.htm">Py
   </entry>
   <entry>
     <title>说说 Python 的命名规范</title>
-    <url>/545/</url>
+    <url>/549/</url>
     <content><![CDATA[<blockquote>
 <p>原文地址 <a
 href="https://mp.weixin.qq.com/s?src=11×tamp=1658813253&amp;ver=3943&amp;signature=rCEdWJcul585rSrw*vj*31qqKuqpuyjfoKsndxF88l6GQJ2nYUFoeIaXuil-zzPuDJx1HpltWSNMqT0hSJRkWO4MvJTiW4uipN7*uN2rpgW2MPfTIMNuW4k2D0SeknEl&amp;new=1">mp.weixin.qq.com</a></p>
@@ -694,8 +773,8 @@ src="https://mmbiz.qpic.cn/mmbiz_png/IibUVnJ665WriaXQa5CcJ1j5qgLSB3nsDEn4yWicaNc
         <category>Python</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>python</tag>
+        <tag>srcard</tag>
       </tags>
   </entry>
 </search>

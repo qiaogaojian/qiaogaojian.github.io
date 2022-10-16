@@ -22,17 +22,22 @@
     var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="行则将至">
-<meta property="og:url" content="https://qiaogaojian.github.io/archives/2022/09/index.html">
+  <meta name="description" content="原文地址 mp.weixin.qq.com  命名规范在编写代码中起到很重要的作用，虽然不遵循命名规范，程序可能也可以运行，但是使用命名规范可以更加直观地了解代码所代表的含义。  Python 的命名规范（其它编程语言也差不多）   1. 不能以数字开头，不能出现中文。  2. 命名以字母开头，包含数字，字母（区分大小写），下划线。  3. 不能包含关键字。  下面具体说说 Python 的命名规">
+<meta property="og:type" content="article">
+<meta property="og:title" content="说说 Python 的命名规范">
+<meta property="og:url" content="https://qiaogaojian.github.io/549/index.html">
 <meta property="og:site_name" content="行则将至">
+<meta property="og:description" content="原文地址 mp.weixin.qq.com  命名规范在编写代码中起到很重要的作用，虽然不遵循命名规范，程序可能也可以运行，但是使用命名规范可以更加直观地了解代码所代表的含义。  Python 的命名规范（其它编程语言也差不多）   1. 不能以数字开头，不能出现中文。  2. 命名以字母开头，包含数字，字母（区分大小写），下划线。  3. 不能包含关键字。  下面具体说说 Python 的命名规">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-26T05:56:11.000Z">
+<meta property="article:modified_time" content="2022-10-16T15:44:27.323Z">
 <meta property="article:author" content="qiaogaojian">
-<meta property="article:tag" content="Math,数学,Calculus,微积分,Linear Algebra,线性代数,Computer Science,计算机原理,编程,设计模式,计算机网络,计算机图形学,Computer Graphics,Unity,Unity3d,CG,HLSL,OpenGL,C#,Android,Java,GameFramework,ML,Shader,Golang,Go,Asm,Adb,BlockChain,VSCode,Web,Tools,PHP,Ubuntu,ThinkPHP,MySql,Sqlite,重构,Windows,Win10,Git,Mac,Linux,树莓派,VS,AS,Android Studio,PhpStorm,PyCharm,Vim,Rider,Jupyter,Kali,Js,JavaScript,Hexo,3dMax,Maya,Zbrush,汇编,游戏设计,Roguelike,Roguelite,地图生成,技能,FSM,NGUI,UGUI,UV,法线,光照,后端,Html,Css,C语言,C++,Python,机器学习,信息安全,操作系统,IDE,工具,效率,VR,AR,BitCoin,Eos,数据结构,算法,排序,查找,Leetcode,RoadMap,Tips,Trick,Bug,BestPratice,Tutorial,Tao​">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="srcard">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://qiaogaojian.github.io/archives/2022/09/">
+<link rel="canonical" href="https://qiaogaojian.github.io/549/">
 
 
 <script class="page-configurations">
@@ -40,12 +45,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 行则将至</title>
+  <title>说说 Python 的命名规范 | 行则将至</title>
   
 
 
@@ -189,7 +194,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -201,6 +206,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB"><span class="nav-text">1.类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-text">2.函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-text">3.变量</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -267,57 +273,226 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
       
 
       
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 10 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qiaogaojian.github.io/549/">
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          说说 Python 的命名规范
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-26 13:56:11" itemprop="dateCreated datePublished" datetime="2022-07-26T13:56:11+08:00">2022-07-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-10-16 23:44:27" itemprop="dateModified" datetime="2022-10-16T23:44:27+08:00">2022-10-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">4.技能</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/4-%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/549/" class="post-meta-item leancloud_visitors" data-flag-title="说说 Python 的命名规范" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/549/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/549/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+        <blockquote>
+<p>原文地址 <a
+target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?src=11×tamp=1658813253&amp;ver=3943&amp;signature=rCEdWJcul585rSrw*vj*31qqKuqpuyjfoKsndxF88l6GQJ2nYUFoeIaXuil-zzPuDJx1HpltWSNMqT0hSJRkWO4MvJTiW4uipN7*uN2rpgW2MPfTIMNuW4k2D0SeknEl&amp;new=1">mp.weixin.qq.com</a></p>
+</blockquote>
+<p>命名规范在编写代码中起到很重要的作用，虽然不遵循命名规范，程序可能也可以运行，但是使用命名规范可以更加直观地了解代码所代表的含义。</p>
+<p>Python 的命名规范（其它编程语言也差不多）</p>
+<ol type="1">
+<li>不能以数字开头，不能出现中文。</li>
+<li>命名以字母开头，包含数字，字母（区分大小写），下划线。</li>
+<li>不能包含关键字。</li>
+</ol>
+<p>下面具体说说 Python 的命名规范:</p>
+<h2 id="类">1.类</h2>
+<p><strong>python 类命名规则?</strong></p>
+<p><mark style="background: #be9affA6;">类</mark>
+<mark style="background: #018bffA6;">项目</mark>
+<mark style="background: #fefe00A6;">异常</mark>
+的命名遵循<strong>大驼峰</strong>规则,
+单词首字母总是大写，私有类可以下划线开头。如: <code>MyClass</code>。
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span>()：</span></span><br><span class="line"><span class="class">  <span class="title">pass</span></span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">MySchool</span>()：</span></span><br><span class="line"><span class="class">  <span class="title">pass</span></span></span><br></pre></td></tr></table></figure> <!--SR:!2022-11-08,63,250--></p>
+<h2 id="函数">2.函数</h2>
+<p><strong>Python 函数命名规则?</strong></p>
+<p>函数名<strong>一律小写</strong>，<mark style="background: #fefe00A6;">若有多个单词用下划线隔开</mark>
+。另外，<mark style="background: #fefe00A6;">私有函数下划线开头</mark>
+。 <mark style="background: #be9affA6;">文件</mark>
+<mark style="background: #018bffA6;">包</mark>
+<mark style="background: #fefe00A6;">模块</mark>
+<mark style="background: #57e8b8A6;">函数方法</mark>
+<mark style="background: #83d98fA6;">变量</mark> 的命名规则是一样的:
+<mark style="background: #83d98fA6;">全小写 + 下划线</mark> 如:
+<code>this_is_var</code> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_func</span>(<span class="params">var1, var2</span>):</span></span><br><span class="line">  <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_private_func</span>(<span class="params">var1, var2</span>):</span></span><br><span class="line">  <span class="keyword">pass</span></span><br></pre></td></tr></table></figure> <!--SR:!2022-11-14,70,250--></p>
+<h2 id="变量">3.变量</h2>
+<p><strong>Python 变量命名规则?</strong></p>
+<ul>
+<li><strong>变量</strong>名最好小写，若有多个使用下划线分开 。</li>
+<li><strong>常量</strong>使用<mark style="background: #fefe00A6;">全大写</mark>
+，多个单词使用下划线隔开 。 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="number">20</span></span><br><span class="line">this_is_a_variable = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">MAX_NUM = <span class="number">1000</span></span><br></pre></td></tr></table></figure>
+<!--SR:!2022-11-11,68,250--></li>
+</ul>
+<p><strong>Python 命名规约?</strong></p>
+<p><img
+src="https://mmbiz.qpic.cn/mmbiz_png/IibUVnJ665WriaXQa5CcJ1j5qgLSB3nsDEn4yWicaNcbcIiaicvN6nb3dCtx3sxVaddqBgNbr2mZ0SvSoWPBLhom7aw/640?wx_fmt=png" />
+<!--SR:!2022-10-25,57,250--></p>
+<p><strong>额外补充：</strong></p>
+<p><strong>1. 缩写</strong></p>
+<p>命名应当尽量使用全拼写的单词，缩写的情况有如下两种： 1.
+常用的缩写，如 XML.ID 等，在命名时也应只大写首字母，如 XmlParser。 2.
+命名中含有长单词，对某个单词进行缩写。这时应使用约定成俗的缩写方式。</p>
+<p>例如： function 缩写为 fn text 缩写为 txt object 缩写为 obj count
+缩写为 cnt number 缩写为 num，等。</p>
+<p><strong>2. 下划线</strong></p>
+<p>一个前导下划线：表示非公有。 一个后缀下划线：避免关键字冲突。</p>
+<p>两个前导下划线：当命名一个类属性引起名称冲突时使用。
+两个前导和后缀下划线：“magic”（有特殊用图）对象或者属性，例如__init__或者__file__。绝对不要创造这样的名字，而只是使用它们。</p>
+<p>注意：关于下划线的使用存在一些争议。</p>
+<p><strong>3. 特定命名方式</strong></p>
+<p>主要是指 <code>__xxx__</code>
+形式的系统保留字命名法。项目中也可以使用这种命名，它的意义在于这种形式的变量是只读的，这种形式的类成员函数尽量不要重载。如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>(<span class="params">object</span>):</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, id, parent = None</span>):</span></span><br><span class="line"></span><br><span class="line">self.__id__ = id</span><br><span class="line"></span><br><span class="line">self.__parent__ = parent</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__message__</span>(<span class="params">self, msgid</span>):</span></span><br></pre></td></tr></table></figure>
+<p>其中 <strong>id</strong>.<code>__parent__</code> 和
+<code>__message__</code> 都采用了系统保留字命名法。</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-09-26T18:45:48+08:00"
-              content="2022-09-26">
-          09-26
-        </time>
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="qiaogaojian 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="qiaogaojian 支付宝">
+        <span>支付宝</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.png" alt="qiaogaojian 比特币">
+        <span>比特币</span>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/520/" itemprop="url">
-            <span itemprop="name">JS == 和 === 的区别</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-
-    </div>
   </div>
-  
-  
-  
+</div>
 
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+              <a href="/tags/srcard/" rel="tag"><i class="fa fa-tag"></i> srcard</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/546/" rel="next" title="深入浅出 python 闭包">
+                  深入浅出 python 闭包 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
   
 
 
 
       
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -502,7 +677,7 @@ NexT.utils.loadComments('#valine-comments', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
     new Valine(Object.assign({
       el  : '#valine-comments',
-      path: "/archives/2022/09/",
+      path: "/549/",
     }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"要不说点啥?","avatar":"mm","meta":["nick","mail"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
     ));
   }, window.Valine);
