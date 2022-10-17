@@ -219,20 +219,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -299,10 +299,10 @@
       <div class="post-body">
           <div class="tag-cloud">
   <div class="tag-cloud-title">
-    目前共计 8 个标签
+    目前共计 13 个标签
   </div>
   <div class="tag-cloud-tags">
-    <a href="/tags/hexo/" style="font-size: 30px;" class="tag-cloud-10">hexo</a> <a href="/tags/javascript/" style="font-size: 12px;" class="tag-cloud-0">javascript</a> <a href="/tags/latex/" style="font-size: 12px;" class="tag-cloud-0">latex</a> <a href="/tags/markdown/" style="font-size: 30px;" class="tag-cloud-10">markdown</a> <a href="/tags/obsidian/" style="font-size: 30px;" class="tag-cloud-10">obsidian</a> <a href="/tags/python/" style="font-size: 21px;" class="tag-cloud-5">python</a> <a href="/tags/srcard/" style="font-size: 30px;" class="tag-cloud-10">srcard</a> <a href="/tags/test/" style="font-size: 30px;" class="tag-cloud-10">test</a>
+    <a href="/tags/cpp/" style="font-size: 12px;" class="tag-cloud-0">cpp</a> <a href="/tags/hexo/" style="font-size: 30px;" class="tag-cloud-10">hexo</a> <a href="/tags/javascript/" style="font-size: 12px;" class="tag-cloud-0">javascript</a> <a href="/tags/latex/" style="font-size: 12px;" class="tag-cloud-0">latex</a> <a href="/tags/markdown/" style="font-size: 30px;" class="tag-cloud-10">markdown</a> <a href="/tags/mscv/" style="font-size: 12px;" class="tag-cloud-0">mscv</a> <a href="/tags/obsidian/" style="font-size: 30px;" class="tag-cloud-10">obsidian</a> <a href="/tags/opengl/" style="font-size: 12px;" class="tag-cloud-0">opengl</a> <a href="/tags/python/" style="font-size: 30px;" class="tag-cloud-10">python</a> <a href="/tags/srcard/" style="font-size: 30px;" class="tag-cloud-10">srcard</a> <a href="/tags/test/" style="font-size: 30px;" class="tag-cloud-10">test</a> <a href="/tags/vscode/" style="font-size: 12px;" class="tag-cloud-0">vscode</a> <a href="/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" style="font-size: 12px;" class="tag-cloud-0">开发环境</a>
   </div>
 </div>
 
@@ -379,6 +379,26 @@
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 -->
+
+<span id="timeDate">载入天数...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/01/2016 19:00:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 " + hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+        // document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
     </div>
   </footer>
 
@@ -505,7 +525,7 @@ NexT.utils.loadComments('#valine-comments', () => {
     new Valine(Object.assign({
       el  : '#valine-comments',
       path: "/tags/",
-    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"","avatar":"mm","meta":["nick","mail"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
+    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"要不说点啥?","avatar":"mm","meta":["nick","mail"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
     ));
   }, window.Valine);
 });
