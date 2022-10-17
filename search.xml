@@ -1,6 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>syncthing 如何移动同步仓库位置</title>
+    <url>/667/</url>
+    <content><![CDATA[<p><strong>how to move syncthing folder position?</strong></p>
+<ol type="1">
+<li>Make sure the folder is <mark style="background: #018bffA6;">up to
+date</mark> with the remote. (probably not strictly necessary)</li>
+<li><mark style="background: #018bffA6;">Stop Syncthing</mark> (Pausing
+the folder could be enough)</li>
+<li><mark style="background: #018bffA6;">Copy the folder</mark> to the
+external drive (e.g. using rsync or equivalent).</li>
+<li><mark style="background: #018bffA6;">Edit the path in syncthing
+config file</mark>
+(C:/Users/Administrator/AppData/Local/Syncthing/config.xml )</li>
+<li><mark style="background: #018bffA6;">Restart syncthing</mark></li>
+<li>Wait for scanning and initial sync (exchanging and comparing
+metadata to be sure the contents are the same as on remote) to
+finish.</li>
+<li>if everything works ok, delete the original folder
+<!--SR:!2022-10-24,21,250--></li>
+</ol>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.工具</category>
+        <category>效率</category>
+        <category>Syncthing</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>syncthing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo Next主题添加访问量统计功能</title>
+    <url>/633/</url>
+    <content><![CDATA[<h2 id="开启不蒜子访问量统计功能">1. 开启不蒜子访问量统计功能</h2>
+<p>在<code>themes/next/_config.yml</code> 添加属性</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 是否开启访问量统计功能(不蒜子)</span></span><br><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h2 id="解决live2d冲突问题">2、解决live2d冲突问题</h2>
+<p>在<code>themes/next/layout/_partial/footer.njk</code>中隐藏busuanzi组件的外层span
+<img src="/images/Pasted%20image%2020221017182619.png" /></p>
+<p><strong>参考:</strong></p>
+<p><a
+href="https://www.jianshu.com/p/c9f83d5b893a">Hexo博客添加访问量统计 -
+简书</a></p>
+<p><a
+href="https://moguangpeng998.github.io/2020/06/13/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%8D%E8%92%9C%E5%AD%90%E5%92%8Clive2d%E7%9C%8B%E6%9D%BF%E5%A8%98%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">Hexo博客不蒜子和live2d看板娘冲突问题解决方案
+| MoonBird博客</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.工具</category>
+        <category>效率</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python Import module from different directory</title>
+    <url>/528/</url>
+    <content><![CDATA[<h2
+id="method-1-import-module-from-different-directory-by-append-sys.path">Method
+1: Import module from different directory by append sys.path</h2>
+<p>We can use <strong>sys.path</strong> to add the path of the new
+different folder (the folder from where we want to import the modules)
+to the system path so that Python can also look for the module in that
+directory if it doesn’t find the module in its current directory.
+As <strong>sys.path</strong> falls under the <strong>list type
+class</strong> so, we can easily use the insert method to add the folder
+path.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">import_root_path = os.path.abspath(<span class="string">&#x27;import/root/path/&#x27;</span>)  </span><br><span class="line">sys.path.append(import_root_path)</span><br></pre></td></tr></table></figure>
+<h2 id="method-2-using-the-pythonpath-environment-variable">Method 2:
+Using the PYTHONPATH environment variable</h2>
+<p>if you don’t want to use the <strong>sys</strong> module to set the
+path of the new directory. You can assign a directory path to the
+PYTHONPATH variable and still get your program working.</p>
+<ul>
+<li>In Linux, we can use the following command in the terminal to set
+the path:</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> PYTHONPATH=’path/to/directory’  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>In the Windows system :</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">SET PYTHONPATH=”path/to/directory”  </span><br></pre></td></tr></table></figure>
+<p>To see if the PYTHONPATH variable holds the path of the new folder,
+we can use the following command:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$PYTHONPATH</span></span><br></pre></td></tr></table></figure>
+<p><strong>参考:</strong></p>
+<p><a
+href="https://www.geeksforgeeks.org/python-import-module-from-different-directory/">Python
+– Import module from different directory - GeeksforGeeks</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>4.技能</category>
+        <category>编程语言</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VSCode 使用 MSVC 编译器搭建 OpenGL 开发环境</title>
     <url>/229/</url>
     <content><![CDATA[<blockquote>
@@ -72,16 +176,16 @@ x64</p></li>
         <category>OpenGL</category>
       </categories>
       <tags>
-        <tag>mscv</tag>
-        <tag>opengl</tag>
+        <tag>开发环境</tag>
         <tag>vscode</tag>
         <tag>cpp</tag>
-        <tag>开发环境</tag>
+        <tag>opengl</tag>
+        <tag>mscv</tag>
       </tags>
   </entry>
   <entry>
     <title>常用 LaTeX 公式符号</title>
-    <url>/640/</url>
+    <url>/642/</url>
     <content><![CDATA[<h2 id="希腊字符">希腊字符</h2>
 <p><span class="math inline">\(\theta\)</span></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\theta</span><br></pre></td></tr></table></figure>
@@ -281,11 +385,11 @@ href="https://blog.csdn.net/foreverdengwei/article/details/8189243">latex
   </entry>
   <entry>
     <title>Obsidian+Hexo Markdown 测试</title>
-    <url>/1180/</url>
+    <url>/1182/</url>
     <content><![CDATA[<h1 id="双链测试">双链测试</h1>
-<p><a href="../1181">test_note1</a></p>
-<p><a href="../1182">test_note2</a></p>
+<p><a href="../1183">test_note1</a></p>
 <p><a href="../1184">test_note2</a></p>
+<p><a href="../1186">test_note2</a></p>
 <h1 id="markdown-示例">Markdown 示例</h1>
 <p>Markdown简易入门教程<br />
 使用方式：打开 Source Mode 就可以看到所有markdown格式，照着来用就行了  
@@ -455,58 +559,58 @@ role="doc-backlink">↩︎</a></p></li>
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>markdown</tag>
-        <tag>obsidian</tag>
         <tag>hexo</tag>
-        <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>test_note1</title>
-    <url>/1181/</url>
-    <content><![CDATA[<h1 id="双链测试笔记-1">双链测试笔记 1</h1>
-<p><a href="../1180/#公式">Obsidian+Hexo Markdown 测试</a></p>
-<p><a href="../1182/#Branch%202">test_note2</a></p>
-<p><a href="../1184">test_note2</a></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>9.输出</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>markdown</tag>
         <tag>obsidian</tag>
-        <tag>hexo</tag>
-        <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>test_note2</title>
-    <url>/1182/</url>
-    <content><![CDATA[<h1 id="双链测试笔记-2">双链测试笔记 2</h1>
-<p><a href="../1180/#图表">Obsidian+Hexo Markdown 测试</a></p>
-<p><a href="../1181">test_note1</a></p>
-<p><a href="../1184">test_note2</a></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>9.输出</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
         <tag>markdown</tag>
-        <tag>obsidian</tag>
-        <tag>hexo</tag>
         <tag>test</tag>
       </tags>
   </entry>
   <entry>
     <title>test_note2</title>
     <url>/1184/</url>
+    <content><![CDATA[<h1 id="双链测试笔记-2">双链测试笔记 2</h1>
+<p><a href="../1182/#图表">Obsidian+Hexo Markdown 测试</a></p>
+<p><a href="../1183">test_note1</a></p>
+<p><a href="../1186">test_note2</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>9.输出</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>obsidian</tag>
+        <tag>markdown</tag>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test_note1</title>
+    <url>/1183/</url>
+    <content><![CDATA[<h1 id="双链测试笔记-1">双链测试笔记 1</h1>
+<p><a href="../1182/#公式">Obsidian+Hexo Markdown 测试</a></p>
+<p><a href="../1184/#Branch%202">test_note2</a></p>
+<p><a href="../1186">test_note2</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>9.输出</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>obsidian</tag>
+        <tag>markdown</tag>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test_note2</title>
+    <url>/1186/</url>
     <content><![CDATA[<h1 id="双链测试笔记-3">双链测试笔记 3</h1>
 <p>双链测试笔记 3 和 双链测试笔记 2 同名, 用于测试同名笔记的双链解析</p>
-<p><a href="../1180/#链接">Obsidian+Hexo Markdown 测试</a></p>
-<p><a href="../1181">test_note1</a></p>
-<p><a href="../1182/#Branch%202">test_note2</a></p>
+<p><a href="../1182/#链接">Obsidian+Hexo Markdown 测试</a></p>
+<p><a href="../1183">test_note1</a></p>
+<p><a href="../1184/#Branch%202">test_note2</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>9.输出</category>
@@ -514,9 +618,9 @@ role="doc-backlink">↩︎</a></p></li>
         <category>deep</category>
       </categories>
       <tags>
-        <tag>markdown</tag>
-        <tag>obsidian</tag>
         <tag>hexo</tag>
+        <tag>obsidian</tag>
+        <tag>markdown</tag>
         <tag>test</tag>
       </tags>
   </entry>
@@ -633,7 +737,7 @@ Overflow</a></p>
   </entry>
   <entry>
     <title>深入浅出 python 闭包</title>
-    <url>/546/</url>
+    <url>/547/</url>
     <content><![CDATA[<blockquote>
 <p>原文地址 <a
 href="https://zhuanlan.zhihu.com/p/22229197">zhuanlan.zhihu.com</a></p>
@@ -704,7 +808,7 @@ href="https://link.zhihu.com/?target=http%3A//www.jb51.net/article/54498.htm">Py
   </entry>
   <entry>
     <title>说说 Python 的命名规范</title>
-    <url>/549/</url>
+    <url>/550/</url>
     <content><![CDATA[<blockquote>
 <p>原文地址 <a
 href="https://mp.weixin.qq.com/s?src=11×tamp=1658813253&amp;ver=3943&amp;signature=rCEdWJcul585rSrw*vj*31qqKuqpuyjfoKsndxF88l6GQJ2nYUFoeIaXuil-zzPuDJx1HpltWSNMqT0hSJRkWO4MvJTiW4uipN7*uN2rpgW2MPfTIMNuW4k2D0SeknEl&amp;new=1">mp.weixin.qq.com</a></p>
