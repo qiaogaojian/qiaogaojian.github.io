@@ -1,6 +1,357 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo Next主题添加访问量统计功能</title>
+    <url>/633/</url>
+    <content><![CDATA[<h2 id="开启不蒜子访问量统计功能">1. 开启不蒜子访问量统计功能</h2>
+<p>在<code>themes/next/_config.yml</code> 添加属性</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 是否开启访问量统计功能(不蒜子)</span></span><br><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h2 id="解决live2d冲突问题">2、解决live2d冲突问题</h2>
+<p>在<code>themes/next/layout/_partial/footer.njk</code>中隐藏busuanzi组件的外层span
+[[Pasted image 20221017182619.png|inline|700]]</p>
+<p><strong>参考:</strong></p>
+<p><a
+href="https://www.jianshu.com/p/c9f83d5b893a">Hexo博客添加访问量统计 -
+简书</a></p>
+<p><a
+href="https://moguangpeng998.github.io/2020/06/13/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%8D%E8%92%9C%E5%AD%90%E5%92%8Clive2d%E7%9C%8B%E6%9D%BF%E5%A8%98%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">Hexo博客不蒜子和live2d看板娘冲突问题解决方案
+| MoonBird博客</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.工具</category>
+        <category>效率</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python Import module from different directory</title>
+    <url>/528/</url>
+    <content><![CDATA[<h2
+id="method-1-import-module-from-different-directory-by-append-sys.path">Method
+1: Import module from different directory by append sys.path</h2>
+<p>We can use <strong>sys.path</strong> to add the path of the new
+different folder (the folder from where we want to import the modules)
+to the system path so that Python can also look for the module in that
+directory if it doesn’t find the module in its current directory.
+As <strong>sys.path</strong> falls under the <strong>list type
+class</strong> so, we can easily use the insert method to add the folder
+path.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">import_root_path = os.path.abspath(<span class="string">&#x27;import/root/path/&#x27;</span>)  </span><br><span class="line">sys.path.append(import_root_path)</span><br></pre></td></tr></table></figure>
+<h2 id="method-2-using-the-pythonpath-environment-variable">Method 2:
+Using the PYTHONPATH environment variable</h2>
+<p>if you don’t want to use the <strong>sys</strong> module to set the
+path of the new directory. You can assign a directory path to the
+PYTHONPATH variable and still get your program working.</p>
+<ul>
+<li>In Linux, we can use the following command in the terminal to set
+the path:</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> PYTHONPATH=’path/to/directory’  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>In the Windows system :</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">SET PYTHONPATH=”path/to/directory”  </span><br></pre></td></tr></table></figure>
+<p>To see if the PYTHONPATH variable holds the path of the new folder,
+we can use the following command:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$PYTHONPATH</span></span><br></pre></td></tr></table></figure>
+<p><strong>参考:</strong></p>
+<p><a
+href="https://www.geeksforgeeks.org/python-import-module-from-different-directory/">Python
+– Import module from different directory - GeeksforGeeks</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>4.技能</category>
+        <category>编程语言</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VSCode 使用 MSVC 编译器搭建 OpenGL 开发环境</title>
+    <url>/229/</url>
+    <content><![CDATA[<blockquote>
+<p>原文地址 <a
+href="https://github.com/qiaogaojian/cpp_learn-opengl">github.com</a></p>
+</blockquote>
+<p>因为 windows 环境下使用 g++ 编译器 assimp 库链接失败, 报错 "undefined
+reference to'Assimp::Importer::Importer()", 后来发现使用 MSVC
+编译器没有这个问题, 踩了几个坑终于搭建成功, 在此记录一下基于VSCode +
+MSVC编译器的 OpenGL 开发环境配置.</p>
+<p>另外, mingw/g++ 开发环境在 g++ 分支 visual studio 开发环境在 vs2019
+分支.</p>
+<h3 id="安装所需软件">1. 安装所需软件</h3>
+<ul>
+<li><p>VSCode 安装 C++ extension</p></li>
+<li><p>下载安装 <a
+href="https://github.com/assimp/assimp/releases/tag/v3.3.1/">assimp-sdk-3.3.1-setup_vs2017.exe</a></p></li>
+<li><p>安装带 C++ build tools 的 Visual Studio, 下载独立的 <a
+href="https://visualstudio.microsoft.com/zh-hant/visual-cpp-build-tools/">C++
+build tools</a> 也可以.</p></li>
+<li><p>其他所用的库在<a
+href="https://github.com/qiaogaojian/learn-opengl.git">项目</a>中的
+include 文件夹里</p></li>
+</ul>
+<h3 id="配置环境变量">2. 配置环境变量</h3>
+<ul>
+<li>Path 中添加 assimp 库</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">D:\Opengl\Assimp\bin\x86  <span class="comment"># 这样就不需要把assimp.dll放到build目录了</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>新建 INCLUDE 环境变量, 添加以下目录</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\include</span><br><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\atlmfc\include</span><br><span class="line">D:\Program\VS2019\VS\Common7\Tools</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\ucrt</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\um</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\shared</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\winrt</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\cppwinrt</span><br></pre></td></tr></table></figure>
+<ul>
+<li>新建 LIB 环境变量, 添加以下目录</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\lib\x86</span><br><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\atlmfc\lib\x86</span><br><span class="line">D:\Program\VS2019\VS\VC\Auxiliary\VS\lib\x86</span><br><span class="line">D:\Program\VS2019\VS\VC\Auxiliary\VS\UnitTest\lib</span><br><span class="line">D:\Windows Kits\10\lib\10.0.19041.0\ucrt\x86</span><br><span class="line">D:\Windows Kits\10\lib\10.0.19041.0\um\x86</span><br></pre></td></tr></table></figure>
+<h3 id="配置-vscode">3. 配置 vscode</h3>
+<ul>
+<li>新建目录 OpenGl 并使用 VSCode 打开, <code>.vscode</code> 目录下
+(没有就新建) 创建 <code>settings.json</code>, 配置以下内容</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.shell.windows&quot;</span><span class="punctuation">:</span>   <span class="string">&quot;C:\\Windows\\Sysnative\\cmd.exe&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.shellArgs.windows&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">	<span class="string">&quot;/k&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="string">&quot;D:/Program Files/VS2019/VS/Common7/Tools/VsDevCmd.bat&quot;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;files.encoding&quot;</span><span class="punctuation">:</span> <span class="string">&quot;gb2312&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;files.associations&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;*.json&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jsonc&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;*.cfg&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ini&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;*.fsh&quot;</span><span class="punctuation">:</span> <span class="string">&quot;glsl&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;stack&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;iostream&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;ostream&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;*.tcc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cctype&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;clocale&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cmath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cstdint&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cstdio&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cstdlib&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cwchar&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cwctype&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;exception&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;initializer_list&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;iosfwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;istream&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;limits&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;new&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;stdexcept&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;streambuf&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;system_error&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;type_traits&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;typeinfo&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;utility&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;iomanip&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>.vscode 下创建 <code>c_cpp_properties.json</code></li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;configurations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">	<span class="punctuation">&#123;</span></span><br><span class="line">	  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Win32&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;includePath&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/utils&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glm/glm&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glfw/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/assimp/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span></span><br><span class="line">	  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;defines&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;_DEBUG&quot;</span><span class="punctuation">,</span> <span class="string">&quot;gb2312&quot;</span><span class="punctuation">,</span> <span class="string">&quot;_gb2312&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;intelliSenseMode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;msvc-x64&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;browse&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/utils&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glm/glm&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glfw/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/assimp/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;limitSymbolsToIncludedHeaders&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;databaseFilename&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">	  <span class="punctuation">&#125;</span></span><br><span class="line">	<span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="number">4</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>.vscode 下创建 <code>tasks.json</code></li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;tasks&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">	<span class="punctuation">&#123;</span></span><br><span class="line">	  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cppbuild&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;compile&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cl&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="string">&quot;/Od&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Zi&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/EHsc&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/MD&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/W4&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Fd:&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;build/&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Fo:&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;build/&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Fe:&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;build/&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;file&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/utils/shader_loader.cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/utils/stb_image.cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/assimp/lib/assimp.lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/glfw/lib-vc2019/glfw3.lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/glad/lib/glad.o&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/msvc/OpenGL32.Lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/msvc/User32.Lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/msvc/Gdi32.Lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/msvc/shell32.lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/glfw/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/glad/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/glm&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/utils&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/assimp/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Link /NODEFAULTLIB:msvcrt.lib&quot;</span></span><br><span class="line">	  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;options&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;cwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span></span><br><span class="line">	  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;problemMatcher&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;$msCompile&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;group&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;kind&quot;</span><span class="punctuation">:</span> <span class="string">&quot;build&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;isDefault&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">	  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;detail&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cl.exe&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>.vscode 下创建 <code>launch.json</code></p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.2.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;configurations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="punctuation">&#123;</span></span><br><span class="line">			<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;(Windows) Launch&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cppvsdbg&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;request&quot;</span><span class="punctuation">:</span> <span class="string">&quot;launch&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;program&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceFolder&#125;\\build\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;stopAtEntry&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;cwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;environment&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;externalConsole&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;preLaunchTask&quot;</span><span class="punctuation">:</span> <span class="string">&quot;compile&quot;</span></span><br><span class="line">		<span class="punctuation">&#125;</span></span><br><span class="line">	<span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="注意事项">注意事项</h3>
+<ol type="1">
+<li><p>要确保环境变量和项目中的库保持一致 要么都是 x86 要么都是
+x64</p></li>
+<li><p>确保使用 vsdevcmd 进行编译</p></li>
+<li><p>遇到 "undefined reference to xxx", 先检查 tasks.json
+链接缺失的库, 再检查环境变量</p></li>
+<li><p>编译时需要引用 build 文件夹, 但是 build 文件夹 git 已忽略,
+因此需要自己提前新建好</p></li>
+</ol>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>3.理论</category>
+        <category>计算机</category>
+        <category>图形学</category>
+        <category>OpenGL</category>
+      </categories>
+      <tags>
+        <tag>opengl</tag>
+        <tag>开发环境</tag>
+        <tag>mscv</tag>
+        <tag>cpp</tag>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用 LaTeX 公式符号</title>
+    <url>/642/</url>
+    <content><![CDATA[<h2 id="希腊字符">希腊字符</h2>
+<p><span class="math inline">\(\theta\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\theta</span><br></pre></td></tr></table></figure>
+<h2 id="空格">空格</h2>
+<p><span class="math inline">\(1 \ 2\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 \ 2</span><br></pre></td></tr></table></figure>
+<h2 id="删除线">删除线</h2>
+<p><del>abc</del></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\sout &#123;abc&#125;</span><br></pre></td></tr></table></figure>
+<p>单斜线</p>
+<p><span class="math inline">\(\cancel {abc}\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\cancel &#123;abc&#125;</span><br></pre></td></tr></table></figure>
+<p>反斜线 backslash</p>
+<p><span class="math inline">\(\bcancel {abc}\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\bcancel &#123;abc&#125;</span><br></pre></td></tr></table></figure>
+<p>双斜线</p>
+<p><span class="math inline">\(\xcancel {abc}\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\xcancel &#123;abc&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="乘号">乘号</h2>
+<p><strong>Q: latex 点乘 表示?</strong></p>
+<p><span class="math inline">\(1 \cdot 2\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 \cdot 2</span><br></pre></td></tr></table></figure>
+<!--SR:!2022-11-21,61,210--></p>
+<p><strong>Q: latex 叉乘表示?</strong></p>
+<p><span class="math inline">\(1 \times 2\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 \times 2</span><br></pre></td></tr></table></figure>
+<!--SR:!2023-02-21,129,230--></p>
+<h2 id="除号-divide">除号 divide</h2>
+<p><strong>Q: latex 除法表示?</strong></p>
+<p><span class="math inline">\(1 \div 2\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 \div 2</span><br></pre></td></tr></table></figure>
+<!--SR:!2023-01-21,127,250--></p>
+<h2 id="下标-上标">下标 上标</h2>
+<p><strong>Q: latex 的下标表示?</strong></p>
+<p><span class="math inline">\(v_a\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">v_a</span><br></pre></td></tr></table></figure>
+<!--SR:!2022-11-15,88,270--></p>
+<p><strong>Q: latex 的上标表示?</strong></p>
+<p><span class="math inline">\(v^{21}\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">v^&#123;21&#125;</span><br></pre></td></tr></table></figure>
+<!--SR:!2022-10-25,71,250--></p>
+<h2 id="根号">根号</h2>
+<p><span class="math inline">\(\sqrt{3}\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\sqrt&#123;3&#125;</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\sqrt[3]{9}\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\sqrt[3]&#123;9&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="不等于-not-equal-to">不等于 not equal to</h2>
+<p><span class="math inline">\(1\neq 0\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$$\neq 0$$</span><br></pre></td></tr></table></figure>
+<h2 id="分号-fraction">分号 fraction</h2>
+<p><strong>Q: latex 的分数表示?</strong></p>
+<p><span class="math inline">\(\frac{1}{2}\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\frac&#123;1&#125;&#123;2&#125;</span><br></pre></td></tr></table></figure>
+<!--SR:!2022-12-12,76,246--></p>
+<h2 id="省略号">省略号</h2>
+<p>水平</p>
+<p><span class="math inline">\(\cdots\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\cdots</span><br></pre></td></tr></table></figure>
+<p>垂直</p>
+<p><span class="math inline">\(\vdots\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\vdots</span><br></pre></td></tr></table></figure>
+<p>倾斜</p>
+<p><span class="math inline">\(\ddots\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\ddots</span><br></pre></td></tr></table></figure>
+<h2 id="约等于">约等于</h2>
+<p><span class="math inline">\(\approx\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\approx</span><br></pre></td></tr></table></figure>
+<h2 id="ln">ln</h2>
+<p><span class="math inline">\(\ln n\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\ln n</span><br></pre></td></tr></table></figure>
+<h2 id="大括号-brace">大括号 brace</h2>
+<p><span class="math inline">\(\{ \}\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\&#123; \&#125;</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\underbrace {123}_{456}\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\underbrace &#123;123&#125;_&#123;456&#125;</span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\overbrace {123}^{456}\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\overbrace &#123;123&#125;^&#123;456&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="矩阵">矩阵</h2>
+<p><strong>Q: latex 的矩阵表示?</strong></p>
+<p><span class="math display">\[
+\begin{vmatrix}
+  1 &amp; 2 &amp; 3 \\
+  4 &amp; 5 &amp; 6
+\end{vmatrix}
+\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;vmatrix&#125;</span><br><span class="line">  1 &amp; 2 &amp; 3 \\</span><br><span class="line">  4 &amp; 5 &amp; 6</span><br><span class="line">\end&#123;vmatrix&#125;</span><br></pre></td></tr></table></figure> <!--SR:!2022-10-21,69,250--></p>
+<p><span class="math display">\[
+\begin{vmatrix}
+  1 &amp; 4 \\
+  2 &amp; 5 \\
+  3 &amp; 6
+\end{vmatrix}
+\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;vmatrix&#125;</span><br><span class="line">  1 &amp; 4 \\</span><br><span class="line">  2 &amp; 5 \\</span><br><span class="line">  3 &amp; 6 </span><br><span class="line">\end&#123;vmatrix&#125;</span><br></pre></td></tr></table></figure> <strong>Q: latex 的矩阵表示?</strong></p>
+<p>圆括号 (parentheses) <span class="math display">\[
+\begin{pmatrix}
+  1 &amp; 2 \\
+  3 &amp; 4
+\end{pmatrix}
+\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;pmatrix&#125;</span><br><span class="line">  1 &amp; 2 \\</span><br><span class="line">  3 &amp; 4</span><br><span class="line">\end&#123;pmatrix&#125;</span><br></pre></td></tr></table></figure> <!--SR:!2023-03-02,146,250--></p>
+<p><strong>Q: latex 的矩阵表示?</strong></p>
+<p>中括号 (square brackets) <span class="math display">\[
+\begin{bmatrix}
+  1 &amp; 2 \\
+  3 &amp; 4
+\end{bmatrix}
+\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;bmatrix&#125;</span><br><span class="line">  1 &amp; 2 \\</span><br><span class="line">  3 &amp; 4</span><br><span class="line">\end&#123;bmatrix&#125;</span><br></pre></td></tr></table></figure> <!--SR:!2022-11-19,78,230--></p>
+<p><strong>Q: latex 的矩阵表示?</strong></p>
+<p>双竖线 (double vertical lines) <span class="math display">\[
+\begin{Vmatrix}
+  1 &amp; 2 \\
+  3 &amp; 4
+\end{Vmatrix}
+\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;Vmatrix&#125;</span><br><span class="line">  1 &amp; 2 \\</span><br><span class="line">  3 &amp; 4</span><br><span class="line">\end&#123;Vmatrix&#125;</span><br></pre></td></tr></table></figure> <!--SR:!2023-01-25,123,250--></p>
+<h2 id="向量">向量</h2>
+<p><strong>Q: latex 的向量表示?</strong></p>
+<p><strong>单个字符</strong> <span class="math display">\[\vec
+a\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\vec a</span><br></pre></td></tr></table></figure> <!--SR:!2022-11-13,88,270--></p>
+<p><strong>Q: latex 的向量表示?</strong></p>
+<p><strong>多个字符</strong> <span
+class="math display">\[\overrightarrow{ab}\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\overrightarrow&#123;ab&#125;</span><br></pre></td></tr></table></figure> <span
+class="math display">\[\overleftarrow{ab}\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\overleftarrow&#123;ab&#125;</span><br></pre></td></tr></table></figure>
+<!--SR:!2023-02-19,130,230--></p>
+<h2 id="单位向量">单位向量</h2>
+<p><span class="math inline">\(\hat{ab}\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\hat&#123;ab&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="求和运算">求和运算</h2>
+<p><strong>Q: latex 的求和符号表示?</strong></p>
+<p><span class="math inline">\(\sum_{i=1}^{n}\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\sum_&#123;i=1&#125;^&#123;n&#125;</span><br></pre></td></tr></table></figure>
+<!--SR:!2022-10-28,73,250--></p>
+<h2 id="对齐">对齐</h2>
+<p><strong>Q: latex 的对齐符号?</strong></p>
+<p><span class="math display">\[\begin{aligned}
+a &amp;= b + c &amp; = d \\
+   &amp;= d &amp; = e    
+\end{aligned}\]</span> &amp; 表示对齐位置, 同一行可以有多个 &amp;
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;aligned&#125;</span><br><span class="line">a &amp;= b + c &amp; = d \\</span><br><span class="line">   &amp;= d &amp; = e    </span><br><span class="line">\end&#123;aligned&#125;</span><br></pre></td></tr></table></figure> <!--SR:!2023-01-10,114,250--></p>
+<h2 id="注释">注释</h2>
+<p><span class="math inline">\(\text{注释}\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\text&#123;注释&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="箭头">箭头</h2>
+<h3 id="右箭头">右箭头</h3>
+<p>latex 中可以输入上下方文字的右箭头，用
+<code>\xrightarrow[下方公式]&#123;上方公式&#125;</code> 写出，如下：</p>
+<p><span class="math inline">\(a \rightarrow b\)</span> <span
+class="math inline">\(a \Rightarrow b\)</span> <span
+class="math inline">\(\xrightarrow[下方公式]{上方公式}\)</span>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ a \rightarrow b $</span><br><span class="line">$ a \Rightarrow b $</span><br><span class="line">$ \xrightarrow[下方公式]&#123;上方公式&#125; $</span><br></pre></td></tr></table></figure> <!--SR:!2022-10-26,14,247--></p>
+<h3 id="左箭头">左箭头</h3>
+<p>latex 中可以输入上下方文字的右箭头，用
+<code>\xleftarrow[下方公式]&#123;上方公式&#125;</code> 写出，如下：</p>
+<p><span class="math inline">\(a \leftarrow b\)</span> <span
+class="math inline">\(a \Leftarrow b\)</span> <span
+class="math inline">\(\xleftarrow[上方公式]{下方公式}\)</span><br />
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ a \leftarrow b $</span><br><span class="line">$ a \Leftarrow b $</span><br><span class="line">$ \xleftarrow[上方公式]&#123;下方公式&#125; $  </span><br></pre></td></tr></table></figure> <!--SR:!2022-10-27,14,247--></p>
+<h3 id="双向箭头">双向箭头</h3>
+<p><span class="math inline">\(a \leftrightarrow b\)</span> <span
+class="math inline">\(a \Leftrightarrow b\)</span> <span
+class="math inline">\(a \xLeftrightarrow[下]{上} b\)</span>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$a \leftrightarrow b$</span><br><span class="line">$a \Leftrightarrow b$</span><br><span class="line">$a \xLeftrightarrow[下]&#123;上&#125; b$</span><br></pre></td></tr></table></figure> <!--SR:!2022-10-28,15,247--></p>
+<h2 id="加减-减加">加减 减加</h2>
+<p><span class="math inline">\(\pm\)</span> <span
+class="math inline">\(\mp\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ \pm $</span><br><span class="line">$ \mp $</span><br></pre></td></tr></table></figure>
+<!--SR:!2022-10-26,14,247--></p>
+<h2 id="希腊字母">希腊字母</h2>
+<p><span class="math inline">\(\delta\)</span> <span
+class="math inline">\(\Delta\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$\delta$</span><br><span class="line">$\Delta$</span><br></pre></td></tr></table></figure>
+<!--SR:!2022-10-29,16,247--></p>
+<h2 id="自动调整括号大小">自动调整括号大小</h2>
+<p><span class="math display">\[\left \{  
+  \frac{1}{2}
+  \left [
+    \left (
+      a + b
+    \right )
+  \right ]
+\right \}\]</span></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\left \&#123;  </span><br><span class="line">  \frac&#123;1&#125;&#123;2&#125;</span><br><span class="line">  \left [</span><br><span class="line">    \left (</span><br><span class="line">      a + b</span><br><span class="line">    \right )</span><br><span class="line">  \right ]</span><br><span class="line">\right \&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考">参考</h2>
+<p><a
+href="https://www.quora.com/How-do-I-write-vectors-and-matrices-in-mathrm-LaTeX">https://www.quora.com/How-do-I-write-vectors-and-matrices-in-mathrm-LaTeX</a></p>
+<p><a
+href="https://tex.stackexchange.com/questions/28608/how-to-add-a-matrix-to-a-latex-document">math
+mode - How to add a matrix to a LaTeX document - TeX - LaTeX Stack
+Exchange</a></p>
+<p><a
+href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">List of
+LaTeX mathematical symbols - OeisWiki</a></p>
+<p><a href="http://mohu.org/info/symbols/symbols.htm">常用数学符号的
+LaTeX 表示方法</a></p>
+<p><a
+href="https://blog.csdn.net/foreverdengwei/article/details/8189243">latex
+中括号大小控制_Cloud-Datacenter-Renewable Energy-Big Data-Model-CSDN
+博客</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.工具</category>
+        <category>效率</category>
+        <category>Obsidian</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>latex</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>test_note1</title>
     <url>/1183/</url>
     <content><![CDATA[<h1 id="双链测试笔记-1">双链测试笔记 1</h1>
@@ -13,29 +364,10 @@
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>test</tag>
-        <tag>obsidian</tag>
         <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>test_note2</title>
-    <url>/1184/</url>
-    <content><![CDATA[<h1 id="双链测试笔记-2">双链测试笔记 2</h1>
-<p><a href="../1182/#图表">Obsidian+Hexo Markdown 测试</a></p>
-<p><a href="../1183">test_note1</a></p>
-<p><a href="../1186">test_note2</a></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>9.输出</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
         <tag>hexo</tag>
-        <tag>test</tag>
         <tag>obsidian</tag>
-        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -214,10 +546,50 @@ role="doc-backlink">↩︎</a></p></li>
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>test</tag>
-        <tag>obsidian</tag>
         <tag>markdown</tag>
+        <tag>hexo</tag>
+        <tag>obsidian</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test_note2</title>
+    <url>/1184/</url>
+    <content><![CDATA[<h1 id="双链测试笔记-2">双链测试笔记 2</h1>
+<p><a href="../1182/#图表">Obsidian+Hexo Markdown 测试</a></p>
+<p><a href="../1183">test_note1</a></p>
+<p><a href="../1186">test_note2</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>9.输出</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+        <tag>markdown</tag>
+        <tag>hexo</tag>
+        <tag>obsidian</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test_note2</title>
+    <url>/1186/</url>
+    <content><![CDATA[<h1 id="双链测试笔记-3">双链测试笔记 3</h1>
+<p>双链测试笔记 3 和 双链测试笔记 2 同名, 用于测试同名笔记的双链解析</p>
+<p><a href="../1182/#链接">Obsidian+Hexo Markdown 测试</a></p>
+<p><a href="../1183">test_note1</a></p>
+<p><a href="../1184/#Branch%202">test_note2</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>9.输出</category>
+        <category>hexo</category>
+        <category>deep</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+        <tag>markdown</tag>
+        <tag>hexo</tag>
+        <tag>obsidian</tag>
       </tags>
   </entry>
   <entry>
@@ -254,78 +626,6 @@ http://127.0.0.1:5000/name?name=www.h3blog.com <figure class="highlight sh"><tab
       </categories>
       <tags>
         <tag>srcard</tag>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>test_note2</title>
-    <url>/1186/</url>
-    <content><![CDATA[<h1 id="双链测试笔记-3">双链测试笔记 3</h1>
-<p>双链测试笔记 3 和 双链测试笔记 2 同名, 用于测试同名笔记的双链解析</p>
-<p><a href="../1182/#链接">Obsidian+Hexo Markdown 测试</a></p>
-<p><a href="../1183">test_note1</a></p>
-<p><a href="../1184/#Branch%202">test_note2</a></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>9.输出</category>
-        <category>hexo</category>
-        <category>deep</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>test</tag>
-        <tag>obsidian</tag>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python Import module from different directory</title>
-    <url>/528/</url>
-    <content><![CDATA[<h2
-id="method-1-import-module-from-different-directory-by-append-sys.path">Method
-1: Import module from different directory by append sys.path</h2>
-<p>We can use <strong>sys.path</strong> to add the path of the new
-different folder (the folder from where we want to import the modules)
-to the system path so that Python can also look for the module in that
-directory if it doesn’t find the module in its current directory.
-As <strong>sys.path</strong> falls under the <strong>list type
-class</strong> so, we can easily use the insert method to add the folder
-path.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">import_root_path = os.path.abspath(<span class="string">&#x27;import/root/path/&#x27;</span>)  </span><br><span class="line">sys.path.append(import_root_path)</span><br></pre></td></tr></table></figure>
-<h2 id="method-2-using-the-pythonpath-environment-variable">Method 2:
-Using the PYTHONPATH environment variable</h2>
-<p>if you don’t want to use the <strong>sys</strong> module to set the
-path of the new directory. You can assign a directory path to the
-PYTHONPATH variable and still get your program working.</p>
-<ul>
-<li>In Linux, we can use the following command in the terminal to set
-the path:</li>
-</ul>
-<blockquote>
-<p>export PYTHONPATH=’path/to/directory’</p>
-</blockquote>
-<ul>
-<li>In the Windows system :</li>
-</ul>
-<blockquote>
-<p>SET PYTHONPATH=”path/to/directory”</p>
-</blockquote>
-<p>To see if the PYTHONPATH variable holds the path of the new folder,
-we can use the following command:</p>
-<blockquote>
-<p>echo $PYTHONPATH</p>
-</blockquote>
-<p><strong>参考:</strong></p>
-<p><a
-href="https://www.geeksforgeeks.org/python-import-module-from-different-directory/">Python
-– Import module from different directory - GeeksforGeeks</a></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>4.技能</category>
-        <category>编程语言</category>
-        <category>Python</category>
-      </categories>
-      <tags>
         <tag>python</tag>
       </tags>
   </entry>
@@ -547,312 +847,6 @@ src="https://mmbiz.qpic.cn/mmbiz_png/IibUVnJ665WriaXQa5CcJ1j5qgLSB3nsDEn4yWicaNc
       <tags>
         <tag>srcard</tag>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VSCode 使用 MSVC 编译器搭建 OpenGL 开发环境</title>
-    <url>/229/</url>
-    <content><![CDATA[<blockquote>
-<p>原文地址 <a
-href="https://github.com/qiaogaojian/cpp_learn-opengl">github.com</a></p>
-</blockquote>
-<p>因为 windows 环境下使用 g++ 编译器 assimp 库链接失败, 报错 "undefined
-reference to'Assimp::Importer::Importer()", 后来发现使用 MSVC
-编译器没有这个问题, 踩了几个坑终于搭建成功, 在此记录一下基于VSCode +
-MSVC编译器的 OpenGL 开发环境配置.</p>
-<p>另外, mingw/g++ 开发环境在 g++ 分支 visual studio 开发环境在 vs2019
-分支.</p>
-<h3 id="安装所需软件">1. 安装所需软件</h3>
-<ul>
-<li><p>VSCode 安装 C++ extension</p></li>
-<li><p>下载安装 <a
-href="https://github.com/assimp/assimp/releases/tag/v3.3.1/">assimp-sdk-3.3.1-setup_vs2017.exe</a></p></li>
-<li><p>安装带 C++ build tools 的 Visual Studio, 下载独立的 <a
-href="https://visualstudio.microsoft.com/zh-hant/visual-cpp-build-tools/">C++
-build tools</a> 也可以.</p></li>
-<li><p>其他所用的库在<a
-href="https://github.com/qiaogaojian/learn-opengl.git">项目</a>中的
-include 文件夹里</p></li>
-</ul>
-<h3 id="配置环境变量">2. 配置环境变量</h3>
-<ul>
-<li>Path 中添加 assimp 库</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">D:\Opengl\Assimp\bin\x86  <span class="comment"># 这样就不需要把assimp.dll放到build目录了</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>新建 INCLUDE 环境变量, 添加以下目录</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\include</span><br><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\atlmfc\include</span><br><span class="line">D:\Program\VS2019\VS\Common7\Tools</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\ucrt</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\um</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\shared</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\winrt</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\cppwinrt</span><br></pre></td></tr></table></figure>
-<ul>
-<li>新建 LIB 环境变量, 添加以下目录</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\lib\x86</span><br><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\atlmfc\lib\x86</span><br><span class="line">D:\Program\VS2019\VS\VC\Auxiliary\VS\lib\x86</span><br><span class="line">D:\Program\VS2019\VS\VC\Auxiliary\VS\UnitTest\lib</span><br><span class="line">D:\Windows Kits\10\lib\10.0.19041.0\ucrt\x86</span><br><span class="line">D:\Windows Kits\10\lib\10.0.19041.0\um\x86</span><br></pre></td></tr></table></figure>
-<h3 id="配置-vscode">3. 配置 vscode</h3>
-<ul>
-<li>新建目录 OpenGl 并使用 VSCode 打开, <code>.vscode</code> 目录下
-(没有就新建) 创建 <code>settings.json</code>, 配置以下内容</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.shell.windows&quot;</span><span class="punctuation">:</span>   <span class="string">&quot;C:\\Windows\\Sysnative\\cmd.exe&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.shellArgs.windows&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">	<span class="string">&quot;/k&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="string">&quot;D:/Program Files/VS2019/VS/Common7/Tools/VsDevCmd.bat&quot;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;files.encoding&quot;</span><span class="punctuation">:</span> <span class="string">&quot;gb2312&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;files.associations&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;*.json&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jsonc&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;*.cfg&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ini&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;*.fsh&quot;</span><span class="punctuation">:</span> <span class="string">&quot;glsl&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;stack&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;iostream&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;ostream&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;*.tcc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cctype&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;clocale&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cmath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cstdint&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cstdio&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cstdlib&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cwchar&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cwctype&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;exception&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;initializer_list&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;iosfwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;istream&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;limits&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;new&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;stdexcept&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;streambuf&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;system_error&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;type_traits&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;typeinfo&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;utility&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;iomanip&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>.vscode 下创建 <code>c_cpp_properties.json</code></li>
-</ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;configurations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">	<span class="punctuation">&#123;</span></span><br><span class="line">	  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Win32&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;includePath&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/utils&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glm/glm&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glfw/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/assimp/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span></span><br><span class="line">	  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;defines&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;_DEBUG&quot;</span><span class="punctuation">,</span> <span class="string">&quot;gb2312&quot;</span><span class="punctuation">,</span> <span class="string">&quot;_gb2312&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;intelliSenseMode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;msvc-x64&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;browse&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/utils&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glm/glm&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glfw/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/assimp/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;limitSymbolsToIncludedHeaders&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;databaseFilename&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">	  <span class="punctuation">&#125;</span></span><br><span class="line">	<span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="number">4</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>.vscode 下创建 <code>tasks.json</code></li>
-</ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;tasks&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">	<span class="punctuation">&#123;</span></span><br><span class="line">	  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cppbuild&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;compile&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cl&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="string">&quot;/Od&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Zi&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/EHsc&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/MD&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/W4&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Fd:&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;build/&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Fo:&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;build/&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Fe:&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;build/&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;file&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/utils/shader_loader.cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/utils/stb_image.cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/assimp/lib/assimp.lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/glfw/lib-vc2019/glfw3.lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/glad/lib/glad.o&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/msvc/OpenGL32.Lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/msvc/User32.Lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/msvc/Gdi32.Lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/msvc/shell32.lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/glfw/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/glad/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/glm&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/utils&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/assimp/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Link /NODEFAULTLIB:msvcrt.lib&quot;</span></span><br><span class="line">	  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;options&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;cwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span></span><br><span class="line">	  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;problemMatcher&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;$msCompile&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;group&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;kind&quot;</span><span class="punctuation">:</span> <span class="string">&quot;build&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;isDefault&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">	  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;detail&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cl.exe&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<p>.vscode 下创建 <code>launch.json</code></p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.2.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;configurations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="punctuation">&#123;</span></span><br><span class="line">			<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;(Windows) Launch&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cppvsdbg&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;request&quot;</span><span class="punctuation">:</span> <span class="string">&quot;launch&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;program&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceFolder&#125;\\build\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;stopAtEntry&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;cwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;environment&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;externalConsole&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;preLaunchTask&quot;</span><span class="punctuation">:</span> <span class="string">&quot;compile&quot;</span></span><br><span class="line">		<span class="punctuation">&#125;</span></span><br><span class="line">	<span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<h3 id="注意事项">注意事项</h3>
-<ol type="1">
-<li><p>要确保环境变量和项目中的库保持一致 要么都是 x86 要么都是
-x64</p></li>
-<li><p>确保使用 vsdevcmd 进行编译</p></li>
-<li><p>遇到 "undefined reference to xxx", 先检查 tasks.json
-链接缺失的库, 再检查环境变量</p></li>
-<li><p>编译时需要引用 build 文件夹, 但是 build 文件夹 git 已忽略,
-因此需要自己提前新建好</p></li>
-</ol>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>3.理论</category>
-        <category>计算机</category>
-        <category>图形学</category>
-        <category>OpenGL</category>
-      </categories>
-      <tags>
-        <tag>mscv</tag>
-        <tag>vscode</tag>
-        <tag>opengl</tag>
-        <tag>开发环境</tag>
-        <tag>cpp</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo Next主题添加访问量统计功能</title>
-    <url>/633/</url>
-    <content><![CDATA[<h2 id="开启不蒜子访问量统计功能">1. 开启不蒜子访问量统计功能</h2>
-<p>在<code>themes/next/_config.yml</code> 添加属性</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 是否开启访问量统计功能(不蒜子)</span></span><br><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<h2 id="解决live2d冲突问题">2、解决live2d冲突问题</h2>
-<p>在<code>themes/next/layout/_partial/footer.njk</code>中隐藏busuanzi组件的外层span
-[[Pasted image 20221017182619.png|inline|700]]</p>
-<p><strong>参考:</strong></p>
-<p><a
-href="https://www.jianshu.com/p/c9f83d5b893a">Hexo博客添加访问量统计 -
-简书</a></p>
-<p><a
-href="https://moguangpeng998.github.io/2020/06/13/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%8D%E8%92%9C%E5%AD%90%E5%92%8Clive2d%E7%9C%8B%E6%9D%BF%E5%A8%98%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">Hexo博客不蒜子和live2d看板娘冲突问题解决方案
-| MoonBird博客</a></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>5.工具</category>
-        <category>效率</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用 LaTeX 公式符号</title>
-    <url>/642/</url>
-    <content><![CDATA[<h2 id="希腊字符">希腊字符</h2>
-<p><span class="math inline">\(\theta\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\theta</span><br></pre></td></tr></table></figure>
-<h2 id="空格">空格</h2>
-<p><span class="math inline">\(1 \ 2\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 \ 2</span><br></pre></td></tr></table></figure>
-<h2 id="删除线">删除线</h2>
-<p><del>abc</del></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\sout &#123;abc&#125;</span><br></pre></td></tr></table></figure>
-<p>单斜线</p>
-<p><span class="math inline">\(\cancel {abc}\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\cancel &#123;abc&#125;</span><br></pre></td></tr></table></figure>
-<p>反斜线 backslash</p>
-<p><span class="math inline">\(\bcancel {abc}\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\bcancel &#123;abc&#125;</span><br></pre></td></tr></table></figure>
-<p>双斜线</p>
-<p><span class="math inline">\(\xcancel {abc}\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\xcancel &#123;abc&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="乘号">乘号</h2>
-<p><strong>Q: latex 点乘 表示?</strong></p>
-<p><span class="math inline">\(1 \cdot 2\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 \cdot 2</span><br></pre></td></tr></table></figure>
-<!--SR:!2022-11-21,61,210--></p>
-<p><strong>Q: latex 叉乘表示?</strong></p>
-<p><span class="math inline">\(1 \times 2\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 \times 2</span><br></pre></td></tr></table></figure>
-<!--SR:!2023-02-21,129,230--></p>
-<h2 id="除号-divide">除号 divide</h2>
-<p><strong>Q: latex 除法表示?</strong></p>
-<p><span class="math inline">\(1 \div 2\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 \div 2</span><br></pre></td></tr></table></figure>
-<!--SR:!2023-01-21,127,250--></p>
-<h2 id="下标-上标">下标 上标</h2>
-<p><strong>Q: latex 的下标表示?</strong></p>
-<p><span class="math inline">\(v_a\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">v_a</span><br></pre></td></tr></table></figure>
-<!--SR:!2022-11-15,88,270--></p>
-<p><strong>Q: latex 的上标表示?</strong></p>
-<p><span class="math inline">\(v^{21}\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">v^&#123;21&#125;</span><br></pre></td></tr></table></figure>
-<!--SR:!2022-10-25,71,250--></p>
-<h2 id="根号">根号</h2>
-<p><span class="math inline">\(\sqrt{3}\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\sqrt&#123;3&#125;</span><br></pre></td></tr></table></figure>
-<p><span class="math inline">\(\sqrt[3]{9}\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\sqrt[3]&#123;9&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="不等于-not-equal-to">不等于 not equal to</h2>
-<p><span class="math inline">\(1\neq 0\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$$\neq 0$$</span><br></pre></td></tr></table></figure>
-<h2 id="分号-fraction">分号 fraction</h2>
-<p><strong>Q: latex 的分数表示?</strong></p>
-<p><span class="math inline">\(\frac{1}{2}\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\frac&#123;1&#125;&#123;2&#125;</span><br></pre></td></tr></table></figure>
-<!--SR:!2022-12-12,76,246--></p>
-<h2 id="省略号">省略号</h2>
-<p>水平</p>
-<p><span class="math inline">\(\cdots\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\cdots</span><br></pre></td></tr></table></figure>
-<p>垂直</p>
-<p><span class="math inline">\(\vdots\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\vdots</span><br></pre></td></tr></table></figure>
-<p>倾斜</p>
-<p><span class="math inline">\(\ddots\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\ddots</span><br></pre></td></tr></table></figure>
-<h2 id="约等于">约等于</h2>
-<p><span class="math inline">\(\approx\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\approx</span><br></pre></td></tr></table></figure>
-<h2 id="ln">ln</h2>
-<p><span class="math inline">\(\ln n\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\ln n</span><br></pre></td></tr></table></figure>
-<h2 id="大括号-brace">大括号 brace</h2>
-<p><span class="math inline">\(\{ \}\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\&#123; \&#125;</span><br></pre></td></tr></table></figure>
-<p><span class="math inline">\(\underbrace {123}_{456}\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\underbrace &#123;123&#125;_&#123;456&#125;</span><br></pre></td></tr></table></figure>
-<p><span class="math inline">\(\overbrace {123}^{456}\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\overbrace &#123;123&#125;^&#123;456&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="矩阵">矩阵</h2>
-<p><strong>Q: latex 的矩阵表示?</strong></p>
-<p><span class="math display">\[
-\begin{vmatrix}
-  1 &amp; 2 &amp; 3 \\
-  4 &amp; 5 &amp; 6
-\end{vmatrix}
-\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;vmatrix&#125;</span><br><span class="line">  1 &amp; 2 &amp; 3 \\</span><br><span class="line">  4 &amp; 5 &amp; 6</span><br><span class="line">\end&#123;vmatrix&#125;</span><br></pre></td></tr></table></figure> <!--SR:!2022-10-21,69,250--></p>
-<p><span class="math display">\[
-\begin{vmatrix}
-  1 &amp; 4 \\
-  2 &amp; 5 \\
-  3 &amp; 6
-\end{vmatrix}
-\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;vmatrix&#125;</span><br><span class="line">  1 &amp; 4 \\</span><br><span class="line">  2 &amp; 5 \\</span><br><span class="line">  3 &amp; 6 </span><br><span class="line">\end&#123;vmatrix&#125;</span><br></pre></td></tr></table></figure> <strong>Q: latex 的矩阵表示?</strong></p>
-<p>圆括号 (parentheses) <span class="math display">\[
-\begin{pmatrix}
-  1 &amp; 2 \\
-  3 &amp; 4
-\end{pmatrix}
-\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;pmatrix&#125;</span><br><span class="line">  1 &amp; 2 \\</span><br><span class="line">  3 &amp; 4</span><br><span class="line">\end&#123;pmatrix&#125;</span><br></pre></td></tr></table></figure> <!--SR:!2023-03-02,146,250--></p>
-<p><strong>Q: latex 的矩阵表示?</strong></p>
-<p>中括号 (square brackets) <span class="math display">\[
-\begin{bmatrix}
-  1 &amp; 2 \\
-  3 &amp; 4
-\end{bmatrix}
-\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;bmatrix&#125;</span><br><span class="line">  1 &amp; 2 \\</span><br><span class="line">  3 &amp; 4</span><br><span class="line">\end&#123;bmatrix&#125;</span><br></pre></td></tr></table></figure> <!--SR:!2022-11-19,78,230--></p>
-<p><strong>Q: latex 的矩阵表示?</strong></p>
-<p>双竖线 (double vertical lines) <span class="math display">\[
-\begin{Vmatrix}
-  1 &amp; 2 \\
-  3 &amp; 4
-\end{Vmatrix}
-\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;Vmatrix&#125;</span><br><span class="line">  1 &amp; 2 \\</span><br><span class="line">  3 &amp; 4</span><br><span class="line">\end&#123;Vmatrix&#125;</span><br></pre></td></tr></table></figure> <!--SR:!2023-01-25,123,250--></p>
-<h2 id="向量">向量</h2>
-<p><strong>Q: latex 的向量表示?</strong></p>
-<p><strong>单个字符</strong> <span class="math display">\[\vec
-a\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\vec a</span><br></pre></td></tr></table></figure> <!--SR:!2022-11-13,88,270--></p>
-<p><strong>Q: latex 的向量表示?</strong></p>
-<p><strong>多个字符</strong> <span
-class="math display">\[\overrightarrow{ab}\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\overrightarrow&#123;ab&#125;</span><br></pre></td></tr></table></figure> <span
-class="math display">\[\overleftarrow{ab}\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\overleftarrow&#123;ab&#125;</span><br></pre></td></tr></table></figure>
-<!--SR:!2023-02-19,130,230--></p>
-<h2 id="单位向量">单位向量</h2>
-<p><span class="math inline">\(\hat{ab}\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\hat&#123;ab&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="求和运算">求和运算</h2>
-<p><strong>Q: latex 的求和符号表示?</strong></p>
-<p><span class="math inline">\(\sum_{i=1}^{n}\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\sum_&#123;i=1&#125;^&#123;n&#125;</span><br></pre></td></tr></table></figure>
-<!--SR:!2022-10-28,73,250--></p>
-<h2 id="对齐">对齐</h2>
-<p><strong>Q: latex 的对齐符号?</strong></p>
-<p><span class="math display">\[\begin{aligned}
-a &amp;= b + c &amp; = d \\
-   &amp;= d &amp; = e    
-\end{aligned}\]</span> &amp; 表示对齐位置, 同一行可以有多个 &amp;
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;aligned&#125;</span><br><span class="line">a &amp;= b + c &amp; = d \\</span><br><span class="line">   &amp;= d &amp; = e    </span><br><span class="line">\end&#123;aligned&#125;</span><br></pre></td></tr></table></figure> <!--SR:!2023-01-10,114,250--></p>
-<h2 id="注释">注释</h2>
-<p><span class="math inline">\(\text{注释}\)</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\text&#123;注释&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="箭头">箭头</h2>
-<h3 id="右箭头">右箭头</h3>
-<p>latex 中可以输入上下方文字的右箭头，用
-<code>\xrightarrow[下方公式]&#123;上方公式&#125;</code> 写出，如下：</p>
-<p><span class="math inline">\(a \rightarrow b\)</span> <span
-class="math inline">\(a \Rightarrow b\)</span> <span
-class="math inline">\(\xrightarrow[下方公式]{上方公式}\)</span>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ a \rightarrow b $</span><br><span class="line">$ a \Rightarrow b $</span><br><span class="line">$ \xrightarrow[下方公式]&#123;上方公式&#125; $</span><br></pre></td></tr></table></figure> <!--SR:!2022-10-26,14,247--></p>
-<h3 id="左箭头">左箭头</h3>
-<p>latex 中可以输入上下方文字的右箭头，用
-<code>\xleftarrow[下方公式]&#123;上方公式&#125;</code> 写出，如下：</p>
-<p><span class="math inline">\(a \leftarrow b\)</span> <span
-class="math inline">\(a \Leftarrow b\)</span> <span
-class="math inline">\(\xleftarrow[上方公式]{下方公式}\)</span><br />
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ a \leftarrow b $</span><br><span class="line">$ a \Leftarrow b $</span><br><span class="line">$ \xleftarrow[上方公式]&#123;下方公式&#125; $  </span><br></pre></td></tr></table></figure> <!--SR:!2022-10-27,14,247--></p>
-<h3 id="双向箭头">双向箭头</h3>
-<p><span class="math inline">\(a \leftrightarrow b\)</span> <span
-class="math inline">\(a \Leftrightarrow b\)</span> <span
-class="math inline">\(a \xLeftrightarrow[下]{上} b\)</span>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$a \leftrightarrow b$</span><br><span class="line">$a \Leftrightarrow b$</span><br><span class="line">$a \xLeftrightarrow[下]&#123;上&#125; b$</span><br></pre></td></tr></table></figure> <!--SR:!2022-10-28,15,247--></p>
-<h2 id="加减-减加">加减 减加</h2>
-<p><span class="math inline">\(\pm\)</span> <span
-class="math inline">\(\mp\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ \pm $</span><br><span class="line">$ \mp $</span><br></pre></td></tr></table></figure>
-<!--SR:!2022-10-26,14,247--></p>
-<h2 id="希腊字母">希腊字母</h2>
-<p><span class="math inline">\(\delta\)</span> <span
-class="math inline">\(\Delta\)</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$\delta$</span><br><span class="line">$\Delta$</span><br></pre></td></tr></table></figure>
-<!--SR:!2022-10-29,16,247--></p>
-<h2 id="自动调整括号大小">自动调整括号大小</h2>
-<p><span class="math display">\[\left \{  
-  \frac{1}{2}
-  \left [
-    \left (
-      a + b
-    \right )
-  \right ]
-\right \}\]</span></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\left \&#123;  </span><br><span class="line">  \frac&#123;1&#125;&#123;2&#125;</span><br><span class="line">  \left [</span><br><span class="line">    \left (</span><br><span class="line">      a + b</span><br><span class="line">    \right )</span><br><span class="line">  \right ]</span><br><span class="line">\right \&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="参考">参考</h2>
-<p><a
-href="https://www.quora.com/How-do-I-write-vectors-and-matrices-in-mathrm-LaTeX">https://www.quora.com/How-do-I-write-vectors-and-matrices-in-mathrm-LaTeX</a></p>
-<p><a
-href="https://tex.stackexchange.com/questions/28608/how-to-add-a-matrix-to-a-latex-document">math
-mode - How to add a matrix to a LaTeX document - TeX - LaTeX Stack
-Exchange</a></p>
-<p><a
-href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">List of
-LaTeX mathematical symbols - OeisWiki</a></p>
-<p><a href="http://mohu.org/info/symbols/symbols.htm">常用数学符号的
-LaTeX 表示方法</a></p>
-<p><a
-href="https://blog.csdn.net/foreverdengwei/article/details/8189243">latex
-中括号大小控制_Cloud-Datacenter-Renewable Energy-Big Data-Model-CSDN
-博客</a></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>5.工具</category>
-        <category>效率</category>
-        <category>Obsidian</category>
-      </categories>
-      <tags>
-        <tag>srcard</tag>
-        <tag>latex</tag>
       </tags>
   </entry>
 </search>
