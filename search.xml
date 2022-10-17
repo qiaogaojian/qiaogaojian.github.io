@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo Next主题添加访问量统计功能</title>
+    <url>/633/</url>
+    <content><![CDATA[<h2 id="开启不蒜子访问量统计功能">1. 开启不蒜子访问量统计功能</h2>
+<p>在<code>themes/next/_config.yml</code> 添加属性</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 是否开启访问量统计功能(不蒜子)</span></span><br><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h2 id="解决live2d冲突问题">2、解决live2d冲突问题</h2>
+<p>在<code>themes/next/layout/_partial/footer.njk</code>中隐藏busuanzi组件的外层span
+[[Pasted image 20221017182619.png|inline|700]]</p>
+<p><strong>参考:</strong></p>
+<p><a
+href="https://www.jianshu.com/p/c9f83d5b893a">Hexo博客添加访问量统计 -
+简书</a></p>
+<p><a
+href="https://moguangpeng998.github.io/2020/06/13/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%8D%E8%92%9C%E5%AD%90%E5%92%8Clive2d%E7%9C%8B%E6%9D%BF%E5%A8%98%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">Hexo博客不蒜子和live2d看板娘冲突问题解决方案
+| MoonBird博客</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.工具</category>
+        <category>效率</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python Import module from different directory</title>
     <url>/528/</url>
     <content><![CDATA[<h2
@@ -124,15 +151,15 @@ x64</p></li>
       </categories>
       <tags>
         <tag>开发环境</tag>
-        <tag>vscode</tag>
         <tag>opengl</tag>
-        <tag>cpp</tag>
+        <tag>vscode</tag>
         <tag>mscv</tag>
+        <tag>cpp</tag>
       </tags>
   </entry>
   <entry>
     <title>常用 LaTeX 公式符号</title>
-    <url>/641/</url>
+    <url>/642/</url>
     <content><![CDATA[<h2 id="希腊字符">希腊字符</h2>
 <p><span class="math inline">\(\theta\)</span></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\theta</span><br></pre></td></tr></table></figure>
@@ -332,11 +359,11 @@ href="https://blog.csdn.net/foreverdengwei/article/details/8189243">latex
   </entry>
   <entry>
     <title>Obsidian+Hexo Markdown 测试</title>
-    <url>/1181/</url>
+    <url>/1182/</url>
     <content><![CDATA[<h1 id="双链测试">双链测试</h1>
-<p><a href="../1182">test_note1</a></p>
-<p><a href="../1183">test_note2</a></p>
-<p><a href="../1185">test_note2</a></p>
+<p><a href="../1183">test_note1</a></p>
+<p><a href="../1184">test_note2</a></p>
+<p><a href="../1186">test_note2</a></p>
 <h1 id="markdown-示例">Markdown 示例</h1>
 <p>Markdown简易入门教程<br />
 使用方式：打开 Source Mode 就可以看到所有markdown格式，照着来用就行了  
@@ -507,37 +534,18 @@ role="doc-backlink">↩︎</a></p></li>
       </categories>
       <tags>
         <tag>obsidian</tag>
+        <tag>test</tag>
         <tag>markdown</tag>
         <tag>hexo</tag>
-        <tag>test</tag>
       </tags>
   </entry>
   <entry>
     <title>test_note1</title>
-    <url>/1182/</url>
-    <content><![CDATA[<h1 id="双链测试笔记-1">双链测试笔记 1</h1>
-<p><a href="../1181/#公式">Obsidian+Hexo Markdown 测试</a></p>
-<p><a href="../1183/#Branch%202">test_note2</a></p>
-<p><a href="../1185">test_note2</a></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>9.输出</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>obsidian</tag>
-        <tag>markdown</tag>
-        <tag>hexo</tag>
-        <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>test_note2</title>
     <url>/1183/</url>
-    <content><![CDATA[<h1 id="双链测试笔记-2">双链测试笔记 2</h1>
-<p><a href="../1181/#图表">Obsidian+Hexo Markdown 测试</a></p>
-<p><a href="../1182">test_note1</a></p>
-<p><a href="../1185">test_note2</a></p>
+    <content><![CDATA[<h1 id="双链测试笔记-1">双链测试笔记 1</h1>
+<p><a href="../1182/#公式">Obsidian+Hexo Markdown 测试</a></p>
+<p><a href="../1184/#Branch%202">test_note2</a></p>
+<p><a href="../1186">test_note2</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>9.输出</category>
@@ -545,19 +553,38 @@ role="doc-backlink">↩︎</a></p></li>
       </categories>
       <tags>
         <tag>obsidian</tag>
+        <tag>test</tag>
         <tag>markdown</tag>
         <tag>hexo</tag>
-        <tag>test</tag>
       </tags>
   </entry>
   <entry>
     <title>test_note2</title>
-    <url>/1185/</url>
+    <url>/1184/</url>
+    <content><![CDATA[<h1 id="双链测试笔记-2">双链测试笔记 2</h1>
+<p><a href="../1182/#图表">Obsidian+Hexo Markdown 测试</a></p>
+<p><a href="../1183">test_note1</a></p>
+<p><a href="../1186">test_note2</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>9.输出</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>obsidian</tag>
+        <tag>test</tag>
+        <tag>markdown</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test_note2</title>
+    <url>/1186/</url>
     <content><![CDATA[<h1 id="双链测试笔记-3">双链测试笔记 3</h1>
 <p>双链测试笔记 3 和 双链测试笔记 2 同名, 用于测试同名笔记的双链解析</p>
-<p><a href="../1181/#链接">Obsidian+Hexo Markdown 测试</a></p>
-<p><a href="../1182">test_note1</a></p>
-<p><a href="../1183/#Branch%202">test_note2</a></p>
+<p><a href="../1182/#链接">Obsidian+Hexo Markdown 测试</a></p>
+<p><a href="../1183">test_note1</a></p>
+<p><a href="../1184/#Branch%202">test_note2</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>9.输出</category>
@@ -566,9 +593,9 @@ role="doc-backlink">↩︎</a></p></li>
       </categories>
       <tags>
         <tag>obsidian</tag>
+        <tag>test</tag>
         <tag>markdown</tag>
         <tag>hexo</tag>
-        <tag>test</tag>
       </tags>
   </entry>
   <entry>
