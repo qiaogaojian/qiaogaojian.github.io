@@ -22,17 +22,23 @@
     var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="行则将至">
-<meta property="og:url" content="https://qiaogaojian.github.io/categories/5-%E5%B7%A5%E5%85%B7/%E6%95%88%E7%8E%87/Obsidian/index.html">
+  <meta name="description" content="查看 vim 的 clipboard 功能是否开启  1   vim --version | grep clipboard    没有开启是减号  如果不支持 clipboard 功能, 需要安装支持 clipboard 的 vim 版本  ubuntu 安装 vim-gtk  1   sudo apt install vim-gtk   centos 安装 vim-x11 和 vim-enhan">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim 使用全局剪贴板">
+<meta property="og:url" content="https://qiaogaojian.github.io/604/index.html">
 <meta property="og:site_name" content="行则将至">
+<meta property="og:description" content="查看 vim 的 clipboard 功能是否开启  1   vim --version | grep clipboard    没有开启是减号  如果不支持 clipboard 功能, 需要安装支持 clipboard 的 vim 版本  ubuntu 安装 vim-gtk  1   sudo apt install vim-gtk   centos 安装 vim-x11 和 vim-enhan">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qiaogaojian.github.io/images/2325099-c78cfca714ce958a.png">
+<meta property="article:published_time" content="2022-08-22T03:46:20.000Z">
+<meta property="article:modified_time" content="2022-10-18T16:42:35.151Z">
 <meta property="article:author" content="qiaogaojian">
-<meta property="article:tag" content="Math,数学,Calculus,微积分,Linear Algebra,线性代数,Computer Science,计算机原理,编程,设计模式,计算机网络,计算机图形学,Computer Graphics,Unity,Unity3d,CG,HLSL,OpenGL,C#,Android,Java,GameFramework,ML,Shader,Golang,Go,Asm,Adb,BlockChain,VSCode,Web,Tools,PHP,Ubuntu,ThinkPHP,MySql,Sqlite,重构,Windows,Win10,Git,Mac,Linux,树莓派,VS,AS,Android Studio,PhpStorm,PyCharm,Vim,Rider,Jupyter,Kali,Js,JavaScript,Hexo,3dMax,Maya,Zbrush,汇编,游戏设计,Roguelike,Roguelite,地图生成,技能,FSM,NGUI,UGUI,UV,法线,光照,后端,Html,Css,C语言,C++,Python,机器学习,信息安全,操作系统,IDE,工具,效率,VR,AR,BitCoin,Eos,数据结构,算法,排序,查找,Leetcode,RoadMap,Tips,Trick,Bug,BestPratice,Tutorial,Tao​">
+<meta property="article:tag" content="vim">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qiaogaojian.github.io/images/2325099-c78cfca714ce958a.png">
 
 
-<link rel="canonical" href="https://qiaogaojian.github.io/categories/5-%E5%B7%A5%E5%85%B7/%E6%95%88%E7%8E%87/Obsidian/">
+<link rel="canonical" href="https://qiaogaojian.github.io/604/">
 
 
 <script class="page-configurations">
@@ -40,12 +46,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>分类: Obsidian | 行则将至</title>
+  <title>vim 使用全局剪贴板 | 行则将至</title>
   
 
 
@@ -189,7 +195,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -201,6 +207,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ubuntu"><span class="nav-text">ubuntu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#centos"><span class="nav-text">centos</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -267,58 +274,200 @@
 </noscript>
 
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
       
 
       
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h2 class="collection-header">Obsidian
-          <small>分类</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qiaogaojian.github.io/604/">
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vim 使用全局剪贴板
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-08-22 11:46:20" itemprop="dateCreated datePublished" datetime="2022-08-22T11:46:20+08:00">2022-08-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-10-19 00:42:35" itemprop="dateModified" datetime="2022-10-19T00:42:35+08:00">2022-10-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">5.工具</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E5%B7%A5%E5%85%B7/%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">开发</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E5%B7%A5%E5%85%B7/%E5%BC%80%E5%8F%91/Vim/" itemprop="url" rel="index"><span itemprop="name">Vim</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/604/" class="post-meta-item leancloud_visitors" data-flag-title="vim 使用全局剪贴板" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/604/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/604/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+        <p>查看 vim 的 clipboard 功能是否开启</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim --version | grep clipboard</span><br></pre></td></tr></table></figure>
+<p><img src="/images/2325099-c78cfca714ce958a.png" /> 没有开启是减号</p>
+<p>如果不支持 clipboard 功能, 需要安装支持 clipboard 的 vim 版本</p>
+<h3 id="ubuntu">ubuntu</h3>
+<p>安装 vim-gtk</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install vim-gtk</span><br></pre></td></tr></table></figure>
+<h3 id="centos">centos</h3>
+<p>安装 vim-x11 和 vim-enhanced</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install vim*</span><br></pre></td></tr></table></figure>
+<p>使用 vimx 代替 vim<br />
+编辑 <code>~/.zshrc</code> 添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alias vi&#x3D;&#39;vimx&#39;</span><br><span class="line">alias vim&#x3D;&#39;vimx&#39;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Debian &amp; Ubuntu: Install <code>vim-gtk</code> or
+<code>vim-gnome</code>.</li>
+<li>Fedora: install <code>vim-X11</code>, and run <code>vimx</code>
+instead of <code>vim</code> (<a
+target="_blank" rel="noopener" href="https://link.jianshu.com?t=https%3A%2F%2Fvi.stackexchange.com%2Fq%2F2063%2F51">more
+info</a>).</li>
+<li>Arch Linux: install <code>gvim</code> (this will enable
+<code>+clipboard</code> for normal <code>vim</code> as well).</li>
+</ul>
+<p><strong>参考：</strong></p>
+<ul>
+<li><p><a
+target="_blank" rel="noopener" href="https://link.jianshu.com?t=https%3A%2F%2Fvi.stackexchange.com%2Fquestions%2F84%2Fhow-can-i-copy-text-to-the-system-clipboard-from-vim">how-can-i-copy-text-to-the-system-clipboard-from-vim</a></p></li>
+<li><p><a
+target="_blank" rel="noopener" href="https://link.jianshu.com?t=https%3A%2F%2Fvi.stackexchange.com%2Fquestions%2F2063%2Fhow-do-i-get-clipboard-support-in-fedora-20">how-do-i-get-clipboard-support-in-fedora-20</a></p></li>
+<li><p><a
+target="_blank" rel="noopener" href="https://link.jianshu.com?t=https%3A%2F%2Fwww.zhihu.com%2Fquestion%2F19863631">如何将
+Vim 剪贴板里面的东西粘贴到 Vim 之外的地方？</a></p></li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-10-12T22:00:04+08:00"
-              content="2022-10-12">
-          10-12
-        </time>
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="qiaogaojian 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="qiaogaojian 支付宝">
+        <span>支付宝</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.png" alt="qiaogaojian 比特币">
+        <span>比特币</span>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/645/" itemprop="url">
-            <span itemprop="name">常用 LaTeX 公式符号</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
   </div>
-  
-  
-  
+</div>
 
+          <div class="post-tags">
+              <a href="/tags/vim/" rel="tag"><i class="fa fa-tag"></i> vim</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/548/" rel="prev" title="深入浅出 python 闭包">
+                  <i class="fa fa-chevron-left"></i> 深入浅出 python 闭包
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/520/" rel="next" title="JS == 和 === 的区别">
+                  JS == 和 === 的区别 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
   
 
 
 
       
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -523,7 +672,7 @@ NexT.utils.loadComments('#valine-comments', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
     new Valine(Object.assign({
       el  : '#valine-comments',
-      path: "/categories/5-%E5%B7%A5%E5%85%B7/%E6%95%88%E7%8E%87/Obsidian/",
+      path: "/604/",
     }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"要不说点啥?","avatar":"mm","meta":["nick","mail"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
     ));
   }, window.Valine);
