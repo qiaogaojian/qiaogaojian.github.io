@@ -92,10 +92,9 @@ we can use the following command:</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$PYTHONPATH</span></span><br></pre></td></tr></table></figure>
 <p><strong>注意:</strong></p>
 <ul>
-<li>import 导入路径要以src为起始<br />
+<li>把项目根目录加入环境变量(手动或通过脚本)<br />
 </li>
-<li>本地开发把源码根目录src加入环境变量 或 使用 PyCharm 右键src文件夹
-Mark Dictionary as/Source Root</li>
+<li>import 导入路径以项目根目录下的源码目录 src 为起始</li>
 </ul>
 <p><strong>参考:</strong></p>
 <ul>
@@ -186,11 +185,11 @@ x64</p></li>
         <category>OpenGL</category>
       </categories>
       <tags>
-        <tag>mscv</tag>
-        <tag>cpp</tag>
-        <tag>vscode</tag>
         <tag>开发环境</tag>
         <tag>opengl</tag>
+        <tag>vscode</tag>
+        <tag>cpp</tag>
+        <tag>mscv</tag>
       </tags>
   </entry>
   <entry>
@@ -394,46 +393,6 @@ href="https://blog.csdn.net/foreverdengwei/article/details/8189243">latex
       </tags>
   </entry>
   <entry>
-    <title>test_note2</title>
-    <url>/1189/</url>
-    <content><![CDATA[<h1 id="双链测试笔记-2">双链测试笔记 2</h1>
-<p><a href="../1187/#图表">Obsidian+Hexo Markdown 测试</a></p>
-<p><a href="../1188">test_note1</a></p>
-<p><a href="../1191">test_note2</a></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>9.输出</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>test</tag>
-        <tag>obsidian</tag>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>test_note2</title>
-    <url>/1191/</url>
-    <content><![CDATA[<h1 id="双链测试笔记-3">双链测试笔记 3</h1>
-<p>双链测试笔记 3 和 双链测试笔记 2 同名, 用于测试同名笔记的双链解析</p>
-<p><a href="../1187/#链接">Obsidian+Hexo Markdown 测试</a></p>
-<p><a href="../1188">test_note1</a></p>
-<p><a href="../1189/#Branch%202">test_note2</a></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>9.输出</category>
-        <category>hexo</category>
-        <category>deep</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>test</tag>
-        <tag>obsidian</tag>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>test_note1</title>
     <url>/1188/</url>
     <content><![CDATA[<h1 id="双链测试笔记-1">双链测试笔记 1</h1>
@@ -446,10 +405,10 @@ href="https://blog.csdn.net/foreverdengwei/article/details/8189243">latex
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
-        <tag>test</tag>
-        <tag>obsidian</tag>
         <tag>markdown</tag>
+        <tag>hexo</tag>
+        <tag>obsidian</tag>
+        <tag>test</tag>
       </tags>
   </entry>
   <entry>
@@ -629,10 +588,50 @@ role="doc-backlink">↩︎</a></p></li>
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
-        <tag>test</tag>
-        <tag>obsidian</tag>
         <tag>markdown</tag>
+        <tag>hexo</tag>
+        <tag>obsidian</tag>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test_note2</title>
+    <url>/1189/</url>
+    <content><![CDATA[<h1 id="双链测试笔记-2">双链测试笔记 2</h1>
+<p><a href="../1187/#图表">Obsidian+Hexo Markdown 测试</a></p>
+<p><a href="../1188">test_note1</a></p>
+<p><a href="../1191">test_note2</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>9.输出</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+        <tag>hexo</tag>
+        <tag>obsidian</tag>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test_note2</title>
+    <url>/1191/</url>
+    <content><![CDATA[<h1 id="双链测试笔记-3">双链测试笔记 3</h1>
+<p>双链测试笔记 3 和 双链测试笔记 2 同名, 用于测试同名笔记的双链解析</p>
+<p><a href="../1187/#链接">Obsidian+Hexo Markdown 测试</a></p>
+<p><a href="../1188">test_note1</a></p>
+<p><a href="../1189/#Branch%202">test_note2</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>9.输出</category>
+        <category>hexo</category>
+        <category>deep</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+        <tag>hexo</tag>
+        <tag>obsidian</tag>
+        <tag>test</tag>
       </tags>
   </entry>
   <entry>
@@ -668,8 +667,8 @@ http://127.0.0.1:5000/name?name=www.h3blog.com <figure class="highlight sh"><tab
         <category>Python</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>srcard</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -888,8 +887,8 @@ src="https://mmbiz.qpic.cn/mmbiz_png/IibUVnJ665WriaXQa5CcJ1j5qgLSB3nsDEn4yWicaNc
         <category>Python</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>srcard</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -965,9 +964,10 @@ package，那么这就是一个普通的文件夹，无法实现相对导入。<
 </ol>
 <h2 id="导入最佳实践">6. 导入最佳实践</h2>
 <ul>
-<li>把源码根目录src加入环境变量</li>
-<li>import 导入路径以源码根目录src为起始<br />
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> src.core.logger_class <span class="keyword">import</span> Logger  </span><br><span class="line"><span class="keyword">from</span> src.core.config_class <span class="keyword">import</span> LoadConfig  </span><br><span class="line"><span class="keyword">from</span> src.core.db_class <span class="keyword">import</span> MySql, Mongo, Redis, Kafka  </span><br><span class="line"><span class="keyword">from</span> src.core.time_class <span class="keyword">import</span> Time  </span><br><span class="line"><span class="keyword">from</span> src.core.utils_class <span class="keyword">import</span> Utils  </span><br><span class="line"><span class="keyword">from</span> src.core.crypto_class <span class="keyword">import</span> Crypto  </span><br><span class="line"><span class="keyword">from</span> src.core.pyasync_class <span class="keyword">import</span> Async  </span><br><span class="line"><span class="keyword">from</span> src.core.singleton_class <span class="keyword">import</span> Singleton</span><br></pre></td></tr></table></figure> 参考:<a href="../528">Python Import module from different
+<li>把项目根目录加入环境变量(手动或通过脚本)<br />
+</li>
+<li>import 导入路径以项目根目录下的源码目录 src 为起始, 如下:<br />
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> src.core.logger_class <span class="keyword">import</span> Logger  </span><br><span class="line"><span class="keyword">from</span> src.core.config_class <span class="keyword">import</span> LoadConfig  </span><br><span class="line"><span class="keyword">from</span> src.core.db_class <span class="keyword">import</span> MySql, Mongo, Redis, Kafka  </span><br></pre></td></tr></table></figure> 参考:<a href="../528">Python Import module from different
 directory</a></li>
 </ul>
 <h2 id="各种导入示例">各种导入示例</h2>
@@ -984,8 +984,8 @@ href="https://stackoverflow.com/questions/14132789/relative-imports-for-the-bill
         <category>Python</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>srcard</tag>
+        <tag>python</tag>
       </tags>
   </entry>
 </search>
