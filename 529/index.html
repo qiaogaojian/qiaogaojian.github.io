@@ -22,22 +22,24 @@
     var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="区别 在 JS 项目里，除了能看到 &#x3D;&#x3D; 操作符来判断两个变量是否相等外，我们还会看到 &#x3D;&#x3D;&#x3D; 操作符，这两者有什么区别？   * 对于 String, number 这些值类型，&#x3D;&#x3D;操作符会先把两边的变量进行类型强制转换成相同的类型再比较是否相等；&#x3D;&#x3D;&#x3D; 操作符则不会进行类型转换，而是直接进行比较。  * 对于 array, object 这些引用类型，&#x3D;&#x3D; 和&#x3D;&#x3D;&#x3D;是没有区别的，因为它们比较的">
+  <meta name="description" content="假设有如下目录结构：  1 2 3 4 5 6 7   -- dir0 　　| file1.py 　　| file2.py 　　| dir3 　　　　| file3.py 　　| dir4 　　　　| file4.py   dir0 文件夹下有file1.py、file2.py 两个文件 和dir3、dir4两个子文件夹，dir3 中有file3.py文件，dir4 中有file4.py 文件。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS &#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D; 的区别">
-<meta property="og:url" content="https://qiaogaojian.github.io/520/index.html">
+<meta property="og:title" content="Python import 导入其他脚本">
+<meta property="og:url" content="https://qiaogaojian.github.io/529/index.html">
 <meta property="og:site_name" content="行则将至">
-<meta property="og:description" content="区别 在 JS 项目里，除了能看到 &#x3D;&#x3D; 操作符来判断两个变量是否相等外，我们还会看到 &#x3D;&#x3D;&#x3D; 操作符，这两者有什么区别？   * 对于 String, number 这些值类型，&#x3D;&#x3D;操作符会先把两边的变量进行类型强制转换成相同的类型再比较是否相等；&#x3D;&#x3D;&#x3D; 操作符则不会进行类型转换，而是直接进行比较。  * 对于 array, object 这些引用类型，&#x3D;&#x3D; 和&#x3D;&#x3D;&#x3D;是没有区别的，因为它们比较的">
+<meta property="og:description" content="假设有如下目录结构：  1 2 3 4 5 6 7   -- dir0 　　| file1.py 　　| file2.py 　　| dir3 　　　　| file3.py 　　| dir4 　　　　| file4.py   dir0 文件夹下有file1.py、file2.py 两个文件 和dir3、dir4两个子文件夹，dir3 中有file3.py文件，dir4 中有file4.py 文件。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-09-26T10:45:48.000Z">
-<meta property="article:modified_time" content="2022-10-18T06:53:41.795Z">
+<meta property="og:image" content="https://qiaogaojian.github.io/images/Pasted%20image%2020220904222845.png">
+<meta property="article:published_time" content="2022-07-24T08:18:55.000Z">
+<meta property="article:modified_time" content="2022-10-18T06:53:41.799Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="srcard">
-<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qiaogaojian.github.io/images/Pasted%20image%2020220904222845.png">
 
 
-<link rel="canonical" href="https://qiaogaojian.github.io/520/">
+<link rel="canonical" href="https://qiaogaojian.github.io/529/">
 
 
 <script class="page-configurations">
@@ -50,7 +52,7 @@
   };
 </script>
 
-  <title>JS == 和 === 的区别 | 行则将至</title>
+  <title>Python import 导入其他脚本 | 行则将至</title>
   
 
 
@@ -206,7 +208,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stack-overflow-%E7%9B%B8%E5%85%B3"><span class="nav-text">Stack Overflow 相关</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E5%90%8C%E7%BA%A7%E6%A8%A1%E5%9D%97"><span class="nav-text">1. 导入同级模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E4%B8%8B%E7%BA%A7%E6%A8%A1%E5%9D%97"><span class="nav-text">2. 导入下级模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E4%B8%8A%E7%BA%A7%E6%A8%A1%E5%9D%97"><span class="nav-text">3. 导入上级模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E9%9A%94%E5%A3%81%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E7%9A%84%E6%A8%A1%E5%9D%97"><span class="nav-text">4. 导入隔壁文件夹下的模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-text">6. 导入最佳实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%84%E7%A7%8D%E5%AF%BC%E5%85%A5%E7%A4%BA%E4%BE%8B"><span class="nav-text">各种导入示例</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -282,7 +284,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://qiaogaojian.github.io/520/">
+    <link itemprop="mainEntityOfPage" href="https://qiaogaojian.github.io/529/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -298,7 +300,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          JS == 和 === 的区别
+          Python import 导入其他脚本
         </h1>
 
         <div class="post-meta-container">
@@ -310,7 +312,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-09-26 18:45:48" itemprop="dateCreated datePublished" datetime="2022-09-26T18:45:48+08:00">2022-09-26</time>
+      <time title="创建时间：2022-07-24 16:18:55" itemprop="dateCreated datePublished" datetime="2022-07-24T16:18:55+08:00">2022-07-24</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
@@ -333,12 +335,12 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/4-%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a>
+          <a href="/categories/4-%E6%8A%80%E8%83%BD/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
         </span>
     </span>
 
   
-    <span id="/520/" class="post-meta-item leancloud_visitors" data-flag-title="JS == 和 === 的区别" title="阅读次数">
+    <span id="/529/" class="post-meta-item leancloud_visitors" data-flag-title="Python import 导入其他脚本" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -360,8 +362,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/520/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/520/" itemprop="commentCount"></span>
+    <a title="valine" href="/529/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/529/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -376,66 +378,88 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h2 id="区别">区别</h2>
-<p>在 JS 项目里，除了能看到 ==
-操作符来判断两个变量是否相等外，我们还会看到 ===
-操作符，这两者有什么区别？</p>
+        <p>假设有如下目录结构：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-- dir0</span><br><span class="line">　　| file1.py</span><br><span class="line">　　| file2.py</span><br><span class="line">　　| dir3</span><br><span class="line">　　　　| file3.py</span><br><span class="line">　　| dir4</span><br><span class="line">　　　　| file4.py</span><br></pre></td></tr></table></figure>
+<p><mark style="background: #be9affA6;">dir0</mark> 文件夹下有
+<mark style="background: #fefe00A6;">file1.py</mark>
+、<mark style="background: #fefe00A6;">file2.py</mark> 两个文件 和
+<mark style="background: #018bffA6;">dir3</mark>
+、<mark style="background: #018bffA6;">dir4</mark>
+两个子文件夹，<mark style="background: #018bffA6;">dir3</mark> 中有
+<mark style="background: #fefe00A6;">file3.py</mark>
+文件，<mark style="background: #018bffA6;">dir4</mark> 中有
+<mark style="background: #fefe00A6;">file4.py</mark> 文件。</p>
+<h2 id="导入同级模块">1. 导入同级模块</h2>
+<p>python 导入同级模块（在同一个文件夹中的 py 文件）直接导入即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> xxx</span><br></pre></td></tr></table></figure>
+<p>如在 file1.py 中想导入 file2.py，注意无需加后缀 ".py"：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> file2</span><br><span class="line"><span class="comment"># 使用file2中函数时需加上前缀&quot;file2.&quot;，即：</span></span><br><span class="line"><span class="comment"># file2.fuction_name()</span></span><br></pre></td></tr></table></figure>
+<h2 id="导入下级模块">2. 导入下级模块</h2>
+<p>导入下级目录模块也很容易，<mark style="background: #fbab4bA6;">需在下级目录中新建一个空白的__init__.py
+文件再导入</mark> ：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> dirname <span class="keyword">import</span> xxx</span><br></pre></td></tr></table></figure>
+<p>如在 file1.py 中想导入 dir3 下的 file3.py，首先要在 dir3
+中新建一个空白的_<em>init</em>___.py 文件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- dir0</span><br><span class="line">　　| file1.py</span><br><span class="line">　　| file2.py</span><br><span class="line">　　| dir3</span><br><span class="line">　　　| __init__.py</span><br><span class="line">　　　| file3.py</span><br><span class="line">　　| dir4</span><br><span class="line">　　　| file4.py</span><br></pre></td></tr></table></figure>
+<p>再使用如下语句：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># plan A</span></span><br><span class="line"><span class="keyword">from</span> dir3 <span class="keyword">import</span> file3</span><br></pre></td></tr></table></figure>
+<p>或是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># plan B</span></span><br><span class="line"><span class="keyword">import</span> dir3.file3</span><br><span class="line"><span class="comment"># import dir3.file3 as df3</span></span><br></pre></td></tr></table></figure>
+<p>但使用第二种方式则下文需要一直带着路径 dir3
+书写，较为累赘，建议可以另起一个别名。</p>
+<h2 id="导入上级模块">3. 导入上级模块</h2>
+<p>要导入上级目录下模块，可以使用 sys.path： 　</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys </span><br><span class="line">sys.path.append(<span class="string">&quot;..&quot;</span>) </span><br><span class="line"><span class="keyword">import</span> xxx</span><br></pre></td></tr></table></figure>
+<p>如在 <code>file4.py</code> 中想引入 import 上级目录下的 file1.py：
+<strong>file4.py</strong> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys </span><br><span class="line">sys.path.append(<span class="string">&quot;..&quot;</span>) </span><br><span class="line"><span class="keyword">import</span> file1</span><br></pre></td></tr></table></figure> <strong>python 中 sys.path
+的作用?</strong></p>
+<p>当使用 import
+语句<mark style="background: #018bffA6;">导入模块</mark>
+时，解释器会搜索<mark style="background: #fefe00A6;">当前模块所在目录</mark>
+以及 <mark style="background: #fefe00A6;">sys.path 指定的路径</mark>
+去找需要 import 的模块，所以这里是直接把上级目录加到了 sys.path 里。
+<!--SR:!2022-12-01,56,250--></p>
+<p><strong>“..” 的含义：</strong> 等同于 linux
+里的‘..’，表示当前工作目录的上级目录。实际上 python 中的‘.’也和 linux
+中一致，表示当前目录。</p>
+<h2 id="导入隔壁文件夹下的模块">4. 导入隔壁文件夹下的模块</h2>
+<p>如在 <code>file4.py</code> 中想引入 import 在 dir3 目录下的
+file3.py。</p>
+<p>这其实是前面两个操作的组合，其思路本质上是将上级目录加到 sys.path
+里，再按照对下级目录模块的方式导入。</p>
+<p>同样需要被引文件夹也就是 dir3 下有空的__init__.py 文件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- <span class="built_in">dir</span></span><br><span class="line">　　| file1.py</span><br><span class="line">　　| file2.py</span><br><span class="line">　　| dir3</span><br><span class="line">　　　　| __init__.py</span><br><span class="line">　　　　| file3.py</span><br><span class="line">　　| dir4</span><br><span class="line">　　　　| file4.py</span><br></pre></td></tr></table></figure>
+<p>同时也要将上级目录加到 sys.path 里： <strong>file4.py</strong>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">&quot;..&quot;</span>)</span><br><span class="line"><span class="keyword">from</span> dir3 <span class="keyword">import</span> file3</span><br></pre></td></tr></table></figure> ## 5. 常见错误及 import 原理：</p>
+<p>在使用直接从上级目录引入模块的操作时：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> .. <span class="keyword">import</span> xxx</span><br></pre></td></tr></table></figure>
+<p>经常会报错:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ValueError: attempted relative import beyond top-level package</span><br></pre></td></tr></table></figure>
+<p>这是由于相对导入时，文件夹实质上充当的是
+package，也就是包的角色（比如我们常用的 numpy、pandas 都是包）。如果
+python 解释器没有认同该文件夹是
+package，那么这就是一个普通的文件夹，无法实现相对导入。</p>
+<p><strong>python 中文件夹作为 package 需要满足的条件?</strong></p>
+<ol type="1">
+<li>文件夹中<mark style="background: #fefe00A6;">必须</mark>
+存在有<code>__init__.py</code> 文件，可以为空。</li>
+<li>不能作为顶层模块来执行该文件夹中的 py 文件。
+<!--SR:!2022-11-30,54,250--></li>
+</ol>
+<h2 id="导入最佳实践">6. 导入最佳实践</h2>
 <ul>
-<li>对于 String, number 这些<strong>值类型</strong>，<code>==</code>
-操作符会先把两边的变量<mark style="background: #fefe00A6;">进行类型强制转换成相同的类型再比较是否相等</mark>
-；<code>===</code> 操作符则不会进行类型转换，而是直接进行比较。</li>
-<li>对于 array, object 这些<strong>引用类型</strong>，<code>==</code> 和
-<code>===</code>
-是没有区别的，因为它们<mark style="background: #fefe00A6;">比较的是
-“指针地址</mark> ” 。</li>
-<li><strong>值类型和引用类型之间</strong>比较，<code>==</code> 和
-<code>===</code>
-是有区别的；<code>==</code>操作符会<mark style="background: #fefe00A6;">先把高级类型转换为基础类型</mark>
-之后，进行值的比较；<code>===</code>
-操作符则不会进行转换，类型不同，直接返回 false</li>
+<li>把源码根目录src加入环境变量</li>
+<li>import 导入路径以源码根目录src为起始<br />
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> src.core.logger_class <span class="keyword">import</span> Logger  </span><br><span class="line"><span class="keyword">from</span> src.core.config_class <span class="keyword">import</span> LoadConfig  </span><br><span class="line"><span class="keyword">from</span> src.core.db_class <span class="keyword">import</span> MySql, Mongo, Redis, Kafka  </span><br><span class="line"><span class="keyword">from</span> src.core.time_class <span class="keyword">import</span> Time  </span><br><span class="line"><span class="keyword">from</span> src.core.utils_class <span class="keyword">import</span> Utils  </span><br><span class="line"><span class="keyword">from</span> src.core.crypto_class <span class="keyword">import</span> Crypto  </span><br><span class="line"><span class="keyword">from</span> src.core.pyasync_class <span class="keyword">import</span> Async  </span><br><span class="line"><span class="keyword">from</span> src.core.singleton_class <span class="keyword">import</span> Singleton</span><br></pre></td></tr></table></figure> 参考:[[Python Import module from different
+directory]]</li>
 </ul>
-<p>也就是说，<code>==</code>
-操作符只要求比较<mark style="background: #83d98fA6;">两个变量的值是否相等</mark>
-，<code>===</code>
-操作符则是要求<mark style="background: #83d98fA6;">两个变量的值和类型都要相同</mark>
-；类似地，<code>!=</code> 操作符会去做类型强制转换，<code>!==</code>
-操作符则不会转换类型。</p>
-<p><strong>值类型</strong> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a == b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a === b);</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p><strong>引用类型</strong> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;*********************************&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> a = &#123;<span class="attr">val</span>:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> b = &#123;<span class="attr">val</span>:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a==b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a===b);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;*********************************&quot;</span>);</span><br><span class="line">c = a;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a==c);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a===c);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<!--SR:!2022-10-31,22,250--></p>
-<h2 id="注意事项">注意事项</h2>
-<p><mark style="background: #fa518dA6;">JS == / ===注意事项: </mark></p>
-<ul>
-<li>对于特殊值 NaN（Not a Number）表示非数字，NaN
-和任何数（包括它自己）做相等比较，都会返回
-false，所以<mark style="background: #83d98fA6;">判断 NaN 最好用 isNaN()
-函数</mark></li>
-<li>undefined 和 null，两者的值相比较，会返回 true。 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span>==<span class="literal">null</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span>===<span class="literal">null</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li>由于 == 和!=
-操作符带来的类型隐式转换规则非常繁琐，还有为了避免数据类型混淆导致出现
-bug，还是推荐使用 <code>===</code> 操作符和<code>!==</code> 操作符。
-<!--SR:!2022-11-05,27,250--></li>
-</ul>
-<h2 id="stack-overflow-相关">Stack Overflow 相关</h2>
-<p>So there you have the two common sources of errors in Javascript
-comparisons: 1. comparing different types with == can lead to
-==unexpected type conversions.== 2. comparing objects and arrays is
-based on ==references not values stored inside==.</p>
-<p>As the existing answer already says, Typescript is designed as a
-superset of Javascript. So it doesn't change the behaviour of these
-comparison operators. If you write <code>==</code> in Typescript, you
-get type conversions.</p>
-<p>So how is this fixed? ==With the compiler. ==If you actually do write
-code that compares incompatible types with <code>==</code> it's a
-compiler error. Try compiling the following sample:<br />
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;1&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> num = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str==num);</span><br></pre></td></tr></table></figure>
-<!--SR:!2022-11-02,24,250!2022-11-03,25,250!2022-11-06,28,250--></p>
-<p><strong>参考:</strong></p>
-<p><a target="_blank" rel="noopener" href="https://nowjava.com/article/44330">nowjava.com</a></p>
+<h2 id="各种导入示例">各种导入示例</h2>
+<p><img src="/images/Pasted%20image%2020220904222845.png" />
+<!--SR:!2022-11-28,54,250--></p>
+<p><strong>参考</strong></p>
 <p><a
-target="_blank" rel="noopener" href="https://stackoverflow.com/questions/57125700/why-use-triple-equal-in-typescript">javascript
-- Why use triple-equal (<code>===</code>) in TypeScript? - Stack
-Overflow</a></p>
+target="_blank" rel="noopener" href="https://stackoverflow.com/questions/14132789/relative-imports-for-the-billionth-time">python
+- Relative imports for the billionth time - Stack Overflow</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">
     </div>
 
@@ -468,20 +492,17 @@ Overflow</a></p>
 
           <div class="post-tags">
               <a href="/tags/srcard/" rel="tag"><i class="fa fa-tag"></i> srcard</a>
-              <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/547/" rel="prev" title="深入浅出 python 闭包">
-                  <i class="fa fa-chevron-left"></i> 深入浅出 python 闭包
-                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/526/" rel="next" title="flask 参数传递的4种方式">
-                  flask 参数传递的4种方式 <i class="fa fa-chevron-right"></i>
+                <a href="/550/" rel="next" title="说说 Python 的命名规范">
+                  说说 Python 的命名规范 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -699,7 +720,7 @@ NexT.utils.loadComments('#valine-comments', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
     new Valine(Object.assign({
       el  : '#valine-comments',
-      path: "/520/",
+      path: "/529/",
     }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"要不说点啥?","avatar":"mm","meta":["nick","mail"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
     ));
   }, window.Valine);
