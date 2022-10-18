@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>syncthing 如何移动同步仓库位置</title>
+    <url>/667/</url>
+    <content><![CDATA[<p><strong>how to move syncthing folder position?</strong></p>
+<ol type="1">
+<li>Make sure the folder is <mark style="background: #018bffA6;">up to
+date</mark> with the remote. (probably not strictly necessary)</li>
+<li><mark style="background: #018bffA6;">Stop Syncthing</mark> (Pausing
+the folder could be enough)</li>
+<li><mark style="background: #018bffA6;">Copy the folder</mark> to the
+external drive (e.g. using rsync or equivalent).</li>
+<li><mark style="background: #018bffA6;">Edit the path in syncthing
+config file</mark>
+(C:/Users/Administrator/AppData/Local/Syncthing/config.xml )</li>
+<li><mark style="background: #018bffA6;">Restart syncthing</mark></li>
+<li>Wait for scanning and initial sync (exchanging and comparing
+metadata to be sure the contents are the same as on remote) to
+finish.</li>
+<li>if everything works ok, delete the original folder
+<!--SR:!2022-10-24,21,250--></li>
+</ol>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.工具</category>
+        <category>效率</category>
+        <category>Syncthing</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>syncthing</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo Next主题添加访问量统计功能</title>
     <url>/633/</url>
     <content><![CDATA[<h2 id="开启不蒜子访问量统计功能">1. 开启不蒜子访问量统计功能</h2>
@@ -58,6 +90,9 @@ the path:</li>
 <p>To see if the PYTHONPATH variable holds the path of the new folder,
 we can use the following command:</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$PYTHONPATH</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意:</strong> - import 导入路径要以src为起始<br />
+- 本地开发把src加入环境变量 或 使用 PyCharm 右键src文件夹 Mark
+Dictionary as/Source Root</p>
 <p><strong>参考:</strong></p>
 <p><a
 href="https://www.geeksforgeeks.org/python-import-module-from-different-directory/">Python
@@ -144,9 +179,9 @@ x64</p></li>
         <category>OpenGL</category>
       </categories>
       <tags>
-        <tag>opengl</tag>
-        <tag>mscv</tag>
         <tag>cpp</tag>
+        <tag>mscv</tag>
+        <tag>opengl</tag>
         <tag>开发环境</tag>
         <tag>vscode</tag>
       </tags>
@@ -352,31 +387,12 @@ href="https://blog.csdn.net/foreverdengwei/article/details/8189243">latex
       </tags>
   </entry>
   <entry>
-    <title>test_note1</title>
-    <url>/1183/</url>
-    <content><![CDATA[<h1 id="双链测试笔记-1">双链测试笔记 1</h1>
-<p><a href="../1182/#公式">Obsidian+Hexo Markdown 测试</a></p>
-<p><a href="../1184/#Branch%202">test_note2</a></p>
-<p><a href="../1186">test_note2</a></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>9.输出</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
-        <tag>obsidian</tag>
-        <tag>markdown</tag>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Obsidian+Hexo Markdown 测试</title>
-    <url>/1182/</url>
+    <url>/1185/</url>
     <content><![CDATA[<h1 id="双链测试">双链测试</h1>
-<p><a href="../1183">test_note1</a></p>
-<p><a href="../1184">test_note2</a></p>
-<p><a href="../1186">test_note2</a></p>
+<p><a href="../1186">test_note1</a></p>
+<p><a href="../1187">test_note2</a></p>
+<p><a href="../1189">test_note2</a></p>
 <h1 id="markdown-示例">Markdown 示例</h1>
 <p>Markdown简易入门教程<br />
 使用方式：打开 Source Mode 就可以看到所有markdown格式，照着来用就行了  
@@ -516,10 +532,11 @@ T3: 2014-01-02, 9d</pre>
 <!--SR:!2022-10-11,40,250-->
 <h2 id="注脚">注脚</h2>
 <p>Here is a simple footnote<a href="#fn1" class="footnote-ref"
-id="fnref1" role="doc-noteref"><sup>1</sup></a>. A footnote can also
-have multiple lines<a href="#fn2" class="footnote-ref" id="fnref2"
-role="doc-noteref"><sup>2</sup></a>.<br />
-You can also use words, to fit your writing style more closely<a
+id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>A footnote can also have multiple lines<a href="#fn2"
+class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>.</p>
+<p>You can also use words, to fit your writing style more closely<a
 href="#fn3" class="footnote-ref" id="fnref3"
 role="doc-noteref"><sup>3</sup></a>.</p>
 <section class="footnotes footnotes-end-of-document"
@@ -546,39 +563,39 @@ role="doc-backlink">↩︎</a></p></li>
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>test</tag>
         <tag>obsidian</tag>
-        <tag>markdown</tag>
         <tag>hexo</tag>
+        <tag>markdown</tag>
+        <tag>test</tag>
       </tags>
   </entry>
   <entry>
     <title>test_note2</title>
-    <url>/1184/</url>
+    <url>/1187/</url>
     <content><![CDATA[<h1 id="双链测试笔记-2">双链测试笔记 2</h1>
-<p><a href="../1182/#图表">Obsidian+Hexo Markdown 测试</a></p>
-<p><a href="../1183">test_note1</a></p>
-<p><a href="../1186">test_note2</a></p>
+<p><a href="../1185/#图表">Obsidian+Hexo Markdown 测试</a></p>
+<p><a href="../1186">test_note1</a></p>
+<p><a href="../1189">test_note2</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>9.输出</category>
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>test</tag>
         <tag>obsidian</tag>
-        <tag>markdown</tag>
         <tag>hexo</tag>
+        <tag>markdown</tag>
+        <tag>test</tag>
       </tags>
   </entry>
   <entry>
     <title>test_note2</title>
-    <url>/1186/</url>
+    <url>/1189/</url>
     <content><![CDATA[<h1 id="双链测试笔记-3">双链测试笔记 3</h1>
 <p>双链测试笔记 3 和 双链测试笔记 2 同名, 用于测试同名笔记的双链解析</p>
-<p><a href="../1182/#链接">Obsidian+Hexo Markdown 测试</a></p>
-<p><a href="../1183">test_note1</a></p>
-<p><a href="../1184/#Branch%202">test_note2</a></p>
+<p><a href="../1185/#链接">Obsidian+Hexo Markdown 测试</a></p>
+<p><a href="../1186">test_note1</a></p>
+<p><a href="../1187/#Branch%202">test_note2</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>9.输出</category>
@@ -586,10 +603,29 @@ role="doc-backlink">↩︎</a></p></li>
         <category>deep</category>
       </categories>
       <tags>
-        <tag>test</tag>
         <tag>obsidian</tag>
-        <tag>markdown</tag>
         <tag>hexo</tag>
+        <tag>markdown</tag>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test_note1</title>
+    <url>/1186/</url>
+    <content><![CDATA[<h1 id="双链测试笔记-1">双链测试笔记 1</h1>
+<p><a href="../1185/#公式">Obsidian+Hexo Markdown 测试</a></p>
+<p><a href="../1187/#Branch%202">test_note2</a></p>
+<p><a href="../1189">test_note2</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>9.输出</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>obsidian</tag>
+        <tag>hexo</tag>
+        <tag>markdown</tag>
+        <tag>test</tag>
       </tags>
   </entry>
   <entry>
@@ -699,8 +735,8 @@ Overflow</a></p>
         <category>Javascript</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>javascript</tag>
+        <tag>srcard</tag>
       </tags>
   </entry>
   <entry>
