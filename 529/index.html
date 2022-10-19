@@ -22,21 +22,18 @@
     var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="假设有如下目录结构：  1 2 3 4 5 6 7   -- dir0 　　| file1.py 　　| file2.py 　　| dir3 　　　　| file3.py 　　| dir4 　　　　| file4.py   dir0 文件夹下有file1.py、file2.py 两个文件 和dir3、dir4两个子文件夹，dir3 中有file3.py文件，dir4 中有file4.py 文件。">
+  <meta name="description" content="Method 1: Import module from different directory by append sys.path We can usesys.pathto add the path of the new different folder (the folder from where we want to import the modules) to the system pa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python import 导入其他脚本">
+<meta property="og:title" content="Python Import module from different directory">
 <meta property="og:url" content="https://qiaogaojian.github.io/529/index.html">
 <meta property="og:site_name" content="行则将至">
-<meta property="og:description" content="假设有如下目录结构：  1 2 3 4 5 6 7   -- dir0 　　| file1.py 　　| file2.py 　　| dir3 　　　　| file3.py 　　| dir4 　　　　| file4.py   dir0 文件夹下有file1.py、file2.py 两个文件 和dir3、dir4两个子文件夹，dir3 中有file3.py文件，dir4 中有file4.py 文件。">
+<meta property="og:description" content="Method 1: Import module from different directory by append sys.path We can usesys.pathto add the path of the new different folder (the folder from where we want to import the modules) to the system pa">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://qiaogaojian.github.io/images/Pasted%20image%2020220904222845.png">
-<meta property="article:published_time" content="2022-07-24T08:18:55.000Z">
-<meta property="article:modified_time" content="2022-10-18T11:06:25.865Z">
+<meta property="article:published_time" content="2022-10-17T10:23:28.000Z">
+<meta property="article:modified_time" content="2022-10-19T01:08:01.038Z">
 <meta property="article:author" content="qiaogaojian">
-<meta property="article:tag" content="srcard">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://qiaogaojian.github.io/images/Pasted%20image%2020220904222845.png">
 
 
 <link rel="canonical" href="https://qiaogaojian.github.io/529/">
@@ -52,7 +49,7 @@
   };
 </script>
 
-  <title>Python import 导入其他脚本 | 行则将至</title>
+  <title>Python Import module from different directory | 行则将至</title>
   
 
 
@@ -208,7 +205,9 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E5%90%8C%E7%BA%A7%E6%A8%A1%E5%9D%97"><span class="nav-text">1. 导入同级模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E4%B8%8B%E7%BA%A7%E6%A8%A1%E5%9D%97"><span class="nav-text">2. 导入下级模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E4%B8%8A%E7%BA%A7%E6%A8%A1%E5%9D%97"><span class="nav-text">3. 导入上级模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E9%9A%94%E5%A3%81%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E7%9A%84%E6%A8%A1%E5%9D%97"><span class="nav-text">4. 导入隔壁文件夹下的模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-text">6. 导入最佳实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%84%E7%A7%8D%E5%AF%BC%E5%85%A5%E7%A4%BA%E4%BE%8B"><span class="nav-text">各种导入示例</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#method-1-import-module-from-different-directory-by-append-sys.path"><span class="nav-text">Method
+1: Import module from different directory by append sys.path</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method-2-using-the-pythonpath-environment-variable"><span class="nav-text">Method 2:
+Using the PYTHONPATH environment variable</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -224,20 +223,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -300,7 +299,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Python import 导入其他脚本
+          Python Import module from different directory
         </h1>
 
         <div class="post-meta-container">
@@ -312,14 +311,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-07-24 16:18:55" itemprop="dateCreated datePublished" datetime="2022-07-24T16:18:55+08:00">2022-07-24</time>
+      <time title="创建时间：2022-10-17 18:23:28" itemprop="dateCreated datePublished" datetime="2022-10-17T18:23:28+08:00">2022-10-17</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-10-18 19:06:25" itemprop="dateModified" datetime="2022-10-18T19:06:25+08:00">2022-10-18</time>
+        <time title="修改时间：2022-10-19 09:08:01" itemprop="dateModified" datetime="2022-10-19T09:08:01+08:00">2022-10-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -340,7 +339,7 @@
     </span>
 
   
-    <span id="/529/" class="post-meta-item leancloud_visitors" data-flag-title="Python import 导入其他脚本" title="阅读次数">
+    <span id="/529/" class="post-meta-item leancloud_visitors" data-flag-title="Python Import module from different directory" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -378,89 +377,47 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <p>假设有如下目录结构：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-- dir0</span><br><span class="line">　　| file1.py</span><br><span class="line">　　| file2.py</span><br><span class="line">　　| dir3</span><br><span class="line">　　　　| file3.py</span><br><span class="line">　　| dir4</span><br><span class="line">　　　　| file4.py</span><br></pre></td></tr></table></figure>
-<p><mark style="background: #be9affA6;">dir0</mark> 文件夹下有
-<mark style="background: #fefe00A6;">file1.py</mark>
-、<mark style="background: #fefe00A6;">file2.py</mark> 两个文件 和
-<mark style="background: #018bffA6;">dir3</mark>
-、<mark style="background: #018bffA6;">dir4</mark>
-两个子文件夹，<mark style="background: #018bffA6;">dir3</mark> 中有
-<mark style="background: #fefe00A6;">file3.py</mark>
-文件，<mark style="background: #018bffA6;">dir4</mark> 中有
-<mark style="background: #fefe00A6;">file4.py</mark> 文件。</p>
-<h2 id="导入同级模块">1. 导入同级模块</h2>
-<p>python 导入同级模块（在同一个文件夹中的 py 文件）直接导入即可。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> xxx</span><br></pre></td></tr></table></figure>
-<p>如在 file1.py 中想导入 file2.py，注意无需加后缀 ".py"：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> file2</span><br><span class="line"><span class="comment"># 使用file2中函数时需加上前缀&quot;file2.&quot;，即：</span></span><br><span class="line"><span class="comment"># file2.fuction_name()</span></span><br></pre></td></tr></table></figure>
-<h2 id="导入下级模块">2. 导入下级模块</h2>
-<p>导入下级目录模块也很容易，<mark style="background: #fbab4bA6;">需在下级目录中新建一个空白的__init__.py
-文件再导入</mark> ：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> dirname <span class="keyword">import</span> xxx</span><br></pre></td></tr></table></figure>
-<p>如在 file1.py 中想导入 dir3 下的 file3.py，首先要在 dir3
-中新建一个空白的_<em>init</em>___.py 文件。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- dir0</span><br><span class="line">　　| file1.py</span><br><span class="line">　　| file2.py</span><br><span class="line">　　| dir3</span><br><span class="line">　　　| __init__.py</span><br><span class="line">　　　| file3.py</span><br><span class="line">　　| dir4</span><br><span class="line">　　　| file4.py</span><br></pre></td></tr></table></figure>
-<p>再使用如下语句：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># plan A</span></span><br><span class="line"><span class="keyword">from</span> dir3 <span class="keyword">import</span> file3</span><br></pre></td></tr></table></figure>
-<p>或是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># plan B</span></span><br><span class="line"><span class="keyword">import</span> dir3.file3</span><br><span class="line"><span class="comment"># import dir3.file3 as df3</span></span><br></pre></td></tr></table></figure>
-<p>但使用第二种方式则下文需要一直带着路径 dir3
-书写，较为累赘，建议可以另起一个别名。</p>
-<h2 id="导入上级模块">3. 导入上级模块</h2>
-<p>要导入上级目录下模块，可以使用 sys.path： 　</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys </span><br><span class="line">sys.path.append(<span class="string">&quot;..&quot;</span>) </span><br><span class="line"><span class="keyword">import</span> xxx</span><br></pre></td></tr></table></figure>
-<p>如在 <code>file4.py</code> 中想引入 import 上级目录下的 file1.py：
-<strong>file4.py</strong> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys </span><br><span class="line">sys.path.append(<span class="string">&quot;..&quot;</span>) </span><br><span class="line"><span class="keyword">import</span> file1</span><br></pre></td></tr></table></figure> <strong>python 中 sys.path
-的作用?</strong></p>
-<p>当使用 import
-语句<mark style="background: #018bffA6;">导入模块</mark>
-时，解释器会搜索<mark style="background: #fefe00A6;">当前模块所在目录</mark>
-以及 <mark style="background: #fefe00A6;">sys.path 指定的路径</mark>
-去找需要 import 的模块，所以这里是直接把上级目录加到了 sys.path 里。
-<!--SR:!2022-12-01,56,250--></p>
-<p><strong>“..” 的含义：</strong> 等同于 linux
-里的‘..’，表示当前工作目录的上级目录。实际上 python 中的‘.’也和 linux
-中一致，表示当前目录。</p>
-<h2 id="导入隔壁文件夹下的模块">4. 导入隔壁文件夹下的模块</h2>
-<p>如在 <code>file4.py</code> 中想引入 import 在 dir3 目录下的
-file3.py。</p>
-<p>这其实是前面两个操作的组合，其思路本质上是将上级目录加到 sys.path
-里，再按照对下级目录模块的方式导入。</p>
-<p>同样需要被引文件夹也就是 dir3 下有空的__init__.py 文件。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- <span class="built_in">dir</span></span><br><span class="line">　　| file1.py</span><br><span class="line">　　| file2.py</span><br><span class="line">　　| dir3</span><br><span class="line">　　　　| __init__.py</span><br><span class="line">　　　　| file3.py</span><br><span class="line">　　| dir4</span><br><span class="line">　　　　| file4.py</span><br></pre></td></tr></table></figure>
-<p>同时也要将上级目录加到 sys.path 里： <strong>file4.py</strong>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">&quot;..&quot;</span>)</span><br><span class="line"><span class="keyword">from</span> dir3 <span class="keyword">import</span> file3</span><br></pre></td></tr></table></figure> ## 5. 常见错误及 import 原理：</p>
-<p>在使用直接从上级目录引入模块的操作时：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> .. <span class="keyword">import</span> xxx</span><br></pre></td></tr></table></figure>
-<p>经常会报错:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ValueError: attempted relative import beyond top-level package</span><br></pre></td></tr></table></figure>
-<p>这是由于相对导入时，文件夹实质上充当的是
-package，也就是包的角色（比如我们常用的 numpy、pandas 都是包）。如果
-python 解释器没有认同该文件夹是
-package，那么这就是一个普通的文件夹，无法实现相对导入。</p>
-<p><strong>python 中文件夹作为 package 需要满足的条件?</strong></p>
-<ol type="1">
-<li>文件夹中<mark style="background: #fefe00A6;">必须</mark>
-存在有<code>__init__.py</code> 文件，可以为空。</li>
-<li>不能作为顶层模块来执行该文件夹中的 py 文件。
-<!--SR:!2022-11-30,54,250--></li>
-</ol>
-<h2 id="导入最佳实践">6. 导入最佳实践</h2>
+        <h2
+id="method-1-import-module-from-different-directory-by-append-sys.path">Method
+1: Import module from different directory by append sys.path</h2>
+<p>We can use <strong>sys.path</strong> to add the path of the new
+different folder (the folder from where we want to import the modules)
+to the system path so that Python can also look for the module in that
+directory if it doesn’t find the module in its current directory.
+As <strong>sys.path</strong> falls under the <strong>list type
+class</strong> so, we can easily use the insert method to add the folder
+path.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">import_root_path = os.path.abspath(<span class="string">&#x27;import/root/path/&#x27;</span>)  </span><br><span class="line">sys.path.append(import_root_path)</span><br></pre></td></tr></table></figure>
+<h2 id="method-2-using-the-pythonpath-environment-variable">Method 2:
+Using the PYTHONPATH environment variable</h2>
+<p>if you don’t want to use the <strong>sys</strong> module to set the
+path of the new directory. You can assign a directory path to the
+PYTHONPATH variable and still get your program working.</p>
+<ul>
+<li>In Linux, we can use the following command in the terminal to set
+the path:</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PYTHONPATH=’path/to/directory’  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>In the Windows system :</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SET PYTHONPATH=”path/to/directory”  </span><br></pre></td></tr></table></figure>
+<p>To see if the PYTHONPATH variable holds the path of the new folder,
+we can use the following command:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$PYTHONPATH</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意:</strong></p>
 <ul>
 <li>把项目根目录加入环境变量(手动或通过脚本)<br />
 </li>
-<li>import 导入路径以项目根目录下的源码目录 src 为起始, 如下:<br />
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> src.core.logger_class <span class="keyword">import</span> Logger  </span><br><span class="line"><span class="keyword">from</span> src.core.config_class <span class="keyword">import</span> LoadConfig  </span><br><span class="line"><span class="keyword">from</span> src.core.db_class <span class="keyword">import</span> MySql, Mongo, Redis, Kafka  </span><br></pre></td></tr></table></figure> 参考:<a href="../528">Python Import module from different
-directory</a></li>
+<li>import 导入路径以项目根目录下的源码目录 src 为起始</li>
 </ul>
-<h2 id="各种导入示例">各种导入示例</h2>
-<p><img src="/images/Pasted%20image%2020220904222845.png" />
-<!--SR:!2022-11-28,54,250--></p>
-<p><strong>参考</strong></p>
-<p><a
-target="_blank" rel="noopener" href="https://stackoverflow.com/questions/14132789/relative-imports-for-the-billionth-time">python
-- Relative imports for the billionth time - Stack Overflow</a></p>
+<p><strong>参考:</strong></p>
+<ul>
+<li><a href="../530">Python import 导入其他脚本</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/python-import-module-from-different-directory/">Python
+– Import module from different directory - GeeksforGeeks</a></li>
+</ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">
     </div>
 
@@ -492,7 +449,6 @@ target="_blank" rel="noopener" href="https://stackoverflow.com/questions/1413278
 </div>
 
           <div class="post-tags">
-              <a href="/tags/srcard/" rel="tag"><i class="fa fa-tag"></i> srcard</a>
               <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
           </div>
 
@@ -500,10 +456,13 @@ target="_blank" rel="noopener" href="https://stackoverflow.com/questions/1413278
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/229/" rel="prev" title="VSCode 使用 MSVC 编译器搭建 OpenGL 开发环境">
+                  <i class="fa fa-chevron-left"></i> VSCode 使用 MSVC 编译器搭建 OpenGL 开发环境
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/550/" rel="next" title="说说 Python 的命名规范">
-                  说说 Python 的命名规范 <i class="fa fa-chevron-right"></i>
+                <a href="/636/" rel="next" title="Hexo Next主题添加访问量统计功能">
+                  Hexo Next主题添加访问量统计功能 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
