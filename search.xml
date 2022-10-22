@@ -215,8 +215,8 @@ yarn run/test
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>n</tag>
+        <tag>srcard</tag>
       </tags>
   </entry>
   <entry>
@@ -278,8 +278,8 @@ yarn run/test
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>npm</tag>
         <tag>srcard</tag>
+        <tag>npm</tag>
       </tags>
   </entry>
   <entry>
@@ -311,8 +311,8 @@ yarn run/test
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>node</tag>
         <tag>npm</tag>
+        <tag>node</tag>
       </tags>
   </entry>
   <entry>
@@ -320,7 +320,9 @@ yarn run/test
     <url>/7962ceea5a61f0bcef11f8d9abf63940e874942b/</url>
     <content><![CDATA[<h2 id="安装">1. 安装</h2>
 <p><strong>使用 n 安装和管理 Node</strong></p>
-<p>安装命令: <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 npm</span></span><br><span class="line">sudo apt-get install npm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 yarn</span></span><br><span class="line">sudo npm i -g yarn</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 n, n 模块是管理 nodejs 版本的</span></span><br><span class="line">sudo npm i -g n</span><br><span class="line"></span><br></pre></td></tr></table></figure> ## 2. 配置</p>
+<p>安装命令:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 npm</span></span><br><span class="line">sudo apt-get install npm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 yarn</span></span><br><span class="line">sudo npm i -g yarn</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 n, n 模块是管理 nodejs 版本的</span></span><br><span class="line">sudo npm i -g n</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="配置">2. 配置</h2>
 <ul>
 <li><a href="../1147d6dfd41190e9c83dd723ff1803dc5516c66f">Npm
 配置国内源</a></li>
@@ -421,8 +423,8 @@ Linux 开发环境搭建</a></li>
       </categories>
       <tags>
         <tag>开发环境</tag>
-        <tag>linux</tag>
         <tag>deepin</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -2040,7 +2042,7 @@ extension.</strong></li>
 </ul>
 <h3 id="basic-script-template"><a
 href="#basic-script-template"></a>Basic Script Template</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line">#</span><br><span class="line"># Usage: .py</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">from sys import argv, exit</span><br><span class="line">from collections import defaultdict, namedtuple</span><br><span class="line">from dataclasses import make_dataclass</span><br><span class="line">from enum import Enum</span><br><span class="line">import functools as ft, itertools as it, operator as op, re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">###</span><br><span class="line">##  UTIL</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">def read_file(filename):</span><br><span class="line">    with open(filename, encoding=&#x27;utf-8&#x27;) as file:</span><br><span class="line">        return file.readlines()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line">#</span><br><span class="line"># Usage: .py</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">from sys import argv, exit</span><br><span class="line">from collections import defaultdict, namedtuple</span><br><span class="line">from dataclasses import make_dataclass</span><br><span class="line">from enum import Enum</span><br><span class="line">import functools as ft, itertools as it, operator as op, re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">###  </span><br><span class="line">##  UTIL</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">def read_file(filename):</span><br><span class="line">    with open(filename, encoding=&#x27;utf-8&#x27;) as file:</span><br><span class="line">        return file.readlines()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="index"><a href="#index"></a>Index</h2>
 <ul>
 <li><strong>Only available in the <a
@@ -2057,8 +2059,8 @@ the search to the titles.</strong></li>
         <category>Python</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>srcard</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -2862,11 +2864,11 @@ x64</p></li>
         <category>OpenGL</category>
       </categories>
       <tags>
-        <tag>开发环境</tag>
-        <tag>mscv</tag>
-        <tag>opengl</tag>
         <tag>cpp</tag>
+        <tag>opengl</tag>
+        <tag>开发环境</tag>
         <tag>vscode</tag>
+        <tag>mscv</tag>
       </tags>
   </entry>
   <entry>
@@ -3076,38 +3078,6 @@ Markdown 测试</a></li>
   </entry>
   <entry>
     <title>test_note2</title>
-    <url>/a1051e510da0bf87d685c05b40001b7020d14a66/</url>
-    <content><![CDATA[<h1 id="双链测试笔记-2">双链测试笔记 2</h1>
-<p><a
-href="../cf5e875dd18a1a28fcad3f7d9ef0f7f956287483/#图表">Obsidian+Hexo
-Markdown 测试</a></p>
-<p><a
-href="../a58ee0e911c1ffedefc347d0eac29b0f5fae0d41">test_note1</a></p>
-<p><a
-href="../8f6545d7e67011208be5a476458127a9efcf702f">test_note2</a></p>
-<p><strong>Backlinks:</strong></p>
-<ul>
-<li><a href="../cf5e875dd18a1a28fcad3f7d9ef0f7f956287483">Obsidian+Hexo
-Markdown 测试</a></li>
-<li><a
-href="../8f6545d7e67011208be5a476458127a9efcf702f">test_note2</a></li>
-<li><a
-href="../a58ee0e911c1ffedefc347d0eac29b0f5fae0d41">test_note1</a></li>
-</ul>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>9.输出</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>obsidian</tag>
-        <tag>test</tag>
-        <tag>hexo</tag>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>test_note2</title>
     <url>/8f6545d7e67011208be5a476458127a9efcf702f/</url>
     <content><![CDATA[<h1 id="双链测试笔记-3">双链测试笔记 3</h1>
 <p>双链测试笔记 3 和 双链测试笔记 2 同名, 用于测试同名笔记的双链解析</p>
@@ -3120,12 +3090,12 @@ href="../a58ee0e911c1ffedefc347d0eac29b0f5fae0d41">test_note1</a></p>
 href="../a1051e510da0bf87d685c05b40001b7020d14a66/#Branch%202">test_note2</a></p>
 <p><strong>Backlinks:</strong></p>
 <ul>
-<li><a href="../cf5e875dd18a1a28fcad3f7d9ef0f7f956287483">Obsidian+Hexo
-Markdown 测试</a></li>
 <li><a
 href="../a58ee0e911c1ffedefc347d0eac29b0f5fae0d41">test_note1</a></li>
 <li><a
 href="../a1051e510da0bf87d685c05b40001b7020d14a66">test_note2</a></li>
+<li><a href="../cf5e875dd18a1a28fcad3f7d9ef0f7f956287483">Obsidian+Hexo
+Markdown 测试</a></li>
 </ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
@@ -3134,8 +3104,40 @@ href="../a1051e510da0bf87d685c05b40001b7020d14a66">test_note2</a></li>
         <category>deep</category>
       </categories>
       <tags>
-        <tag>obsidian</tag>
         <tag>test</tag>
+        <tag>obsidian</tag>
+        <tag>hexo</tag>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test_note2</title>
+    <url>/a1051e510da0bf87d685c05b40001b7020d14a66/</url>
+    <content><![CDATA[<h1 id="双链测试笔记-2">双链测试笔记 2</h1>
+<p><a
+href="../cf5e875dd18a1a28fcad3f7d9ef0f7f956287483/#图表">Obsidian+Hexo
+Markdown 测试</a></p>
+<p><a
+href="../a58ee0e911c1ffedefc347d0eac29b0f5fae0d41">test_note1</a></p>
+<p><a
+href="../8f6545d7e67011208be5a476458127a9efcf702f">test_note2</a></p>
+<p><strong>Backlinks:</strong></p>
+<ul>
+<li><a
+href="../8f6545d7e67011208be5a476458127a9efcf702f">test_note2</a></li>
+<li><a
+href="../a58ee0e911c1ffedefc347d0eac29b0f5fae0d41">test_note1</a></li>
+<li><a href="../cf5e875dd18a1a28fcad3f7d9ef0f7f956287483">Obsidian+Hexo
+Markdown 测试</a></li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>9.输出</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>test</tag>
+        <tag>obsidian</tag>
         <tag>hexo</tag>
         <tag>markdown</tag>
       </tags>
@@ -3153,12 +3155,12 @@ href="../a1051e510da0bf87d685c05b40001b7020d14a66/#Branch%202">test_note2</a></p
 href="../8f6545d7e67011208be5a476458127a9efcf702f">test_note2</a></p>
 <p><strong>Backlinks:</strong></p>
 <ul>
-<li><a href="../cf5e875dd18a1a28fcad3f7d9ef0f7f956287483">Obsidian+Hexo
-Markdown 测试</a></li>
 <li><a
 href="../8f6545d7e67011208be5a476458127a9efcf702f">test_note2</a></li>
 <li><a
 href="../a1051e510da0bf87d685c05b40001b7020d14a66">test_note2</a></li>
+<li><a href="../cf5e875dd18a1a28fcad3f7d9ef0f7f956287483">Obsidian+Hexo
+Markdown 测试</a></li>
 </ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
@@ -3166,8 +3168,8 @@ href="../a1051e510da0bf87d685c05b40001b7020d14a66">test_note2</a></li>
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>obsidian</tag>
         <tag>test</tag>
+        <tag>obsidian</tag>
         <tag>hexo</tag>
         <tag>markdown</tag>
       </tags>
@@ -3187,8 +3189,7 @@ href="../8f6545d7e67011208be5a476458127a9efcf702f">test_note2</a></p>
 使用方式：打开 Source Mode 就可以看到所有markdown格式，照着来用就行了  
  </p>
 <h2 id="标题">标题</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 标题一</span><br><span class="line">## 标题二</span><br><span class="line">### 标题三</span><br><span class="line">#### 标题四</span><br><span class="line">##### 标题五</span><br><span class="line">###### 标题六</span><br></pre></td></tr></table></figure>
-<h2 id="配置">2. 配置</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 标题一  </span><br><span class="line">## 标题二  </span><br><span class="line">### 标题三  </span><br><span class="line">#### 标题四  </span><br><span class="line">##### 标题五  </span><br><span class="line">###### 标题六</span><br></pre></td></tr></table></figure>
 <h2 id="文本">文本</h2>
 <p><strong>粗体</strong></p>
 <blockquote>
@@ -3368,8 +3369,8 @@ role="doc-backlink">↩︎</a></p></li>
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>obsidian</tag>
         <tag>test</tag>
+        <tag>obsidian</tag>
         <tag>hexo</tag>
         <tag>markdown</tag>
       </tags>
@@ -3407,8 +3408,8 @@ http://127.0.0.1:5000/name?name=www.h3blog.com <figure class="highlight sh"><tab
         <category>Python</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>srcard</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -4016,8 +4017,8 @@ src="https://mmbiz.qpic.cn/mmbiz_png/IibUVnJ665WriaXQa5CcJ1j5qgLSB3nsDEn4yWicaNc
         <category>Python</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>srcard</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -4075,7 +4076,8 @@ file3.py。</p>
 <p>同样需要被引文件夹也就是 dir3 下有空的__init__.py 文件。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">-- <span class="built_in">dir</span></span><br><span class="line">　　| file1.py</span><br><span class="line">　　| file2.py</span><br><span class="line">　　| dir3</span><br><span class="line">　　　　| __init__.py</span><br><span class="line">　　　　| file3.py</span><br><span class="line">　　| dir4</span><br><span class="line">　　　　| file4.py</span><br></pre></td></tr></table></figure>
 <p>同时也要将上级目录加到 sys.path 里： <strong>file4.py</strong>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">&quot;..&quot;</span>)</span><br><span class="line"><span class="keyword">from</span> dir3 <span class="keyword">import</span> file3</span><br></pre></td></tr></table></figure> ## 5. 常见错误及 import 原理：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">&quot;..&quot;</span>)</span><br><span class="line"><span class="keyword">from</span> dir3 <span class="keyword">import</span> file3</span><br></pre></td></tr></table></figure></p>
+<h2 id="常见错误及-import-原理">5. 常见错误及 import 原理：</h2>
 <p>在使用直接从上级目录引入模块的操作时：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> .. <span class="keyword">import</span> xxx</span><br></pre></td></tr></table></figure>
 <p>经常会报错:</p>
@@ -4119,8 +4121,8 @@ module from different directory</a></li>
         <category>Python</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>srcard</tag>
+        <tag>python</tag>
       </tags>
   </entry>
 </search>
