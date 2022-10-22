@@ -6,7 +6,8 @@
     <content><![CDATA[<p><strong>n 常用命令有哪些?</strong></p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 10.13.0 版本的 Node.js </span></span><br><span class="line">n 10.13.0                    </span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装稳定版 nodejs</span></span><br><span class="line">sudo n stable </span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装最新版 nodejs</span></span><br><span class="line">sudo n latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除某个版本</span></span><br><span class="line">n <span class="built_in">rm</span> 10.13.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 n 切换版本</span></span><br><span class="line">n   --回车</span><br><span class="line">    node/10.13.0</span><br><span class="line">  ο node/10.15.3</span><br><span class="line">    node/11.0.0</span><br><span class="line">    node/11.8.0</span><br><span class="line">    node/12.2.0</span><br><span class="line"><span class="comment"># 按上下键选择版本后，回车</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># nodejs 版本</span></span><br><span class="line">node -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以指定的版本来执行脚本</span></span><br><span class="line">n use 10.13.0  test.js</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <!--SR:!2023-04-13,175,252-->
-<p><strong>Backlinks:</strong></p>
+<p>**</p>
+<p>Backlinks:**</p>
 <ul>
 <li><a href="../7962ceea5a61f0bcef11f8d9abf63940e874942b">Node
 开发环境搭建 Deepin</a></li>
@@ -20,6 +21,40 @@
       <tags>
         <tag>srcard</tag>
         <tag>n</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Npm 配置国内源</title>
+    <url>/1147d6dfd41190e9c83dd723ff1803dc5516c66f/</url>
+    <content><![CDATA[<p>刚安装的 npm
+使用默认的源会感觉特别特别慢，所以，非常有必要使用国内的源，比如说众所周知的淘宝镜像源</p>
+<ol type="1">
+<li><strong>查看当前源</strong></li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li><strong>设置为淘宝源</strong></li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li><strong>还原默认源</strong></li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmjs.org/</span><br></pre></td></tr></table></figure>
+<p>**</p>
+<p>Backlinks:**</p>
+<ul>
+<li><a href="../7962ceea5a61f0bcef11f8d9abf63940e874942b">Node
+开发环境搭建 Deepin</a></li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.工具</category>
+        <category>开发</category>
+        <category>开发环境</category>
+      </categories>
+      <tags>
+        <tag>npm</tag>
+        <tag>node</tag>
       </tags>
   </entry>
   <entry>
@@ -361,110 +396,6 @@ YouCompleteMe，也可以自己手动编译安装，这里有另外一种更加�
       </tags>
   </entry>
   <entry>
-    <title>Npm 配置国内源</title>
-    <url>/1147d6dfd41190e9c83dd723ff1803dc5516c66f/</url>
-    <content><![CDATA[<p>刚安装的 npm
-使用默认的源会感觉特别特别慢，所以，非常有必要使用国内的源，比如说众所周知的淘宝镜像源</p>
-<ol type="1">
-<li><strong>查看当前源</strong></li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
-<ol start="2" type="1">
-<li><strong>设置为淘宝源</strong></li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-<ol start="3" type="1">
-<li><strong>还原默认源</strong></li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmjs.org/</span><br></pre></td></tr></table></figure>
-<p><strong>Backlinks:</strong></p>
-<ul>
-<li><a href="../7962ceea5a61f0bcef11f8d9abf63940e874942b">Node
-开发环境搭建 Deepin</a></li>
-</ul>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>5.工具</category>
-        <category>开发</category>
-        <category>开发环境</category>
-      </categories>
-      <tags>
-        <tag>npm</tag>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>深入浅出 python 闭包</title>
-    <url>/1204f31cf6f554b2754cf12932ef2a8746e990b7/</url>
-    <content><![CDATA[<blockquote>
-<p>原文地址 <a
-href="https://zhuanlan.zhihu.com/p/22229197">zhuanlan.zhihu.com</a></p>
-</blockquote>
-<p>周围有些同事初学 python，往往对 python 的一些高级特性，比如生成器
-(Generator), 闭包(closure)，装饰器(Decorator)
-感到有点不太容易理解，虽然这些特性并非 python
-独有，但真的掌握了一定会让你感觉原来生活如此美好。</p>
-<h2 id="闭包介绍">1. 闭包介绍</h2>
-<p>闭包概念：在一个内部函数中，对外部作用域的变量进行引用，(并且一般外部函数的返回值为内部函数)，那么内部函数就被认为是闭包。举个栗子先：</p>
-<p><img
-src="https://pic3.zhimg.com/0bf070da6fba4187510d4f423f451dd2_b.png" /><img
-src="https://pic4.zhimg.com/564bc6ce56fc4cf2bf5128cd6c60b477_b.png" /><img
-src="https://pic1.zhimg.com/dee4a1e824a6da024b5eace407eeab90_r.jpg" /><img
-src="https://pic1.zhimg.com/f54f1765811dd5c13f415ec25cf2072c_b.png" /><img
-src="https://pic2.zhimg.com/5ea23ecb27f7aa70eff3b6e445093f31_b.png" /></p>
-<h2 id="常见错误">2. 常见错误</h2>
-<h3
-id="闭包无法修改外部函数的局部变量">闭包无法修改外部函数的局部变量</h3>
-<p><img
-src="https://pic1.zhimg.com/37066f1c440ecf7a31f685728119cfa8_r.jpg" />
-这个是什么意思呢？ 如果 innerFunc 可以修改 x 的值的话，x
-的值前后会发生变化，但结果是：</p>
-<p><img
-src="https://pic3.zhimg.com/a7d6feca997ecb0262aaa2875a77c4fa_b.png" /></p>
-<h3 id="python-循环中不包含域的概念">python 循环中不包含域的概念</h3>
-<p><img
-src="https://pic3.zhimg.com/0c44b9dee2b981816d4137a432c4185e_b.png" /></p>
-<p>按照大家正常的理解，应该输出的是 0, 2, 4 对吧？但实际输出的结果是: 4,
-4, 4. 原因是什么呢？loop 在 python 中是没有域的概念的，flist
-在像列表中添加 func 的时候，并没有保存 i 的值，而是当执行 f(2)
-的时候才去取，这时候循环已经结束，i 的值是 2，所以结果都是 4。</p>
-<p>其实修改方案也挺简单的：</p>
-<p><img
-src="https://pic1.zhimg.com/b61fccab921e91f626fb0488a0bace5c_r.jpg" /></p>
-<h2 id="闭包的作用">3. 闭包的作用</h2>
-<p>闭包可以保存当前的运行环境，以一个类似棋盘游戏的例子来说明。假设棋盘大小为
-50*50，左上角为坐标系原点 (0,0)，我需要一个函数，接收 2
-个参数，分别为方向 (direction)，步长 (step)，该函数控制棋子的运动。
-这里需要说明的是，每次运动的起点都是上次运动结束的终点。</p>
-<p>参考代码：</p>
-<p><img
-src="https://pic3.zhimg.com/9ce54b9dd939bb31e18923e7b3618d42_b.png" /><img
-src="https://pic3.zhimg.com/dcbee56a8bcc7d164dddd39d68ee80b6_b.png" /></p>
-<p>当然，闭包在爬虫以及 web
-应用中都有很广泛的应用，并且闭包也是装饰器的基础，这些内容笔者会在后续的文章中分别介绍，这里就不多谈了。理解了本文中的概念，你应该知道的关于闭包的知识也差不多了，请在自己的编程中尽情使用吧。</p>
-<p><strong>参考连接</strong>：</p>
-<ol type="1">
-<li><p><a
-href="https://link.zhihu.com/?target=https%3A//en.wikipedia.org/wiki/Closure_%28computer_programming%29">Closure
-(computer programming)</a></p></li>
-<li><p><a
-href="https://link.zhihu.com/?target=http%3A//stackoverflow.com/questions/11408515/about-python-closure">About
-python closure</a></p></li>
-<li><p><a
-href="https://link.zhihu.com/?target=http%3A//www.jb51.net/article/54498.htm">Python
-中的闭包实例详解_python_脚本之家</a></p></li>
-</ol>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>4.技能</category>
-        <category>编程语言</category>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>说说 Python 的命名规范</title>
     <url>/294569e1f86c7dd015c83e6c236fd191ef29e2ad/</url>
     <content><![CDATA[<blockquote>
@@ -540,6 +471,77 @@ src="https://mmbiz.qpic.cn/mmbiz_png/IibUVnJ665WriaXQa5CcJ1j5qgLSB3nsDEn4yWicaNc
       </tags>
   </entry>
   <entry>
+    <title>深入浅出 python 闭包</title>
+    <url>/1204f31cf6f554b2754cf12932ef2a8746e990b7/</url>
+    <content><![CDATA[<blockquote>
+<p>原文地址 <a
+href="https://zhuanlan.zhihu.com/p/22229197">zhuanlan.zhihu.com</a></p>
+</blockquote>
+<p>周围有些同事初学 python，往往对 python 的一些高级特性，比如生成器
+(Generator), 闭包(closure)，装饰器(Decorator)
+感到有点不太容易理解，虽然这些特性并非 python
+独有，但真的掌握了一定会让你感觉原来生活如此美好。</p>
+<h2 id="闭包介绍">1. 闭包介绍</h2>
+<p>闭包概念：在一个内部函数中，对外部作用域的变量进行引用，(并且一般外部函数的返回值为内部函数)，那么内部函数就被认为是闭包。举个栗子先：</p>
+<p><img
+src="https://pic3.zhimg.com/0bf070da6fba4187510d4f423f451dd2_b.png" /><img
+src="https://pic4.zhimg.com/564bc6ce56fc4cf2bf5128cd6c60b477_b.png" /><img
+src="https://pic1.zhimg.com/dee4a1e824a6da024b5eace407eeab90_r.jpg" /><img
+src="https://pic1.zhimg.com/f54f1765811dd5c13f415ec25cf2072c_b.png" /><img
+src="https://pic2.zhimg.com/5ea23ecb27f7aa70eff3b6e445093f31_b.png" /></p>
+<h2 id="常见错误">2. 常见错误</h2>
+<h3
+id="闭包无法修改外部函数的局部变量">闭包无法修改外部函数的局部变量</h3>
+<p><img
+src="https://pic1.zhimg.com/37066f1c440ecf7a31f685728119cfa8_r.jpg" />
+这个是什么意思呢？ 如果 innerFunc 可以修改 x 的值的话，x
+的值前后会发生变化，但结果是：</p>
+<p><img
+src="https://pic3.zhimg.com/a7d6feca997ecb0262aaa2875a77c4fa_b.png" /></p>
+<h3 id="python-循环中不包含域的概念">python 循环中不包含域的概念</h3>
+<p><img
+src="https://pic3.zhimg.com/0c44b9dee2b981816d4137a432c4185e_b.png" /></p>
+<p>按照大家正常的理解，应该输出的是 0, 2, 4 对吧？但实际输出的结果是: 4,
+4, 4. 原因是什么呢？loop 在 python 中是没有域的概念的，flist
+在像列表中添加 func 的时候，并没有保存 i 的值，而是当执行 f(2)
+的时候才去取，这时候循环已经结束，i 的值是 2，所以结果都是 4。</p>
+<p>其实修改方案也挺简单的：</p>
+<p><img
+src="https://pic1.zhimg.com/b61fccab921e91f626fb0488a0bace5c_r.jpg" /></p>
+<h2 id="闭包的作用">3. 闭包的作用</h2>
+<p>闭包可以保存当前的运行环境，以一个类似棋盘游戏的例子来说明。假设棋盘大小为
+50*50，左上角为坐标系原点 (0,0)，我需要一个函数，接收 2
+个参数，分别为方向 (direction)，步长 (step)，该函数控制棋子的运动。
+这里需要说明的是，每次运动的起点都是上次运动结束的终点。</p>
+<p>参考代码：</p>
+<p><img
+src="https://pic3.zhimg.com/9ce54b9dd939bb31e18923e7b3618d42_b.png" /><img
+src="https://pic3.zhimg.com/dcbee56a8bcc7d164dddd39d68ee80b6_b.png" /></p>
+<p>当然，闭包在爬虫以及 web
+应用中都有很广泛的应用，并且闭包也是装饰器的基础，这些内容笔者会在后续的文章中分别介绍，这里就不多谈了。理解了本文中的概念，你应该知道的关于闭包的知识也差不多了，请在自己的编程中尽情使用吧。</p>
+<p><strong>参考连接</strong>：</p>
+<ol type="1">
+<li><p><a
+href="https://link.zhihu.com/?target=https%3A//en.wikipedia.org/wiki/Closure_%28computer_programming%29">Closure
+(computer programming)</a></p></li>
+<li><p><a
+href="https://link.zhihu.com/?target=http%3A//stackoverflow.com/questions/11408515/about-python-closure">About
+python closure</a></p></li>
+<li><p><a
+href="https://link.zhihu.com/?target=http%3A//www.jb51.net/article/54498.htm">Python
+中的闭包实例详解_python_脚本之家</a></p></li>
+</ol>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>4.技能</category>
+        <category>编程语言</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Npm 常用命令</title>
     <url>/3891bc44a6507d046fb5508c9955848ad90bf49c/</url>
     <content><![CDATA[<h3 id="安装模块">1. 安装模块</h3>
@@ -573,12 +575,15 @@ src="https://mmbiz.qpic.cn/mmbiz_png/IibUVnJ665WriaXQa5CcJ1j5qgLSB3nsDEn4yWicaNc
 <li>时间精力允许的情况下，可进一步了解 npm</li>
 </ol>
 <ul>
-<li><p>packge.json 中各字段的意义</p></li>
-<li><p>package-lock.json 的由来与作用 </p></li>
-<li><p>npm 包的发布与更新 </p></li>
-<li><p>npm 源的搭建 <strong>Backlinks:</strong></p></li>
-<li><p><a href="../7962ceea5a61f0bcef11f8d9abf63940e874942b">Node
-开发环境搭建 Deepin</a></p></li>
+<li>packge.json 中各字段的意义</li>
+<li>package-lock.json 的由来与作用 </li>
+<li>npm 包的发布与更新 </li>
+<li>npm 源的搭建 **</li>
+</ul>
+<p>Backlinks:**</p>
+<ul>
+<li><a href="../7962ceea5a61f0bcef11f8d9abf63940e874942b">Node
+开发环境搭建 Deepin</a></li>
 </ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
@@ -589,85 +594,6 @@ src="https://mmbiz.qpic.cn/mmbiz_png/IibUVnJ665WriaXQa5CcJ1j5qgLSB3nsDEn4yWicaNc
       <tags>
         <tag>srcard</tag>
         <tag>npm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>VSCode 使用 MSVC 编译器搭建 OpenGL 开发环境</title>
-    <url>/2d4749c98b17ee629f8de0b700cf131d14544f51/</url>
-    <content><![CDATA[<blockquote>
-<p>原文地址 <a
-href="https://github.com/qiaogaojian/cpp_learn-opengl">github.com</a></p>
-</blockquote>
-<p>因为 windows 环境下使用 g++ 编译器 assimp 库链接失败, 报错 "undefined
-reference to'Assimp::Importer::Importer()", 后来发现使用 MSVC
-编译器没有这个问题, 踩了几个坑终于搭建成功, 在此记录一下基于VSCode +
-MSVC编译器的 OpenGL 开发环境配置.</p>
-<p>另外, mingw/g++ 开发环境在 g++ 分支 visual studio 开发环境在 vs2019
-分支.</p>
-<h3 id="安装所需软件">1. 安装所需软件</h3>
-<ul>
-<li><p>VSCode 安装 C++ extension</p></li>
-<li><p>下载安装 <a
-href="https://github.com/assimp/assimp/releases/tag/v3.3.1/">assimp-sdk-3.3.1-setup_vs2017.exe</a></p></li>
-<li><p>安装带 C++ build tools 的 Visual Studio, 下载独立的 <a
-href="https://visualstudio.microsoft.com/zh-hant/visual-cpp-build-tools/">C++
-build tools</a> 也可以.</p></li>
-<li><p>其他所用的库在<a
-href="https://github.com/qiaogaojian/learn-opengl.git">项目</a>中的
-include 文件夹里</p></li>
-</ul>
-<h3 id="配置环境变量">2. 配置环境变量</h3>
-<ul>
-<li>Path 中添加 assimp 库</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">D:\Opengl\Assimp\bin\x86  <span class="comment"># 这样就不需要把assimp.dll放到build目录了</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>新建 INCLUDE 环境变量, 添加以下目录</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\include</span><br><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\atlmfc\include</span><br><span class="line">D:\Program\VS2019\VS\Common7\Tools</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\ucrt</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\um</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\shared</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\winrt</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\cppwinrt</span><br></pre></td></tr></table></figure>
-<ul>
-<li>新建 LIB 环境变量, 添加以下目录</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\lib\x86</span><br><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\atlmfc\lib\x86</span><br><span class="line">D:\Program\VS2019\VS\VC\Auxiliary\VS\lib\x86</span><br><span class="line">D:\Program\VS2019\VS\VC\Auxiliary\VS\UnitTest\lib</span><br><span class="line">D:\Windows Kits\10\lib\10.0.19041.0\ucrt\x86</span><br><span class="line">D:\Windows Kits\10\lib\10.0.19041.0\um\x86</span><br></pre></td></tr></table></figure>
-<h3 id="配置-vscode">3. 配置 vscode</h3>
-<ul>
-<li>新建目录 OpenGl 并使用 VSCode 打开, <code>.vscode</code> 目录下
-(没有就新建) 创建 <code>settings.json</code>, 配置以下内容</li>
-</ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.shell.windows&quot;</span><span class="punctuation">:</span>   <span class="string">&quot;C:\\Windows\\Sysnative\\cmd.exe&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.shellArgs.windows&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">	<span class="string">&quot;/k&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="string">&quot;D:/Program Files/VS2019/VS/Common7/Tools/VsDevCmd.bat&quot;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;files.encoding&quot;</span><span class="punctuation">:</span> <span class="string">&quot;gb2312&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;files.associations&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;*.json&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jsonc&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;*.cfg&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ini&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;*.fsh&quot;</span><span class="punctuation">:</span> <span class="string">&quot;glsl&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;stack&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;iostream&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;ostream&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;*.tcc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cctype&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;clocale&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cmath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cstdint&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cstdio&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cstdlib&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cwchar&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cwctype&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;exception&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;initializer_list&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;iosfwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;istream&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;limits&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;new&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;stdexcept&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;streambuf&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;system_error&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;type_traits&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;typeinfo&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;utility&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;iomanip&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>.vscode 下创建 <code>c_cpp_properties.json</code></li>
-</ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;configurations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">	<span class="punctuation">&#123;</span></span><br><span class="line">	  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Win32&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;includePath&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/utils&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glm/glm&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glfw/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/assimp/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span></span><br><span class="line">	  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;defines&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;_DEBUG&quot;</span><span class="punctuation">,</span> <span class="string">&quot;gb2312&quot;</span><span class="punctuation">,</span> <span class="string">&quot;_gb2312&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;intelliSenseMode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;msvc-x64&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;browse&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/utils&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glm/glm&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glfw/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/assimp/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;limitSymbolsToIncludedHeaders&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;databaseFilename&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">	  <span class="punctuation">&#125;</span></span><br><span class="line">	<span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="number">4</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>.vscode 下创建 <code>tasks.json</code></li>
-</ul>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;tasks&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">	<span class="punctuation">&#123;</span></span><br><span class="line">	  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cppbuild&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;compile&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cl&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="string">&quot;/Od&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Zi&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/EHsc&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/MD&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/W4&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Fd:&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;build/&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Fo:&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;build/&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Fe:&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;build/&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;file&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/utils/shader_loader.cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/utils/stb_image.cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/assimp/lib/assimp.lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/glfw/lib-vc2019/glfw3.lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/glad/lib/glad.o&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/msvc/OpenGL32.Lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/msvc/User32.Lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/msvc/Gdi32.Lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/msvc/shell32.lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/glfw/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/glad/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/glm&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/utils&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/assimp/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Link /NODEFAULTLIB:msvcrt.lib&quot;</span></span><br><span class="line">	  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;options&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;cwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span></span><br><span class="line">	  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;problemMatcher&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;$msCompile&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;group&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;kind&quot;</span><span class="punctuation">:</span> <span class="string">&quot;build&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;isDefault&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">	  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;detail&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cl.exe&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<p>.vscode 下创建 <code>launch.json</code></p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.2.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;configurations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="punctuation">&#123;</span></span><br><span class="line">			<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;(Windows) Launch&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cppvsdbg&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;request&quot;</span><span class="punctuation">:</span> <span class="string">&quot;launch&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;program&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceFolder&#125;\\build\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;stopAtEntry&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;cwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;environment&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;externalConsole&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;preLaunchTask&quot;</span><span class="punctuation">:</span> <span class="string">&quot;compile&quot;</span></span><br><span class="line">		<span class="punctuation">&#125;</span></span><br><span class="line">	<span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<h3 id="注意事项">注意事项</h3>
-<ol type="1">
-<li><p>要确保环境变量和项目中的库保持一致 要么都是 x86 要么都是
-x64</p></li>
-<li><p>确保使用 vsdevcmd 进行编译</p></li>
-<li><p>遇到 "undefined reference to xxx", 先检查 tasks.json
-链接缺失的库, 再检查环境变量</p></li>
-<li><p>编译时需要引用 build 文件夹, 但是 build 文件夹 git 已忽略,
-因此需要自己提前新建好</p></li>
-</ol>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>3.理论</category>
-        <category>计算机</category>
-        <category>图形学</category>
-        <category>OpenGL</category>
-      </categories>
-      <tags>
-        <tag>开发环境</tag>
-        <tag>cpp</tag>
-        <tag>mscv</tag>
-        <tag>vscode</tag>
-        <tag>opengl</tag>
       </tags>
   </entry>
   <entry>
@@ -858,7 +784,8 @@ LaTeX 表示方法</a></p>
 <p><a
 href="https://blog.csdn.net/foreverdengwei/article/details/8189243">latex
 中括号大小控制_Cloud-Datacenter-Renewable Energy-Big Data-Model-CSDN
-博客</a><strong>Backlinks:</strong></p>
+博客</a>**</p>
+<p>Backlinks:**</p>
 <ul>
 <li><a href="../cf5e875dd18a1a28fcad3f7d9ef0f7f956287483">Obsidian+Hexo
 Markdown 测试</a></li>
@@ -872,6 +799,85 @@ Markdown 测试</a></li>
       <tags>
         <tag>srcard</tag>
         <tag>latex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VSCode 使用 MSVC 编译器搭建 OpenGL 开发环境</title>
+    <url>/2d4749c98b17ee629f8de0b700cf131d14544f51/</url>
+    <content><![CDATA[<blockquote>
+<p>原文地址 <a
+href="https://github.com/qiaogaojian/cpp_learn-opengl">github.com</a></p>
+</blockquote>
+<p>因为 windows 环境下使用 g++ 编译器 assimp 库链接失败, 报错 "undefined
+reference to'Assimp::Importer::Importer()", 后来发现使用 MSVC
+编译器没有这个问题, 踩了几个坑终于搭建成功, 在此记录一下基于VSCode +
+MSVC编译器的 OpenGL 开发环境配置.</p>
+<p>另外, mingw/g++ 开发环境在 g++ 分支 visual studio 开发环境在 vs2019
+分支.</p>
+<h3 id="安装所需软件">1. 安装所需软件</h3>
+<ul>
+<li><p>VSCode 安装 C++ extension</p></li>
+<li><p>下载安装 <a
+href="https://github.com/assimp/assimp/releases/tag/v3.3.1/">assimp-sdk-3.3.1-setup_vs2017.exe</a></p></li>
+<li><p>安装带 C++ build tools 的 Visual Studio, 下载独立的 <a
+href="https://visualstudio.microsoft.com/zh-hant/visual-cpp-build-tools/">C++
+build tools</a> 也可以.</p></li>
+<li><p>其他所用的库在<a
+href="https://github.com/qiaogaojian/learn-opengl.git">项目</a>中的
+include 文件夹里</p></li>
+</ul>
+<h3 id="配置环境变量">2. 配置环境变量</h3>
+<ul>
+<li>Path 中添加 assimp 库</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">D:\Opengl\Assimp\bin\x86  <span class="comment"># 这样就不需要把assimp.dll放到build目录了</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>新建 INCLUDE 环境变量, 添加以下目录</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\include</span><br><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\atlmfc\include</span><br><span class="line">D:\Program\VS2019\VS\Common7\Tools</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\ucrt</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\um</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\shared</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\winrt</span><br><span class="line">D:\Windows Kits\10\Include\10.0.19041.0\cppwinrt</span><br></pre></td></tr></table></figure>
+<ul>
+<li>新建 LIB 环境变量, 添加以下目录</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\lib\x86</span><br><span class="line">D:\Program\VS2019\VS\VC\Tools\MSVC\14.28.29333\atlmfc\lib\x86</span><br><span class="line">D:\Program\VS2019\VS\VC\Auxiliary\VS\lib\x86</span><br><span class="line">D:\Program\VS2019\VS\VC\Auxiliary\VS\UnitTest\lib</span><br><span class="line">D:\Windows Kits\10\lib\10.0.19041.0\ucrt\x86</span><br><span class="line">D:\Windows Kits\10\lib\10.0.19041.0\um\x86</span><br></pre></td></tr></table></figure>
+<h3 id="配置-vscode">3. 配置 vscode</h3>
+<ul>
+<li>新建目录 OpenGl 并使用 VSCode 打开, <code>.vscode</code> 目录下
+(没有就新建) 创建 <code>settings.json</code>, 配置以下内容</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.shell.windows&quot;</span><span class="punctuation">:</span>   <span class="string">&quot;C:\\Windows\\Sysnative\\cmd.exe&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.shellArgs.windows&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">	<span class="string">&quot;/k&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="string">&quot;D:/Program Files/VS2019/VS/Common7/Tools/VsDevCmd.bat&quot;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;files.encoding&quot;</span><span class="punctuation">:</span> <span class="string">&quot;gb2312&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;files.associations&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;*.json&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jsonc&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;*.cfg&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ini&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;*.fsh&quot;</span><span class="punctuation">:</span> <span class="string">&quot;glsl&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;stack&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;iostream&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;ostream&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;*.tcc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cctype&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;clocale&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cmath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cstdint&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cstdio&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cstdlib&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cwchar&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;cwctype&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;exception&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;initializer_list&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;iosfwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;istream&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;limits&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;new&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;stdexcept&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;streambuf&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;system_error&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;type_traits&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;typeinfo&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;utility&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;iomanip&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cpp&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>.vscode 下创建 <code>c_cpp_properties.json</code></li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;configurations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">	<span class="punctuation">&#123;</span></span><br><span class="line">	  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Win32&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;includePath&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/utils&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glm/glm&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glfw/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/assimp/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span></span><br><span class="line">	  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;defines&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;_DEBUG&quot;</span><span class="punctuation">,</span> <span class="string">&quot;gb2312&quot;</span><span class="punctuation">,</span> <span class="string">&quot;_gb2312&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;intelliSenseMode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;msvc-x64&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;browse&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;path&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/utils&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glm/glm&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glfw/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/assimp/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="string">&quot;$&#123;workspaceFolder&#125;/include/glad/include&quot;</span></span><br><span class="line">		<span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;limitSymbolsToIncludedHeaders&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;databaseFilename&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">	  <span class="punctuation">&#125;</span></span><br><span class="line">	<span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="number">4</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>.vscode 下创建 <code>tasks.json</code></li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;tasks&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">	<span class="punctuation">&#123;</span></span><br><span class="line">	  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cppbuild&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;compile&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cl&quot;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="string">&quot;/Od&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Zi&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/EHsc&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/MD&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/W4&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Fd:&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;build/&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Fo:&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;build/&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Fe:&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;build/&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;$&#123;file&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/utils/shader_loader.cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/utils/stb_image.cpp&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/assimp/lib/assimp.lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/glfw/lib-vc2019/glfw3.lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/glad/lib/glad.o&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/msvc/OpenGL32.Lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/msvc/User32.Lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/msvc/Gdi32.Lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;include/msvc/shell32.lib&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/glfw/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/glad/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/glm&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/utils&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Iinclude/assimp/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="string">&quot;/Link /NODEFAULTLIB:msvcrt.lib&quot;</span></span><br><span class="line">	  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;options&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;cwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span></span><br><span class="line">	  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;problemMatcher&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;$msCompile&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;group&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;kind&quot;</span><span class="punctuation">:</span> <span class="string">&quot;build&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;isDefault&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">	  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	  <span class="attr">&quot;detail&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cl.exe&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>.vscode 下创建 <code>launch.json</code></p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.2.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;configurations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">		<span class="punctuation">&#123;</span></span><br><span class="line">			<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;(Windows) Launch&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cppvsdbg&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;request&quot;</span><span class="punctuation">:</span> <span class="string">&quot;launch&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;program&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceFolder&#125;\\build\\$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;stopAtEntry&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;cwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;environment&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;externalConsole&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">			<span class="attr">&quot;preLaunchTask&quot;</span><span class="punctuation">:</span> <span class="string">&quot;compile&quot;</span></span><br><span class="line">		<span class="punctuation">&#125;</span></span><br><span class="line">	<span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="注意事项">注意事项</h3>
+<ol type="1">
+<li><p>要确保环境变量和项目中的库保持一致 要么都是 x86 要么都是
+x64</p></li>
+<li><p>确保使用 vsdevcmd 进行编译</p></li>
+<li><p>遇到 "undefined reference to xxx", 先检查 tasks.json
+链接缺失的库, 再检查环境变量</p></li>
+<li><p>编译时需要引用 build 文件夹, 但是 build 文件夹 git 已忽略,
+因此需要自己提前新建好</p></li>
+</ol>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>3.理论</category>
+        <category>计算机</category>
+        <category>图形学</category>
+        <category>OpenGL</category>
+      </categories>
+      <tags>
+        <tag>vscode</tag>
+        <tag>cpp</tag>
+        <tag>opengl</tag>
+        <tag>开发环境</tag>
+        <tag>mscv</tag>
       </tags>
   </entry>
   <entry>
@@ -913,14 +919,16 @@ we can use the following command:</p>
 </ul>
 <p><strong>参考:</strong></p>
 <ul>
-<li><p><a href="../7d70c8c862ee464cdda08e0ac33aa03ca9de8d6f">Python
-import 导入其他脚本</a></p></li>
-<li><p><a
+<li><a href="../7d70c8c862ee464cdda08e0ac33aa03ca9de8d6f">Python import
+导入其他脚本</a></li>
+<li><a
 href="https://www.geeksforgeeks.org/python-import-module-from-different-directory/">Python
-– Import module from different directory - GeeksforGeeks</a>
-<strong>Backlinks:</strong></p></li>
-<li><p><a href="../7d70c8c862ee464cdda08e0ac33aa03ca9de8d6f">Python
-import 导入其他脚本</a></p></li>
+– Import module from different directory - GeeksforGeeks</a> **</li>
+</ul>
+<p>Backlinks:**</p>
+<ul>
+<li><a href="../7d70c8c862ee464cdda08e0ac33aa03ca9de8d6f">Python import
+导入其他脚本</a></li>
 </ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
@@ -1000,8 +1008,92 @@ import 导入其他脚本</a></p></li>
       </categories>
       <tags>
         <tag>开发环境</tag>
-        <tag>deepin</tag>
         <tag>linux</tag>
+        <tag>deepin</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vim 使用全局剪贴板</title>
+    <url>/6b3a3abf0a6c8711830275afbe228de56da9066d/</url>
+    <content><![CDATA[<p>查看 vim 的 clipboard 功能是否开启</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vim --version | grep clipboard</span><br></pre></td></tr></table></figure>
+<p><img src="/images/2325099-c78cfca714ce958a.png" /> 没有开启是减号</p>
+<p>如果不支持 clipboard 功能, 需要安装支持 clipboard 的 vim 版本</p>
+<h3 id="ubuntu">ubuntu</h3>
+<p>安装 vim-gtk</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo apt install vim-gtk</span><br></pre></td></tr></table></figure>
+<h3 id="centos">centos</h3>
+<p>安装 vim-x11 和 vim-enhanced</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">yum install vim*</span><br></pre></td></tr></table></figure>
+<p>使用 vimx 代替 vim<br />
+编辑 <code>~/.zshrc</code> 添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">alias vi=&#x27;vimx&#x27;</span><br><span class="line">alias vim=&#x27;vimx&#x27;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Debian &amp; Ubuntu: Install <code>vim-gtk</code> or
+<code>vim-gnome</code>.</li>
+<li>Fedora: install <code>vim-X11</code>, and run <code>vimx</code>
+instead of <code>vim</code> (<a
+href="https://link.jianshu.com?t=https%3A%2F%2Fvi.stackexchange.com%2Fq%2F2063%2F51">more
+info</a>).</li>
+<li>Arch Linux: install <code>gvim</code> (this will enable
+<code>+clipboard</code> for normal <code>vim</code> as well).</li>
+</ul>
+<p><strong>参考：</strong></p>
+<ul>
+<li><p><a
+href="https://link.jianshu.com?t=https%3A%2F%2Fvi.stackexchange.com%2Fquestions%2F84%2Fhow-can-i-copy-text-to-the-system-clipboard-from-vim">how-can-i-copy-text-to-the-system-clipboard-from-vim</a></p></li>
+<li><p><a
+href="https://link.jianshu.com?t=https%3A%2F%2Fvi.stackexchange.com%2Fquestions%2F2063%2Fhow-do-i-get-clipboard-support-in-fedora-20">how-do-i-get-clipboard-support-in-fedora-20</a></p></li>
+<li><p><a
+href="https://link.jianshu.com?t=https%3A%2F%2Fwww.zhihu.com%2Fquestion%2F19863631">如何将
+Vim 剪贴板里面的东西粘贴到 Vim 之外的地方？</a>**</p></li>
+</ul>
+<p>Backlinks:**</p>
+<ul>
+<li><a href="../14dab12572d9fd706144fe09626534625a2a2eb8">Vim
+常用命令</a></li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.工具</category>
+        <category>开发</category>
+        <category>Vim</category>
+      </categories>
+      <tags>
+        <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Node 开发环境搭建 Deepin</title>
+    <url>/7962ceea5a61f0bcef11f8d9abf63940e874942b/</url>
+    <content><![CDATA[<h2 id="安装">1. 安装</h2>
+<p><strong>使用 n 安装和管理 Node</strong></p>
+<p>安装命令: <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 npm</span></span><br><span class="line">sudo apt-get install npm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 yarn</span></span><br><span class="line">sudo npm i -g yarn</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 n, n 模块是管理 nodejs 版本的</span></span><br><span class="line">sudo npm i -g n</span><br><span class="line"></span><br></pre></td></tr></table></figure> ## 2.配置</p>
+<p><a href="../1147d6dfd41190e9c83dd723ff1803dc5516c66f">Npm
+配置国内源</a> <a
+href="../696c5673813e9eac4d382ce511c432cd8c3dcc4f/#设置国内源">Yarn
+简介</a></p>
+<h2 id="常用命令">3. 常用命令</h2>
+<p><a href="../3891bc44a6507d046fb5508c9955848ad90bf49c">Npm
+常用命令</a> <a href="../08b6858d1e7f950a80d08062a2a9e8c429243979">N
+常用命令</a> <a
+href="../696c5673813e9eac4d382ce511c432cd8c3dcc4f/#常用命令">Yarn
+简介</a></p>
+<p>**</p>
+<p>Backlinks:**</p>
+<ul>
+<li><a href="../546aa018dacb833edff629600f56879bc2370906">基于 Deepin 的
+Linux 开发环境搭建</a></li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.工具</category>
+        <category>开发</category>
+        <category>开发环境</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>Deepin</tag>
       </tags>
   </entry>
   <entry>
@@ -1185,7 +1277,8 @@ yarn run/test
 <h2 id="设置国内源">设置国内源</h2>
 <p>yarn 原仓库包下载不稳定时需要设置国内源</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">yarn config <span class="built_in">set</span> registry <span class="string">&quot;https://registry.npm.taobao.org&quot;</span></span><br></pre></td></tr></table></figure>
-<p><strong>Backlinks:</strong></p>
+<p>**</p>
+<p>Backlinks:**</p>
 <ul>
 <li><a href="../7962ceea5a61f0bcef11f8d9abf63940e874942b">Node
 开发环境搭建 Deepin</a></li>
@@ -1199,161 +1292,6 @@ yarn run/test
       <tags>
         <tag>srcard</tag>
         <tag>yarn</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vim 使用全局剪贴板</title>
-    <url>/6b3a3abf0a6c8711830275afbe228de56da9066d/</url>
-    <content><![CDATA[<p>查看 vim 的 clipboard 功能是否开启</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vim --version | grep clipboard</span><br></pre></td></tr></table></figure>
-<p><img src="/images/2325099-c78cfca714ce958a.png" /> 没有开启是减号</p>
-<p>如果不支持 clipboard 功能, 需要安装支持 clipboard 的 vim 版本</p>
-<h3 id="ubuntu">ubuntu</h3>
-<p>安装 vim-gtk</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo apt install vim-gtk</span><br></pre></td></tr></table></figure>
-<h3 id="centos">centos</h3>
-<p>安装 vim-x11 和 vim-enhanced</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">yum install vim*</span><br></pre></td></tr></table></figure>
-<p>使用 vimx 代替 vim<br />
-编辑 <code>~/.zshrc</code> 添加：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">alias vi=&#x27;vimx&#x27;</span><br><span class="line">alias vim=&#x27;vimx&#x27;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Debian &amp; Ubuntu: Install <code>vim-gtk</code> or
-<code>vim-gnome</code>.</li>
-<li>Fedora: install <code>vim-X11</code>, and run <code>vimx</code>
-instead of <code>vim</code> (<a
-href="https://link.jianshu.com?t=https%3A%2F%2Fvi.stackexchange.com%2Fq%2F2063%2F51">more
-info</a>).</li>
-<li>Arch Linux: install <code>gvim</code> (this will enable
-<code>+clipboard</code> for normal <code>vim</code> as well).</li>
-</ul>
-<p><strong>参考：</strong></p>
-<ul>
-<li><p><a
-href="https://link.jianshu.com?t=https%3A%2F%2Fvi.stackexchange.com%2Fquestions%2F84%2Fhow-can-i-copy-text-to-the-system-clipboard-from-vim">how-can-i-copy-text-to-the-system-clipboard-from-vim</a></p></li>
-<li><p><a
-href="https://link.jianshu.com?t=https%3A%2F%2Fvi.stackexchange.com%2Fquestions%2F2063%2Fhow-do-i-get-clipboard-support-in-fedora-20">how-do-i-get-clipboard-support-in-fedora-20</a></p></li>
-<li><p><a
-href="https://link.jianshu.com?t=https%3A%2F%2Fwww.zhihu.com%2Fquestion%2F19863631">如何将
-Vim 剪贴板里面的东西粘贴到 Vim
-之外的地方？</a><strong>Backlinks:</strong></p></li>
-<li><p><a href="../14dab12572d9fd706144fe09626534625a2a2eb8">Vim
-常用命令</a></p></li>
-</ul>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>5.工具</category>
-        <category>开发</category>
-        <category>Vim</category>
-      </categories>
-      <tags>
-        <tag>vim</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS == 和 === 的区别</title>
-    <url>/894af26ddcc518ccc45e0f52fd57df311958d1c0/</url>
-    <content><![CDATA[<h2 id="区别">区别</h2>
-<p>在 JS 项目里，除了能看到 ==
-操作符来判断两个变量是否相等外，我们还会看到 ===
-操作符，这两者有什么区别？</p>
-<ul>
-<li>对于 String, number 这些<strong>值类型</strong>，<code>==</code>
-操作符会先把两边的变量<mark style="background: #fefe00A6;">进行类型强制转换成相同的类型再比较是否相等</mark>
-；<code>===</code> 操作符则不会进行类型转换，而是直接进行比较。</li>
-<li>对于 array, object 这些<strong>引用类型</strong>，<code>==</code> 和
-<code>===</code>
-是没有区别的，因为它们<mark style="background: #fefe00A6;">比较的是
-“指针地址</mark> ” 。</li>
-<li><strong>值类型和引用类型之间</strong>比较，<code>==</code> 和
-<code>===</code>
-是有区别的；<code>==</code>操作符会<mark style="background: #fefe00A6;">先把高级类型转换为基础类型</mark>
-之后，进行值的比较；<code>===</code>
-操作符则不会进行转换，类型不同，直接返回 false</li>
-</ul>
-<p>也就是说，<code>==</code>
-操作符只要求比较<mark style="background: #83d98fA6;">两个变量的值是否相等</mark>
-，<code>===</code>
-操作符则是要求<mark style="background: #83d98fA6;">两个变量的值和类型都要相同</mark>
-；类似地，<code>!=</code> 操作符会去做类型强制转换，<code>!==</code>
-操作符则不会转换类型。</p>
-<p><strong>值类型</strong> <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a == b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a === b);</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<p><strong>引用类型</strong> <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;*********************************&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> a = &#123;<span class="attr">val</span>:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> b = &#123;<span class="attr">val</span>:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a==b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a===b);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;*********************************&quot;</span>);</span><br><span class="line">c = a;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a==c);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a===c);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<!--SR:!2022-10-31,22,250--></p>
-<h2 id="注意事项">注意事项</h2>
-<p><mark style="background: #fa518dA6;">JS == / ===注意事项: </mark></p>
-<ul>
-<li>对于特殊值 NaN（Not a Number）表示非数字，NaN
-和任何数（包括它自己）做相等比较，都会返回
-false，所以<mark style="background: #83d98fA6;">判断 NaN 最好用 isNaN()
-函数</mark></li>
-<li>undefined 和 null，两者的值相比较，会返回 true。 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span>==<span class="literal">null</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span>===<span class="literal">null</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li>由于 == 和!=
-操作符带来的类型隐式转换规则非常繁琐，还有为了避免数据类型混淆导致出现
-bug，还是推荐使用 <code>===</code> 操作符和<code>!==</code> 操作符。
-<!--SR:!2022-11-05,27,250--></li>
-</ul>
-<h2 id="stack-overflow-相关">Stack Overflow 相关</h2>
-<p>So there you have the two common sources of errors in Javascript
-comparisons: 1. comparing different types with == can lead to
-==unexpected type conversions.== 2. comparing objects and arrays is
-based on ==references not values stored inside==.</p>
-<p>As the existing answer already says, Typescript is designed as a
-superset of Javascript. So it doesn't change the behaviour of these
-comparison operators. If you write <code>==</code> in Typescript, you
-get type conversions.</p>
-<p>So how is this fixed? ==With the compiler. ==If you actually do write
-code that compares incompatible types with <code>==</code> it's a
-compiler error. Try compiling the following sample:<br />
-<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;1&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> num = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str==num);</span><br></pre></td></tr></table></figure>
-<!--SR:!2022-11-02,24,250!2022-11-03,25,250!2022-11-06,28,250--></p>
-<p><strong>参考:</strong></p>
-<p><a href="https://nowjava.com/article/44330">nowjava.com</a></p>
-<p><a
-href="https://stackoverflow.com/questions/57125700/why-use-triple-equal-in-typescript">javascript
-- Why use triple-equal (<code>===</code>) in TypeScript? - Stack
-Overflow</a></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>4.技能</category>
-        <category>编程语言</category>
-        <category>Javascript</category>
-      </categories>
-      <tags>
-        <tag>srcard</tag>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Node 开发环境搭建 Deepin</title>
-    <url>/7962ceea5a61f0bcef11f8d9abf63940e874942b/</url>
-    <content><![CDATA[<h2 id="安装">1. 安装</h2>
-<p><strong>使用 n 安装和管理 Node</strong></p>
-<p>安装命令: <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 npm</span></span><br><span class="line">sudo apt-get install npm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 yarn</span></span><br><span class="line">sudo npm i -g yarn</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 n, n 模块是管理 nodejs 版本的</span></span><br><span class="line">sudo npm i -g n</span><br><span class="line"></span><br></pre></td></tr></table></figure> ## 2.配置</p>
-<p><a href="../1147d6dfd41190e9c83dd723ff1803dc5516c66f">Npm
-配置国内源</a> <a
-href="../696c5673813e9eac4d382ce511c432cd8c3dcc4f/#设置国内源">Yarn
-简介</a></p>
-<h2 id="常用命令">3. 常用命令</h2>
-<p><a href="../3891bc44a6507d046fb5508c9955848ad90bf49c">Npm
-常用命令</a> <a href="../08b6858d1e7f950a80d08062a2a9e8c429243979">N
-常用命令</a> <a
-href="../696c5673813e9eac4d382ce511c432cd8c3dcc4f/#常用命令">Yarn
-简介</a></p>
-<p><strong>Backlinks:</strong></p>
-<ul>
-<li><a href="../546aa018dacb833edff629600f56879bc2370906">基于 Deepin 的
-Linux 开发环境搭建</a></li>
-</ul>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>5.工具</category>
-        <category>开发</category>
-        <category>开发环境</category>
-      </categories>
-      <tags>
-        <tag>srcard</tag>
-        <tag>Deepin</tag>
       </tags>
   </entry>
   <entry>
@@ -1442,8 +1380,8 @@ from different directory</a></li>
 <p><strong>参考</strong></p>
 <p><a
 href="https://stackoverflow.com/questions/14132789/relative-imports-for-the-billionth-time">python
-- Relative imports for the billionth time - Stack Overflow</a>
-<strong>Backlinks:</strong></p>
+- Relative imports for the billionth time - Stack Overflow</a> **</p>
+<p>Backlinks:**</p>
 <ul>
 <li><a href="../444fdbf98270c2b627e5837a41c9e9ed322c10b5">Python Import
 module from different directory</a></li>
@@ -1460,35 +1398,77 @@ module from different directory</a></li>
       </tags>
   </entry>
   <entry>
-    <title>syncthing 如何移动同步仓库位置</title>
-    <url>/93b271a4b50fa0d57f5c4585e735dc462fa40798/</url>
-    <content><![CDATA[<p><strong>how to move syncthing folder position?</strong></p>
-<ol type="1">
-<li>Make sure the folder is <mark style="background: #018bffA6;">up to
-date</mark> with the remote. (probably not strictly necessary)</li>
-<li><mark style="background: #018bffA6;">Stop Syncthing</mark> (Pausing
-the folder could be enough)</li>
-<li><mark style="background: #018bffA6;">Copy the folder</mark> to the
-external drive (e.g. using rsync or equivalent).</li>
-<li><mark style="background: #018bffA6;">Edit the path in syncthing
-config file</mark>
-(C:/Users/Administrator/AppData/Local/Syncthing/config.xml )</li>
-<li><mark style="background: #018bffA6;">Restart syncthing</mark></li>
-<li>Wait for scanning and initial sync (exchanging and comparing
-metadata to be sure the contents are the same as on remote) to
-finish.</li>
-<li>if everything works ok, delete the original folder
-<!--SR:!2022-10-24,21,250--></li>
-</ol>
+    <title>JS == 和 === 的区别</title>
+    <url>/894af26ddcc518ccc45e0f52fd57df311958d1c0/</url>
+    <content><![CDATA[<h2 id="区别">区别</h2>
+<p>在 JS 项目里，除了能看到 ==
+操作符来判断两个变量是否相等外，我们还会看到 ===
+操作符，这两者有什么区别？</p>
+<ul>
+<li>对于 String, number 这些<strong>值类型</strong>，<code>==</code>
+操作符会先把两边的变量<mark style="background: #fefe00A6;">进行类型强制转换成相同的类型再比较是否相等</mark>
+；<code>===</code> 操作符则不会进行类型转换，而是直接进行比较。</li>
+<li>对于 array, object 这些<strong>引用类型</strong>，<code>==</code> 和
+<code>===</code>
+是没有区别的，因为它们<mark style="background: #fefe00A6;">比较的是
+“指针地址</mark> ” 。</li>
+<li><strong>值类型和引用类型之间</strong>比较，<code>==</code> 和
+<code>===</code>
+是有区别的；<code>==</code>操作符会<mark style="background: #fefe00A6;">先把高级类型转换为基础类型</mark>
+之后，进行值的比较；<code>===</code>
+操作符则不会进行转换，类型不同，直接返回 false</li>
+</ul>
+<p>也就是说，<code>==</code>
+操作符只要求比较<mark style="background: #83d98fA6;">两个变量的值是否相等</mark>
+，<code>===</code>
+操作符则是要求<mark style="background: #83d98fA6;">两个变量的值和类型都要相同</mark>
+；类似地，<code>!=</code> 操作符会去做类型强制转换，<code>!==</code>
+操作符则不会转换类型。</p>
+<p><strong>值类型</strong> <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> b = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a == b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a === b);</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p><strong>引用类型</strong> <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;*********************************&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> a = &#123;<span class="attr">val</span>:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> b = &#123;<span class="attr">val</span>:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a==b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a===b);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;*********************************&quot;</span>);</span><br><span class="line">c = a;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a==c);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a===c);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<!--SR:!2022-10-31,22,250--></p>
+<h2 id="注意事项">注意事项</h2>
+<p><mark style="background: #fa518dA6;">JS == / ===注意事项: </mark></p>
+<ul>
+<li>对于特殊值 NaN（Not a Number）表示非数字，NaN
+和任何数（包括它自己）做相等比较，都会返回
+false，所以<mark style="background: #83d98fA6;">判断 NaN 最好用 isNaN()
+函数</mark></li>
+<li>undefined 和 null，两者的值相比较，会返回 true。 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span>==<span class="literal">null</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="literal">undefined</span>===<span class="literal">null</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>由于 == 和!=
+操作符带来的类型隐式转换规则非常繁琐，还有为了避免数据类型混淆导致出现
+bug，还是推荐使用 <code>===</code> 操作符和<code>!==</code> 操作符。
+<!--SR:!2022-11-05,27,250--></li>
+</ul>
+<h2 id="stack-overflow-相关">Stack Overflow 相关</h2>
+<p>So there you have the two common sources of errors in Javascript
+comparisons: 1. comparing different types with == can lead to
+==unexpected type conversions.== 2. comparing objects and arrays is
+based on ==references not values stored inside==.</p>
+<p>As the existing answer already says, Typescript is designed as a
+superset of Javascript. So it doesn't change the behaviour of these
+comparison operators. If you write <code>==</code> in Typescript, you
+get type conversions.</p>
+<p>So how is this fixed? ==With the compiler. ==If you actually do write
+code that compares incompatible types with <code>==</code> it's a
+compiler error. Try compiling the following sample:<br />
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;1&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> num = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(str==num);</span><br></pre></td></tr></table></figure>
+<!--SR:!2022-11-02,24,250!2022-11-03,25,250!2022-11-06,28,250--></p>
+<p><strong>参考:</strong></p>
+<p><a href="https://nowjava.com/article/44330">nowjava.com</a></p>
+<p><a
+href="https://stackoverflow.com/questions/57125700/why-use-triple-equal-in-typescript">javascript
+- Why use triple-equal (<code>===</code>) in TypeScript? - Stack
+Overflow</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>5.工具</category>
-        <category>效率</category>
-        <category>Syncthing</category>
+        <category>4.技能</category>
+        <category>编程语言</category>
+        <category>Javascript</category>
       </categories>
       <tags>
         <tag>srcard</tag>
-        <tag>syncthing</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -2102,6 +2082,38 @@ Sheet</a></p>
       </tags>
   </entry>
   <entry>
+    <title>syncthing 如何移动同步仓库位置</title>
+    <url>/93b271a4b50fa0d57f5c4585e735dc462fa40798/</url>
+    <content><![CDATA[<p><strong>how to move syncthing folder position?</strong></p>
+<ol type="1">
+<li>Make sure the folder is <mark style="background: #018bffA6;">up to
+date</mark> with the remote. (probably not strictly necessary)</li>
+<li><mark style="background: #018bffA6;">Stop Syncthing</mark> (Pausing
+the folder could be enough)</li>
+<li><mark style="background: #018bffA6;">Copy the folder</mark> to the
+external drive (e.g. using rsync or equivalent).</li>
+<li><mark style="background: #018bffA6;">Edit the path in syncthing
+config file</mark>
+(C:/Users/Administrator/AppData/Local/Syncthing/config.xml )</li>
+<li><mark style="background: #018bffA6;">Restart syncthing</mark></li>
+<li>Wait for scanning and initial sync (exchanging and comparing
+metadata to be sure the contents are the same as on remote) to
+finish.</li>
+<li>if everything works ok, delete the original folder
+<!--SR:!2022-10-24,21,250--></li>
+</ol>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.工具</category>
+        <category>效率</category>
+        <category>Syncthing</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>syncthing</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>test_note2</title>
     <url>/8f6545d7e67011208be5a476458127a9efcf702f/</url>
     <content><![CDATA[<h1 id="双链测试笔记-3">双链测试笔记 3</h1>
@@ -2113,14 +2125,15 @@ Markdown 测试</a></p>
 href="../a58ee0e911c1ffedefc347d0eac29b0f5fae0d41">test_note1</a></p>
 <p><a
 href="../a1051e510da0bf87d685c05b40001b7020d14a66/#Branch%202">test_note2</a>
-<strong>Backlinks:</strong></p>
+**</p>
+<p>Backlinks:**</p>
 <ul>
-<li><a
-href="../a58ee0e911c1ffedefc347d0eac29b0f5fae0d41">test_note1</a></li>
 <li><a
 href="../a1051e510da0bf87d685c05b40001b7020d14a66">test_note2</a></li>
 <li><a href="../cf5e875dd18a1a28fcad3f7d9ef0f7f956287483">Obsidian+Hexo
 Markdown 测试</a></li>
+<li><a
+href="../a58ee0e911c1ffedefc347d0eac29b0f5fae0d41">test_note1</a></li>
 </ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
@@ -2129,10 +2142,10 @@ Markdown 测试</a></li>
         <category>deep</category>
       </categories>
       <tags>
-        <tag>test</tag>
-        <tag>hexo</tag>
         <tag>obsidian</tag>
+        <tag>hexo</tag>
         <tag>markdown</tag>
+        <tag>test</tag>
       </tags>
   </entry>
   <entry>
@@ -2145,14 +2158,15 @@ Markdown 测试</a></p>
 <p><a
 href="../a58ee0e911c1ffedefc347d0eac29b0f5fae0d41">test_note1</a></p>
 <p><a href="../8f6545d7e67011208be5a476458127a9efcf702f">test_note2</a>
-<strong>Backlinks:</strong></p>
+**</p>
+<p>Backlinks:**</p>
 <ul>
 <li><a
-href="../a58ee0e911c1ffedefc347d0eac29b0f5fae0d41">test_note1</a></li>
+href="../8f6545d7e67011208be5a476458127a9efcf702f">test_note2</a></li>
 <li><a href="../cf5e875dd18a1a28fcad3f7d9ef0f7f956287483">Obsidian+Hexo
 Markdown 测试</a></li>
 <li><a
-href="../8f6545d7e67011208be5a476458127a9efcf702f">test_note2</a></li>
+href="../a58ee0e911c1ffedefc347d0eac29b0f5fae0d41">test_note1</a></li>
 </ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
@@ -2160,10 +2174,10 @@ href="../8f6545d7e67011208be5a476458127a9efcf702f">test_note2</a></li>
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>test</tag>
-        <tag>hexo</tag>
         <tag>obsidian</tag>
+        <tag>hexo</tag>
         <tag>markdown</tag>
+        <tag>test</tag>
       </tags>
   </entry>
   <entry>
@@ -2176,14 +2190,15 @@ Markdown 测试</a></p>
 <p><a
 href="../a1051e510da0bf87d685c05b40001b7020d14a66/#Branch%202">test_note2</a></p>
 <p><a href="../8f6545d7e67011208be5a476458127a9efcf702f">test_note2</a>
-<strong>Backlinks:</strong></p>
+**</p>
+<p>Backlinks:**</p>
 <ul>
 <li><a
 href="../a1051e510da0bf87d685c05b40001b7020d14a66">test_note2</a></li>
-<li><a href="../cf5e875dd18a1a28fcad3f7d9ef0f7f956287483">Obsidian+Hexo
-Markdown 测试</a></li>
 <li><a
 href="../8f6545d7e67011208be5a476458127a9efcf702f">test_note2</a></li>
+<li><a href="../cf5e875dd18a1a28fcad3f7d9ef0f7f956287483">Obsidian+Hexo
+Markdown 测试</a></li>
 </ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
@@ -2191,10 +2206,47 @@ href="../8f6545d7e67011208be5a476458127a9efcf702f">test_note2</a></li>
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>test</tag>
-        <tag>hexo</tag>
         <tag>obsidian</tag>
+        <tag>hexo</tag>
         <tag>markdown</tag>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>flask 参数传递的4种方式</title>
+    <url>/dbf16f0359b132fca77e8472b47d86ac9249e5ef/</url>
+    <content><![CDATA[<blockquote>
+<p>原文地址 <a
+href="http://h3blog.com/article/flask-params/">h3blog.com</a></p>
+</blockquote>
+<h2 id="get-方式传参">get 方式传参</h2>
+<p>代码： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, jsonify</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment"># get方式传参数</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/name&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getName</span>():</span><br><span class="line">    name = request.args.get(<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(name)</span><br><span class="line">    </span><br></pre></td></tr></table></figure> 测试 curl
+http://127.0.0.1:5000/name?name=www.h3blog.com <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ curl -i -X GET http://127.0.0.1:5000/name?name=www.h3blog.com</span><br></pre></td></tr></table></figure></p>
+<p>response: <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hello,www.h3blog.com</span><br></pre></td></tr></table></figure> <!--SR:!2022-11-24,51,250--></p>
+<h2 id="post-方式传参">post 方式传参</h2>
+<p>代码 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, jsonify</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment"># post方式传参数</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/name&#x27;</span>,methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">postName</span>():</span><br><span class="line">    name = request.form.get(<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(name)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/post_address_nft&quot;</span>, methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)  </span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">post_address_nft</span>():  </span><br><span class="line">	addresses = flask.request.values.get(<span class="string">&#x27;address_list&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">	</span><br></pre></td></tr></table></figure> 测试 curl http://127.0.0.1:5000/name
+<strong>-d</strong> 'name=www.h3blog.com' <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ curl -X POST http://127.0.0.1:5000/name -d <span class="string">&#x27;name=www.h3blog.com&#x27;</span> -i</span><br></pre></td></tr></table></figure></p>
+<p>response: <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hello,www.h3blog.com</span><br></pre></td></tr></table></figure> <!--SR:!2022-11-28,54,250--></p>
+<h2 id="url-路径传参">url 路径传参</h2>
+<p>代码 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, jsonify</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,world&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># url路径参数</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/name/&lt;name&gt;&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">urlName</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(name)</span><br></pre></td></tr></table></figure> 测试 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ curl -X GET http://127.0.0.1:5000/name/www.h3blog.com -i</span><br></pre></td></tr></table></figure></p>
+<p>response: <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hello,www.h3blog.com</span><br></pre></td></tr></table></figure> <!--SR:!2022-11-14,42,250--></p>
+<h2 id="json-body-传参">json body 传参</h2>
+<p>代码 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, jsonify</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,world&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ajax body json</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/json&#x27;</span>,methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">json_body</span>():</span><br><span class="line">    data = request.get_data(as_text=<span class="literal">True</span>)</span><br><span class="line">    <span class="built_in">print</span>(data)</span><br><span class="line">    jsonObj = json.loads(data)</span><br><span class="line">    <span class="keyword">return</span> jsonify(jsonObj)</span><br></pre></td></tr></table></figure> 测试 curl <code>url</code> <strong>-H</strong>
+<code>'Content-Type:application/json'</code> <strong>-d</strong>
+<code>'json_string'</code> <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ curl -X POST -H <span class="string">&#x27;Content-Type:application/json&#x27;</span> http://127.0.0.1:5000/json -d <span class="string">&#x27;&#123;&quot;name&quot;:&quot;www.h3blog.com&quot;&#125;&#x27;</span> -i</span><br></pre></td></tr></table></figure></p>
+<p>response: <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;www.h3blog.com&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <!--SR:!2022-11-28,54,250--></p>
+<h2 id="flask-传参汇总">Flask 传参汇总</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, jsonify</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,world&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># get方式传参数</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/name&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getName</span>():</span><br><span class="line">    name = request.args.get(<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># post方式传参数</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/name&#x27;</span>,methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">postName</span>():</span><br><span class="line">    name = request.form.get(<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># url路径参数</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/name/&lt;name&gt;&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">urlName</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ajax body json</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/json&#x27;</span>,methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">json_body</span>():</span><br><span class="line">    data = flask.request.get_json()</span><br><span class="line">    <span class="built_in">print</span>(data)</span><br><span class="line">    jsonObj = json.loads(data)</span><br><span class="line">    <span class="keyword">return</span> jsonify(jsonObj)</span><br></pre></td></tr></table></figure>
+<!--SR:!2022-11-28,54,250-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>4.技能</category>
+        <category>编程语言</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -2355,13 +2407,14 @@ role="doc-noteref"><sup>2</sup></a>.</p>
 <p>You can also use words, to fit your writing style more closely<a
 href="#fn3" class="footnote-ref" id="fnref3"
 role="doc-noteref"><sup>3</sup></a>.</p>
+<p>Backlinks:**</p>
 <ul>
-<li><a
-href="../a58ee0e911c1ffedefc347d0eac29b0f5fae0d41">test_note1</a></li>
 <li><a
 href="../a1051e510da0bf87d685c05b40001b7020d14a66">test_note2</a></li>
 <li><a
 href="../8f6545d7e67011208be5a476458127a9efcf702f">test_note2</a></li>
+<li><a
+href="../a58ee0e911c1ffedefc347d0eac29b0f5fae0d41">test_note1</a></li>
 </ul>
 <section class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
@@ -2377,8 +2430,8 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 with numbers instead of the text but allow easier identification and
 linking.<br />
 This footnote also has been made with a different syntax using 4 spaces
-for new lines.<strong>Backlinks:</strong><a href="#fnref3"
-class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+for new lines.**<a href="#fnref3" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
@@ -2387,10 +2440,10 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>test</tag>
-        <tag>hexo</tag>
         <tag>obsidian</tag>
+        <tag>hexo</tag>
         <tag>markdown</tag>
+        <tag>test</tag>
       </tags>
   </entry>
   <entry>
@@ -4045,43 +4098,6 @@ href="https://transactions.sendowl.com/products/78175486/4422834F/view">PDF</a>.
 href="https://gto76.github.io/python-cheatsheet/">webpage</a> will limit
 the search to the titles.</strong></li>
 </ul>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>4.技能</category>
-        <category>编程语言</category>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>srcard</tag>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>flask 参数传递的4种方式</title>
-    <url>/dbf16f0359b132fca77e8472b47d86ac9249e5ef/</url>
-    <content><![CDATA[<blockquote>
-<p>原文地址 <a
-href="http://h3blog.com/article/flask-params/">h3blog.com</a></p>
-</blockquote>
-<h2 id="get-方式传参">get 方式传参</h2>
-<p>代码： <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, jsonify</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment"># get方式传参数</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/name&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getName</span>():</span><br><span class="line">    name = request.args.get(<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(name)</span><br><span class="line">    </span><br></pre></td></tr></table></figure> 测试 curl
-http://127.0.0.1:5000/name?name=www.h3blog.com <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ curl -i -X GET http://127.0.0.1:5000/name?name=www.h3blog.com</span><br></pre></td></tr></table></figure></p>
-<p>response: <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hello,www.h3blog.com</span><br></pre></td></tr></table></figure> <!--SR:!2022-11-24,51,250--></p>
-<h2 id="post-方式传参">post 方式传参</h2>
-<p>代码 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, jsonify</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment"># post方式传参数</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/name&#x27;</span>,methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">postName</span>():</span><br><span class="line">    name = request.form.get(<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(name)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/post_address_nft&quot;</span>, methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)  </span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">post_address_nft</span>():  </span><br><span class="line">	addresses = flask.request.values.get(<span class="string">&#x27;address_list&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">	</span><br></pre></td></tr></table></figure> 测试 curl http://127.0.0.1:5000/name
-<strong>-d</strong> 'name=www.h3blog.com' <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ curl -X POST http://127.0.0.1:5000/name -d <span class="string">&#x27;name=www.h3blog.com&#x27;</span> -i</span><br></pre></td></tr></table></figure></p>
-<p>response: <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hello,www.h3blog.com</span><br></pre></td></tr></table></figure> <!--SR:!2022-11-28,54,250--></p>
-<h2 id="url-路径传参">url 路径传参</h2>
-<p>代码 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, jsonify</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,world&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># url路径参数</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/name/&lt;name&gt;&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">urlName</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(name)</span><br></pre></td></tr></table></figure> 测试 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ curl -X GET http://127.0.0.1:5000/name/www.h3blog.com -i</span><br></pre></td></tr></table></figure></p>
-<p>response: <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hello,www.h3blog.com</span><br></pre></td></tr></table></figure> <!--SR:!2022-11-14,42,250--></p>
-<h2 id="json-body-传参">json body 传参</h2>
-<p>代码 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, jsonify</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,world&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ajax body json</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/json&#x27;</span>,methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">json_body</span>():</span><br><span class="line">    data = request.get_data(as_text=<span class="literal">True</span>)</span><br><span class="line">    <span class="built_in">print</span>(data)</span><br><span class="line">    jsonObj = json.loads(data)</span><br><span class="line">    <span class="keyword">return</span> jsonify(jsonObj)</span><br></pre></td></tr></table></figure> 测试 curl <code>url</code> <strong>-H</strong>
-<code>'Content-Type:application/json'</code> <strong>-d</strong>
-<code>'json_string'</code> <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">$ curl -X POST -H <span class="string">&#x27;Content-Type:application/json&#x27;</span> http://127.0.0.1:5000/json -d <span class="string">&#x27;&#123;&quot;name&quot;:&quot;www.h3blog.com&quot;&#125;&#x27;</span> -i</span><br></pre></td></tr></table></figure></p>
-<p>response: <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;www.h3blog.com&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <!--SR:!2022-11-28,54,250--></p>
-<h2 id="flask-传参汇总">Flask 传参汇总</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, jsonify</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,world&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># get方式传参数</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/name&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getName</span>():</span><br><span class="line">    name = request.args.get(<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># post方式传参数</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/name&#x27;</span>,methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">postName</span>():</span><br><span class="line">    name = request.form.get(<span class="string">&#x27;name&#x27;</span>,<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># url路径参数</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/name/&lt;name&gt;&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">urlName</span>(<span class="params">name</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello,&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ajax body json</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/json&#x27;</span>,methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">json_body</span>():</span><br><span class="line">    data = flask.request.get_json()</span><br><span class="line">    <span class="built_in">print</span>(data)</span><br><span class="line">    jsonObj = json.loads(data)</span><br><span class="line">    <span class="keyword">return</span> jsonify(jsonObj)</span><br></pre></td></tr></table></figure>
-<!--SR:!2022-11-28,54,250-->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>4.技能</category>
