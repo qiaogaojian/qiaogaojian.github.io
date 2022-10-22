@@ -1,8 +1,399 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Yarn 简介</title>
+    <url>/-5823335004693593156/</url>
+    <content><![CDATA[<p>Yarn 是 Facebook 发布的新一代包管理工具，旨在解决以往使用 npm
+作为包管理会遇到的一些问题。特点：<mark style="background: #83d98fA6;">快</mark>
+、<mark style="background: #83d98fA6;">可靠</mark>
+、<mark style="background: #83d98fA6;">安全</mark> 。</p>
+<h2 id="yarn-的优点">Yarn 的优点？</h2>
+<ul>
+<li><strong>速度快</strong> 。速度快主要来自以下两个方面： 　1.
+并行安装：无论 npm 还是 Yarn 在执行包的安装时，都会执行一系列任务。npm
+是按照队列执行每个 package，也就是说必须要等到当前 package
+安装完成之后，才能继续后面的安装。而 Yarn
+是同步执行所有任务，提高了性能。 　2.
+离线模式：如果之前已经安装过一个软件包，用 Yarn
+再次安装时之间从缓存中获取，就不用像 npm 那样再从网络下载了。</li>
+<li><strong>安装版本统一</strong>：为了防止拉取到不同的版本，Yarn
+有一个锁定文件 (lock file)
+记录了被确切安装上的模块的版本号。每次只要新增了一个模块，Yarn
+就会创建（或更新）yarn.lock
+这个文件。这么做就保证了，每一次拉取同一个项目依赖时，使用的都是一样的模块版本。npm
+其实也有办法实现处处使用相同版本的 packages，但需要开发者执行 npm
+shrinkwrap 命令。这个命令将会生成一个锁定文件，在执行 npm install
+的时候，该锁定文件会先被读取，和 Yarn 读取 yarn.lock 文件一个道理。npm
+和 Yarn 两者的不同之处在于，Yarn 默认会生成这样的锁定文件，而 npm 要通过
+shrinkwrap 命令生成 npm-shrinkwrap.json
+文件，只有当这个文件存在的时候，packages 版本信息才会被记录和更新。</li>
+<li><strong>更简洁的输出</strong>：npm 的输出信息比较冗长。在执行 npm
+install 的时候，命令行里会不断地打印出所有被安装上的依赖。相比之下，Yarn
+简洁太多：默认情况下，结合了 emoji
+直观且直接地打印出必要的信息，也提供了一些命令供开发者查询额外的安装信息。</li>
+<li><strong>多注册来源处理：</strong>
+所有的依赖包，不管他被不同的库间接关联引用多少次，安装这个包时，只会从一个注册来源去装，要么是
+npm 要么是 bower, 防止出现混乱不一致。</li>
+<li><strong>更好的语义化</strong>： yarn 改变了一些 npm 命令的名称，比如
+yarn add/remove，感觉上比 npm 原本的 install/uninstall 要更清晰。
+<!--SR:!2022-11-14,40,250--></li>
+</ul>
+<h2 id="常用命令">常用命令</h2>
+<p><strong>执行 <code>yarn / yarn install</code> 解析 package.json
+时，分为 4 个步骤：</strong></p>
+<ol type="1">
+<li><strong>依赖关系解析</strong>：yarn 在解析 package.json
+文件时，会对其每个依赖包进行遍历分析生成 yarn.lock
+文件。该文件描述了项目中每个包以及每个包中所依赖的包的版本信息。<br />
+</li>
+<li><strong>包下载</strong>：根据第一步中解析的结果下载特定版本的包。如果该包曾经被下载过，则跳过此次的下载操作，直接使用本地缓存，即
+yarn 的离线模式特性。<br />
+</li>
+<li><strong>包关联</strong>：关联拷贝下载或者缓存在全局的包到项目。<br />
+</li>
+<li><strong>包编译</strong>：编译项目中使用到的包。 <br />
+<!--SR:!2022-10-23,3,250--></li>
+</ol>
+<p>yarn.lock(该文件用于锁定包版本已保障每次编译的结果一致，也可通过 yarn
+install --no-lockfile 命令设置不生成 yarn.lock 文件)</p>
+<p><strong>yarn &amp; npm 常用命令对比</strong> Yarn 的命令基本跟 npm
+的大同小异， 使用 <code>yarn init</code> 生成 package.json 文件， 用
+<code>yarn add</code>和 <code>yarn add --dev</code> 分别替换
+<code>npm install --save</code> 和<code>npm install --dev</code>
+命令即可。</p>
+<table width="825">
+<thead>
+<tr>
+<th>
+NPM
+</th>
+<th>
+YARN
+</th>
+<th>
+说明
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+npm init
+</td>
+<td>
+yarn init
+</td>
+<td>
+初始化某个项目
+</td>
+</tr>
+<tr>
+<td>
+npm install/link
+</td>
+<td>
+yarn install/link
+</td>
+<td>
+默认的安装依赖操作
+</td>
+</tr>
+<tr>
+<td>
+npm install taco —save
+</td>
+<td>
+yarn add taco
+</td>
+<td>
+安装某个依赖，并且默认保存到 package.
+</td>
+</tr>
+<tr>
+<td>
+npm uninstall taco —save
+</td>
+<td>
+yarn remove taco
+</td>
+<td>
+移除某个依赖项目
+</td>
+</tr>
+<tr>
+<td>
+npm install taco —save-dev
+</td>
+<td>
+yarn add taco —dev
+</td>
+<td>
+安装某个开发时依赖项目
+</td>
+</tr>
+<tr>
+<td>
+npm update taco —save
+</td>
+<td>
+yarn upgrade taco
+</td>
+<td>
+更新某个依赖项目
+</td>
+</tr>
+<tr>
+<td>
+npm install taco --global
+</td>
+<td>
+yarn global add taco
+</td>
+<td>
+安装某个全局依赖项目
+</td>
+</tr>
+<tr>
+<td>
+npm publish/login/logout
+</td>
+<td>
+yarn publish/login/logout
+</td>
+<td>
+发布 / 登录 / 登出，一系列 NPM Registry 操作
+</td>
+</tr>
+<tr>
+<td>
+npm run/test
+</td>
+<td>
+yarn run/test
+</td>
+<td>
+运行某个命令
+</td>
+</tr>
+</tbody>
+</table>
+<!--SR:!2022-11-25,54,250-->
+<h2 id="设置国内源">设置国内源</h2>
+<p>yarn 原仓库包下载不稳定时需要设置国内源</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">yarn config <span class="built_in">set</span> registry <span class="string">&quot;https://registry.npm.taobao.org&quot;</span></span><br></pre></td></tr></table></figure>
+<p><strong>Referenced:</strong> - <a href="../9113356874814977270">Node
+开发环境搭建 Deepin</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>4.技能</category>
+        <category>Server</category>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>yarn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Npm 常用命令</title>
+    <url>/2459615000961828005/</url>
+    <content><![CDATA[<h3 id="安装模块">1. 安装模块</h3>
+<p><strong>npm 安装命令?</strong></p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm i/install moduleName    <span class="comment"># 安装模块；i 是 install 的缩写，两者功能是一样的</span></span><br><span class="line">npm i moduleName -g         <span class="comment"># 全局安装模块</span></span><br><span class="line">npm i moduleName@0.0.1      <span class="comment"># 安装模块的指定版本</span></span><br><span class="line"></span><br><span class="line">npm i moduleName --save     <span class="comment"># 安装并保存至 package.json 文件的 dependencies 中</span></span><br><span class="line">npm i moduleName --save-dev <span class="comment"># 安装并保存至 package.json 文件的 devDependencies 中</span></span><br></pre></td></tr></table></figure>
+<!--SR:!2022-12-25,126,252-->
+<p><strong>npm 直接从 github 安装 module</strong><br />
+??<br />
+- <strong>命令行</strong><br />
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install qiaogaojian/pouchdb-server  </span><br></pre></td></tr></table></figure> 或者<br />
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install git://github.com/qiaogaojian/pouchdb-server<span class="comment">#sqlite5  </span></span><br><span class="line">```  </span><br><span class="line">- **package.json**  </span><br><span class="line">```json  </span><br><span class="line"><span class="string">&quot;dependencies&quot;</span> : &#123;  </span><br><span class="line">  <span class="string">&quot;moduleName&quot;</span> : <span class="string">&quot;git://github.com/user/project.git#commit-ish&quot;</span>  </span><br><span class="line">&#125;  </span><br><span class="line">```  </span><br><span class="line">或者  </span><br><span class="line">```json  </span><br><span class="line"><span class="string">&quot;dependencies&quot;</span> : &#123;  </span><br><span class="line">   <span class="string">&quot;moduleName&quot;</span> : <span class="string">&quot;user/project#branch_name&quot;</span>  </span><br><span class="line">&#125;  </span><br><span class="line">```  </span><br><span class="line">&lt;!--SR:!2022-10-20,22,252--&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">### 2.  查看已安装模块</span></span><br><span class="line"></span><br><span class="line">**npm查看已安装模块命令?**</span><br><span class="line"></span><br><span class="line">```sh</span><br><span class="line">npm <span class="built_in">ls</span>                       <span class="comment"># 查看所有局部安装的模块</span></span><br><span class="line">npm <span class="built_in">ls</span> -g                    <span class="comment"># 查看所有全局安装的模块</span></span><br><span class="line"></span><br><span class="line">npm <span class="built_in">ls</span> moduleName            <span class="comment"># 查看指定模块的局部安装情况</span></span><br><span class="line">npm <span class="built_in">ls</span> moduleName -g         <span class="comment"># 查看指定模块的全局安装情况</span></span><br><span class="line"></span><br><span class="line">npm view moduleName          <span class="comment"># 查看当前源中指定模块的信息</span></span><br><span class="line">npm view moduleName versions <span class="comment"># 查看当前源中指定模块的所有历史版本</span></span><br><span class="line">npm view moduleName version  <span class="comment"># 查看当前源中指定模块的最新版本</span></span><br></pre></td></tr></table></figure> <!--SR:!2023-03-02,168,252--></p>
+<h3 id="卸载模块">3. 卸载模块</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm uninstall moduleName</span><br></pre></td></tr></table></figure>
+<!--SR:!2023-02-03,150,252-->
+<h3 id="更新模块">4. 更新模块</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 按照 package.json 中的描述更新模块，且会在 package.json 文件中保存更新后的版本描述；</span></span><br><span class="line"><span class="comment"># ^a.b.c 更新至 a 下的最新版本</span></span><br><span class="line"><span class="comment"># ~a.b.c 更新至 a.b 下的最新版本</span></span><br><span class="line"><span class="comment"># a.b.c 不会做任何更新</span></span><br><span class="line">npm update </span><br><span class="line"></span><br><span class="line">npm update moduleName <span class="comment"># 更新指定模块</span></span><br></pre></td></tr></table></figure>
+<h3 id="npm-源查看与修改">5. npm 源查看与修改</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm config get registry                                 <span class="comment"># 查看当前 npm 源地址</span></span><br><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org <span class="comment"># 将 npm 源设置成相应的地址</span></span><br></pre></td></tr></table></figure>
+<h3 id="万能的-help">6. 万能的 help</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm <span class="built_in">help</span> <span class="comment"># 当忘记了相应命令后，查看帮助</span></span><br></pre></td></tr></table></figure>
+<h3 id="npm-注意事项">npm 注意事项</h3>
+<ol type="1">
+<li>package-lock.json 需要提交</li>
+</ol>
+<p>npm 从 5.0 版本开始添加了 package-lock.json 文件 (下称 lock
+文件)；用于保证再次安装模块时能安装同样的版本；如果未保存 lock 文件；npm
+会安装符合描述规则的最新版本如 gulp 中的 ^3.0.0 会安装 3.9.1
+版本；这就容易造成一些版本不兼容的问题；
+<!--SR:!2022-11-25,108,252--></p>
+<ol start="2" type="1">
+<li>时间精力允许的情况下，可进一步了解 npm</li>
+</ol>
+<ul>
+<li>packge.json 中各字段的意义</li>
+<li>package-lock.json 的由来与作用 </li>
+<li>npm 包的发布与更新 </li>
+<li>npm 源的搭建 <strong>Referenced:</strong></li>
+<li><a href="../9113356874814977270">Node 开发环境搭建 Deepin</a></li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.工具</category>
+        <category>开发</category>
+        <category>开发环境</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>npm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>N 常用命令</title>
+    <url>/7880311318093781137/</url>
+    <content><![CDATA[<p><strong>n 常用命令有哪些?</strong></p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 10.13.0 版本的 Node.js </span></span><br><span class="line">n 10.13.0                    </span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装稳定版 nodejs</span></span><br><span class="line">sudo n stable </span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装最新版 nodejs</span></span><br><span class="line">sudo n latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除某个版本</span></span><br><span class="line">n <span class="built_in">rm</span> 10.13.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 n 切换版本</span></span><br><span class="line">n   --回车</span><br><span class="line">    node/10.13.0</span><br><span class="line">  ο node/10.15.3</span><br><span class="line">    node/11.0.0</span><br><span class="line">    node/11.8.0</span><br><span class="line">    node/12.2.0</span><br><span class="line"><span class="comment"># 按上下键选择版本后，回车</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># nodejs 版本</span></span><br><span class="line">node -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以指定的版本来执行脚本</span></span><br><span class="line">n use 10.13.0  test.js</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<!--SR:!2023-04-13,175,252-->
+<p><strong>Referenced:</strong> - <a href="../9113356874814977270">Node
+开发环境搭建 Deepin</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.工具</category>
+        <category>开发</category>
+        <category>开发环境</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>n</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Npm 配置国内源</title>
+    <url>/-6390621917019234087/</url>
+    <content><![CDATA[<p>刚安装的 npm
+使用默认的源会感觉特别特别慢，所以，非常有必要使用国内的源，比如说众所周知的淘宝镜像源</p>
+<ol type="1">
+<li><strong>查看当前源</strong></li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li><strong>设置为淘宝源</strong></li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li><strong>还原默认源</strong></li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmjs.org/</span><br></pre></td></tr></table></figure>
+<p><strong>Referenced:</strong> - <a href="../9113356874814977270">Node
+开发环境搭建 Deepin</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.工具</category>
+        <category>开发</category>
+        <category>开发环境</category>
+      </categories>
+      <tags>
+        <tag>npm</tag>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Node 开发环境搭建 Deepin</title>
+    <url>/9113356874814977270/</url>
+    <content><![CDATA[<h2 id="安装">1. 安装</h2>
+<p><strong>使用 n 安装和管理 Node</strong></p>
+<p>安装命令: <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 npm</span></span><br><span class="line">sudo apt-get install npm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 yarn</span></span><br><span class="line">sudo npm i -g yarn</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 n, n 模块是管理 nodejs 版本的</span></span><br><span class="line">sudo npm i -g n</span><br><span class="line"></span><br></pre></td></tr></table></figure> ## 2.配置</p>
+<p><a href="../-6390621917019234087">Npm 配置国内源</a> <a
+href="../-5823335004693593156/#设置国内源">Yarn 简介</a></p>
+<h2 id="常用命令">3. 常用命令</h2>
+<p><a href="../2459615000961828005">Npm 常用命令</a> <a
+href="../7880311318093781137">N 常用命令</a> <a
+href="../-5823335004693593156/#常用命令">Yarn 简介</a></p>
+<p><strong>Referenced:</strong> - <a href="../-8448233574426353366">基于
+Deepin 的 Linux 开发环境搭建</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.工具</category>
+        <category>开发</category>
+        <category>开发环境</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>Deepin</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于 Deepin 的 Linux 开发环境搭建</title>
+    <url>/-8448233574426353366/</url>
+    <content><![CDATA[<h2 id="sdk">SDK</h2>
+<ul>
+<li>Go</li>
+<li>Lua</li>
+<li>Rust</li>
+<li>Node <a href="../9113356874814977270">Node 开发环境搭建
+Deepin</a></li>
+<li>Python3</li>
+<li>NetCore</li>
+<li>SDKMan</li>
+</ul>
+<h2 id="系统">系统</h2>
+<ul>
+<li>Git</li>
+<li>Rime</li>
+<li>Fish</li>
+<li>Vimx</li>
+<li>Htop</li>
+<li>ScreenFetch</li>
+</ul>
+<h2 id="服务">服务</h2>
+<ul>
+<li>Nginx</li>
+<li>Docker</li>
+</ul>
+<h2 id="数据库">数据库</h2>
+<ul>
+<li>MySQL</li>
+<li>MongoDB</li>
+<li>Redis</li>
+<li>Kafka</li>
+</ul>
+<h2 id="后端框架">后端框架</h2>
+<ul>
+<li>Egg</li>
+<li>Flask</li>
+<li>Django</li>
+<li>Spring Cloud</li>
+</ul>
+<h2 id="前端框架">前端框架</h2>
+<ul>
+<li>Vue</li>
+<li>React</li>
+</ul>
+<h2 id="区块链">区块链</h2>
+<ul>
+<li>geth</li>
+<li>Truffle</li>
+<li>Hardhat</li>
+<li>Brownie</li>
+<li>Ganache</li>
+</ul>
+<h2 id="工具">工具</h2>
+<ul>
+<li>VSCode</li>
+<li>Chrome</li>
+<li>SmartGit</li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>2.工作</category>
+        <category>环境</category>
+      </categories>
+      <tags>
+        <tag>开发环境</tag>
+        <tag>linux</tag>
+        <tag>deepin</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Comprehensive Python Cheatsheet</title>
-    <url>/-5756343694020473847/</url>
+    <url>/2462720413181033000/</url>
     <content><![CDATA[<blockquote>
 <p>原文地址 <a
 href="https://github.com/gto76/python-cheatsheet">github.com</a></p>
@@ -1632,13 +2023,13 @@ the search to the titles.</strong></li>
         <category>Python</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>python</tag>
+        <tag>srcard</tag>
       </tags>
   </entry>
   <entry>
     <title>Learn Regex the Easy Way</title>
-    <url>/-269919782890226714/</url>
+    <url>/-8888221773843691388/</url>
     <content><![CDATA[<blockquote>
 <p>原文地址 <a
 href="https://github.com/ziishaned/learn-regex/blob/master/translations/README-cn.md">github.com</a></p>
@@ -1788,7 +2179,7 @@ $
 <p><code>.</code>是元字符中最简单的例子。
 <code>.</code>匹配任意单个字符，但不匹配==换行符==。
 例如，表达式<code>.ar</code>匹配一个任意字符后面跟着是<code>a</code>和<code>r</code>的字符串。
-<!--SR:!2022-10-21,3,250--></p>
+<!--SR:!2022-10-31,10,250--></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;.ar&quot; =&gt; The car parked in the garage.</span><br></pre></td></tr></table></figure>
 <p><a href="https://regex101.com/r/xc9GkU/1">在线练习</a></p>
 <h3 id="字符集">2.2 字符集</h3>
@@ -1802,7 +2193,7 @@ $
 <code>ar.</code>字符串</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;ar[.]&quot; =&gt; A garage is a good place to park a car.</span><br></pre></td></tr></table></figure>
 <p><a href="https://regex101.com/r/wL3xtE/1">在线练习</a>
-<!--SR:!2022-10-21,3,250--></p>
+<!--SR:!2022-10-31,10,250--></p>
 <p><strong>2.2.1 否定字符集</strong></p>
 <p>一般来说 <code>^</code>
 表示一个字符串的<strong>开头</strong>，但它用在一个方括号的开头的时候，它表示这个字符集是否定的。
@@ -1810,7 +2201,7 @@ $
 匹配一个后面跟着<code>ar</code>的除了<code>c</code>的任意字符。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;[^c]ar&quot; =&gt; The car parked in the garage.</span><br></pre></td></tr></table></figure>
 <p><a href="https://regex101.com/r/nNNlq3/1">在线练习</a>
-<!--SR:!2022-10-21,3,250--></p>
+<!--SR:!2022-10-31,10,250--></p>
 <h3 id="重复次数">2.3 重复次数</h3>
 <p>后面跟着元字符 <code>+</code>，<code>*</code> or <code>?</code>
 的，用来指定匹配子模式的次数。
@@ -1828,14 +2219,14 @@ $
 0 或更多个空格开头和 0 或更多个空格结尾的 cat 字符串。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;\s*cat\s*&quot; =&gt; The fat cat sat on the concatenation.</span><br></pre></td></tr></table></figure>
 <p><a href="https://regex101.com/r/gGrwuz/1">在线练习</a>
-<!--SR:!2022-10-21,3,250--></p>
+<!--SR:!2022-10-31,10,250--></p>
 <p><strong>2.3.2 <code>+</code> 号</strong></p>
 <p><code>+</code>号匹配<code>+</code>号之前的字符出现 &gt;=1 次。
 例如表达式<code>c.+t</code>
 匹配以首字母<code>c</code>开头以<code>t</code>结尾，中间跟着至少一个字符的字符串。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;c.+t&quot; =&gt; The fat cat sat on the mat.</span><br></pre></td></tr></table></figure>
 <p><a href="https://regex101.com/r/Dzf9Aa/1">在线练习</a>
-<!--SR:!2022-10-21,3,250--></p>
+<!--SR:!2022-10-31,10,250--></p>
 <p><strong>2.3.3 <code>?</code> 号</strong></p>
 <p>在正则表达式中元字符 <code>?</code>
 标记在符号前面的字符为可选，即出现 0 或 1 次。 例如，表达式
@@ -1874,7 +2265,7 @@ $
 <code>gar</code> 或 <code>par</code>.</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;(c|g|p)ar&quot; =&gt; The car is parked in the garage.</span><br></pre></td></tr></table></figure>
 <p><a href="https://regex101.com/r/tUxrBG/1">在线练习</a>
-<!--SR:!2022-10-21,3,250--></p>
+<!--SR:!2022-10-31,10,250--></p>
 <h3 id="或运算符">2.6 <code>|</code> 或运算符</h3>
 <p>或运算符就表示或，用作判断条件。</p>
 <p>例如 <code>(T|t)he|car</code> 匹配 <code>(T|t)he</code> 或
@@ -1918,7 +2309,7 @@ $
 <p><a href="https://regex101.com/r/y4Au4D/1">在线练习</a></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;(at\.)$&quot; =&gt; The fat cat. sat. on the mat.</span><br></pre></td></tr></table></figure>
 <p><a href="https://regex101.com/r/t0AkOd/1">在线练习</a>
-<!--SR:!2022-10-21,3,250--></p>
+<!--SR:!2022-10-31,10,250--></p>
 <h2 id="简写字符集">3. 简写字符集</h2>
 <p>正则表达式提供一些常用的字符集简写。如下:</p>
 <table>
@@ -2040,7 +2431,7 @@ $
 </tr>
 </tbody>
 </table>
-<!--SR:!2022-10-21,3,250-->
+<!--SR:!2022-10-31,10,250-->
 <h2 id="零宽度断言前后预查">4. 零宽度断言（前后预查）</h2>
 <p><strong>先行断言和后发断言</strong>（合称
 lookaround）都属于<strong>非捕获组</strong>（用于匹配模式，但==不包括在匹配列表中==）。当我们需要一个模式的前面或后面有另一个特定的模式时，就可以使用它们。</p>
@@ -2129,7 +2520,7 @@ lookaround）都属于<strong>非捕获组</strong>（用于匹配模式，但==
 <code>the</code>。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;(?&lt;=(T|t)he\s)(fat|mat)&quot; =&gt; The fat cat sat on the mat.</span><br></pre></td></tr></table></figure>
 <p><a href="https://regex101.com/r/avH165/1">在线练习</a>
-<!--SR:!2022-10-21,3,250--></p>
+<!--SR:!2022-10-31,10,250--></p>
 <h3 id="负后发断言">4.4 <code>?&lt;!...</code> 负后发断言</h3>
 <p>负后发断言 记作 <code>(?&lt;!...)</code>
 用于筛选所有匹配结果，筛选条件为 其前不跟随着断言中定义的格式。
@@ -2138,7 +2529,7 @@ lookaround）都属于<strong>非捕获组</strong>（用于匹配模式，但==
 <code>the</code>。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;(?&lt;!(T|t)he\s)(cat)&quot; =&gt; The cat sat on cat.</span><br></pre></td></tr></table></figure>
 <p><a href="https://regex101.com/r/8Efx5G/1">在线练习</a>
-<!--SR:!2022-10-21,3,250--></p>
+<!--SR:!2022-10-31,10,250--></p>
 <h2 id="标志">5. 标志</h2>
 <p>标志也叫模式修正符，因为它可以用来==修改表达式的搜索结果==。
 这些标志可以任意的组合使用，它也是整个正则表达式的一部分。</p>
@@ -2181,7 +2572,7 @@ m
 </tr>
 </tbody>
 </table>
-<!--SR:!2022-10-21,3,250-->
+<!--SR:!2022-10-31,10,250-->
 <h3 id="忽略大小写-case-insensitive">5.1 忽略大小写 (Case
 Insensitive)</h3>
 <p>修饰语 <code>i</code> 用于忽略大小写。 例如，表达式
@@ -2215,7 +2606,7 @@ Insensitive)</h3>
 <p><a href="https://regex101.com/r/hoGMkP/1">在线练习</a></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;/.at(.)?$/gm&quot; =&gt; The fat</span><br><span class="line">                  cat sat</span><br><span class="line">                  on the mat.</span><br></pre></td></tr></table></figure>
 <p><a href="https://regex101.com/r/E88WE2/1">在线练习</a>
-<!--SR:!2022-10-21,3,250--></p>
+<!--SR:!2022-10-31,10,250--></p>
 <h3 id="贪婪匹配与惰性匹配-greedy-vs-lazy-matching">6.
 贪婪匹配与惰性匹配 (Greedy vs lazy matching)</h3>
 <p>正则表达式默认采用贪婪匹配模式，在该模式下意味着会匹配尽可能长的子串。我们可以使用
@@ -2224,7 +2615,7 @@ Insensitive)</h3>
 <p><a href="https://regex101.com/r/AyAdgJ/1">在线练习</a></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;/(.*?at)/&quot; =&gt; The fat cat sat on the mat.</span><br></pre></td></tr></table></figure>
 <p><a href="https://regex101.com/r/AyAdgJ/2">在线练习</a>
-<!--SR:!2022-10-21,3,250--></p>
+<!--SR:!2022-10-31,10,250--></p>
 <p><strong>参考:</strong></p>
 <p><a href="https://zhuanlan.zhihu.com/p/491620052">滚蛋吧，正则表达式！
 - 知乎</a></p>
@@ -2248,7 +2639,7 @@ Sheet</a></p>
   </entry>
   <entry>
     <title>syncthing 如何移动同步仓库位置</title>
-    <url>/2765381608424586751/</url>
+    <url>/8408158176308142803/</url>
     <content><![CDATA[<p><strong>how to move syncthing folder position?</strong></p>
 <ol type="1">
 <li>Make sure the folder is <mark style="background: #018bffA6;">up to
@@ -2280,7 +2671,7 @@ finish.</li>
   </entry>
   <entry>
     <title>Hexo Next主题添加访问量统计功能</title>
-    <url>/-8722231677964854265/</url>
+    <url>/-5469795625976297125/</url>
     <content><![CDATA[<h2 id="开启不蒜子访问量统计功能">1. 开启不蒜子访问量统计功能</h2>
 <p>在<code>themes/next/_config.yml</code> 添加属性</p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 是否开启访问量统计功能(不蒜子)</span></span><br><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
@@ -2307,7 +2698,7 @@ href="https://moguangpeng998.github.io/2020/06/13/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%8
   </entry>
   <entry>
     <title>Python Import module from different directory</title>
-    <url>/-1835735581737060377/</url>
+    <url>/2394410668431636122/</url>
     <content><![CDATA[<h2
 id="method-1-import-module-from-different-directory-by-append-sys.path">Method
 1: Import module from different directory by append sys.path</h2>
@@ -2344,10 +2735,14 @@ we can use the following command:</p>
 </ul>
 <p><strong>参考:</strong></p>
 <ul>
-<li><a href="../7865443215108085945">Python import 导入其他脚本</a></li>
+<li><a href="../-1766821308900212302">Python import
+导入其他脚本</a></li>
 <li><a
 href="https://www.geeksforgeeks.org/python-import-module-from-different-directory/">Python
-– Import module from different directory - GeeksforGeeks</a></li>
+– Import module from different directory - GeeksforGeeks</a>
+<strong>Referenced:</strong></li>
+<li><a href="../-1766821308900212302">Python import
+导入其他脚本</a></li>
 </ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
@@ -2361,7 +2756,7 @@ href="https://www.geeksforgeeks.org/python-import-module-from-different-director
   </entry>
   <entry>
     <title>VSCode 使用 MSVC 编译器搭建 OpenGL 开发环境</title>
-    <url>/1289826292371734340/</url>
+    <url>/-5741665447462189554/</url>
     <content><![CDATA[<blockquote>
 <p>原文地址 <a
 href="https://github.com/qiaogaojian/cpp_learn-opengl">github.com</a></p>
@@ -2431,16 +2826,16 @@ x64</p></li>
         <category>OpenGL</category>
       </categories>
       <tags>
-        <tag>开发环境</tag>
         <tag>mscv</tag>
-        <tag>cpp</tag>
         <tag>vscode</tag>
+        <tag>cpp</tag>
+        <tag>开发环境</tag>
         <tag>opengl</tag>
       </tags>
   </entry>
   <entry>
     <title>常用 LaTeX 公式符号</title>
-    <url>/-1435265144729138687/</url>
+    <url>/7988509342289663367/</url>
     <content><![CDATA[<h2 id="希腊字符">希腊字符</h2>
 <p><span class="math inline">\(\theta\)</span></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\theta</span><br></pre></td></tr></table></figure>
@@ -2519,7 +2914,7 @@ x64</p></li>
   1 &amp; 2 &amp; 3 \\
   4 &amp; 5 &amp; 6
 \end{vmatrix}
-\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;vmatrix&#125;</span><br><span class="line">  1 &amp; 2 &amp; 3 \\</span><br><span class="line">  4 &amp; 5 &amp; 6</span><br><span class="line">\end&#123;vmatrix&#125;</span><br></pre></td></tr></table></figure> <!--SR:!2022-10-21,69,250--></p>
+\]</span> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;vmatrix&#125;</span><br><span class="line">  1 &amp; 2 &amp; 3 \\</span><br><span class="line">  4 &amp; 5 &amp; 6</span><br><span class="line">\end&#123;vmatrix&#125;</span><br></pre></td></tr></table></figure> <!--SR:!2023-04-11,172,250--></p>
 <p><span class="math display">\[
 \begin{vmatrix}
   1 &amp; 4 \\
@@ -2626,7 +3021,8 @@ LaTeX 表示方法</a></p>
 <p><a
 href="https://blog.csdn.net/foreverdengwei/article/details/8189243">latex
 中括号大小控制_Cloud-Datacenter-Renewable Energy-Big Data-Model-CSDN
-博客</a></p>
+博客</a><strong>Referenced:</strong> - <a
+href="../7051211347520408585">Obsidian+Hexo Markdown 测试</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>5.工具</category>
@@ -2640,13 +3036,17 @@ href="https://blog.csdn.net/foreverdengwei/article/details/8189243">latex
   </entry>
   <entry>
     <title>test_note2</title>
-    <url>/-6818023149509619107/</url>
+    <url>/-1185182057086894641/</url>
     <content><![CDATA[<h1 id="双链测试笔记-3">双链测试笔记 3</h1>
 <p>双链测试笔记 3 和 双链测试笔记 2 同名, 用于测试同名笔记的双链解析</p>
-<p><a href="../7754587453101531348/#链接">Obsidian+Hexo Markdown
+<p><a href="../7051211347520408585/#链接">Obsidian+Hexo Markdown
 测试</a></p>
-<p><a href="../8566536912423774563">test_note1</a></p>
-<p><a href="../5972215571846607460/#Branch%202">test_note2</a></p>
+<p><a href="../-8984067603382424199">test_note1</a></p>
+<p><a href="../-645969111333081554/#Branch%202">test_note2</a>
+<strong>Referenced:</strong> - <a
+href="../-645969111333081554">test_note2</a> - <a
+href="../-8984067603382424199">test_note1</a> - <a
+href="../7051211347520408585">Obsidian+Hexo Markdown 测试</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>9.输出</category>
@@ -2654,39 +3054,67 @@ href="https://blog.csdn.net/foreverdengwei/article/details/8189243">latex
         <category>deep</category>
       </categories>
       <tags>
-        <tag>obsidian</tag>
-        <tag>markdown</tag>
         <tag>hexo</tag>
+        <tag>obsidian</tag>
         <tag>test</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
     <title>test_note2</title>
-    <url>/5972215571846607460/</url>
+    <url>/-645969111333081554/</url>
     <content><![CDATA[<h1 id="双链测试笔记-2">双链测试笔记 2</h1>
-<p><a href="../7754587453101531348/#图表">Obsidian+Hexo Markdown
+<p><a href="../7051211347520408585/#图表">Obsidian+Hexo Markdown
 测试</a></p>
-<p><a href="../8566536912423774563">test_note1</a></p>
-<p><a href="../-6818023149509619107">test_note2</a></p>
+<p><a href="../-8984067603382424199">test_note1</a></p>
+<p><a href="../-1185182057086894641">test_note2</a>
+<strong>Referenced:</strong> - <a
+href="../-1185182057086894641">test_note2</a> - <a
+href="../-8984067603382424199">test_note1</a> - <a
+href="../7051211347520408585">Obsidian+Hexo Markdown 测试</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>9.输出</category>
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>obsidian</tag>
-        <tag>markdown</tag>
         <tag>hexo</tag>
+        <tag>obsidian</tag>
         <tag>test</tag>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>test_note1</title>
+    <url>/-8984067603382424199/</url>
+    <content><![CDATA[<h1 id="双链测试笔记-1">双链测试笔记 1</h1>
+<p><a href="../7051211347520408585/#公式">Obsidian+Hexo Markdown
+测试</a></p>
+<p><a href="../-645969111333081554/#Branch%202">test_note2</a></p>
+<p><a href="../-1185182057086894641">test_note2</a>
+<strong>Referenced:</strong> - <a
+href="../-645969111333081554">test_note2</a> - <a
+href="../-1185182057086894641">test_note2</a> - <a
+href="../7051211347520408585">Obsidian+Hexo Markdown 测试</a></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>9.输出</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>obsidian</tag>
+        <tag>test</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
     <title>Obsidian+Hexo Markdown 测试</title>
-    <url>/7754587453101531348/</url>
+    <url>/7051211347520408585/</url>
     <content><![CDATA[<h1 id="双链测试">双链测试</h1>
-<p><a href="../8566536912423774563">test_note1</a></p>
-<p><a href="../5972215571846607460">test_note2</a></p>
-<p><a href="../-6818023149509619107">test_note2</a></p>
+<p><a href="../-8984067603382424199">test_note1</a></p>
+<p><a href="../-645969111333081554">test_note2</a></p>
+<p><a href="../-1185182057086894641">test_note2</a></p>
 <h1 id="markdown-示例">Markdown 示例</h1>
 <p>Markdown简易入门教程<br />
 使用方式：打开 Source Mode 就可以看到所有markdown格式，照着来用就行了  
@@ -2745,7 +3173,7 @@ alt="image.png" /> <figure class="highlight plaintext"><table><tr><td class="cod
 <p><strong>数学公式</strong><br />
 <figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="built_in">$</span>y = x<span class="built_in">^</span>2<span class="built_in">$</span></span><br></pre></td></tr></table></figure> <span class="math inline">\(y=x^2\)</span></p>
 <blockquote>
-<p>注: Latex语法参考<a href="../-1435265144729138687">常用 LaTeX
+<p>注: Latex语法参考<a href="../7988509342289663367">常用 LaTeX
 公式符号</a></p>
 </blockquote>
 <h2 id="列表">列表</h2>
@@ -2848,8 +3276,11 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 with numbers instead of the text but allow easier identification and
 linking.<br />
 This footnote also has been made with a different syntax using 4 spaces
-for new lines.<a href="#fnref3" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
+for new lines.<strong>Referenced:</strong> - <a
+href="../-645969111333081554">test_note2</a> - <a
+href="../-1185182057086894641">test_note2</a> - <a
+href="../-8984067603382424199">test_note1</a><a href="#fnref3"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
@@ -2858,35 +3289,15 @@ role="doc-backlink">↩︎</a></p></li>
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>obsidian</tag>
-        <tag>markdown</tag>
         <tag>hexo</tag>
-        <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>test_note1</title>
-    <url>/8566536912423774563/</url>
-    <content><![CDATA[<h1 id="双链测试笔记-1">双链测试笔记 1</h1>
-<p><a href="../7754587453101531348/#公式">Obsidian+Hexo Markdown
-测试</a></p>
-<p><a href="../5972215571846607460/#Branch%202">test_note2</a></p>
-<p><a href="../-6818023149509619107">test_note2</a></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>9.输出</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
         <tag>obsidian</tag>
-        <tag>markdown</tag>
-        <tag>hexo</tag>
         <tag>test</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
     <title>flask 参数传递的4种方式</title>
-    <url>/-6045046466548839786/</url>
+    <url>/2653804450716347408/</url>
     <content><![CDATA[<blockquote>
 <p>原文地址 <a
 href="http://h3blog.com/article/flask-params/">h3blog.com</a></p>
@@ -2917,13 +3328,13 @@ http://127.0.0.1:5000/name?name=www.h3blog.com <figure class="highlight sh"><tab
         <category>Python</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>python</tag>
+        <tag>srcard</tag>
       </tags>
   </entry>
   <entry>
     <title>JS == 和 === 的区别</title>
-    <url>/5849768950728768944/</url>
+    <url>/-7488229499360931551/</url>
     <content><![CDATA[<h2 id="区别">区别</h2>
 <p>在 JS 项目里，除了能看到 ==
 操作符来判断两个变量是否相等外，我们还会看到 ===
@@ -2997,7 +3408,7 @@ Overflow</a></p>
   </entry>
   <entry>
     <title>vim 使用全局剪贴板</title>
-    <url>/-5465284872092771760/</url>
+    <url>/-5791219335980365082/</url>
     <content><![CDATA[<p>查看 vim 的 clipboard 功能是否开启</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vim --version | grep clipboard</span><br></pre></td></tr></table></figure>
 <p><img src="/images/2325099-c78cfca714ce958a.png" /> 没有开启是减号</p>
@@ -3029,7 +3440,9 @@ href="https://link.jianshu.com?t=https%3A%2F%2Fvi.stackexchange.com%2Fquestions%
 href="https://link.jianshu.com?t=https%3A%2F%2Fvi.stackexchange.com%2Fquestions%2F2063%2Fhow-do-i-get-clipboard-support-in-fedora-20">how-do-i-get-clipboard-support-in-fedora-20</a></p></li>
 <li><p><a
 href="https://link.jianshu.com?t=https%3A%2F%2Fwww.zhihu.com%2Fquestion%2F19863631">如何将
-Vim 剪贴板里面的东西粘贴到 Vim 之外的地方？</a></p></li>
+Vim 剪贴板里面的东西粘贴到 Vim
+之外的地方？</a><strong>Referenced:</strong></p></li>
+<li><p><a href="../-7144229532063353141">Vim 常用命令</a></p></li>
 </ul>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
@@ -3043,7 +3456,7 @@ Vim 剪贴板里面的东西粘贴到 Vim 之外的地方？</a></p></li>
   </entry>
   <entry>
     <title>Vim 常用命令</title>
-    <url>/-7632740294973000820/</url>
+    <url>/-7144229532063353141/</url>
     <content><![CDATA[<h2 id="安装">安装</h2>
 <p><strong>怎么查看 vim 的 clipboard 功能是否开启</strong></p>
 <p>以下命令用来检查vim剪贴板的支持情况 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim --version | grep clipboard</span><br></pre></td></tr></table></figure>
@@ -3052,7 +3465,7 @@ src="/images/Pasted%20image%2020220819181213.png" />,
 前面是+号代表支持剪贴板操作, -号代表不支持。
 <!--SR:!2022-11-01,44,251--></p>
 <p>如果系统自带vim不支持剪贴板的话, 需要重新安装: 参考:<a
-href="../-5465284872092771760">vim 使用全局剪贴板</a></p>
+href="../-5791219335980365082">vim 使用全局剪贴板</a></p>
 <h2 id="移动光标">移动光标</h2>
 <p><strong>Vim 上下左右移动光标</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">　　K</span><br><span class="line">H　　　　I</span><br><span class="line">　　J</span><br></pre></td></tr></table></figure>
@@ -3380,7 +3793,7 @@ YouCompleteMe，也可以自己手动编译安装，这里有另外一种更加�
   </entry>
   <entry>
     <title>深入浅出 python 闭包</title>
-    <url>/-585893172789351927/</url>
+    <url>/-1566868968991886558/</url>
     <content><![CDATA[<blockquote>
 <p>原文地址 <a
 href="https://zhuanlan.zhihu.com/p/22229197">zhuanlan.zhihu.com</a></p>
@@ -3451,7 +3864,7 @@ href="https://link.zhihu.com/?target=http%3A//www.jb51.net/article/54498.htm">Py
   </entry>
   <entry>
     <title>说说 Python 的命名规范</title>
-    <url>/-5126244910689583605/</url>
+    <url>/7651791510964263100/</url>
     <content><![CDATA[<blockquote>
 <p>原文地址 <a
 href="https://mp.weixin.qq.com/s?src=11×tamp=1658813253&amp;ver=3943&amp;signature=rCEdWJcul585rSrw*vj*31qqKuqpuyjfoKsndxF88l6GQJ2nYUFoeIaXuil-zzPuDJx1HpltWSNMqT0hSJRkWO4MvJTiW4uipN7*uN2rpgW2MPfTIMNuW4k2D0SeknEl&amp;new=1">mp.weixin.qq.com</a></p>
@@ -3520,13 +3933,13 @@ src="https://mmbiz.qpic.cn/mmbiz_png/IibUVnJ665WriaXQa5CcJ1j5qgLSB3nsDEn4yWicaNc
         <category>Python</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>python</tag>
+        <tag>srcard</tag>
       </tags>
   </entry>
   <entry>
     <title>Python import 导入其他脚本</title>
-    <url>/7865443215108085945/</url>
+    <url>/-1766821308900212302/</url>
     <content><![CDATA[<p>假设有如下目录结构：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">-- dir0</span><br><span class="line">　　| file1.py</span><br><span class="line">　　| file2.py</span><br><span class="line">　　| dir3</span><br><span class="line">　　　　| file3.py</span><br><span class="line">　　| dir4</span><br><span class="line">　　　　| file4.py</span><br></pre></td></tr></table></figure>
 <p><mark style="background: #be9affA6;">dir0</mark> 文件夹下有
@@ -3600,7 +4013,7 @@ package，那么这就是一个普通的文件夹，无法实现相对导入。<
 <li>把项目根目录加入环境变量(手动或通过脚本)<br />
 </li>
 <li>import 导入路径以项目根目录下的源码目录 src 为起始, 如下:<br />
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> src.core.logger_class <span class="keyword">import</span> Logger  </span><br><span class="line"><span class="keyword">from</span> src.core.config_class <span class="keyword">import</span> LoadConfig  </span><br><span class="line"><span class="keyword">from</span> src.core.db_class <span class="keyword">import</span> MySql, Mongo, Redis, Kafka  </span><br></pre></td></tr></table></figure> 参考:<a href="../-1835735581737060377">Python Import
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> src.core.logger_class <span class="keyword">import</span> Logger  </span><br><span class="line"><span class="keyword">from</span> src.core.config_class <span class="keyword">import</span> LoadConfig  </span><br><span class="line"><span class="keyword">from</span> src.core.db_class <span class="keyword">import</span> MySql, Mongo, Redis, Kafka  </span><br></pre></td></tr></table></figure> 参考:<a href="../2394410668431636122">Python Import
 module from different directory</a></li>
 </ul>
 <h2 id="各种导入示例">各种导入示例</h2>
@@ -3609,7 +4022,9 @@ module from different directory</a></li>
 <p><strong>参考</strong></p>
 <p><a
 href="https://stackoverflow.com/questions/14132789/relative-imports-for-the-billionth-time">python
-- Relative imports for the billionth time - Stack Overflow</a></p>
+- Relative imports for the billionth time - Stack Overflow</a>
+<strong>Referenced:</strong> - <a href="../2394410668431636122">Python
+Import module from different directory</a></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.4.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>4.技能</category>
@@ -3617,8 +4032,8 @@ href="https://stackoverflow.com/questions/14132789/relative-imports-for-the-bill
         <category>Python</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>python</tag>
+        <tag>srcard</tag>
       </tags>
   </entry>
 </search>
