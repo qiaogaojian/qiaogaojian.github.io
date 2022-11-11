@@ -216,20 +216,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">59</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">36</span>
+        <span class="site-state-item-count">34</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -271,94 +271,6 @@
       
 
       
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://qiaogaojian.github.io/dbf16f0359b132fca77e8472b47d86ac9249e5ef/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="qiaogaojian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="行则将至">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/dbf16f0359b132fca77e8472b47d86ac9249e5ef/" class="post-title-link" itemprop="url">flask 参数传递的4种方式</a>
-        </h2>
-
-        <div class="post-meta-container">
-          
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-    <meta name="referrer" content="no-referrer"/>
-          原文地址 h3blog.com
-
-get 方式传参
-代码： 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-
-
-from flask import Flask, request, jsonify
-import json
-
-app = Flask(__name__)
-
-# get方式传参数
-@app.route('/name')
-def getName():
-    name = request.args.get('name','')
-    return 'hello,{}'.format(name)
-    
-
-
-测试 curl http://127.0.0.1:5000/name?name
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/dbf16f0359b132fca77e8472b47d86ac9249e5ef/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
       
   
   
