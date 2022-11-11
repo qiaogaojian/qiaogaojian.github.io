@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="05｜标准先行：Go项目的布局标准是什么？ 你好，我是Tony Bai。  在前面的讲解中，我们编写的Go程序都是简单程序，一般由一个或几个Go源码文件组成，而且所有源码文件都在同一个目录中。但是生产环境中运行的实用程序可不会这么简单，通常它们都有着复杂的项目结构布局。弄清楚一个实用Go项目的项目布局标准是Go开发者走向编写复杂Go程序的第一步，也是必经的一步。  但Go官方到目前为止也没有给出一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="05｜标准先行：Go项目的布局标准是什么？">
+<meta property="og:url" content="https://qiaogaojian.github.io/bc92b1095a5d4d8901c6a74e5409bcbba00c01fa/index.html">
+<meta property="og:site_name" content="行则将至">
+<meta property="og:description" content="05｜标准先行：Go项目的布局标准是什么？ 你好，我是Tony Bai。  在前面的讲解中，我们编写的Go程序都是简单程序，一般由一个或几个Go源码文件组成，而且所有源码文件都在同一个目录中。但是生产环境中运行的实用程序可不会这么简单，通常它们都有着复杂的项目结构布局。弄清楚一个实用Go项目的项目布局标准是Go开发者走向编写复杂Go程序的第一步，也是必经的一步。  但Go官方到目前为止也没有给出一">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-02T03:08:13.000Z">
+<meta property="article:modified_time" content="2022-11-11T09:39:04.514Z">
+<meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="srcard">
+<meta property="article:tag" content="go">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://qiaogaojian.github.io/bc92b1095a5d4d8901c6a74e5409bcbba00c01fa/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>05｜标准先行：Go项目的布局标准是什么？ | 行则将至</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">行则将至</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">人生在勤,不索何获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E5%85%88%E8%A1%8Cgo%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%B8%83%E5%B1%80%E6%A0%87%E5%87%86%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">05｜标准先行：Go项目的布局标准是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#go%E8%AF%AD%E8%A8%80%E5%88%9B%E4%B8%96%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84"><span class="nav-text">Go语言“创世项目”结构是怎样的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%B0%E5%9C%A8%E7%9A%84go%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%85%B8%E5%9E%8B%E7%BB%93%E6%9E%84%E5%B8%83%E5%B1%80%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84"><span class="nav-text">现在的Go项目的典型结构布局是怎样的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E6%97%A9%E6%9C%9Fgo%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%85%B8%E5%9E%8B%E5%B8%83%E5%B1%80"><span class="nav-text">注意早期Go可执行程序项目的典型布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%80%83%E9%A2%98"><span class="nav-text">思考题</span></a></li></ol></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qiaogaojian"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">qiaogaojian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qiaogaojian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qiaogaojian@live.com" title="E-Mail → mailto:qiaogaojian@live.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+<!--
+-->
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/qiaogaojian" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qiaogaojian.github.io/bc92b1095a5d4d8901c6a74e5409bcbba00c01fa/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          05｜标准先行：Go项目的布局标准是什么？
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-11-02 11:08:13" itemprop="dateCreated datePublished" datetime="2022-11-02T11:08:13+08:00">2022-11-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-11-11 17:39:04" itemprop="dateModified" datetime="2022-11-11T17:39:04+08:00">2022-11-11</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/6-%E8%B5%84%E6%BA%90/" itemprop="url" rel="index"><span itemprop="name">6.资源</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/6-%E8%B5%84%E6%BA%90/GeekTime/" itemprop="url" rel="index"><span itemprop="name">GeekTime</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/6-%E8%B5%84%E6%BA%90/GeekTime/go%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B8%80%E8%AF%BE/" itemprop="url" rel="index"><span itemprop="name">go语言第一课</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/bc92b1095a5d4d8901c6a74e5409bcbba00c01fa/" class="post-meta-item leancloud_visitors" data-flag-title="05｜标准先行：Go项目的布局标准是什么？" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/bc92b1095a5d4d8901c6a74e5409bcbba00c01fa/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/bc92b1095a5d4d8901c6a74e5409bcbba00c01fa/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>8.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+        <h1
+id="标准先行go项目的布局标准是什么">05｜标准先行：Go项目的布局标准是什么？</h1>
+<p>你好，我是Tony Bai。</p>
+<p>在前面的讲解中，我们编写的Go程序都是简单程序，一般由一个或几个Go源码文件组成，而且所有源码文件都在同一个目录中。但是生产环境中运行的实用程序可不会这么简单，通常它们都有着复杂的项目结构布局。弄清楚一个实用Go项目的项目布局标准是Go开发者走向编写复杂Go程序的第一步，也是必经的一步。</p>
+<p>但Go官方到目前为止也没有给出一个关于Go项目布局标准的正式定义。那在这样的情况下，Go社区是否有我们可以遵循的参考布局，或者事实标准呢？我可以肯定的告诉你：有的。在这一节课里，我就来告诉你Go社区广泛采用的Go项目布局是什么样子的。</p>
+<p>要想了解Go项目的结构布局以及演化历史，全世界第一个Go语言项目是一个最好的切入点。所以，我们就先来看一下Go语言“创世项目”的结构布局是什么样的。</p>
+<h3 id="go语言创世项目结构是怎样的">Go语言“创世项目”结构是怎样的？</h3>
+<p>什么是“<strong>Go语言的创世项目</strong>”呢？其实就是Go语言项目自身，它是全世界第一个Go语言项目。但这么说也不够精确，因为Go语言项目从项目伊始就混杂着多种语言，而且以C和Go代码为主，Go语言的早期版本C代码的比例还不小。</p>
+<p>我们先用<a
+target="_blank" rel="noopener" href="https://gitlab.com/esr/loccount">loccount工具</a>对Go语言发布的第一个<a
+target="_blank" rel="noopener" href="https://github.com/golang/go/releases/tag/go1">Go
+1.0版本</a>分析看看：</p>
+<!-- [[[read_end]]] -->
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$loccount</span> .</span><br><span class="line">all          SLOC=460992  (100.00%)	LLOC=193045  <span class="keyword">in</span> 2746 files</span><br><span class="line">Go           SLOC=256321  (55.60%)	LLOC=109763  <span class="keyword">in</span> 1983 files</span><br><span class="line">C            SLOC=148001  (32.10%)	LLOC=73458   <span class="keyword">in</span> 368 files</span><br><span class="line">HTML         SLOC=25080   (5.44%)	LLOC=0       <span class="keyword">in</span> 57 files</span><br><span class="line">asm          SLOC=10109   (2.19%)	LLOC=0       <span class="keyword">in</span> 133 files</span><br><span class="line">... ...</span><br></pre></td></tr></table></figure></div>
+<p>你会发现，在1.0版本中，Go代码行数占据一半以上比例，但是C语言代码行数也占据了32.10%的份额。而且在后续Go版本演进过程中，Go语言代码行数占比还在逐步提升，直到Go
+1.5版本实现自举后，Go语言代码行数占比将近90%，C语言比例下降为不到1%，这一比例一直延续至今。</p>
+<p>虽然C代码比例下降，Go代码比例上升，但Go语言项目的布局结构却整体保留了下来，十多年间虽然也有一些小范围变动，但整体没有本质变化。作为Go语言的“创世项目”，它的结构布局对后续Go社区的项目具有重要的参考价值，尤其是Go项目早期src目录下面的结构。</p>
+<p>为了方便查看，我们首先下载Go语言创世项目源码：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> <span class="built_in">clone</span> https://github.com/golang/go.git</span><br></pre></td></tr></table></figure></div>
+<p>进入Go语言项目根目录后，我们使用tree命令来查看一下Go语言项目自身的最初源码结构布局，以Go
+1.3版本为例，结果是这样的：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$cd</span> go // 进入Go语言项目根目录</span><br><span class="line"><span class="variable">$git</span> checkout go1.3 // 切换到go 1.3版本</span><br><span class="line"><span class="variable">$tree</span> -LF 1 ./src // 查看src目录下的结构布局</span><br><span class="line">./src</span><br><span class="line">├── all.bash*</span><br><span class="line">├── clean.bash*</span><br><span class="line">├── cmd/</span><br><span class="line">├── make.bash*</span><br><span class="line">├── Make.dist</span><br><span class="line">├── pkg/</span><br><span class="line">├── race.bash*</span><br><span class="line">├── run.bash*</span><br><span class="line">... ...</span><br><span class="line">└── sudo.bash*</span><br></pre></td></tr></table></figure></div>
+<p>从上面的结果来看，src目录下面的结构有这三个特点。</p>
+<p>首先，你可以看到，以all.bash为代表的代码构建的脚本源文件放在了src下面的顶层目录下。</p>
+<p>第二，src下的二级目录cmd下面存放着Go相关可执行文件的相关目录，我们可以深入查看一下cmd目录下的结构：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ tree -LF 1 ./cmd</span><br><span class="line">./cmd</span><br><span class="line">... ...</span><br><span class="line">├── 6a/</span><br><span class="line">├── 6c/</span><br><span class="line">├── 6g/</span><br><span class="line">... ...</span><br><span class="line">├── cc/</span><br><span class="line">├── cgo/</span><br><span class="line">├── dist/</span><br><span class="line">├── fix/</span><br><span class="line">├── gc/</span><br><span class="line">├── go/</span><br><span class="line">├── gofmt/</span><br><span class="line">├── ld/</span><br><span class="line">├── nm/</span><br><span class="line">├── objdump/</span><br><span class="line">├── pack/</span><br><span class="line">└── yacc/</span><br></pre></td></tr></table></figure></div>
+<p>我们可以看到，这里的每个子目录都是一个Go工具链命令或子命令对应的可执行文件。其中，6a、6c、6g等是早期Go版本针对特定平台的汇编器、编译器等的特殊命名方式。</p>
+<p>第三个特点，你会看到src下的二级目录pkg下面存放着运行时实现、标准库包实现，这些包既可以被上面cmd下各程序所导入，也可以被Go语言项目之外的Go程序依赖并导入。下面是我们通过tree命令查看pkg下面结构的输出结果：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tree -LF 1 ./pkg</span></span><br><span class="line">./pkg</span><br><span class="line">... ...</span><br><span class="line">├── flag/</span><br><span class="line">├── <span class="built_in">fmt</span>/</span><br><span class="line">├── go/</span><br><span class="line">├── <span class="built_in">hash</span>/</span><br><span class="line">├── html/</span><br><span class="line">├── image/</span><br><span class="line">├── index/</span><br><span class="line">├── io/</span><br><span class="line">... ...</span><br><span class="line">├── net/</span><br><span class="line">├── os/</span><br><span class="line">├── path/</span><br><span class="line">├── reflect/</span><br><span class="line">├── regexp/</span><br><span class="line">├── runtime/</span><br><span class="line">├── <span class="built_in">sort</span>/</span><br><span class="line">├── strconv/</span><br><span class="line">├── strings/</span><br><span class="line">├── <span class="built_in">sync</span>/</span><br><span class="line">├── syscall/</span><br><span class="line">├── testing/</span><br><span class="line">├── text/</span><br><span class="line">├── time/</span><br><span class="line">├── unicode/</span><br><span class="line">└── unsafe/</span><br></pre></td></tr></table></figure></div>
+<p>虽然Go语言的创世项目的src目录下的布局结构，离现在已经比较久远了，但是这样的布局特点依然对后续很多Go项目的布局产生了比较大的影响，尤其是那些Go语言早期采纳者建立的Go项目。比如，Go调试器项目Delve、开启云原生时代的Go项目Docker，以及云原生时代的“操作系统”项目Kubernetes等，它们的项目布局，至今都还保持着与Go创世项目早期相同的风格。</p>
+<p>当然了，这些早期的布局结构一直在不断地演化，简单来说可以归纳为下面三个比较重要的演进。</p>
+<p><strong>演进一：Go
+1.4版本删除pkg这一中间层目录并引入internal目录</strong></p>
+<p>出于简化源码树层次的原因，Go语言项目的Go
+1.4版本对它原来的src目录下的布局做了两处调整。第一处是删除了Go源码树中“src/pkg/xxx”中pkg这一层级目录而直接使用src/xxx。这样一来，Go语言项目的源码树深度减少一层，更便于Go开发者阅读和探索Go项目源码。</p>
+<p>另外一处就是Go
+1.4引入internal包机制，增加了internal目录。这个internal机制其实是所有Go项目都可以用的，Go语言项目自身也是自Go
+1.4版本起，就使用internal机制了。根据internal机制的定义，一个Go项目里的internal目录下的Go包，只可以被本项目内部的包导入。项目外部是无法导入这个internal目录下面的包的。可以说，internal目录的引入，让一个Go项目中Go包的分类与用途变得更加清晰。</p>
+<p><strong>演进二：Go1.6版本增加vendor目录</strong></p>
+<p>第二次的演进，其实是为了解决Go包依赖版本管理的问题，Go核心团队在Go
+1.5版本中做了第一次改进。增加了vendor构建机制，也就是Go源码的编译可以不在GOPATH环境变量下面搜索依赖包的路径，而在vendor目录下查找对应的依赖包。</p>
+<p>Go语言项目自身也在Go
+1.6版本中增加了vendor目录以支持vendor构建，但vendor目录并没有实质性缓存任何第三方包。直到Go
+1.7版本，Go才真正在vendor下缓存了其依赖的外部包。这些依赖包主要是golang.org/x下面的包，这些包同样是由Go核心团队维护的，并且其更新速度不受Go版本发布周期的影响。</p>
+<p>vendor机制与目录的引入，让Go项目第一次具有了可重现构建（Reproducible
+Build）的能力。</p>
+<p><strong>演进三：Go 1.13版本引入go.mod和go.sum</strong></p>
+<p>第三次演进，还是为了解决Go包依赖版本管理的问题。在Go
+1.11版本中，Go核心团队做出了第二次改进尝试：引入了Go
+Module构建机制，也就是在项目引入go.mod以及在go.mod中明确项目所依赖的第三方包和版本，项目的构建就将摆脱GOPATH的束缚，实现精准的可重现构建。</p>
+<p>Go语言项目自身在Go 1.13版本引入go.mod和go.sum以支持Go
+Module构建机制，下面是Go 1.13版本的go.mod文件内容：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">module std</span><br><span class="line"></span><br><span class="line">go 1.13</span><br><span class="line"></span><br><span class="line">require (</span><br><span class="line">	golang.org/x/crypto v0.0.0-20190611184440-5c40567a22f8</span><br><span class="line">	golang.org/x/net v0.0.0-20190813141303-74dc4d7220e7</span><br><span class="line">	golang.org/x/sys v0.0.0-20190529130038-5219a1e1c5f8 // indirect</span><br><span class="line">	golang.org/x/text v0.3.2 // indirect</span><br><span class="line">)</span><br></pre></td></tr></table></figure></div>
+<p>我们看到，Go语言项目自身所依赖的包在go.mod中都有对应的信息，而原本这些依赖包是缓存在vendor目录下的。</p>
+<p>总的来说，这三次演进主要体现在简化结构布局，以及优化包依赖管理方面，起到了改善Go开发体验的作用。可以说，Go创世项目的源码布局以及演化对Go社区项目的布局具有重要的启发意义，以至于在多年的Go社区实践后，Go社区逐渐形成了公认的Go项目的典型结构布局。</p>
+<h3
+id="现在的go项目的典型结构布局是怎样的">现在的Go项目的典型结构布局是怎样的？</h3>
+<p>一个Go项目通常分为可执行程序项目和库项目，现在我们就来分析一下这两类Go项目的典型结构布局分别是怎样的。</p>
+<p><strong>首先我们先来看Go可执行程序项目的典型结构布局。</strong></p>
+<p>可执行程序项目是以构建可执行程序为目的的项目，Go社区针对这类Go项目所形成的典型结构布局是这样的：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$tree</span> -F exe-layout </span><br><span class="line">exe-layout</span><br><span class="line">├── cmd/</span><br><span class="line">│   ├── app1/</span><br><span class="line">│   │   └── main.go</span><br><span class="line">│   └── app2/</span><br><span class="line">│       └── main.go</span><br><span class="line">├── go.mod</span><br><span class="line">├── go.sum</span><br><span class="line">├── internal/</span><br><span class="line">│   ├── pkga/</span><br><span class="line">│   │   └── pkg_a.go</span><br><span class="line">│   └── pkgb/</span><br><span class="line">│       └── pkg_b.go</span><br><span class="line">├── pkg1/</span><br><span class="line">│   └── pkg1.go</span><br><span class="line">├── pkg2/</span><br><span class="line">│   └── pkg2.go</span><br><span class="line">└── vendor/</span><br></pre></td></tr></table></figure></div>
+<p>这样的一个Go项目典型布局就是“脱胎”于Go创世项目的最新结构布局，我现在跟你解释一下这里面的几个要点。</p>
+<p>我们从上往下按顺序来，先来看<strong>cmd目录</strong>。cmd目录就是存放项目==要编译构建的可执行文件对应的main包的源文件==。如果你的项目中有多个可执行文件需要构建，每个可执行文件的main包单独放在一个子目录中，比如图中的app1、app2，cmd目录下的各app的main包将整个项目的依赖连接在一起。</p>
+<p>而且通常来说，main包应该很简洁。我们在main包中会做一些命令行参数解析、资源初始化、日志设施初始化、数据库连接初始化等工作，之后就会将程序的执行权限交给更高级的执行控制对象。另外，也有一些Go项目将cmd这个名字改为app或其他名字，但它的功能其实并没有变。</p>
+<p>接着我们来看<strong>pkgN目录</strong>，这是一个存放==项目自身要使用、同样也是可执行文件对应main包所要依赖的库文件==，同时这些目录下的包还可以被外部项目引用。</p>
+<p>然后是<strong>go.mod</strong>和<strong>go.sum</strong>，它们是Go语言包==依赖管理使用的配置文件==。我们前面说过，Go
+1.11版本引入了Go Module构建机制，这里我建议你所有新项目都基于Go
+Module来进行包依赖管理，因为这是目前Go官方推荐的标准构建模式。</p>
+<p>对于还没有使用Go
+Module进行包依赖管理的遗留项目，比如之前采用dep、glide等作为包依赖管理工具的，建议尽快迁移到Go
+Module模式。Go命令支持直接将dep的Gopkg.toml/Gopkg.lock或glide的glide.yaml/glide.lock转换为go.mod。</p>
+<p>最后我们再来看看<strong>vendor目录</strong>。vendor是Go
+1.5版本引入的用于==在项目本地缓存特定版本依赖包的机制==，在Go
+Modules机制引入前，基于vendor可以实现可重现构建，保证基于同一源码构建出的可执行程序是等价的。</p>
+<p>不过呢，我们这里将vendor目录视为一个可选目录。原因在于，Go
+Module本身就支持可再现构建，而无需使用vendor。 当然Go
+Module机制也保留了vendor目录（通过go mod
+vendor可以生成vendor下的依赖包，通过go build
+-mod=vendor可以实现基于vendor的构建）。一般我们仅保留项目根目录下的vendor目录，否则会造成不必要的依赖选择的复杂性。</p>
+<p>当然了，有些开发者喜欢借助一些第三方的构建工具辅助构建，比如：make、bazel等。你可以将这类外部辅助构建工具涉及的诸多脚本文件（比如Makefile）放置在项目的顶层目录下，就像Go创世项目中的all.bash那样。</p>
+<p>另外，这里只要说明一下的是，Go
+1.11引入的module是一组同属于一个版本管理单元的包的集合。并且Go支持在一个项目/仓库中存在多个module，但这种管理方式可能要比一定比例的代码重复引入更多的复杂性。
+因此，如果项目结构中存在版本管理的“分歧”，比如：app1和app2的发布版本并不总是同步的，那么我建议你将项目拆分为多个项目（仓库），每个项目单独作为一个module进行单独的版本管理和演进。</p>
+<p>当然如果你非要在一个代码仓库中存放多个module，那么新版Go命令也提供了很好的支持。比如下面代码仓库multi-modules下面有三个module：mainmodule、module1和module2：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$tree</span> multi-modules</span><br><span class="line">multi-modules</span><br><span class="line">├── go.mod // mainmodule</span><br><span class="line">├── module1</span><br><span class="line">│   └── go.mod // module1</span><br><span class="line">└── module2</span><br><span class="line">    └── go.mod // module2</span><br></pre></td></tr></table></figure></div>
+<p>我们可以通过git
+tag名字来区分不同module的版本。其中vX.Y.Z形式的tag名字用于代码仓库下的mainmodule；而module1/vX.Y.Z形式的tag名字用于指示module1的版本；同理，module2/vX.Y.Z形式的tag名字用于指示module2版本。</p>
+<p>如果Go可执行程序项目有一个且只有一个可执行程序要构建，那就比较好办了，我们可以将上面项目布局进行简化：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$tree</span> -F -L 1 single-exe-layout</span><br><span class="line">single-exe-layout</span><br><span class="line">├── go.mod</span><br><span class="line">├── internal/</span><br><span class="line">├── main.go</span><br><span class="line">├── pkg1/</span><br><span class="line">├── pkg2/</span><br><span class="line">└── vendor/</span><br></pre></td></tr></table></figure></div>
+<p>你可以看到，我们删除了cmd目录，将唯一的可执行程序的main包就放置在项目根目录下，而其他布局元素的功用不变。</p>
+<p><strong>好了到这里，我们已经了解了Go可执行程序项目的典型布局，现在我们再来看看Go库项目的典型结构布局是怎样的。</strong></p>
+<p>Go库项目仅对外暴露Go包，这类项目的典型布局形式是这样的：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$tree</span> -F lib-layout </span><br><span class="line">lib-layout</span><br><span class="line">├── go.mod</span><br><span class="line">├── internal/</span><br><span class="line">│   ├── pkga/</span><br><span class="line">│   │   └── pkg_a.go</span><br><span class="line">│   └── pkgb/</span><br><span class="line">│       └── pkg_b.go</span><br><span class="line">├── pkg1/</span><br><span class="line">│   └── pkg1.go</span><br><span class="line">└── pkg2/</span><br><span class="line">    └── pkg2.go</span><br></pre></td></tr></table></figure></div>
+<p>我们看到，库类型项目相比于Go可执行程序项目的布局要简单一些。因为这类项目不需要构建可执行程序，所以去除了cmd目录。</p>
+<p>而且，在这里，vendor也不再是可选目录了。对于库类型项目而言，我们并不推荐在项目中放置vendor目录去缓存库自身的第三方依赖，库项目仅通过go.mod文件明确表述出该项目依赖的module或包以及版本要求就可以了。</p>
+<p>Go库项目的初衷是为了对外部（开源或组织内部公开）暴露API，对于仅限项目内部使用而不想暴露到外部的包，可以放在项目顶层的internal目录下面。当然internal也可以有多个并存在于项目结构中的任一目录层级中，关键是项目结构设计人员要明确各级internal包的应用层次和范围。</p>
+<p>对于有一个且仅有一个包的Go库项目来说，我们也可以将上面的布局做进一步简化，简化的布局如下所示：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$tree</span> -L 1 -F single-pkg-lib-layout</span><br><span class="line">single-pkg-lib-layout</span><br><span class="line">├── feature1.go</span><br><span class="line">├── feature2.go</span><br><span class="line">├── go.mod</span><br><span class="line">└── internal/</span><br></pre></td></tr></table></figure></div>
+<p>简化后，我们将这唯一包的所有源文件放置在项目的顶层目录下（比如上面的feature1.go和feature2.go），其他布局元素位置和功用不变。</p>
+<p>好了，现在我们已经了解完目前Go项目的典型结构布局了。不过呢，除了这些之外，还要注意一下早期Go可执行程序项目的经典布局，这个又有所不同。</p>
+<h3
+id="注意早期go可执行程序项目的典型布局">注意早期Go可执行程序项目的典型布局</h3>
+<p>很多早期接纳Go语言的开发者所建立的Go可执行程序项目，深受Go创世项目1.4版本之前的布局影响，这些项目将所有可暴露到外面的Go包聚合在pkg目录下，就像前面Go
+1.3版本中的布局那样，它们的典型布局结构是这样的：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$tree</span> -L 3 -F early-project-layout</span><br><span class="line">early-project-layout</span><br><span class="line">└── exe-layout/</span><br><span class="line">    ├── cmd/</span><br><span class="line">    │   ├── app1/</span><br><span class="line">    │   └── app2/</span><br><span class="line">    ├── go.mod</span><br><span class="line">    ├── internal/</span><br><span class="line">    │   ├── pkga/</span><br><span class="line">    │   └── pkgb/</span><br><span class="line">    ├── pkg/</span><br><span class="line">    │   ├── pkg1/</span><br><span class="line">    │   └── pkg2/</span><br><span class="line">    └── vendor/</span><br></pre></td></tr></table></figure></div>
+<p>我们看到，原本放在项目顶层目录下的pkg1和pkg2公共包被统一聚合到pkg目录下了。而且，这种早期Go可执行程序项目的典型布局在Go社区内部也不乏受众，很多新建的Go项目依然采用这样的项目布局。</p>
+<p>所以，当你看到这样的布局也不要奇怪，并且在我的讲解后，你应该就明确在这样的布局下pkg目录所起到的“聚类”的作用了。不过，在这里还是建议你在创建新的Go项目时，优先采用前面的标准项目布局。</p>
+<h3 id="小结">小结</h3>
+<p>到这里，我们今天这门课就结束了。在这一节课里，我们学习了Go创世项目，也就是Go语言项目自身的项目源码布局，以及演进情况。在Go创世项目的启发下，Go社区在多年实践中形成了典型的Go项目结构布局形式。</p>
+<p>我们将Go项目分为<strong>可执行程序项目</strong>和Go<strong>库项目</strong>两类进行了详细的项目典型布局讲解，这里简单回顾一下。</p>
+<p>第一，对于以生产可执行程序为目的的Go项目，它的典型项目结构分为五部分：</p>
+<ul>
+<li>放在项目顶层的<mark style="background: #fefe00A6;">Go
+Module相关文件</mark> ，包括go.mod和go.sum；</li>
+<li><mark style="background: #fefe00A6;">cmd目录</mark>
+：存放项目要编译构建的可执行文件所对应的main包的源码文件；</li>
+<li>项目<mark style="background: #fefe00A6;">包目录</mark>
+：每个项目下的非main包都“平铺”在项目的根目录下，每个目录对应一个Go包；</li>
+<li><mark style="background: #fefe00A6;">internal目录</mark>
+：存放仅项目内部引用的Go包，这些包无法被项目之外引用；</li>
+<li><mark style="background: #fefe00A6;">vendor目录</mark>
+：这是一个可选目录，为了兼容Go
+1.5引入的vendor构建模式而存在的。这个目录下的内容均由Go命令自动维护，不需要开发者手工干预。</li>
+</ul>
+<p>第二，对于以生产可复用库为目的的Go项目，它的典型结构则要简单许多，我们可以直接理解为<mark style="background: #83d98fA6;">在Go可执行程序项目的基础上去掉cmd目录和vendor目录。</mark></p>
+<p>最后，早期接纳Go语言的开发者所建立的项目的布局深受Go创世项目1.4版本之前布局的影响，将可导出的公共包放入单独的pkg目录下，我们了解这种情况即可。对于新建Go项目，我依旧建议你采用前面介绍的标准布局形式。</p>
+<p>现在，如果你要再面对一个要用于生产环境的Go应用项目的布局问题，是不是胸有成竹了呢？</p>
+<h3 id="思考题">思考题</h3>
+<p>如果非要你考虑Go项目结构的最小标准布局，那么你觉得这个布局中都应该包含哪些东西呢？欢迎在留言区留下你的答案。</p>
+<p>感谢你和我一起学习，也欢迎你把这节课分享给更多对Go项目布局感兴趣的朋友。我是Tony
+Bai，我们下节课见。</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="qiaogaojian 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="qiaogaojian 支付宝">
+        <span>支付宝</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.png" alt="qiaogaojian 比特币">
+        <span>比特币</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/srcard/" rel="tag"><i class="fa fa-tag"></i> srcard</a>
+              <a href="/tags/go/" rel="tag"><i class="fa fa-tag"></i> go</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/c0490d55555fe9bbbf5e5d34a157428233452cdf/" rel="prev" title="03｜配好环境：选择一种最适合你的Go安装方法">
+                  <i class="fa fa-chevron-left"></i> 03｜配好环境：选择一种最适合你的Go安装方法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/a8c96a547920bb5f0a08814d40b18801dd92c9f8/" rel="next" title="03-掌握考试思维：成为一个特别会考试的人">
+                  03-掌握考试思维：成为一个特别会考试的人 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiaogaojian</span>
+</div>
+<div class="busuanzi-count">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+
+<span id="timeDate">载入天数...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/01/2016 19:00:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 " + hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+        // document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  const url = element.dataset.target;
+  const pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  const pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  const fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.7.0/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/bc92b1095a5d4d8901c6a74e5409bcbba00c01fa/",
+    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"要不说点啥?","avatar":"mm","meta":["nick","mail"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":210,"height":360},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

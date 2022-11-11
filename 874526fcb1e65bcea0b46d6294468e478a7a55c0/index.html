@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="06｜构建模式：Go是怎么解决包依赖管理问题的？ 你好，我是Tony Bai。  通过前面的讲解，我们已经初步了解了Go程序的结构，以及Go项目的典型布局了。那么，接下来，我们是时候来系统学习一下Go应用的构建了，它们都是我们继续Go语言学习的前提。  所以在这一节课，我们就来了解Go构建模式演化的前世今生。理解了这个发展史后，我们会重点来探讨现在被广泛采用的构建模式，Go Module的基本概念">
+<meta property="og:type" content="article">
+<meta property="og:title" content="06｜构建模式：Go是怎么解决包依赖管理问题的？">
+<meta property="og:url" content="https://qiaogaojian.github.io/874526fcb1e65bcea0b46d6294468e478a7a55c0/index.html">
+<meta property="og:site_name" content="行则将至">
+<meta property="og:description" content="06｜构建模式：Go是怎么解决包依赖管理问题的？ 你好，我是Tony Bai。  通过前面的讲解，我们已经初步了解了Go程序的结构，以及Go项目的典型布局了。那么，接下来，我们是时候来系统学习一下Go应用的构建了，它们都是我们继续Go语言学习的前提。  所以在这一节课，我们就来了解Go构建模式演化的前世今生。理解了这个发展史后，我们会重点来探讨现在被广泛采用的构建模式，Go Module的基本概念">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-02T03:08:13.000Z">
+<meta property="article:modified_time" content="2022-11-11T09:39:04.516Z">
+<meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="srcard">
+<meta property="article:tag" content="go">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://qiaogaojian.github.io/874526fcb1e65bcea0b46d6294468e478a7a55c0/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>06｜构建模式：Go是怎么解决包依赖管理问题的？ | 行则将至</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">行则将至</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">人生在勤,不索何获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%BC%8Fgo%E6%98%AF%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E5%8C%85%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E9%97%AE%E9%A2%98%E7%9A%84"><span class="nav-text">06｜构建模式：Go是怎么解决包依赖管理问题的？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#go%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%BC%8F%E6%98%AF%E6%80%8E%E4%B9%88%E6%BC%94%E5%8C%96%E7%9A%84"><span class="nav-text">Go构建模式是怎么演化的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AAgo-module"><span class="nav-text">创建你的第一个Go Module</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAgo-module"><span class="nav-text">创建一个Go Module</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B1%E5%85%A5go-module%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%BC%8F"><span class="nav-text">深入Go Module构建模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#go%E5%90%84%E7%89%88%E6%9C%AC%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%BC%8F%E6%9C%BA%E5%88%B6%E5%92%8C%E5%88%87%E6%8D%A2"><span class="nav-text">Go各版本构建模式机制和切换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-text">小结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%80%83%E9%A2%98"><span class="nav-text">思考题</span></a></li></ol></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qiaogaojian"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">qiaogaojian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">56</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qiaogaojian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qiaogaojian@live.com" title="E-Mail → mailto:qiaogaojian@live.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+<!--
+-->
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/qiaogaojian" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qiaogaojian.github.io/874526fcb1e65bcea0b46d6294468e478a7a55c0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          06｜构建模式：Go是怎么解决包依赖管理问题的？
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-11-02 11:08:13" itemprop="dateCreated datePublished" datetime="2022-11-02T11:08:13+08:00">2022-11-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-11-11 17:39:04" itemprop="dateModified" datetime="2022-11-11T17:39:04+08:00">2022-11-11</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/6-%E8%B5%84%E6%BA%90/" itemprop="url" rel="index"><span itemprop="name">6.资源</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/6-%E8%B5%84%E6%BA%90/GeekTime/" itemprop="url" rel="index"><span itemprop="name">GeekTime</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/6-%E8%B5%84%E6%BA%90/GeekTime/go%E8%AF%AD%E8%A8%80%E7%AC%AC%E4%B8%80%E8%AF%BE/" itemprop="url" rel="index"><span itemprop="name">go语言第一课</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/874526fcb1e65bcea0b46d6294468e478a7a55c0/" class="post-meta-item leancloud_visitors" data-flag-title="06｜构建模式：Go是怎么解决包依赖管理问题的？" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/874526fcb1e65bcea0b46d6294468e478a7a55c0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/874526fcb1e65bcea0b46d6294468e478a7a55c0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>12k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>11 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+        <h1
+id="构建模式go是怎么解决包依赖管理问题的">06｜构建模式：Go是怎么解决包依赖管理问题的？</h1>
+<p>你好，我是Tony Bai。</p>
+<p>通过前面的讲解，我们已经初步了解了Go程序的结构，以及Go项目的典型布局了。那么，接下来，<strong>我们是时候来系统学习一下Go应用的构建了</strong>，它们都是我们继续Go语言学习的前提。</p>
+<p>所以在这一节课，我们就来了解Go构建模式演化的前世今生。理解了这个发展史后，我们会重点来探讨现在被广泛采用的构建模式，Go
+Module的基本概念和应用构建方式。 接着，知道了怎么做后，我们会再深一层，继续分析Go
+Module的工作原理。这样层层深入地分析完后，你就能彻底、透彻地掌握Go
+Module构建模式了。</p>
+<p>好了，我们直接开始吧。我们先来了解一下Go构建模式的演化过程，弄清楚Go核心开发团队为什么要引入Go
+module构建模式。</p>
+<h2 id="go构建模式是怎么演化的">Go构建模式是怎么演化的？</h2>
+<p>Go程序由Go包组合而成的，<strong>Go程序的构建过程就是确定包版本、编译包以及将编译后得到的目标文件链接在一起的过程</strong>。</p>
+<p>Go语言的构建模式历经了三个迭代和演化过程，分别是最初期的GOPATH、1.5版本的Vendor机制，以及现在的Go
+Module。这里我们就先来介绍一下前面这两个。</p>
+<p><strong>首先我们来看GOPATH。</strong></p>
+<p>Go语言在首次开源时，就内置了一种名为<strong>GOPATH</strong>的构建模式。在这种构建模式下，Go编译器可以在本地GOPATH环境变量配置的路径下，搜寻Go程序依赖的第三方包。如果存在，就使用这个本地包进行编译；如果不存在，就会报编译错误。</p>
+<!-- [[[read_end]]] -->
+<p>我这里给出了一段在GOPATH构建模式下编写的代码，你先来感受一下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GO"><figure class="iseeu highlight /go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;github.com/sirupsen/logrus&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    logrus.Println(<span class="string">&quot;hello, gopath mode&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>你可以看到，这段代码依赖了第三方包logrus（logrus是Go社区使用最为广泛的第三方log包）。</p>
+<p>接下来，这个构建过程演示了Go编译器（这里使用Go
+1.10.8）在GOPATH环境变量所配置的目录下（这里为/Users/tonybai/Go），无法找到程序依赖的logrus包而报错的情况：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$go</span> build main.go</span><br><span class="line">main.go:3:8: cannot find package <span class="string">&quot;github.com/sirupsen/logrus&quot;</span> <span class="keyword">in</span> any of:</span><br><span class="line">	/Users/tonybai/.bin/go1.10.8/src/github.com/sirupsen/logrus (from <span class="variable">$GOROOT</span>)</span><br><span class="line">	/Users/tonybai/Go/src/github.com/sirupsen/logrus (from <span class="variable">$GOPATH</span>)</span><br></pre></td></tr></table></figure></div>
+<p><strong>那么Go编译器在GOPATH构建模式下，究竟怎么在GOPATH配置的路径下搜寻第三方依赖包呢？</strong></p>
+<p>为了给你说清楚搜寻规则，我们先假定Go程序导入了github.com/user/repo这个包，我们也同时假定当前GOPATH环境变量配置的值为：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GOPATH=/usr/local/goprojects:/home/tonybai/go</span><br></pre></td></tr></table></figure></div>
+<p>那么在GOPATH构建模式下，Go编译器在编译Go程序时，就会在下面两个路径下搜索第三方依赖包是否存在：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/goprojects/src/github.com/user/repo</span><br><span class="line">/home/tonybai/go/src/github.com/user/repo</span><br></pre></td></tr></table></figure></div>
+<p>这里注意一下，如果你没有显式设置GOPATH环境变量，Go会将GOPATH设置为默认值，不同操作系统下默认值的路径不同，在macOS或Linux上，它的默认值是$HOME/go。</p>
+<p>那么，当遇到像上面例子一样，没有在本地找到程序的第三方依赖包的情况，我们该如何解决这个问题呢？</p>
+<p><strong>这个时候就要让go get登场了</strong>！</p>
+<p>我们可以通过go get命令将本地缺失的第三方依赖包下载到本地，比如：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$go</span> get github.com/sirupsen/logrus</span><br></pre></td></tr></table></figure></div>
+<p>这里的go
+get命令，不仅能将logrus包下载到GOPATH环境变量配置的目录下，它还会检查logrus的依赖包在本地是否存在，如果不存在，go
+get也会一并将它们下载到本地。</p>
+<p>不过，go
+get下载的包只是那个时刻各个依赖包的最新主线版本，这样会给后续Go程序的构建带来一些问题。比如，依赖包持续演进，可能会导致不同开发者在不同时间获取和编译同一个Go包时，得到不同的结果，也就是不能保证可重现的构建（Reproduceable
+Build）。又比如，如果依赖包引入了不兼容代码，程序将无法通过编译。</p>
+<p>最后还有一点，如果依赖包因引入新代码而无法正常通过编译，并且该依赖包的作者又没用及时修复这个问题，这种错误也会传导到你的程序，导致你的程序无法通过编译。</p>
+<p>也就是说，<strong>在GOPATH构建模式下，Go编译器实质上并没有关注Go项目所依赖的第三方包的版本。</strong>
+但Go开发者希望自己的Go项目所依赖的第三方包版本能受到自己的控制，而不是随意变化。于是Go核心开发团队引入了Vendor机制试图解决上面的问题。</p>
+<p><strong>现在我们就来看看vendor机制是怎么解决这个问题的。</strong></p>
+<p>Go在1.5版本中引入<strong>vendor机制</strong>。vendor机制本质上就是在Go项目的某个特定目录下，将项目的所有依赖包缓存起来，这个特定目录名就是vendor。</p>
+<p>Go编译器会优先感知和使用vendor目录下缓存的第三方包版本，而不是GOPATH环境变量所配置的路径下的第三方包版本。这样，无论第三方依赖包自己如何变化，无论GOPATH环境变量所配置的路径下的第三方包是否存在、版本是什么，都不会影响到Go程序的构建。</p>
+<p>如果你将vendor目录和项目源码一样提交到代码仓库，那么其他开发者下载你的项目后，就可以实现可重现的构建。因此，<mark style="background: #83d98fA6;">如果使用vendor机制管理第三方依赖包，最佳实践就是将vendor一并提交到代码仓库中。</mark></p>
+<p>下面这个目录结构就是为上面的代码示例添加vendor目录后的结果：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── main.go</span><br><span class="line">└── vendor/</span><br><span class="line">    ├── github.com/</span><br><span class="line">    │&amp;nbsp;&amp;nbsp; └── sirupsen/</span><br><span class="line">    │&amp;nbsp;&amp;nbsp;     └── logrus/</span><br><span class="line">    └── golang.org/</span><br><span class="line">        └── x/</span><br><span class="line">            └── sys/</span><br><span class="line">                └── unix/</span><br></pre></td></tr></table></figure></div>
+<p>在添加完vendor后，我们重新编译main.go，这个时候Go编译器就会在vendor目录下搜索程序依赖的logrus包以及后者依赖的golang.org/x/sys/unix包了。</p>
+<p>这里你还要注意一点，要想开启vendor机制，你的Go项目必须==位于GOPATH环境变量配置的某个路径的src目录下面==。如果不满足这一路径要求，那么Go编译器是不会理会Go项目目录下的vendor目录的。</p>
+<p>不过vendor机制虽然一定程度解决了Go程序可重现构建的问题，但对开发者来说，它的体验却不那么好。<strong>一方面</strong>，Go项目必须放在GOPATH环境变量配置的路径下，庞大的vendor目录需要提交到代码仓库，不仅占用代码仓库空间，减慢仓库下载和更新的速度，而且还会干扰代码评审，对实施代码统计等开发者效能工具也有比较大影响。</p>
+<p><strong>另外</strong>，你还需要手工管理vendor下面的Go依赖包，包括项目依赖包的分析、版本的记录、依赖包获取和存放，等等，<strong>最让开发者头疼的就是这一点。</strong></p>
+<p>为了解决这个问题，Go核心团队与社区<strong>将Go构建的重点转移到如何解决包依赖管理上</strong>。Go社区先后开发了诸如gb、glide、dep等工具，来帮助Go开发者对vendor下的第三方包进行自动依赖分析和管理，但这些工具也都有自身的问题。</p>
+<p>就在Go社区为包依赖管理焦虑并抱怨没有官方工具的时候，Go核心团队基于社区实践的经验和教训，推出了Go官方的解决方案：<strong>Go
+Module</strong>。</p>
+<h2 id="创建你的第一个go-module">创建你的第一个Go Module</h2>
+<p>从Go 1.11版本开始，除了GOPATH构建模式外，Go又增加了一种Go
+Module构建模式。</p>
+<p>在<a
+href="../9a8b79c6523de0b004dc327f9851a93754e80436">04｜初窥门径：一个Go程序的结构是怎样的？</a>中，我们曾基于Go
+Module构建模式编写过一个“hello,
+world”程序，当时是为了讲解Go程序结构，这里我再带你回顾一下Go
+Module的基础概念。</p>
+<p>一个Go
+Module是一个Go包的集合。module是有版本的，所以module下的包也就有了版本属性。这个module与这些包会组成一个独立的版本单元，它们一起打版本、发布和分发。</p>
+<p>在Go Module模式下，通常一个代码仓库对应一个Go Module。一个Go
+Module的顶层目录下会放置一个go.mod文件，每个go.mod文件会定义唯一一个module，也就是说Go
+Module与go.mod是一一对应的。</p>
+<p>go.mod文件所在的顶层目录也被称为module的根目录，module根目录以及它子目录下的所有Go包均归属于这个Go
+Module，这个module也被称为main module。</p>
+<p>你可能也意识到了，Go
+Module的原理和使用方法其实有点复杂，但“千里之行始于足下”，下面我们先从如何创建一个Go
+Module说起。我们先来将上面的例子改造成为一个基于Go
+Module构建模式的Go项目。</p>
+<h3 id="创建一个go-module"><strong>创建一个Go Module</strong></h3>
+<p>将基于当前项目创建一个Go Module，通常有如下几个步骤：</p>
+<p>第一步，通过go mod init创建go.mod文件，将当前项目变为一个Go
+Module；</p>
+<p>第二步，通过go mod tidy命令自动更新当前module的依赖信息；</p>
+<p>第三步，执行go build，执行新module的构建。</p>
+<p>我们一步一步来详细看一下。</p>
+<p>我们先建立一个新项目module-mode用来演示Go
+Module的创建，注意我们可以在任意路径下创建这个项目，不必非要在GOPATH环境变量的配置路径下。</p>
+<p>这个项目的main.go修改自上面的例子，修改后的main.go的代码是这样的，我们依旧依赖外部包logrus：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import <span class="string">&quot;github.com/sirupsen/logrus&quot;</span></span><br><span class="line"></span><br><span class="line">func <span class="function"><span class="title">main</span></span>() &#123;</span><br><span class="line">	logrus.Println(<span class="string">&quot;hello, go module mode&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>你可以看到，这个项目目录下只有main.go一个源文件，现在我们就来为这个项目添加Go
+Module支持。我们通过go mod init命令为这个项目创建一个Go
+Module（这里我们使用的是Go版本为1.16.5，Go 1.16版本默认采用Go
+Module构建模式）：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$go</span> mod init github.com/bigwhite/module-mode</span><br><span class="line">go: creating new go.mod: module github.com/bigwhite/module-mode</span><br><span class="line">go: to add module requirements and sums:</span><br><span class="line">	go mod tidy</span><br></pre></td></tr></table></figure></div>
+<p>现在，go mod
+init在当前项目目录下创建了一个go.mod文件，这个go.mod文件将当前项目变为了一个Go
+Module，项目根目录变成了module根目录。go.mod的内容是这样的：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module github.com/bigwhite/module-mode</span><br><span class="line"></span><br><span class="line">go 1.16</span><br></pre></td></tr></table></figure></div>
+<p>这个go.mod文件现在处于初始状态，它的第一行内容用于声明module路径(module
+path)，最后一行是一个Go版本指示符，用于表示这个module是在某个特定的Go版本的module语义的基础上编写的。</p>
+<p>go mod init命令还输出了两行日志，提示我们可以使用go mod
+tidy命令，添加module依赖以及校验和。go mod
+tidy命令会扫描Go源码，并自动找出项目依赖的外部Go
+Module以及版本，下载这些依赖并更新本地的go.mod文件。我们按照这个提示执行一下go
+mod tidy命令：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$go</span> mod tidy</span><br><span class="line">go: finding module <span class="keyword">for</span> package github.com/sirupsen/logrus</span><br><span class="line">go: downloading github.com/sirupsen/logrus v1.8.1</span><br><span class="line">go: found github.com/sirupsen/logrus <span class="keyword">in</span> github.com/sirupsen/logrus v1.8.1</span><br><span class="line">go: downloading golang.org/x/sys v0.0.0-20191026070338-33540a1f6037</span><br><span class="line">go: downloading github.com/stretchr/testify v1.2.2</span><br></pre></td></tr></table></figure></div>
+<p>我们看到，对于一个处于初始状态的module而言，go mod tidy分析了当前main
+module的所有源文件，找出了当前main
+module的所有第三方依赖，确定第三方依赖的版本，还下载了当前main
+module的直接依赖包（比如logrus），以及相关间接依赖包（直接依赖包的依赖，比如上面的golang.org/x/sys等）。</p>
+<p>Go Module还支持通过Go Module代理服务加速第三方依赖的下载。在<a
+target="_blank" rel="noopener" href="https://time.geekbang.org/column/article/427489">03讲</a>我们讲解Go环境安装时，就提到过GOPROXY环境变量，这个环境变量的默认值为“<strong>https:
+//
+proxy.golang.org,direct</strong>”，不过我们可以配置更适合于中国大陆地区的Go
+Module代理服务。</p>
+<p>由go mod
+tidy下载的依赖module会被放置在本地的module缓存路径下，默认值为$GOPATH[0]/pkg/mod，Go
+1.15及以后版本可以通过GOMODCACHE环境变量，自定义本地module的缓存路径。</p>
+<p>执行go mod tidy后，我们示例go.mod的内容更新如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module github.com/bigwhite/module-mode</span><br><span class="line"></span><br><span class="line">go 1.16</span><br><span class="line"></span><br><span class="line">require github.com/sirupsen/logrus v1.8.1</span><br></pre></td></tr></table></figure></div>
+<p>你可以看到，当前module的直接依赖logrus，还有它的版本信息都被写到了go.mod文件的require段中。</p>
+<p>而且，执行完go mod
+tidy后，当前项目除了go.mod文件外，还多了一个新文件go.sum，内容是这样的：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=</span><br><span class="line">github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=</span><br><span class="line">github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=</span><br><span class="line">github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=</span><br><span class="line">github.com/sirupsen/logrus v1.8.1 h1:dJKuHgqk1NNQlqoA6BTlM1Wf9DOH3NBjQyu0h9+AZZE=</span><br><span class="line">github.com/sirupsen/logrus v1.8.1/go.mod h1:yWOB1SBYBC5VeMP7gHvWumXLIWorT60ONWic61uBYv0=</span><br><span class="line">github.com/stretchr/testify v1.2.2 h1:bSDNvY7ZPG5RlJ8otE/7V6gMiyenm9RtJ7IUVIAoJ1w=</span><br><span class="line">github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=</span><br><span class="line">golang.org/x/sys v0.0.0-20191026070338-33540a1f6037 h1:YyJpGZS1sBuBCzLAR1VEpK193GlqGZbnPFnPV/5Rsb4=</span><br><span class="line">golang.org/x/sys v0.0.0-20191026070338-33540a1f6037/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=</span><br></pre></td></tr></table></figure></div>
+<p>这同样是由go
+mod相关命令维护的一个文件，它存放了特定版本module内容的哈希值。</p>
+<p>这是Go
+Module的一个安全措施。当将来这里的某个module的特定版本被再次下载的时候，go命令会使用go.sum文件中对应的哈希值，和新下载的内容的哈希值进行比对，只有哈希值比对一致才是合法的，这样可以确保你的项目所依赖的module内容，不会被恶意或意外篡改。因此，我推荐你把go.mod和go.sum两个文件与源码，一并提交到代码版本控制服务器上。</p>
+<p>现在，go mod init和go mod tidy已经为我们当前Go
+Module的构建铺平了道路，接下来，<strong>我们只需在当前module的根路径下，执行go
+build就可以完成module的构建了</strong>！</p>
+<p>go
+build命令会读取go.mod中的依赖及版本信息，并在本地module缓存路径下找到对应版本的依赖module，执行编译和链接。如果顺利的话，我们会在当前目录下看到一个新生成的可执行文件module-mode，执行这个文件我们就能得到正确结果了。</p>
+<p>整个过程的执行步骤是这样的：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$go</span> build</span><br><span class="line">$<span class="variable">$ls</span></span><br><span class="line">go.mod		go.sum		main.go		module-mode*</span><br><span class="line">$./module-mode </span><br><span class="line">INFO[0000] hello, go module mode</span><br></pre></td></tr></table></figure></div>
+<p>好了，到这里，我们已经完成了一个有着多个第三方依赖的项目的构建了。但关于Go
+Module的操作还远不止这些。随着Go项目的演进，我们会在代码中导入新的第三方包，删除一些旧的依赖包，更新一些依赖包的版本等。关于这些内容，我会在下一节课再给你详细讲解。</p>
+<p>那么，在看到我们的Go
+Module机制会自动分析项目的依赖包，并选出最适合的版本后，不知道你会不会有这样的疑惑：<strong>项目所依赖的包有很多版本，Go
+Module是如何选出最适合的那个版本的呢？</strong>要想回答这个问题，我们就需要深入到Go
+Module构建模式的工作原理中去。</p>
+<h2 id="深入go-module构建模式">深入Go Module构建模式</h2>
+<p>Go语言设计者在设计Go
+Module构建模式，来解决“包依赖管理”的问题时，进行了几项创新，这其中就包括<strong>语义导入版本(Semantic
+Import
+Versioning)</strong>，以及和其他主流语言不同的<strong>最小版本选择(Minimal
+Version
+Selection)</strong>等机制。只要你深入理解了这些机制，你就能真正掌握Go
+Module构建模式。</p>
+<p><strong>首先我们看一下Go Module的语义导入版本机制。</strong></p>
+<p>在上面的例子中，我们看到go.mod的require段中依赖的版本号，都符合<strong>vX.Y.Z</strong>的格式。在Go
+Module构建模式下，一个符合Go Module要求的版本号，由前缀v和一个满足<a
+target="_blank" rel="noopener" href="https://semver.org">语义版本</a>规范的版本号组成。</p>
+<p>你可以看看下面这张图，语义版本号分成3部分：主版本号(major)、次版本号(minor)和补丁版本号(patch)。例如上面的logrus
+module的版本号是v1.8.1，这就表示它的主版本号为1，次版本号为8，补丁版本号为1。</p>
+<p><img
+src="https://static001.geekbang.org/resource/image/46/a2/468323b3294cce2ea7f4c1da3699c5a2.png?wh=1242x670" /></p>
+<p>Go命令和go.mod文件都使用上面这种符合语义版本规范的版本号，作为描述Go
+Module版本的标准形式。借助于语义版本规范，Go命令可以确定同一module的两个版本发布的先后次序，而且可以确定它们是否兼容。</p>
+<p>按照语义版本规范，主版本号不同的两个版本是相互不兼容的。而且，在主版本号相同的情况下，次版本号大都是向后兼容次版本号小的版本。补丁版本号也不影响兼容性。</p>
+<p>而且，Go
+Module规定：<strong>如果同一个包的新旧版本是兼容的，那么它们的包导入路径应该是相同的</strong>。怎么理解呢？我们来举个简单示例。我们就以logrus为例，它有很多发布版本，我们从中选出两个版本v1.7.0和v1.8.1.。按照上面的语义版本规则，这两个版本的主版本号相同，新版本v1.8.1是兼容老版本v1.7.0的。那么，我们就可以知道，如果一个项目依赖logrus，无论它使用的是v1.7.0版本还是v1.8.1版本，它都可以使用下面的包导入语句导入logrus包：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import <span class="string">&quot;github.com/sirupsen/logrus&quot;</span></span><br></pre></td></tr></table></figure></div>
+<p>那么问题又来了，假如在未来的某一天，logrus的作者发布了logrus
+v2.0.0版本。那么根据语义版本规则，该版本的主版本号为2，已经与v1.7.0、v1.8.1的主版本号不同了，那么v2.0.0与v1.7.0、v1.8.1就是不兼容的包版本。然后我们再按照Go
+Module的规定，如果一个项目依赖logrus
+v2.0.0版本，那么它的包导入路径就不能再与上面的导入方式相同了。那我们应该使用什么方式导入logrus
+v2.0.0版本呢？</p>
+<p>Go
+Module创新性地给出了一个方法：将包主版本号引入到包导入路径中，我们可以像下面这样导入logrus
+v2.0.0版本依赖包：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import <span class="string">&quot;github.com/sirupsen/logrus/v2&quot;</span></span><br></pre></td></tr></table></figure></div>
+<p>这就是Go的“语义导入版本”机制，也就是说通过在包导入路径中引入主版本号的方式，来区别同一个包的不兼容版本，这样一来我们甚至可以同时依赖一个包的两个不兼容版本：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import (</span><br><span class="line">    <span class="string">&quot;github.com/sirupsen/logrus&quot;</span></span><br><span class="line">    logv2 <span class="string">&quot;github.com/sirupsen/logrus/v2&quot;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></div>
+<p>不过到这里，你可能会问，v0.y.z版本应该使用哪种导入路径呢？</p>
+<p>按照语义版本规范的说法，v0.y.z这样的版本号是用于项目初始开发阶段的版本号。在这个阶段任何事情都有可能发生，其API也不应该被认为是稳定的。Go
+Module将这样的版本(v0)与主版本号v1做同等对待，也就是采用不带主版本号的包导入路径，这样一定程度降低了Go开发人员使用这样版本号包时的心智负担。</p>
+<p>Go语义导入版本机制是Go Module机制的基础规则，同样它也是Go
+Module其他规则的基础。</p>
+<p><strong>接下来，我们再来看一下Go
+Module的最小版本选择原则。</strong></p>
+<p>在前面的例子中，Go命令都是在项目初始状态分析项目的依赖，并且项目中两个依赖包之间没有共同的依赖，这样的包依赖关系解决起来还是比较容易的。但依赖关系一旦复杂起来，比如像下图中展示的这样，Go又是如何确定使用依赖包C的哪个版本的呢？<br></p>
+<p><img
+src="https://static001.geekbang.org/resource/image/49/1b/49eb7aa0458d8ec6131d9e5661155f1b.jpeg?wh=1920x1080" /><br></p>
+<p>在这张图中，myproject有两个直接依赖A和B，A和B有一个共同的依赖包C，但A依赖C的v1.1.0版本，而B依赖的是C的v1.3.0版本，并且此时C包的最新发布版为C
+v1.7.0。这个时候，Go命令是如何为myproject选出间接依赖包C的版本呢？选出的究竟是v1.7.0、v1.1.0还是v1.3.0呢？你可以暂停一两分钟思考一下。</p>
+<p>其实，当前存在的主流编程语言，以及Go
+Module出现之前的很多Go包依赖管理工具都会<strong>选择依赖项的“最新最大(Latest
+Greatest)版本”</strong>，对应到图中的例子，这个版本就是v1.7.0。</p>
+<p>当然了，理想状态下，如果语义版本控制被正确应用，并且这种“社会契约”也得到了很好的遵守，那么这种选择算法是有道理的，而且也可以正常工作。在这样的情况下，依赖项的“最新最大版本”应该是最稳定和安全的版本，并且应该有向后兼容性。至少在相同的主版本(Major
+Verion)依赖树中是这样的。</p>
+<p>但我们这个问题的答案并不是这样的。Go设计者另辟蹊径，在诸多兼容性版本间，他们不光要考虑最新最大的稳定与安全，还要尊重各个module的述求：A明明说只要求C
+v1.1.0，B明明说只要求C
+v1.3.0。<strong>所以Go会在该项目依赖项的所有版本中，选出符合项目整体要求的“最小版本”。</strong></p>
+<p>这个例子中，C
+v1.3.0是符合项目整体要求的版本集合中的版本最小的那个，于是Go命令选择了C
+v1.3.0，而不是最新最大的C
+v1.7.0。并且，Go团队认为“最小版本选择”为Go程序实现持久的和可重现的构建提供了最佳的方案。</p>
+<p>了解了语义导入版本与最小版本选择两种机制后，你就可以说你已经掌握了Go
+Module的精髓。</p>
+<p>但很多Go开发人员的起点，并非是默认开启Go Module构建模式的Go
+1.16版本，多数Go开发人使用的环境中都存在着多套Go版本，有用于体验最新功能特性的Go版本，也有某些遗留项目所使用的老版本Go编译器。</p>
+<p>它们工作时采用的构建模式是不一样的，并且即便是引入Go Module的Go
+1.11版本，它的Go Module机制，和后续进化后的Go版本的Go
+Module构建机制在表现行为上也有所不同。因此Go开发人员可能需要经常在各个Go版本间切换。而明确具体版本下Go
+Module的实际表现行为对Go开发人员是十分必要的。</p>
+<h2 id="go各版本构建模式机制和切换">Go各版本构建模式机制和切换</h2>
+<p>我们前面说了，在Go 1.11版本中，Go开发团队引入Go
+Modules构建模式。这个时候，GOPATH构建模式与Go
+Modules构建模式各自独立工作，我们可以通过设置环境变量GO111MODULE的值在两种构建模式间切换。</p>
+<p>然后，随着Go语言的逐步演进，从Go 1.11到Go
+1.16版本，不同的Go版本在GO111MODULE为不同值的情况下，开启的构建模式几经变化，直到Go
+1.16版本，Go Module构建模式成为了默认模式。</p>
+<p>所以，要分析Go各版本的具体构建模式的机制和切换，我们只需要找到这几个代表性的版本就好了。</p>
+<p>我这里将Go 1.13版本之前、Go 1.13版本以及Go
+1.16版本，在GO111MODULE为不同值的情况下的行为做了一下对比，这样我们可以更好地理解不同版本下、不同构建模式下的行为特性，下面我们就来用表格形式做一下比对：</p>
+<figure>
+<img
+src="https://static001.geekbang.org/resource/image/45/d3/45bdecc5fa873e06893d6658e447a8d3.jpeg?wh=1920x1080"
+alt="图片" />
+<figcaption aria-hidden="true">图片</figcaption>
+</figure>
+<p>了解了这些，你就能在工作中游刃有余的在各个Go版本间切换了，不用再担心切换后模式变化，导致构建失败了。</p>
+<h3 id="小结">小结</h3>
+<p>好了，今天的课讲到这里就结束了，现在我们一起来回顾一下吧。</p>
+<p>在这一讲中，我们初步了解了Go语言构建模式的演化历史。</p>
+<p>Go语言最初发布时内置的构建模式为GOPATH构建模式。在这种构建模式下，所有构建都离不开GOPATH环境变量。在这个模式下，Go编译器并没有关注依赖包的版本，开发者也无法控制第三方依赖的版本，导致开发者无法实现可重现的构建。</p>
+<p>那么，为了支持可重现构建，Go
+1.5版本引入了vendor机制，开发者可以在项目目录下缓存项目的所有依赖，实现可重现构建。但vendor机制依旧不够完善，开发者还需要手工管理vendor下的依赖包，这就给开发者带来了不小的心智负担。</p>
+<p>后来，Go 1.11版本中，Go核心团队推出了新一代构建模式：Go
+Module以及一系列创新机制，包括语义导入版本机制、最小版本选择机制等。语义导入版本机制是Go
+Moudle其他机制的基础，它是通过在包导入路径中引入主版本号的方式，来区别同一个包的不兼容版本。而且，Go命令使用<strong>最小版本选择</strong>机制进行包依赖版本选择，这和当前主流编程语言，以及Go社区之前的包依赖管理工具使用的算法都有点不同。</p>
+<p>此外，Go命令还可以通过GO111MODULE环境变量进行Go构建模式的切换。但你要注意，从Go
+1.11到Go
+1.16，不同的Go版本在GO111MODULE为不同值的情况下，开启的构建模式以及具体表现行为也几经变化，这里你重点看一下前面总结的表格。</p>
+<p>现在，Go核心团队已经考虑在后续版本中彻底移除GOPATH构建模式，Go
+Module构建模式将成为Go语言唯一的标准构建模式。所以，<strong>学完这一课之后，我建议你从现在开始就彻底抛弃GOPATH构建模式，全面使用Go
+Module构建模式</strong>。</p>
+<h3 id="思考题">思考题</h3>
+<p>今天我们的思考题是：如何将基于GOPATH构建模式的现有项目迁移为使用Go
+Module构建模式？欢迎在留言区和我分享你的答案。</p>
+<p>感谢你和我一起学习，也欢迎你把这节课分享给更多对Go构建模式感兴趣的朋友。我是Tony
+Bai，我们下节课见。</p>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>06｜构建模式：Go是怎么解决包依赖管理问题的？
+<ul>
+<li><a
+href="../9a8b79c6523de0b004dc327f9851a93754e80436">04｜初窥门径：一个Go程序的结构是怎样的？</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="qiaogaojian 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="qiaogaojian 支付宝">
+        <span>支付宝</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.png" alt="qiaogaojian 比特币">
+        <span>比特币</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/srcard/" rel="tag"><i class="fa fa-tag"></i> srcard</a>
+              <a href="/tags/go/" rel="tag"><i class="fa fa-tag"></i> go</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/9a8b79c6523de0b004dc327f9851a93754e80436/" rel="prev" title="04｜初窥门径：一个Go程序的结构是怎样的？">
+                  <i class="fa fa-chevron-left"></i> 04｜初窥门径：一个Go程序的结构是怎样的？
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/17bb0e5f33541a8cd7ff4e899ee35e9b68dfd189/" rel="next" title="02-学会这4点，你也可以告别伪勤奋">
+                  02-学会这4点，你也可以告别伪勤奋 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiaogaojian</span>
+</div>
+<div class="busuanzi-count">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+
+<span id="timeDate">载入天数...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/01/2016 19:00:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 " + hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+        // document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  const url = element.dataset.target;
+  const pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  const pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  const fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.7.0/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/874526fcb1e65bcea0b46d6294468e478a7a55c0/",
+    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"要不说点啥?","avatar":"mm","meta":["nick","mail"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":210,"height":360},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
