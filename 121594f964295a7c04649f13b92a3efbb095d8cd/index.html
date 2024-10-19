@@ -22,22 +22,21 @@
     var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="how to move syncthing folder position?   1. Make sure the folder is up to date with the remote. (probably not strictly necessary)  2. Stop Syncthing (Pausing the folder could be enough)  3. Copy the f">
+  <meta name="description" content="原文地址 zhuanlan.zhihu.com  AutoGen 介绍 随着大语言模型（LLM）的发展，如何利用这些强大的语言处理能力构建智能体系统，以解决复杂任务，成为了一个值得探索的问题。微软研究团队研发了名叫 AutoGen 的多智能体对话框架，该框架通过设计可定制的智能体和对话编程范式，实现了利用 LLM 构建多样应用的目标。  GitHub：https:&#x2F;&#x2F;github.com&#x2F;micr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="syncthing 如何移动同步仓库位置">
-<meta property="og:url" content="https://qiaogaojian.github.io/983777fa8d6e26387aa399926786d604ff49cdb5/index.html">
+<meta property="og:title" content="AutoGen +Ollama  构建多智能体应用">
+<meta property="og:url" content="https://qiaogaojian.github.io/121594f964295a7c04649f13b92a3efbb095d8cd/index.html">
 <meta property="og:site_name" content="行则将至">
-<meta property="og:description" content="how to move syncthing folder position?   1. Make sure the folder is up to date with the remote. (probably not strictly necessary)  2. Stop Syncthing (Pausing the folder could be enough)  3. Copy the f">
+<meta property="og:description" content="原文地址 zhuanlan.zhihu.com  AutoGen 介绍 随着大语言模型（LLM）的发展，如何利用这些强大的语言处理能力构建智能体系统，以解决复杂任务，成为了一个值得探索的问题。微软研究团队研发了名叫 AutoGen 的多智能体对话框架，该框架通过设计可定制的智能体和对话编程范式，实现了利用 LLM 构建多样应用的目标。  GitHub：https:&#x2F;&#x2F;github.com&#x2F;micr">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-11T16:42:56.000Z">
-<meta property="article:modified_time" content="2024-10-19T03:55:49.719Z">
+<meta property="article:published_time" content="2024-08-22T12:01:04.000Z">
+<meta property="article:modified_time" content="2024-10-19T03:55:49.608Z">
 <meta property="article:author" content="qiaogaojian">
-<meta property="article:tag" content="srcard">
-<meta property="article:tag" content="syncthing">
+<meta property="article:tag" content="Math,数学,Calculus,微积分,Linear Algebra,线性代数,Computer Science,计算机原理,编程,设计模式,计算机网络,计算机图形学,Computer Graphics,Unity,Unity3d,CG,HLSL,OpenGL,C#,Android,Java,GameFramework,ML,Shader,Golang,Go,Asm,Adb,BlockChain,VSCode,Web,Tools,PHP,Ubuntu,ThinkPHP,MySql,Sqlite,重构,Windows,Win10,Git,Mac,Linux,树莓派,VS,AS,Android Studio,PhpStorm,PyCharm,Vim,Rider,Jupyter,Kali,Js,JavaScript,Hexo,3dMax,Maya,Zbrush,汇编,游戏设计,Roguelike,Roguelite,地图生成,技能,FSM,NGUI,UGUI,UV,法线,光照,后端,Html,Css,C语言,C++,Python,机器学习,信息安全,操作系统,IDE,工具,效率,VR,AR,BitCoin,Eos,数据结构,算法,排序,查找,Leetcode,RoadMap,Tips,Trick,Bug,BestPratice,Tutorial,Tao​">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://qiaogaojian.github.io/983777fa8d6e26387aa399926786d604ff49cdb5/">
+<link rel="canonical" href="https://qiaogaojian.github.io/121594f964295a7c04649f13b92a3efbb095d8cd/">
 
 
 <script class="page-configurations">
@@ -50,7 +49,7 @@
   };
 </script>
 
-  <title>syncthing 如何移动同步仓库位置 | 行则将至</title>
+  <title>AutoGen +Ollama  构建多智能体应用 | 行则将至</title>
   
 
 
@@ -194,7 +193,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -206,6 +205,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#autogen-%E4%BB%8B%E7%BB%8D"><span class="nav-text">AutoGen 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84"><span class="nav-text">架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8"><span class="nav-text">应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ollama"><span class="nav-text">Ollama</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#autogen-ollama"><span class="nav-text">AutoGen + ollama</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E6%99%BA%E8%83%BD%E4%BD%93"><span class="nav-text">3.1 单智能体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%99%BA%E8%83%BD%E4%BD%93%E5%BA%94%E7%94%A8"><span class="nav-text">3.2 多智能体应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -281,7 +281,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://qiaogaojian.github.io/983777fa8d6e26387aa399926786d604ff49cdb5/">
+    <link itemprop="mainEntityOfPage" href="https://qiaogaojian.github.io/121594f964295a7c04649f13b92a3efbb095d8cd/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -297,7 +297,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          syncthing 如何移动同步仓库位置
+          AutoGen +Ollama  构建多智能体应用
         </h1>
 
         <div class="post-meta-container">
@@ -309,7 +309,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-11-12 00:42:56" itemprop="dateCreated datePublished" datetime="2022-11-12T00:42:56+08:00">2022-11-12</time>
+      <time title="创建时间：2024-08-22 20:01:04" itemprop="dateCreated datePublished" datetime="2024-08-22T20:01:04+08:00">2024-08-22</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
@@ -324,20 +324,20 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/6-%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">6.工具</span></a>
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">5.技能</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/6-%E5%B7%A5%E5%85%B7/%E6%95%88%E7%8E%87/" itemprop="url" rel="index"><span itemprop="name">效率</span></a>
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/6-%E5%B7%A5%E5%85%B7/%E6%95%88%E7%8E%87/Syncthing/" itemprop="url" rel="index"><span itemprop="name">Syncthing</span></a>
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/AI/Agent/" itemprop="url" rel="index"><span itemprop="name">Agent</span></a>
         </span>
     </span>
 
   
-    <span id="/983777fa8d6e26387aa399926786d604ff49cdb5/" class="post-meta-item leancloud_visitors" data-flag-title="syncthing 如何移动同步仓库位置" title="阅读次数">
+    <span id="/121594f964295a7c04649f13b92a3efbb095d8cd/" class="post-meta-item leancloud_visitors" data-flag-title="AutoGen +Ollama  构建多智能体应用" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -359,8 +359,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/983777fa8d6e26387aa399926786d604ff49cdb5/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/983777fa8d6e26387aa399926786d604ff49cdb5/" itemprop="commentCount"></span>
+    <a title="valine" href="/121594f964295a7c04649f13b92a3efbb095d8cd/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/121594f964295a7c04649f13b92a3efbb095d8cd/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -372,14 +372,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>467</span>
+      <span>3.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -391,24 +391,91 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <p><strong>how to move syncthing folder position?</strong></p>
-<ol type="1">
-<li>Make sure the folder is <mark style="background: #018bffA6;">up to
-date</mark> with the remote. (probably not strictly necessary)</li>
-<li><mark style="background: #018bffA6;">Stop Syncthing</mark> (Pausing
-the folder could be enough)</li>
-<li><mark style="background: #018bffA6;">Copy the folder</mark> to the
-external drive (e.g. using rsync or equivalent).</li>
-<li><mark style="background: #018bffA6;">Edit the path in syncthing
-config file</mark>
-(C:/Users/Administrator/AppData/Local/Syncthing/config.xml )</li>
-<li><mark style="background: #018bffA6;">Restart syncthing</mark></li>
-<li>Wait for scanning and initial sync (exchanging and comparing
-metadata to be sure the contents are the same as on remote) to
-finish.</li>
-<li>if everything works ok, delete the original folder
-<!--SR:!2026-11-14,914,250--></li>
+        <blockquote>
+<p>原文地址 <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/700107605">zhuanlan.zhihu.com</a></p>
+</blockquote>
+<h2 id="autogen-介绍">AutoGen 介绍</h2>
+<p>随着大语言模型（LLM）的发展，如何利用这些强大的语言处理能力构建智能体系统，以解决复杂任务，成为了一个值得探索的问题。微软研究团队研发了名叫
+AutoGen
+的多智能体对话框架，该框架通过设计可定制的智能体和对话编程范式，实现了利用
+LLM 构建多样应用的目标。</p>
+<p>GitHub：<a
+target="_blank" rel="noopener" href="https://github.com/microsoft/autogen">https://github.com/microsoft/autogen</a></p>
+<p><img
+src="https://pic3.zhimg.com/v2-295eac6d916cca1a8e3b21903da15b26_r.jpg" /></p>
+<p>论文：<a
+target="_blank" rel="noopener" href="https://openreview.net/pdf?id=uAjxFFing2">https://openreview.net/pdf?id=uAjxFFing2</a></p>
+<p><img
+src="https://pic4.zhimg.com/v2-0ad37b8485cc1fbb2b6b16f1afea86db_r.jpg" /></p>
+<h3 id="简介">简介</h3>
+<p>AutoGen
+是一个开源框架，旨在通过将任务分解为多个智能体，让它们通过对话来协作完成，从而简化复杂的大语言模型应用的开发。该框架支持灵活的智能体设计、多智能体对话以及对话编程。AutoGen
+框架已在多个领域取得成功应用，包括数学问题求解、检索增强问答、供应链优化、在线决策、娱乐等。</p>
+<p><img
+src="https://pic1.zhimg.com/v2-7c27581095d9b6a589e40678f70f4660_r.jpg" /></p>
+<h3 id="架构">架构</h3>
+<p>AutoGen 框架包含两个核心概念：可定制的智能体和对话编程。</p>
+<p><img
+src="https://pic4.zhimg.com/v2-4716f7dce68d09e1008adbd2857643c7_r.jpg" /></p>
+<p>可定制的智能体：AutoGen 支持设计多种类型的智能体，包括基于 LLM
+的智能体、人类支持的智能体以及工具支持的智能体。每种智能体都具有特定的角色，可以进行多轮对话。AutoGen
+还提供了多智能体组合的能力，可以实现更复杂的对话模式。</p>
+<p>对话编程：AutoGen
+采用对话编程范式，通过定义智能体的能力和角色，并编程它们之间的对话，实现了对复杂任务的分解和整合。AutoGen
+提供了统一的对话接口，并支持自然语言和编程语言的混合控制，以实现灵活的对话流程。</p>
+<h3 id="应用">应用</h3>
+<p>AutoGen
+在多个领域实现了多智能体应用，包括数学问题求解、检索增强问答、供应链优化、在线决策、娱乐等。这些应用展示了
+AutoGen
+框架的灵活性和创新潜力，为智能体系统的开发提供了强有力的支持。</p>
+<p><img
+src="https://pic3.zhimg.com/v2-eef4c3f248cc4338e5b9006a1762e52a_r.jpg" /></p>
+<p>AutoGen 框架提供了一种简单、通用的多智能体对话方式，为利用 LLM
+构建智能体系统提供了有力支持。AutoGen
+框架在多个领域取得了成功应用，展现了其在构建智能体系统方面的巨大潜力。不过
+AutoGen 在构建智能体应用尤其是多智能体应用的时候需要耗费大量的
+token，这样本地大模型加速 / 服务平台 ollama 就成为了我这样穷人使用
+Autogen 的好搭档。</p>
+<h2 id="ollama">Ollama</h2>
+<p>ollama 是一个非常方便的 LLM 加速 /
+服务化应用，我现在构建大模型应用，模型服务部分几乎用的都是它。ollama
+的介绍及部署过程请参考：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/688811216">北方的郎：Linux
+上部署 Ollama，启动 Mistral-7B 及 Gemma-7B 服务，测试效果</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/692360483">北方的郎：Ollama 下
+LLM 的调用方式：post、langchain、lamaindex, 支持 openai api 方式</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/692106504">北方的郎：折腾
+Ollama + CodeGPT 在 VSCode 中构建自己的本机智能开发助手</a></p>
+<h2 id="autogen-ollama">AutoGen + ollama</h2>
+<p>新版的 ollama 已经支持 OpenAI 的 API 格式，参考：<a
+target="_blank" rel="noopener" href="https://ollama.com/blog/openai-compatibility">https://ollama.com/blog/openai-compatibility</a></p>
+<p>所以不需要通过 litellm 传一下了。</p>
+<p>Install Autogen:<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> <a href="#fn2" class="footnote-ref"
+id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyautogen</span><br></pre></td></tr></table></figure></div>
+<p>然后执行代码即可。</p>
+<h3 id="单智能体">3.1 单智能体</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> autogen <span class="keyword">import</span> AssistantAgent, UserProxyAgent</span><br><span class="line"></span><br><span class="line">config_list = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="string">&quot;model&quot;</span>: <span class="string">&quot;qwen2:7b&quot;</span>,</span><br><span class="line">    <span class="string">&quot;base_url&quot;</span>: <span class="string">&quot;http://localhost:11434/v1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;api_key&quot;</span>: <span class="string">&quot;ollama&quot;</span>,</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">assistant = AssistantAgent(<span class="string">&quot;assistant&quot;</span>, llm_config=&#123;<span class="string">&quot;config_list&quot;</span>: config_list&#125;)</span><br><span class="line"></span><br><span class="line">user_proxy = UserProxyAgent(<span class="string">&quot;user_proxy&quot;</span>, code_execution_config=&#123;<span class="string">&quot;work_dir&quot;</span>: <span class="string">&quot;coding&quot;</span>, <span class="string">&quot;use_docker&quot;</span>: <span class="literal">False</span>&#125;)</span><br><span class="line">user_proxy.initiate_chat(assistant, message=<span class="string">&quot;做一个从哈尔滨去北京旅游5天的计划&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<h3 id="多智能体应用">3.2 多智能体应用</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="comment">### Code used:</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> autogen</span><br><span class="line"></span><br><span class="line">config_list_qwen = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="string">&quot;model&quot;</span>: <span class="string">&quot;qwen2:7b&quot;</span>,</span><br><span class="line">    <span class="string">&quot;base_url&quot;</span>: <span class="string">&quot;http://localhost:11434/v1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;api_key&quot;</span>: <span class="string">&quot;ollama&quot;</span>,</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">config_list_codeqwen = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="string">&quot;model&quot;</span>: <span class="string">&quot;deepseek-coder-v2:16b&quot;</span>,</span><br><span class="line">    <span class="string">&quot;base_url&quot;</span>: <span class="string">&quot;http://localhost:11434/v1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;api_key&quot;</span>: <span class="string">&quot;ollama&quot;</span>,</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">llm_config_qwen=&#123;</span><br><span class="line">    <span class="string">&quot;config_list&quot;</span>: config_list_qwen,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">llm_config_codeqwen=&#123;</span><br><span class="line">    <span class="string">&quot;config_list&quot;</span>: config_list_codeqwen,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">coder = autogen.AssistantAgent(    </span><br><span class="line">    <span class="string">&quot;coder&quot;</span>,</span><br><span class="line">    llm_config=llm_config_codeqwen</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">user_proxy = autogen.UserProxyAgent(    </span><br><span class="line">    <span class="string">&quot;user&quot;</span>,</span><br><span class="line">    human_input_mode=<span class="string">&quot;NEVER&quot;</span>,</span><br><span class="line">    max_consecutive_auto_reply=<span class="number">10</span>,</span><br><span class="line">    is_termination_msg=<span class="keyword">lambda</span> x: x.get(<span class="string">&quot;content&quot;</span>, <span class="string">&quot;&quot;</span>).rstrip().endswith(<span class="string">&quot;TERMINATE&quot;</span>),</span><br><span class="line">    code_execution_config=&#123;<span class="string">&quot;work_dir&quot;</span>: <span class="string">&quot;web&quot;</span>, <span class="string">&quot;use_docker&quot;</span>: <span class="literal">False</span>&#125;,</span><br><span class="line">    llm_config=llm_config_qwen,</span><br><span class="line">    system_message=<span class="string">&quot;&quot;&quot;Reply TERMINATE if the task has been solved at full satisfaction.</span></span><br><span class="line"><span class="string">Otherwise, reply CONTINUE, or the reason why the task is not solved yet.&quot;&quot;&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">task=<span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">开发一个python程序计算30以内的质数，然后 user_proxy agent 执行这个程序</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">user_proxy.initiate_chat(coder, message=task)</span><br></pre></td></tr></table></figure></div>
+<p>然后看执行的效果，因为用的模型比较小，所以代码开发的有点问题，反复试了好几次：</p>
+<h2 id="参考">参考</h2>
+<section class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><a
+target="_blank" rel="noopener" href="https://github.com/microsoft/autogen">GitHub - microsoft/autogen:
+A programming framework for agentic AI. Discord:
+https://aka.ms/autogen-dc. Roadmap: https://aka.ms/autogen-roadmap</a><a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a
+target="_blank" rel="noopener" href="https://www.reddit.com/r/AutoGenAI/comments/1b4tw1s/pyautogen_vs_autogen/">reddit.com/r/AutoGenAI/comments/1b4tw1s/pyautogen_vs_autogen/</a><a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
+</section>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">
     </div>
 
@@ -439,23 +506,16 @@ finish.</li>
   </div>
 </div>
 
-          <div class="post-tags">
-              <a href="/tags/srcard/" rel="tag"><i class="fa fa-tag"></i> srcard</a>
-              <a href="/tags/syncthing/" rel="tag"><i class="fa fa-tag"></i> syncthing</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/9907c57e67333c562c3494060e11a99492819663/" rel="prev" title="Npm 常用命令">
-                  <i class="fa fa-chevron-left"></i> Npm 常用命令
+                <a href="/4a70d6bb9d15959bdceb5700c8cb347f1260ef3b/" rel="prev" title="Ollama + continue 实现本地 github copilot">
+                  <i class="fa fa-chevron-left"></i> Ollama + continue 实现本地 github copilot
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/8ae045022243ef5d9908e342c7c63a7c1c8c7951/" rel="next" title="Node 开发环境搭建 Win10">
-                  Node 开发环境搭建 Win10 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -672,7 +732,7 @@ NexT.utils.loadComments('#valine-comments', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
     new Valine(Object.assign({
       el  : '#valine-comments',
-      path: "/983777fa8d6e26387aa399926786d604ff49cdb5/",
+      path: "/121594f964295a7c04649f13b92a3efbb095d8cd/",
     }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"要不说点啥?","avatar":"mm","meta":["nick","mail"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
     ));
   }, window.Valine);
