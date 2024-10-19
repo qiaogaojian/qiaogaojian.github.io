@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="Android studio 通过 Gradle 来构建我们的项目。一般情况下，我们只是使用 Gradle 来配置一些功能，比如，buildTypes，productFlavors等等。  实际上，Gradle 提供了很多有用的功能，可以让我们更加方便的管理我们的项目。  这篇，我们介绍下 Gradle 的 Plugin 插件。 官方介绍  Gradle 的 plugin 插件，有三种方式：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Gradle 自定义插件">
+<meta property="og:url" content="https://qiaogaojian.github.io/2ef9d9fd766df6d917f975a5f719d2bde502d33a/index.html">
+<meta property="og:site_name" content="行则将至">
+<meta property="og:description" content="Android studio 通过 Gradle 来构建我们的项目。一般情况下，我们只是使用 Gradle 来配置一些功能，比如，buildTypes，productFlavors等等。  实际上，Gradle 提供了很多有用的功能，可以让我们更加方便的管理我们的项目。  这篇，我们介绍下 Gradle 的 Plugin 插件。 官方介绍  Gradle 的 plugin 插件，有三种方式：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qiaogaojian.github.io/images/Pasted%20image%2020221129153255.png">
+<meta property="og:image" content="https://qiaogaojian.github.io/images/Pasted%20image%2020221129152633.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019122519301292.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191225193203562.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191227210932107.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191227212310443.png">
+<meta property="article:published_time" content="2022-11-29T11:06:08.000Z">
+<meta property="article:modified_time" content="2024-10-19T02:48:17.125Z">
+<meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="srcard">
+<meta property="article:tag" content="android">
+<meta property="article:tag" content="gradle">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qiaogaojian.github.io/images/Pasted%20image%2020221129153255.png">
+
+
+<link rel="canonical" href="https://qiaogaojian.github.io/2ef9d9fd766df6d917f975a5f719d2bde502d33a/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Android Gradle 自定义插件 | 行则将至</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">行则将至</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">人生在勤,不索何获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80.-build-script"><span class="nav-text">一. Build script</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E6%8F%92%E4%BB%B6%E8%84%9A%E6%9C%AC-hello.gradle"><span class="nav-text">1.1 新建插件脚本 hello.gradle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E6%8F%92%E4%BB%B6%E4%BB%A3%E7%A0%81"><span class="nav-text">1.2 编写插件代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5app-%E6%9E%84%E5%BB%BA%E8%84%9A%E6%9C%AC"><span class="nav-text">1.3 导入app 构建脚本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-text">1.4 使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C.-buildsrc-project"><span class="nav-text">二. buildSrc project</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-buildsrc-%E7%9A%84-module"><span class="nav-text">2.1 创建 buildSrc 的 module。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87-build.gradle-%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96"><span class="nav-text">2.2 通过 build.gradle 添加依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%8F%92%E4%BB%B6%E4%BB%A3%E7%A0%81"><span class="nav-text">2.3 创建插件代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-properties-%E6%96%87%E4%BB%B6%E5%85%B3%E8%81%94%E6%8F%92%E4%BB%B6"><span class="nav-text">2.4 创建 properties
+文件，关联插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%8F%92%E4%BB%B6"><span class="nav-text">2.5 使用插件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89.-standalone-project"><span class="nav-text">三. Standalone project</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%8F%92%E4%BB%B6%E7%9A%84-module"><span class="nav-text">3.1 创建一个插件的 module</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96-build.gradle"><span class="nav-text">3.2 添加依赖 (build.gradle)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%8F%92%E4%BB%B6%E8%B7%9F-properties-%E6%96%87%E4%BB%B6"><span class="nav-text">3.2 创建插件，跟 properties
+文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#maven-%E5%8F%91%E5%B8%83%E6%8F%92%E4%BB%B6"><span class="nav-text">3.3 maven 发布插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E5%85%A5%E6%8F%92%E4%BB%B6"><span class="nav-text">3.4 引入插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-1"><span class="nav-text">3.5 使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%A1%B9%E7%9B%AE%E5%BC%95%E7%94%A8%E6%8F%92%E4%BB%B6%E5%8F%8A%E4%BC%98%E5%8C%96"><span class="nav-text">3.6 其他项目引用插件及优化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%A1%B9%E7%9B%AE%E5%BC%95%E5%85%A5%E6%8F%92%E4%BB%B6"><span class="nav-text">3.6.1 其他项目引入插件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E4%B8%8A%E4%BC%A0%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="nav-text">3.6.2 优化，上传到本地仓库</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qiaogaojian"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">qiaogaojian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qiaogaojian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qiaogaojian@live.com" title="E-Mail → mailto:qiaogaojian@live.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+<!--
+-->
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/qiaogaojian" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qiaogaojian.github.io/2ef9d9fd766df6d917f975a5f719d2bde502d33a/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Android Gradle 自定义插件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-11-29 19:06:08" itemprop="dateCreated datePublished" datetime="2022-11-29T19:06:08+08:00">2022-11-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2024-10-19 10:48:17" itemprop="dateModified" datetime="2024-10-19T10:48:17+08:00">2024-10-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">5.技能</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2ef9d9fd766df6d917f975a5f719d2bde502d33a/" class="post-meta-item leancloud_visitors" data-flag-title="Android Gradle 自定义插件" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2ef9d9fd766df6d917f975a5f719d2bde502d33a/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2ef9d9fd766df6d917f975a5f719d2bde502d33a/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+        <p>Android studio 通过 Gradle 来构建我们的项目。一般情况下，我们只是使用
+Gradle
+来配置一些功能，比如，<strong>buildTypes</strong>，<strong>productFlavors</strong>
+等等。</p>
+<p>实际上，Gradle
+提供了很多有用的功能，可以让我们更加方便的管理我们的项目。</p>
+<p>这篇，我们介绍下 Gradle 的 Plugin 插件。 <a
+target="_blank" rel="noopener" href="https://docs.gradle.org/current/userguide/custom_plugins.html#sec:packaging_a_plugin">官方介绍</a></p>
+<p>Gradle 的 plugin 插件，有三种方式：</p>
+<ul>
+<li><p><strong>Build script</strong><br />
+可以直接在构建脚本(build.gradle)中包含插件的源代码。这样做的好处是插件可以自动编译并包含在构建脚本的类路径中，而不需要您做任何事情。然而，插件只能在定义它的构建脚本之内可见，不能在其他脚本中复用插件。</p></li>
+<li><p><strong>buildSrc project</strong> 创建一个 buildSrc
+的项目，存放插件的代码</p></li>
+<li><p><strong>Standalone project</strong>
+创建一个单独的项目，生成并发布一个包含插件，任务等内容的 jar 包。
+<!--SR:!2026-09-11,841,250--></p></li>
+</ul>
+<p>下面，我们就介绍下三种方式的插件分别怎么创建。</p>
+<h2 id="一.-build-script">一. Build script</h2>
+<p>Build script 可以直接在构建脚本(build.gradle)中包含插件的源代码。</p>
+<p><mark style="background: #83d98fA6;">好处：</mark> -
+直接在构建脚本(build.gradle)中包含插件的源代码。可以自动编译并包含在构建脚本的类路径中，无需执行其他操作。</p>
+<p><mark style="background: #fa518dA6;">坏处：</mark><br />
+-
+插件只能在定义它的构建脚本(build.gradle)内可见，不能在其他构建脚本(build.gradle)中复用插件。</p>
+<p><mark style="background: #fbab4bA6;">一般来说，不会使用这种方式。</mark></p>
+<p><strong>使用步骤:</strong></p>
+<h4 id="新建插件脚本-hello.gradle">1.1 新建插件脚本 hello.gradle</h4>
+<p><img src="/images/Pasted%20image%2020221129153255.png" /></p>
+<h4 id="编写插件代码">1.2 编写插件代码</h4>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GROOVY"><figure class="iseeu highlight /groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">TestBuildScriptPlugin</span> <span class="keyword">implements</span> <span class="title class_">Plugin</span>&lt;Project&gt; &#123;  </span><br><span class="line">    <span class="type">void</span> apply(Project project) &#123;  </span><br><span class="line">        println(<span class="string">&quot;This is Build script gradle plugin.&quot;</span>);  </span><br><span class="line">  </span><br><span class="line">        project.task(<span class="string">&#x27;hello&#x27;</span>) &#123;  </span><br><span class="line">            doLast &#123;  </span><br><span class="line">                println <span class="string">&#x27;Hello from the TestBuildScriptPlugin&#x27;</span>  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">apply <span class="attr">plugin:</span> TestBuildScriptPlugin</span><br></pre></td></tr></table></figure></div>
+<p>一般来说，我们写的插件，都需要实现 Plugin 接口。在 apply()
+方法中，写我们要实现的插件代码。</p>
+<h4 id="导入app-构建脚本">1.3 导入app 构建脚本</h4>
+<p><img src="/images/Pasted%20image%2020221129152633.png" /></p>
+<h4 id="使用">1.4 使用</h4>
+<p>打开命令行, 输入 <code>gradlew app:hello</code> 调用插件中定义的
+<code>hello</code> task <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gradlew app:hello</span><br><span class="line">This is Build script gradle plugin.</span><br><span class="line">&gt; Task :app:hello</span><br><span class="line">Hello from the TestBuildScriptPlugin</span><br></pre></td></tr></table></figure></div> <!--SR:!2027-01-19,908,250--></p>
+<h2 id="二.-buildsrc-project">二. buildSrc project</h2>
+<p>这种方式，就是创建一个 buildSrc 的 module。</p>
+<p>因为，Gradle 插件支持 groovy,java,kotlin
+语言，所以，根据我们使用的语言，可以把插件代码分别放到下面几个不同的目录下<br />
+- <code>rootProjectDir/buildSrc/src/main/groovy</code> -
+<code>rootProjectDir/buildSrc/src/main/java</code><br />
+- <code>rootProjectDir/buildSrc/src/main/kotlin</code></p>
+<p>比如，我们想使用 java 语言来开发插件代码，我们就需要把我们的 java
+代码放到 <code>rootProjectDir/buildSrc/src/main/java</code>
+这个目录下。</p>
+<p><mark style="background: #83d98fA6;">好处：</mark> -
+在其他构建脚本(build.gradle)中可见</p>
+<p><mark style="background: #fa518dA6;">坏处：</mark> -
+只有当前的工程才能使用，其他的工程是不能复用</p>
+<h4 id="创建-buildsrc-的-module">2.1 创建 buildSrc 的 module。</h4>
+<p>创建一个名字为 <strong>buildSrc(名字必须是这个)</strong> 的 Android
+module。</p>
+<p>把里面的 build 文件夹，src 下面的 res 文件夹等等，全部删除。</p>
+<p>目录结构如下</p>
+<p><img src="https://img-blog.csdnimg.cn/2019122519301292.png" /></p>
+<h4 id="通过-build.gradle-添加依赖">2.2 通过 build.gradle 添加依赖</h4>
+<p>上面说了，我们可以使用 groovy,kotlin,java 等语言开发。一般来说，使用
+Java 或 Kotlin 实现的插件是静态类型的，其性能将优于使用 Groovy
+实现的相同插件。这里，我们就使用最熟悉的 Java 来开发。</p>
+<p>给 buildSrc 的 module 的 build.gradle 中添加依赖</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GROOVY"><figure class="iseeu highlight /groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// use java library</span></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;java-library&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// groovy library</span></span><br><span class="line"><span class="comment">//apply plugin: &#x27;groovy&#x27;</span></span><br><span class="line"></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;maven-publish&#x27;</span></span><br><span class="line"></span><br><span class="line">dependencies&#123;</span><br><span class="line">    <span class="comment">// gradle sdk</span></span><br><span class="line">    compile gradleApi()</span><br><span class="line">    <span class="comment">// groovy sdk</span></span><br><span class="line">    compile localGroovy()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">repositories&#123;</span><br><span class="line">    google()</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="创建插件代码">2.3 创建插件代码</h4>
+<p>创建插件，需要实现 Plugin 接口。</p>
+<p>这里，我们打印一句话。毕竟，我们只是学习创建 Plugin 插件的。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.liu.loadplugin;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.gradle.api.Plugin;</span><br><span class="line"><span class="keyword">import</span> org.gradle.api.Project;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UploadPlugin</span> <span class="keyword">implements</span> <span class="title class_">Plugin</span>&lt;Project&gt; &#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">apply</span><span class="params">(Project project)</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;this is my first buildSrc plugin !&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="创建-properties-文件关联插件">2.4 创建 properties
+文件，关联插件</h4>
+<p>我们创建好了插件，接下来，我们需要创建一个 properties
+的文件，把插件的名字跟插件关联起来。</p>
+<ol type="1">
+<li>创建目录及文件 main/META-INF/gradle-plugins / 插件名. properties
+文件。</li>
+</ol>
+<p>比如，我们现在的插件名字是 com.liu.loadplugin.properties。</p>
+<p>如下图</p>
+<p><img
+src="https://img-blog.csdnimg.cn/20191225193041380.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2VjbGl1amlhbmJv,size_16,color_FFFFFF,t_70" /></p>
+<p>2，在 properties 文件添加代码，关联插件</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GROOVY"><figure class="iseeu highlight /groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation-<span class="keyword">class</span>=com.liu.loadplugin.UploadPlugin</span><br></pre></td></tr></table></figure></div>
+<p>这个就是关联插件类的全路径（点击是可以跳转到类里面的）。</p>
+<p>到这里，我们整个的 buildSrc 类型的插件就开发完了。</p>
+<h4 id="使用插件">2.5 使用插件</h4>
+<p>在我们的 app 的 module 的 build.gradle 里面引用插件。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GROOVY"><figure class="iseeu highlight /groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;com.liu.loadplugin&#x27;</span></span><br></pre></td></tr></table></figure></div>
+<p>这里的名字是跟我们的 properties 的名字对应的。</p>
+<p>重新构建一次，会看到我们在插件里写的那句话，打印出来了。</p>
+<p><img
+src="https://img-blog.csdnimg.cn/20191225192951335.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2VjbGl1amlhbmJv,size_16,color_FFFFFF,t_70" /></p>
+<p>到这里，我们 buildSrc
+方式开发插件就完成了，下面看下独立的插件开发方式。</p>
+<h2 id="三.-standalone-project">三. Standalone project</h2>
+<p>独立的插件。跟 buildSrc 的创建方式类似。</p>
+<p>但是，它相比与上面的那种，有几个明显的<mark style="background: #83d98fA6;">优点：</mark></p>
+<ul>
+<li>插件的 module 名字，可以随意</li>
+<li>这种方式，就是将我们写的一些插件，任务等等打包到一起，生成 jar，通过
+jar 包的方式使用。所以， <strong>在其他的项目也是可以使用的</strong>
+。</li>
+</ul>
+<p>下面，我们来创建一个独立的插件。</p>
+<h4 id="创建一个插件的-module">3.1 创建一个插件的 module</h4>
+<p>跟上面的方式类似，我们创建一个叫 alone_plugin(名字随意) 的 Android
+module。然后，删除 build,res 等无用的文件。</p>
+<p>结构如下。</p>
+<p><img
+src="https://img-blog.csdnimg.cn/20191225193119523.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2VjbGl1amlhbmJv,size_16,color_FFFFFF,t_70" /></p>
+<h4 id="添加依赖-build.gradle">3.2 添加依赖 (build.gradle)</h4>
+<p>因为，这种独立插件的方式，最后是通过生成 jar
+包，来共其他工程使用。所以，这里跟上面的方式有点不同。<br />
+先看下, build.gradle 文件</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GROOVY"><figure class="iseeu highlight /groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;java-library&#x27;</span></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;maven&#x27;</span></span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    compile gradleApi()</span><br><span class="line">    compile localGroovy()</span><br><span class="line">&#125;</span><br><span class="line">repositories &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">group = <span class="string">&#x27;com.liu.alone.plugin&#x27;</span></span><br><span class="line">version = <span class="string">&#x27;1.0.0&#x27;</span></span><br><span class="line">archivesBaseName = <span class="string">&#x27;java-plugin&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//upload</span></span><br><span class="line">uploadArchives &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        mavenDeployer &#123;</span><br><span class="line">            repository(<span class="attr">url:</span> uri(<span class="string">&#x27;../repo&#x27;</span>))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>这里比 buildSrc 的方式多了下面，这些配置 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GROOVY"><figure class="iseeu highlight /groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">group = <span class="string">&#x27;com.liu.alone.plugin&#x27;</span></span><br><span class="line">version = <span class="string">&#x27;1.0.0&#x27;</span></span><br><span class="line">archivesBaseName = <span class="string">&#x27;java-plugin&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//upload</span></span><br><span class="line">uploadArchives &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        mavenDeployer &#123;</span><br><span class="line">            repository(<span class="attr">url:</span> uri(<span class="string">&#x27;../repo&#x27;</span>))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div> 我们是通过
+maven 的方式，把插件发布到本地的 repo 目录下。我们知道 maven
+发布需要指定：groupId,artifactId,version
+的。通过，这三个声明，就可以找到我们的插件。</p>
+<h4 id="创建插件跟-properties-文件">3.2 创建插件，跟 properties
+文件</h4>
+<p>这两个步骤跟我们上面的 buildSrc
+创建插件的方式一样。这里就不写了。</p>
+<p>目录结构如下图</p>
+<p><img
+src="https://img-blog.csdnimg.cn/20191225193131891.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2VjbGl1amlhbmJv,size_16,color_FFFFFF,t_70" /></p>
+<h4 id="maven-发布插件">3.3 maven 发布插件</h4>
+<p>通过 Gradle 的 alone_plugin 下面的 uploadArchives 命令。<br />
+把我们的插件，发布到当前工程的 repo 目录下。</p>
+<p><img
+src="https://img-blog.csdnimg.cn/2019122519314187.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2VjbGl1amlhbmJv,size_16,color_FFFFFF,t_70" /></p>
+<p>通过上面的命令，就会把插件发布到项目下的 repo 目录里面。</p>
+<p>如下图</p>
+<p><img
+src="https://img-blog.csdnimg.cn/20191225193143798.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2VjbGl1amlhbmJv,size_16,color_FFFFFF,t_70" /></p>
+<h4 id="引入插件">3.4 引入插件</h4>
+<p>在项目的 build.gradle 引入我们发布的插件</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GROOVY"><figure class="iseeu highlight /groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">        maven&#123;</span><br><span class="line">            url uri(<span class="string">&#x27;./repo/&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath <span class="string">&#x27;com.android.tools.build:gradle:3.3.1&#x27;</span></span><br><span class="line"></span><br><span class="line">        classpath <span class="string">&#x27;com.liu.alone.plugin:java-plugin:1.0.0&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>通过添加 maven 仓库。在 dependenies
+里面引用。就把我们的插件引入了。</p>
+<h4 id="使用-1">3.5 使用</h4>
+<p>在 app module 的 build.gradle 里面引用跟 buildSrc 的方式一样。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GROOVY"><figure class="iseeu highlight /groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;com.liu.alone.plugin&#x27;</span></span><br></pre></td></tr></table></figure></div>
+<p>最后，重新构建一次。就会打印出，我们插件里写的 Log。</p>
+<p><img src="https://img-blog.csdnimg.cn/20191225193203562.png" /></p>
+<p>到这里，自定义 Gradle 插件的三种方式，就介绍完了。</p>
+<p>独立的插件，我们这里只是说了，在打包的项目使用。那么，其他的项目应该怎么使用呢。</p>
+<h4 id="其他项目引用插件及优化">3.6 其他项目引用插件及优化</h4>
+<h5 id="其他项目引入插件">3.6.1 其他项目引入插件</h5>
+<p>独立的插件开发方式的最终目的是让其他的项目也可以使用。那么，别的项目，怎么来引用呢。</p>
+<p>这里，我们让其他的项目通过 jar 包的方式来引用。</p>
+<p>首先，在需要引入的项目，创建一个 libs 文件夹
+(这个应该是可以随意起的)。</p>
+<p><img src="https://img-blog.csdnimg.cn/20191227210932107.png" /></p>
+<p>其次，修改项目的 build.grandle</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GROOVY"><figure class="iseeu highlight /groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">        flatDir&#123;dir <span class="string">&#x27;libs&#x27;</span>&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath <span class="string">&#x27;com.android.tools.build:gradle:3.3.1&#x27;</span></span><br><span class="line"></span><br><span class="line">        classpath <span class="string">&#x27;com.liu.alone.plugin:java-plugin:1.0.0&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>这里，我们需要把 libs
+添加进仓库中，然后，依赖这个插件。就完成了在其他项目的使用。</p>
+<p>我们再来想一下。这种方式，是需要我们手动把 jar
+包拷贝到需要的项目中的。有什么问题呢？ * 1. 手动拷贝，没有那么自动化 *
+2. 如果这个插件升级了或者修改了呢，我们每次都拷贝？</p>
+<p>既然是多个项目用的话。那么，我们可不可以上传到本地仓库。然后，其他的项目也使用本地仓库，来解决上面的问题呢。</p>
+<h5 id="优化上传到本地仓库">3.6.2 优化，上传到本地仓库</h5>
+<p>这里关于本地仓库配置本地 Maven 库，就不说明了。有兴趣可以看下这个：<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/android_jianbo/article/details/103738151">Android
+Studio： 通过 Artifactory 搭建本地仓库优化编译速度</a></p>
+<p>我们首先创建一个本地仓库。让其依赖一个组 (android_depend)。<br />
+因为我们不只是有一个插件，还有 jcenter 等等，都可以放到本地仓库中。</p>
+<p><img
+src="https://img-blog.csdnimg.cn/20191227211913567.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2VjbGl1amlhbmJv,size_16,color_FFFFFF,t_70" /><br />
+然后，修改我们的独立插件 alone_plugin 的
+build.gradle。使其发布到本地仓库的 android_plugin 中，而不再发布到项目的
+repo 目录下。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GROOVY"><figure class="iseeu highlight /groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;java-library&#x27;</span></span><br><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;maven&#x27;</span></span><br><span class="line">dependencies &#123;</span><br><span class="line">    compile gradleApi()</span><br><span class="line">    compile localGroovy()</span><br><span class="line">    compile <span class="string">&#x27;com.android.tools.build:gradle:3.3.1&#x27;</span></span><br><span class="line">    implementation(<span class="string">&quot;com.squareup.okhttp3:okhttp:3.8.1&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line">repositories &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//group = &#x27;com.liu.alone.plugin&#x27;</span></span><br><span class="line"><span class="comment">//version = &#x27;1.0.0&#x27;</span></span><br><span class="line"><span class="comment">//archivesBaseName = &#x27;java-plugin&#x27;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//upload</span></span><br><span class="line"><span class="comment">//uploadArchives &#123;</span></span><br><span class="line"><span class="comment">//    repositories &#123;</span></span><br><span class="line"><span class="comment">//        mavenDeployer &#123;</span></span><br><span class="line"><span class="comment">//            repository(url: uri(&#x27;../repo&#x27;))</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//upload to local maven</span></span><br><span class="line"></span><br><span class="line">uploadArchives &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        mavenDeployer &#123;</span><br><span class="line">            repository(<span class="attr">url:</span> <span class="string">&quot;http://localhost:8081/artifactory/android_plugin/&quot;</span>) &#123;</span><br><span class="line">                authentication(<span class="attr">userName:</span> <span class="string">&quot;admin&quot;</span>, <span class="attr">password:</span> <span class="string">&quot;admin&quot;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            pom.version = <span class="string">&quot;1.0.0&quot;</span></span><br><span class="line">            pom.artifactId = <span class="string">&quot;java-plugin&quot;</span></span><br><span class="line">            pom.groupId = <span class="string">&quot;com.liu.alone.plugin&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<p>这里，我们已经修改其发布的位置了。发布成功后，看下本地仓库。</p>
+<p><img src="https://img-blog.csdnimg.cn/20191227212310443.png" /><br />
+这里，我们看到已经发布上去了。</p>
+<p>然后，我们修改要引用插件的项目下的 build.gradle</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="GROOVY"><figure class="iseeu highlight /groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Top-level build file where you can add configuration options common to all sub-projects/modules.</span></span><br><span class="line"></span><br><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line"><span class="comment">//        google()</span></span><br><span class="line"><span class="comment">//        jcenter()</span></span><br><span class="line">        maven&#123;</span><br><span class="line">            url <span class="string">&#x27;http://localhost:8081/artifactory/android_depend/&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//        flatDir&#123;dir &#x27;libs&#x27;&#125;</span></span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath <span class="string">&#x27;com.android.tools.build:gradle:3.3.1&#x27;</span></span><br><span class="line"></span><br><span class="line">        classpath <span class="string">&#x27;com.liu.alone.plugin:java-plugin:1.0.0&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line"><span class="comment">//        google()</span></span><br><span class="line"><span class="comment">//        jcenter()</span></span><br><span class="line">        maven&#123;</span><br><span class="line">            url <span class="string">&#x27;http://localhost:8081/artifactory/android_depend/&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">task clean(<span class="attr">type:</span> Delete) &#123;</span><br><span class="line">    delete rootProject.buildDir</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>疑惑：这里需要，先发布到本地仓库；然后，把本地仓库添加到组中，这样，组中才有插件的包。<br />
+先把本地仓库添加到组中，在发布插件到本地仓库，这样组中是没有这个插件包的
+(本地仓库有)。</p>
+</blockquote>
+<p>这里，我们看到，我们已经不再使用 libs
+目录了，而是换成了本地仓库。<br />
+这样的话，如果，独立插件再发布修改或者升级的话，我们也不需要手动拷贝 jar
+包了。直接修改版本就可以了。</p>
+<p>到这里，Gradle 的插件开发，就全部介绍完了。</p>
+<p>自定义插件非常实用，我们完全可以通过自定义插件来一键实现打包，加固，上传，钉钉通知等功能。</p>
+<p><strong>参考:</strong></p>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/android_jianbo/article/details/103704459">blog.csdn.net</a></li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="qiaogaojian 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="qiaogaojian 支付宝">
+        <span>支付宝</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.png" alt="qiaogaojian 比特币">
+        <span>比特币</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/srcard/" rel="tag"><i class="fa fa-tag"></i> srcard</a>
+              <a href="/tags/android/" rel="tag"><i class="fa fa-tag"></i> android</a>
+              <a href="/tags/gradle/" rel="tag"><i class="fa fa-tag"></i> gradle</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/44d4a3aec8e02e822e0b0bf4f23d8163f553c566/" rel="prev" title="Unity3d Sprite 和 UI Image 的区别">
+                  <i class="fa fa-chevron-left"></i> Unity3d Sprite 和 UI Image 的区别
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/dcc5087256bf04dfed9318c7f0a5de8bb5f26feb/" rel="next" title="MySQL 常用命令">
+                  MySQL 常用命令 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiaogaojian</span>
+</div>
+<div class="busuanzi-count">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+
+<span id="timeDate">载入天数...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/01/2016 19:00:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 " + hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+        // document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  const url = element.dataset.target;
+  const pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  const pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  const fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.7.0/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/2ef9d9fd766df6d917f975a5f719d2bde502d33a/",
+    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"要不说点啥?","avatar":"mm","meta":["nick","mail"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":210,"height":360},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

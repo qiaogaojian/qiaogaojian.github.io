@@ -22,18 +22,18 @@
     var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="刚安装的 npm 使用默认的源会感觉特别特别慢，所以，非常有必要使用国内的源，比如说众所周知的淘宝镜像源   1. 查看当前源  1   npm config get registry    2. 设置为淘宝源  1   npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org    3. 还原默认源  1   npm config set r">
+  <meta name="description" content="刚安装的 npm 使用默认的源会感觉特别特别慢，所以，非常有必要使用国内的源，比如说众所周知的淘宝镜像源   1. 查看当前源  1   npm config get registry    2. 设置国内源1  1   npm config set registry https:&#x2F;&#x2F;registry.npmmirror.com&#x2F;    3. 还原默认源  1   npm config set r">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Npm 配置国内源">
 <meta property="og:url" content="https://qiaogaojian.github.io/6d601709f7477b517baf2a678bf0221c6bd7e53c/index.html">
 <meta property="og:site_name" content="行则将至">
-<meta property="og:description" content="刚安装的 npm 使用默认的源会感觉特别特别慢，所以，非常有必要使用国内的源，比如说众所周知的淘宝镜像源   1. 查看当前源  1   npm config get registry    2. 设置为淘宝源  1   npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org    3. 还原默认源  1   npm config set r">
+<meta property="og:description" content="刚安装的 npm 使用默认的源会感觉特别特别慢，所以，非常有必要使用国内的源，比如说众所周知的淘宝镜像源   1. 查看当前源  1   npm config get registry    2. 设置国内源1  1   npm config set registry https:&#x2F;&#x2F;registry.npmmirror.com&#x2F;    3. 还原默认源  1   npm config set r">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-11T16:42:56.000Z">
-<meta property="article:modified_time" content="2022-11-13T23:49:23.157Z">
+<meta property="article:modified_time" content="2024-10-19T02:48:17.223Z">
 <meta property="article:author" content="qiaogaojian">
-<meta property="article:tag" content="node">
 <meta property="article:tag" content="npm">
+<meta property="article:tag" content="node">
 <meta name="twitter:card" content="summary">
 
 
@@ -194,7 +194,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -206,6 +206,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -221,20 +222,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -316,7 +317,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-11-14 07:49:23" itemprop="dateModified" datetime="2022-11-14T07:49:23+08:00">2022-11-14</time>
+        <time title="修改时间：2024-10-19 10:48:17" itemprop="dateModified" datetime="2024-10-19T10:48:17+08:00">2024-10-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -372,7 +373,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>237</span>
+      <span>300</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -398,26 +399,41 @@
 </ol>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure></div>
 <ol start="2" type="1">
-<li><strong>设置为淘宝源</strong></li>
+<li><strong>设置国内源</strong><a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
 </ol>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com/</span><br></pre></td></tr></table></figure></div>
 <ol start="3" type="1">
 <li><strong>还原默认源</strong></li>
 </ol>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmjs.org/</span><br></pre></td></tr></table></figure></div>
+<h2 id="参考">参考</h2>
 <p><strong>Backlinks:</strong></p>
 <ul>
-<li><a href="../437c87964cd7b4b8981c5decafaac9a8f7c01645">Node
-开发环境搭建 Deepin</a></li>
+<li><a href="../8ae045022243ef5d9908e342c7c63a7c1c8c7951">Node
+开发环境搭建 Win10</a></li>
+<li><a href="../bc518616254162513c0aac7de77d137853f3de88">Deepin Node
+开发环境搭建</a></li>
 </ul>
 <blockquote class="pullquote mindmap mindmap-md"><ul>
 <li>Npm 配置国内源
 <ul>
-<li><a href="../437c87964cd7b4b8981c5decafaac9a8f7c01645">Node
-开发环境搭建 Deepin</a></li>
+<li><a href="../8ae045022243ef5d9908e342c7c63a7c1c8c7951">Node
+开发环境搭建 Win10</a></li>
+<li><a href="../bc518616254162513c0aac7de77d137853f3de88">Deepin Node
+开发环境搭建</a></li>
 </ul></li>
 </ul>
 </blockquote>
+<section class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><a
+target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1372949">npm使用国内镜像加速的几种方法-腾讯云开发者社区-腾讯云</a><a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">
     </div>
 
@@ -449,21 +465,21 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/node/" rel="tag"><i class="fa fa-tag"></i> node</a>
               <a href="/tags/npm/" rel="tag"><i class="fa fa-tag"></i> npm</a>
+              <a href="/tags/node/" rel="tag"><i class="fa fa-tag"></i> node</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/6e508ab096e0a186a795dd726f21fb8429c4186e/" rel="prev" title="打造一套知识笔记管理系统">
-                  <i class="fa fa-chevron-left"></i> 打造一套知识笔记管理系统
+                <a href="/71f6d9657f3765736920778e47beb31bca7b24ee/" rel="prev" title="Hexo Next主题添加访问量统计功能">
+                  <i class="fa fa-chevron-left"></i> Hexo Next主题添加访问量统计功能
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/4985d963fb644c7b84c923e1fae816af6e13f061/" rel="next" title="Git 常用命令">
-                  Git 常用命令 <i class="fa fa-chevron-right"></i>
+                <a href="/6247ea938466aa6cf2f4294b94f808293af8326b/" rel="next" title="Python 修改 pip 源为国内镜像源">
+                  Python 修改 pip 源为国内镜像源 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

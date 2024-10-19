@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="常用命令 1.下载项目 1   git clone https:&#x2F;&#x2F;gitee.com&#x2F;qiaogaojian&#x2F;MyGames.git   2.添加更改 1   git add .   3.提交文件 1   git commit -m &quot;commit message&quot;   退出 vi 编辑器: esc + : + wq&#x2F;q  4.上传代码 1   git push   5.下载代码 1   git">
+  <meta name="description" content="常用命令 1.下载项目 1   git clone https:&#x2F;&#x2F;gitee.com&#x2F;qiaogaojian&#x2F;MyGames.git   2.添加更改文件 1   git add .   取消 git add 1   git reset file_path     3.提交文件 1   git commit -m &quot;commit message&quot;   退出 vi 编辑器: esc + : + w">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 常用命令">
 <meta property="og:url" content="https://qiaogaojian.github.io/4985d963fb644c7b84c923e1fae816af6e13f061/index.html">
 <meta property="og:site_name" content="行则将至">
-<meta property="og:description" content="常用命令 1.下载项目 1   git clone https:&#x2F;&#x2F;gitee.com&#x2F;qiaogaojian&#x2F;MyGames.git   2.添加更改 1   git add .   3.提交文件 1   git commit -m &quot;commit message&quot;   退出 vi 编辑器: esc + : + wq&#x2F;q  4.上传代码 1   git push   5.下载代码 1   git">
+<meta property="og:description" content="常用命令 1.下载项目 1   git clone https:&#x2F;&#x2F;gitee.com&#x2F;qiaogaojian&#x2F;MyGames.git   2.添加更改文件 1   git add .   取消 git add 1   git reset file_path     3.提交文件 1   git commit -m &quot;commit message&quot;   退出 vi 编辑器: esc + : + w">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-11T16:42:56.000Z">
-<meta property="article:modified_time" content="2022-11-13T23:49:23.157Z">
+<meta property="article:modified_time" content="2024-10-19T02:48:17.198Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="srcard">
 <meta property="article:tag" content="git">
@@ -206,7 +206,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE"><span class="nav-text">1.下载项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%9B%B4%E6%94%B9"><span class="nav-text">2.添加更改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E6%96%87%E4%BB%B6"><span class="nav-text">3.提交文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81"><span class="nav-text">4.上传代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E4%BB%A3%E7%A0%81"><span class="nav-text">5.下载代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E6%89%80%E6%9C%89%E5%88%86%E6%94%AF"><span class="nav-text">6.显示所有分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E5%88%B0%E5%88%86%E6%94%AF"><span class="nav-text">7.切换到分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF"><span class="nav-text">8.新建本地分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E9%80%81%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%E5%88%B0%E8%BF%9C%E7%A8%8B"><span class="nav-text">9.推送本地分支到远程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="nav-text">10.删除文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%92%A4%E9%94%80%E6%9C%AC%E5%9C%B0%E6%89%80%E6%9C%89%E6%9C%AA%E6%8F%90%E4%BA%A4%E6%96%87%E4%BB%B6%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="nav-text">11.撤销本地所有未提交文件的修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2"><span class="nav-text">12.查看提交历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B-git-config"><span class="nav-text">13.查看 git config</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-text">14.查看远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-text">15.删除远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gitlab-%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93%E5%91%BD%E4%BB%A4"><span class="nav-text">16.Gitlab 新建仓库命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%96%E6%B6%88%E8%B7%9F%E8%B8%AA"><span class="nav-text">17. 取消跟踪</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-%E5%91%BD%E4%BB%A4%E8%A1%A8"><span class="nav-text">Git 命令表</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE"><span class="nav-text">1.下载项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%9B%B4%E6%94%B9%E6%96%87%E4%BB%B6"><span class="nav-text">2.添加更改文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E6%96%87%E4%BB%B6"><span class="nav-text">3.提交文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E4%BB%A3%E7%A0%81"><span class="nav-text">4.上传代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E4%BB%A3%E7%A0%81"><span class="nav-text">5.下载代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E6%89%80%E6%9C%89%E5%88%86%E6%94%AF"><span class="nav-text">6.显示所有分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E5%88%B0%E5%88%86%E6%94%AF"><span class="nav-text">7.切换到分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF"><span class="nav-text">8.新建本地分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E9%80%81%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%E5%88%B0%E8%BF%9C%E7%A8%8B"><span class="nav-text">9.推送本地分支到远程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="nav-text">10.删除文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%92%A4%E9%94%80%E6%9C%AC%E5%9C%B0%E6%89%80%E6%9C%89%E6%9C%AA%E6%8F%90%E4%BA%A4%E6%96%87%E4%BB%B6%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="nav-text">11.撤销本地所有未提交文件的修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2"><span class="nav-text">12.查看提交历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B-git-config"><span class="nav-text">13.查看 git config</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-text">14.查看远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-text">15.删除远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gitlab-%E6%96%B0%E5%BB%BA%E4%BB%93%E5%BA%93%E5%91%BD%E4%BB%A4"><span class="nav-text">16.Gitlab 新建仓库命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%96%E6%B6%88%E8%B7%9F%E8%B8%AA"><span class="nav-text">17. 取消跟踪</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-%E5%91%BD%E4%BB%A4%E8%A1%A8"><span class="nav-text">Git 命令表</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -222,20 +222,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -317,7 +317,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-11-14 07:49:23" itemprop="dateModified" datetime="2022-11-14T07:49:23+08:00">2022-11-14</time>
+        <time title="修改时间：2024-10-19 10:48:17" itemprop="dateModified" datetime="2024-10-19T10:48:17+08:00">2024-10-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -395,8 +395,9 @@
         <h2 id="常用命令">常用命令</h2>
 <h3 id="下载项目">1.下载项目</h3>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://gitee.com/qiaogaojian/MyGames.git</span><br></pre></td></tr></table></figure></div>
-<h3 id="添加更改">2.添加更改</h3>
+<h3 id="添加更改文件">2.添加更改文件</h3>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure></div>
+<p>取消 git add <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset file_path</span><br></pre></td></tr></table></figure></div> <!--SR:!2025-08-02,395,250--></p>
 <h3 id="提交文件">3.提交文件</h3>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;commit message&quot;</span></span><br></pre></td></tr></table></figure></div>
 <p>退出 vi 编辑器: esc + : + wq/q</p>
@@ -504,13 +505,13 @@ alt="image.png" />
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/6d601709f7477b517baf2a678bf0221c6bd7e53c/" rel="prev" title="Npm 配置国内源">
-                  <i class="fa fa-chevron-left"></i> Npm 配置国内源
+                <a href="/4a7e963d1a686f40b2a25a3cdd72859ef7705faf/" rel="prev" title="Multi-line text search in VSCode">
+                  <i class="fa fa-chevron-left"></i> Multi-line text search in VSCode
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/4a7e963d1a686f40b2a25a3cdd72859ef7705faf/" rel="next" title="Multi-line text search in VSCode">
-                  Multi-line text search in VSCode <i class="fa fa-chevron-right"></i>
+                <a href="/3b4772e22e0b7c32dd35ae81cbe686a7e7df3307/" rel="next" title="Android 组件化基础">
+                  Android 组件化基础 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

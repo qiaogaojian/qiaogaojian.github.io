@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="SQL的概念 SQL 是结构化查询语言,是what型语音,而非how型语言, SQL代码按照作用可以分为以下三种   * dml数据库操作 语言 (使用者角度,增删改查,占80%) 这80%当中,查询又占80%  * ddl数据库定义 语言 (创建者角度,建表,建库,建视图,15%)  * dcl数据库控制 语言 (管理员角度,DBA,5%)   DDL 数据库定义语言 建表就是声明表头的过程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL 常用命令">
+<meta property="og:url" content="https://qiaogaojian.github.io/dcc5087256bf04dfed9318c7f0a5de8bb5f26feb/index.html">
+<meta property="og:site_name" content="行则将至">
+<meta property="og:description" content="SQL的概念 SQL 是结构化查询语言,是what型语音,而非how型语言, SQL代码按照作用可以分为以下三种   * dml数据库操作 语言 (使用者角度,增删改查,占80%) 这80%当中,查询又占80%  * ddl数据库定义 语言 (创建者角度,建表,建库,建视图,15%)  * dcl数据库控制 语言 (管理员角度,DBA,5%)   DDL 数据库定义语言 建表就是声明表头的过程">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-31T09:18:06.000Z">
+<meta property="article:modified_time" content="2024-10-19T02:48:17.152Z">
+<meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="srcard">
+<meta property="article:tag" content="sql">
+<meta property="article:tag" content="mysql">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://qiaogaojian.github.io/dcc5087256bf04dfed9318c7f0a5de8bb5f26feb/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>MySQL 常用命令 | 行则将至</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">行则将至</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">人生在勤,不索何获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sql%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">SQL的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ddl-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%9A%E4%B9%89%E8%AF%AD%E8%A8%80"><span class="nav-text">DDL 数据库定义语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%80%BC%E5%9E%8B"><span class="nav-text">数值型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9"><span class="nav-text">浮点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9"><span class="nav-text">定点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4"><span class="nav-text">日期时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="nav-text">默认值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4%E6%B1%87%E6%80%BB"><span class="nav-text">类型取值范围汇总</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">存储引擎的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E9%9B%86"><span class="nav-text">字符集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-text">索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1"><span class="nav-text">事务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A6%E5%8F%91%E5%99%A8-trigger"><span class="nav-text">触发器 trigger</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96"><span class="nav-text">优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sql-%E8%AF%AD%E5%8F%A5"><span class="nav-text">SQL 语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">连接数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E8%A1%A8"><span class="nav-text">建表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E8%A1%A8"><span class="nav-text">选择表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%BB%93%E6%9E%84"><span class="nav-text">查看表结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E7%AE%A1%E7%90%86"><span class="nav-text">表管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%A4%87%E4%BB%BD%E5%92%8C%E6%81%A2%E5%A4%8D"><span class="nav-text">数据的备份和恢复</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%BC%E5%87%BA"><span class="nav-text">导出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%81%A2%E5%A4%8D"><span class="nav-text">恢复</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE-insert-into"><span class="nav-text">插入数据 INSERT INTO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE-delete-from"><span class="nav-text">删除数据 DELETE FROM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E6%95%B0%E6%8D%AE-update-set"><span class="nav-text">更改数据 UPDATE SET</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE-select-from"><span class="nav-text">查询数据 SELECT FROM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-text">子查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2"><span class="nav-text">模糊查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F"><span class="nav-text">排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%AA%E5%8F%96"><span class="nav-text">截取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5"><span class="nav-text">连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-text">常用函数</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qiaogaojian"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">qiaogaojian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qiaogaojian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qiaogaojian@live.com" title="E-Mail → mailto:qiaogaojian@live.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+<!--
+-->
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/qiaogaojian" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qiaogaojian.github.io/dcc5087256bf04dfed9318c7f0a5de8bb5f26feb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MySQL 常用命令
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-01-31 17:18:06" itemprop="dateCreated datePublished" datetime="2023-01-31T17:18:06+08:00">2023-01-31</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2024-10-19 10:48:17" itemprop="dateModified" datetime="2024-10-19T10:48:17+08:00">2024-10-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">5.技能</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/Server/" itemprop="url" rel="index"><span itemprop="name">Server</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/Server/MySql/" itemprop="url" rel="index"><span itemprop="name">MySql</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/dcc5087256bf04dfed9318c7f0a5de8bb5f26feb/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL 常用命令" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/dcc5087256bf04dfed9318c7f0a5de8bb5f26feb/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/dcc5087256bf04dfed9318c7f0a5de8bb5f26feb/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>10k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+        <h2 id="sql的概念">SQL的概念</h2>
+<p>SQL 是结构化查询语言,是what型语音,而非how型语言,
+SQL代码按照作用可以分为以下三种</p>
+<ul>
+<li><strong>dml</strong>
+数据库<mark style="background: #fefe00A6;">操作</mark> 语言
+(<strong>使用者</strong>角度,增删改查,占<mark style="background: #be9affA6;">80%</mark>
+) 这80%当中,查询又占<mark style="background: #be9affA6;">80%</mark></li>
+<li><strong>ddl</strong>
+数据库<mark style="background: #fefe00A6;">定义</mark> 语言
+(<strong>创建者</strong>角度,建表,建库,建视图,<mark style="background: #be9affA6;">15%</mark>
+)</li>
+<li><strong>dcl</strong>
+数据库<mark style="background: #fefe00A6;">控制</mark> 语言
+(<strong>管理员</strong>角度,DBA,<mark style="background: #be9affA6;">5%</mark>
+) <!--SR:!2024-12-06,403,250--></li>
+</ul>
+<h2 id="ddl-数据库定义语言">DDL 数据库定义语言</h2>
+<p>建表就是声明表头的过程</p>
+<h3 id="数值型">数值型</h3>
+<p><strong>整型数值范围</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>类型</th>
+<th>字节数</th>
+<th style="text-align: right;">范围</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>tinyint</td>
+<td>1-8位</td>
+<td style="text-align: right;">+-128</td>
+</tr>
+<tr class="even">
+<td>smallint</td>
+<td>2-16位</td>
+<td style="text-align: right;">+-32, 768</td>
+</tr>
+<tr class="odd">
+<td>mediumint</td>
+<td>3-24位</td>
+<td style="text-align: right;">+-8, 388, 608</td>
+</tr>
+<tr class="even">
+<td>int</td>
+<td>4-32位</td>
+<td style="text-align: right;">+-2, 147, 483, 648</td>
+</tr>
+<tr class="odd">
+<td>bigint</td>
+<td>8-64位</td>
+<td style="text-align: right;">+-9, 223, 372, 036, 854, 775, 808</td>
+</tr>
+</tbody>
+</table>
+<p><strong>可选参数</strong> - unsigned 无符号 - zerofill(M) 固定宽度M
+填充0 (隐含附带 unsigned 属性) <!--SR:!2024-12-05,400,250--></p>
+<h3 id="浮点">浮点</h3>
+<p>会有精度损失 - float - double</p>
+<h3 id="定点">定点</h3>
+<p>没有精度损失 - decimal</p>
+<p><code>[M,D]</code> M:位数 D:精度</p>
+<h3 id="字符串">字符串</h3>
+<div class="line-block">类型 | 特点 |<br />
+--# | --# |<br />
+char | 定长 速度快|<br />
+varchar | 不定长 速度慢|<br />
+blob | 二进制 防止字符集过滤信息丢失|<br />
+enum | 固定的几个值|</div>
+<p><strong>字符字节数</strong> | 编码 | 英文字母 | 中文汉字 | 标点符号 |
+| ---# | ------# | ------# | ------# | | GBK | 1 | 2 | 1 | | UTF-8 | 1 |
+3 | 1 | <!--SR:!2026-06-13,737,250--></p>
+<h3 id="日期时间">日期时间</h3>
+<ul>
+<li>year</li>
+<li>date</li>
+<li>time</li>
+<li>datetime</li>
+<li>timestamp</li>
+</ul>
+<h3 id="默认值">默认值</h3>
+<ul>
+<li>not null default 'value'</li>
+<li>primary key</li>
+<li>auto increment</li>
+</ul>
+<h3 id="类型取值范围汇总">类型取值范围汇总</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>类 型</th>
+<th>大 小</th>
+<th>描 述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CAHR(Length)</td>
+<td>Length字节</td>
+<td>定长字段，长度为0~255个字符</td>
+</tr>
+<tr class="even">
+<td>VARCHAR(Length)</td>
+<td>String长度:1字节或String长度:2字节</td>
+<td>变长字段，长度为0~65 535个字符</td>
+</tr>
+<tr class="odd">
+<td>TINYTEXT</td>
+<td>String长度:1字节</td>
+<td>字符串，最大长度为255个字符</td>
+</tr>
+<tr class="even">
+<td>TEXT</td>
+<td>String长度:2字节</td>
+<td>字符串，最大长度为65 535个字符</td>
+</tr>
+<tr class="odd">
+<td>MEDIUMTEXT</td>
+<td>String长度:3字节</td>
+<td>字符串，最大长度为16 777 215个字符</td>
+</tr>
+<tr class="even">
+<td>LONGTEXT</td>
+<td>String长度:4字节</td>
+<td>字符串，最大长度为4 294 967 295个字符</td>
+</tr>
+<tr class="odd">
+<td>TINYINT(Length)</td>
+<td>1字节</td>
+<td>范围：-128<sub>127，或者0</sub>255（无符号）</td>
+</tr>
+<tr class="even">
+<td>SMALLINT(Length)</td>
+<td>2字节</td>
+<td>范围：-32 768~32 767，或者0~65 535（无符号）</td>
+</tr>
+<tr class="odd">
+<td>MEDIUMINT(Length)</td>
+<td>3字节</td>
+<td>范围：-8 388 608~8 388 607，或者0~16 777 215（无符号）</td>
+</tr>
+<tr class="even">
+<td>INT(Length)</td>
+<td>4字节</td>
+<td>范围：-2 147 483 648~2 147 483 647，或者0~4 294 967
+295（无符号）</td>
+</tr>
+<tr class="odd">
+<td>BIGINT(Length)</td>
+<td>8字节</td>
+<td>范围：-9 223 372 036 854 775 808~9 223 372 036 854 775 807，或者0~18
+446 744 073 709 551 615（无符号）</td>
+</tr>
+<tr class="even">
+<td>FLOAT(Length, Decimals)</td>
+<td>4字节</td>
+<td>具有浮动小数点的较小的数</td>
+</tr>
+<tr class="odd">
+<td>DOUBLE(Length, Decimals)</td>
+<td>8字节</td>
+<td>具有浮动小数点的较大的数</td>
+</tr>
+<tr class="even">
+<td>DECIMAL(Length, Decimals)</td>
+<td>Length:1字节或Length:2字节</td>
+<td>存储为字符串的DOUBLE，允许固定的小数点</td>
+</tr>
+<tr class="odd">
+<td>DATE</td>
+<td>3字节</td>
+<td>采用YYYY-MM-DD格式</td>
+</tr>
+<tr class="even">
+<td>DATETIME</td>
+<td>8字节</td>
+<td>采用YYYY-MM-DD HH:MM:SS格式</td>
+</tr>
+<tr class="odd">
+<td>TIMESTAMP</td>
+<td>4字节</td>
+<td>采用YYYYMMDDHHMMSS格式；可接受的范围终止于2037年</td>
+</tr>
+<tr class="even">
+<td>TIME</td>
+<td>3字节</td>
+<td>采用HH:MM:SS格式</td>
+</tr>
+<tr class="odd">
+<td>ENUM</td>
+<td>1或2字节</td>
+<td>Enumeration(枚举)的简写，这意味着每一列都可以具有多个可能的值之一</td>
+</tr>
+<tr class="even">
+<td>SET</td>
+<td>1、2、3、4或8字节</td>
+<td>与ENUM一样，只不过每一列都可以具有多个可能的值</td>
+</tr>
+</tbody>
+</table>
+<!--SR:!2024-09-14,208,230-->
+<h3 id="存储引擎的区别">存储引擎的区别</h3>
+<table>
+<thead>
+<tr class="header">
+<th>特点</th>
+<th>MyIsam</th>
+<th>InnoDB</th>
+<th>Memory</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>批量插入速度</td>
+<td>高</td>
+<td>低</td>
+<td>高</td>
+</tr>
+<tr class="even">
+<td>事务</td>
+<td></td>
+<td>支持</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>全文索引</td>
+<td>支持</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>锁机制</td>
+<td>表锁</td>
+<td>行锁</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>存储限制</td>
+<td>没有</td>
+<td>64TB</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!--SR:!2024-08-21,345,250-->
+<h3 id="字符集">字符集</h3>
+<p>数据表设置 <strong>charset</strong> <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show variables like &#x27;%charact%&#x27;;</span><br><span class="line">mysql&gt; set names utf8;</span><br></pre></td></tr></table></figure></div> - 字符集选
+<code>utf8</code> - 排序规则选 <code>utf8_general_ci</code></p>
+<h3 id="索引">索引</h3>
+<p>索引是一种树形结构 提高了查的速度 减慢了增删改的速度
+一般在查询频繁高和重复率低的列加索引 - primary key 主键索引 - index
+普通索引 - unique index 唯一性索引 - fulltext index 全文索引
+全文索引中文无效 一般用分词+索引 如sphinx <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">create table test</span><br><span class="line">(</span><br><span class="line">    id int,</span><br><span class="line">    name char(10),</span><br><span class="line">    email char(20),</span><br><span class="line">    primary key(id),</span><br><span class="line">    key name(name),</span><br><span class="line">    unique key email(email)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"># 索引长度</span><br><span class="line">key email(emial(10)) # 取前10个字符作为索引 为了把重复的内容剔除</span><br><span class="line"></span><br><span class="line"># 多列索引</span><br><span class="line">create table name</span><br><span class="line">(</span><br><span class="line">    xing char(2),</span><br><span class="line">    ming char(10),</span><br><span class="line">    key xm(xing,ming)</span><br><span class="line">);</span><br><span class="line"># 左前缀: 0 两个 第一次 索引生效  只有第二个无效</span><br><span class="line">explain select * from name where xing = &quot;michael&quot; \G;</span><br><span class="line"></span><br><span class="line"># 冗余索引 被多个覆盖</span><br><span class="line">key xm(xing,ming),</span><br><span class="line">key m(ming)</span><br></pre></td></tr></table></figure></div></p>
+<h3 id="事务">事务</h3>
+<p>事务 要么都完成 要么都失败, 具有以下特点 - 隔离性 - 原子性 - 一致性 -
+持久性 需要使用引擎: <strong>innodb</strong> 流程: <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">开启事务          start transaction</span><br><span class="line">运行sql</span><br><span class="line">提交,同时生效\回滚 commit\rollback</span><br></pre></td></tr></table></figure></div></p>
+<h3 id="触发器-trigger">触发器 trigger</h3>
+<ul>
+<li>监视地点:表</li>
+<li>监视行为:增 删 改</li>
+<li>触发时间:after</li>
+<li>触发事件:增 删 改</li>
+</ul>
+<p>创建触发器语法 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create trigger tgName</span><br><span class="line">after/before insert/delete/update</span><br><span class="line">on tableName</span><br><span class="line">for each row</span><br><span class="line">sql; # 触发语句</span><br></pre></td></tr></table></figure></div> 删除触发器: <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop trigger tgName;</span><br></pre></td></tr></table></figure></div></p>
+<h3 id="优化">优化</h3>
+<ul>
+<li>定长不定长分离</li>
+<li>常用不常用分离</li>
+</ul>
+<h2 id="sql-语句">SQL 语句</h2>
+<h3 id="连接数据库">连接数据库</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -h localhost -u root -p</span><br><span class="line"></span><br><span class="line"># 查看数据库状态</span><br><span class="line">mysql&gt; status;</span><br><span class="line">--------------</span><br><span class="line">D:\xampp\MySQL\bin\mysql.exe  Ver 14.14 Distrib 5.5.47, for Win32 (x86)</span><br><span class="line"></span><br><span class="line">Connection id:          3</span><br><span class="line">Current database:       test</span><br><span class="line">Current user:           root@localhost</span><br><span class="line">SSL:                    Not in use</span><br><span class="line">Using delimiter:        ;</span><br><span class="line">Server version:         5.5.47 MySQL Community Server (GPL)</span><br><span class="line">Protocol version:       10</span><br><span class="line">Connection:             localhost via TCP/IP</span><br><span class="line">Server characterset:    utf8</span><br><span class="line">Db     characterset:    latin1</span><br><span class="line">Client characterset:    gbk</span><br><span class="line">Conn.  characterset:    gbk</span><br><span class="line">TCP port:               3306</span><br><span class="line">Uptime:                 8 hours 13 min 28 sec</span><br><span class="line"></span><br><span class="line">Threads: 1  Questions: 171  Slow queries: 0  Opens: 78  Flush tables: 1  Open tables: 0  Queries per second avg: 0.005</span><br><span class="line">--------------</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2025-12-18,631,250-->
+<h3 id="建表">建表</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE TABLE tem</span><br><span class="line">    -&gt; (</span><br><span class="line">    -&gt; id int,</span><br><span class="line">    -&gt; name varchar(20)</span><br><span class="line">    -&gt; )charset utf8;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; INSERT INTO tem VALUES</span><br><span class="line">    -&gt; (1,&quot;Michael&quot;),</span><br><span class="line">    -&gt; (2,null);</span><br><span class="line">Query OK, 2 rows affected (0.00 sec)</span><br><span class="line">Records: 2  Duplicates: 0  Warnings: 0</span><br><span class="line"></span><br><span class="line">mysql&gt; SELECT * FROM tem;</span><br><span class="line">+------+---------+</span><br><span class="line">| id   | name    |</span><br><span class="line">+------+---------+</span><br><span class="line">|    1 | Michael |</span><br><span class="line">|    2 | NULL    |</span><br><span class="line">+------+---------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2025-03-20,478,250-->
+<h3 id="选择表">选择表</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"># 显示所有数据库</span><br><span class="line">mysql&gt; show databases;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| client             |</span><br><span class="line">| messageboard       |</span><br><span class="line">| my_db              |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| test               |</span><br><span class="line">| unitypackage       |</span><br><span class="line">+--------------------+</span><br><span class="line">8 rows in set (0.01 sec)</span><br><span class="line"></span><br><span class="line"># 打开 test 数据库</span><br><span class="line">mysql&gt; use test</span><br><span class="line">Database changed</span><br><span class="line"></span><br><span class="line"># 显示 test 数据库所有的表</span><br><span class="line">mysql&gt; show tables;</span><br><span class="line">+----------------+</span><br><span class="line">| Tables_in_test |</span><br><span class="line">+----------------+</span><br><span class="line">| a              |</span><br><span class="line">| b              |</span><br><span class="line">| boy            |</span><br><span class="line">| category       |</span><br><span class="line">| girl           |</span><br><span class="line">| goods          |</span><br><span class="line">| m              |</span><br><span class="line">| mian           |</span><br><span class="line">| result         |</span><br><span class="line">| t              |</span><br><span class="line">| user           |</span><br><span class="line">+----------------+</span><br><span class="line">11 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2026-04-29,710,250-->
+<h3 id="查看表结构">查看表结构</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; desc user;</span><br><span class="line">+-------+----------------------+------+-----+---------+----------------+</span><br><span class="line">| Field | Type                 | Null | Key | Default | Extra          |</span><br><span class="line">+-------+----------------------+------+-----+---------+----------------+</span><br><span class="line">| uid   | int(11)              | NO   | PRI | NULL    | auto_increment |</span><br><span class="line">| name  | varchar(20)          | NO   |     |         |                |</span><br><span class="line">| age   | smallint(5) unsigned | NO   |     | 0       |                |</span><br><span class="line">+-------+----------------------+------+-----+---------+----------------+</span><br><span class="line">3 rows in set (0.02 sec)</span><br><span class="line"># null 属于比较特殊的类型,不能用 = 号,要用 is, 一般来说 为了方便管理 一个字段的值不能为 null</span><br><span class="line"></span><br><span class="line">mysql&gt; show create table user;</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2026-01-18,650,250-->
+<h3 id="表管理">表管理</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 表的详细信息</span><br><span class="line">mysql&gt; show table status \G;</span><br><span class="line"></span><br><span class="line"># 表的详细信息</span><br><span class="line">mysql&gt; show table status where name = &quot;user&quot; \G;</span><br><span class="line"></span><br><span class="line"># 清空表</span><br><span class="line">mysql&gt; truncate  # 相当于 drop + create</span><br><span class="line">mysql&gt; delete    # 相当于删除表数据</span><br><span class="line"></span><br><span class="line"># 重命名表</span><br><span class="line">rename table user to userhack</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-11-01,388,250-->
+<h3 id="数据的备份和恢复">数据的备份和恢复</h3>
+<p>备份与恢复 系统运行中, 增量备份,与整体备份. 例: 每周日整体备份一次,
+周一到周六备份当天. 如果周五出了问题,可以用周日的整体 +
+周一,二,三,四来恢复. 备份的工具 有第3方的收费备份工作,
+目前我们所学的是系统自带的备份功能, mysqldump Mysqldump可以导出
+<strong>库</strong> 和 <strong>表</strong> 导出的是建表语句及insert语句
+<!--SR:!2024-11-13,395,250--></p>
+<h5 id="导出">导出</h5>
+<ul>
+<li><strong>例1: 导出库下面的表</strong>
+<code>Mysqldump -u用户名 -p密码 库名 表1 表2 表3 &gt; 地址/备份文件名称</code></li>
+<li><strong>例2:导出一个库下面的所有表</strong>
+<code>Mysqldump -u用户名 -p密码 库名 &gt; 地址/备份文件名称</code></li>
+<li><strong>例3: 以库为单位导出</strong>
+<code>Mysqldump -u用户名 -p密码 -B 库1 库2 库3 &gt; 地址/备份文件名称</code></li>
+<li><strong>例4: 如何导出所有库</strong>
+<code>Mysqldump -u用户名 -p密码 -A &gt; 地址/备份文件名称</code></li>
+</ul>
+<h5 id="恢复">恢复</h5>
+<ol type="1">
+<li><strong>不登陆到mysql命令行</strong></li>
+</ol>
+<ul>
+<li>针对表级的备份文件
+<code>Mysql -u用户名 -p密码 库名 &lt; 表级备份文件地址</code></li>
+<li>针对库级的备份文件
+<code>Mysql -u用户名 -p密码 &lt; 库级备份文件地址</code></li>
+</ul>
+<ol start="2" type="1">
+<li><strong>登陆到mysql命令行</strong></li>
+</ol>
+<ul>
+<li>对于表级的备份文件 <code>Mysql &gt; use 库名</code>
+<code>Mysql&gt; source 备份文件地址</code></li>
+<li>对于库级的备份文件 <code>Mysql&gt; source 备份文件地址</code></li>
+</ul>
+<h3 id="插入数据-insert-into">插入数据 INSERT INTO</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># 插入单条数据</span><br><span class="line"># INSERT INTO 要插入的表 (字段1,字段1) VALUES (字段1的值,字段2的值);</span><br><span class="line">mysql&gt; INSERT INTO user (uid,name) VALUES (2,&quot;Michael&quot;);</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line"></span><br><span class="line"># 插入多条数据</span><br><span class="line">mysql&gt; INSERT INTO user VALUES</span><br><span class="line">    -&gt; (3,&quot;张三&quot;,20), # 列与值, 严格对应</span><br><span class="line">    -&gt; (4,&quot;李四&quot;,21), # 数字不必加引号,字符串必须加引号</span><br><span class="line">    -&gt; (5,&quot;王五&quot;,22);  </span><br><span class="line">Query OK, 3 rows affected (0.00 sec)</span><br><span class="line">Records: 3  Duplicates: 0  Warnings: 0</span><br><span class="line"></span><br><span class="line">mysql&gt; SELECT * FROM user;</span><br><span class="line">+-----+--------+-----+</span><br><span class="line">| uid | name   | age |</span><br><span class="line">+-----+--------+-----+</span><br><span class="line">|   1 | gaojian|  25 |</span><br><span class="line">|   2 | 迈克尔 |  19 |</span><br><span class="line">|   3 | 张三   |  20 |</span><br><span class="line">|   4 | 李四   |  21 |</span><br><span class="line">|   5 | 王五   |  22 |</span><br><span class="line">+-----+--------+-----+</span><br><span class="line">5 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2026-02-07,662,250-->
+<h3 id="删除数据-delete-from">删除数据 DELETE FROM</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># DELETE FROM 所在的表 WHERE 要删除行</span><br><span class="line">mysql&gt; delete FROM user WHERE uid=3;</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; SELECT * FROM user;</span><br><span class="line">+-----+--------+-----+</span><br><span class="line">| uid | name   | age |</span><br><span class="line">+-----+--------+-----+</span><br><span class="line">|   1 | gaojian|  25 |</span><br><span class="line">|   2 | 迈克尔 |  19 |</span><br><span class="line">+-----+--------+-----+</span><br><span class="line">2 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2026-08-04,770,250-->
+<h3 id="更改数据-update-set">更改数据 UPDATE SET</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># UPDATE 改哪张表 SET 你要改哪几列的值 WHERE 在哪些行生效 </span><br><span class="line">mysql&gt; UPDATE user SET age=18, uid=2 WHERE name=&quot;Michael&quot;; # 更新多个属性时记得加逗号&#x27;,&#x27; 属性的顺序和表结构保持一致</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line">Rows matched: 1  Changed: 1  Warnings: 0</span><br><span class="line"></span><br><span class="line">mysql&gt; SELECT * FROM user;</span><br><span class="line">+-----+----------+-----+</span><br><span class="line">| uid | name     | age |</span><br><span class="line">+-----+----------+-----+</span><br><span class="line">|   1 | gaojian  |  25 |</span><br><span class="line">|   2 | Michael  |  18 |</span><br><span class="line">|   3 | Michelle |  26 |</span><br><span class="line">+-----+----------+-----+</span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2026-11-19,843,250-->
+<h3 id="查询数据-select-from">查询数据 SELECT FROM</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 查询所有字段</span><br><span class="line">mysql&gt; SELECT * FROM user;</span><br><span class="line">+-----+--------+-----+</span><br><span class="line">| uid | name   | age |</span><br><span class="line">+-----+--------+-----+</span><br><span class="line">|   1 | gaojian|  25 |</span><br><span class="line">+-----+--------+-----+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line"># 查询特殊字段</span><br><span class="line"># SELECT 要查询的列 FROM 所在的表 WHERE 要查询的行</span><br><span class="line">mysql&gt;  SELECT uid,name FROM user WHERE uid&gt;=3;</span><br><span class="line">+-----+------+</span><br><span class="line">| uid | name |</span><br><span class="line">+-----+------+</span><br><span class="line">|   3 | 张三 |</span><br><span class="line">|   4 | 李四 |</span><br><span class="line">|   5 | 王五 |</span><br><span class="line">+-----+------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure></div>
+<p><strong>常见错误:</strong> 以下五种子查询的顺序是固定的不可改变的
+where, group by, having, order by, limit
+<!--SR:!2024-09-23,361,250--></p>
+<h3 id="子查询">子查询</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># where 子句</span><br><span class="line">mysql&gt; SELECT * FROM goods WHERE goods_id=(SELECT max(goods_id) FROM goods);</span><br><span class="line">+----------+------------+--------+----------+-----------+--------------+------------+--------------+-------------+</span><br><span class="line">| goods_id | goods_name | cat_id | brand_id | goods_sn  | goods_number | shop_price | market_price | click_count |</span><br><span class="line">+----------+------------+--------+----------+-----------+--------------+------------+--------------+-------------+</span><br><span class="line">|       32 | 诺基亚Cn85 |      3 |        1 | ecs000032 |            4 |    3010.00 |      3612.00 |           9 |</span><br><span class="line">+----------+------------+--------+----------+-----------+--------------+------------+--------------+-------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line"># from 子句</span><br><span class="line">select * from (select * from goods order by cat_id asc,goods_id desc) as tem group by cat_id order by goods_id;</span><br><span class="line"></span><br><span class="line"># exists 子句</span><br><span class="line">select * from category where exists (select * from goods where goods.cat_id=category.cat_id);</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2025-02-27,467,250-->
+<h3 id="模糊查询">模糊查询</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 多个字符 %</span><br><span class="line">mysql&gt; select * from goods where goods_name like &quot;诺基亚%&quot;;</span><br><span class="line"></span><br><span class="line"># 单个字符 _</span><br><span class="line">mysql&gt; select * from goods where goods_name like &quot;诺基亚N__&quot;;</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2025-02-26,467,250-->
+<h3 id="排序">排序</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 排序 多层排序</span><br><span class="line">mysql&gt; select goods_id,goods_name,cat_id,shop_price from goods order by cat_id,shop_price desc;</span><br><span class="line"></span><br><span class="line"># asc  升序</span><br><span class="line"># desc 降序</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-12-01,405,250-->
+<h3 id="截取">截取</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一个结果集获得之后 有选择性的选择一部分结果  有两个参数 offset,range</span><br><span class="line">mysql&gt; select * from goods order by shop_price desc limit 3;</span><br><span class="line"># 这个才是常规的写法</span><br><span class="line">mysql&gt; select * from goods order by shop_price desc limit 2,3;</span><br><span class="line"></span><br><span class="line">mysql&gt; select * from goods order by goods_id desc limit 0,1;</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-10-15,379,250-->
+<h3 id="连接">连接</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"># 内连</span><br><span class="line">mysql&gt; SELECT boy.hid,boy.bname,girl.gname</span><br><span class="line">    -&gt; FROM boy INNER JOIN girl</span><br><span class="line">    -&gt; ON boy.hid=girl.hid;</span><br><span class="line">+------+--------+--------+</span><br><span class="line">| hid  | bname  | gname  |</span><br><span class="line">+------+--------+--------+</span><br><span class="line">| B    | 杨过   | 小龙女 |</span><br><span class="line">| C    | 陈冠希 | 张柏芝 |</span><br><span class="line">+------+--------+--------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line"># 左连</span><br><span class="line">mysql&gt; SELECT boy.hid,boy.bname,girl.gname</span><br><span class="line">    -&gt; FROM boy LEFT JOIN girl</span><br><span class="line">    -&gt; ON boy.hid=girl.hid;</span><br><span class="line">+------+--------+--------+</span><br><span class="line">| hid  | bname  | gname  |</span><br><span class="line">+------+--------+--------+</span><br><span class="line">| A    | 屌丝   | NULL   |</span><br><span class="line">| B    | 杨过   | 小龙女 |</span><br><span class="line">| C    | 陈冠希 | 张柏芝 |</span><br><span class="line">+------+--------+--------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line"># 右连</span><br><span class="line">mysql&gt; SELECT boy.hid,boy.bname,girl.gname</span><br><span class="line">    -&gt; FROM boy RIGHT JOIN girl</span><br><span class="line">    -&gt; ON boy.hid = girl.hid;</span><br><span class="line">+------+--------+--------+</span><br><span class="line">| hid  | bname  | gname  |</span><br><span class="line">+------+--------+--------+</span><br><span class="line">| B    | 杨过   | 小龙女 |</span><br><span class="line">| C    | 陈冠希 | 张柏芝 |</span><br><span class="line">| NULL | NULL   | 死宅女 |</span><br><span class="line">+------+--------+--------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line"># 外连</span><br><span class="line">mysql&gt; SELECT boy.hid,boy.bname,girl.gname</span><br><span class="line">    -&gt; FROM boy FULL OUTER JOIN girl</span><br><span class="line">    -&gt; ON boy.hid = girl.hid;</span><br><span class="line">+------+--------+--------+</span><br><span class="line">| hid  | bname  | gname  |</span><br><span class="line">+------+--------+--------+</span><br><span class="line">| A    | 屌丝   | NULL   |</span><br><span class="line">| B    | 杨过   | 小龙女 |</span><br><span class="line">| C    | 陈冠希 | 张柏芝 |</span><br><span class="line">| NULL | NULL   | 死宅女 |</span><br><span class="line">+------+--------+--------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-11-10,387,250-->
+<h3 id="常用函数">常用函数</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"># count</span><br><span class="line">mysql&gt; SELECT count(*) FROM goods;</span><br><span class="line">+----------+</span><br><span class="line">| count(*) |</span><br><span class="line">+----------+</span><br><span class="line">|       31 |</span><br><span class="line">+----------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line"># replace </span><br><span class="line">mysql&gt; UPDATE goods</span><br><span class="line">    -&gt; SET goods_name= replace(goods_name, &#x27;诺基亚&#x27;, &#x27;HTC&#x27;)</span><br><span class="line">    -&gt; WHERE goods_name LIKE &#x27;诺基亚%&#x27;;</span><br><span class="line">Query OK, 8 rows affected (0.00 sec)</span><br><span class="line">Rows matched: 8  Changed: 8  Warnings: 0</span><br><span class="line"></span><br><span class="line"># max</span><br><span class="line">mysql&gt; SELECT max(goods_id) FROM goods;</span><br><span class="line">+---------------+</span><br><span class="line">| max(goods_id) |</span><br><span class="line">+---------------+</span><br><span class="line">|            32 |</span><br><span class="line">+---------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line"># min</span><br><span class="line">mysql&gt; SELECT min(goods_id) FROM goods;</span><br><span class="line">+---------------+</span><br><span class="line">| min(goods_id) |</span><br><span class="line">+---------------+</span><br><span class="line">|             1 |</span><br><span class="line">+---------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line"># sum</span><br><span class="line">mysql&gt; SELECT sum(goods_number) FROM goods;</span><br><span class="line">+-------------------+</span><br><span class="line">| sum(goods_number) |</span><br><span class="line">+-------------------+</span><br><span class="line">|               313 |</span><br><span class="line">+-------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line"># avg</span><br><span class="line">mysql&gt; SELECT avg(shop_price) FROM goods;</span><br><span class="line">+-----------------+</span><br><span class="line">| avg(shop_price) |</span><br><span class="line">+-----------------+</span><br><span class="line">|     1232.526774 |</span><br><span class="line">+-----------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2026-09-19,800,250-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="qiaogaojian 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="qiaogaojian 支付宝">
+        <span>支付宝</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.png" alt="qiaogaojian 比特币">
+        <span>比特币</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/srcard/" rel="tag"><i class="fa fa-tag"></i> srcard</a>
+              <a href="/tags/sql/" rel="tag"><i class="fa fa-tag"></i> sql</a>
+              <a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2ef9d9fd766df6d917f975a5f719d2bde502d33a/" rel="prev" title="Android Gradle 自定义插件">
+                  <i class="fa fa-chevron-left"></i> Android Gradle 自定义插件
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/8ed3626f24d1fafe372135071b6d2bc66a7b7436/" rel="next" title="开发环境">
+                  开发环境 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiaogaojian</span>
+</div>
+<div class="busuanzi-count">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+
+<span id="timeDate">载入天数...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/01/2016 19:00:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 " + hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+        // document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  const url = element.dataset.target;
+  const pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  const pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  const fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.7.0/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/dcc5087256bf04dfed9318c7f0a5de8bb5f26feb/",
+    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"要不说点啥?","avatar":"mm","meta":["nick","mail"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":210,"height":360},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

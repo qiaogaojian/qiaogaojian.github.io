@@ -30,11 +30,11 @@
 <meta property="og:description" content="1. 安装 安装 NVM (用来安装和管理 Node)   * 下载: nvm 下载地址  * 版本说明: * nvm-noinstall.zip：绿色免安装版，但使用时需要进行配置。     * nvm-setup.zip：安装版，推荐使用          * 安装 nvm 之前要先卸载之前安装的所有 node.js 版本, 并且删除相关的文件夹,例如：C: &#x2F;Users&#x2F;AppData&#x2F;Ro">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-11T16:42:56.000Z">
-<meta property="article:modified_time" content="2022-11-13T23:49:23.160Z">
+<meta property="article:modified_time" content="2024-10-19T02:48:17.219Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="srcard">
-<meta property="article:tag" content="deepin">
 <meta property="article:tag" content="Node">
+<meta property="article:tag" content="deepin">
 <meta name="twitter:card" content="summary">
 
 
@@ -207,7 +207,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">1. 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">2. 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-text">3. 使用</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">1. 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">2. 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-text">3. 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -223,20 +223,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -318,7 +318,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-11-14 07:49:23" itemprop="dateModified" datetime="2022-11-14T07:49:23+08:00">2022-11-14</time>
+        <time title="修改时间：2024-10-19 10:48:17" itemprop="dateModified" datetime="2024-10-19T10:48:17+08:00">2024-10-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -374,7 +374,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>969</span>
+      <span>1.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -413,12 +413,15 @@ src="https://cdn.learnku.com/uploads/images/202104/01/64262/tYfMg16LUe.png!large
 </ul>
 <p><mark style="background: #fbab4bA6;">注意:</mark>
 某个版本下全局安装的模块，只有在当前版本能够使用</p>
-<p><strong>安装 yarn</strong></p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 yarn</span></span><br><span class="line">npm i -g yarn</span><br></pre></td></tr></table></figure></div>
+<p>如果遇到错误:<code>ERROR open \settings.txt: The system cannot find the file specified.</code><a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a> 需要设置环境变量
+并且需要添加到Path中 <code>%NVM_HOME%</code> <code>%NVM_SYMLINK%</code>:
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NVM_HOME=D:\Program\nvm</span><br><span class="line">NVM_SYMLINK=D:\Program\nodejs</span><br></pre></td></tr></table></figure></div> <strong>安装 yarn</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g yarn</span><br></pre></td></tr></table></figure></div>
 <h2 id="配置">2. 配置</h2>
-<p><strong>配置 nvm 国内源</strong></p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm node_mirror https://npm.taobao.org/mirrors/node/</span><br><span class="line">nvm npm_mirror https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure></div>
-<p><a
+<p><a href="../6d601709f7477b517baf2a678bf0221c6bd7e53c">Npm
+配置国内源</a> <a
 href="../783e6c1b8b76139f2840a078b9e9bd8817d41c3f/#设置国内源">Yarn
 简介#设置国内源</a></p>
 <h2 id="使用">3. 使用</h2>
@@ -428,27 +431,44 @@ href="../783e6c1b8b76139f2840a078b9e9bd8817d41c3f/#常用命令">Yarn
 简介#常用命令</a></p>
 <p><strong>nvm 常用命令有哪些?</strong></p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">nvm list 　　　　　　  <span class="comment"># 显示已安装的版本（同 nvm list installed）</span></span><br><span class="line">nvm list available 　 <span class="comment"># 显示所有可以下载的版本</span></span><br><span class="line">nvm list installed 　 <span class="comment"># 显示已安装的版本</span></span><br><span class="line"></span><br><span class="line">nvm install 14.5.0 　 <span class="comment"># 安装14.5.0版本node</span></span><br><span class="line">nvm install latest 　 <span class="comment"># 安装最新版本node</span></span><br><span class="line"><span class="comment"># nvm install 时，有可能会出现无权限安装的问题，如果遇到此问题，请 `以管理员身份运行` cmd。</span></span><br><span class="line"></span><br><span class="line">nvm use 14.5.0 　　　 <span class="comment"># 使用14.5.0版本node</span></span><br><span class="line">nvm uninstall 14.5.0  <span class="comment"># 卸载14.5.0版本node</span></span><br><span class="line"></span><br><span class="line">nvm <span class="built_in">arch</span> 　　　　　　  <span class="comment"># 显示 node 是运行在32位还是64位系统上的</span></span><br><span class="line">nvm on 　　　　　　　  <span class="comment"># 开启nodejs版本管理</span></span><br><span class="line">nvm off 　　　　　　　 <span class="comment"># 关闭nodejs版本管理</span></span><br><span class="line">nvm proxy [url] 　　  <span class="comment"># 设置下载代理。不加可选参数url，显示当前代理。将url设置为none则移除代理。</span></span><br><span class="line"></span><br><span class="line">nvm version 　　　　   <span class="comment"># 显示nvm版本。version可简化为v。</span></span><br><span class="line">nvm -h 　　　　　　　  <span class="comment"># 可以看到nvm的所有命令，都有相应的解释。</span></span><br></pre></td></tr></table></figure></div>
-<!--SR:!2023-04-01,169,252-->
+<!--SR:!2027-07-08,1115,252-->
+<h2 id="参考">参考</h2>
 <p><strong>Backlinks:</strong></p>
 <ul>
 <li><a
-href="../bd87468c61dcf8225663c6dfb8f94d59a17e17b7">开发环境搭建</a></li>
+href="../8ed3626f24d1fafe372135071b6d2bc66a7b7436">开发环境</a></li>
 </ul>
 <blockquote class="pullquote mindmap mindmap-md"><ul>
 <li>Node 开发环境搭建 Win10
 <ul>
+<li><a
+href="../783e6c1b8b76139f2840a078b9e9bd8817d41c3f/#设置国内源">Yarn
+简介#设置国内源</a></li>
 <li><a href="../9907c57e67333c562c3494060e11a99492819663">Npm
 常用命令</a></li>
 <li><a href="../783e6c1b8b76139f2840a078b9e9bd8817d41c3f/#常用命令">Yarn
 简介#常用命令</a></li>
 <li><a
-href="../783e6c1b8b76139f2840a078b9e9bd8817d41c3f/#设置国内源">Yarn
-简介#设置国内源</a></li>
-<li><a
-href="../bd87468c61dcf8225663c6dfb8f94d59a17e17b7">开发环境搭建</a></li>
+href="../8ed3626f24d1fafe372135071b6d2bc66a7b7436">开发环境</a></li>
+<li><a href="../6d601709f7477b517baf2a678bf0221c6bd7e53c">Npm
+配置国内源</a></li>
 </ul></li>
 </ul>
 </blockquote>
+<section class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><a
+target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/issues/68">ERROR open
+.txt: The system cannot find the file specified. · Issue #68 ·
+coreybutler/nvm-windows · GitHub</a> <a
+target="_blank" rel="noopener" href="https://blog.csdn.net/gaochengyidlmu/article/details/54907366">Fetching
+Title#61e3</a>
+https://blog.csdn.net/gaochengyidlmu/article/details/54907366<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">
     </div>
 
@@ -481,21 +501,21 @@ href="../bd87468c61dcf8225663c6dfb8f94d59a17e17b7">开发环境搭建</a></li>
 
           <div class="post-tags">
               <a href="/tags/srcard/" rel="tag"><i class="fa fa-tag"></i> srcard</a>
-              <a href="/tags/deepin/" rel="tag"><i class="fa fa-tag"></i> deepin</a>
               <a href="/tags/Node/" rel="tag"><i class="fa fa-tag"></i> Node</a>
+              <a href="/tags/deepin/" rel="tag"><i class="fa fa-tag"></i> deepin</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/9907c57e67333c562c3494060e11a99492819663/" rel="prev" title="Npm 常用命令">
-                  <i class="fa fa-chevron-left"></i> Npm 常用命令
+                <a href="/83ffdcf23d70b022afa1eb2f4d72b9d25fedffe3/" rel="prev" title="深入浅出 python 闭包">
+                  <i class="fa fa-chevron-left"></i> 深入浅出 python 闭包
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/8771fa557483c55100f75a0c7ea064177b136ea1/" rel="next" title="Retrofit 的使用">
-                  Retrofit 的使用 <i class="fa fa-chevron-right"></i>
+                <a href="/799d5e4c35595743aaac52034a738a7e954c720e/" rel="next" title="Learn Regex the Easy Way">
+                  Learn Regex the Easy Way <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

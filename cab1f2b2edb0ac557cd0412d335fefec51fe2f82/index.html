@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="2048是一款非常好玩的游戏，经常让人花费好几个小时来玩它。 游戏目标是将相同值的格子“合并”在一起，合并到一起后原来格子的值翻倍。 当玩家在她想要的方向上滑动时，格子被移动到一边并且生成新的格子。 如果玩家达到了2048，那么就赢了游戏。 这篇文档主要用来介绍如何在Unity中来制作这个游戏。  输入系统 游戏实现了通过键盘的箭头键来控制格子移动的方法, 我们通过一个枚举来获取用户的输入和一个必">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity3d 2048 核心算法讲解">
+<meta property="og:url" content="https://qiaogaojian.github.io/cab1f2b2edb0ac557cd0412d335fefec51fe2f82/index.html">
+<meta property="og:site_name" content="行则将至">
+<meta property="og:description" content="2048是一款非常好玩的游戏，经常让人花费好几个小时来玩它。 游戏目标是将相同值的格子“合并”在一起，合并到一起后原来格子的值翻倍。 当玩家在她想要的方向上滑动时，格子被移动到一边并且生成新的格子。 如果玩家达到了2048，那么就赢了游戏。 这篇文档主要用来介绍如何在Unity中来制作这个游戏。  输入系统 游戏实现了通过键盘的箭头键来控制格子移动的方法, 我们通过一个枚举来获取用户的输入和一个必">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-25T11:17:14.000Z">
+<meta property="article:modified_time" content="2024-10-19T02:48:17.155Z">
+<meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="Math,数学,Calculus,微积分,Linear Algebra,线性代数,Computer Science,计算机原理,编程,设计模式,计算机网络,计算机图形学,Computer Graphics,Unity,Unity3d,CG,HLSL,OpenGL,C#,Android,Java,GameFramework,ML,Shader,Golang,Go,Asm,Adb,BlockChain,VSCode,Web,Tools,PHP,Ubuntu,ThinkPHP,MySql,Sqlite,重构,Windows,Win10,Git,Mac,Linux,树莓派,VS,AS,Android Studio,PhpStorm,PyCharm,Vim,Rider,Jupyter,Kali,Js,JavaScript,Hexo,3dMax,Maya,Zbrush,汇编,游戏设计,Roguelike,Roguelite,地图生成,技能,FSM,NGUI,UGUI,UV,法线,光照,后端,Html,Css,C语言,C++,Python,机器学习,信息安全,操作系统,IDE,工具,效率,VR,AR,BitCoin,Eos,数据结构,算法,排序,查找,Leetcode,RoadMap,Tips,Trick,Bug,BestPratice,Tutorial,Tao​">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://qiaogaojian.github.io/cab1f2b2edb0ac557cd0412d335fefec51fe2f82/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Unity3d 2048 核心算法讲解 | 行则将至</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">行则将至</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">人生在勤,不索何获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E7%B3%BB%E7%BB%9F"><span class="nav-text">输入系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%BC%E5%AD%90%E7%9B%B8%E5%85%B3%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">格子相关数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%B8%E6%88%8F%E7%BB%93%E6%9D%9F%E5%88%A4%E5%AE%9A"><span class="nav-text">游戏结束判定</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qiaogaojian"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">qiaogaojian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qiaogaojian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qiaogaojian@live.com" title="E-Mail → mailto:qiaogaojian@live.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+<!--
+-->
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/qiaogaojian" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qiaogaojian.github.io/cab1f2b2edb0ac557cd0412d335fefec51fe2f82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Unity3d 2048 核心算法讲解
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-11-25 19:17:14" itemprop="dateCreated datePublished" datetime="2022-11-25T19:17:14+08:00">2022-11-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2024-10-19 10:48:17" itemprop="dateModified" datetime="2024-10-19T10:48:17+08:00">2024-10-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">5.技能</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/Unity3d/" itemprop="url" rel="index"><span itemprop="name">Unity3d</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/cab1f2b2edb0ac557cd0412d335fefec51fe2f82/" class="post-meta-item leancloud_visitors" data-flag-title="Unity3d 2048 核心算法讲解" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/cab1f2b2edb0ac557cd0412d335fefec51fe2f82/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/cab1f2b2edb0ac557cd0412d335fefec51fe2f82/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>8.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+        <p>2048是一款非常好玩的游戏，经常让人花费好几个小时来玩它。
+游戏目标是将相同值的格子“合并”在一起，合并到一起后原来格子的值翻倍。
+当玩家在她想要的方向上滑动时，格子被移动到一边并且生成新的格子。
+如果玩家达到了2048，那么就赢了游戏。
+这篇文档主要用来介绍如何在Unity中来制作这个游戏。</p>
+<h2 id="输入系统">输入系统</h2>
+<p>游戏实现了通过键盘的箭头键来控制格子移动的方法,
+我们通过一个枚举来获取用户的输入和一个必须由我们想要使用的每个输入方法实现的接口IInputDetector。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public enum InputDirection</span><br><span class="line">&#123;</span><br><span class="line">    Left, Right, Top, Bottom</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public interface IInputDetector</span><br><span class="line">&#123;</span><br><span class="line">    InputDirection? DetectInputDirection();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>DetectInputDirection方法的返回值已经实现为Nullable类型，因为用户可能根本没有输入。
+现在，让我们访问第一个通过键盘输入的输入法。
+如下所示，代码非常简单明了</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class ArrowKeysDetector : MonoBehaviour, IInputDetector</span><br><span class="line">&#123;</span><br><span class="line">    public InputDirection? DetectInputDirection()</span><br><span class="line">    &#123;</span><br><span class="line">        if (Input.GetKeyUp(KeyCode.UpArrow))</span><br><span class="line">            return InputDirection.Top;</span><br><span class="line">        else if (Input.GetKeyUp(KeyCode.DownArrow))</span><br><span class="line">            return InputDirection.Bottom;</span><br><span class="line">        else if (Input.GetKeyUp(KeyCode.RightArrow))</span><br><span class="line">            return InputDirection.Right;</span><br><span class="line">        else if (Input.GetKeyUp(KeyCode.LeftArrow))</span><br><span class="line">            return InputDirection.Left;</span><br><span class="line">        else</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="全局变量">全局变量</h2>
+<p>Globals类包含有关Rows，Columns和AnimationDuration的静态变量。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static class Globals</span><br><span class="line">&#123;</span><br><span class="line">    public readonly static int Rows = 4;</span><br><span class="line">    public readonly static int Columns = 4;</span><br><span class="line">    public static readonly float AnimationDuration = 0.05f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="格子相关数据结构">格子相关数据结构</h2>
+<p>ItemMovementDetails类用于携带有关即将移动和/或复制的对象的详细信息。
+NewRow /
+NewColumn属性包含项目在数组中的位置信息，而GOToAnimateScale和GOToAnimatePosition属性包含有关即将移动和/或扩展的游戏对象的信息。
+正常的过程是移动一个项目（改变它的位置），但如果这个项目将与另一个项目合并，那么这也将改变它的大小（然后消失）。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class ItemMovementDetails</span><br><span class="line">&#123;</span><br><span class="line">    public GameObject GOToAnimateScale &#123; get; set; &#125;</span><br><span class="line">    public GameObject GOToAnimatePosition &#123; get; set; &#125;</span><br><span class="line"></span><br><span class="line">    public int NewRow &#123; get; set; &#125;</span><br><span class="line">    public int NewColumn &#123; get; set; &#125;</span><br><span class="line"></span><br><span class="line">    public ItemMovementDetails(int newRow, int newColumn, GameObject goToAnimatePosition, GameObject goToAnimateScale)</span><br><span class="line">    &#123;</span><br><span class="line">        NewRow = newRow;</span><br><span class="line">        NewColumn = newColumn;</span><br><span class="line">        GOToAnimatePosition = goToAnimatePosition;</span><br><span class="line">        GOToAnimateScale = goToAnimateScale;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>Item类很简单</p>
+<ul>
+<li><p>Value属性包含项目的值（例如2,4,8,16等）</p></li>
+<li><p>row和column属性包含此项目所属的数组的相应行和列值</p></li>
+<li><p>GO属性包含对此Item引用的Unity GameObject的引用</p></li>
+<li><p>WasJustDuplicated值是指此项目在此移动中是否重复</p></li>
+</ul>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class Item</span><br><span class="line">&#123;</span><br><span class="line">    public int Value &#123; get; set; &#125;</span><br><span class="line">    public int Row &#123; get; set; &#125;</span><br><span class="line">    public int Column &#123; get; set; &#125;</span><br><span class="line">    public GameObject GO &#123; get; set; &#125;</span><br><span class="line">    public bool WasJustDuplicated &#123; get; set; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>ItemArray类包含一个私有成员，一个名为matrix的二维项目数组。
+它还公开了一个索引器，以提供对此数组的访问。
+如果项占据数组中的位置，则矩阵[row，column]项包含对它的引用。
+否则，matrix [row，column]为null。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class ItemArray</span><br><span class="line">&#123;</span><br><span class="line">private Item[,] matrix = new Item[Globals.Rows, Globals.Columns];</span><br><span class="line">public Item this[int row, int column]</span><br><span class="line">&#123;</span><br><span class="line">    get</span><br><span class="line">    &#123;</span><br><span class="line">        return matrix[row, column];</span><br><span class="line">    &#125;</span><br><span class="line">    set</span><br><span class="line">    &#123;</span><br><span class="line">        matrix[row, column] = value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>此方法获取数组中的非null项。 它用于在每次移动后创建新格子。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public void GetRandomRowColumn(out int row, out int column)</span><br><span class="line">&#123;</span><br><span class="line">    do</span><br><span class="line">    &#123;</span><br><span class="line">        row = random.Next(0, Globals.Rows);</span><br><span class="line">        column = random.Next(0, Globals.Columns);</span><br><span class="line">    &#125; while (matrix[row, column] != null);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>每次滑动后都会调用此方法，并将所有WasJustDuplicated值设置为false。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">private void ResetWasJustDuplicatedValues()</span><br><span class="line">&#123;</span><br><span class="line">    for (int row = 0; row &lt; Globals.Rows; row++)</span><br><span class="line">        for (int column = 0; column &lt; Globals.Columns; column++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (matrix[row, column] != null &amp;&amp; matrix[row, column].WasJustDuplicated)</span><br><span class="line">                matrix[row, column].WasJustDuplicated = false;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>此方法检查作为参数传递的两个项（通过其列/行索引）是否具有相同的值。首先，它检查传递的索引是否超出范围。然后它检查此数组位置中的项是否为空，以及它是否只是重复（即在当前滑动后它没有重复）。如果所有这些检查都是真的，那么</p>
+<ul>
+<li><p>我们复制第一个项目值并将WasJustDuplicated字段设置为true</p></li>
+<li><p>我们在保持对它的引用之后从数组中删除第二个项目，以便为它设置动画</p></li>
+<li><p>我们返回一个ItemMovementDetails类的新实例，它携带项目的信息以使其位置具有动画效果，并使项目的比例为动画（并最终消失）。</p></li>
+</ul>
+<p>关于根据用户的滑动项目的移动，我们有各种场景我们必须涵盖。请记住，数组中的空项表示空格。</p>
+<p>因此，我们假设X是空列，2是值为“2”的列。我们还假设左滑动。可能发生的一些情况如下，以及滑动后的相应项目移动。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a）2 | 2 | X | X =&gt; 4 | X | X | X.</span><br><span class="line"></span><br><span class="line">b）2 | X | 2 | X =&gt; 4 | X | X | X.</span><br><span class="line"></span><br><span class="line">c）2 | 2 | X | 2 =&gt; 4 | 2 | X | X. //前两个&#x27;2&#x27;将合并，第三个将移动到第二列</span><br><span class="line"></span><br><span class="line">d）X | 2 | 2 | 2 =&gt; 4 | 2 | X | X. //与先前选项相同的情况。前两个&#x27;2&#x27;合并，移动到第一列，第三个&#x27;2&#x27;移动到第二列。</span><br><span class="line"></span><br><span class="line">e）4 | 2 | 2 | X =&gt; 4 | 4 | X | X.</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">private ItemMovementDetails AreTheseTwoItemsSame(</span><br><span class="line">int originalRow, int originalColumn, int toCheckRow, int toCheckColumn)</span><br><span class="line">&#123;</span><br><span class="line">    if (toCheckRow &lt; 0 || toCheckColumn &lt; 0 || toCheckRow &gt;= Globals.Rows || toCheckColumn &gt;= Globals.Columns)</span><br><span class="line">    return null;</span><br><span class="line"></span><br><span class="line">        if (matrix[originalRow, originalColumn] != null &amp;&amp; matrix[toCheckRow, toCheckColumn] != null</span><br><span class="line">        &amp;&amp; matrix[originalRow, originalColumn].Value == matrix[toCheckRow, toCheckColumn].Value</span><br><span class="line">        &amp;&amp; !matrix[toCheckRow, toCheckColumn].WasJustDuplicated)</span><br><span class="line">        &#123;</span><br><span class="line">            matrix[toCheckRow, toCheckColumn].Value *= 2;</span><br><span class="line">            matrix[toCheckRow, toCheckColumn].WasJustDuplicated = true;</span><br><span class="line">            var GOToAnimateScaleCopy = matrix[originalRow, originalColumn].GO;</span><br><span class="line">            matrix[originalRow, originalColumn] = null;</span><br><span class="line">            return new ItemMovementDetails(toCheckRow, toCheckColumn, matrix[toCheckRow, toCheckColumn].GO, GOToAnimateScaleCopy);</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>此方法将项目移动到应该去的位置（基于值检查）。它将项目分配给新位置并“取消”旧项目。此外，它检查它旁边的项目是否具有相同的值。如果是这种情况，我们会返回此信息，而如果它们不同，我们只返回已移动项目的详细信息。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">private ItemMovementDetails MoveItemToNullPositionAndCheckIfSameWithNextOne</span><br><span class="line">(int oldRow, int newRow, int itemToCheckRow, int oldColumn, int newColumn, int itemToCheckColumn)</span><br><span class="line">&#123;</span><br><span class="line">    matrix[newRow, newColumn] = matrix[oldRow, oldColumn];</span><br><span class="line">    matrix[oldRow, oldColumn] = null;</span><br><span class="line"></span><br><span class="line">    ItemMovementDetails imd2 = AreTheseTwoItemsSame(newRow, newColumn, itemToCheckRow,</span><br><span class="line">    itemToCheckColumn);</span><br><span class="line">    if (imd2 != null)</span><br><span class="line">    &#123;</span><br><span class="line">        return imd2;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        return new ItemMovementDetails(newRow, newColumn, matrix[newRow, newColumn].GO, null);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>此方法将项目移动到应该去的位置（基于值检查）。它将项目分配给新位置并“取消”旧项目。此外，它检查它旁边的项目是否具有相同的值。如果是这种情况，我们会返回此信息，而如果它们不同，我们只返回已移动项目的详细信息。</p>
+<p>我们有两种移动项目的方法。滑动是水平时调用的一个，垂直滑动调用的一个。在编写代码时，我首先创建了一个“MoveLeft”方法。经过多次测试，修复等，我创建了“MoveRight”。然后，我很清楚它们可以合并为一个方法，所以我创建了MoveHorizontal方法。再次，经过多次测试和修复后，对方法进行了转换和调整，以创建MoveVertical方法。这些方法有很多共同点，它们当然可以合并为一个“Move”方法。但是，我强烈认为这会使本教程复杂化。因此，我决定将它们保留原样。现在，它们在功能上非常相似，所以我们只描述“MoveHorizontal”。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;ItemMovementDetails&gt; <span class="title">MoveHorizontal</span>(<span class="params">HorizontalMovement horizontalMovement</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    ResetWasJustDuplicatedValues();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> movementDetails = <span class="keyword">new</span> List&lt;ItemMovementDetails&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">int</span> relativeColumn = horizontalMovement == HorizontalMovement.Left ? <span class="number">-1</span> : <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">var</span> columnNumbers = Enumerable.Range(<span class="number">0</span>, Globals.Columns);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (horizontalMovement == HorizontalMovement.Right)</span><br><span class="line">    &#123;</span><br><span class="line">        columnNumbers = columnNumbers.Reverse();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>方法从重置所有WasJustDuplicated值开始。
+然后，根据运动是左还是右，我们得到-1或1.这将有助于确定要比较的项目。
+如果向左滑动，我们将剩下的所有项目移动，因此我们需要将每个项目与前一项目（-1一项）进行比较，以便测试相似性。
+转移，我们使用Enumerable.Range方法来获取列索引。
+此方法将返回包含[0,1,2,3，...，Globals.Columns-1]的列表。
+如果滑动是正确的，那么我们颠倒columnNumbers列表的顺序。
+这是因为我们需要以正确的方向循环colums。
+如果向左滑动，我们将首先检查第一列是否为null，然后是第二列等。这就是为什么因为我们要将第一个非空项目从左侧开始移动到第一个空位置。
+如果我们有正确的滑动，我们需要在相反的方向上执行此操作。
+这就是我们反转columnNumbers列表的原因。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> row = Globals.Rows - <span class="number">1</span>; row &gt;= <span class="number">0</span>; row--)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="built_in">int</span> column <span class="keyword">in</span> columnNumbers)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (matrix[row, column] == <span class="literal">null</span>) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        ItemMovementDetails imd = AreTheseTwoItemsSame(row, column, row, column + relativeColumn);</span><br><span class="line">        <span class="keyword">if</span> (imd != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            movementDetails.Add(imd);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这里，我们开始循环。 当然，我们会检查所有行。
+然后，我们遍历所有列，从columnNumbers列表中获取索引。
+在遍历每一行时，我们首先检查每个项目是否为null。
+如果它为null，我们继续检查下一个项目（通过检查下一列 -
+下一个意味着-1或1，具体取决于滑动。当我们到达非空列时，我们检查此列是否与
+再次，“旁边”表示-1或1，具体取决于滑动是左还是右。如果这些项是相同的，那么我们将此信息添加到movingDetails列表并继续循环
+下一栏。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> columnFirstNullItem = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">int</span> numberOfItemsToTake = horizontalMovement == HorizontalMovement.Left? column : Globals.Columns – column;</span><br><span class="line"></span><br><span class="line"><span class="built_in">bool</span> emptyItemFound = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">columnFirstNullItem++)</span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">var</span> tempColumnFirstNullItem <span class="keyword">in</span> columnNumbers.Take(numberOfItemsToTake))</span><br><span class="line">&#123;</span><br><span class="line">        columnFirstNullItem = tempColumnFirstNullItem;</span><br><span class="line">    <span class="keyword">if</span> (matrix[row, columnFirstNullItem] == <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        emptyItemFound = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果这些项不相同，那么我们必须在当前的第一个空位置移动我们当前引用的项。
+对于左侧滑动，如果项目是[row，column]，那么唯一可能的位置是从[row，0]到[row，column-1]，因此我们需要columnNumbers列表中的第一个列项。
+对于右滑动，唯一可能的位置是从[row，Globals.Columns-1]到[row，column +
+1]，因此我们需要第一个Globals.Columns - 来自reverse
+columnNumbers列表的列项。 我们在这些列中执行循环（使用Take
+LINQ方法）保持对每个列号的引用（通过columnFirstNullItem变量）并检查每个项是否为null。
+如果我们找到一个，我们退出循环。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    if (!emptyItemFound)</span><br><span class="line">    &#123;</span><br><span class="line">        continue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ItemMovementDetails newImd =MoveItemToNullPositionAndCheckIfSameWithNextOne</span><br><span class="line">    (row, row, row, column, columnFirstNullItem, columnFirstNullItem + relativeColumn);</span><br><span class="line"></span><br><span class="line">    movementDetails.Add(newImd);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return movementDetails;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>如果我们没有找到空项，则当前引用的项位于正确的位置，因此我们保持原样。
+如果我们这样做，那么我们将当前引用的项移动到null位置，并创建ItemMovementDetails类的实例，以便携带动画信息。
+在MoveHorizontal方法的末尾，我们返回movementDetails列表，其中包含必须执行的所有动画的信息。</p>
+<h2 id="游戏结束判定">游戏结束判定</h2>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public bool CheckGameOver()</span><br><span class="line">&#123;</span><br><span class="line">    for (int row = 0; row &lt; Globals.Rows; row++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int column = 0; column &lt; Globals.Columns; column++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (matrix[row, column] == null)</span><br><span class="line">            &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (int x = 0; x &lt; Globals.Rows; x++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int y = 0; y &lt; Globals.Columns - 1; y++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (matrix[x, y].Value == matrix[x, y + 1].Value)</span><br><span class="line">            &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (int y = 0; y &lt; Globals.Columns; y++)</span><br><span class="line">    &#123;</span><br><span class="line">        for (int x = 0; x &lt; Globals.Rows - 1; x++)</span><br><span class="line">        &#123;</span><br><span class="line">            if (matrix[x, y].Value == matrix[x + 1, y].Value)</span><br><span class="line">            &#123;</span><br><span class="line">                return false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>结束判定很简单,遍历看矩阵中有没有空 或 有没有两个相邻且相等的数</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="qiaogaojian 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="qiaogaojian 支付宝">
+        <span>支付宝</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.png" alt="qiaogaojian 比特币">
+        <span>比特币</span>
+      </div>
+
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/e3f1b0c8903a078fc6aada58622998f38fee328c/" rel="prev" title="CSharp 中 enum 和 string int 互转">
+                  <i class="fa fa-chevron-left"></i> CSharp 中 enum 和 string int 互转
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/b42efea08a2620b83a399d3125c240052c42e7f9/" rel="next" title="Unity3d 的碰撞">
+                  Unity3d 的碰撞 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiaogaojian</span>
+</div>
+<div class="busuanzi-count">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+
+<span id="timeDate">载入天数...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/01/2016 19:00:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 " + hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+        // document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  const url = element.dataset.target;
+  const pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  const pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  const fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.7.0/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/cab1f2b2edb0ac557cd0412d335fefec51fe2f82/",
+    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"要不说点啥?","avatar":"mm","meta":["nick","mail"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":210,"height":360},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

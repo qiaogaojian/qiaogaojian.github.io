@@ -22,21 +22,22 @@
     var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="依赖管理 依赖管理一直都在编程语言中占据着至关重要的地位，无论是 Python、JavaScript 还是 Java、Go。  虽然不同编程语言的依赖管理工具不尽相同，但是它们追求的目标都是大同小异的。能够对项目以来进行更加轻松统一的管理，能够更加便捷的进行项目迁移和部署。  因此，就出现了 maven、npm、pip 这些依赖包管理工具，但是，对比于 Java 和 JS，Python 在依赖管理">
+  <meta name="description" content="最好只用poetry来运行python程序, 安装使用 micromamba 或 pip, 导出 environment.yaml 或 requirements.txt  依赖管理 依赖管理一直都在编程语言中占据着至关重要的地位，无论是 Python、JavaScript 还是 Java、Go。  虽然不同编程语言的依赖管理工具不尽相同，但是它们追求的目标都是大同小异的。能够对项目以来进行更加轻松">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python 项目管理最佳实践 Poetry">
 <meta property="og:url" content="https://qiaogaojian.github.io/c2aa9ce5b53296bdbf24749de59d8daea028f787/index.html">
 <meta property="og:site_name" content="行则将至">
-<meta property="og:description" content="依赖管理 依赖管理一直都在编程语言中占据着至关重要的地位，无论是 Python、JavaScript 还是 Java、Go。  虽然不同编程语言的依赖管理工具不尽相同，但是它们追求的目标都是大同小异的。能够对项目以来进行更加轻松统一的管理，能够更加便捷的进行项目迁移和部署。  因此，就出现了 maven、npm、pip 这些依赖包管理工具，但是，对比于 Java 和 JS，Python 在依赖管理">
+<meta property="og:description" content="最好只用poetry来运行python程序, 安装使用 micromamba 或 pip, 导出 environment.yaml 或 requirements.txt  依赖管理 依赖管理一直都在编程语言中占据着至关重要的地位，无论是 Python、JavaScript 还是 Java、Go。  虽然不同编程语言的依赖管理工具不尽相同，但是它们追求的目标都是大同小异的。能够对项目以来进行更加轻松">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://qiaogaojian.github.io/images/Pasted%20image%2020230509162121.png">
 <meta property="og:image" content="https://qiaogaojian.github.io/images/v2-97299659f5761d6e00d72b0529b14dab_b.jpg">
 <meta property="article:published_time" content="2022-11-11T16:42:56.000Z">
-<meta property="article:modified_time" content="2022-11-13T23:49:23.166Z">
+<meta property="article:modified_time" content="2024-10-19T02:48:17.189Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="srcard">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://qiaogaojian.github.io/images/v2-97299659f5761d6e00d72b0529b14dab_b.jpg">
+<meta name="twitter:image" content="https://qiaogaojian.github.io/images/Pasted%20image%2020230509162121.png">
 
 
 <link rel="canonical" href="https://qiaogaojian.github.io/c2aa9ce5b53296bdbf24749de59d8daea028f787/">
@@ -208,7 +209,8 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86"><span class="nav-text">依赖管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python-%E7%9A%84%E7%89%B9%E6%AE%8A%E6%80%A7"><span class="nav-text">Python 的特殊性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E6%9C%89%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-text">现有虚拟环境的局限性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#virtualenv-%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-text">virtualenv 的局限性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pipenv-%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-text">pipenv 的局限性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-poetry"><span class="nav-text">依赖管理的最佳实践 poetry</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-poetry"><span class="nav-text">什么是 poetry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9-poetry"><span class="nav-text">为什么选择 poetry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#poetry-%E5%AE%89%E8%A3%85%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">poetry 安装和初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#poetry-%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86"><span class="nav-text">poetry 依赖包管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#poetry-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86"><span class="nav-text">poetry 虚拟环境管理</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86"><span class="nav-text">依赖管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python-%E7%9A%84%E7%89%B9%E6%AE%8A%E6%80%A7"><span class="nav-text">Python 的特殊性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%B0%E6%9C%89%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-text">现有虚拟环境的局限性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#virtualenv-%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-text">virtualenv 的局限性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pipenv-%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="nav-text">pipenv 的局限性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-poetry"><span class="nav-text">依赖管理的最佳实践 poetry</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-poetry"><span class="nav-text">什么是 poetry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9-poetry"><span class="nav-text">为什么选择 poetry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#micromamba-poetry-%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC4"><span class="nav-text">Micromamba Poetry 安装脚本[^4]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#poetry-%E5%AE%89%E8%A3%85%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96-1"><span class="nav-text">Poetry 安装和初始化 1</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#poetry-%E5%AE%89%E8%A3%85"><span class="nav-text">poetry 安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#poetry-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">poetry 环境变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#poetry-%E9%85%8D%E7%BD%AE-venv-%E5%88%B0%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-text">poetry 配置 venv
+到项目文件夹</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#poetry-%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90"><span class="nav-text">poetry 更换国内镜像源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#poetry-%E8%BF%90%E8%A1%8C-python-%E8%84%9A%E6%9C%AC"><span class="nav-text">poetry 运行 Python 脚本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#poetry-%E4%BE%9D%E8%B5%96%E5%8C%85%E7%AE%A1%E7%90%86"><span class="nav-text">poetry 依赖包管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#poetry-%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86"><span class="nav-text">poetry 虚拟环境管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E6%88%90%E5%88%B0-obsidian"><span class="nav-text">集成到 Obsidian</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-text">引用</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -224,20 +226,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -319,7 +321,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-11-14 07:49:23" itemprop="dateModified" datetime="2022-11-14T07:49:23+08:00">2022-11-14</time>
+        <time title="修改时间：2024-10-19 10:48:17" itemprop="dateModified" datetime="2024-10-19T10:48:17+08:00">2024-10-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -375,14 +377,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>6k</span>
+      <span>12k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
+      <span>11 分钟</span>
     </span>
 </div>
 
@@ -394,7 +396,10 @@
     
     <div class="post-body" itemprop="articleBody">
     <meta name="referrer" content="no-referrer"/>
-        <h2 id="依赖管理">依赖管理</h2>
+        <p><mark style="background: #83d98fA6;">最好只用poetry来运行python程序,
+安装使用 micromamba 或 pip, 导出 environment.yaml 或
+requirements.txt</mark></p>
+<h2 id="依赖管理">依赖管理</h2>
 <p>依赖管理一直都在编程语言中占据着至关重要的地位，无论是
 Python、JavaScript 还是 Java、Go。</p>
 <p>虽然不同编程语言的依赖管理工具不尽相同，但是它们追求的目标都是大同小异的。能够对项目以来进行更加轻松统一的管理，能够更加便捷的进行项目迁移和部署。</p>
@@ -427,8 +432,9 @@ site-packages 路径下。</p>
 <p>其中 pip 用于依赖包的管理，virtualenv 用于虚拟环境的管理。</p>
 <p>这样虽然解决了不同工程之间环境隔离的问题，但是也存在着明显的不足：</p>
 <ul>
-<li><p>需要同时依赖 2 款管理工具</p></li>
-<li><p>不能动态更新 requirements.txt</p></li>
+<li>需要同时依赖 2 款管理工具<br />
+</li>
+<li>不能动态更新 requirements.txt</li>
 </ul>
 <p>其中比较突出的问题就是第 2 点。</p>
 <p>在工程开发过程中，需要一个配置文件来记录依赖包和环境参数，例如，maven
@@ -457,9 +463,11 @@ requirements.txt。</p>
 依赖包管理方面提供了一个很好的解决方案。但是，它依然有一些致命的缺陷，比原来
 pip+virtualenv 方案的繁琐、手动操作更为棘手。</p>
 <ul>
-<li><p>Lock 速度缓慢</p></li>
-<li><p>强行更新不相干依赖</p></li>
-<li><p>依赖处理效果较差</p></li>
+<li>Lock 速度缓慢<br />
+</li>
+<li>强行更新不相干依赖<br />
+</li>
+<li>依赖处理效果较差</li>
 </ul>
 <p>这里举个例子来解释一下第 3 点。</p>
 <p>使用 pipenv 安装一个包，</p>
@@ -478,7 +486,7 @@ pip+virtualenv 方案的繁琐、手动操作更为棘手。</p>
 Python
 项目中的<code>Pipfile</code>、<code>setup.py</code>、<code>setup.cfg</code>、<code>requirements.txt</code>、<code>MANIFEST.in</code>融合到一起。</p>
 <p>通过<code>pyproject.toml</code>文件，不仅可以配置依赖包，还可以用于区分开发、测试、生产环境、配置源路径。
-<!--SR:!2022-11-27,19,250--></p>
+<!--SR:!2026-11-09,1000,270--></p>
 <h3 id="为什么选择-poetry">为什么选择 poetry</h3>
 <p>poetry 相比于 pipenv 具有很多明显优势的功能：</p>
 <ul>
@@ -489,7 +497,7 @@ Python
 <li>易于发布工具包<br />
 </li>
 <li>结构化展示依赖关系<br />
-<!--SR:!2022-12-09,28,250--></li>
+<!--SR:!2025-01-20,506,250--></li>
 </ul>
 <p><strong>1. 更强大的依赖处理功能</strong></p>
 <p>以前面介绍 pipenv 的例子来介绍 poetry 在依赖处理方面的强大之处。</p>
@@ -502,46 +510,36 @@ pbr(0.11.1
 版)，同时会选择<code>oslo.i18n==3.20.0</code>，但是，这时候发现<code>oslo.i18n</code>的版本和
 pbr 最新版本冲突。如果在 pipenv 中则会报错。但是 poetry
 会尝试找出解决方案，最后发现<code>oslo.i18n==2.1.0</code>时可以满足所有相互依赖关系的要求。最终，成功安装依赖包。
-<!--SR:!2022-12-06,26,250--></p>
+<!--SR:!2024-10-22,440,250--></p>
 <p><strong>2. 易于打包和构建 Python 工程</strong></p>
 <p>在工程开发过程中，项目迁移和工程化部署是无法绕开的问题。</p>
 <p>如果需要把我们的工程部署到生产环境服务器上，这时候就需要用到 Python
 的打包和安装功能。</p>
 <p>在以往，会写繁琐的<code>setup.py</code>、<code>setup.cfg</code>。而在
 poetry 中，一行命令就可以解决，</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ poetry buildBuilding poetry (1.0.0)- Building sdist- Built poetry-1.0.0.tar.gz- Building wheel- Built poetry-1.0.0-py2.py3-none-any.whl</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ poetry build </span><br><span class="line">Building poetry (1.0.0)- Building sdist- Built poetry-1.0.0.tar.gz- Building wheel- Built poetry-1.0.0-py2.py3-none-any.whl</span><br></pre></td></tr></table></figure></div>
 <p><strong>3. 易于发布工具包</strong></p>
 <p>如果想要把工程发布到 PyPI 仓库怎么办？</p>
 <p>在 poetry
 中，只需要简单配置一下<code>pyproject.toml</code>，就可以实现一行命令发布工具包，</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ poetry publishPublishing poetry (1.0.0) to PyPI  - Uploading poetry-1.0.0.tar.gz 100%  - Uploading poetry-1.0.0-py2.py3-none-any.whl 58%</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ poetry publish</span><br><span class="line">Publishing poetry (1.0.0) to PyPI  - Uploading poetry-1.0.0.tar.gz 100%  - Uploading poetry-1.0.0-py2.py3-none-any.whl 58%</span><br></pre></td></tr></table></figure></div>
 <p><strong>结构化展示依赖关系</strong></p>
 <p>Python
 是一款对第三方工具包依赖很强的一种编程语言，一个项目中会用到很多款不同的工具包，而这些包的依赖关系是什么样的，很多开发者对其了解却很少。</p>
 <p>poetry
 可以实现结构化展示每个工具包的依赖关系，让工程的依赖一目了然，</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ poetry show --treerequests-toolbelt 0.8.0 A utility belt <span class="keyword">for</span> advanced <span class="built_in">users</span>...└── requests &lt;3.0.0,&gt;=2.0.1    ├── certifi &gt;=2017.4.17    ├── chardet &gt;=3.0.2,&lt;3.1.0    ├── idna &gt;=2.5,&lt;2.7    └── urllib3 &lt;1.23,&gt;=1.21.1$ poetry show --latestpendulum 2.0.4   1.4.5 Python datetimes made easy.django   1.11.11 2.0.3 A high-level Python Web framework ...requests 2.18.4  2.18.4 Python HTTP <span class="keyword">for</span> Humans.</span><br></pre></td></tr></table></figure></div>
-<h3 id="poetry-安装和初始化">poetry 安装和初始化</h3>
-<p><strong>poetry 安装</strong></p>
-<p>poetry 提供多种安装方式，个人推荐从以下 2 种方式中选择：</p>
-<p>方式一：curl（推荐）</p>
-<p><strong>Linux, macOS, Windows (WSL)</strong> <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https://install.python-poetry.org | python3 -</span><br></pre></td></tr></table></figure></div></p>
-<blockquote>
-<p>Note: On some systems, <code>python</code> may still refer to Python
-2 instead of Python 3. We always suggest the <code>python3</code> binary
-to avoid ambiguity.</p>
-</blockquote>
-<p><strong>Windows (Powershell)</strong></p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="POWERSHELL"><figure class="iseeu highlight /powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="built_in">Invoke-WebRequest</span> <span class="literal">-Uri</span> https://install.python<span class="literal">-poetry</span>.org <span class="literal">-UseBasicParsing</span>).Content | py -</span><br></pre></td></tr></table></figure></div>
-<blockquote>
-<p>If you have installed Python through the Microsoft Store,
-replace <code>py</code> with <code>python</code> in the command
-above.</p>
-</blockquote>
-<p>方式二：pip （有可能会造成依赖冲突）</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install --user poetry</span><br></pre></td></tr></table></figure></div>
-<!--SR:!2022-11-30,21,250-->
-<p><strong>poetry 配置环境变量</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ poetry show --treerequests-toolbelt 0.8.0 A utility belt <span class="keyword">for</span> advanced <span class="built_in">users</span>...</span><br><span class="line">└── requests &lt;3.0.0,&gt;=2.0.1    </span><br><span class="line">├── certifi &gt;=2017.4.17    </span><br><span class="line">├── chardet &gt;=3.0.2,&lt;3.1.0    </span><br><span class="line">├── idna &gt;=2.5,&lt;2.7    </span><br><span class="line">└── urllib3 &lt;1.23,&gt;=1.21.1</span><br><span class="line"></span><br><span class="line">$ poetry show --latestpendulum 2.0.4   1.4.5 Python datetimes made easy.django   1.11.11 2.0.3 A high-level Python Web framework ...requests 2.18.4  2.18.4 Python HTTP <span class="keyword">for</span> Humans.</span><br></pre></td></tr></table></figure></div>
+<h3 id="micromamba-poetry-安装脚本4">Micromamba Poetry 安装脚本[^4]</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 安装 micromamba 和 poetry</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">command</span> -v micromamba &amp;&gt;/dev/null; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;micromamba is already installed.&quot;</span></span><br><span class="line">    <span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(/usr/local/bin/micromamba shell hook -s posix)</span>&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;micromamba is installing...&quot;</span></span><br><span class="line">    <span class="built_in">mkdir</span> -p /usr/local/bin</span><br><span class="line">    curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj -C /usr/local bin/micromamba </span><br><span class="line">    <span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(/usr/local/bin/micromamba shell hook -s posix)</span>&quot;</span></span><br><span class="line">    /usr/local/bin/micromamba shell init -s bash -p ~/micromamba  <span class="comment"># this writes to your .bashrc file</span></span><br><span class="line">    <span class="built_in">source</span> ~/.bashrc</span><br><span class="line">    <span class="built_in">cat</span> &gt; ~/.condarc &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">channels: </span></span><br><span class="line"><span class="string">  - defaults</span></span><br><span class="line"><span class="string">show_channel_urls: true</span></span><br><span class="line"><span class="string">default_channels:</span></span><br><span class="line"><span class="string">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span></span><br><span class="line"><span class="string">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span></span><br><span class="line"><span class="string">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span></span><br><span class="line"><span class="string">custom_channels:</span></span><br><span class="line"><span class="string">  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line"><span class="string">  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line"><span class="string">  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line"><span class="string">  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line"><span class="string">  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line"><span class="string">  pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line"><span class="string">  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line"><span class="string">  deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line">    micromamba config append channels conda-forge        </span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">    </span><br><span class="line">micromamba create -p ./venv python=3.9 -y</span><br><span class="line">micromamba activate ./venv</span><br><span class="line">micromamba run -p ./venv python -m pip install poetry==1.7.0 -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h3 id="poetry-安装和初始化-1">Poetry 安装和初始化 <a href="#fn1"
+class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a></h3>
+<h5 id="poetry-安装">poetry 安装</h5>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ********************************* Linux, macOS *********************************</span></span><br><span class="line">$ curl -sSL https://install.python-poetry.org | python3 -</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装特定版本 poetry</span></span><br><span class="line">$ curl -sSL https://install.python-poetry.org | POETRY_VERSION=1.1.2 python3 -</span><br><span class="line"></span><br><span class="line"><span class="comment"># ********************************* Windows (Powershell) *********************************</span></span><br><span class="line"><span class="comment"># If you have installed Python through the Microsoft Store, replace `py` with `python` in the command below.</span></span><br><span class="line">$ (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py -  </span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+<h5 id="poetry-环境变量">poetry 环境变量</h5>
+<p>这里配置的环境变量对于通过sshpass执行的命令无效，如果需要全局变量，可参考：<a
+href="../06ebd355770738c865ee28ef13d2206bbfb36692/#环境变量">_Linux
+常用命令#环境变量</a> <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ********************************* Linux, macOS *********************************</span></span><br><span class="line">$ sudo su</span><br><span class="line"></span><br><span class="line">$ vim ~/.bashrc</span><br><span class="line"><span class="comment"># 添加以下环境变量</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;/root/.local/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">export</span> PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># sshpass 远程执行时需要设置软链接, 添加sshpass缺少的环境变量</span></span><br><span class="line">$ <span class="built_in">ln</span> -s /root/.local/bin/poetry poetry</span><br><span class="line"></span><br><span class="line"><span class="comment"># ********************************* Windows *********************************</span></span><br><span class="line">%APPDATA%\Python\Scripts</span><br></pre></td></tr></table></figure></div></p>
 <p>The installer creates a <code>poetry</code> wrapper in a well-known,
 platform-specific directory:</p>
 <ul>
@@ -554,14 +552,21 @@ set.</li>
 add it in order to invoke Poetry as <code>poetry</code>. Alternatively,
 the full path to the <code>poetry</code> binary can always be used:</p>
 <ul>
-<li><code>~/Library/Application Support/pypoetry/venv/bin/poetry</code> on
-MacOS.</li>
 <li><code>~/.local/share/pypoetry/venv/bin/poetry</code> on
 Linux/Unix.</li>
 <li><code>%APPDATA%\pypoetry\venv\Scripts\poetry</code> on Windows.</li>
+<li><code>~/Library/Application Support/pypoetry/venv/bin/poetry</code> on
+MacOS.</li>
 <li><code>$POETRY_HOME/venv/bin/poetry</code> if <code>$POETRY_HOME</code> is
 set.</li>
 </ul>
+<h5 id="poetry-配置-venv-到项目文件夹">poetry 配置 venv
+到项目文件夹</h5>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ poetry config virtualenvs.create <span class="literal">true</span></span><br><span class="line">$ poetry config virtualenvs.in-project <span class="literal">true</span></span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-07-02,212,249-->
+<p><strong>fish 配置</strong></p>
+<p><a href="../e13093cac8ccdc5b3204f4d66ee9a7db927ce606">Fish 添加 PATH
+路径(环境变量)</a></p>
 <p><strong>poetry 工程初始化</strong></p>
 <p>如果当前还没有创建工程，可以使用 poetry 新建工程：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ poetry new poetry-demo</span><br></pre></td></tr></table></figure></div>
@@ -570,21 +575,28 @@ set.</li>
 <p>除了新建工程，还可以在已有工程的基础上进行创建，</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ poetry init</span><br></pre></td></tr></table></figure></div>
 <p>这时候，它会让你输入包名称、版本号等信息，你可以选择输入，也可以选择按下<code>ENTER</code>键使用默认值。
-<!--SR:!2022-12-06,26,250--></p>
-<p><strong>poetry 更换国内镜像源</strong></p>
+<!--SR:!2024-09-30,424,250--></p>
+<h4 id="poetry-更换国内镜像源">poetry 更换国内镜像源</h4>
 <p>在 pyproject.toml 配置文件中最下方添加国内镜像源地址配置,
 提高下载速度。</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="TOML"><figure class="iseeu highlight /toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[[tool.poetry.source]]</span>  </span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;aliyun&quot;</span>  </span><br><span class="line"><span class="attr">url</span> = <span class="string">&quot;http://mirrors.aliyun.com/pypi/simple&quot;</span>  </span><br><span class="line"><span class="attr">default</span> = <span class="literal">true</span></span><br></pre></td></tr></table></figure></div>
-<p><strong>poetry 运行 Python 脚本</strong></p>
+<h4 id="poetry-运行-python-脚本">poetry 运行 Python 脚本</h4>
 <p>切换到项目中 pyproject.toml 同级目录下， 执行 peotry run python
 脚本文件即可。(代码import路径要从项目根目录开始)
-<!--SR:!2022-11-29,20,250--></p>
+<!--SR:!2026-04-04,753,250--></p>
 <p><strong>Pycharm 中使用 poetry</strong></p>
-<p>找到虚拟环境文件夹所在位置，并选中 bin 目录下的 Python 后，就可以用
-Pycharm 引入虚拟环境了 <img
+<p><img src="/images/Pasted%20image%2020230509162121.png" />
+打开项目的终端并运行 <code>poetry env info</code> 命令，找到项目对应的虚拟环境文件夹所在位置(<code>Executable 字段</code>)，按照下图步骤打开并选中
+Scripts 目录下的 Python 后，就可以用 Pycharm 引入虚拟环境了 <img
 src="/images/Pasted%20image%2020221027182115.png" />
-<!--SR:!2022-12-09,28,250--></p>
+<!--SR:!2025-05-01,443,250--></p>
 <h3 id="poetry-依赖包管理">poetry 依赖包管理</h3>
+<ul>
+<li><strong>本地代码依赖</strong></li>
+</ul>
+<p>依赖当前工程目录的 package <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="YML"><figure class="iseeu highlight /yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">tool.poetry</span>]  </span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="string">packages</span> <span class="string">=</span> [&#123;<span class="string">include</span> <span class="string">=</span> <span class="string">&quot;common&quot;</span>&#125;,&#123;<span class="string">include</span> <span class="string">=</span> <span class="string">&quot;core&quot;</span>&#125;]</span><br></pre></td></tr></table></figure></div> 依赖其他工程目录的 package
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="YML"><figure class="iseeu highlight /yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">tool.poetry</span>]</span><br><span class="line"><span class="string">...</span></span><br><span class="line"><span class="string">packages</span> <span class="string">=</span> [</span><br><span class="line">    &#123;<span class="string">include</span> <span class="string">=</span> <span class="string">&quot;src&quot;</span>, <span class="string">from=&quot;D:/git/Tweaks/tweaks_python&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="string">include</span> <span class="string">=</span> <span class="string">&quot;core&quot;</span>, <span class="string">from=&quot;D:/git/Tweaks/tweaks_python/src&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="string">include</span> <span class="string">=</span> <span class="string">&quot;common&quot;</span>, <span class="string">from=&quot;D:/git/Tweaks/tweaks_python/src&quot;</span>&#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></div> 配置完后需要执行命令: <code>poetry install</code>
+路径无效会报下面的错误: <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ poetry install</span><br><span class="line">Installing dependencies from lock file</span><br><span class="line">Warning: poetry.lock is not consistent with pyproject.toml. You may be getting improper dependencies. Run `poetry lock [--no-update]` to fix it.</span><br></pre></td></tr></table></figure></div> <!--SR:!2025-03-16,372,230--></p>
 <ul>
 <li><strong>安装依赖包</strong></li>
 </ul>
@@ -594,7 +606,24 @@ src="/images/Pasted%20image%2020221027182115.png" />
 <p>可以使用 install
 命令直接解析并安装<code>pyproject.toml</code>的依赖包，</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ poetry install</span><br></pre></td></tr></table></figure></div>
-<!--SR:!2022-12-01,22,250-->
+<!--SR:!2026-08-18,836,250-->
+<ul>
+<li><strong>从远程仓库安装依赖</strong>[^5] [^6]</li>
+</ul>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># poetry add git+&lt;protocol&gt;://git@&lt;repository&gt;/&lt;owner&gt;/&lt;project&gt;.git#&lt;git_ref&gt;</span></span><br><span class="line">poetry add git+ssh://git@gitlab.blabla.co/nubela/project-a.git</span><br><span class="line">poetry add git+https://git@github.com/agn-7/sqladmin.git</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-10-21,150,250-->
+<ul>
+<li><strong>从 requirements.txt 文件中安装依赖</strong> <a href="#fn2"
+class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a></li>
+</ul>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat requirements.txt | xargs poetry add</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-09-01,185,249-->
+<ul>
+<li><strong>从 github 私有库安装依赖包</strong>[^3]</li>
+</ul>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ poetry add git+ssh://git@github.com/qiaogaojian/pycore.git</span><br><span class="line">$ pip install git+ssh://git@github.com/qiaogaojian/pycore.git --upgrade</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-09-04,186,249-->
 <ul>
 <li><strong>更新依赖包</strong></li>
 </ul>
@@ -606,41 +635,116 @@ src="/images/Pasted%20image%2020221027182115.png" />
 <li><strong>卸载依赖包</strong></li>
 </ul>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ poetry remove numpy</span><br></pre></td></tr></table></figure></div>
-<!--SR:!2022-12-09,28,250-->
-<h3 id="poetry-虚拟环境管理">poetry 虚拟环境管理</h3>
+<!--SR:!2025-01-10,497,250-->
 <ul>
-<li><strong>创建虚拟环境</strong></li>
+<li><strong>查看依赖树</strong></li>
 </ul>
-<p>创建虚拟环境有 2 种方式：</p>
-<p>方式 1：</p>
-<p>如果在配置文件中配置了<code>virtualenvs.create=true</code>，执行<code>poetry install</code>时会检查是否有虚拟环境，否则会自动创建。</p>
-<p>方式 2：</p>
-<p>利用<code>poetry env use</code>命令，</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ poetry <span class="built_in">env</span> use python3.7</span><br></pre></td></tr></table></figure></div>
-<!--SR:!2022-12-06,26,250-->
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ poetry show --tree</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-08-29,242,249-->
+<h3 id="poetry-虚拟环境管理">poetry 虚拟环境管理</h3>
 <ul>
 <li><strong>激活虚拟环境</strong></li>
 </ul>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ poetry shell</span><br></pre></td></tr></table></figure></div>
-<!--SR:!2022-12-06,26,250-->
+<!--SR:!2024-09-28,423,250-->
 <ul>
 <li><strong>查看虚拟环境信息</strong></li>
 </ul>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ poetry <span class="built_in">env</span> info</span><br></pre></td></tr></table></figure></div>
-<!--SR:!2022-12-09,28,250-->
+<!--SR:!2025-01-24,509,250-->
 <ul>
 <li><strong>显示虚拟环境列表</strong></li>
 </ul>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ poetry <span class="built_in">env</span> list</span><br></pre></td></tr></table></figure></div>
-<!--SR:!2022-11-26,18,250-->
+<!--SR:!2025-09-30,640,250-->
 <ul>
 <li><strong>删除虚拟环境</strong></li>
 </ul>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ poetry <span class="built_in">env</span> remove python3.7</span><br></pre></td></tr></table></figure></div>
-<!--SR:!2022-11-28,19,250-->
+<!--SR:!2024-02-14,284,250-->
 <p><strong>Poetry 常用命令行界面 (CLI) 命令</strong></p>
 <p><img src="/images/v2-97299659f5761d6e00d72b0529b14dab_b.jpg" />
-<!--SR:!2022-11-28,20,250--></p>
+<!--SR:!2026-02-07,717,250--></p>
+<h2 id="集成到-obsidian">集成到 Obsidian</h2>
+<ol type="1">
+<li>安装插件 <a
+target="_blank" rel="noopener" href="https://github.com/twibiral/obsidian-execute-code">GitHub -
+twibiral/obsidian-execute-code: Obsidian Plugin to execute code in a
+note.</a></li>
+<li>配置插件 <img
+src="/images/Pasted%20image%2020221203204432.png" /></li>
+<li>打开目录 <code>%LocalAppData%/Obsidian</code> 新建
+pyproject.toml</li>
+<li>poetry 项目配置 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="TOML"><figure class="iseeu highlight /toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[tool.poetry]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;obsidian&quot;</span></span><br><span class="line"><span class="attr">version</span> = <span class="string">&quot;0.1.0&quot;</span></span><br><span class="line"><span class="attr">description</span> = <span class="string">&quot;obsidian dependencies&quot;</span></span><br><span class="line"><span class="attr">authors</span> = [<span class="string">&quot;bs2h &lt;bs2h@xxx.com&gt;&quot;</span>]</span><br><span class="line"><span class="attr">packages</span> = [</span><br><span class="line">    &#123;include = <span class="string">&quot;src&quot;</span>, from=<span class="string">&quot;D:/git/Tweaks/tweaks_python&quot;</span>&#125;,</span><br><span class="line">    &#123;include = <span class="string">&quot;core&quot;</span>, from=<span class="string">&quot;D:/git/Tweaks/tweaks_python/src&quot;</span>&#125;,</span><br><span class="line">    &#123;include = <span class="string">&quot;common&quot;</span>, from=<span class="string">&quot;D:/git/Tweaks/tweaks_python/src&quot;</span>&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="section">[tool.poetry.dependencies]</span></span><br><span class="line"><span class="attr">python</span> = <span class="string">&quot;^3.9&quot;</span></span><br><span class="line"><span class="attr">hexbytes</span> = <span class="string">&quot;^0.2.2&quot;</span></span><br><span class="line"><span class="attr">environs</span> = <span class="string">&quot;^9.5.0&quot;</span></span><br><span class="line"><span class="attr">PyMySQL</span> = <span class="string">&quot;^1.0.2&quot;</span></span><br><span class="line"><span class="attr">redis</span> = <span class="string">&quot;^4.1.4&quot;</span></span><br><span class="line"><span class="attr">pymongo</span> = <span class="string">&quot;^4.3.2&quot;</span></span><br><span class="line"><span class="attr">web3</span> = <span class="string">&quot;5.13.1&quot;</span></span><br><span class="line"><span class="attr">bloxroute-cli</span> = <span class="string">&quot;^1.109.9&quot;</span></span><br><span class="line"><span class="attr">kafka-python</span> = <span class="string">&quot;^2.0.2&quot;</span></span><br><span class="line"><span class="attr">flask</span> = <span class="string">&quot;^2.2.2&quot;</span></span><br><span class="line"><span class="attr">matplotlib</span> = <span class="string">&quot;^3.6.0&quot;</span></span><br><span class="line"><span class="attr">seaborn</span> = <span class="string">&quot;^0.12.1&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="section">[tool.poetry.dev-dependencies]</span></span><br><span class="line"></span><br><span class="line"><span class="section">[build-system]</span></span><br><span class="line"><span class="attr">requires</span> = [<span class="string">&quot;poetry-core&gt;=1.0.0&quot;</span>]</span><br><span class="line"><span class="attr">build-backend</span> = <span class="string">&quot;poetry.core.masonry.api&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置国内源</span></span><br><span class="line"><span class="section">[[tool.poetry.source]]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;aliyun&quot;</span></span><br><span class="line"><span class="attr">url</span> = <span class="string">&quot;http://mirrors.aliyun.com/pypi/simple&quot;</span></span><br><span class="line"><span class="attr">default</span> = <span class="literal">true</span></span><br></pre></td></tr></table></figure></div></li>
+<li>测试代码 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> core.time_class <span class="keyword">import</span> Time</span><br><span class="line"><span class="keyword">from</span> core.base_class <span class="keyword">import</span> Core</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:  </span><br><span class="line">    core = Core()  </span><br><span class="line">    core.init(<span class="string">&quot;dev&quot;</span>)  </span><br><span class="line">    logger = core.logger</span><br><span class="line"></span><br><span class="line">    cur_time_str = Time.get_cur_timestr()  </span><br><span class="line">    logger.info(<span class="string">f&quot;local timestr: <span class="subst">&#123;cur_time_str&#125;</span>&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<h2 id="引用">引用</h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/pypa/pipx">pipx: Install and Run Python
+Applications in Isolated Environments</a> <a
+target="_blank" rel="noopener" href="https://github.com/python-poetry/poetry/issues/6719">Failed to
+create the collection when try adding any dependencies · Issue #6719 ·
+python-poetry/poetry · GitHub</a> <a
+target="_blank" rel="noopener" href="https://github.com/python-poetry/poetry/issues/1917">Keyring
+errors during non-publishing operations · Issue #1917 ·
+python-poetry/poetry · GitHub</a> <a
+target="_blank" rel="noopener" href="https://stackoverflow.com/questions/39539110/pyvenv-not-working-because-ensurepip-is-not-available">python
+- pyvenv not working because ensurepip is not available - Stack
+Overflow</a> <a
+href="../2b9c7abe1d255b7d5bce4c9b3e11ee7195afffb4">Python Micromamba +
+Poetry 环境管理</a> <a
+href="../8efeac92a7aadd61a7f9c1413a43c9943393b97e">Poetry add 报错 xxx
+not found in known hashes</a> <a
+target="_blank" rel="noopener" href="https://blog.kyomind.tw/python-poetry/">最佳 Python
+套件管理器——Poetry 完全入門指南 - Code and Me</a> [^3]: <a
+target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40851623/article/details/118190014">Fetching
+Title#z5uq</a> [^4]: <a
+href="../2b9c7abe1d255b7d5bce4c9b3e11ee7195afffb4/#Micromamba%20的安装与配置">Python
+Micromamba + Poetry 环境管理#Micromamba 的安装与配置</a> [^5]: <a
+target="_blank" rel="noopener" href="https://stackoverflow.com/questions/59621373/how-do-i-add-a-python-package-built-by-poetry-to-another-python-project-with-poe">How
+do I add a python package built by poetry to another python project with
+poetry? - Stack Overflow</a> [^6]: <a
+target="_blank" rel="noopener" href="https://python-poetry.org/docs/cli/#add">Commands | Documentation
+| Poetry - Python dependency management and packaging made easy</a></p>
+<p><strong>Backlinks:</strong></p>
+<ul>
+<li><a href="../293983b1ba374aae7708250721a2366501937648">Python
+开发环境</a></li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>Python 项目管理最佳实践 Poetry
+<ul>
+<li><a
+href="../06ebd355770738c865ee28ef13d2206bbfb36692/#环境变量">_Linux
+常用命令#环境变量</a></li>
+<li><a
+href="../2b9c7abe1d255b7d5bce4c9b3e11ee7195afffb4/#Micromamba%20的安装与配置">Python
+Micromamba + Poetry 环境管理#Micromamba 的安装与配置</a></li>
+<li><a href="../8efeac92a7aadd61a7f9c1413a43c9943393b97e">Poetry add
+报错 xxx not found in known hashes</a></li>
+<li><a href="../293983b1ba374aae7708250721a2366501937648">Python
+开发环境</a></li>
+<li><a href="../2b9c7abe1d255b7d5bce4c9b3e11ee7195afffb4">Python
+Micromamba + Poetry 环境管理</a></li>
+<li><a href="../e13093cac8ccdc5b3204f4d66ee9a7db927ce606">Fish 添加 PATH
+路径(环境变量)</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<section class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><a
+target="_blank" rel="noopener" href="https://python-poetry.org/docs/#installing-with-the-official-installer">Poetry
+- Python dependency management and packaging made easy</a><a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a
+target="_blank" rel="noopener" href="https://stackoverflow.com/questions/62764148/how-to-import-requirements-txt-from-an-existing-project-using-poetry">python
+- How to import requirements.txt from an existing project using Poetry -
+Stack Overflow</a><a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">
     </div>
 
@@ -680,8 +784,8 @@ src="/images/Pasted%20image%2020221027182115.png" />
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/edf333cdc04cd96e5513549222046cbae2567fcc/" rel="prev" title="flask 参数传递的4种方式">
-                  <i class="fa fa-chevron-left"></i> flask 参数传递的4种方式
+                <a href="/cd7caae4024eeeb56d5d2f7e13705f7dcf74560b/" rel="prev" title="Comprehensive Python Cheatsheet">
+                  <i class="fa fa-chevron-left"></i> Comprehensive Python Cheatsheet
                 </a>
             </div>
             <div class="post-nav-item">

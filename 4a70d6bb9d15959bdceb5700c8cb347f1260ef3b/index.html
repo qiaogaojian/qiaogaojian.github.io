@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="原文地址 zhuanlan.zhihu.com  官方 github copilot 一年 100 美元，也就是 700 块。本人曾经薅一个月免费的试用过，自动补全代码，还能聊天询问看不懂的代码含义，确实很爽，但是价格实在伤不起。其他云厂商也提供了类似的工具，但是皆有 代码安全问题，泄露了公司代码，打工人也得跑路。  这么多开源的 LLM 模型，能否用开源的模型，玩自己的本地的 copilot 呢">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ollama + continue 实现本地 github copilot">
+<meta property="og:url" content="https://qiaogaojian.github.io/4a70d6bb9d15959bdceb5700c8cb347f1260ef3b/index.html">
+<meta property="og:site_name" content="行则将至">
+<meta property="og:description" content="原文地址 zhuanlan.zhihu.com  官方 github copilot 一年 100 美元，也就是 700 块。本人曾经薅一个月免费的试用过，自动补全代码，还能聊天询问看不懂的代码含义，确实很爽，但是价格实在伤不起。其他云厂商也提供了类似的工具，但是皆有 代码安全问题，泄露了公司代码，打工人也得跑路。  这么多开源的 LLM 模型，能否用开源的模型，玩自己的本地的 copilot 呢">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-08-22T12:01:04.000Z">
+<meta property="article:modified_time" content="2024-10-19T02:48:17.124Z">
+<meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="Math,数学,Calculus,微积分,Linear Algebra,线性代数,Computer Science,计算机原理,编程,设计模式,计算机网络,计算机图形学,Computer Graphics,Unity,Unity3d,CG,HLSL,OpenGL,C#,Android,Java,GameFramework,ML,Shader,Golang,Go,Asm,Adb,BlockChain,VSCode,Web,Tools,PHP,Ubuntu,ThinkPHP,MySql,Sqlite,重构,Windows,Win10,Git,Mac,Linux,树莓派,VS,AS,Android Studio,PhpStorm,PyCharm,Vim,Rider,Jupyter,Kali,Js,JavaScript,Hexo,3dMax,Maya,Zbrush,汇编,游戏设计,Roguelike,Roguelite,地图生成,技能,FSM,NGUI,UGUI,UV,法线,光照,后端,Html,Css,C语言,C++,Python,机器学习,信息安全,操作系统,IDE,工具,效率,VR,AR,BitCoin,Eos,数据结构,算法,排序,查找,Leetcode,RoadMap,Tips,Trick,Bug,BestPratice,Tutorial,Tao​">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://qiaogaojian.github.io/4a70d6bb9d15959bdceb5700c8cb347f1260ef3b/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Ollama + continue 实现本地 github copilot | 行则将至</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">行则将至</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">人生在勤,不索何获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%AE%89%E8%A3%85-ollama"><span class="nav-text">第一步: 安装 ollama</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E9%80%9A%E8%BF%87-ollama-%E5%91%BD%E4%BB%A4%E4%B8%8B%E8%BD%BD%E6%A8%A1%E5%9E%8B"><span class="nav-text">第二步: 通过 ollama
+命令下载模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-continue-%E6%8F%92%E4%BB%B6-%E6%8E%A8%E8%8D%90"><span class="nav-text">配置 Continue 插件 (推荐)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E7%A8%8B%E7%BA%A7%E5%88%AB%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="nav-text">工程级别上下文</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-cody-ai-%E6%8F%92%E4%BB%B6"><span class="nav-text">配置 Cody AI 插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ollama-%E6%8F%92%E4%BB%B6"><span class="nav-text">Ollama 插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qiaogaojian"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">qiaogaojian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qiaogaojian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qiaogaojian@live.com" title="E-Mail → mailto:qiaogaojian@live.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+<!--
+-->
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/qiaogaojian" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qiaogaojian.github.io/4a70d6bb9d15959bdceb5700c8cb347f1260ef3b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ollama + continue 实现本地 github copilot
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-22 20:01:04" itemprop="dateCreated datePublished" datetime="2024-08-22T20:01:04+08:00">2024-08-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2024-10-19 10:48:17" itemprop="dateModified" datetime="2024-10-19T10:48:17+08:00">2024-10-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">5.技能</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/AI/Agent/" itemprop="url" rel="index"><span itemprop="name">Agent</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/4a70d6bb9d15959bdceb5700c8cb347f1260ef3b/" class="post-meta-item leancloud_visitors" data-flag-title="Ollama + continue 实现本地 github copilot" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/4a70d6bb9d15959bdceb5700c8cb347f1260ef3b/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/4a70d6bb9d15959bdceb5700c8cb347f1260ef3b/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+        <blockquote>
+<p>原文地址 <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/686682108">zhuanlan.zhihu.com</a></p>
+</blockquote>
+<p>官方 github copilot 一年 100 美元，也就是 700
+块。本人曾经薅一个月免费的试用过，自动补全代码，还能聊天询问看不懂的代码含义，确实很爽，但是价格实在伤不起。其他云厂商也提供了类似的工具，但是皆有
+代码安全问题，泄露了公司代码，打工人也得跑路。</p>
+<p>这么多开源的 LLM 模型，能否用开源的模型，玩自己的本地的 copilot
+呢？下面我们就来解锁这个新姿势:</p>
+<p><mark style="background: #fefe00A6;">特别说明</mark> :
+<strong>该方法对于电脑上没有 GPU 的童鞋也适用</strong>。</p>
+<h3 id="第一步-安装-ollama">第一步: 安装 ollama</h3>
+<p>ollama 地址: <a target="_blank" rel="noopener" href="https://ollama.com/">Ollama</a> <a
+target="_blank" rel="noopener" href="https://github.com/ollama/ollama?tab=readme-ov-file#ollama">GitHub</a>
+<a
+target="_blank" rel="noopener" href="https://github.com/ollama/ollama/blob/main/docs/faq.md#where-are-models-stored">QA</a></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置环境变量: </span></span><br><span class="line">OLLAMA_MODELS=D:\AI\models</span><br><span class="line">OLLAMA_ORIGINS=app://obsidian.md*</span><br></pre></td></tr></table></figure></div>
+<h3 id="第二步-通过-ollama-命令下载模型">第二步: 通过 ollama
+命令下载模型</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ollama run qwen2:7b           <span class="comment"># 下载并运行  4.4G</span></span><br><span class="line">/<span class="built_in">set</span> parameter num_ctx <span class="number">32000</span>  <span class="comment"># 设置上下文长度为32000个token</span></span><br><span class="line">/save qwen2:7b                <span class="comment"># 保存模型配置</span></span><br><span class="line">/bye                          <span class="comment"># 退出</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 模型推荐 (保存位置: D:/AI/models)  </span></span><br><span class="line">ollama pull nomic-embed-text         <span class="comment"># 文本转向量 274M</span></span><br><span class="line">ollama pull mxbai-embed-large        <span class="comment"># 文本转向量 669M</span></span><br><span class="line">ollama pull starcoder2:3b            <span class="comment"># 代码补全   1.7G</span></span><br><span class="line">ollama pull deepseek-coder-v2:16b    <span class="comment"># 代码补全   8.9G</span></span><br><span class="line">ollama pull llava                    <span class="comment"># 图片解释   4.7G  </span></span><br></pre></td></tr></table></figure></div>
+<p>支持的模型地址: <a target="_blank" rel="noopener" href="https://ollama.com/library">library</a>
+配置模型存储位置: <a
+href="../28bae7ab0f7a286840f2bf0a5f342c3024da2942/#自定义模型存储位置和环境变量（可选）">Ollama
++ Open WebUI 本地 LLM#自定义模型存储位置和环境变量（可选）</a> <a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a></p>
+<p><img
+src="https://pic1.zhimg.com/v2-3a6ed0378e74e1e8dbf4b184cceaf098_r.jpg" /></p>
+<p><strong>下载过程中，如果发现网速太慢了，可以 ctrl +c
+中断命令。然后重新执行 <code>ollama run codellama</code>
+命令，可以断点续传。但是千万别关机，如果电脑关机，就只能从头开始了。</strong></p>
+<p><strong>ollama 还支持很多其他的模型，如谷歌的 gemma、阿里的
+Qwen、starcoder2 等</strong></p>
+<p><img
+src="https://pic2.zhimg.com/v2-c39389ca58346580a01be2a84e4fe3c5_r.jpg" /><img
+src="https://pic1.zhimg.com/v2-42edca07188367e95305fbe94e2b4420_r.jpg" /><img
+src="https://pic1.zhimg.com/v2-165dc49a99d05b31fddecb6663089068_r.jpg" /></p>
+<h2 id="配置-continue-插件-推荐">配置 Continue 插件 (推荐)</h2>
+<p>官网: <a target="_blank" rel="noopener" href="https://www.continue.dev/">Continue</a> 源码: <a
+target="_blank" rel="noopener" href="https://github.com/continuedev/continue">GitHub -
+continuedev/continue</a> 文档: <a
+target="_blank" rel="noopener" href="https://docs.continue.dev/setup/configuration">Continue</a></p>
+<p>同时有同学私信，上篇文章中介绍的 <strong>cody ai 需要为每个项目配置
+<code>.vscode/settings.json</code>，有没有一次配置，全局使用的方法？下面介绍的
+continue 插件刚好满足这个要求</strong></p>
+<p>安装插件</p>
+<p><img
+src="https://pic1.zhimg.com/v2-15f4ff7dd7441668a7bcf6586af45ef4_r.jpg" /></p>
+<p>配置插件</p>
+<p><img
+src="https://pic2.zhimg.com/v2-124a411cc782dfe9a84d98f6ee944185_r.jpg" /></p>
+<p>配置文件信息:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;models&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;title&quot;</span>: <span class="string">&quot;ollama&quot;</span>, <span class="comment"># title随便写</span></span><br><span class="line">      <span class="string">&quot;model&quot;</span>: <span class="string">&quot;gemma&quot;</span>, <span class="comment"># model名</span></span><br><span class="line">      <span class="string">&quot;completionOptions&quot;</span>: &#123;&#125;,</span><br><span class="line">      <span class="string">&quot;apiBase&quot;</span>: <span class="string">&quot;http://127.0.0.1:11434&quot;</span>,</span><br><span class="line">      <span class="string">&quot;provider&quot;</span>: <span class="string">&quot;ollama&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  ...</span><br><span class="line">  <span class="string">&quot;tabAutocompleteModel&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;title&quot;</span>: <span class="string">&quot;gemma&quot;</span>, <span class="comment"># title随便写</span></span><br><span class="line">    <span class="string">&quot;provider&quot;</span>: <span class="string">&quot;ollama&quot;</span>,</span><br><span class="line">    <span class="string">&quot;model&quot;</span>: <span class="string">&quot;gemma&quot;</span>, <span class="comment"># model名</span></span><br><span class="line">    <span class="string">&quot;apiBase&quot;</span>: <span class="string">&quot;http://127.0.0.1:11434&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p><img
+src="https://pic4.zhimg.com/v2-8ea93b298a341af629d00abc0cb7d063_r.jpg" /></p>
+<p>代码补全效果:</p>
+<p><img
+src="https://pic2.zhimg.com/v2-f4c086eeda80c2ef3fa98266f3edeaf1_r.jpg" /></p>
+<p>和 ollama 聊天:</p>
+<p><img
+src="https://pic2.zhimg.com/v2-44e55eca807d46b4120b5ebaf006ec29_r.jpg" /></p>
+<p>为代码添加注释:</p>
+<p><img
+src="https://pic2.zhimg.com/v2-93c210b5b25ed6f4addc020667128b3d_r.jpg" /><img
+src="https://pic2.zhimg.com/v2-7abcd15b6f4558c503d04219bc7f0b5d_r.jpg" /></p>
+<p>vscode 中使用 ollama 其实还有很多插件，大家可以自己尝试: <a
+target="_blank" rel="noopener" href="https://github.com/ollama/ollama?tab=readme-ov-file#extensions--plugins">https://github.com/ollama/ollama?tab=readme-ov-file#extensions--plugins</a></p>
+<p><img
+src="https://pic3.zhimg.com/v2-a90a6e9ee49a7345eb18dccdac48a7d6_r.jpg" /></p>
+<h3 id="工程级别上下文">工程级别上下文</h3>
+<p><a
+target="_blank" rel="noopener" href="https://docs.continue.dev/features/codebase-embeddings">Continue</a></p>
+<p><a target="_blank" rel="noopener" href="https://ollama.ai/">Ollama</a> is the easiest way to get up
+and running with open-source language models. It provides an entirely
+local REST API for working with LLMs, including generating embeddings.
+We recommend using an embeddings model
+like <code>nomic-embed-text</code>: <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JSON"><figure class="iseeu highlight /json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ~/.continue/config.json</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;embeddingsProvider&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;provider&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ollama&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;model&quot;</span><span class="punctuation">:</span> <span class="string">&quot;nomic-embed-text&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;apiBase&quot;</span><span class="punctuation">:</span> <span class="string">&quot;http://localhost:11434&quot;</span> <span class="comment">// optional, defaults to http://localhost:11434</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></div></p>
+<h2 id="配置-cody-ai-插件">配置 Cody AI 插件</h2>
+<p><img
+src="https://pic1.zhimg.com/v2-ad32acc61d166426850fb1aed217b4fc_r.jpg" /></p>
+<p><strong>通过 github 账号登录 cody AI，当然其他 google
+账号也应该没问题</strong> <a
+target="_blank" rel="noopener" href="https://sourcegraph.com/cody/manage">官网</a> <a
+target="_blank" rel="noopener" href="https://sourcegraph.com/docs/tutorials">教程</a></p>
+<p><img
+src="https://pic1.zhimg.com/v2-70ac2afcd4de11a4a78174f67d4d39c8_r.jpg" /></p>
+<p><strong>配置 cody AI</strong></p>
+<p><img
+src="https://pic2.zhimg.com/v2-5f2bd1e66f2866bbac09a66a930be515_r.jpg" /></p>
+<p><strong>修改 cody ai 的配置:</strong> Cody › Autocomplete ›
+Advanced:Provider</p>
+<p><img
+src="https://pic2.zhimg.com/v2-9f1a06f0d70b2020bb6070631132c3f1_r.jpg" /></p>
+<p><strong>修改项目目录下的 <code>.vscode/settings.json</code>
+文件。</strong> 这一步很重要，很多文章都缺少了这一步:</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;cody.autocomplete.experimental.ollamaOptions&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;url&quot;</span>: <span class="string">&quot;http://127.0.0.1:11434&quot;</span>,</span><br><span class="line">    <span class="string">&quot;model&quot;</span>: <span class="string">&quot;codellama&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p><img
+src="https://pic3.zhimg.com/v2-c651bd085255c48b3ebc712bd76586ae_r.jpg" /></p>
+<p><strong>此时在该目录下编码代码，就能自动补全了 (如果还不能,
+可以重启下 vscode)</strong>:</p>
+<p><img
+src="https://pic2.zhimg.com/v2-54f898faa54f5aaac26636b7c549397d_r.jpg" /></p>
+<p>和 cody ai 聊天，编码:</p>
+<p><img
+src="https://pic1.zhimg.com/v2-ff5a975ecccc4c8d247e79f4cbf03ea8_r.jpg" /></p>
+<h2 id="ollama-插件">Ollama 插件</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/continuedev/continue">Continue</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/hinterdupfinger/obsidian-ollama">Obsidian
+Ollama plugin</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/longy2k/obsidian-bmo-chatbot">Obsidian
+BMO Chatbot plugin</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/pfrankov/obsidian-local-gpt">Obsidian
+Local GPT plugin</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/n4ze3m/page-assist">Page
+Assist</a> (Chrome Extension)</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/logancyang/obsidian-copilot">Copilot for
+Obsidian plugin</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ex3ndr/llama-coder">Llama
+Coder</a> (Copilot alternative using Ollama)</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/bernardo-bruning/ollama-copilot">Ollama
+Copilot</a> (Proxy that allows you to use ollama as a copilot like
+Github copilot)</li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/MassimilianoPasquini97/raycast_ollama">Raycast
+extension</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/mxyng/discollama">Discollama</a> (Discord bot
+inside the Ollama discord channel)</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/omagdy7/ollama-logseq">Logseq Ollama
+plugin</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/andersrex/notesollama">NotesOllama</a> (Apple
+Notes Ollama plugin)</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/samalba/dagger-chatbot">Dagger
+Chatbot</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mekb-turtle/discord-ai-bot">Discord AI
+Bot</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ruecat/ollama-telegram">Ollama Telegram
+Bot</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ej52/hass-ollama-conversation">Hass
+Ollama Conversation</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/abrenneke/rivet-plugin-ollama">Rivet
+plugin</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/herval/cliobot">Cliobot</a> (Telegram
+bot with Ollama support)</li>
+<li><a
+target="_blank" rel="noopener" href="https://docs.openinterpreter.com/language-model-setup/local-models/ollama">Open
+Interpreter</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/rjmacarthy/twinny">twinny</a> (Copilot
+and Copilot chat alternative using Ollama)</li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/RussellCanfield/wingman-ai">Wingman-AI</a> (Copilot
+code and chat alternative using Ollama and Hugging Face)</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tusharhero/aitelegrambot">AI Telegram
+Bot</a> (Telegram bot using Ollama in backend)</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/yaroslavyaroslav/OpenAI-sublime-text">AI
+ST Completion</a> (Sublime Text 4 AI assistant plugin with Ollama
+support)</li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/kevinthedang/discord-ollama">Discord-Ollama
+Chat Bot</a> (Generalized TypeScript Discord Bot w/ Tuning
+Documentation)</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/rapmd73/Companion">Discord AI
+chat/moderation bot</a> Chat/moderation bot written in python. Uses
+Ollama to create personalities.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/nischalj10/headless-ollama">Headless
+Ollama</a> (Scripts to automatically install ollama client &amp; models
+on any OS for apps that depends on ollama server)</li>
+</ul>
+<h2 id="参考">参考</h2>
+<p><a
+target="_blank" rel="noopener" href="https://medium.com/@akshayd02/local-coding-assistant-3faa2b6719be">Local
+Coding Assistant. Local-Coding-Assistant | by Akshay Dongare |
+Medium</a></p>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>Ollama + continue 实现本地 github copilot
+<ul>
+<li><a
+href="../28bae7ab0f7a286840f2bf0a5f342c3024da2942/#自定义模型存储位置和环境变量（可选）">Ollama
++ Open WebUI 本地 LLM#自定义模型存储位置和环境变量（可选）</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<section class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><a
+target="_blank" rel="noopener" href="https://github.com/ollama/ollama/issues/2551">Can we change where
+the models are stored in windows · Issue #2551 · ollama/ollama ·
+GitHub</a><a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="qiaogaojian 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="qiaogaojian 支付宝">
+        <span>支付宝</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.png" alt="qiaogaojian 比特币">
+        <span>比特币</span>
+      </div>
+
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/c447e815541f626d9f66413da6c89bc53b25f493/" rel="prev" title="删除系统盘大文件">
+                  <i class="fa fa-chevron-left"></i> 删除系统盘大文件
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiaogaojian</span>
+</div>
+<div class="busuanzi-count">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+
+<span id="timeDate">载入天数...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/01/2016 19:00:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 " + hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+        // document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  const url = element.dataset.target;
+  const pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  const pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  const fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.7.0/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/4a70d6bb9d15959bdceb5700c8cb347f1260ef3b/",
+    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"要不说点啥?","avatar":"mm","meta":["nick","mail"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":210,"height":360},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

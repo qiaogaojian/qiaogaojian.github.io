@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="第1章 软件架构 1.1 架构的意义 在软件系统中，架构的重要性不言而喻，项目从研发到上线运营，我们要在不同的方案中选择合适的架构，例如，前端渲染引擎是自己研发，还是使用商业引擎？商业引擎是使用Unity3D，还是Unreal或其他？具体到怎么用，则要考虑是使用UGUI，还是使用NGUI？UI里的事件系统如何进行统一处理？AI行为算法是选择行为树，还是状态机，抑或是选择事件型决策树？数据如何获取和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity3D高级编程 主程手记">
+<meta property="og:url" content="https://qiaogaojian.github.io/85a8d7cf0061c7513eee1428d9cc967e890dd99c/index.html">
+<meta property="og:site_name" content="行则将至">
+<meta property="og:description" content="第1章 软件架构 1.1 架构的意义 在软件系统中，架构的重要性不言而喻，项目从研发到上线运营，我们要在不同的方案中选择合适的架构，例如，前端渲染引擎是自己研发，还是使用商业引擎？商业引擎是使用Unity3D，还是Unreal或其他？具体到怎么用，则要考虑是使用UGUI，还是使用NGUI？UI里的事件系统如何进行统一处理？AI行为算法是选择行为树，还是状态机，抑或是选择事件型决策树？数据如何获取和">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-11T16:42:56.000Z">
+<meta property="article:modified_time" content="2024-10-19T02:48:17.162Z">
+<meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="srcard">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://qiaogaojian.github.io/85a8d7cf0061c7513eee1428d9cc967e890dd99c/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Unity3D高级编程 主程手记 | 行则将至</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">行则将至</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">人生在勤,不索何获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC1%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84"><span class="nav-text">第1章 软件架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E7%9A%84%E6%84%8F%E4%B9%89"><span class="nav-text">1.1 架构的意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E7%9A%84%E6%80%9D%E7%BB%B4%E6%96%B9%E5%BC%8F"><span class="nav-text">1.2 软件架构的思维方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BAunity3d%E9%A1%B9%E7%9B%AE"><span class="nav-text">1.3 如何构建Unity3D项目</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qiaogaojian"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">qiaogaojian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qiaogaojian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qiaogaojian@live.com" title="E-Mail → mailto:qiaogaojian@live.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+<!--
+-->
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/qiaogaojian" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qiaogaojian.github.io/85a8d7cf0061c7513eee1428d9cc967e890dd99c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Unity3D高级编程 主程手记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-11-12 00:42:56" itemprop="dateCreated datePublished" datetime="2022-11-12T00:42:56+08:00">2022-11-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2024-10-19 10:48:17" itemprop="dateModified" datetime="2024-10-19T10:48:17+08:00">2024-10-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">5.技能</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/Unity3d/" itemprop="url" rel="index"><span itemprop="name">Unity3d</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/Unity3d/book/" itemprop="url" rel="index"><span itemprop="name">book</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/85a8d7cf0061c7513eee1428d9cc967e890dd99c/" class="post-meta-item leancloud_visitors" data-flag-title="Unity3D高级编程 主程手记" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/85a8d7cf0061c7513eee1428d9cc967e890dd99c/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/85a8d7cf0061c7513eee1428d9cc967e890dd99c/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+        <h2 id="第1章-软件架构">第1章 软件架构</h2>
+<h3 id="架构的意义">1.1 架构的意义</h3>
+<p>在软件系统中，架构的重要性不言而喻，项目从研发到上线运营，我们要在不同的方案中选择合适的架构，例如，前端渲染引擎是自己研发，还是使用商业引擎？商业引擎是使用Unity3D，还是Unreal或其他？具体到怎么用，则要考虑是使用UGUI，还是使用NGUI？UI里的事件系统如何进行统一处理？AI行为算法是选择行为树，还是状态机，抑或是选择事件型决策树？数据如何获取和存储？场景如何拆分？是否需要将资源分离出去？是使用长连接还是短连接？是选择TCP还是UDP？服务器端是用C++，还是用Java或Python？是全部使用关系型数据库，还是加入Cache机制？网络协议是用Protocol
+Buff，还是用JSON或XML，抑或是使用完全自定义格式等。</p>
+<p>这些项目中的每个子系统都要有自己的方向，把子系统的决策方向合起来再加入它们之间的关联调用就构成了一个完整的架构，即每个系统、模块、组件都是软件系统架构中的一部分。</p>
+<p>一个完整的架构图通常会伴随些许子系统的细节，或者说子模块的架构图。UML对象关系图就是一种架构图，它描述了数据类之间的关系，可把系统中的对象用文字和连接图的方式描述清楚。部署图也是其中一种架构图，它把需要多少种服务器、它们分别起到什么作用，以及它们相互之间的关系描述清楚了，而时序图则把系统程序调用的次序与流程描述清楚了。这些不同角度的架构图合起来就构成了一个完整的项目架构图。如果把子系统架构细节略去，在不关心细节的情况下，描述各系统的合作方式，展现给人们的是整体的解决方案，从宏观的角度看整个项目的布局，会让人一目了然。</p>
+<p>可以把软件架构理解为软件程序的架子，与现实中的书架有异曲同工之妙，这个架子上有很多大大小小的格子，每个格子里都可以放置固定种类的程序。架子有大有小，大的需要花费点时间去定制，小的则轻便快捷。</p>
+<p>架子的大小是由设计师决定的，设计师根据客户的需求设计，假如放置的空间大，且需要承载的东西多，那么就往容量大的方向设计，让它能容纳更多的东西，能放置各种不同类型的程序，反之则做得简约些，这样更容易理解，又轻又快。</p>
+<p>架子完成后要拿出去用，如果一出现异常情况就倒了或散架了，就不算是一个好的架子，架子的好坏可从以下几个方面进行评估。</p>
+<ol type="1">
+<li><strong>承载力</strong></li>
+</ol>
+<p>书架上能放多少东西，能放多重的东西，是使用者（这里使用者可以为客户、玩家或程序员）比较关注的问题。</p>
+<p>从软件架构的程序意义来说，一个架构能承载多少个逻辑系统，当代码行数扩展到100万行时是否依然能够有序且规范地运行，以及程序员彼此工作的模块耦合度是否依然能保持原来的设计要求，能够承载多少个程序员共同开发，共同开发的效率又如何，这是对软件架构承载力的评定指标。</p>
+<p>从架构的目标上来看，对于服务器来说，当前架构能承受多少人同时访问，能承载的日均访问量是多少，这就是它承载力的体现。而对于客户端来说，能显示多少UI元素，可渲染多少模型（包括同屏渲染和非同屏渲染），则是它的承载力的体现。</p>
+<ol start="2" type="1">
+<li><strong>可扩展性</strong></li>
+</ol>
+<p>如果书架上只能放书，这个书架的用途就太单一了，花瓶不能放、箱子不能放、鞋子不能放、袋子不能放、衣服不能放，客户八成不买单。</p>
+<ol start="3" type="1">
+<li><strong>易用性</strong></li>
+</ol>
+<p>易用性是架构师比较容易忽视的一个点。如果架构师设计了完整的架构，但具体执行时被程序员认为不好用，这时架构师还是执着地推动它的使用，那么团队间就会加深矛盾，这样开发效率就会下降。</p>
+<ol start="4" type="1">
+<li><strong>可伸缩性</strong></li>
+</ol>
+<p>还是用书架比喻，假设现在没有这么多书和东西要放，房子也不够大，那么书架如果可以折叠缩小到我需要的大小则会更受用户欢迎，这就是可伸缩性的体现。</p>
+<p>若软件架构能像我们制造的书架一样可随时放大或随时折叠缩小，那就太好了。当需要的承载量没有这么大时，可以不使用不需要的功能，化繁为简，只启用需要的部分功能，这样就可以随时简化开发流程。</p>
+<ol start="5" type="1">
+<li><strong>容错性以及错误的感知力</strong></li>
+</ol>
+<p>书架也会有磕磕碰碰的时候，同样也会出现因某处做工不精导致使用时歪歪斜斜的情况，如果我们保证不了完全没有问题，至少需要保证它不会因为一点小小的毛病而彻底散架。</p>
+<p>从服务器端角度，容错性包括数据库容错性、应用服务器容错性、缓存服务器容错性，以及中心服务器容错性，每个环节出现问题都会通知相关中心服务器改变策略，或者监控服务器检测得知该服务器出现故障，自动更换成备用服务器或者更换链路。</p>
+<p>从客户端角度，容错性包括当程序发生错误时，是否同样能够继续保持运行而不崩溃；当这个页面程序出错时，是否依然能够运行其他程序而不闪退或崩溃。同时所有出现的程序错误，都能及时地记录下来并发送到后台，存储为错误日志，便于开发人员及时得到详细的错误信息，能够根据错误信息快速找出问题所在。</p>
+<h3 id="软件架构的思维方式">1.2 软件架构的思维方式</h3>
+<p>《优秀架构师必须掌握的架构思维》的文章就很好地对抽象能力进行了分析，以下三种抽象能力源自这篇文章。</p>
+<p><strong>第一种：分层思维</strong></p>
+<p>分层是我们应对和管理复杂性的基本思维武器。</p>
+<p>面对一个复杂的系统，我们一开始总是无从下手，就好比一下子在我们面前摆了很多的问题，杂乱无章。这很大程度上会导致我们慌张、焦急、惶恐。分层思维，能很好地帮助我们抽象一个复杂系统的架构层次，从而清晰地描述有多少层面的事务需要我们解决，以及解决层级的先后次序。</p>
+<p><strong>第二种：分治思维</strong></p>
+<p>分而治之也是应对和管理复杂性的一般性方法</p>
+<p>对于一个无法一次解决的大问题，我们先把大问题分解成若干个子问题，如果子问题还无法解决，则继续分解成子子问题，直到可以直接解决为止，这就是分解（divide）的过程；然后将子子问题的解组合成子问题的解，再将子问题的解组合成原问题的解，这就是组合（combine）的过程。</p>
+<p><strong>第三种：演化思维</strong></p>
+<p>经常有人讨论：架构是设计出来的还是演化出来的？基于多年的经验，我认为架构既是设计出来的，同时也是演化出来的。对于互联网系统，基本上可以说是三分设计，七分演化，既在设计中演化，又在演化中设计，是一个不断迭代的过程。</p>
+<h3 id="如何构建unity3d项目">1.3 如何构建Unity3D项目</h3>
+<ol type="1">
+<li><strong>前端与后端架构之间的共性</strong></li>
+</ol>
+<p>前后端架构的目标都是高性能、高可用、可扩展、安全、可容错。对于前端来说，除了这些目标特性外，还需要加入更多的用户体验，包括视觉效果和操作灵敏度。</p>
+<p>作为前端工程师，用户体验是比较重要的，这种体验涉及很多方面，包括性能、视觉效果，以及操作上的人性化等。例如，如何让游戏加载速度更流畅、如何制作更绚丽的特效、如何减少电量的消耗、如何最快地响应用户操作等。</p>
+<ol start="2" type="1">
+<li><strong>培养架构设计思维</strong></li>
+</ol>
+<p>良好的架构设计思维的培养，离不开工作中大量高质量项目的实战锻炼，以及平时的学习、思考和总结。</p>
+<p>基本的架构设计思维在大学计算机课程（比如数据结构和算法）中可以找到，大学里以学习理论知识为主。回头看，基本的架构设计思维在那时就已经埋下种子，后面的工程实践会进一步消化和应用所学的理论知识，随着经验的积累，我们能够解决的问题的复杂性和规模逐渐变大，但所用的方法依然是抽象、分层、分治和演化。</p>
+<ol start="3" type="1">
+<li><strong>试着构建Unity3D项目</strong></li>
+</ol>
+<p>我们可以使用以上方法来试着构建Unity3D项目。下面采用分层的思维方式先确定架构的层级，如图1-8所示。</p>
+<p>图1-8　Unity3D分层设计</p>
+<p>把整个项目分成五大层级，即网络层、数据管理层、资源管理层、核心逻辑框架层、UI框架层。</p>
+<p>第2章 C#技术要点<br />
+2.1　Unity3D中C#的底层原理</p>
+<p>Unity底层在运行C#程序时有两种机制，一种是Mono，另一种是IL2CPP。</p>
+<p>这里要引出一个很重要的概念“IL”。IL的全称是Intermediate
+Language，但很多时候我们看到的是CIL（Common Intermediate
+Language，特指在.NET平台下的IL标准），其实大部分文章中提到的IL和CIL表示的是同一个东西，即中间语言。</p>
+<p>IL是一种低阶（lowest-level）的人类可读的编程语言。我们可以将通用语言翻译成IL，然后汇编成字节码，最后运行在虚拟机上；也可以把IL看作一个面向对象的汇编语言，只是它必须运行在虚拟机上，而且是完全基于堆栈的语言。也就是说，C#、VB、J#这种遵循CLI规范的高级语言，会被各自的编译器编译成中间语言IL（CIL），当需要运行它们时就会被实时地加载到运行时库中，由虚拟机动态地编译成汇编代码（JIT）并执行。</p>
+<p>2.1 Unity3D中C#的底层原理<br />
+其实IL有三种转译模式。</p>
+<p>·Just-in-time（JIT）编译：在程序运行过程中将CIL转译为机器码。</p>
+<p>·Ahead-of-Time（AOT）编译：将IL转译成机器码并存储在文件中，此文件并不能完全独立运行。通常此种模式可产生出绝大部分JIT模式所产生的机器码，只是有部分例外，例如trampolines或是控管监督相关的代码仍旧需要JIT来运行。</p>
+<p>·完全静态编译：这个模式只支持少数平台，它基于AOT编译模式更进一步产生所有的机器码。完全静态编译模式可以让程序在运行期完全不需要用到JIT，这个做法适用于iOS操作系统、PlayStation
+3以及XBox 360等不允许使用JIT的操作系统。</p>
+<p>Unity在打包iOS操作系统的时候就使用了第三种方式，而在Android和Windows上则使用JIT实时编译来运行代码。</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="qiaogaojian 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="qiaogaojian 支付宝">
+        <span>支付宝</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.png" alt="qiaogaojian 比特币">
+        <span>比特币</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/srcard/" rel="tag"><i class="fa fa-tag"></i> srcard</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/983777fa8d6e26387aa399926786d604ff49cdb5/" rel="prev" title="syncthing 如何移动同步仓库位置">
+                  <i class="fa fa-chevron-left"></i> syncthing 如何移动同步仓库位置
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/83ffdcf23d70b022afa1eb2f4d72b9d25fedffe3/" rel="next" title="深入浅出 python 闭包">
+                  深入浅出 python 闭包 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiaogaojian</span>
+</div>
+<div class="busuanzi-count">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+
+<span id="timeDate">载入天数...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/01/2016 19:00:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 " + hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+        // document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  const url = element.dataset.target;
+  const pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  const pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  const fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.7.0/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/85a8d7cf0061c7513eee1428d9cc967e890dd99c/",
+    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"要不说点啥?","avatar":"mm","meta":["nick","mail"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":210,"height":360},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -30,7 +30,7 @@
 <meta property="og:description" content="1. 安装模块 npm 安装命令?  1 2 3 4 5 6   npm i&#x2F;install moduleName    # 安装模块；i 是 install 的缩写，两者功能是一样的 npm i moduleName -g         # 全局安装模块 npm i moduleName@0.0.1      # 安装模块的指定版本  npm i moduleName --save     #">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-11T16:42:56.000Z">
-<meta property="article:modified_time" content="2022-11-13T23:49:23.161Z">
+<meta property="article:modified_time" content="2024-10-19T02:48:17.221Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="srcard">
 <meta property="article:tag" content="npm">
@@ -222,20 +222,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -317,7 +317,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-11-14 07:49:23" itemprop="dateModified" datetime="2022-11-14T07:49:23+08:00">2022-11-14</time>
+        <time title="修改时间：2024-10-19 10:48:17" itemprop="dateModified" datetime="2024-10-19T10:48:17+08:00">2024-10-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -395,7 +395,7 @@
         <h3 id="安装模块">1. 安装模块</h3>
 <p><strong>npm 安装命令?</strong></p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm i/install moduleName    <span class="comment"># 安装模块；i 是 install 的缩写，两者功能是一样的</span></span><br><span class="line">npm i moduleName -g         <span class="comment"># 全局安装模块</span></span><br><span class="line">npm i moduleName@0.0.1      <span class="comment"># 安装模块的指定版本</span></span><br><span class="line"></span><br><span class="line">npm i moduleName --save     <span class="comment"># 安装并保存至 package.json 文件的 dependencies 中</span></span><br><span class="line">npm i moduleName --save-dev <span class="comment"># 安装并保存至 package.json 文件的 devDependencies 中</span></span><br></pre></td></tr></table></figure></div>
-<!--SR:!2022-12-25,126,252-->
+<!--SR:!2026-02-26,829,252-->
 <p><strong>npm 直接从 github 安装 module</strong></p>
 <ul>
 <li><strong>命令行</strong><br />
@@ -408,10 +408,10 @@
 <h3 id="查看已安装模块">2. 查看已安装模块</h3>
 <p><strong>npm查看已安装模块命令?</strong></p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="built_in">ls</span>                       <span class="comment"># 查看所有局部安装的模块</span></span><br><span class="line">npm <span class="built_in">ls</span> -g                    <span class="comment"># 查看所有全局安装的模块</span></span><br><span class="line"></span><br><span class="line">npm <span class="built_in">ls</span> moduleName            <span class="comment"># 查看指定模块的局部安装情况</span></span><br><span class="line">npm <span class="built_in">ls</span> moduleName -g         <span class="comment"># 查看指定模块的全局安装情况</span></span><br><span class="line"></span><br><span class="line">npm view moduleName          <span class="comment"># 查看当前源中指定模块的信息</span></span><br><span class="line">npm view moduleName versions <span class="comment"># 查看当前源中指定模块的所有历史版本</span></span><br><span class="line">npm view moduleName version  <span class="comment"># 查看当前源中指定模块的最新版本</span></span><br></pre></td></tr></table></figure></div>
-<!--SR:!2023-03-02,168,252-->
+<!--SR:!2027-04-19,1080,252-->
 <h3 id="卸载模块">3. 卸载模块</h3>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall moduleName</span><br></pre></td></tr></table></figure></div>
-<!--SR:!2023-02-03,150,252-->
+<!--SR:!2026-10-02,956,252-->
 <h3 id="更新模块">4. 更新模块</h3>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按照 package.json 中的描述更新模块，且会在 package.json 文件中保存更新后的版本描述；</span></span><br><span class="line"><span class="comment"># ^a.b.c 更新至 a 下的最新版本</span></span><br><span class="line"><span class="comment"># ~a.b.c 更新至 a.b 下的最新版本</span></span><br><span class="line"><span class="comment"># a.b.c 不会做任何更新</span></span><br><span class="line">npm update </span><br><span class="line"></span><br><span class="line">npm update moduleName <span class="comment"># 更新指定模块</span></span><br></pre></td></tr></table></figure></div>
 <h3 id="npm-源查看与修改">5. npm 源查看与修改</h3>
@@ -426,7 +426,7 @@
 文件)；用于保证再次安装模块时能安装同样的版本；如果未保存 lock 文件；npm
 会安装符合描述规则的最新版本如 gulp 中的 ^3.0.0 会安装 3.9.1
 版本；这就容易造成一些版本不兼容的问题；
-<!--SR:!2022-11-25,108,252--></p>
+<!--SR:!2025-08-24,718,252--></p>
 <ol start="2" type="1">
 <li>时间精力允许的情况下，可进一步了解 npm</li>
 </ol>
@@ -440,16 +440,16 @@
 <ul>
 <li><a href="../8ae045022243ef5d9908e342c7c63a7c1c8c7951">Node
 开发环境搭建 Win10</a></li>
-<li><a href="../437c87964cd7b4b8981c5decafaac9a8f7c01645">Node
-开发环境搭建 Deepin</a></li>
+<li><a href="../bc518616254162513c0aac7de77d137853f3de88">Deepin Node
+开发环境搭建</a></li>
 </ul>
 <blockquote class="pullquote mindmap mindmap-md"><ul>
 <li>Npm 常用命令
 <ul>
 <li><a href="../8ae045022243ef5d9908e342c7c63a7c1c8c7951">Node
 开发环境搭建 Win10</a></li>
-<li><a href="../437c87964cd7b4b8981c5decafaac9a8f7c01645">Node
-开发环境搭建 Deepin</a></li>
+<li><a href="../bc518616254162513c0aac7de77d137853f3de88">Deepin Node
+开发环境搭建</a></li>
 </ul></li>
 </ul>
 </blockquote>
@@ -492,13 +492,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/983777fa8d6e26387aa399926786d604ff49cdb5/" rel="prev" title="syncthing 如何移动同步仓库位置">
-                  <i class="fa fa-chevron-left"></i> syncthing 如何移动同步仓库位置
+                <a href="/a3d6224e07f3c409b4249b2586771a47b6619562/" rel="prev" title="Python Import module from different directory">
+                  <i class="fa fa-chevron-left"></i> Python Import module from different directory
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/8ae045022243ef5d9908e342c7c63a7c1c8c7951/" rel="next" title="Node 开发环境搭建 Win10">
-                  Node 开发环境搭建 Win10 <i class="fa fa-chevron-right"></i>
+                <a href="/983777fa8d6e26387aa399926786d604ff49cdb5/" rel="next" title="syncthing 如何移动同步仓库位置">
+                  syncthing 如何移动同步仓库位置 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

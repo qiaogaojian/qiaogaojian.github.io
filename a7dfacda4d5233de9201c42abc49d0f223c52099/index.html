@@ -30,7 +30,7 @@
 <meta property="og:description" content="关于 ChildProcess 类 1、ChildProcess 类的实例都是 EventEmitter，表示衍生的子进程 2、每个实例都有 stdout, stdin, stderr 三个流对象 3、通过 fork 产生的子进程与父进程可以用 send 方法及监听 message 事件来相互通信 4、 几个事件： error , message , exit , close , disconne">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-11T16:42:56.000Z">
-<meta property="article:modified_time" content="2022-11-13T23:49:23.164Z">
+<meta property="article:modified_time" content="2024-10-19T02:48:17.171Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="srcard">
 <meta property="article:tag" content="node">
@@ -224,20 +224,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -319,7 +319,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-11-14 07:49:23" itemprop="dateModified" datetime="2022-11-14T07:49:23+08:00">2022-11-14</time>
+        <time title="修改时间：2024-10-19 10:48:17" itemprop="dateModified" datetime="2024-10-19T10:48:17+08:00">2024-10-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -401,7 +401,7 @@ target="_blank" rel="noopener" href="http://nodejs.cn/s/pGAddE"><code>EventEmitt
 3、通过 fork 产生的子进程与父进程可以用 send 方法及监听 message
 事件来相互通信<br />
 4、 几个事件： error , message , exit , close , disconnect
-<!--SR:!2022-11-13,10,250--></p>
+<!--SR:!2025-01-09,496,250--></p>
 <h2 id="child_process-创建异步进程方法">child_process
 创建异步进程方法</h2>
 <p>以下四个方法均返回 ChildProcess 的实例</p>
@@ -412,7 +412,7 @@ target="_blank" rel="noopener" href="http://nodejs.cn/s/pGAddE"><code>EventEmitt
 2、可以使用 callback；<br />
 3、衍生一个 shell 然后在该 shell 中执行 command，command 一般是 shell
 内置的 命令，如 ls,cat 等，也可以是 shell 脚本组成的文件，如 start.sh 等
-<!--SR:!2022-11-13,10,250--></p>
+<!--SR:!2025-01-26,509,250--></p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 回调函数版</span></span><br><span class="line"><span class="keyword">const</span> &#123; exec &#125; = <span class="built_in">require</span>(<span class="string">&#x27;child_process&#x27;</span>);</span><br><span class="line"><span class="title function_">exec</span>(<span class="string">&#x27;cat *.js missing_file | wc -l&#x27;</span>, <span class="function">(<span class="params">error, stdout, stderr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">`执行出错: <span class="subst">$&#123;error&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`stdout: <span class="subst">$&#123;stdout&#125;</span>`</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`stderr: <span class="subst">$&#123;stderr&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// promise 版</span></span><br><span class="line"><span class="keyword">const</span> util = <span class="built_in">require</span>(<span class="string">&#x27;util&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> exec = util.<span class="title function_">promisify</span>(<span class="built_in">require</span>(<span class="string">&#x27;child_process&#x27;</span>).<span class="property">exec</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">lsExample</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; stdout, stderr &#125; = <span class="keyword">await</span> <span class="title function_">exec</span>(<span class="string">&#x27;cat *.js missing_file | wc -l&#x27;</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;stdout:&#x27;</span>, stdout);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;stderr:&#x27;</span>, stderr);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">lsExample</span>();</span><br></pre></td></tr></table></figure></div>
 <h3 id="child_process.execfile">child_process.execFile</h3>
 <p>语法：<code>child_process.execFile(file[, args][, options][, callback])</code>
@@ -422,7 +422,7 @@ target="_blank" rel="noopener" href="http://nodejs.cn/s/pGAddE"><code>EventEmitt
 2、默认情况下不会衍生 shell，指定的可执行 file
 直接作为新进程衍生，使其比 child_process.exec() 稍微更高效<br />
 3、file 是要运行的可执行文件的名称或路径，如 node.exe，不能是 start.js
-这种脚本文件 <!--SR:!2022-11-13,10,250--></p>
+这种脚本文件 <!--SR:!2025-04-15,462,230--></p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 回调函数版</span></span><br><span class="line"><span class="keyword">const</span> &#123; execFile &#125; = <span class="built_in">require</span>(<span class="string">&#x27;child_process&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> child = <span class="title function_">execFile</span>(<span class="string">&#x27;node&#x27;</span>, [<span class="string">&#x27;--version&#x27;</span>], <span class="function">(<span class="params">error, stdout, stderr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (error) &#123;</span><br><span class="line">    <span class="keyword">throw</span> error;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(stdout);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// promise 版</span></span><br><span class="line"><span class="keyword">const</span> util = <span class="built_in">require</span>(<span class="string">&#x27;util&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> execFile = util.<span class="title function_">promisify</span>(<span class="built_in">require</span>(<span class="string">&#x27;child_process&#x27;</span>).<span class="property">execFile</span>);</span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">getVersion</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; stdout &#125; = <span class="keyword">await</span> <span class="title function_">execFile</span>(<span class="string">&#x27;node&#x27;</span>, [<span class="string">&#x27;--version&#x27;</span>]);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(stdout);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">getVersion</span>();</span><br></pre></td></tr></table></figure></div>
 <h3 id="child_process.fork">child_process.fork</h3>
 <p>语法：<code>child_process.fork(modulePath[, args][, options])</code>
@@ -433,12 +433,12 @@ target="_blank" rel="noopener" href="http://nodejs.cn/s/pGAddE"><code>EventEmitt
 3、无回调，参数要以第二个参数传入<br />
 4、返回的子进程将内置一个额外的 ipc
 通信通道，允许消息在父进程和子进程之间来回传递。
-<!--SR:!2022-11-13,10,250--></p>
+<!--SR:!2024-11-06,447,250--></p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// IPC 通道</span></span><br><span class="line"><span class="comment">// parent.js</span></span><br><span class="line"><span class="keyword">var</span> child_process = <span class="built_in">require</span>(<span class="string">&#x27;child_process&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> child = child_process.<span class="title function_">fork</span>(<span class="string">&#x27;./child.js&#x27;</span>);</span><br><span class="line"></span><br><span class="line">child.<span class="title function_">on</span>(<span class="string">&#x27;message&#x27;</span>, <span class="keyword">function</span>(<span class="params">m</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;message from child: &#x27;</span> + <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(m));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">child.<span class="title function_">send</span>(&#123;<span class="attr">from</span>: <span class="string">&#x27;parent&#x27;</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// child.js</span></span><br><span class="line">process.<span class="title function_">on</span>(<span class="string">&#x27;message&#x27;</span>, <span class="keyword">function</span>(<span class="params">m</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;message from parent: &#x27;</span> + <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(m));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">process.<span class="title function_">send</span>(&#123;<span class="attr">from</span>: <span class="string">&#x27;child&#x27;</span>&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行 node parent.js的 result </span></span><br><span class="line">message <span class="keyword">from</span> <span class="attr">child</span>: &#123;<span class="string">&quot;from&quot;</span>:<span class="string">&quot;child&quot;</span>&#125;</span><br><span class="line">message <span class="keyword">from</span> <span class="attr">parent</span>: &#123;<span class="string">&quot;from&quot;</span>:<span class="string">&quot;parent&quot;</span>&#125;</span><br></pre></td></tr></table></figure></div>
 <h3 id="child_process.spawn">child_process.spawn</h3>
 <p>语法：<code>child_process.spawn(command[, args][, options])</code>
 注意：使用给定的 command 衍生一个新进程，并带上 args 中的命令行参数。
-<!--SR:!2022-11-13,10,250--></p>
+<!--SR:!2024-12-25,480,250--></p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> spawn = <span class="built_in">require</span>(<span class="string">&#x27;child_process&#x27;</span>).<span class="property">spawn</span>;</span><br><span class="line"><span class="keyword">var</span> child = <span class="title function_">spawn</span>(<span class="string">&#x27;bad_command&#x27;</span>);</span><br><span class="line"></span><br><span class="line">child.<span class="title function_">on</span>(<span class="string">&#x27;error&#x27;</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Failed to start child process 1.&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> child2 = <span class="title function_">spawn</span>(<span class="string">&#x27;ls&#x27;</span>, [<span class="string">&#x27;nonexistFile&#x27;</span>]);</span><br><span class="line"></span><br><span class="line">child2.<span class="property">stderr</span>.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="keyword">function</span>(<span class="params">data</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Error msg from process 2: &#x27;</span> + data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">child2.<span class="title function_">on</span>(<span class="string">&#x27;error&#x27;</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Failed to start child process 2.&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
 <h2 id="child_process-创建异步进程方法的区别">child_process
 创建异步进程方法的区别</h2>
@@ -502,8 +502,8 @@ target="_blank" rel="noopener" href="https://github.com/chyingp/nodejs-learning-
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/a3d6224e07f3c409b4249b2586771a47b6619562/" rel="next" title="Python Import module from different directory">
-                  Python Import module from different directory <i class="fa fa-chevron-right"></i>
+                <a href="/a1dcb051cc7db83c41b918e5988ea92fe6151d29/" rel="next" title="说说 Python 的命名规范">
+                  说说 Python 的命名规范 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

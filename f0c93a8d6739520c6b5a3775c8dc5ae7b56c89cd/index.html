@@ -22,16 +22,17 @@
     var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="安装  * Win10  Git 下载地址   * Deepin  1 2   sudo apt update sudo apt install git   配置 配置Git 全局姓名和邮箱 1 2   git config --global user.name &quot;username&quot;   git config --global user.email &quot;username@mail.com&quot;   生成">
+  <meta name="description" content="安装  * Win10  Git 下载地址   * Deepin  1 2   sudo apt update sudo apt install git   配置 Windows 配置环境变量 Settings &gt; System &gt; AdvanceSystemSetting &gt; Environment Variables &gt; Path &gt; Edit  配置Git 全局姓名和邮箱 1 2   git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 开发环境">
 <meta property="og:url" content="https://qiaogaojian.github.io/f0c93a8d6739520c6b5a3775c8dc5ae7b56c89cd/index.html">
 <meta property="og:site_name" content="行则将至">
-<meta property="og:description" content="安装  * Win10  Git 下载地址   * Deepin  1 2   sudo apt update sudo apt install git   配置 配置Git 全局姓名和邮箱 1 2   git config --global user.name &quot;username&quot;   git config --global user.email &quot;username@mail.com&quot;   生成">
+<meta property="og:description" content="安装  * Win10  Git 下载地址   * Deepin  1 2   sudo apt update sudo apt install git   配置 Windows 配置环境变量 Settings &gt; System &gt; AdvanceSystemSetting &gt; Environment Variables &gt; Path &gt; Edit  配置Git 全局姓名和邮箱 1 2   git">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-11T16:42:56.000Z">
-<meta property="article:modified_time" content="2022-11-13T23:49:23.170Z">
+<meta property="article:modified_time" content="2024-10-19T02:48:17.216Z">
 <meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="srcard">
 <meta property="article:tag" content="开发环境">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
@@ -206,7 +207,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEgit-%E5%85%A8%E5%B1%80%E5%A7%93%E5%90%8D%E5%92%8C%E9%82%AE%E7%AE%B1"><span class="nav-text">配置Git 全局姓名和邮箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%B9%B6%E9%85%8D%E7%BD%AE-ssh-%E5%AF%86%E9%92%A5"><span class="nav-text">生成并配置 ssh 密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh-%E8%BF%9E%E6%8E%A5%E6%B5%8B%E8%AF%95"><span class="nav-text">SSH 连接测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-text">使用</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#windows-%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-text">Windows 配置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEgit-%E5%85%A8%E5%B1%80%E5%A7%93%E5%90%8D%E5%92%8C%E9%82%AE%E7%AE%B1"><span class="nav-text">配置Git 全局姓名和邮箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%B9%B6%E9%85%8D%E7%BD%AE-ssh-%E5%AF%86%E9%92%A5"><span class="nav-text">生成并配置 ssh 密钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh-%E8%BF%9E%E6%8E%A5%E6%B5%8B%E8%AF%95"><span class="nav-text">SSH 连接测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-text">使用</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -222,20 +223,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -317,7 +318,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-11-14 07:49:23" itemprop="dateModified" datetime="2022-11-14T07:49:23+08:00">2022-11-14</time>
+        <time title="修改时间：2024-10-19 10:48:17" itemprop="dateModified" datetime="2024-10-19T10:48:17+08:00">2024-10-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -373,7 +374,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>485</span>
+      <span>1.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -402,10 +403,13 @@
 </ul>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install git</span><br></pre></td></tr></table></figure></div>
 <h2 id="配置">配置</h2>
+<h3 id="windows-配置环境变量">Windows 配置环境变量</h3>
+<p>Settings &gt; System &gt; AdvanceSystemSetting &gt; Environment
+Variables &gt; Path &gt; Edit</p>
 <h3 id="配置git-全局姓名和邮箱">配置Git 全局姓名和邮箱</h3>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;username&quot;</span>  </span><br><span class="line">git config --global user.email <span class="string">&quot;username@mail.com&quot;</span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;qiaogaojian&quot;</span>  </span><br><span class="line">git config --global user.email <span class="string">&quot;qiaogaojian@vip.qq.com&quot;</span></span><br></pre></td></tr></table></figure></div>
 <h3 id="生成并配置-ssh-密钥">生成并配置 ssh 密钥</h3>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;username@mail.com&quot;</span> <span class="comment"># 生成密钥 </span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;qiaogaojian@vip.qq.com&quot;</span> </span><br></pre></td></tr></table></figure></div>
 <ul>
 <li>Win10</li>
 </ul>
@@ -413,29 +417,34 @@
 <ul>
 <li>Deepin</li>
 </ul>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub <span class="comment"># 显示公钥</span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ssh 公钥</span></span><br><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub <span class="comment"># 显示公钥</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># deepinvm</span></span><br><span class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsOwois8+V5yjMIorYN1FSPpArMF9plEdPt676iRPSlf3/oyrD5Uc7STiIIbGDph5IhbW2ZPsiZvxvrkXERFRMqZjmt6jE8ZITz1usxqQdZUKPK5qJQHNMyB66mckoqWgQ4o8NtdmAup/Uei+DAr/JaN7fA0TzZdqRnb7kLqL4U7koe1No23ml82CicEPBHgYEL8Dcs/yqIFQycepYoU0FsfGSfLDD/EbIJpdMjGm8OnkI3gUlcGMsdtuz65Z1h2EsUjTlGUIE8GvOdULpjm8ESFmMYt0PoEY1lHMLRscWvSNFJ6yxVpoUI6+PUsF/Sc4ZqKIxJDeq3t5wS4BZF7Yt qiaogaojian@vip.qq.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># ubuntuvm</span></span><br><span class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDhRPcvYHp5gXrRENiXVrQ67ItAx2JFRxHJcOPv62TZX7o0AgolopmQQpiHECUmeRvtyH/pxdSgaAo/jcJFYX5RsN73G1GHRn/WsjJ6Dm+G4pGxwTHeuJodY29gX/i3NIBLJFYOrBhwPjMfAs7Qq8TL8XU1JArjER8fwX6tvNENmYvbWrASNfIlt55qbny9s4kzL6GBBhseF5Xm5LZ09sQHFuI1YPHkHqb0Eb+eTv5rT/LW0/pa9bSiFRKh86bBKCTKt78w8ZeFmKQf5jTYNxlIlFWWYwfh+OAS1PyG1UHwTU863X20kqbH81wIihgcrU+B7vFtQS9NlWhq9bUuEZag5v5WV3aT73Dl5mnnzch/6NUpMXIdMwl8WMJHewbo2NGO27r5nWltW4tdgi7LJuY8FgacLcHARSlbUBOxLkvKeveuJdsJRQjGSComFwBNLY9VbxEM2HGIUikdhAbJvPBLeRb7J8rGwF/eQVhdByJ3b3TvpRHMoOACRDwkc9H+Qi0= qiaogaojian@vip.qq.com</span><br></pre></td></tr></table></figure></div>
 <p>然后复制ssh公钥到Github或Gitlab等后台的ssh公钥管理里.</p>
 <h3 id="ssh-连接测试">SSH 连接测试</h3>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SHELL"><figure class="iseeu highlight /shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@gitee.com</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2025-06-12,388,250-->
 <h2 id="使用">使用</h2>
 <ul>
 <li><a href="../4985d963fb644c7b84c923e1fae816af6e13f061">Git
 常用命令</a></li>
 <li><a href="../c03df0ff2688939d6c5b13b71effd8499a69c17a">Git submodule
 子模块的管理和使用</a></li>
+<li><a href="../9a1c46af06c5cbd7a509f84813e7be975537d979">Smartgit
+安装破解</a></li>
 </ul>
 <p><strong>Backlinks:</strong></p>
 <ul>
 <li><a
-href="../bd87468c61dcf8225663c6dfb8f94d59a17e17b7">开发环境搭建</a></li>
+href="../8ed3626f24d1fafe372135071b6d2bc66a7b7436">开发环境</a></li>
 </ul>
 <blockquote class="pullquote mindmap mindmap-md"><ul>
 <li>Git 开发环境
 <ul>
+<li><a
+href="../8ed3626f24d1fafe372135071b6d2bc66a7b7436">开发环境</a></li>
 <li><a href="../c03df0ff2688939d6c5b13b71effd8499a69c17a">Git submodule
 子模块的管理和使用</a></li>
-<li><a
-href="../bd87468c61dcf8225663c6dfb8f94d59a17e17b7">开发环境搭建</a></li>
+<li><a href="../9a1c46af06c5cbd7a509f84813e7be975537d979">Smartgit
+安装破解</a></li>
 <li><a href="../4985d963fb644c7b84c923e1fae816af6e13f061">Git
 常用命令</a></li>
 </ul></li>
@@ -472,6 +481,7 @@ href="../bd87468c61dcf8225663c6dfb8f94d59a17e17b7">开发环境搭建</a></li>
 </div>
 
           <div class="post-tags">
+              <a href="/tags/srcard/" rel="tag"><i class="fa fa-tag"></i> srcard</a>
               <a href="/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" rel="tag"><i class="fa fa-tag"></i> 开发环境</a>
               <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
           </div>
@@ -480,13 +490,13 @@ href="../bd87468c61dcf8225663c6dfb8f94d59a17e17b7">开发环境搭建</a></li>
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/eea6f6f9dc0e74e490943dd05c233acb06584080/" rel="prev" title="Python import 导入其他脚本">
-                  <i class="fa fa-chevron-left"></i> Python import 导入其他脚本
+                <a href="/fc36df4359027415906aab9a57b7d34ca5b192fd/" rel="prev" title="python 数据精度">
+                  <i class="fa fa-chevron-left"></i> python 数据精度
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/ede2b0f326cdb7d2a878a721e773c0e144518b12/" rel="next" title="代码编辑快捷键">
-                  代码编辑快捷键 <i class="fa fa-chevron-right"></i>
+                <a href="/eea6f6f9dc0e74e490943dd05c233acb06584080/" rel="next" title="Python import 导入其他脚本">
+                  Python import 导入其他脚本 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

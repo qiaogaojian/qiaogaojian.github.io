@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="安装 怎么查看 vim 的 clipboard 功能是否开启  以下命令用来检查vim剪贴板的支持情况 1   vim --version | grep clipboard   如果结果中有这个, 前面是+号代表支持剪贴板操作, -号代表不支持。  如果系统自带vim不支持剪贴板的话, 需要重新安装: 参考:vim 使用全局剪贴板  移动光标 Vim 上下左右移动光标  1 2 3   　　K H">
+  <meta name="description" content="安装 怎么查看 vim 的 clipboard 功能是否开启  以下命令用来检查vim剪贴板的支持情况 1   vim --version | grep clipboard   如果结果中有这个, 前面是+号代表支持剪贴板操作, -号代表不支持。  如果系统自带vim不支持剪贴板的话, 需要重新安装: 参考:[[Vim 使用全局剪贴板]]  移动光标 Vim 上下左右移动光标  1 2 3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vim 常用命令">
 <meta property="og:url" content="https://qiaogaojian.github.io/0bcf152ba2a980ab758748d8b52dfbb723686838/index.html">
 <meta property="og:site_name" content="行则将至">
-<meta property="og:description" content="安装 怎么查看 vim 的 clipboard 功能是否开启  以下命令用来检查vim剪贴板的支持情况 1   vim --version | grep clipboard   如果结果中有这个, 前面是+号代表支持剪贴板操作, -号代表不支持。  如果系统自带vim不支持剪贴板的话, 需要重新安装: 参考:vim 使用全局剪贴板  移动光标 Vim 上下左右移动光标  1 2 3   　　K H">
+<meta property="og:description" content="安装 怎么查看 vim 的 clipboard 功能是否开启  以下命令用来检查vim剪贴板的支持情况 1   vim --version | grep clipboard   如果结果中有这个, 前面是+号代表支持剪贴板操作, -号代表不支持。  如果系统自带vim不支持剪贴板的话, 需要重新安装: 参考:[[Vim 使用全局剪贴板]]  移动光标 Vim 上下左右移动光标  1 2 3">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-11T16:42:56.000Z">
-<meta property="article:modified_time" content="2022-11-13T23:49:23.151Z">
+<meta property="article:modified_time" content="2024-10-19T02:48:17.206Z">
 <meta property="article:author" content="qiaogaojian">
 <meta property="article:tag" content="srcard">
 <meta property="article:tag" content="vim">
@@ -206,8 +206,8 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E5%85%89%E6%A0%87"><span class="nav-text">移动光标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2"><span class="nav-text">模式切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%BE%91"><span class="nav-text">编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6"><span class="nav-text">复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B2%98%E8%B4%B4"><span class="nav-text">粘贴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%AA%E5%88%87"><span class="nav-text">剪切</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%92%A4%E9%94%80%E4%B8%8E%E6%81%A2%E5%A4%8D"><span class="nav-text">撤销与恢复</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9"><span class="nav-text">选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%B3%E8%BD%AC"><span class="nav-text">跳转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2"><span class="nav-text">搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E6%90%9C%E7%B4%A2%E6%A8%A1%E5%BC%8F"><span class="nav-text">1. 进入搜索模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2-1"><span class="nav-text">2. 搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E5%AE%9A%E4%BD%8D"><span class="nav-text">3. 搜索定位</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%BF%E6%8D%A2"><span class="nav-text">替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tab"><span class="nav-text">Tab</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%AF%AD%E6%B3%95%E8%A1%A5%E5%85%A8%E6%8F%92%E4%BB%B6-youcompleteme"><span class="nav-text">安装语法补全插件
-YouCompleteMe</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E5%85%89%E6%A0%87"><span class="nav-text">移动光标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F%E5%88%87%E6%8D%A2"><span class="nav-text">模式切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%BE%91"><span class="nav-text">编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vim-%E5%A4%8D%E5%88%B6"><span class="nav-text">vim 复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim-%E7%B2%98%E8%B4%B4"><span class="nav-text">vim 粘贴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim-%E5%89%AA%E5%88%87"><span class="nav-text">vim 剪切</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%92%A4%E9%94%80%E4%B8%8E%E6%81%A2%E5%A4%8D"><span class="nav-text">撤销与恢复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B9%E5%86%99"><span class="nav-text">改写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%BF%E6%8D%A2"><span class="nav-text">替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4"><span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="nav-text">大小写</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9"><span class="nav-text">选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E5%AF%B9%E8%B1%A1%E6%93%8D%E4%BD%9C"><span class="nav-text">文本对象操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%B3%E8%BD%AC"><span class="nav-text">跳转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2"><span class="nav-text">搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E6%90%9C%E7%B4%A2%E6%A8%A1%E5%BC%8F"><span class="nav-text">1. 进入搜索模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2-1"><span class="nav-text">2. 搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E5%AE%9A%E4%BD%8D"><span class="nav-text">3. 搜索定位</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AA%97%E5%8F%A3"><span class="nav-text">窗口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B9%E5%8F%98%E5%B0%BA%E5%AF%B8"><span class="nav-text">改变尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E6%97%B6%E5%88%86%E5%B1%8F"><span class="nav-text">打开文件时分屏</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#buffer"><span class="nav-text">Buffer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E5%88%B0%E6%96%B0%E7%9A%84-buffer"><span class="nav-text">1. 打开文件到新的 buffer：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%87%E6%8D%A2-buffer"><span class="nav-text">2. 切换 buffer：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA-buffer-%E5%88%97%E8%A1%A8"><span class="nav-text">3. 显示 buffer 列表：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%97%AD-buffer"><span class="nav-text">4. 关闭 buffer：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E7%AA%97%E5%8F%A3%E4%B9%8B%E9%97%B4%E7%A7%BB%E5%8A%A8-buffer"><span class="nav-text">5. 在窗口之间移动 buffer：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6"><span class="nav-text">文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E7%89%88"><span class="nav-text">排版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6"><span class="nav-text">插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vim-move"><span class="nav-text">vim-move</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nerdtree"><span class="nav-text">NERDTree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nerdcommenter"><span class="nav-text">NERDCommenter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim-visual-multi"><span class="nav-text">vim-visual-multi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bufexplorer"><span class="nav-text">bufexplorer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim-airline-vim-airline-themes"><span class="nav-text">vim-airline +
+vim-airline-themes&#39;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim-fugitive"><span class="nav-text">vim-fugitive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ultisnips-vim-snippets"><span class="nav-text">ultisnips &#x2F; vim-snippets</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-text">最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%BD%93%E5%89%8D%E5%8D%95%E8%AF%8D"><span class="nav-text">删除当前单词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%BD%93%E5%89%8D%E8%A1%8C"><span class="nav-text">删除当前行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4abc%E4%B8%AD%E7%9A%84-abc"><span class="nav-text">删除“abc”中的 abc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B2%98%E8%B4%B4%E4%BB%A3%E7%A0%81"><span class="nav-text">粘贴代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%9F%A5%E6%89%BE"><span class="nav-text">文件查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#buffer-%E5%88%87%E6%8D%A2"><span class="nav-text">buffer 切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%88%97%E9%80%89%E6%8B%A9"><span class="nav-text">多列选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BF%BB%E9%A1%B5"><span class="nav-text">翻页</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -223,20 +223,20 @@ YouCompleteMe</span></a></li></ol></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -318,7 +318,7 @@ YouCompleteMe</span></a></li></ol></li></ol></div>
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-11-14 07:49:23" itemprop="dateModified" datetime="2022-11-14T07:49:23+08:00">2022-11-14</time>
+        <time title="修改时间：2024-10-19 10:48:17" itemprop="dateModified" datetime="2024-10-19T10:48:17+08:00">2024-10-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -374,14 +374,14 @@ YouCompleteMe</span></a></li></ol></li></ol></div>
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>7.3k</span>
+      <span>10k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>7 分钟</span>
+      <span>9 分钟</span>
     </span>
 </div>
 
@@ -399,14 +399,13 @@ YouCompleteMe</span></a></li></ol></li></ol></div>
 如果结果中有这个<img
 src="/images/Pasted%20image%2020220819181213.png" />,
 前面是+号代表支持剪贴板操作, -号代表不支持。
-<!--SR:!2023-02-16,106,251--></p>
-<p>如果系统自带vim不支持剪贴板的话, 需要重新安装: 参考:<a
-href="../3042b24ad887a189e62ff448ff184e52bffab3e9">vim
-使用全局剪贴板</a></p>
+<!--SR:!2025-10-22,700,251--></p>
+<p>如果系统自带vim不支持剪贴板的话, 需要重新安装: 参考:[[Vim
+使用全局剪贴板]]</p>
 <h2 id="移动光标">移动光标</h2>
 <p><strong>Vim 上下左右移动光标</strong></p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">　　K</span><br><span class="line">H　　　　I</span><br><span class="line">　　J</span><br></pre></td></tr></table></figure></div>
-<!--SR:!2023-02-26,113,251-->
+<!--SR:!2025-12-28,741,251-->
 <h2 id="模式切换">模式切换</h2>
 <ul>
 <li><p>进入默认是普通模式</p></li>
@@ -454,7 +453,7 @@ href="../3042b24ad887a189e62ff448ff184e52bffab3e9">vim
 </tr>
 </tbody>
 </table>
-<!--SR:!2023-01-10,83,251-->
+<!--SR:!2024-08-12,256,231-->
 <ul>
 <li><strong>Vim 切换到选中模式</strong></li>
 </ul>
@@ -480,7 +479,7 @@ href="../3042b24ad887a189e62ff448ff184e52bffab3e9">vim
 </tr>
 </tbody>
 </table>
-<!--SR:!2022-12-06,66,251-->
+<!--SR:!2027-05-25,1047,251-->
 <ul>
 <li><strong>Vim退出</strong></li>
 </ul>
@@ -510,7 +509,7 @@ href="../3042b24ad887a189e62ff448ff184e52bffab3e9">vim
 </tr>
 </tbody>
 </table>
-<!--SR:!2022-11-19,56,251-->
+<!--SR:!2026-08-30,886,251-->
 <h2 id="编辑">编辑</h2>
 <p><strong>Vim编辑常用命令</strong></p>
 <table>
@@ -551,7 +550,7 @@ href="../3042b24ad887a189e62ff448ff184e52bffab3e9">vim
 </tr>
 </tbody>
 </table>
-<!--SR:!2022-11-17,55,251-->
+<!--SR:!2026-07-29,866,251-->
 <p><strong>Vim 中有多少个剪贴板?</strong></p>
 <p>Vim 有12个粘贴板依次编号为：0、1、2、...、9、a、"、+，其中 +
 号为系统粘贴板，”
@@ -561,25 +560,60 @@ href="../3042b24ad887a189e62ff448ff184e52bffab3e9">vim
 -
 用<code>"+p</code>代替<code>p</code>将剪贴板内容复制到指定位置，也可以用<code>ctrl-v</code>。
 <code>d</code>，<code>x</code>，<code>c</code>，<code>s</code>也一样，用之前前面加<code>"+</code>。
-<!--SR:!2022-12-02,65,250--></p>
-<h3 id="复制">复制</h3>
+[[Vim 使用全局剪贴板]] <!--SR:!2025-03-19,480,252--></p>
+<h3 id="vim-复制">vim 复制</h3>
 <ul>
 <li><strong>单行复制</strong>：按esc键后, 然后<code>yy</code></li>
 <li><strong>全部复制</strong>：按esc键后，然后<code>ggyG</code></li>
+<li>用<code>"+y</code> 代替<code>y</code>将选中的内容复制到系统剪贴板，效果和<code>ctrl-c</code>一致。
+<!--SR:!2025-05-03,434,252--></li>
 </ul>
-<h3 id="粘贴">粘贴</h3>
+<h3 id="vim-粘贴">vim 粘贴</h3>
 <ul>
 <li><strong>粘贴</strong>：按esc键后, 然后<code>p</code></li>
+<li>用<code>"+p</code>代替<code>p</code>将剪贴板内容复制到指定位置，效果和<code>ctrl-v</code>一致。
+<!--SR:!2025-03-03,466,252--></li>
 </ul>
-<h3 id="剪切">剪切</h3>
+<h3 id="vim-剪切">vim 剪切</h3>
 <ul>
 <li><strong>单行删除</strong>：按esc键后, 然后dd</li>
-<li><strong>全部删除：</strong> 按esc后，然后<code>ggdG</code></li>
+<li><strong>全部删除：</strong> 按esc后，然后<code>ggdG</code><br />
+<!--SR:!2025-03-05,465,252--></li>
 </ul>
 <h3 id="撤销与恢复">撤销与恢复</h3>
 <p><strong>vim 撤销和恢复快捷键?</strong></p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">u         撤销操作  </span><br><span class="line">Ctrl + r  恢复撤销的操作</span><br></pre></td></tr></table></figure></div>
-<!--SR:!2022-12-31,86,270-->
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">u         <span class="comment"># 撤销操作  </span></span><br><span class="line">Ctrl + r  <span class="comment"># 恢复撤销的操作</span></span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-10-04,293,250-->
+<h3 id="改写">改写</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">c^                  <span class="comment"># 改写到行首非空字符</span></span><br><span class="line">c$                  <span class="comment"># 改写到行末</span></span><br><span class="line">cc                  <span class="comment"># 改写当前行，即删除当前行并进入插入模式，等价于 S</span></span><br><span class="line">cw                  <span class="comment"># 改写光标开始处的当前单词</span></span><br><span class="line">ci<span class="string">&#x27;                 # 改写单引号中的内容</span></span><br><span class="line"><span class="string">ci&quot;                 # 改写双引号中的内容，i 的含义下同（i: inner）</span></span><br><span class="line"><span class="string">ci)                 # 改写小括号中的内容</span></span><br><span class="line"><span class="string">ci]                 # 改写中括号中内容</span></span><br><span class="line"><span class="string">ci&#125;                 # 改写大括号中内容</span></span><br><span class="line"><span class="string">ciw                 # 改写光标所处的单词</span></span><br><span class="line"><span class="string">caw                 # 改写光标所处的单词，并且包括前后空格</span></span><br><span class="line"><span class="string">cit                 # 改写 XML 中 tag 的内容</span></span><br><span class="line"><span class="string">c0                  # 改写到行首</span></span><br><span class="line"><span class="string">C                   # 改写到行尾，等价于 c$</span></span><br><span class="line"><span class="string">cib                 # 改写小括号中的内容</span></span><br><span class="line"><span class="string">cab                 # 改写小括号中的内容，包含小括号本身</span></span><br><span class="line"><span class="string">ciB                 # 改写大括号中内容</span></span><br><span class="line"><span class="string">caB                 # 改写大括号中的内容，包含大括号本身</span></span><br><span class="line"><span class="string">cis                 # 改写当前句子</span></span><br><span class="line"><span class="string">c[N]w               # 改写光标后 N 个单词</span></span><br><span class="line"><span class="string">c[N]l               # 改写光标后 N 个字母</span></span><br><span class="line"><span class="string">c[N]h               # 改写光标前 N 个字母</span></span><br><span class="line"><span class="string">[N]cc               # 修改当前 N 行</span></span><br><span class="line"><span class="string">ct(                 # 改写到小括号前</span></span><br></pre></td></tr></table></figure></div>
+<!--SR:!2025-07-20,378,242-->
+<h3 id="替换">替换</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">r                   <span class="comment"># 替换当前字符（r: replace）</span></span><br><span class="line">[N]x                <span class="comment"># 剪切、删除光标右边 N 个字符，相当于d[N]l</span></span><br><span class="line">[N]s                <span class="comment"># 替换 N 个字符，即删除光标后 N 个字符并进入插入模式</span></span><br><span class="line">[N]S                <span class="comment"># 替换 N 行，即删除 N 行并进入插入模式</span></span><br><span class="line">[n]X                <span class="comment"># 剪切、删除光标左边 N 个字符，相当于d[n]h</span></span><br><span class="line">R                   <span class="comment"># 进入替换模式，直至按 &lt;Esc&gt; 退出键离开</span></span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-09-18,198,242-->
+<p><strong>Vim 替换命令?</strong></p>
+<p><code>:s</code>（substitute）命令用来查找和替换字符串。语法如下：
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:%s/foo/bar/g</span><br><span class="line">:&#123;作用范围&#125;s/&#123;目标&#125;/&#123;替换&#125;/&#123;替换标志&#125;</span><br></pre></td></tr></table></figure></div> <!--SR:!2024-08-09,172,247--></p>
+<p>例如 <code>:%s/foo/bar/g</code> 会在全局范围(<code>%</code>)查找 <code>foo</code> 并替换为 <code>bar</code>，所有出现都会被替换（<code>g</code>）。
+在 Vim
+编辑器中，替换操作可以应用于不同的范围，而不仅仅是整个文件。以下是一些常用的替换范围：</p>
+<ol type="1">
+<li><strong>当前行</strong>：使用 <code>:s</code> 命令，不指定范围，将只替换当前行中的匹配项。<br />
+</li>
+<li><strong>指定行范围</strong>：可以在 <code>:s</code> 命令中指定要替换的行范围。例如，<code>:10,20s/pattern/replacement/g</code> 表示在第
+10 行到第 20 行之间进行替换。<br />
+</li>
+<li><strong>光标所在行到文件末尾</strong>：可以使用 <code>:.,$s/pattern/replacement/g</code> 命令，表示从当前行（<code>.</code>）到文件末尾（<code>$</code>）之间进行替换。<br />
+</li>
+<li><strong>全局范围</strong>：使用 <code>:%s/pattern/replacement/g</code> 命令，表示在整个文件中进行替换。<br />
+</li>
+<li><strong>可视选择范围</strong>：在可视模式下选择一块文本，然后使用 <code>:</code> 进入命令行模式，再输入 <code>s/pattern/replacement/g</code> 命令，表示只在所选范围内进行替换。</li>
+</ol>
+<h3 id="删除">删除</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dd</span>                  <span class="comment"># 删除（剪切）当前行，当前行会存到寄存器里（d: delete = cut）</span></span><br><span class="line"><span class="built_in">dd</span>[N]p              <span class="comment"># 删除（剪切）当前行并加入 N-1 个当前行，复制空行时很有用</span></span><br><span class="line">d0                  <span class="comment"># 删除（剪切）到行首</span></span><br><span class="line">d^                  <span class="comment"># 删除（剪切）到行首非零字符</span></span><br><span class="line">d$                  <span class="comment"># 删除（剪切）到行末</span></span><br><span class="line">D                   <span class="comment"># 删除（剪切）到行末，等价于 d$</span></span><br><span class="line">dw                  <span class="comment"># 删除（剪切）当前单词</span></span><br><span class="line">diw                 <span class="comment"># 删除（剪切）光标所处的单词（iw: inner word）</span></span><br><span class="line">daw                 <span class="comment"># 删除（剪切）光标所处的单词，并包含前后空格</span></span><br><span class="line">d2w                 <span class="comment"># 删除（剪切）下 2 个单词</span></span><br><span class="line">d[N]w               <span class="comment"># 删除（剪切）N 个单词，并包含前后空格</span></span><br><span class="line">d[N]l               <span class="comment"># 删除（剪切）光标右边 N 个字符</span></span><br><span class="line">d[N]h               <span class="comment"># 删除（剪切）光标左边 N 个字符</span></span><br><span class="line">[N]<span class="built_in">dd</span>               <span class="comment"># 删除（剪切）从当前行开始的 N 行</span></span><br><span class="line">:Nd                 <span class="comment"># 删除（剪切）第 N 行</span></span><br><span class="line">:N,Md&lt;CR&gt;           <span class="comment"># 删除（剪切） N ~ M 行，其中 &lt;CR&gt; 为 &lt;Enter&gt; 回车键</span></span><br><span class="line">di<span class="string">&quot;                 # 删除（剪切）双引号中的内容</span></span><br><span class="line"><span class="string">di&#x27;                 # 删除（剪切）单引号中的内容</span></span><br><span class="line"><span class="string">dib                 # 删除（剪切）小括号中的内容</span></span><br><span class="line"><span class="string">di)                 # 删除（剪切）小括号中的内容</span></span><br><span class="line"><span class="string">dab                 # 删除（剪切）小括号内的内容，包含小括号本身</span></span><br><span class="line"><span class="string">di]                 # 删除（剪切）中括号中内容</span></span><br><span class="line"><span class="string">diB                 # 删除（剪切）大括号中内容</span></span><br><span class="line"><span class="string">di&#125;                 # 删除（剪切）大括号中内容</span></span><br><span class="line"><span class="string">daB                 # 删除（剪切）大括号内的内容，包含大括号本身</span></span><br><span class="line"><span class="string">dit                 # 删除（剪切） XML 中 tag 的内容</span></span><br><span class="line"><span class="string">dis                 # 删除（剪切）当前句子</span></span><br><span class="line"><span class="string">dt(                 # 删除（剪切）到小括号前</span></span><br><span class="line"><span class="string">dgg                 # 删除（剪切）到文件头部</span></span><br><span class="line"><span class="string">d1G                 # 删除（剪切）到文件头部，同上</span></span><br><span class="line"><span class="string">dG                  # 删除（剪切）到文件尾部</span></span><br><span class="line"><span class="string">d&#125;                  # 删除（剪切）下一个段落</span></span><br><span class="line"><span class="string">d&#123;                  # 删除（剪切）上一个段落</span></span><br><span class="line"><span class="string">d/f&lt;CR&gt;             # 比较高级的组合命令，它将删除 当前位置 到下一个字母 f 之间的内容，其中 &lt;CR&gt; 为 &lt;Enter&gt; 回车键</span></span><br></pre></td></tr></table></figure></div>
+<!--SR:!2025-06-11,352,242-->
+<h3 id="大小写">大小写</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">~                   <span class="comment"># 转换大小写</span></span><br><span class="line">g~iw                <span class="comment"># 替换当前单词的大小写</span></span><br><span class="line">gUiw                <span class="comment"># 将单词转成大写</span></span><br><span class="line">guiw                <span class="comment"># 将当前单词转成小写</span></span><br><span class="line">guu                 <span class="comment"># 全行转为小写</span></span><br><span class="line">gUU                 <span class="comment"># 全行转为大写</span></span><br><span class="line">Ctrl+A              <span class="comment"># 增加数字</span></span><br><span class="line">Ctrl+X              <span class="comment"># 减少数字</span></span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-08-24,67,202-->
 <h2 id="选择">选择</h2>
 <ul>
 <li><strong>全选选择：</strong> 按esc后，然后<code>ggvG</code></li>
@@ -593,6 +627,11 @@ href="../3042b24ad887a189e62ff448ff184e52bffab3e9">vim
 ：</strong> 是进入Visual(可视）模式  <strong>d
 ：</strong>  删除选中内容 <br />
 <strong>y ：</strong>  复制选中内容到0号寄存器 </p>
+<h3 id="文本对象操作">文本对象操作</h3>
+<p><strong>注意</strong>：只适用于可视模式或在操作符后，例如：操作包括 <strong>选择
+v、删除 d、复制 y、修改 c</strong> 等。 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">aw                  <span class="comment"># 操作整个单词，不包括分隔符（aw: a word）</span></span><br><span class="line">aW                  <span class="comment"># 操作整个单词，包括分隔符（aW: a Word）</span></span><br><span class="line">iw                  <span class="comment"># 操作整个单词，不包括分隔符（iw: inner word）</span></span><br><span class="line">iW                  <span class="comment"># 操作整个单词，包括分隔符（iW: inner Word）</span></span><br><span class="line">is                  <span class="comment"># 操作整个句子，不包括分隔符 (s: sentence）</span></span><br><span class="line">ib                  <span class="comment"># 操作内含块，从 [( 到 ])（b: block）</span></span><br><span class="line">iB                  <span class="comment"># 操作内含大块，从 [&#123; 到 ]&#125; （B: Block）</span></span><br><span class="line">ab                  <span class="comment"># 操作一个块，从 [( 至 ])（b: block）</span></span><br><span class="line">aB                  <span class="comment"># 操作一个大块，从 [&#123; 到 ]&#125;（B: Block）</span></span><br><span class="line">ap                  <span class="comment"># 操作一个段落（p: paragraph）</span></span><br><span class="line">ip                  <span class="comment"># 操作内含段落</span></span><br><span class="line">i)                  <span class="comment"># 操作小括号字符串</span></span><br><span class="line">a)                  <span class="comment"># 操作小括号字符串，包含小括号本身</span></span><br><span class="line">i]                  <span class="comment"># 操作中括号字符串</span></span><br><span class="line">a]                  <span class="comment"># 操作中括号字符串，包含中括号本身</span></span><br><span class="line">i&#125;                  <span class="comment"># 操作大括号字符串</span></span><br><span class="line">a&#125;                  <span class="comment"># 操作大括号字符串，包含大括号本身</span></span><br><span class="line">i<span class="string">&#x27;                  # 操作单引号字符串</span></span><br><span class="line"><span class="string">a&#x27;</span>                  <span class="comment"># 操作单引号字符串，包含单引号本身</span></span><br><span class="line">i<span class="string">&quot;                  # 操作双引号字符串</span></span><br><span class="line"><span class="string">a&quot;</span>                  <span class="comment"># 操作双引号字符串，包含双引号本身</span></span><br><span class="line">a`                  <span class="comment"># 操作一个反引号字符串</span></span><br><span class="line">i`                  <span class="comment"># 操作内含反引号字符串</span></span><br><span class="line">a&gt;                  <span class="comment"># 操作一个 &lt;&gt; 块</span></span><br><span class="line">i&gt;                  <span class="comment"># 操作内含 &lt;&gt; 块</span></span><br><span class="line">at                  <span class="comment"># 操作一个标签块，例如 从 &lt;aaa&gt; 到 &lt;/aaa&gt;（t: tag）</span></span><br><span class="line">it                  <span class="comment"># 操作内含标签块，例如 从 &lt;aaa&gt; 到 &lt;/aaa&gt;</span></span><br><span class="line">2i)                 <span class="comment"># 操作往外两层小括号内</span></span><br><span class="line">2a)                 <span class="comment"># 操作往外两层小括号内，包含小括号本身</span></span><br><span class="line">[N]f)               <span class="comment"># 移动到第 N 个小括号处</span></span><br><span class="line">[N]t)               <span class="comment"># 移动到第 N 个小括号前</span></span><br></pre></td></tr></table></figure></div>
+<mark style="background: #83d98fA6;">文本对象的配对括号、标点及配对标点内的内容的编辑修改对编程非常实用，可以简单总结为。</mark>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ci<span class="string">&#x27;、ci&quot;、ci(、ci[、ci&#123;、ci&lt;                # 分别修改这些配对标点符号中的文本内容</span></span><br><span class="line"><span class="string">ca&#x27;</span>、ca<span class="string">&quot;、ca(、ca[、ca&#123;、ca&lt;                # 分别修改这些配对标点符号中的文本内容，包括 标点符号 本身</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">di&#x27;、di&quot;</span>、di(、dib、di[、di&#123;、diB、di&lt;       <span class="comment"># 分别删除这些配对标点符号中的文本内容</span></span><br><span class="line">da<span class="string">&#x27;、da&quot;、da(、dab、da[、da&#123;、daB、da&lt;       # 分别删除这些配对标点符号中的文本内容，包括 标点符号 本身</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">yi&#x27;</span>、yi<span class="string">&quot;、yi(、yi[、yi&#123;、yi&lt;                # 分别复制这些配对标点符号中的文本内容</span></span><br><span class="line"><span class="string">ya&#x27;、ya&quot;</span>、ya(、ya[、ya&#123;、ya&lt;                <span class="comment"># 分别复制这些配对标点符号中的文本内容，包括 标点符号 本身</span></span><br><span class="line"></span><br><span class="line">vi<span class="string">&#x27;、vi&quot;、vi(、vi[、vi&#123;、vi&lt;                # 分别选中这些配对标点符号中的文本内容</span></span><br><span class="line"><span class="string">va&#x27;</span>、va<span class="string">&quot;、va(、va[、va&#123;、va&lt;                # 分别选中这些配对标点符号中的文本内容，包括 标点符号 本身</span></span><br></pre></td></tr></table></figure></div> <!--SR:!2024-11-13,230,242--></p>
 <h2 id="跳转">跳转</h2>
 <p><strong>Vim 跳转常用命令</strong></p>
 <table>
@@ -633,28 +672,34 @@ href="../3042b24ad887a189e62ff448ff184e52bffab3e9">vim
 </tr>
 </tbody>
 </table>
-<!--SR:!2022-11-14,9,252-->
+<!--SR:!2024-09-03,408,252-->
 <ol type="1">
 <li><strong>跳到第一行</strong></li>
 </ol>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gg</span><br></pre></td></tr></table></figure></div>
-<!--SR:!2022-11-22,62,250-->
+<!--SR:!2027-04-04,1020,250-->
 <ol start="2" type="1">
 <li><strong>跳到第10行</strong></li>
 </ol>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10gg</span><br><span class="line">或10G</span><br></pre></td></tr></table></figure></div>
-<!--SR:!2022-12-05,70,250-->
+<!--SR:!2024-09-07,462,250-->
 <ol start="3" type="1">
 <li><strong>跳到最后一行</strong></li>
 </ol>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">shift</span>]+g</span><br><span class="line">或G</span><br></pre></td></tr></table></figure></div>
-<!--SR:!2022-11-23,69,270-->
+<!--SR:!2024-10-12,502,270-->
+<p><strong>设置书签</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ma  <span class="comment"># (在当前光标记一个书签, 名字为a, 书签名必须为小写字母, 对用户不可见)</span></span><br><span class="line">`a  <span class="comment"># (跳转到书签a处, `不是单引号, 而是按键1左边的那个按键)</span></span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-09-06,191,242-->
+<p><strong>括号</strong></p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%   <span class="comment"># 括号匹配, 包括(,[,&#123;, 需要先将光标移到括号上,然后会跳转到对应的那个括号</span></span><br><span class="line">v%  <span class="comment"># 选中括号内包括括号的内容</span></span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-09-07,110,222-->
 <h2 id="搜索">搜索</h2>
 <h3 id="进入搜索模式">1. 进入搜索模式</h3>
 <ol type="1">
 <li><strong>打开文件后马上搜索</strong> <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">按[/]</span><br></pre></td></tr></table></figure></div></li>
 <li>在<strong>编辑模式</strong>切换到搜索 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先按[Esc]退出编辑，再按[/]</span><br></pre></td></tr></table></figure></div>
-<!--SR:!2023-02-06,106,250--></li>
+<!--SR:!2025-10-03,693,250--></li>
 </ol>
 <h3 id="搜索-1">2. 搜索</h3>
 <ol type="1">
@@ -663,37 +708,36 @@ href="../3042b24ad887a189e62ff448ff184e52bffab3e9">vim
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/关键字  </span><br><span class="line"><span class="comment"># 向下找（左斜杠+关键字）</span></span><br><span class="line"></span><br><span class="line">?关键字 </span><br><span class="line"> <span class="comment"># 向上找（逆向搜索）（问号+关键字）</span></span><br></pre></td></tr></table></figure></div>
 <p><mark style="background: #fa518dA6;">注意</mark>
 ：搜索一些特殊的字符，例如：*、[、]、^、%、/、?、~、$ 等,
-需要在它们的前面加上转义符号。 <!--SR:!2022-12-07,72,250--></p>
+需要在它们的前面加上转义符号。 <!--SR:!2024-09-12,463,250--></p>
 <ol start="2" type="1">
 <li><strong>匹配搜索</strong></li>
 </ol>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 匹配单词开头（右斜杠+小于号）</span></span><br><span class="line">/\&lt;关键字    </span><br><span class="line"></span><br><span class="line"><span class="comment"># 匹配行末尾</span></span><br><span class="line">/^关键字   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 匹配单词末尾（右斜杠+大于号）</span></span><br><span class="line">/关键字\&gt;   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 匹配行开头</span></span><br><span class="line">/关键字$     </span><br><span class="line"></span><br><span class="line">/\&lt;关键字\&gt; </span><br><span class="line"><span class="comment"># 匹配单词全部（匹配开头和结尾的符号加起来）</span></span><br></pre></td></tr></table></figure></div>
-<!--SR:!2023-03-17,129,250-->
+<!--SR:!2026-04-25,812,250-->
 <h3 id="搜索定位">3. 搜索定位</h3>
 <p>输入搜索命令后按回车开始定位</p>
 <ol type="1">
 <li><strong>移动到下一个匹配处</strong></li>
 </ol>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">按[n]</span><br></pre></td></tr></table></figure></div>
-<!--SR:!2023-03-18,128,250-->
+<!--SR:!2026-04-11,800,250-->
 <ol start="2" type="1">
 <li><strong>移动到上一个匹配处</strong></li>
 </ol>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">按[N]或[<span class="built_in">shift</span>]+[n]</span><br></pre></td></tr></table></figure></div>
-<!--SR:!2022-12-26,86,270-->
+<!--SR:!2025-05-01,625,270-->
 <ol start="3" type="1">
 <li><strong>搜索当前光标所在单词</strong></li>
 </ol>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">光标移动到关键字任意位置，按[*] 或 [<span class="comment">#] </span></span><br><span class="line"><span class="comment"># 如果当前光标位置单词为the，那么执行命令 * 相当于搜索命令 /the，命令 # 等同于命令 ?the</span></span><br></pre></td></tr></table></figure></div>
-<!--SR:!2023-03-15,127,250-->
-<h2 id="替换">替换</h2>
-<p><strong>Vim 替换命令?</strong></p>
-<p><code>:s</code>（substitute）命令用来查找和替换字符串。语法如下：
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:&#123;作用范围&#125;s/&#123;目标&#125;/&#123;替换&#125;/&#123;替换标志&#125;</span><br></pre></td></tr></table></figure></div>
-例如 <code>:%s/foo/bar/g</code> 会在全局范围(<code>%</code>)查找 <code>foo</code> 并替换为 <code>bar</code>，所有出现都会被替换（<code>g</code>）。
-<!--SR:!2022-12-03,67,250--></p>
-<h2 id="tab">Tab</h2>
-<p><strong>Vim Tab切换快捷键</strong></p>
+<!--SR:!2026-04-05,798,250-->
+<ol start="4" type="1">
+<li>Vim 正则表达式搜索重复单词</li>
+</ol>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/\(\w\&#123;2,&#125;\)\1</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-08-14,177,242-->
+<h2 id="窗口">窗口</h2>
+<p><strong>Vim 窗口切换快捷键</strong></p>
 <table>
 <thead>
 <tr class="header">
@@ -703,28 +747,236 @@ href="../3042b24ad887a189e62ff448ff184e52bffab3e9">vim
 </thead>
 <tbody>
 <tr class="odd">
+<td>:sp</td>
+<td>下方增加窗口</td>
+</tr>
+<tr class="even">
+<td>:vsp</td>
+<td>右方增加窗口</td>
+</tr>
+<tr class="odd">
+<td>:ctrl + h</td>
+<td>向左移动窗口</td>
+</tr>
+<tr class="even">
+<td>:ctrl + l</td>
+<td>向右左移动窗口</td>
+</tr>
+<tr class="odd">
+<td>:ctrl + j</td>
+<td>向下移动窗口</td>
+</tr>
+<tr class="even">
+<td>:ctrl + k</td>
+<td>向上移动窗口</td>
+</tr>
+<tr class="odd">
 <td>ctrl + w + w</td>
 <td>光标自动在左右侧窗口切换</td>
 </tr>
 </tbody>
 </table>
-<!--SR:!2022-11-12,39,232-->
-<h2 id="配置">配置</h2>
-<p>将配置粘贴到你的 <code>~/.vimrc</code>，重新打开 Vim 即可生效。</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JS"><figure class="iseeu highlight /js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot; ********************************* 插件 *********************************</span></span><br><span class="line"><span class="string">&quot;</span> <span class="title class_">Plugins</span> will be downloaded under the specified directory.</span><br><span class="line">call plug#<span class="title function_">begin</span>(<span class="string">&#x27;~/.vim/plugged&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">&quot; Declare the list of plugins.</span></span><br><span class="line"><span class="string">Plug &#x27;matze/vim-move&#x27;       </span></span><br><span class="line"><span class="string">Plug &#x27;plasticboy/vim-markdown&#x27;</span></span><br><span class="line"><span class="string">Plug &#x27;luochen1990/rainbow&#x27;</span></span><br><span class="line"><span class="string">Plug &#x27;jiangmiao/auto-pairs&#x27;</span></span><br><span class="line"><span class="string">Plug &#x27;tpope/vim-fugitive&#x27;</span></span><br><span class="line"><span class="string">Plug &#x27;vim-syntastic/syntastic&#x27;</span></span><br><span class="line"><span class="string">Plug &#x27;scrooloose/nerdtree&#x27;, &#123; &#x27;on&#x27;:  &#x27;NERDTreeToggle&#x27; &#125; &quot;</span> 目录树插件</span><br><span class="line"><span class="title class_">Plug</span> <span class="string">&#x27;kien/ctrlp.vim&#x27;</span></span><br><span class="line"><span class="title class_">Plug</span> <span class="string">&#x27;Yggdroot/indentLine&#x27;</span></span><br><span class="line"><span class="title class_">Plug</span> <span class="string">&#x27;honza/vim-snippets&#x27;</span></span><br><span class="line"><span class="title class_">Plug</span> <span class="string">&#x27;vim-scripts/indentpython&#x27;</span></span><br><span class="line"><span class="title class_">Plug</span> <span class="string">&#x27;vim-python/python-syntax&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot; List ends here. Plugins become visible to Vim after this call.</span></span><br><span class="line"><span class="string">call plug#end()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> <span class="title class_">NERDTree</span></span><br><span class="line">noremap &lt;C-n&gt; :<span class="title class_">NERDTreeToggle</span>&lt;<span class="variable constant_">CR</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="string">&quot; vim-move</span></span><br><span class="line"><span class="string">map &lt;ESC&gt;[1;5B &lt;A-Down&gt;</span></span><br><span class="line"><span class="string">map &lt;ESC&gt;[1;5A &lt;A-Up&gt;</span></span><br><span class="line"><span class="string">map! &lt;ESC&gt;[1;5B &lt;A-Down&gt;</span></span><br><span class="line"><span class="string">map! &lt;ESC&gt;[1;5A &lt;A-Up&gt;</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">let g:move_map_keys = 0</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">vmap &lt;A-Up&gt;   &lt;Plug&gt;MoveBlockUp</span></span><br><span class="line"><span class="string">vmap &lt;A-Down&gt; &lt;Plug&gt;MoveBlockDown</span></span><br><span class="line"><span class="string">nmap &lt;A-Up&gt;   &lt;Plug&gt;MoveLineUp</span></span><br><span class="line"><span class="string">nmap &lt;A-Down&gt; &lt;Plug&gt;MoveLineDown</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> <span class="title class_">YouCompleteMe</span></span><br><span class="line"><span class="string">&quot;打开vim时不再询问是否加载ycm_extra_conf.py配置&quot;</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">g</span>:ycm_confirm_extra_conf=<span class="number">0</span></span><br><span class="line">set completeopt=longest,menu</span><br><span class="line"><span class="string">&quot;python解释器路径&quot;</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">g</span>:ycm_path_to_python_interpreter=<span class="string">&#x27;/usr/bin/python3&#x27;</span></span><br><span class="line"><span class="string">&quot;是否开启语义补全&quot;</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">g</span>:ycm_seed_identifiers_with_syntax=<span class="number">1</span></span><br><span class="line"><span class="string">&quot;是否在注释中也开启补全&quot;</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">g</span>:ycm_complete_in_comments=<span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">g</span>:ycm_collect_identifiers_from_comments_and_strings = <span class="number">0</span></span><br><span class="line"><span class="string">&quot;开始补全的字符数&quot;</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">g</span>:ycm_min_num_of_chars_for_completion=<span class="number">2</span></span><br><span class="line"><span class="string">&quot;补全后自动关机预览窗口&quot;</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">g</span>:ycm_autoclose_preview_window_after_completion=<span class="number">1</span></span><br><span class="line"><span class="string">&quot; 禁止缓存匹配项,每次都重新生成匹配项&quot;</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">g</span>:ycm_cache_omnifunc=<span class="number">0</span></span><br><span class="line"><span class="string">&quot;字符串中也开启补全&quot;</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">g</span>:ycm_complete_in_strings = <span class="number">1</span></span><br><span class="line"><span class="string">&quot;离开插入模式后自动关闭预览窗口&quot;</span></span><br><span class="line">autocmd <span class="title class_">InsertLeave</span> * <span class="keyword">if</span> <span class="title function_">pumvisible</span>() == <span class="number">0</span>|pclose|endif</span><br><span class="line"><span class="string">&quot;回车即选中当前项&quot;</span></span><br><span class="line">inoremap &lt;expr&gt; &lt;<span class="variable constant_">CR</span>&gt;       <span class="title function_">pumvisible</span>() ? <span class="string">&#x27;&lt;C-y&gt;&#x27;</span> : <span class="string">&#x27;\&lt;CR&gt;&#x27;</span>     </span><br><span class="line"><span class="string">&quot;上下左右键行为&quot;</span></span><br><span class="line">inoremap &lt;expr&gt; &lt;<span class="title class_">Down</span>&gt;     <span class="title function_">pumvisible</span>() ? <span class="string">&#x27;\&lt;C-n&gt;&#x27;</span> : <span class="string">&#x27;\&lt;Down&gt;&#x27;</span></span><br><span class="line">inoremap &lt;expr&gt; &lt;<span class="title class_">Up</span>&gt;       <span class="title function_">pumvisible</span>() ? <span class="string">&#x27;\&lt;C-p&gt;&#x27;</span> : <span class="string">&#x27;\&lt;Up&gt;&#x27;</span></span><br><span class="line">inoremap &lt;expr&gt; &lt;<span class="title class_">PageDown</span>&gt; <span class="title function_">pumvisible</span>() ? <span class="string">&#x27;\&lt;PageDown&gt;\&lt;C-p&gt;\&lt;C-n&gt;&#x27;</span> : <span class="string">&#x27;\&lt;PageDown&gt;&#x27;</span></span><br><span class="line">inoremap &lt;expr&gt; &lt;<span class="title class_">PageUp</span>&gt;   <span class="title function_">pumvisible</span>() ? <span class="string">&#x27;\&lt;PageUp&gt;\&lt;C-p&gt;\&lt;C-n&gt;&#x27;</span> : <span class="string">&#x27;\&lt;PageUp&gt;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot; ********************************* 公共配置 ********************************* </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> 基础  </span><br><span class="line">syntax on  <span class="string">&quot; 开启代码高亮  </span></span><br><span class="line"><span class="string">set number &quot;</span> 显示行号</span><br><span class="line">set ruler  <span class="string">&quot; 开启标尺  </span></span><br><span class="line"><span class="string">set cursorline &quot;</span> 开启高亮光标所在行  </span><br><span class="line">set showmatch <span class="string">&quot; 显示匹配括号</span></span><br><span class="line"><span class="string">set encoding=utf-8 &quot;</span>设置vim内部编码</span><br><span class="line">set history=<span class="number">1000</span> <span class="string">&quot;Vim 需要记住多少次历史操作。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> 性能  </span><br><span class="line">set viminfo= <span class="string">&quot; 关闭 viminfo (用于加快 vim 启动速度)  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> 功能填补  </span><br><span class="line">set clipboard=unnamed <span class="string">&quot; 开启系统剪贴板支持</span></span><br><span class="line"><span class="string">set backspace=indent,eol,start &quot;</span> 开启 <span class="title class_">Backspace</span> 键支持(否则 <span class="title class_">Backspace</span> 无法删除字符)  </span><br><span class="line"></span><br><span class="line"><span class="string">&quot; 鼠标支持  </span></span><br><span class="line"><span class="string">set mouse=a &quot;</span> 开启鼠标支持  </span><br><span class="line">set selection=inclusive <span class="string">&quot; 指定在选择文本时光标所在位置也属于被选中的范围  </span></span><br><span class="line"><span class="string">set selectmode=mouse,key &quot;</span> 使鼠标和键盘都可以控制光标选择文本  </span><br><span class="line"></span><br><span class="line"><span class="string">&quot; tab键  </span></span><br><span class="line"><span class="string">set ts=4 &quot;</span> 指定制表符(tab)等于的空格数  </span><br><span class="line">set tabstop=<span class="number">4</span> <span class="string">&quot; tab 键相当于 4 个空格 </span></span><br><span class="line"><span class="string">set softtabstop=4 &quot;</span> 开启软制表(如果这<span class="number">4</span>个空格是用tab键打出来的删除会一起删除)  </span><br><span class="line">set shiftwidth=<span class="number">4</span> <span class="string">&quot; 指定自动缩进时缩进4个空格  </span></span><br><span class="line"><span class="string">set smarttab &quot;</span> 开启智能 tab</span><br><span class="line"></span><br><span class="line"><span class="string">&quot; 缩进  </span></span><br><span class="line"><span class="string">set smartindent &quot;</span> 开启智能缩进  </span><br><span class="line">set autoindent <span class="string">&quot; 开启自动缩进  </span></span><br><span class="line"><span class="string">set cindent &quot;</span> 开启C缩进(对C、C++语言文件有效)  </span><br><span class="line">::</span><br><span class="line"><span class="string">&quot; 其它配置   </span></span><br><span class="line"><span class="string">set viminfo=&#x27;1000,&lt;500 &quot;</span> 复制粘贴扩大到<span class="number">500</span>行 </span><br><span class="line">set backupcopy=yes <span class="string">&quot; 开启备份时行为为覆盖  </span></span><br><span class="line"><span class="string">set cmdheight=1 &quot;</span> 设置命令行的高度为<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot; 代码</span></span><br><span class="line"><span class="string">set foldenable &quot;</span> 打开折叠</span><br><span class="line"></span><br><span class="line"><span class="string">&quot; 搜索</span></span><br><span class="line"><span class="string">set ignorecase &quot;</span> 设置默认进行大小写不敏感查找</span><br><span class="line">set smartcase <span class="string">&quot; 如果有一个大写字母，则切换到大小写敏感查找 </span></span><br><span class="line"><span class="string">set hlsearch &quot;</span> 高亮搜索，如果需要清除屏幕搜索高亮，可以在<span class="title class_">Vim</span>命令行模式使用命令 :noh</span><br><span class="line">set incsearch <span class="string">&quot; 递进搜索</span></span><br><span class="line"><span class="string">set paste &quot;</span> 取消自动注释#后所有行</span><br><span class="line"></span><br><span class="line">noremap s :noh&lt;<span class="variable constant_">CR</span>&gt; <span class="string">&quot; 按下s取消高亮结果显示,本来按下s删除当前字符并进入插入模式</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span>设置代码折叠,映射空格键来折叠和取消折叠</span><br><span class="line">set foldenable 		    <span class="string">&quot;开始折叠</span></span><br><span class="line"><span class="string">set foldmethod=indent   &quot;</span>设置indent折叠方式</span><br><span class="line">set foldcolumn=<span class="number">0</span>        <span class="string">&quot;设置折叠区域的宽度</span></span><br><span class="line"><span class="string">setlocal foldlevel=1    &quot;</span>设置折叠层数</span><br><span class="line">set foldlevelstart=<span class="number">99</span>   <span class="string">&quot;打开文件默认不折叠</span></span><br><span class="line"><span class="string">nnoremap &lt;space&gt; @=((foldclosed(line(&#x27;.&#x27;)) &lt; 0) ? &#x27;zc&#x27;: &#x27;zo&#x27;)&lt;CR&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span>map <span class="variable constant_">F5</span> to run files</span><br><span class="line">map &lt;<span class="variable constant_">F5</span>&gt; :call <span class="title class_">CompileRun</span>()&lt;<span class="variable constant_">CR</span>&gt;</span><br><span class="line">func! <span class="title class_">CompileRun</span>()</span><br><span class="line">    exec <span class="string">&quot;w&quot;</span></span><br><span class="line">    <span class="keyword">if</span> &amp;filetype == <span class="string">&#x27;java&#x27;</span></span><br><span class="line">	exec <span class="string">&quot;!javac %&quot;</span></span><br><span class="line">	exec <span class="string">&quot;!java %&lt;&quot;</span></span><br><span class="line">    elseif &amp;filetype == <span class="string">&#x27;python&#x27;</span></span><br><span class="line">	exec <span class="string">&quot;!python3 %&quot;</span></span><br><span class="line">    endif</span><br><span class="line">endfunc</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;PEP8风格设置,python代码风格标准</span></span><br><span class="line"><span class="string">au BufNewFile,BufRead *.py</span></span><br><span class="line"><span class="string">	    \ set tabstop=4 |</span></span><br><span class="line"><span class="string">	    \ set softtabstop=4 |</span></span><br><span class="line"><span class="string">	    \ set shiftwidth=4 |</span></span><br><span class="line"><span class="string">	    \ set textwidth=79 |</span></span><br><span class="line"><span class="string">	    \ set expandtab |</span></span><br><span class="line"><span class="string">	    \ set autoindent |</span></span><br><span class="line"><span class="string">	    \ set fileformat=unix</span></span><br><span class="line"><span class="string">&quot;</span> ********************************* 快捷键 *********************************</span><br><span class="line"></span><br><span class="line"><span class="string">&quot; -- Control + a to select all file</span></span><br><span class="line"><span class="string">inoremap &lt;C-a&gt; ggVG </span></span><br><span class="line"><span class="string">nnoremap &lt;C-a&gt; ggVG </span></span><br><span class="line"><span class="string">vnoremap &lt;C-a&gt; ggVG </span></span><br><span class="line"><span class="string">			</span></span><br><span class="line"><span class="string">&quot;</span> -- <span class="title class_">Control</span> + s to save</span><br><span class="line">inoremap &lt;C-s&gt; &lt;<span class="title class_">Esc</span>&gt;:w&lt;<span class="variable constant_">CR</span>&gt;i</span><br><span class="line">nnoremap &lt;C-s&gt; :w&lt;<span class="variable constant_">CR</span>&gt;</span><br><span class="line">vnoremap &lt;C-s&gt; :w&lt;<span class="variable constant_">CR</span>&gt;</span><br><span class="line"></span><br><span class="line">noremap R :source $MYVIMRC&lt;<span class="variable constant_">CR</span>&gt;    </span><br><span class="line"><span class="string">&quot; ********************************* 主题 *********************************</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&quot;</span> color schema</span><br><span class="line"><span class="string">&quot; 从 https://github.com/tomasr/molokai 获取molokai.vim 放到～/.vim/colors </span></span><br><span class="line"><span class="string">colorscheme molokai</span></span><br><span class="line"><span class="string">set t_Co=256</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure></div>
-<h3 id="安装语法补全插件-youcompleteme">安装语法补全插件
-YouCompleteMe</h3>
-<p>除了通过 Vundle 安装语法补全
-YouCompleteMe，也可以自己手动编译安装，这里有另外一种更加简单的方法。</p>
-<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 试试这个命令，看是否已经安装 vim-addons</span></span><br><span class="line">$ vim-addons</span><br><span class="line"><span class="comment"># 如果没有安装 vim-addons，则需安装 vim-addon-manager</span></span><br><span class="line">$ sudo apt-get install vim-addon-manager</span><br><span class="line"><span class="comment"># 开始安装 YouCompleteMe</span></span><br><span class="line">$ sudo apt-get install vim-youcompleteme</span><br><span class="line"><span class="comment"># 将 YCM 加入 addons 管理器中</span></span><br><span class="line">$ vim-addons install youcompleteme</span><br></pre></td></tr></table></figure></div>
-<blockquote class="pullquote mindmap mindmap-md"><ul>
-<li>Vim 常用命令
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 新窗口打开新文件</span><br><span class="line">:vsp filename 或者 </span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-12-03,463,232-->
+<h3 id="改变尺寸">改变尺寸</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 先按Ctrl + w, 再按后面的字符</span><br><span class="line">左 - Ctrl + w + &lt;</span><br><span class="line">右 - Ctrl + w + &gt;</span><br><span class="line">上 - Ctrl + w + +  // 最后一个加号是按键</span><br><span class="line">下 - Ctrl + w + -</span><br><span class="line">均等 - Ctrl + w + =</span><br></pre></td></tr></table></figure></div>
+<h3 id="打开文件时分屏">打开文件时分屏</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim -On file1 file2 ...</span><br><span class="line">vim -on file1 file2 ...</span><br></pre></td></tr></table></figure></div>
+<p>其中大写<code>O</code>表示垂直分割(vertical),
+小写<code>o</code>表示水平分割(horizontal,
+默认值), <code>n</code>表示分屏数量, 如果不加文件名,
+则打开<code>n</code>个空白分屏, 如果不加<code>n</code>,
+则根据打开的文件数量来决定分屏的数量</p>
+<h2 id="buffer">Buffer</h2>
+<p>在 Vim 中，你可以使用以下操作来管理 buffer（缓冲区）：</p>
+<h3 id="打开文件到新的-buffer">1. 打开文件到新的 buffer：</h3>
 <ul>
-<li><a href="../3042b24ad887a189e62ff448ff184e52bffab3e9">vim
-使用全局剪贴板</a></li>
-</ul></li>
+<li>使用 <code>:e &lt;file_path&gt;</code> 命令打开一个文件到新的
+buffer，例如 <code>:e path/to/file.txt</code>。</li>
+<li>或者，在命令行中直接指定文件名打开，例如 <code>vim path/to/file.txt</code>。</li>
 </ul>
-</blockquote>
+<h3 id="切换-buffer">2. 切换 buffer：</h3>
+<ul>
+<li>使用 <code>:bnext</code> 或 <code>:bn</code> 命令切换到下一个
+buffer。</li>
+<li>使用 <code>:bprevious</code> 或 <code>:bp</code> 命令切换到上一个
+buffer。</li>
+<li>使用 <code>:bfirst</code> 或 <code>:bf</code> 命令切换到第一个
+buffer。</li>
+<li>使用 <code>:blast</code> 或 <code>:bl</code> 命令切换到最后一个
+buffer。</li>
+<li>使用 <code>:b &lt;buffer_number&gt;</code> 命令切换到指定编号的
+buffer，例如 <code>:b 2</code>。 <!--SR:!2024-10-06,208,242--></li>
+</ul>
+<h3 id="显示-buffer-列表">3. 显示 buffer 列表：</h3>
+<ul>
+<li>使用 <code>:ls</code> 命令显示当前打开的 buffer 列表。</li>
+<li>在命令行中输入 <code>:b</code> 命令并按下 <code>&lt;Tab&gt;</code> 键，可以自动补全
+buffer 名称。 <!--SR:!2024-09-13,195,242--></li>
+</ul>
+<h3 id="关闭-buffer">4. 关闭 buffer：</h3>
+<ul>
+<li>使用 <code>:bd</code> 命令关闭当前 buffer。</li>
+<li>使用 <code>:bd &lt;buffer_number&gt;</code> 命令关闭指定编号的
+buffer，例如 <code>:bd 2</code>。</li>
+<li>使用 <code>:bw</code> 命令关闭当前 buffer 并释放其窗口。</li>
+<li>在 Normal 模式下，使用 <code>:q</code> 命令关闭当前窗口和 buffer。
+<!--SR:!2024-08-26,183,242--></li>
+</ul>
+<h3 id="在窗口之间移动-buffer">5. 在窗口之间移动 buffer：</h3>
+<ul>
+<li>使用 <code>Ctrl + w + h/j/k/l</code> 快捷键在窗口之间移动，其中 <code>h/j/k/l</code> 分别表示左/下/上/右。</li>
+<li>使用 <code>Ctrl + w + H/J/K/L</code> 快捷键将当前 buffer
+移动到其他窗口，其中 <code>H/J/K/L</code> 分别表示将当前 buffer
+移动到左/下/上/右窗口。</li>
+</ul>
+<h2 id="文件">文件</h2>
+<table>
+<thead>
+<tr class="header">
+<th>快捷键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>\n</code></td>
+<td>打开文件侧边栏</td>
+</tr>
+<tr class="even">
+<td><code>\r</code></td>
+<td>查找文件</td>
+</tr>
+<tr class="odd">
+<td>ctrl + P</td>
+<td>快速查找文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="排版">排版</h2>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[N]&gt;&gt;                     <span class="comment"># 向右缩进 N 行，单位为 shiftwidth</span></span><br><span class="line">[N]&lt;&lt;                     <span class="comment"># 向左缩进 N 行，单位为 shiftwidth</span></span><br><span class="line">:ce[nter]                 <span class="comment"># 本行文字居中</span></span><br><span class="line">:le[ft]                   <span class="comment"># 本行文字靠左</span></span><br><span class="line">:ri[ght]                  <span class="comment"># 本行文字靠右</span></span><br><span class="line">:[range]ce[nter] [width]  <span class="comment"># 在 range 范围行的文字居中</span></span><br><span class="line">:[range]le[ft] [indent]   <span class="comment"># 在 range 范围行的行文字靠左</span></span><br><span class="line">:[range]ri[ght] [width]   <span class="comment"># 在 range 范围行的行文字靠右</span></span><br><span class="line">gq                        <span class="comment"># 对选中的文字重排，即对过长文字进行断行</span></span><br><span class="line">gqq                       <span class="comment"># 重排当前行</span></span><br><span class="line">gq[N]q                    <span class="comment"># 重排 N 行</span></span><br><span class="line">gqap                      <span class="comment"># 重排当前段落</span></span><br><span class="line">gq[N]ap                   <span class="comment"># 重排 N 个段落</span></span><br><span class="line">gq[N]j                    <span class="comment"># 重排当前行和下面 N 行</span></span><br><span class="line">gqQ                       <span class="comment"># 重排当前段落到文章末尾</span></span><br><span class="line">J                         <span class="comment"># 将多行合并为一行</span></span><br><span class="line">gj                        <span class="comment"># 将多行合并为一行，且合并后不留空格</span></span><br><span class="line">==                        <span class="comment"># 自动缩进，当前文件所有行自动缩进对齐使用 gg=G</span></span><br></pre></td></tr></table></figure></div>
+<h2 id="插件">插件</h2>
+<h3 id="vim-move">vim-move</h3>
+<p>jkhl 按住加速移动</p>
+<h3 id="nerdtree">NERDTree</h3>
+<p>文件列表 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot; ********************************* NERDTree</span></span><br><span class="line"><span class="string">let NERDTreeWinPos=&#x27;right&#x27;</span></span><br><span class="line"><span class="string">let NERDTreeWinSize=30</span></span><br><span class="line"><span class="string">map &lt;F2&gt; :NERDTreeToggle&lt;cr&gt;</span></span><br><span class="line"><span class="string">map &lt;leader&gt;r :NERDTreeFind&lt;cr&gt; </span></span><br></pre></td></tr></table></figure></div></p>
+<h3 id="nerdcommenter">NERDCommenter</h3>
+<p>作用: 快速注释/解开注释 使用默认的快捷键, 不需要自己绑定。<br />
+如果多行注释，先进入visual模式，然后选中多行。<br />
+<code>&lt;leader&gt;</code> 是反斜杠
+ 这个键.我用的默认的,当然你可以自己该键位. <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ctrl + /           注释 解注释</span><br><span class="line">&lt;leader&gt;cc         加注释</span><br><span class="line">&lt;leader&gt;cu         解开注释</span><br><span class="line">&lt;leader&gt;ca         切换注释的样式:/*....*/和//..的切换</span><br><span class="line">&lt;leader&gt;c&lt;space&gt;   加上/解开注释, 智能判断</span><br><span class="line">&lt;leader&gt;cy         先复制, 再注解(p可以进行黏贴)</span><br><span class="line">&lt;leader&gt;cs        <span class="string">&#x27;性感的&#x27;</span>注释(我很喜欢这个!)</span><br></pre></td></tr></table></figure></div></p>
+<h3 id="vim-visual-multi">vim-visual-multi</h3>
+<p>It's called <em><strong>vim-visual-multi</strong></em> in analogy
+with <em>visual-block</em>, but the plugin works mostly from normal
+mode.</p>
+<p>Basic usage: - select words with Ctrl-N (like <code>Ctrl-d</code> in
+Sublime Text/VS Code) - create cursors vertically with Ctrl-Down/Ctrl-Up
+- select one character at a time with Shift-Arrows - press n/N to get
+next/previous occurrence - press [/] to select next/previous cursor -
+press q to skip current and get next occurrence - press Q to remove
+current cursor/selection - start insert mode with i,a,I,A</p>
+<p>Two main modes: - in <em>cursor mode</em> commands work as they would
+in normal mode - in <em>extend mode</em> commands work as they would in
+visual mode - press Tab to switch between «cursor» and «extend» mode</p>
+<p>Most vim commands work as expected (motions, r to replace
+characters, ~ to change case, etc). Additionally you can: - run
+macros/ex/normal commands at cursors - align cursors - transpose
+selections - add patterns with regex, or from visual mode</p>
+<p>And more... of course, you can enter insert mode and autocomplete
+will work.</p>
+<h3 id="bufexplorer">bufexplorer</h3>
+<p>With bufexplorer, you can quickly and easily switch between buffers
+by using the one of the default public interfaces:</p>
+<p><code>\&lt;Leader\&gt;be</code> normal open
+<code>\&lt;Leader\&gt;bt</code> toggle open / close
+<mark style="background: #fefe00A6;">已设置快捷键 F10</mark>
+<code>\&lt;Leader\&gt;bs</code> force horizontal split open
+<code>\&lt;Leader\&gt;bv</code> force vertical split open</p>
+<h3 id="vim-airline-vim-airline-themes">vim-airline +
+vim-airline-themes'</h3>
+<p>状态栏美化, 需要下载 powerline 字体<a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<h3 id="vim-fugitive">vim-fugitive</h3>
+<p>The crown jewel of Fugitive is <code>:Git</code> (or
+just <code>:G</code>), which calls any arbitrary Git command. If you
+know how to use Git at the command line, you know how to
+use <code>:Git</code>. It's vaguely akin to <code>:!git</code> but with
+numerous improvements:</p>
+<ul>
+<li>The default behavior is to directly echo the command's output. Quiet
+commands like <code>:Git add</code> avoid the dreaded "Press ENTER or
+type command to continue" prompt.</li>
+<li><code>:Git commit</code>, <code>:Git rebase -i</code>, and other
+commands that invoke an editor do their editing in the current Vim
+instance.</li>
+<li><code>:Git diff</code>, <code>:Git log</code>, and other verbose,
+paginated commands have their output loaded into a temporary buffer.
+Force this behavior for any command
+with <code>:Git --paginate</code> or <code>:Git -p</code>.</li>
+<li><code>:Git blame</code> uses a temporary buffer with maps for
+additional triage. Press enter on a line to view the commit where the
+line changed, or <code>g?</code> to see other available maps. Omit the
+filename argument and the currently edited file will be blamed in a
+vertical, scroll-bound split.</li>
+<li><code>:Git mergetool</code> and <code>:Git difftool</code> load
+their changesets into the quickfix list.</li>
+<li>Called with no arguments, <code>:Git</code> opens a summary window
+with dirty files and unpushed and unpulled commits.
+Press <code>g?</code> to bring up a list of maps for numerous operations
+including diffing, staging, committing, rebasing, and stashing. (This is
+the successor to the old <code>:Gstatus</code>.)</li>
+<li>This command (along with all other commands) always uses the current
+buffer's repository, so you don't need to worry about the current
+working directory.</li>
+</ul>
+<h3 id="ultisnips-vim-snippets">ultisnips / vim-snippets</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">snippet 触发字符 <span class="string">&quot;描述&quot;</span> <span class="string">&quot;表达式&quot;</span> 参数</span><br></pre></td></tr></table></figure></div>
+<h2 id="最佳实践">最佳实践</h2>
+<h3 id="删除当前单词">删除当前单词</h3>
+<p><strong>|abc</strong> <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cw  </span><br><span class="line">caw</span><br></pre></td></tr></table></figure></div> <strong>a|bc</strong>
+<strong>ab|c</strong> <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">caw</span><br></pre></td></tr></table></figure></div> <!--SR:!2024-10-03,206,242--></p>
+<h3 id="删除当前行">删除当前行</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cc</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2025-06-28,362,242-->
+<h3 id="删除abc中的-abc">删除“abc”中的 abc</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &#x27;  (  &#123;  &lt;  t 同理 </span></span><br><span class="line">ci<span class="string">&quot;</span></span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-10-11,211,242-->
+<h3 id="粘贴代码">粘贴代码</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">F9 i C-v</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-12-04,243,242-->
+<h3 id="文件查找">文件查找</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C-p</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-11-20,235,242-->
+<h3 id="buffer-切换">buffer 切换</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A-left/right</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2025-07-24,378,242-->
+<h3 id="多列选择">多列选择</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C-up/down</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-09-20,198,242-->
+<h3 id="翻页">翻页</h3>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">S-up/down</span><br></pre></td></tr></table></figure></div>
+<!--SR:!2024-09-12,193,242-->
+<h2 id="参考">参考</h2>
+<p><a
+target="_blank" rel="noopener" href="https://catbro666.github.io/posts/d6ca5270/">VIM常用快捷键和插件整理
+| CatBro's Blog</a> <a
+target="_blank" rel="noopener" href="https://github.com/chloneda/vim-cheatsheet">GitHub -
+chloneda/vim-cheatsheet: 🍁Vim cheat sheet with everything you want to
+know.</a> <a target="_blank" rel="noopener" href="http://vim.zhangjikai.com/ctags.html">Ctags |
+vim学习</a> <a target="_blank" rel="noopener" href="http://www.jiangguo.net/c/vry/qy.html">IDE
+长啥样_把 Vim 打造成你的 IDE_匠果</a> <a
+target="_blank" rel="noopener" href="https://github.com/itgoyo/Vim-HotKeys">GitHub -
+itgoyo/Vim-HotKeys: Vim快捷键大全</a></p>
+<section class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p><a
+target="_blank" rel="noopener" href="https://blog.csdn.net/LutingWang/article/details/123515698">Powerline
+字体安装 for Windows / Mac / Ubuntu</a><a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">
     </div>
 
@@ -764,13 +1016,13 @@ YouCompleteMe，也可以自己手动编译安装，这里有另外一种更加�
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/1b81025648c2670c73f4a2c6da824f528cc104cd/" rel="prev" title="Android 组件化之 ARouter">
-                  <i class="fa fa-chevron-left"></i> Android 组件化之 ARouter
+                <a href="/19ea4919882833bd8f9d4f7387366e849f91a24a/" rel="prev" title="英语语法">
+                  <i class="fa fa-chevron-left"></i> 英语语法
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/19ea4919882833bd8f9d4f7387366e849f91a24a/" rel="next" title="英语语法">
-                  英语语法 <i class="fa fa-chevron-right"></i>
+                <a href="/17e01c6934b2ef66d2dbaeb39e3e651fedf22e34/" rel="next" title="JS == 和 === 的区别">
+                  JS == 和 === 的区别 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
