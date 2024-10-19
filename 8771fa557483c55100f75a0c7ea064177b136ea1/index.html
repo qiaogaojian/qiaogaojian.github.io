@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"qiaogaojian.github.io","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="原文地址 segmentfault.com  Retrofit 简介 Retrofit 是一个在 Android 开发中非常流行的网络框架，底层依赖 OkHttp。 Retrofit 和 OkHttp 都出自 Square 的技术团队。  Retrofit 的 GitHub 地址  1   https:&#x2F;&#x2F;github.com&#x2F;square&#x2F;retrofit   应用程序通过 Retrofit 请">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Retrofit 的使用">
+<meta property="og:url" content="https://qiaogaojian.github.io/8771fa557483c55100f75a0c7ea064177b136ea1/index.html">
+<meta property="og:site_name" content="行则将至">
+<meta property="og:description" content="原文地址 segmentfault.com  Retrofit 简介 Retrofit 是一个在 Android 开发中非常流行的网络框架，底层依赖 OkHttp。 Retrofit 和 OkHttp 都出自 Square 的技术团队。  Retrofit 的 GitHub 地址  1   https:&#x2F;&#x2F;github.com&#x2F;square&#x2F;retrofit   应用程序通过 Retrofit 请">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-11T16:42:56.000Z">
+<meta property="article:modified_time" content="2022-11-13T23:49:23.160Z">
+<meta property="article:author" content="qiaogaojian">
+<meta property="article:tag" content="srcard">
+<meta property="article:tag" content="android">
+<meta property="article:tag" content="rxjava">
+<meta property="article:tag" content="retrofit">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://qiaogaojian.github.io/8771fa557483c55100f75a0c7ea064177b136ea1/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Retrofit 的使用 | 行则将至</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">行则将至</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">人生在勤,不索何获</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#retrofit-%E7%AE%80%E4%BB%8B"><span class="nav-text">Retrofit 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#retrofit-%E4%B8%8E-rxjava-%E7%9A%84%E5%AE%8C%E7%BE%8E%E9%85%8D%E5%90%88"><span class="nav-text">Retrofit 与 RxJava
+的完美配合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0-retrofit-%E4%BE%9D%E8%B5%96"><span class="nav-text">1. 添加 Retrofit 依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-retrofitmanager"><span class="nav-text">2. 创建 RetrofitManager</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-apiservice"><span class="nav-text">3. 创建 APIService</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#retrofit-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">4. Retrofit 的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">5. 常见使用场景</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="qiaogaojian"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">qiaogaojian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/qiaogaojian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;qiaogaojian" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qiaogaojian@live.com" title="E-Mail → mailto:qiaogaojian@live.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+<!--
+-->
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/qiaogaojian" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://qiaogaojian.github.io/8771fa557483c55100f75a0c7ea064177b136ea1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="qiaogaojian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="行则将至">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Retrofit 的使用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-11-12 00:42:56" itemprop="dateCreated datePublished" datetime="2022-11-12T00:42:56+08:00">2022-11-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-11-14 07:49:23" itemprop="dateModified" datetime="2022-11-14T07:49:23+08:00">2022-11-14</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">5.技能</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/5-%E6%8A%80%E8%83%BD/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/8771fa557483c55100f75a0c7ea064177b136ea1/" class="post-meta-item leancloud_visitors" data-flag-title="Retrofit 的使用" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/8771fa557483c55100f75a0c7ea064177b136ea1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/8771fa557483c55100f75a0c7ea064177b136ea1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>12k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>11 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+    <meta name="referrer" content="no-referrer"/>
+        <blockquote>
+<p>原文地址 <a
+target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000021628790">segmentfault.com</a></p>
+</blockquote>
+<h2 id="retrofit-简介">Retrofit 简介</h2>
+<p>Retrofit 是一个在 Android 开发中非常流行的网络框架，底层依赖 OkHttp。
+Retrofit 和 OkHttp 都出自 Square 的技术团队。</p>
+<p>Retrofit 的 GitHub 地址</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="comment">//github.com/square/retrofit</span></span><br></pre></td></tr></table></figure></div>
+<p>应用程序通过 Retrofit 请求网络，实际上是使用 Retrofit 接口层封装
+==Header、URL、请求参数==等信息，之后由 OkHttp
+完成后续的请求操作，在服务端返回数据之后， OkHttp 将原始的结果交给
+Retrofit, Retrofit 再根据用户的需求==对结果进行解析==的过程。</p>
+<p>Retrofit 支持大多数的 Http 方法。
+<!--SR:!2022-11-16,8,250!2022-11-18,10,250--></p>
+<p><strong>Retrofit 的特点如下：</strong></p>
+<ol type="1">
+<li>Retrofit 是可插拔的，允许不同的执行机制及其库用于执行 http
+调用。允许 API
+请求，与应用程序其余部分中任何现有线程模型或任务框架无缝组合。</li>
+</ol>
+<p>Retrofit 为常见的框架提供了适配器 (Adapter):</p>
+<ul>
+<li>RxJaval.x Observable &amp; Single -
+com.squareup.retrofit2:adapter-rxjava</li>
+<li>RxJava2.x Observable, Flowable, Single, Completable &amp; Maybe -
+com.squareup.retrofit2:adapter-rxjava2</li>
+<li>Guava ListenableFuture - com.squareup.retrofit2:adapter-guava</li>
+<li>Java 8 CompletableFuture - com.squareup.retrofit2:adapter-java8</li>
+</ul>
+<ol start="2" type="1">
+<li>）允许不同的序列化格式及其库，用于将 Java 类型转换为其 http
+表示形式，并将 http 实体解析为 Java 类型。</li>
+</ol>
+<p>Retrofit 为常见的序列化格式提供了转换器 (Converter):</p>
+<ul>
+<li>Gson: com.squareup.retrofit2:converter-gson</li>
+<li>Jackson: com.squareup.retrofit2:converter-jackson</li>
+<li>Moshi: com.squareup.retrofit2:converter-moshi</li>
+<li>Protobuf: com.squareup.retrofit2:converter-protobuf</li>
+<li>Wire: com.squareup.retrofit2:converter-wire</li>
+<li>Simple XML: com.squareup.retrofit2:converter-simplexml</li>
+<li>Scalars (primitives, boxed, and String):
+com.squareup.retrofit2:converter-scalars</li>
+</ul>
+<p>开源社区也己经为其他库和序列化格式创建了各种第三方转换器
+(Converter):</p>
+<ul>
+<li>LoganSquare -
+com.github.aurae.retrofit2:converter-logansquare:1.4.1</li>
+<li>FastJson - org.ligboy.retrofit2:converter-fastjson:2.1.0 和
+org.ligboy.retrofit2:converter-fastjson-android:2.1.0</li>
+</ul>
+<p>OkHttp 的特点如下：</p>
+<ul>
+<li>支持 HTTP2/SPDY 黑科技</li>
+<li>socket 自动选择最优路线，并支持自动重连。</li>
+<li>拥有自动维护的 socket 连接池，减少握手次数</li>
+<li>拥有队列线程池，轻松写并发</li>
+<li>拥有 Interceptors 轻松处理请求与响应（比如透明 GZIP 压缩、
+LOGGING）</li>
+<li>基于 Headers 的缓存策略。</li>
+</ul>
+<h2 id="retrofit-与-rxjava-的完美配合">Retrofit 与 RxJava
+的完美配合</h2>
+<p>Retrofit 是一个网络框架，如果想尝试响应式的编程方式，则可以结合
+RxJava 一起使用。Retrofit 对 RxJava1 和 RxJava2 都提供了 Adapter。</p>
+<p>案例：将苏州市南门地区的 PM2.5、PM10、SO2 的数据展示到 App 上。
+pm25.in
+是一个公益性的网站，免费提供空气质量数据。在调用这些接口之前，<br />
+需要去该网站注册，并申请一个 AppKey</p>
+<p>Retrofit 使用步骤如下：</p>
+<h3 id="添加-retrofit-依赖">1. 添加 Retrofit 依赖</h3>
+<p>在 App 的 build.gradle 中添加所需要的 Retrofit 库，以及 RxJava2 的
+adapter 库。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">implementation <span class="string">&#x27;com.squareup.retrofit2:retrofit:2.7.1&#x27;</span></span><br><span class="line">implementation <span class="string">&#x27;com.squareup.retrofit2:adapter-rxjava2:2.7.1&#x27;</span></span><br><span class="line">implementation <span class="string">&#x27;org.ligboy.retrofit2:converter-fastjson-android:2.1.0&#x27;</span></span><br><span class="line">implementation <span class="string">&quot;com.squareup.okhttp3:logging-interceptor:4.3.1&quot;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="创建-retrofitmanager">2. 创建 RetrofitManager</h3>
+<p>一般需要创建 Retrofit 管理类，在这里创建一个名为 RetrofitManager
+类，方便在<br />
+整个 App 中使用。</p>
+<p>RetrofitManager 代码如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RetrofitManager</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Retrofit retrofit;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Retrofit <span class="title function_">retrofit</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (retrofit == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="type">HttpLoggingInterceptor</span> <span class="variable">loggingInterceptor</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HttpLoggingInterceptor</span>()</span><br><span class="line">                    .setLevel(HttpLoggingInterceptor.Level.BASIC);</span><br><span class="line"></span><br><span class="line">            <span class="type">OkHttpClient</span> <span class="variable">okHttpClient</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">OkHttpClient</span>.Builder()</span><br><span class="line">                    .writeTimeout(<span class="number">30_1000</span>, TimeUnit.MILLISECONDS)</span><br><span class="line">                    .readTimeout(<span class="number">20_1000</span>, TimeUnit.MILLISECONDS)</span><br><span class="line">                    .connectTimeout(<span class="number">15_1000</span>, TimeUnit.MILLISECONDS)</span><br><span class="line">                    .addInterceptor(loggingInterceptor)</span><br><span class="line">                    .build();</span><br><span class="line"></span><br><span class="line">            retrofit = <span class="keyword">new</span> <span class="title class_">Retrofit</span>.Builder()</span><br><span class="line">                    .baseUrl(APIService.API_BASE_SERVER_URL)</span><br><span class="line">                    .addConverterFactory(FastJsonConverterFactory.create())</span><br><span class="line">                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())</span><br><span class="line">                    .client(okHttpClient)</span><br><span class="line">                    .build();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> retrofit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h3 id="创建-apiservice">3. 创建 APIService</h3>
+<p>接下来，我们需要定义网络请求的接口。 pm25.in
+提供了多个获取空气质量数据的接口，这里选取其中 3
+个接口，分别是获取一个城市所有监测点的 PM2.5
+数据、获取一个城市所有监测点的 PM10 数据、获取一个城市所有监测点的 SO2
+数据接口。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">APIService</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">API_BASE_SERVER_URL</span> <span class="operator">=</span> <span class="string">&quot;http://www.pm25.in/&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GET(&quot;api/querys/pm2_5.json&quot;)</span></span><br><span class="line">    Maybe&lt;List&lt;PM25Model&gt;&gt; <span class="title function_">pm25</span><span class="params">(<span class="meta">@Query(&quot;city&quot;)</span> String city, <span class="meta">@Query(&quot;token&quot;)</span> String token)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GET(&quot;api/querys/pm10.json&quot;)</span></span><br><span class="line">    Maybe&lt;List&lt;PM10Model&gt;&gt; <span class="title function_">pm10</span><span class="params">(<span class="meta">@Query(&quot;city&quot;)</span> String city, <span class="meta">@Query(&quot;token&quot;)</span> String token)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GET(&quot;api/querys/so2.json&quot;)</span></span><br><span class="line">    Maybe&lt;List&lt;SO2Model&gt;&gt; <span class="title function_">so2</span><span class="params">(<span class="meta">@Query(&quot;city&quot;)</span> String city, <span class="meta">@Query(&quot;token&quot;)</span> String token)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>在 APIService 中，每个方法返回的类型都是 Maybe 类型，其实也可以返回
+Observable、Flowable 等类型。</p>
+<h3 id="retrofit-的使用">4. Retrofit 的使用</h3>
+<p>下面的代码分别调用了 3 个接口，井过滤出了南门地区的相关数据。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">APIService</span> <span class="variable">apiService</span> <span class="operator">=</span> RetrofitManager.retrofit().create(APIService.class);</span><br><span class="line"></span><br><span class="line">apiService.pm25(Constant.CITY, Constant.TOKEN)</span><br><span class="line">        .compose(RxJavaUtils.&lt;List&lt;PM25Model&gt;&gt;maybeToMain())</span><br><span class="line">        .filter(<span class="keyword">new</span> <span class="title class_">Predicate</span>&lt;List&lt;PM25Model&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">test</span><span class="params">(List&lt;PM25Model&gt; pm25Models)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                <span class="keyword">return</span> pm25Models != <span class="literal">null</span> &amp;&amp; !pm25Models.isEmpty();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .flatMap(<span class="keyword">new</span> <span class="title class_">Function</span>&lt;List&lt;PM25Model&gt;, MaybeSource&lt;PM25Model&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> MaybeSource&lt;PM25Model&gt; <span class="title function_">apply</span><span class="params">(List&lt;PM25Model&gt; pm25Models)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                <span class="keyword">for</span> (PM25Model pm25Model : pm25Models) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (<span class="string">&quot;南门&quot;</span>.equals(pm25Model.position_name)) &#123;</span><br><span class="line">                        <span class="keyword">return</span> Maybe.just(pm25Model);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .subscribe(<span class="keyword">new</span> <span class="title class_">Consumer</span>&lt;PM25Model&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">accept</span><span class="params">(PM25Model pm25Model)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                Log.d(TAG, <span class="string">&quot;PM25.Success-&gt; &quot;</span> + pm25Model);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="keyword">new</span> <span class="title class_">Consumer</span>&lt;Throwable&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">accept</span><span class="params">(Throwable throwable)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                Log.d(TAG, <span class="string">&quot;PM25.Error-&gt; &quot;</span> + throwable);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">apiService.pm10(Constant.CITY, Constant.TOKEN)</span><br><span class="line">        .compose(RxJavaUtils.&lt;List&lt;PM10Model&gt;&gt;maybeToMain())</span><br><span class="line">        .filter(<span class="keyword">new</span> <span class="title class_">Predicate</span>&lt;List&lt;PM10Model&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">test</span><span class="params">(List&lt;PM10Model&gt; pm10Models)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                <span class="keyword">return</span> pm10Models != <span class="literal">null</span> &amp;&amp; !pm10Models.isEmpty();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .flatMap(<span class="keyword">new</span> <span class="title class_">Function</span>&lt;List&lt;PM10Model&gt;, MaybeSource&lt;PM10Model&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> MaybeSource&lt;PM10Model&gt; <span class="title function_">apply</span><span class="params">(List&lt;PM10Model&gt; pm10Models)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                <span class="keyword">for</span> (PM10Model pm10Model : pm10Models) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (<span class="string">&quot;南门&quot;</span>.equals(pm10Model.position_name)) &#123;</span><br><span class="line">                        <span class="keyword">return</span> Maybe.just(pm10Model);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .subscribe(<span class="keyword">new</span> <span class="title class_">Consumer</span>&lt;PM10Model&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">accept</span><span class="params">(PM10Model pm10Model)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                Log.d(TAG, <span class="string">&quot;PM10.Success-&gt; &quot;</span> + pm10Model);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="keyword">new</span> <span class="title class_">Consumer</span>&lt;Throwable&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">accept</span><span class="params">(Throwable throwable)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                Log.d(TAG, <span class="string">&quot;PM10.Error-&gt; &quot;</span> + throwable);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">apiService.so2(Constant.CITY, Constant.TOKEN)</span><br><span class="line">        .compose(RxJavaUtils.&lt;List&lt;SO2Model&gt;&gt;maybeToMain())</span><br><span class="line">        .filter(<span class="keyword">new</span> <span class="title class_">Predicate</span>&lt;List&lt;SO2Model&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">test</span><span class="params">(List&lt;SO2Model&gt; so2Models)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                <span class="keyword">return</span> so2Models != <span class="literal">null</span> &amp;&amp; !so2Models.isEmpty();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .flatMap(<span class="keyword">new</span> <span class="title class_">Function</span>&lt;List&lt;SO2Model&gt;, MaybeSource&lt;SO2Model&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> MaybeSource&lt;SO2Model&gt; <span class="title function_">apply</span><span class="params">(List&lt;SO2Model&gt; so2Models)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                <span class="keyword">for</span> (SO2Model so2Model : so2Models) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (<span class="string">&quot;南门&quot;</span>.equals(so2Model.position_name)) &#123;</span><br><span class="line">                        <span class="keyword">return</span> Maybe.just(so2Model);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .subscribe(<span class="keyword">new</span> <span class="title class_">Consumer</span>&lt;SO2Model&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">accept</span><span class="params">(SO2Model so2Model)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                Log.d(TAG, <span class="string">&quot;SO2.Error-&gt; &quot;</span> + so2Model);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="keyword">new</span> <span class="title class_">Consumer</span>&lt;Throwable&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">accept</span><span class="params">(Throwable throwable)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                Log.d(TAG, <span class="string">&quot;SO2.Error-&gt; &quot;</span> + throwable);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure></div>
+<p>这里还使用了 maybeToMain() 方法，它的代码如下：</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JvmStatic</span></span><br><span class="line">fun &lt;T&gt; maybeToMain(): MaybeTransformer&lt;T, T&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> MaybeTransformer &#123; upstream -&gt;</span><br><span class="line">        upstream.subscribeOn(Schedulers.io())</span><br><span class="line">            .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>它用于切换线程，返回 MaybeTransformer 对象。因为 apiService
+中每个返回的方法都是<br />
+Maybe 类型，所以这里会用到 MaybeTransformer 。使用了 maybeToMain() 后
+，除网络请求是在<br />
+io() 线程中运行外，其余的操作都是在主线程中运行的.</p>
+<p>也可以让 filter、 flatMap 操作也在 io()
+线程中运行，展示数据时才切换回主线程。</p>
+<h3 id="常见使用场景">5. 常见使用场景</h3>
+<p>接下来列举一些 Retrofit 其余常见的使用场景。</p>
+<ol type="1">
+<li><strong>合并多个网络请求</strong></li>
+</ol>
+<p>如：需要在某一个信息流列表中插入多条广告，每一条广告都需要做一次网络请求。这时就可以考虑使用
+zip
+操作符，将请求信息流，以及请求的多个广告的请求合并起来，等所有请求完成之后，再用合并函数将广告插到信息流固定的位置上，最后以列表的形式呈现给用户。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">APIService</span> <span class="variable">apiService</span> <span class="operator">=</span> RetrofitManager.retrofit().create(APIService.class);</span><br><span class="line"></span><br><span class="line">Maybe&lt;PM25Model&gt; pm25ModelMaybe = apiService.pm25(Constant.CITY, Constant.TOKEN)</span><br><span class="line">        .compose(RxJavaUtils.&lt;List&lt;PM25Model&gt;&gt;maybeToMain())</span><br><span class="line">        .filter(<span class="keyword">new</span> <span class="title class_">Predicate</span>&lt;List&lt;PM25Model&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">test</span><span class="params">(List&lt;PM25Model&gt; pm25Models)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                <span class="keyword">return</span> pm25Models != <span class="literal">null</span> &amp;&amp; !pm25Models.isEmpty();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .flatMap(<span class="keyword">new</span> <span class="title class_">Function</span>&lt;List&lt;PM25Model&gt;, MaybeSource&lt;PM25Model&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> MaybeSource&lt;PM25Model&gt; <span class="title function_">apply</span><span class="params">(List&lt;PM25Model&gt; pm25Models)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                <span class="keyword">for</span> (PM25Model pm25Model : pm25Models) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (<span class="string">&quot;南门&quot;</span>.equals(pm25Model.position_name)) &#123;</span><br><span class="line">                        <span class="keyword">return</span> Maybe.just(pm25Model);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">Maybe&lt;PM10Model&gt; pm10ModelMaybe = apiService.pm10(Constant.CITY, Constant.TOKEN)</span><br><span class="line">        .compose(RxJavaUtils.&lt;List&lt;PM10Model&gt;&gt;maybeToMain())</span><br><span class="line">        .filter(<span class="keyword">new</span> <span class="title class_">Predicate</span>&lt;List&lt;PM10Model&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">test</span><span class="params">(List&lt;PM10Model&gt; pm10Models)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                <span class="keyword">return</span> pm10Models != <span class="literal">null</span> &amp;&amp; !pm10Models.isEmpty();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .flatMap(<span class="keyword">new</span> <span class="title class_">Function</span>&lt;List&lt;PM10Model&gt;, MaybeSource&lt;PM10Model&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> MaybeSource&lt;PM10Model&gt; <span class="title function_">apply</span><span class="params">(List&lt;PM10Model&gt; pm10Models)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                <span class="keyword">for</span> (PM10Model pm10Model : pm10Models) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (<span class="string">&quot;南门&quot;</span>.equals(pm10Model.position_name)) &#123;</span><br><span class="line">                        <span class="keyword">return</span> Maybe.just(pm10Model);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">Maybe&lt;SO2Model&gt; so2ModelMaybe = apiService.so2(Constant.CITY, Constant.TOKEN)</span><br><span class="line">        .compose(RxJavaUtils.&lt;List&lt;SO2Model&gt;&gt;maybeToMain())</span><br><span class="line">        .filter(<span class="keyword">new</span> <span class="title class_">Predicate</span>&lt;List&lt;SO2Model&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">test</span><span class="params">(List&lt;SO2Model&gt; so2Models)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                <span class="keyword">return</span> so2Models != <span class="literal">null</span> &amp;&amp; !so2Models.isEmpty();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .flatMap(<span class="keyword">new</span> <span class="title class_">Function</span>&lt;List&lt;SO2Model&gt;, MaybeSource&lt;SO2Model&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> MaybeSource&lt;SO2Model&gt; <span class="title function_">apply</span><span class="params">(List&lt;SO2Model&gt; so2Models)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                <span class="keyword">for</span> (SO2Model so2Model : so2Models) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (<span class="string">&quot;南门&quot;</span>.equals(so2Model.position_name)) &#123;</span><br><span class="line">                        <span class="keyword">return</span> Maybe.just(so2Model);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Maybe.zip(pm25ModelMaybe, pm10ModelMaybe, so2ModelMaybe, <span class="keyword">new</span> <span class="title class_">Function3</span>&lt;PM25Model, PM10Model, SO2Model, ZipObject&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> ZipObject <span class="title function_">apply</span><span class="params">(PM25Model pm25Model, PM10Model pm10Model, SO2Model so2Model)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        Log.d(TAG, <span class="string">&quot;zip-&gt; \r\n&quot;</span> + pm25Model + <span class="string">&quot;\r\n&quot;</span> + pm10Model + <span class="string">&quot;\r\n&quot;</span> + so2Model);</span><br><span class="line">        <span class="type">ZipObject</span> <span class="variable">zipObject</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ZipObject</span>();</span><br><span class="line"></span><br><span class="line">        zipObject.pm2_5 = pm25Model.pm2_5;</span><br><span class="line">        zipObject.pm2_5_24h = pm25Model.pm2_5_24h;</span><br><span class="line">        zipObject.pm2_5_quality = pm25Model.quality;</span><br><span class="line"></span><br><span class="line">        zipObject.pm10 = pm10Model.pm10;</span><br><span class="line">        zipObject.pm10_24h = pm10Model.pm10_24h;</span><br><span class="line"></span><br><span class="line">        zipObject.so2 = so2Model.so2;</span><br><span class="line">        zipObject.so2_24h = so2Model.so2_24h;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> zipObject;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).subscribe(<span class="keyword">new</span> <span class="title class_">Consumer</span>&lt;ZipObject&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">accept</span><span class="params">(ZipObject zipObject)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        Log.d(TAG, <span class="string">&quot;Success-&gt; &quot;</span> + zipObject);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="keyword">new</span> <span class="title class_">Consumer</span>&lt;Throwable&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">accept</span><span class="params">(Throwable throwable)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        Log.d(TAG, <span class="string">&quot;Error-&gt; &quot;</span> + throwable);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+<ol start="2" type="1">
+<li><strong>返回默认值</strong></li>
+</ol>
+<p>有时, 网络请求失败可以使用 onErrorReturn 操作符,
+一个空的对象作为默认值。</p>
+<ol start="3" type="1">
+<li><strong>多个网络请求嵌套使用</strong></li>
+</ol>
+<p>若是 A 请求完成之后，才能去调用 B 请求，则可以考虑使用 flatMap
+操作符。</p>
+<ol start="4" type="1">
+<li><strong>重试机制</strong></li>
+</ol>
+<p>对于一些重要的接口，需要采用重试机制。因为有些时候用户的网络环境比较差，第一次请求接口超时了，那么再一次请求可能就会成功。虽然有一定的延时，但至少返回了数据，保证了用户体验。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="JAVA"><figure class="iseeu highlight /java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apiService.loadContent(params)</span><br><span class="line">        .retryWhen(<span class="keyword">new</span> <span class="title class_">RetryWithDelay</span>(<span class="number">3</span>, <span class="number">1000</span>));</span><br></pre></td></tr></table></figure></div>
+<p>在这里 retryWhen 操作符与 RetryWithDelay 一起搭配使用，表示有 3
+次重试机会，每次的延迟时间是 1000ms。 RetryWithDelay 是一个工具类，使用
+kotlin 语言编写。</p>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="KOTLIN"><figure class="iseeu highlight /kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">RetryWithDelay</span>(</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> maxRetries: <span class="built_in">Int</span>,</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> retryDelayMillis: <span class="built_in">Int</span></span><br><span class="line">) : Function&lt;Flowable&lt;<span class="keyword">out</span> Throwable&gt;, Publisher&lt;*&gt;&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> retryCount: <span class="built_in">Int</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">init</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.retryCount = <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">apply</span><span class="params">(attempts: <span class="type">Flowable</span>&lt;<span class="type">out</span> <span class="type">Throwable</span>&gt;)</span></span>: Publisher&lt;*&gt; &#123;</span><br><span class="line">        <span class="keyword">return</span> attempts.flatMap &#123; throwable -&gt;</span><br><span class="line">            <span class="keyword">if</span> (++retryCount &lt;= maxRetries) &#123;</span><br><span class="line">                Flowable.timer(retryDelayMillis.toLong(), TimeUnit.MILLISECONDS)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                Flowable.error(throwable)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="qiaogaojian 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="qiaogaojian 支付宝">
+        <span>支付宝</span>
+      </div>
+      <div>
+        <img src="/images/bitcoin.png" alt="qiaogaojian 比特币">
+        <span>比特币</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/srcard/" rel="tag"><i class="fa fa-tag"></i> srcard</a>
+              <a href="/tags/android/" rel="tag"><i class="fa fa-tag"></i> android</a>
+              <a href="/tags/rxjava/" rel="tag"><i class="fa fa-tag"></i> rxjava</a>
+              <a href="/tags/retrofit/" rel="tag"><i class="fa fa-tag"></i> retrofit</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/27281cf24631a2d2dd870e4d71da1804018c315f/" rel="prev" title="常用 LaTeX 公式符号">
+                  <i class="fa fa-chevron-left"></i> 常用 LaTeX 公式符号
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/799d5e4c35595743aaac52034a738a7e954c720e/" rel="next" title="Learn Regex the Easy Way">
+                  Learn Regex the Easy Way <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">qiaogaojian</span>
+</div>
+<div class="busuanzi-count">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+</div>
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+
+<span id="timeDate">载入天数...</span>
+<script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/01/2016 19:00:00"); //在此处修改你的建站时间
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 " + hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+        // document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+setInterval("createtime()",250);
+</script>
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  const url = element.dataset.target;
+  const pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  const pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  const fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script>
+if (document.querySelectorAll('.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8.7.0/dist/mermaid.min.js', () => {
+    mermaid.init({
+      theme    : 'dark',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    }, '.mermaid');
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/8771fa557483c55100f75a0c7ea064177b136ea1/",
+    }, {"enable":true,"appId":"waBo9VOFFCiurlsGpdJsWVUv-gzGzoHsz","appKey":"d3kQWAKtnshFxkzHG3iu6wvB","placeholder":"要不说点啥?","avatar":"mm","meta":["nick","mail"],"pageSize":10,"lang":null,"visitor":true,"comment_count":true,"recordIP":true,"serverURLs":null,"enableQQ":false,"requiredFields":["nick"]}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":210,"height":360},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
