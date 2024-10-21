@@ -1,0 +1,2582 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>深度学习 | 胖哥智创笔记</title>
+  <meta name="keywords" content=" srcard , 技能 , AI , What ">
+  <meta name="description" content="深度学习 | 胖哥智创笔记">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="https://qiaogaojian.github.io/categories/index.html">
+<meta property="og:site_name" content="胖哥智创笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-28T09:08:22.000Z">
+<meta property="article:modified_time" content="2022-10-09T04:33:58.444Z">
+<meta property="article:author" content="胖哥智创笔记">
+<meta property="article:tag" content="Math,数学,Calculus,微积分,Linear Algebra,线性代数,Computer Science,计算机原理,编程,设计模式,计算机网络,计算机图形学,Computer Graphics,Unity,Unity3d,CG,HLSL,OpenGL,C#,Android,Java,GameFramework,ML,Shader,Golang,Go,Asm,Adb,BlockChain,VSCode,Web,Tools,PHP,Ubuntu,ThinkPHP,MySql,Sqlite,重构,Windows,Win10,Git,Mac,Linux,树莓派,VS,AS,Android Studio,PhpStorm,PyCharm,Vim,Rider,Jupyter,Kali,Js,JavaScript,Hexo,3dMax,Maya,Zbrush,汇编,游戏设计,Roguelike,Roguelite,地图生成,技能,FSM,NGUI,UGUI,UV,法线,光照,后端,Html,Css,C语言,C++,Python,机器学习,信息安全,操作系统,IDE,工具,效率,VR,AR,BitCoin,Eos,数据结构,算法,排序,查找,Leetcode,RoadMap,Tips,Trick,Bug,BestPratice,Tutorial,Tao​">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>胖哥智创笔记</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/qiaogaojian"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:1281208053@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=1281208053&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+    <a class="more-menus">更多菜单</a>
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(77)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="2.工作">
+            <i class="fold iconfont icon-right"></i>
+            2.工作
+            <small>(1)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="2.工作&lt;---&gt;环境">
+            
+            环境
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="3.项目">
+            
+            3.项目
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="4.理论">
+            <i class="fold iconfont icon-right"></i>
+            4.理论
+            <small>(8)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="4.理论&lt;---&gt;管理学">
+            <i class="fold iconfont icon-right"></i>
+            管理学
+            <small>(5)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="4.理论&lt;---&gt;管理学&lt;---&gt;思维模型">
+            
+            思维模型
+            <small>(5)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="4.理论&lt;---&gt;计算机">
+            <i class="fold iconfont icon-right"></i>
+            计算机
+            <small>(3)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="4.理论&lt;---&gt;计算机&lt;---&gt;软件工程">
+            <i class="fold iconfont icon-right"></i>
+            软件工程
+            <small>(1)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="4.理论&lt;---&gt;计算机&lt;---&gt;软件工程&lt;---&gt;架构">
+            
+            架构
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="4.理论&lt;---&gt;计算机&lt;---&gt;体系结构">
+            
+            体系结构
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="4.理论&lt;---&gt;计算机&lt;---&gt;图形学">
+            <i class="fold iconfont icon-right"></i>
+            图形学
+            <small>(1)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="4.理论&lt;---&gt;计算机&lt;---&gt;图形学&lt;---&gt;OpenGL">
+            
+            OpenGL
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="5.技能">
+            <i class="fold iconfont icon-right"></i>
+            5.技能
+            <small>(40)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;编程语言">
+            <i class="fold iconfont icon-right"></i>
+            编程语言
+            <small>(15)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;编程语言&lt;---&gt;CSharp">
+            
+            CSharp
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;编程语言&lt;---&gt;Go">
+            
+            Go
+            <small>(3)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;编程语言&lt;---&gt;Javascript">
+            
+            Javascript
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;编程语言&lt;---&gt;Python">
+            
+            Python
+            <small>(9)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;问题记录">
+            
+            问题记录
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;AI">
+            <i class="fold iconfont icon-right"></i>
+            AI
+            <small>(5)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;AI&lt;---&gt;_What_">
+            
+            _What_
+            <small>(3)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;AI&lt;---&gt;Agent">
+            
+            Agent
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;Android">
+            
+            Android
+            <small>(9)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;English">
+            <i class="fold iconfont icon-right"></i>
+            English
+            <small>(1)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;English&lt;---&gt;语法">
+            
+            语法
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;Learn">
+            
+            Learn
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;Server">
+            <i class="fold iconfont icon-right"></i>
+            Server
+            <small>(2)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;Server&lt;---&gt;MySql">
+            
+            MySql
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;Server&lt;---&gt;Node">
+            
+            Node
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;Unity3d">
+            <i class="fold iconfont icon-right"></i>
+            Unity3d
+            <small>(6)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;Unity3d&lt;---&gt;book">
+            
+            book
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="6.工具">
+            <i class="fold iconfont icon-right"></i>
+            6.工具
+            <small>(23)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;开发">
+            <i class="fold iconfont icon-right"></i>
+            开发
+            <small>(18)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;开发&lt;---&gt;开发环境">
+            
+            开发环境
+            <small>(11)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;开发&lt;---&gt;Git">
+            
+            Git
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;开发&lt;---&gt;Regex">
+            
+            Regex
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;开发&lt;---&gt;Vim">
+            
+            Vim
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;开发&lt;---&gt;VSCode">
+            
+            VSCode
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;系统">
+            <i class="fold iconfont icon-right"></i>
+            系统
+            <small>(2)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;系统&lt;---&gt;Win">
+            
+            Win
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;效率">
+            <i class="fold iconfont icon-right"></i>
+            效率
+            <small>(3)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;效率&lt;---&gt;Hexo">
+            
+            Hexo
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;效率&lt;---&gt;Obsidian">
+            
+            Obsidian
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;效率&lt;---&gt;Syncthing">
+            
+            Syncthing
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="9.输出">
+            <i class="fold iconfont icon-right"></i>
+            9.输出
+            <small>(4)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="9.输出&lt;---&gt;hexo">
+            <i class="fold iconfont icon-right"></i>
+            hexo
+            <small>(4)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="9.输出&lt;---&gt;hexo&lt;---&gt;deep">
+            
+            deep
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+                <a class="dynamic-menu "
+                   target="_self"
+                   
+                   href="/">关于</a>
+        
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="77">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>编程语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>工具</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>工作</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>管理学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>规范</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>环境</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计算机</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>技能</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>架构</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>开发</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>开发环境</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>快捷键</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>理论</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>软件工程</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>输出</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>思维模型</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>体系结构</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>图形学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>问题记录</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>项目</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>效率</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>语法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>组件化</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Agent</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>AI</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>android</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Android</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>basis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>book</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>config</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cpp</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cs</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>csharp</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>CSharp</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>deep</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>deepin</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>english</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>English</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>env</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>go</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Go</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>gradle</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>hexo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hexo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>javascript</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Javascript</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>latex</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>learn</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Learn</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>markdown</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>mscv</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>mysql</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MySql</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>n</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>node</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Node</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>npm</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>obsidian</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Obsidian</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>opengl</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>OpenGL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>regex</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Regex</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>retrofit</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>rxandroid</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>rxbinding</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>rxjava</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>rxlifecycle</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Server</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>shell</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>sql</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>srcard</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>style</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>syncthing</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Syncthing</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>test</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tool</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>top</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>unity3d</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Unity3d</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>vim</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Vim</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>vscode</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>VSCode</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>What</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Win</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>win10</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>yarn</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a id="top" class="全部文章 3.项目 "
+           href="/48cba7df394713ef7042a6d6c04cfeb93f3c84f1/"
+           data-tag="项目,top"
+           data-author="" >
+            <span class="post-title" title="3.项目">3.项目</span>
+            <span class="post-date" title="2023-11-21 13:42:55">2023/11/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 AI _What_ "
+           href="/38911668d1da61e6415647f5351ec4c01264ce08/"
+           data-tag="srcard,技能,AI,What"
+           data-author="" >
+            <span class="post-title" title="深度学习">深度学习</span>
+            <span class="post-date" title="2024-10-21 15:12:17">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 AI _What_ "
+           href="/680c5f7edbd20209e79342da1e623487b3ecf05b/"
+           data-tag="技能,AI,What"
+           data-author="" >
+            <span class="post-title" title="强化学习">强化学习</span>
+            <span class="post-date" title="2024-10-21 15:12:17">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 AI _What_ "
+           href="/f59dc0843ba2cddc8c7409a245020b5ffc968a3e/"
+           data-tag="srcard,技能,AI,What"
+           data-author="" >
+            <span class="post-title" title="深度强化学习">深度强化学习</span>
+            <span class="post-date" title="2024-10-21 15:12:17">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 4.理论 管理学 思维模型 "
+           href="/2226f70015dd8e1ec71a3ec64d1c4697b165837e/"
+           data-tag="管理学,理论,思维模型"
+           data-author="" >
+            <span class="post-title" title="如何提升团队效率：从KPI到OKR">如何提升团队效率：从KPI到OKR</span>
+            <span class="post-date" title="2024-10-21 14:07:26">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 4.理论 管理学 思维模型 "
+           href="/33b554ce4b2cbf4f9aa0ad6ef61e86675e7a6570/"
+           data-tag="管理学,理论,思维模型"
+           data-author="" >
+            <span class="post-title" title="如何制定战略：SWOT分析">如何制定战略：SWOT分析</span>
+            <span class="post-date" title="2024-10-21 14:07:26">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 4.理论 管理学 思维模型 "
+           href="/7d073a1d80eac89ad730ec04c68ec60bc21c8cfe/"
+           data-tag="管理学,理论,思维模型"
+           data-author="" >
+            <span class="post-title" title="如何持续改进：PDCA循环">如何持续改进：PDCA循环</span>
+            <span class="post-date" title="2024-10-21 14:07:26">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 4.理论 管理学 思维模型 "
+           href="/f1c16b87d445c7a5070c2a41b214b3a13e3725e4/"
+           data-tag="管理学,理论,思维模型"
+           data-author="" >
+            <span class="post-title" title="如何制定目标：SMART原则">如何制定目标：SMART原则</span>
+            <span class="post-date" title="2024-10-21 14:07:26">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 4.理论 管理学 思维模型 "
+           href="/56ceac342ced38fa8c34f59ac0f32bf320480c66/"
+           data-tag="管理学,理论,思维模型"
+           data-author="" >
+            <span class="post-title" title="如何分析问题：从2W1H到6W3H">如何分析问题：从2W1H到6W3H</span>
+            <span class="post-date" title="2024-10-21 12:08:54">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 AI Agent "
+           href="/121594f964295a7c04649f13b92a3efbb095d8cd/"
+           data-tag="技能,AI,Agent"
+           data-author="" >
+            <span class="post-title" title="AutoGen +Ollama  构建多智能体应用">AutoGen +Ollama  构建多智能体应用</span>
+            <span class="post-date" title="2024-08-22 20:01:04">2024/08/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 AI Agent "
+           href="/4a70d6bb9d15959bdceb5700c8cb347f1260ef3b/"
+           data-tag="技能,AI,Agent"
+           data-author="" >
+            <span class="post-title" title="Ollama + continue 实现本地 github copilot">Ollama + continue 实现本地 github copilot</span>
+            <span class="post-date" title="2024-08-22 20:01:04">2024/08/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 系统 Win "
+           href="/766e848ca44001ec01e58b6b5678e6a6aa1f2e7e/"
+           data-tag="工具,Win,系统"
+           data-author="" >
+            <span class="post-title" title="Windows 设置固定 IP 地址">Windows 设置固定 IP 地址</span>
+            <span class="post-date" title="2024-02-22 14:01:03">2024/02/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 系统 Win "
+           href="/c447e815541f626d9f66413da6c89bc53b25f493/"
+           data-tag="工具,srcard,Win,系统,win10"
+           data-author="" >
+            <span class="post-title" title="删除系统盘大文件">删除系统盘大文件</span>
+            <span class="post-date" title="2024-02-22 14:01:03">2024/02/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 问题记录 "
+           href="/940fa5d4c82596b1111053d70ed03ffbdcb792aa/"
+           data-tag="技能,android,问题记录"
+           data-author="" >
+            <span class="post-title" title="Android Databinding 报错 Index -1 out of bounds for length">Android Databinding 报错 Index -1 out of bounds for length</span>
+            <span class="post-date" title="2023-11-21 18:00:43">2023/11/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/1c2c8007ba1d6998692c4aaee9112ae8d0306be9/"
+           data-tag="srcard,Android,技能,android,rxjava,rxbinding"
+           data-author="" >
+            <span class="post-title" title="Android 第三方库 RxBinding 详解">Android 第三方库 RxBinding 详解</span>
+            <span class="post-date" title="2023-03-22 20:09:53">2023/03/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/4096cc1132208804f342eddfd720ed6cafe8a2d9/"
+           data-tag="srcard,Android,技能,android,rxjava,rxandroid"
+           data-author="" >
+            <span class="post-title" title="Android 第三方库 RxJava 和 RxAndroid">Android 第三方库 RxJava 和 RxAndroid</span>
+            <span class="post-date" title="2023-03-22 20:09:53">2023/03/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/a31b43851dd6c6ce45804f9ffd2e15b3c82d7d6a/"
+           data-tag="srcard,Android,技能,android,rxjava,rxlifecycle"
+           data-author="" >
+            <span class="post-title" title="Android 第三方库 RxLifecycle 使用详解">Android 第三方库 RxLifecycle 使用详解</span>
+            <span class="post-date" title="2023-03-22 20:09:53">2023/03/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/c822f5520df37779e7b590310ec2bdc3096b1604/"
+           data-tag="srcard,Android,技能,android,rxjava,retrofit"
+           data-author="" >
+            <span class="post-title" title="Android 第三方库 Retrofit 的使用">Android 第三方库 Retrofit 的使用</span>
+            <span class="post-date" title="2023-03-22 20:09:53">2023/03/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/28dd4828541f68e92120f55d44762989d0ad2a57/"
+           data-tag="srcard,Android,技能,android,组件化"
+           data-author="" >
+            <span class="post-title" title="Android 组件化 Application">Android 组件化 Application</span>
+            <span class="post-date" title="2023-03-21 18:54:45">2023/03/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/8abe118f14be78884377a6dfc907d6cf95994120/"
+           data-tag="srcard,Android,技能,android,组件化"
+           data-author="" >
+            <span class="post-title" title="Android 组件化 ARouter">Android 组件化 ARouter</span>
+            <span class="post-date" title="2023-03-21 18:54:45">2023/03/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/295d228c58beb58d3e477c857137241300856830/"
+           data-tag="工具,linux,开发,开发环境,shell"
+           data-author="" >
+            <span class="post-title" title="Fish 入门指南">Fish 入门指南</span>
+            <span class="post-date" title="2023-02-11 18:54:41">2023/02/11</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/bc518616254162513c0aac7de77d137853f3de88/"
+           data-tag="工具,开发,开发环境,srcard,deepin"
+           data-author="" >
+            <span class="post-title" title="Deepin Node 开发环境搭建">Deepin Node 开发环境搭建</span>
+            <span class="post-date" title="2023-02-05 17:37:22">2023/02/05</span>
+        </a>
+        
+        
+        <a  class="全部文章 2.工作 环境 "
+           href="/8ed3626f24d1fafe372135071b6d2bc66a7b7436/"
+           data-tag="linux,开发环境,deepin,工作,环境"
+           data-author="" >
+            <span class="post-title" title="开发环境">开发环境</span>
+            <span class="post-date" title="2023-02-02 11:30:21">2023/02/02</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Server MySql "
+           href="/dcc5087256bf04dfed9318c7f0a5de8bb5f26feb/"
+           data-tag="srcard,技能,Server,MySql,sql,mysql"
+           data-author="" >
+            <span class="post-title" title="MySQL 常用命令">MySQL 常用命令</span>
+            <span class="post-date" title="2023-01-31 17:18:06">2023/01/31</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/2ef9d9fd766df6d917f975a5f719d2bde502d33a/"
+           data-tag="srcard,Android,技能,android,gradle"
+           data-author="" >
+            <span class="post-title" title="Android Gradle 自定义插件">Android Gradle 自定义插件</span>
+            <span class="post-date" title="2022-11-29 19:06:08">2022/11/29</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Unity3d "
+           href="/44d4a3aec8e02e822e0b0bf4f23d8163f553c566/"
+           data-tag="srcard,技能,Unity3d,unity3d"
+           data-author="" >
+            <span class="post-title" title="Unity3d Sprite 和 UI Image 的区别">Unity3d Sprite 和 UI Image 的区别</span>
+            <span class="post-date" title="2022-11-25 19:17:14">2022/11/25</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Unity3d "
+           href="/7d7a52061d7af51fd67558debeb4fb9867018108/"
+           data-tag="srcard,技能,Unity3d,unity3d"
+           data-author="" >
+            <span class="post-title" title="Unity3d 的路径">Unity3d 的路径</span>
+            <span class="post-date" title="2022-11-25 19:17:14">2022/11/25</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Unity3d "
+           href="/b42efea08a2620b83a399d3125c240052c42e7f9/"
+           data-tag="srcard,技能,Unity3d,unity3d"
+           data-author="" >
+            <span class="post-title" title="Unity3d 的碰撞">Unity3d 的碰撞</span>
+            <span class="post-date" title="2022-11-25 19:17:14">2022/11/25</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Unity3d "
+           href="/cab1f2b2edb0ac557cd0412d335fefec51fe2f82/"
+           data-tag="技能,Unity3d"
+           data-author="" >
+            <span class="post-title" title="Unity3d 2048 核心算法讲解">Unity3d 2048 核心算法讲解</span>
+            <span class="post-date" title="2022-11-25 19:17:14">2022/11/25</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 CSharp "
+           href="/e3f1b0c8903a078fc6aada58622998f38fee328c/"
+           data-tag="srcard,技能,编程语言,CSharp,csharp"
+           data-author="" >
+            <span class="post-title" title="CSharp 中 enum 和 string int 互转">CSharp 中 enum 和 string int 互转</span>
+            <span class="post-date" title="2022-11-25 19:17:14">2022/11/25</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Unity3d "
+           href="/eb9132dd299a963a00655e0d826b2d76f66aabac/"
+           data-tag="srcard,技能,Unity3d,unity3d"
+           data-author="" >
+            <span class="post-title" title="Unity3d 的坐标">Unity3d 的坐标</span>
+            <span class="post-date" title="2022-11-25 19:17:14">2022/11/25</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/087ba0e81b444ff6f1e4245cd078a22652c2be2b/"
+           data-tag="srcard,Android,技能,android"
+           data-author="" >
+            <span class="post-title" title="Android 组件化">Android 组件化</span>
+            <span class="post-date" title="2022-11-18 07:29:21">2022/11/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 4.理论 计算机 软件工程 架构 "
+           href="/b5c94ee71c83595061907a47eace2c60e1cb444c/"
+           data-tag="srcard,android,理论,计算机,架构,软件工程"
+           data-author="" >
+            <span class="post-title" title="Android UI 架构演进：从 MVC 到 MVP、MVVM、MVI">Android UI 架构演进：从 MVC 到 MVP、MVVM、MVI</span>
+            <span class="post-date" title="2022-11-18 07:29:21">2022/11/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/2f541a5b90f26c46fb796140e663c803782106b1/"
+           data-tag="工具,开发,开发环境,srcard,config,style"
+           data-author="" >
+            <span class="post-title" title="主题颜色配置">主题颜色配置</span>
+            <span class="post-date" title="2022-11-12 03:27:34">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 VSCode "
+           href="/b36e0e8f3287754a39d573bb7b464ef6c2088a31/"
+           data-tag="工具,开发,tool,vscode,VSCode"
+           data-author="" >
+            <span class="post-title" title="VSCode 安装与配置">VSCode 安装与配置</span>
+            <span class="post-date" title="2022-11-12 03:27:34">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/044ea9df5bcf1e3efabeff79dd0bc4f3fc7ca80a/"
+           data-tag="工具,linux,开发,开发环境,shell"
+           data-author="" >
+            <span class="post-title" title="Fish 命令行工具">Fish 命令行工具</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 Vim "
+           href="/0bcf152ba2a980ab758748d8b52dfbb723686838/"
+           data-tag="工具,开发,srcard,vim,Vim"
+           data-author="" >
+            <span class="post-title" title="Vim 常用命令">Vim 常用命令</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 English 语法 "
+           href="/19ea4919882833bd8f9d4f7387366e849f91a24a/"
+           data-tag="srcard,技能,语法,english,English"
+           data-author="" >
+            <span class="post-title" title="英语语法">英语语法</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Javascript "
+           href="/17e01c6934b2ef66d2dbaeb39e3e651fedf22e34/"
+           data-tag="srcard,技能,javascript,编程语言,Javascript"
+           data-author="" >
+            <span class="post-title" title="JS == 和 === 的区别">JS == 和 === 的区别</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/1c49ae91b656f5d2caa0311bc6cfce64372e7f4e/"
+           data-tag="工具,开发,开发环境,srcard,n"
+           data-author="" >
+            <span class="post-title" title="N 常用命令">N 常用命令</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 效率 Obsidian "
+           href="/27281cf24631a2d2dd870e4d71da1804018c315f/"
+           data-tag="工具,srcard,latex,Obsidian,效率"
+           data-author="" >
+            <span class="post-title" title="常用 LaTeX 公式符号">常用 LaTeX 公式符号</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Go "
+           href="/21d813e79c3ecd509e540067546ff82d51254b80/"
+           data-tag="开发环境,srcard,技能,编程语言,Go,go"
+           data-author="" >
+            <span class="post-title" title="Go 开发环境搭建">Go 开发环境搭建</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Go "
+           href="/2dcb47ff2fb642a377d5e3d0977ac2d2433c94c3/"
+           data-tag="开发环境,srcard,技能,编程语言,Go,go,tool"
+           data-author="" >
+            <span class="post-title" title="goup- Elegant Go installer">goup- Elegant Go installer</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/293983b1ba374aae7708250721a2366501937648/"
+           data-tag="工具,开发,开发环境,srcard,python"
+           data-author="" >
+            <span class="post-title" title="Python 开发环境">Python 开发环境</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 Vim "
+           href="/3042b24ad887a189e62ff448ff184e52bffab3e9/"
+           data-tag="工具,开发,vim,Vim"
+           data-author="" >
+            <span class="post-title" title="vim 使用全局剪贴板">vim 使用全局剪贴板</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/3b4772e22e0b7c32dd35ae81cbe686a7e7df3307/"
+           data-tag="srcard,Android,技能,android,组件化"
+           data-author="" >
+            <span class="post-title" title="Android 组件化基础">Android 组件化基础</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Go "
+           href="/3de1de79eef0fa4c3dcd191d3471dba7c6c9d782/"
+           data-tag="开发环境,技能,编程语言,Go,go,规范"
+           data-author="" >
+            <span class="post-title" title="golang-standards-project-layout">golang-standards-project-layout</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 Git "
+           href="/4985d963fb644c7b84c923e1fae816af6e13f061/"
+           data-tag="工具,开发,srcard,Git,git"
+           data-author="" >
+            <span class="post-title" title="Git 常用命令">Git 常用命令</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 4.理论 计算机 体系结构 "
+           href="/470a5dfca1767e244348ef8f44fe8d57791fbc8d/"
+           data-tag="srcard,理论,体系结构,cs,计算机,basis"
+           data-author="" >
+            <span class="post-title" title="浮点数精度问题及解决方案">浮点数精度问题及解决方案</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 Regex "
+           href="/4a7e963d1a686f40b2a25a3cdd72859ef7705faf/"
+           data-tag="工具,开发,srcard,Regex,regex"
+           data-author="" >
+            <span class="post-title" title="Multi-line text search in VSCode">Multi-line text search in VSCode</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/6247ea938466aa6cf2f4294b94f808293af8326b/"
+           data-tag="srcard,技能,编程语言,python,Python"
+           data-author="" >
+            <span class="post-title" title="Python 修改 pip 源为国内镜像源">Python 修改 pip 源为国内镜像源</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/6d601709f7477b517baf2a678bf0221c6bd7e53c/"
+           data-tag="工具,开发,开发环境,node,npm"
+           data-author="" >
+            <span class="post-title" title="Npm 配置国内源">Npm 配置国内源</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 效率 Hexo "
+           href="/71f6d9657f3765736920778e47beb31bca7b24ee/"
+           data-tag="工具,效率,Hexo,hexo"
+           data-author="" >
+            <span class="post-title" title="Hexo Next主题添加访问量统计功能">Hexo Next主题添加访问量统计功能</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Learn "
+           href="/6e508ab096e0a186a795dd726f21fb8429c4186e/"
+           data-tag="srcard,技能,Learn,learn"
+           data-author="" >
+            <span class="post-title" title="打造一套知识笔记管理系统">打造一套知识笔记管理系统</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Server Node "
+           href="/783e6c1b8b76139f2840a078b9e9bd8817d41c3f/"
+           data-tag="srcard,技能,Server,Node,yarn"
+           data-author="" >
+            <span class="post-title" title="Yarn 简介">Yarn 简介</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 Regex "
+           href="/799d5e4c35595743aaac52034a738a7e954c720e/"
+           data-tag="工具,开发,srcard,Regex,regex"
+           data-author="" >
+            <span class="post-title" title="Learn Regex the Easy Way">Learn Regex the Easy Way</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/83ffdcf23d70b022afa1eb2f4d72b9d25fedffe3/"
+           data-tag="技能,编程语言,python,Python"
+           data-author="" >
+            <span class="post-title" title="深入浅出 python 闭包">深入浅出 python 闭包</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Unity3d book "
+           href="/85a8d7cf0061c7513eee1428d9cc967e890dd99c/"
+           data-tag="srcard,技能,Unity3d,book"
+           data-author="" >
+            <span class="post-title" title="Unity3D高级编程 主程手记">Unity3D高级编程 主程手记</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/8ae045022243ef5d9908e342c7c63a7c1c8c7951/"
+           data-tag="工具,开发,开发环境,srcard,Node,deepin"
+           data-author="" >
+            <span class="post-title" title="Node 开发环境搭建 Win10">Node 开发环境搭建 Win10</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 效率 Syncthing "
+           href="/983777fa8d6e26387aa399926786d604ff49cdb5/"
+           data-tag="工具,srcard,效率,Syncthing,syncthing"
+           data-author="" >
+            <span class="post-title" title="syncthing 如何移动同步仓库位置">syncthing 如何移动同步仓库位置</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/9907c57e67333c562c3494060e11a99492819663/"
+           data-tag="工具,开发,开发环境,srcard,npm"
+           data-author="" >
+            <span class="post-title" title="Npm 常用命令">Npm 常用命令</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/a1dcb051cc7db83c41b918e5988ea92fe6151d29/"
+           data-tag="srcard,技能,编程语言,python,Python"
+           data-author="" >
+            <span class="post-title" title="说说 Python 的命名规范">说说 Python 的命名规范</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/a3d6224e07f3c409b4249b2586771a47b6619562/"
+           data-tag="技能,编程语言,python,Python"
+           data-author="" >
+            <span class="post-title" title="Python Import module from different directory">Python Import module from different directory</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Javascript "
+           href="/a7dfacda4d5233de9201c42abc49d0f223c52099/"
+           data-tag="srcard,技能,编程语言,Javascript,node"
+           data-author="" >
+            <span class="post-title" title="Node child_process 多进程">Node child_process 多进程</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 4.理论 计算机 图形学 OpenGL "
+           href="/bdc8ce261b86b2dc4f472d991d541565885ab76f/"
+           data-tag="开发环境,理论,计算机,vscode,mscv,cpp,图形学,opengl,OpenGL"
+           data-author="" >
+            <span class="post-title" title="VSCode 使用 MSVC 编译器搭建 OpenGL 开发环境">VSCode 使用 MSVC 编译器搭建 OpenGL 开发环境</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 Git "
+           href="/c03df0ff2688939d6c5b13b71effd8499a69c17a/"
+           data-tag="工具,开发,srcard,Git,git"
+           data-author="" >
+            <span class="post-title" title="Git submodule 子模块的管理和使用">Git submodule 子模块的管理和使用</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/c2aa9ce5b53296bdbf24749de59d8daea028f787/"
+           data-tag="srcard,技能,编程语言,python,Python"
+           data-author="" >
+            <span class="post-title" title="Python 项目管理最佳实践 Poetry">Python 项目管理最佳实践 Poetry</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/edf333cdc04cd96e5513549222046cbae2567fcc/"
+           data-tag="技能,编程语言,python,Python"
+           data-author="" >
+            <span class="post-title" title="flask 参数传递的4种方式">flask 参数传递的4种方式</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/cd7caae4024eeeb56d5d2f7e13705f7dcf74560b/"
+           data-tag="srcard,技能,编程语言,python,Python"
+           data-author="" >
+            <span class="post-title" title="Comprehensive Python Cheatsheet">Comprehensive Python Cheatsheet</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/ede2b0f326cdb7d2a878a721e773c0e144518b12/"
+           data-tag="工具,开发,开发环境,srcard,config,快捷键,env"
+           data-author="" >
+            <span class="post-title" title="代码编辑快捷键">代码编辑快捷键</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/eea6f6f9dc0e74e490943dd05c233acb06584080/"
+           data-tag="srcard,技能,编程语言,python,Python"
+           data-author="" >
+            <span class="post-title" title="Python import 导入其他脚本">Python import 导入其他脚本</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/f0c93a8d6739520c6b5a3775c8dc5ae7b56c89cd/"
+           data-tag="工具,开发,开发环境,srcard,git"
+           data-author="" >
+            <span class="post-title" title="Git 开发环境">Git 开发环境</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/fc36df4359027415906aab9a57b7d34ca5b192fd/"
+           data-tag="srcard,技能,编程语言,python,Python"
+           data-author="" >
+            <span class="post-title" title="python 数据精度">python 数据精度</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 9.输出 hexo deep "
+           href="/8f6545d7e67011208be5a476458127a9efcf702f/"
+           data-tag="hexo,deep,obsidian,markdown,输出,test"
+           data-author="" >
+            <span class="post-title" title="test_note2">test_note2</span>
+            <span class="post-date" title="2022-10-11 21:40:23">2022/10/11</span>
+        </a>
+        
+        
+        <a  class="全部文章 9.输出 hexo "
+           href="/a1051e510da0bf87d685c05b40001b7020d14a66/"
+           data-tag="hexo,obsidian,markdown,输出,test"
+           data-author="" >
+            <span class="post-title" title="test_note2">test_note2</span>
+            <span class="post-date" title="2022-10-11 21:40:23">2022/10/11</span>
+        </a>
+        
+        
+        <a  class="全部文章 9.输出 hexo "
+           href="/a58ee0e911c1ffedefc347d0eac29b0f5fae0d41/"
+           data-tag="hexo,obsidian,markdown,输出,test"
+           data-author="" >
+            <span class="post-title" title="test_note1">test_note1</span>
+            <span class="post-date" title="2022-10-11 21:40:23">2022/10/11</span>
+        </a>
+        
+        
+        <a  class="全部文章 9.输出 hexo "
+           href="/cf5e875dd18a1a28fcad3f7d9ef0f7f956287483/"
+           data-tag="hexo,obsidian,markdown,输出,test"
+           data-author="" >
+            <span class="post-title" title="Obsidian+Hexo Markdown 测试">Obsidian+Hexo Markdown 测试</span>
+            <span class="post-date" title="2022-10-11 21:40:23">2022/10/11</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-38911668d1da61e6415647f5351ec4c01264ce08" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">深度学习</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="5.技能">5.技能</a> > 
+            
+            <a  data-rel="5.技能&lt;---&gt;AI">AI</a> > 
+            
+            <a  data-rel="5.技能&lt;---&gt;AI&lt;---&gt;_What_">_What_</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color2">srcard</a>
+            
+            <a class="color3">技能</a>
+            
+            <a class="color3">AI</a>
+            
+            <a class="color5">What</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2024-10-21 15:33:45'>2024-10-21 15:12</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="toc-text">深度学习的核心概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">深度学习的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9E%8B"><span class="toc-text">深度学习的常见模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%BA%94%E7%94%A8%E9%A2%86%E5%9F%9F"><span class="toc-text">深度学习的应用领域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%96%99"><span class="toc-text">资料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概念">概念</h2>
+<p><strong>深度学习（Deep Learning）</strong>
+是机器学习的一个分支，它利用多层神经网络来自动从大量数据中学习特征，并在复杂任务中进行决策。深度学习的关键在于其多层次的神经网络结构，能够从简单的特征逐步提取出复杂的抽象概念，从而使机器具备自动提取信息的能力，适用于图像识别、语音识别、自然语言处理等多个领域。
+                     </p>
+<h3 id="深度学习的核心概念">深度学习的核心概念</h3>
+<p>                      1. <strong>人工神经网络（Artificial Neural
+Networks, ANN）</strong>:<br />
+深度学习的基础结构是人工神经网络，它模仿了人脑神经元之间的连接方式。每个“神经元”接受输入数据，加权处理后，通过激活函数输出。多个神经元可以构成神经网络的层，神经网络中的层数越多，越深，模型的表示能力就越强。
+                      2. <strong>深度神经网络（Deep Neural Networks,
+DNN）</strong>:<br />
+深度学习中的“深度”意味着网络中隐藏层的数量。与传统的浅层神经网络相比，深度神经网络拥有更多的层次，能够学习和表示更复杂的模式和特征。例如，在图像分类任务中，低层网络可能学习到边缘、线条等低级特征，而高层网络则学习到复杂的形状、物体和场景。
+                      3. <strong>层次结构</strong>: -
+<strong>输入层（Input Layer）</strong>: 接受数据的特征作为输入。 -
+<strong>隐藏层（Hidden Layers）</strong>:
+包含多个神经元，用于处理输入并提取特征。每一层的输出都作为下一层的输入。
+- <strong>输出层（Output Layer）</strong>: 给出预测结果或分类结果。
+                      4. <strong>激活函数（Activation
+Function）</strong>:<br />
+每个神经元会通过一个激活函数来决定是否激活，常见的激活函数有： -
+<strong>ReLU（Rectified Linear Unit）</strong>:
+常用的非线性激活函数，能有效避免梯度消失问题。 -
+<strong>Sigmoid</strong>: 将输入映射到 0 到 1 之间，常用于二分类任务。 -
+<strong>Tanh</strong>: 将输入映射到 -1 到 1 之间，类似于
+Sigmoid，但能更好处理负值。                       5.
+<strong>损失函数（Loss Function）</strong>:<br />
+损失函数衡量模型预测输出与真实值之间的差距，优化模型时的目标是最小化损失函数。常见的损失函数包括：
+- <strong>均方误差（Mean Squared Error, MSE）</strong>: 常用于回归问题。
+- <strong>交叉熵损失（Cross-Entropy Loss）</strong>: 常用于分类问题。
+                      6. <strong>优化算法（Optimization
+Algorithm）</strong>:<br />
+优化算法用于更新神经网络的权重，使得损失函数最小化。常用的优化算法包括：
+- <strong>梯度下降（Gradient Descent）</strong>:
+基于损失函数的梯度信息来更新权重。 - <strong>Adam（Adaptive Moment
+Estimation）</strong>:
+一种广泛应用的自适应优化算法，适合处理大规模数据和复杂神经网络。
+                      7. <strong>前向传播（Forward
+Propagation）</strong>:<br />
+数据从输入层经过各个隐藏层传播到输出层的过程，称为前向传播。通过这个过程，网络得到了输出预测值。
+                      8.
+<strong>反向传播（Backpropagation）</strong>:<br />
+前向传播得到预测值后，通过损失函数计算误差，反向传播则是通过梯度下降法更新权重的过程。网络从输出层开始，逐层向前传播误差信息，调整每层的权重，使得模型在下一次迭代中表现得更好。</p>
+<h3 id="深度学习的特点">深度学习的特点</h3>
+<ol type="1">
+<li><p><strong>自动特征学习</strong>:<br />
+与传统机器学习方法相比，深度学习不需要人为设计特征（Feature
+Engineering）。通过多层神经网络的自动学习能力，模型可以从原始数据中提取和学习有用的特征。例如，在图像识别任务中，深度学习可以自动从像素中提取边缘、纹理和形状等信息。</p></li>
+<li><p><strong>高维数据处理能力</strong>:<br />
+深度学习特别擅长处理高维数据（如图像、视频、音频、文本等），它能够在多个层次中提取数据的复杂模式。这使得深度学习在图像识别、语音识别、自然语言处理等领域表现出色。</p></li>
+<li><p><strong>端到端学习</strong>:<br />
+深度学习通常采用端到端的学习方式，即从输入数据直接学习到输出结果，中间不需要人为干预。比如在自动驾驶系统中，模型可以直接从摄像头捕获的图像生成转向、加速或刹车的控制信号。</p></li>
+</ol>
+<h3 id="深度学习的常见模型">深度学习的常见模型</h3>
+<ol type="1">
+<li><p><strong>卷积神经网络（Convolutional Neural Networks,
+CNN）</strong>:<br />
+CNN
+是一种专为处理图像数据设计的神经网络。通过卷积层提取局部特征和池化层下采样，CNN
+能够有效识别图片中的物体和特征。它广泛应用于图像分类、目标检测和语义分割等任务中。</p></li>
+<li><p><strong>循环神经网络（Recurrent Neural Networks,
+RNN）</strong>:<br />
+RNN
+适合处理序列数据（如时间序列、文本、语音），因为它能够记住先前的输入信息。RNN
+的变体 LSTM（Long Short-Term Memory） 和 GRU（Gated Recurrent
+Units）解决了标准 RNN
+的长期依赖问题，广泛应用于自然语言处理、语音识别等领域。</p></li>
+<li><p><strong>生成对抗网络（Generative Adversarial Networks,
+GAN）</strong>:<br />
+GAN
+是一种生成模型，由生成器（Generator）和判别器（Discriminator）组成，通过两者之间的对抗过程，GAN
+能够生成与真实数据分布相似的假数据。例如，它能够生成逼真的人脸图像，或者用于图像超分辨率、图像去噪等任务。</p></li>
+<li><p><strong>自编码器（Autoencoder）</strong>:<br />
+自编码器是一种无监督学习模型，通常用于降维或特征学习。自编码器通过压缩输入数据并重新生成原始数据，学会了数据的潜在表示。变分自编码器（VAE）是一种广泛应用的自编码器变体，常用于生成模型和异常检测。</p></li>
+<li><p><strong>Transformer</strong>:<br />
+Transformer
+是一种基于注意力机制的网络结构，主要应用于自然语言处理任务。与传统的 RNN
+不同，Transformer 能够并行处理数据，显著提高了训练速度。它的变体，如
+BERT 和 GPT，已经在机器翻译、文本生成等任务上取得了重大突破。</p></li>
+</ol>
+<h3 id="深度学习的应用领域">深度学习的应用领域</h3>
+<ol type="1">
+<li><p><strong>计算机视觉</strong>:</p>
+<ul>
+<li><strong>图像分类</strong>: CNN
+可以将输入图像分为不同类别，广泛用于人脸识别、物体检测等领域。</li>
+<li><strong>目标检测与分割</strong>:
+深度学习能够定位图像中的物体并进行像素级的分割。</li>
+<li><strong>自动驾驶</strong>:
+深度学习在自动驾驶中用于道路场景理解、障碍物检测、车道线识别等。</li>
+</ul></li>
+<li><p><strong>自然语言处理（NLP）</strong>:</p>
+<ul>
+<li><strong>机器翻译</strong>: 基于 Transformer
+的模型能够将一种语言翻译为另一种语言。</li>
+<li><strong>文本分类</strong>:
+深度学习可以分析并分类文本，如情感分析、主题分类。</li>
+<li><strong>文本生成</strong>:
+通过深度学习，智能体可以生成与上下文相关的自然语言文本。</li>
+</ul></li>
+<li><p><strong>语音识别</strong>:<br />
+通过深度学习，语音识别系统可以将语音信号转换为文本。这项技术广泛用于语音助手（如
+Siri、Google Assistant）中。</p></li>
+<li><p><strong>自动化推荐系统</strong>:<br />
+深度学习通过学习用户的行为和偏好，生成个性化的推荐结果，在电子商务、社交媒体和在线内容平台中得到广泛应用。</p></li>
+<li><p><strong>医疗诊断</strong>:<br />
+深度学习在医疗影像分析中有显著成就，可以帮助医生进行病理诊断，如癌症筛查、肺部结节检测等。</p></li>
+</ol>
+<h3 id="总结">总结</h3>
+<p>深度学习是通过多层神经网络从海量数据中自动提取特征的强大工具。它能够解决复杂的、高维度的数据问题，尤其在图像、语音、自然语言处理等领域表现出色。深度学习的自动特征提取能力使其在许多应用场景中实现了显著突破，包括计算机视觉、自然语言处理、医疗诊断、自动驾驶等。尽管深度学习在数据需求、计算资源和模型可解释性等方面仍面临挑战，但它无疑推动了人工智能领域的飞速发展。</p>
+<h2 id="资料">资料</h2>
+<p><a target="_blank" rel="noopener" href="http://neuralnetworksanddeeplearning.com/chap2.html">Neural
+networks and deep learning</a> <a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mu411x7VD/?buvid=XXF9D6EF690DD0EC499B7BF3498D92723860B&amp;is_story_h5=false&amp;mid=5OfmGEW2qSAo3%2BS%2Buc4E3A%3D%3D&amp;p=1&amp;plat_id=114&amp;share_from=ugc&amp;share_medium=android&amp;share_plat=android&amp;share_session_id=c040d7ff-e0bd-426e-8f81-9a5433c6886a&amp;share_source=WEIXIN&amp;share_tag=s_i&amp;timestamp=1687775242&amp;unique_k=NbTKEZf&amp;up_id=18545878">五分钟秒懂神经网络原理，机器学习入门教程_哔哩哔哩_bilibili</a>
+<a target="_blank" rel="noopener" href="https://github.com/Mikoto10032/DeepLearning">GitHub -
+Mikoto10032/DeepLearning: 深度学习入门教程, 优秀文章, Deep Learning
+Tutorial</a> <a
+target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=aircAruvnKk">但是什么是神经网络？
+|第一章深入学习 - YouTube</a> <a
+target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=IHZwWFHWa-w">梯度下降，神经网络如何学习|深度学习，第2章
+- YouTube</a> <a
+target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Ilg3gGewQ5U&amp;list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&amp;index=3&amp;t=7s">What
+is backpropagation really doing? | Chapter 3, Deep learning -
+YouTube</a> <a
+target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=tIeHLnjs5U8&amp;t=7s">反向传播演算|附录深入学习第3章
+- YouTube</a> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=KuXjwB4LzSA">But
+what is a convolution? - YouTube</a> <a
+target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=8rrHTtUzyZA">Convolutions in image
+processing | Week 1 | MIT 18.S191 Fall 2020 | Grant Sanderson -
+YouTube</a> <a
+target="_blank" rel="noopener" href="https://www.douyin.com/collection/7205091725654624313/1">陶老师深度学习入门</a>
+<a
+target="_blank" rel="noopener" href="https://playground.tensorflow.org/#activation=relu&amp;batchSize=10&amp;dataset=gauss&amp;regDataset=reg-plane&amp;learningRate=0.1&amp;regularizationRate=0&amp;noise=0&amp;networkShape=&amp;seed=0.92885&amp;showTestData=false&amp;discretize=false&amp;percTrainData=50&amp;x=true&amp;y=true&amp;xTimesY=false&amp;xSquared=false&amp;ySquared=false&amp;cosX=false&amp;sinX=false&amp;cosY=false&amp;sinY=false&amp;collectStats=false&amp;problem=classification&amp;initZero=false&amp;hideText=false">A
+Neural Network Playground</a> <a
+target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Lakz2MoHy6o">Convolutional Neural
+Network from Scratch | Mathematics &amp; Python Code - YouTube</a> <a
+target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ILsA4nyG7I0">深度神经网络的工作原理</a>
+<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=w8yWXqWQYmU">Building a neural
+network FROM SCRATCH (no Tensorflow/Pytorch, just numpy &amp; math) -
+YouTube</a> <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=pauPCy_s0Ok">Neural
+Network from Scratch | Mathematics &amp; Python Code - YouTube</a> <a
+target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Lakz2MoHy6o">Convolutional Neural
+Network from Scratch | Mathematics &amp; Python Code - YouTube</a></p>
+<h2 id="参考">参考</h2>
+<p><a target="_blank" rel="noopener" href="https://www.deeplearningbook.org/">Deep Learning</a> <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/31192102">深度学习笔记（1）--前馈神经网络
+- 知乎</a> <a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Universal_approximation_theorem">Universal
+approximation theorem - Wikipedia</a> <a
+target="_blank" rel="noopener" href="https://stats.stackexchange.com/questions/182734/what-is-the-difference-between-a-neural-network-and-a-deep-neural-network-and-w">What
+is the difference between a neural network and a deep neural network,
+and why do the deep ones work better? - Cross Validated</a> <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/381987920">【史上最详细的用Numpy构建神经网络教程（一）】用Numpy实现一个简单的四层全连接神经网络（手写数字识别，mnist数据集，有完整代码工程文件）
+- 知乎</a> <a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/380036598">【配套文章】神经网络全连接层、激活函数层、卷积层、池化层的正/反向传播公式推导+代码
+- 知乎</a> <a
+target="_blank" rel="noopener" href="https://towardsdatascience.com/coding-a-neural-network-from-scratch-in-numpy-31f04e4d605">Coding
+A Neural Network From Scratch in NumPy | by Joe Sasson | Towards Data
+Science</a> - [x] <a
+target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=BR9h47Jtqyw&amp;t=0s">A friendly
+introduction to Deep Learning and Neural Networks</a></p>
+<p><strong>Backlinks:</strong></p>
+<ul>
+<li><a
+href="../f59dc0843ba2cddc8c7409a245020b5ffc968a3e">深度强化学习</a></li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>🔵
+<ul>
+<li><a
+href="../f59dc0843ba2cddc8c7409a245020b5ffc968a3e">深度强化学习</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以加微信bs2hwx </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+    <div id="comments">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC82MDE5NS8zNjY2Mw==">
+        <script type="text/javascript">
+			(function(d, s) {
+				var j, e = d.getElementsByTagName(s)[0];
+
+				if (typeof LivereTower === 'function') { return; }
+
+				j = d.createElement(s);
+				window.livereOptions = {
+					eagerLoading: true,
+					scrollEventTargetSelector: '#post'
+                }
+				j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+				j.async = true;
+				e.parentNode.insertBefore(j, e);
+			})(document, 'script');
+        </script>
+        <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry"><span class="miit">
+                <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
+                <a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">京ICP证030173号</a>
+        </span>
+    
+    ©2016-2024 bs2h
+</p>
+<!-- <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p> -->
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 18px 3px 15px 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 512px;
+        }
+        .nav.fullscreen {
+            margin-left: -512px;
+        }
+        .nav-left {
+            width: 120px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 512px;
+            margin-left: -512px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    
+    <a class="dynamic-menu " target="_self"   href="/">关于</a>
+    
+    
+</div>
+
+
+</html>
