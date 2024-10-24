@@ -251,7 +251,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a hr
 <span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>                        global_step<span class="op">=</span>epoch)</span></code></pre></div>
 <h3 id="api-使用手册">API 使用手册</h3>
 <p><strong>「详见」</strong> https://nvitop.readthedocs.io/</p>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a href="../77451a76ae1222084a1d5bf6efd199dc659c54c0">GPU
 实时监控工具 nvtop</a></li>
@@ -340,9 +340,9 @@ automatically exports a JIT model, suitable for deployment purposes.</p>
 <p>Implementing Simulation-to-Simulation Model Transformation This
 command facilitates a sim-to-sim transformation using exported 'v1'
 policy.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/sim2sim.py <span class="at">--load_model</span> logs/XBot_ppo/exported/policies/policy_1.pt</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> humanoid/scripts/sim2sim.py <span class="at">--load_model</span> logs/XBot_ppo/exported/policies/policy_1.pt</span></code></pre></div>
 <p>Run our trained policy</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> scripts/sim2sim.py <span class="at">--load_model</span> logs/XBot_ppo/exported/policies/policy_example.pt</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> humanoid/scripts/sim2sim.py <span class="at">--load_model</span> logs/XBot_ppo/exported/policies/policy_example.pt</span></code></pre></div>
 <h3 id="real2sim">real2sim</h3>
 <h3 id="sim2real">sim2real</h3>
 <h2 id="核心代码">核心代码</h2>
@@ -370,7 +370,7 @@ policy.</p>
 <span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> utils/                      <span class="co"># 工具脚本</span></span>
 <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   └── task_registry.py        <span class="co"># 定义TaskRegistry类,用于注册和管理任务</span></span>
 <span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="ex">└──</span> __init__.py                 <span class="co"># humanoid模块的初始化文件</span></span></code></pre></div>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a href="../6f252f6a1db58de9aa515272f56dab6e4f95c489">0.Humanoid-Gym
 Reinforcement Learning for Humanoid</a></li>
@@ -392,8 +392,8 @@ Reinforcement Learning for Humanoid</a></li>
       </categories>
       <tags>
         <tag>工作</tag>
-        <tag>机器人</tag>
         <tag>项目</tag>
+        <tag>机器人</tag>
         <tag>Project</tag>
       </tags>
   </entry>
@@ -641,7 +641,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a hr
 <span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>    cfg <span class="op">=</span> QConfig()</span>
 <span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>    train(cfg)</span>
 <span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>    predict(cfg, <span class="dv">999</span>)</span></code></pre></div>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a
 href="../fb2736e62d44c8a1f1c732650a20795e18086c1b">深度强化学习</a></li>
@@ -665,10 +665,10 @@ href="../689f27ebabe459360038ee0e75643af26f2e718a">强化学习</a></li>
         <category>_What_</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
-        <tag>AI</tag>
+        <tag>技能</tag>
         <tag>What</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -762,8 +762,8 @@ href="../689f27ebabe459360038ee0e75643af26f2e718a">强化学习</a></li>
       </categories>
       <tags>
         <tag>工作</tag>
-        <tag>机器人</tag>
         <tag>项目</tag>
+        <tag>机器人</tag>
         <tag>How</tag>
       </tags>
   </entry>
@@ -844,7 +844,7 @@ Advantage Actor-Critic)</strong> 是基于策略的常用方法。</p></li>
 <p><a href="https://www.youtube.com/watch?v=SgC6AZss478">A friendly
 introduction to deep reinforcement learning, Q-networks and policy
 gradients</a></p>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a
 href="../fb2736e62d44c8a1f1c732650a20795e18086c1b">深度强化学习</a></li>
@@ -873,8 +873,8 @@ href="../9bc9a7485650f095deaae9b54954ff069f4b967c">Q-learning</a></li>
       </categories>
       <tags>
         <tag>技能</tag>
-        <tag>AI</tag>
         <tag>What</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -1039,7 +1039,7 @@ A Neural Network From Scratch in NumPy | by Joe Sasson | Towards Data
 Science</a> - [x] <a
 href="https://www.youtube.com/watch?v=BR9h47Jtqyw&amp;t=0s">A friendly
 introduction to Deep Learning and Neural Networks</a></p>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a
 href="../fb2736e62d44c8a1f1c732650a20795e18086c1b">深度强化学习</a></li>
@@ -1059,10 +1059,10 @@ href="../fb2736e62d44c8a1f1c732650a20795e18086c1b">深度强化学习</a></li>
         <category>_What_</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
-        <tag>AI</tag>
+        <tag>技能</tag>
         <tag>What</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -1167,7 +1167,7 @@ GPU 或分布式计算来加速训练。</p></li>
 <h3 id="总结">总结</h3>
 <p>深度强化学习通过将深度神经网络与强化学习相结合，扩展了强化学习在高维、复杂任务中的应用能力。它使得智能体能够从原始输入（如图像、传感器数据等）中学习有效的策略，处理复杂的决策问题，并广泛应用于机器人控制、自动驾驶、游戏
 AI、金融等领域。尽管深度强化学习在数据效率和训练稳定性上仍有挑战，但其潜力巨大，未来在智能系统领域将有更广泛的应用。</p>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a
 href="../eae48e333decc89b2d7694211309b582a3a53702">具身智能机器人强化学习流程</a></li>
@@ -1176,11 +1176,11 @@ href="../eae48e333decc89b2d7694211309b582a3a53702">具身智能机器人强化�
 <li>🔵
 <ul>
 <li><a
+href="../9bc9a7485650f095deaae9b54954ff069f4b967c">Q-learning</a></li>
+<li><a
 href="../f73bfa22fa41a750b86dbbf00f115c1aee76a24c">深度学习</a></li>
 <li><a
 href="../eae48e333decc89b2d7694211309b582a3a53702">具身智能机器人强化学习流程</a></li>
-<li><a
-href="../9bc9a7485650f095deaae9b54954ff069f4b967c">Q-learning</a></li>
 <li><a
 href="../689f27ebabe459360038ee0e75643af26f2e718a">强化学习</a></li>
 </ul></li>
@@ -1193,10 +1193,10 @@ href="../689f27ebabe459360038ee0e75643af26f2e718a">强化学习</a></li>
         <category>_What_</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
-        <tag>AI</tag>
+        <tag>技能</tag>
         <tag>What</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -2050,7 +2050,7 @@ href="../ec75ee41345f503e58f539d384bf00b7f6619bf3">humanoid-gym</a></p>
 <p><a href="../e4b141ee8dc17c4b43e1fd1f735217e727de0901">1.Learning to
 Walk in Minutes Using Massively Parallel Deep Reinforcement
 Learning</a></p>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a
 href="../ec75ee41345f503e58f539d384bf00b7f6619bf3">humanoid-gym</a></li>
@@ -2076,12 +2076,12 @@ href="../ec75ee41345f503e58f539d384bf00b7f6619bf3">humanoid-gym</a></li>
       <tags>
         <tag>srcard</tag>
         <tag>工作</tag>
-        <tag>双足机器人</tag>
-        <tag>无参考学习</tag>
-        <tag>机器人</tag>
         <tag>项目</tag>
-        <tag>论文</tag>
+        <tag>双足机器人</tag>
+        <tag>机器人</tag>
+        <tag>无参考学习</tag>
         <tag>强化学习</tag>
+        <tag>论文</tag>
       </tags>
   </entry>
   <entry>
@@ -2101,7 +2101,7 @@ href="https://leggedrobotics.github.io/legged_gym/">Home</a></p>
 <!--SR:!2024-08-11,17,250--></p>
 <h2 id="资料">资料</h2>
 <h2 id="引用">引用</h2>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a href="../6f252f6a1db58de9aa515272f56dab6e4f95c489">0.Humanoid-Gym
 Reinforcement Learning for Humanoid</a></li>
@@ -2124,8 +2124,8 @@ Reinforcement Learning for Humanoid</a></li>
       <tags>
         <tag>srcard</tag>
         <tag>工作</tag>
-        <tag>机器人</tag>
         <tag>项目</tag>
+        <tag>机器人</tag>
         <tag>论文</tag>
       </tags>
   </entry>
@@ -2341,11 +2341,11 @@ src="https://exp-picture.cdn.bcebos.com/51f9aa3ea8db574a8271942ba7f7dfb2dd19179e
         <category>Win</category>
       </categories>
       <tags>
-        <tag>工具</tag>
         <tag>srcard</tag>
-        <tag>系统</tag>
+        <tag>工具</tag>
         <tag>Win</tag>
         <tag>win10</tag>
+        <tag>系统</tag>
       </tags>
   </entry>
   <entry>
@@ -2452,8 +2452,8 @@ href="https://answers.microsoft.com/zh-hant/windows/forum/all/win11/bc0930c2-a2f
       </categories>
       <tags>
         <tag>工具</tag>
-        <tag>系统</tag>
         <tag>Win</tag>
+        <tag>系统</tag>
       </tags>
   </entry>
   <entry>
@@ -2636,7 +2636,7 @@ https://blog.csdn.net/DMLong_x/article/details/127511433 [^10]: <a
 href="https://mamba.readthedocs.io/en/latest/micromamba-installation.html">Micromamba
 Installation — documentation</a></li>
 </ul>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a href="../acc2d6da5dd37affe3f03e94d2997ae7cd02bc92">Python
 项目管理最佳实践 Poetry</a></li>
@@ -2660,8 +2660,8 @@ Obsidian + Conda + Cuda 搭建交互式笔记开发环境</a></li>
         <category>Python</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
+        <tag>技能</tag>
         <tag>编程语言</tag>
         <tag>python</tag>
         <tag>Python</tag>
@@ -2700,8 +2700,8 @@ CRLF, 问题解决</p>
         <category>问题记录</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>android</tag>
+        <tag>技能</tag>
         <tag>问题记录</tag>
       </tags>
   </entry>
@@ -3350,12 +3350,12 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb23-1"><a href=
         <category>Android</category>
       </categories>
       <tags>
-        <tag>rxlifecycle</tag>
-        <tag>技能</tag>
         <tag>Android</tag>
-        <tag>rxjava</tag>
+        <tag>rxlifecycle</tag>
         <tag>srcard</tag>
         <tag>android</tag>
+        <tag>技能</tag>
+        <tag>rxjava</tag>
       </tags>
   </entry>
   <entry>
@@ -3582,11 +3582,11 @@ mTestSubscription=myObservable.subscribe(TestObserver);
         <category>Android</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>Android</tag>
-        <tag>rxjava</tag>
         <tag>srcard</tag>
         <tag>android</tag>
+        <tag>技能</tag>
+        <tag>rxjava</tag>
         <tag>rxandroid</tag>
       </tags>
   </entry>
@@ -3990,11 +3990,11 @@ class="sourceCode kotlin"><code class="sourceCode kotlin"><span id="cb9-1"><a hr
         <category>Android</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>Android</tag>
-        <tag>rxjava</tag>
         <tag>srcard</tag>
         <tag>android</tag>
+        <tag>技能</tag>
+        <tag>rxjava</tag>
         <tag>retrofit</tag>
       </tags>
   </entry>
@@ -4438,11 +4438,11 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb21-1"><a href=
         <category>Android</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>Android</tag>
-        <tag>rxjava</tag>
         <tag>srcard</tag>
         <tag>android</tag>
+        <tag>技能</tag>
+        <tag>rxjava</tag>
         <tag>rxbinding</tag>
       </tags>
   </entry>
@@ -4815,10 +4815,10 @@ Application</a></li>
         <category>Android</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>Android</tag>
         <tag>srcard</tag>
         <tag>android</tag>
+        <tag>技能</tag>
         <tag>组件化</tag>
       </tags>
   </entry>
@@ -5116,7 +5116,7 @@ class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href=
 <p>如上两种方式都是使用了反射，反射在解耦的同时，也在一定程度上降低了应用的性能，当然组件化的目的就是要让各个组件或各个
 Module
 之间尽可能的解耦，如果牺牲一点儿性能，能够获取解耦的最大化也是可以接受的。</p>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a href="../8b9b73b54d7308edd29570d8d41c94b255818281">Android 组件化
 ARouter</a></li>
@@ -5137,10 +5137,10 @@ ARouter</a></li>
         <category>Android</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>Android</tag>
         <tag>srcard</tag>
         <tag>android</tag>
+        <tag>技能</tag>
         <tag>组件化</tag>
       </tags>
   </entry>
@@ -5217,7 +5217,7 @@ conda init fish</code></pre></li>
 src="https://img-blog.csdnimg.cn/20210318222346139.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L20wXzQ3NjcwNjgz,size_16,color_FFFFFF,t_70#pic_center" /></p></li>
 <li><p>此时说明 conda 已经在 fish 中生效，大功告成！</p></li>
 </ol>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a href="../10d99ef2a6dd035cac70c5f8def086cda109f1ad">Fish
 命令行工具</a></li>
@@ -5237,11 +5237,11 @@ src="https://img-blog.csdnimg.cn/20210318222346139.png?x-oss-process=image/water
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>开发</tag>
         <tag>工具</tag>
-        <tag>开发环境</tag>
+        <tag>开发</tag>
         <tag>shell</tag>
         <tag>linux</tag>
+        <tag>开发环境</tag>
       </tags>
   </entry>
   <entry>
@@ -5279,7 +5279,7 @@ href="../7b091b2e5e657dc1b00930468a070a01e85e4293/#设置国内源">Yarn
 简介#常用命令</a></li>
 </ul>
 <h2 id="参考">参考</h2>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a
 href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
@@ -5290,16 +5290,16 @@ href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
 <li><a
 href="../7b091b2e5e657dc1b00930468a070a01e85e4293/#设置国内源">Yarn
 简介#设置国内源</a></li>
-<li><a href="../8183437d1e8a3a1b5ffeb5e902bff641794983a4">Npm
+<li><a href="../6978a289dcba3aeb0d923a1a4eccfa6de5d90adb">N
 常用命令</a></li>
 <li><a href="../d654a8e3a8d8cd17a3ce34bfdb21aca3bf2174a8">Npm
 配置国内源</a></li>
 <li><a href="../7b091b2e5e657dc1b00930468a070a01e85e4293/#常用命令">Yarn
 简介#常用命令</a></li>
+<li><a href="../8183437d1e8a3a1b5ffeb5e902bff641794983a4">Npm
+常用命令</a></li>
 <li><a
 href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
-<li><a href="../6978a289dcba3aeb0d923a1a4eccfa6de5d90adb">N
-常用命令</a></li>
 </ul></li>
 </ul>
 </blockquote>
@@ -5320,9 +5320,9 @@ role="doc-backlink">↩︎</a></p></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>开发</tag>
-        <tag>工具</tag>
         <tag>srcard</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
         <tag>开发环境</tag>
         <tag>deepin</tag>
       </tags>
@@ -5408,24 +5408,24 @@ jdk</a></li>
 <blockquote class="pullquote mindmap mindmap-md"><ul>
 <li>🔵
 <ul>
-<li><a href="../398c907730d3d916e72688bf34e18ad17c4edeff">Git
-开发环境</a></li>
-<li><a href="../620293c2dd4cc0e2283aea0680aff5d2076e8bfb">Go
-开发环境搭建</a></li>
-<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
-开发环境搭建 Win10</a></li>
-<li><a href="../10d99ef2a6dd035cac70c5f8def086cda109f1ad">Fish
-命令行工具</a></li>
-<li><a href="../edefd41cca3bfb461242cf05e60f7dad6fd1663e">Python
-开发环境</a></li>
 <li><a
 href="../56d70cf3369177ebae7b633765b1511801136821">主题颜色配置</a></li>
 <li><a href="../3971919f211d721a9f8d95e718242813c25f0224">Deepin Node
 开发环境搭建</a></li>
+<li><a href="../398c907730d3d916e72688bf34e18ad17c4edeff">Git
+开发环境</a></li>
 <li><a
 href="../d2cb8fb770f80b19ad9497aaca6122a86a7a16bf">代码编辑快捷键</a></li>
 <li><a href="../83c7554526d9f6f294c507e0cebbc479c501c9b6">VSCode
 安装与配置</a></li>
+<li><a href="../edefd41cca3bfb461242cf05e60f7dad6fd1663e">Python
+开发环境</a></li>
+<li><a href="../10d99ef2a6dd035cac70c5f8def086cda109f1ad">Fish
+命令行工具</a></li>
+<li><a href="../620293c2dd4cc0e2283aea0680aff5d2076e8bfb">Go
+开发环境搭建</a></li>
+<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
+开发环境搭建 Win10</a></li>
 </ul></li>
 </ul>
 </blockquote>
@@ -5435,10 +5435,10 @@ href="../d2cb8fb770f80b19ad9497aaca6122a86a7a16bf">代码编辑快捷键</a></li
         <category>环境</category>
       </categories>
       <tags>
-        <tag>开发环境</tag>
         <tag>linux</tag>
-        <tag>工作</tag>
+        <tag>开发环境</tag>
         <tag>deepin</tag>
+        <tag>工作</tag>
         <tag>环境</tag>
       </tags>
   </entry>
@@ -6147,11 +6147,11 @@ mysql&gt; SELECT avg(shop_price) FROM goods;
         <category>MySql</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
-        <tag>MySql</tag>
+        <tag>技能</tag>
         <tag>mysql</tag>
         <tag>Server</tag>
+        <tag>MySql</tag>
         <tag>sql</tag>
       </tags>
   </entry>
@@ -6544,10 +6544,10 @@ href="https://blog.csdn.net/android_jianbo/article/details/103704459">blog.csdn.
         <category>Android</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>Android</tag>
         <tag>srcard</tag>
         <tag>android</tag>
+        <tag>技能</tag>
         <tag>gradle</tag>
       </tags>
   </entry>
@@ -6617,11 +6617,11 @@ Parse</mark></li>
         <category>CSharp</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
+        <tag>技能</tag>
+        <tag>编程语言</tag>
         <tag>csharp</tag>
         <tag>CSharp</tag>
-        <tag>编程语言</tag>
       </tags>
   </entry>
   <entry>
@@ -6665,8 +6665,8 @@ OnCollisionExit()</p>
         <category>Unity3d</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
+        <tag>技能</tag>
         <tag>Unity3d</tag>
         <tag>unity3d</tag>
       </tags>
@@ -6900,8 +6900,8 @@ Name</td>
         <category>Unity3d</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
+        <tag>技能</tag>
         <tag>Unity3d</tag>
         <tag>unity3d</tag>
       </tags>
@@ -6947,8 +6947,8 @@ Sprite 去渲染。</mark>
         <category>Unity3d</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
+        <tag>技能</tag>
         <tag>Unity3d</tag>
         <tag>unity3d</tag>
       </tags>
@@ -7339,8 +7339,8 @@ Renderer”组件，Component -&gt;Effects -&gt;Line Renderer;将它的Positions
         <category>Unity3d</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
+        <tag>技能</tag>
         <tag>Unity3d</tag>
         <tag>unity3d</tag>
       </tags>
@@ -7922,8 +7922,8 @@ title="https://juejin.cn/post/7025222741322121223">MVI
       <tags>
         <tag>srcard</tag>
         <tag>android</tag>
-        <tag>理论</tag>
         <tag>计算机</tag>
+        <tag>理论</tag>
         <tag>软件工程</tag>
         <tag>架构</tag>
       </tags>
@@ -9056,10 +9056,10 @@ href="https://www.jianshu.com/p/d0f5cf304fa4">《Android
         <category>Android</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>Android</tag>
         <tag>srcard</tag>
         <tag>android</tag>
+        <tag>技能</tag>
       </tags>
   </entry>
   <entry>
@@ -9159,7 +9159,7 @@ Warning</li>
 <li><mark style="background: #999995A6;">Gray</mark> : 否定
 <!--SR:!2025-08-26,434,250--></li>
 </ul>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a
 href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
@@ -9179,12 +9179,12 @@ href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>开发</tag>
-        <tag>工具</tag>
         <tag>srcard</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
         <tag>开发环境</tag>
-        <tag>style</tag>
         <tag>config</tag>
+        <tag>style</tag>
       </tags>
   </entry>
   <entry>
@@ -9195,7 +9195,7 @@ href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
 git@gitee.com:qiaogaojian/codegist.git</p>
 <p><strong>插件备份地址</strong>
 git@github.com:qiaogaojian/vscode-plugin.git</p>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a
 href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
@@ -9215,11 +9215,11 @@ href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
         <category>VSCode</category>
       </categories>
       <tags>
-        <tag>开发</tag>
         <tag>工具</tag>
+        <tag>开发</tag>
         <tag>vscode</tag>
-        <tag>tool</tag>
         <tag>VSCode</tag>
+        <tag>tool</tag>
       </tags>
   </entry>
   <entry>
@@ -9273,10 +9273,10 @@ Vim 剪贴板里面的东西粘贴到 Vim 之外的地方？</a></li>
         <category>Vim</category>
       </categories>
       <tags>
-        <tag>Vim</tag>
-        <tag>开发</tag>
-        <tag>vim</tag>
         <tag>工具</tag>
+        <tag>Vim</tag>
+        <tag>vim</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
@@ -9311,7 +9311,7 @@ jorgebucaran/fisher: A plugin manager for Fish.</a></p>
 <p>在极少数情况下，fish 环境执行脚本会报错，这时可以临时切换到 bash
 执行那个脚本(.sh
 文件)。通常不会遇到，万一遇到了临时切换一下就可以了。</p>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a
 href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
@@ -9319,10 +9319,10 @@ href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
 <blockquote class="pullquote mindmap mindmap-md"><ul>
 <li>🔵
 <ul>
-<li><a href="../0b3130ada3d0531d62d35d48e876a299c5888b77">Fish
-入门指南</a></li>
 <li><a
 href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
+<li><a href="../0b3130ada3d0531d62d35d48e876a299c5888b77">Fish
+入门指南</a></li>
 </ul></li>
 </ul>
 </blockquote>
@@ -9333,292 +9333,11 @@ href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>开发</tag>
         <tag>工具</tag>
-        <tag>开发环境</tag>
+        <tag>开发</tag>
         <tag>shell</tag>
         <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git submodule 子模块的管理和使用</title>
-    <url>/1724764acb83566cfbcc5cedf7fe0bf07a4ed3a1/</url>
-    <content><![CDATA[<h2 id="使用前提">使用前提</h2>
-<p>经常碰到这种情况：当你在一个 Git
-项目上工作时，你需要在其中使用另外一个 Git
-项目。也许它是一个第三方开发的 Git
-库或者是你独立开发和并在多个父项目中使用的。这个情况下一个常见的问题产生了：你想将两个项目单独处理但是又需要在其中一个中使用另外一个。</p>
-<p>在 Git
-中你可以用子模块<code>submodule</code>来管理这些项目，<code>submodule</code>允许你将一个
-Git 仓库当作另外一个 Git
-仓库的子目录。这允许你克隆另外一个仓库到你的项目中并且保持你的提交相对独立。</p>
-<h2 id="添加子模块">添加子模块</h2>
-<p><strong>添加子模块命令?</strong></p>
-<p>此文中统一将远程项目<code>git@gitee.com:qiaogaojian/framework.git</code>克隆到本地<code>Framework</code>文件夹。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git submodule add git@gitee.com:qiaogaojian/framework.git Framework</span></code></pre></div>
-<!--SR:!2026-04-06,777,230-->
-<p>添加子模块后运行<code>git status</code>, 可以看到目录有增加 1
-个文件<code>.gitmodules</code>, 这个文件用来保存子模块的信息。</p>
-<pre><code>$ git status
-On branch master
-
-Initial commit
-
-Changes to be committed:
-  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
-
-    new file:   .gitmodules
-    new file:   assets</code></pre>
-<h2 id="查看子模块">查看子模块</h2>
-<p><strong>查看子模块命令?</strong></p>
-<pre><code>$ git submodule
- e33f854d3f51f5ebd771a68da05ad0371a3c0570 assets (heads/master)</code></pre>
-<!--SR:!2027-07-28,1125,250-->
-<h2 id="更新子模块">更新子模块</h2>
-<ul>
-<li><p><strong>更新项目内子模块到最新版本命令?</strong></p>
-<pre><code>$ git submodule update</code></pre></li>
-<li><p>更新子模块为远程项目的最新版本</p>
-<pre><code>$ git submodule update --remote</code></pre></li>
-</ul>
-<h2 id="克隆包含子模块的项目">克隆包含子模块的项目</h2>
-<p>克隆包含子模块的项目有二种方法：一种是先克隆父项目，再更新子模块；另一种是直接递归克隆整个项目。</p>
-<h3 id="克隆父项目再更新子模块">克隆父项目，再更新子模块</h3>
-<ol type="1">
-<li>克隆父项目</li>
-</ol>
-<pre><code>$ git clone https://github.com/maonx/vimwiki-assets.git assets</code></pre>
-<ol start="2" type="1">
-<li>查看子模块</li>
-</ol>
-<pre><code>$ git submodule
- -e33f854d3f51f5ebd771a68da05ad0371a3c0570 assets</code></pre>
-<p>子模块前面有一个<code>-</code>，说明子模块文件还未检入（空文件夹）。</p>
-<ol start="3" type="1">
-<li>初始化子模块</li>
-</ol>
-<pre><code>$ git submodule init
-Submodule &#39;assets&#39; (https://github.com/maonx/vimwiki-assets.git) registered for path &#39;assets&#39;</code></pre>
-<p>初始化模块只需在克隆父项目后运行一次。</p>
-<ol start="4" type="1">
-<li>更新子模块</li>
-</ol>
-<pre><code>$ git submodule update
-Cloning into &#39;assets&#39;...
-remote: Counting objects: 151, done.
-remote: Compressing objects: 100% (80/80), done.
-remote: Total 151 (delta 18), reused 0 (delta 0), pack-reused 70
-Receiving objects: 100% (151/151), 1.34 MiB | 569.00 KiB/s, done.
-Resolving deltas: 100% (36/36), done.
-Checking connectivity... done.
-Submodule path &#39;assets&#39;: checked out &#39;e33f854d3f51f5ebd771a68da05ad0371a3c0570&#39;</code></pre>
-<h3 id="递归克隆整个项目">递归克隆整个项目</h3>
-<p><strong>clone 带子模块的项目?</strong></p>
-<pre><code>git clone https://github.com/maonx/vimwiki-assets.git assets --recursive</code></pre>
-<p>递归克隆整个项目，子模块已经同时更新了，一步到位。
-<!--SR:!2026-10-01,939,250--></p>
-<h2 id="修改子模块">修改子模块</h2>
-<p>在子模块中修改文件后，直接提交到远程项目分支。</p>
-<pre><code>$ git add .
-$ git ci -m &quot;commit&quot;
-$ git push origin HEAD:master</code></pre>
-<h2 id="删除子模块">删除子模块</h2>
-<p><strong>怎么删除子模块?</strong></p>
-<p><strong>删除子模块比较麻烦，需要手动删除相关的文件，否则在添加子模块时有可能出现错误</strong><br />
-同样以删除<code>assets</code>文件夹为例</p>
-<ol type="1">
-<li>删除子模块文件夹</li>
-</ol>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git rm <span class="at">--cached</span> assets</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm <span class="at">-rf</span> assets</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm <span class="at">-rf</span> .git/modules/assets</span></code></pre></div>
-<ol start="2" type="1">
-<li>删除<code>.gitmodules</code>文件中相关子模块信息</li>
-</ol>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[submodule</span> <span class="st">&quot;assets&quot;</span>]</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">path</span> = assets</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">url</span> = https://github.com/maonx/vimwiki-assets.git</span></code></pre></div>
-<ol start="3" type="1">
-<li>删除<code>.git/config</code>中的相关子模块信息</li>
-</ol>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[submodule</span> <span class="st">&quot;assets&quot;</span>]</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">url</span> = https://github.com/maonx/vimwiki-assets.git</span></code></pre></div>
-<!--SR:!2026-04-10,709,210-->
-<h2 id="更换子模块">更换子模块</h2>
-<ul>
-<li>先删除</li>
-<li>再添加</li>
-</ul>
-<p><strong>Backlinks:</strong></p>
-<ul>
-<li><a href="../398c907730d3d916e72688bf34e18ad17c4edeff">Git
-开发环境</a></li>
-</ul>
-<blockquote class="pullquote mindmap mindmap-md"><ul>
-<li>🔵
-<ul>
-<li><a href="../398c907730d3d916e72688bf34e18ad17c4edeff">Git
-开发环境</a></li>
-</ul></li>
-</ul>
-</blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>6.工具</category>
-        <category>开发</category>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>开发</tag>
-        <tag>工具</tag>
-        <tag>srcard</tag>
-        <tag>git</tag>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Android 组件化基础</title>
-    <url>/1fb05f97cf4037d2eec2f0599f188ff8500faf52/</url>
-    <content><![CDATA[<blockquote>
-<p>原文地址 <a
-href="https://juejin.cn/post/6844904026027327501">juejin.cn</a></p>
-</blockquote>
-<p>当 App
-项目复杂一定的程度，将项目组件化是必不可少的，组件化可以更好的进行功能的划分，提到组件化有人可能会想到模块化，其实组件化和模块化的本质是一样的，都是为了代码重用的业务解耦，模块化主要按照业务划分，而组件化主要按照功能划分，从<strong>组件化最基础的几个方面</strong>打开组件化的大门。</p>
-<ol type="1">
-<li>组件之间的跳转</li>
-<li>动态创建</li>
-<li>资源冲突</li>
-<li>静态常量 <!--SR:!2025-12-14,683,250--></li>
-</ol>
-<h2 id="组件之间的跳转">组件之间的跳转</h2>
-<p>组件化中两个功能模块时不直接依赖的，其依赖规则是通过 Base module
-间接依赖，当组件之间的 Activity
-进行界面跳转时，由于没有相互依赖的关系，往往会无法引用另一个 module 中的
-Activity。</p>
-<h3 id="隐式跳转">隐式跳转</h3>
-<p>隐式跳转是通过 Android 原生 Intent 匹配机制来实现相应跳转，就是使用
-Action 来跳转到对应的 Activity，这样使用隐式跳转的方式就可以跨 module
-实现 Activity 之间的跳转了，注意一点，如果移出 Activity 所在的 module
-而不移出相应的跳转，如果继续跳转会出现异常，使用隐式 Intent
-跳转需要验证是否会接收该 Intent，需要对该 Intent 对象调用
-resolveActivity() 方法来判断至少有一个应用能够处理该
-Intent，通过隐式跳转的方式还可以设置 exported 为 false 来确保只有自己的
-App 才能够启动对应的组件。</p>
-<h3 id="arouter-跳转">ARouter 跳转</h3>
-<p>在 Android 开发中可将 module 看成不同的网络，而对应的 Router
-就是连接各个 module
-的中转站，这个中转站可以对页面跳转的参数等进行统一处理，ARouter
-是阿里开源出来的一个页面跳转路由，使用 ARouter
-可以替代隐式跳转来完成不同
-module、不同组件之间的跳转以及跳转过程的监听、参数的传递等，ARouter
-支持路径跳转和 URL 跳转两种方式，使用也非常灵活，ARouter
-的具体使用这里不做介绍，其具体使用会在单独一篇文章中详解，</p>
-<p><strong>ARouter 与 Android 传统跳转方式的对比如下</strong>：</p>
-<ol type="1">
-<li>显式跳转需要依赖于类，而<mark style="background: #83d98fA6;">路由跳转通过指定的路径跳转</mark>
-；</li>
-<li>隐式跳转通过 AndroidManifest 集中管理，导致协作开发困难；原生使用
-AndroidManifest
-来注册，而<mark style="background: #83d98fA6;">路由使用注解注册</mark></li>
-<li>原生 startActivity 之后跳转过程交由 Android
-系统控制，而<mark style="background: #83d98fA6;">路由跳转采用的是 AOP
-切面编程可对跳转过程进行拦截和过滤</mark> 。
-<!--SR:!2024-12-19,473,250--></li>
-</ol>
-<h2 id="动态创建">动态创建</h2>
-<p>组件化开发中最重要的一点就是各个模块、各个组件之间要尽可能解耦，这样很容易就会想到使用
-Java
-中的反射机制，使用反射可在运行状态下获取某个类的所有信息，然后就可以动态操作这个类的属性和方法了。如果
-Fragment 单独作为一个组件来使用时，当这个 Fragment
-组件不需要被移出后，如果是常规的 Fragment 则会因为索引不到该 Fragment
-而使得 App
-崩溃，想一下如果<mark style="background: #83d98fA6;">使用反射创建
-Fragment </mark> 的方式则至少不会引起 App
-崩溃，这里可以捕捉异常完成相关逻辑，这样是不是降低了耦合呢。可见，虽然反射有一定的性能问题，但使用反射确实能在一定程度上降低耦合，学习组件化
-Java 反射机制应该是必须的一部分。</p>
-<p>组件化开发中要求每个组件都能独立运行，一般情况下每个组件都有一定的初始化步骤，最好的一种情况是项目需要的几个组件的初始化基本相同，那就可将初始化放在
-BaseModule
-中进行统一初始化，但是这种情况毕竟比较理想，一般情况是每个组件的初始化都不一样，可能你会想到在各自的
-Application 初始化，如果在各自的 Application 中初始化，当在最终编译由于
-Application
-的合并难免会出一些问题，这种方式也不可取，到这里又想到了反射，在各组件中创建初始化文件，然后<mark style="background: #83d98fA6;">在最终的
-Application 中通过反射完成各个组件的初始化操作</mark> ，这里通过 Java
-的反射机制完成了组件化开发中 Application 的动态配置。
-<!--SR:!2025-01-18,497,250--></p>
-<h2 id="资源冲突">资源冲突</h2>
-<p>组件化开发过程中，如果 ModuleA 的 AmdroidManifest 文件中使用
-android:name 属性指定了相应的 Application，而主 App Module 的
-AndroidManifest 文件中也使用 android:name 属性指定了相对应的
-Application，此时就必须在 <strong>主 App Module</strong> 的
-AndroidManifest 文件中<mark style="background: #83d98fA6;">使用
-tools:replace="android:name" 来解决冲突</mark> ，使用 replace
-属性表示该属性也就是在 标签下的 android:name
-属性可在编译过程中被替换，这样根据 AndroidManifest
-文件替换规则最终指定的 Application 应该是 App Module 中的指定的
-Application。</p>
-<p>举一个例子，我在项目中的某个功能 Module 中使用 SMSSDK
-来完成短信验证的功能，因为其他地方不用，所以只引入到了要使用的功能
-Module 中，如果其他 Module 会使用应该将 SMSSDK 引入到 BaseModule
-中，使用 SMSSDK 如果不指定该 Module 的 Application，MobSDK 会将
-com.mob.MobApplication 指定为该 Module 的
-Application，此时在整体编译打包时就会出现 AndroidManifest 文件的
-android:name 属性冲突，当然了解决方法就是使用 replace 属性了。
-AndroidManifest 文件合并后的主要冲突也就是这个问题了，当然
-下的其他属性有冲突，也是使用 replace
-属性。在实际的开发中多验证会更有收获喔。</p>
-<p>组件化开发中另外需要注意的一点是防止资源名称一样导致最终合并的时候，因为冲突造成资源引用错误或者某些资源丢失等，如字符串、颜色值等资源等合并的时候会被后面加载的相同名称的资源所替换，解决的思路是在资源命名上要有一定的规则，<mark style="background: #83d98fA6;">可以在
-build.gradle 文件中配置 "resourcePrefix" 组件名称
-""的方式强制约束开发者确保资源名称唯一</mark>
-，建议<mark style="background: #83d98fA6;"> Module
-中资源的命名格式为"Module 名称_功能_其他 "</mark> 。
-<!--SR:!2025-04-23,403,230--></p>
-<h2 id="静态常量">静态常量</h2>
-<p><strong>组件化开发中，最终合并时每个组件都是以 Lib Module
-的形式存在</strong>，而 Lib Module 中 R.java
-文件中定义的静态变量没有声明为 final，这就意味着不能在组件 Module
-中使用相对应的常量了，如在时候 switch
-语句就不能使用了，这就要求<mark style="background: #83d98fA6;">在组件中要使用
-if 语句来替代 switch 语句</mark>
-，当然在组件独立运行的时候是没有这个问题的。</p>
-<p>开发中经常会使用到 Butterknife，Butterknife 可非常方便的对 View 及
-View
-的事件等进行注解操作，它采用的是编译时注解机制，注解中只能使用常量，所以在
-Butterknife 在组件化开发中应该使用 R2 代替 R，R2 实际上是 R 的拷贝， R2
-对应声明的变量是 final，所以在组件化开发中如果使用 Butterknife
-在相应的注解中要使用 R2 替代 R。 <!--SR:!2025-01-05,487,250--></p>
-<p><strong>Backlinks:</strong></p>
-<ul>
-<li><a href="../8d431f07c8d4c47c4e9646c57f218a9fa1d9864a">Android 组件化
-Application</a></li>
-<li><a href="../8b9b73b54d7308edd29570d8d41c94b255818281">Android 组件化
-ARouter</a></li>
-</ul>
-<blockquote class="pullquote mindmap mindmap-md"><ul>
-<li>🔵
-<ul>
-<li><a href="../8d431f07c8d4c47c4e9646c57f218a9fa1d9864a">Android 组件化
-Application</a></li>
-<li><a href="../8b9b73b54d7308edd29570d8d41c94b255818281">Android 组件化
-ARouter</a></li>
-</ul></li>
-</ul>
-</blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>5.技能</category>
-        <category>Android</category>
-      </categories>
-      <tags>
-        <tag>技能</tag>
-        <tag>Android</tag>
-        <tag>srcard</tag>
-        <tag>android</tag>
-        <tag>组件化</tag>
+        <tag>开发环境</tag>
       </tags>
   </entry>
   <entry>
@@ -9868,7 +9587,7 @@ project. Change the github link to point to your project.</p></li>
 <h2 id="notes">Notes</h2>
 <p>A more opinionated project template with sample/reusable configs,
 scripts and code is a WIP.</p>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a href="../620293c2dd4cc0e2283aea0680aff5d2076e8bfb">Go
 开发环境搭建</a></li>
@@ -9890,10 +9609,291 @@ scripts and code is a WIP.</p>
       <tags>
         <tag>技能</tag>
         <tag>开发环境</tag>
-        <tag>编程语言</tag>
-        <tag>Go</tag>
-        <tag>go</tag>
         <tag>规范</tag>
+        <tag>编程语言</tag>
+        <tag>go</tag>
+        <tag>Go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git submodule 子模块的管理和使用</title>
+    <url>/1724764acb83566cfbcc5cedf7fe0bf07a4ed3a1/</url>
+    <content><![CDATA[<h2 id="使用前提">使用前提</h2>
+<p>经常碰到这种情况：当你在一个 Git
+项目上工作时，你需要在其中使用另外一个 Git
+项目。也许它是一个第三方开发的 Git
+库或者是你独立开发和并在多个父项目中使用的。这个情况下一个常见的问题产生了：你想将两个项目单独处理但是又需要在其中一个中使用另外一个。</p>
+<p>在 Git
+中你可以用子模块<code>submodule</code>来管理这些项目，<code>submodule</code>允许你将一个
+Git 仓库当作另外一个 Git
+仓库的子目录。这允许你克隆另外一个仓库到你的项目中并且保持你的提交相对独立。</p>
+<h2 id="添加子模块">添加子模块</h2>
+<p><strong>添加子模块命令?</strong></p>
+<p>此文中统一将远程项目<code>git@gitee.com:qiaogaojian/framework.git</code>克隆到本地<code>Framework</code>文件夹。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git submodule add git@gitee.com:qiaogaojian/framework.git Framework</span></code></pre></div>
+<!--SR:!2026-04-06,777,230-->
+<p>添加子模块后运行<code>git status</code>, 可以看到目录有增加 1
+个文件<code>.gitmodules</code>, 这个文件用来保存子模块的信息。</p>
+<pre><code>$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+
+    new file:   .gitmodules
+    new file:   assets</code></pre>
+<h2 id="查看子模块">查看子模块</h2>
+<p><strong>查看子模块命令?</strong></p>
+<pre><code>$ git submodule
+ e33f854d3f51f5ebd771a68da05ad0371a3c0570 assets (heads/master)</code></pre>
+<!--SR:!2027-07-28,1125,250-->
+<h2 id="更新子模块">更新子模块</h2>
+<ul>
+<li><p><strong>更新项目内子模块到最新版本命令?</strong></p>
+<pre><code>$ git submodule update</code></pre></li>
+<li><p>更新子模块为远程项目的最新版本</p>
+<pre><code>$ git submodule update --remote</code></pre></li>
+</ul>
+<h2 id="克隆包含子模块的项目">克隆包含子模块的项目</h2>
+<p>克隆包含子模块的项目有二种方法：一种是先克隆父项目，再更新子模块；另一种是直接递归克隆整个项目。</p>
+<h3 id="克隆父项目再更新子模块">克隆父项目，再更新子模块</h3>
+<ol type="1">
+<li>克隆父项目</li>
+</ol>
+<pre><code>$ git clone https://github.com/maonx/vimwiki-assets.git assets</code></pre>
+<ol start="2" type="1">
+<li>查看子模块</li>
+</ol>
+<pre><code>$ git submodule
+ -e33f854d3f51f5ebd771a68da05ad0371a3c0570 assets</code></pre>
+<p>子模块前面有一个<code>-</code>，说明子模块文件还未检入（空文件夹）。</p>
+<ol start="3" type="1">
+<li>初始化子模块</li>
+</ol>
+<pre><code>$ git submodule init
+Submodule &#39;assets&#39; (https://github.com/maonx/vimwiki-assets.git) registered for path &#39;assets&#39;</code></pre>
+<p>初始化模块只需在克隆父项目后运行一次。</p>
+<ol start="4" type="1">
+<li>更新子模块</li>
+</ol>
+<pre><code>$ git submodule update
+Cloning into &#39;assets&#39;...
+remote: Counting objects: 151, done.
+remote: Compressing objects: 100% (80/80), done.
+remote: Total 151 (delta 18), reused 0 (delta 0), pack-reused 70
+Receiving objects: 100% (151/151), 1.34 MiB | 569.00 KiB/s, done.
+Resolving deltas: 100% (36/36), done.
+Checking connectivity... done.
+Submodule path &#39;assets&#39;: checked out &#39;e33f854d3f51f5ebd771a68da05ad0371a3c0570&#39;</code></pre>
+<h3 id="递归克隆整个项目">递归克隆整个项目</h3>
+<p><strong>clone 带子模块的项目?</strong></p>
+<pre><code>git clone https://github.com/maonx/vimwiki-assets.git assets --recursive</code></pre>
+<p>递归克隆整个项目，子模块已经同时更新了，一步到位。
+<!--SR:!2026-10-01,939,250--></p>
+<h2 id="修改子模块">修改子模块</h2>
+<p>在子模块中修改文件后，直接提交到远程项目分支。</p>
+<pre><code>$ git add .
+$ git ci -m &quot;commit&quot;
+$ git push origin HEAD:master</code></pre>
+<h2 id="删除子模块">删除子模块</h2>
+<p><strong>怎么删除子模块?</strong></p>
+<p><strong>删除子模块比较麻烦，需要手动删除相关的文件，否则在添加子模块时有可能出现错误</strong><br />
+同样以删除<code>assets</code>文件夹为例</p>
+<ol type="1">
+<li>删除子模块文件夹</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git rm <span class="at">--cached</span> assets</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm <span class="at">-rf</span> assets</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm <span class="at">-rf</span> .git/modules/assets</span></code></pre></div>
+<ol start="2" type="1">
+<li>删除<code>.gitmodules</code>文件中相关子模块信息</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[submodule</span> <span class="st">&quot;assets&quot;</span>]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">path</span> = assets</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">url</span> = https://github.com/maonx/vimwiki-assets.git</span></code></pre></div>
+<ol start="3" type="1">
+<li>删除<code>.git/config</code>中的相关子模块信息</li>
+</ol>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[submodule</span> <span class="st">&quot;assets&quot;</span>]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">url</span> = https://github.com/maonx/vimwiki-assets.git</span></code></pre></div>
+<!--SR:!2026-04-10,709,210-->
+<h2 id="更换子模块">更换子模块</h2>
+<ul>
+<li>先删除</li>
+<li>再添加</li>
+</ul>
+<p><strong>相关笔记:</strong></p>
+<ul>
+<li><a href="../398c907730d3d916e72688bf34e18ad17c4edeff">Git
+开发环境</a></li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>🔵
+<ul>
+<li><a href="../398c907730d3d916e72688bf34e18ad17c4edeff">Git
+开发环境</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>6.工具</category>
+        <category>开发</category>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
+        <tag>Git</tag>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Android 组件化基础</title>
+    <url>/1fb05f97cf4037d2eec2f0599f188ff8500faf52/</url>
+    <content><![CDATA[<blockquote>
+<p>原文地址 <a
+href="https://juejin.cn/post/6844904026027327501">juejin.cn</a></p>
+</blockquote>
+<p>当 App
+项目复杂一定的程度，将项目组件化是必不可少的，组件化可以更好的进行功能的划分，提到组件化有人可能会想到模块化，其实组件化和模块化的本质是一样的，都是为了代码重用的业务解耦，模块化主要按照业务划分，而组件化主要按照功能划分，从<strong>组件化最基础的几个方面</strong>打开组件化的大门。</p>
+<ol type="1">
+<li>组件之间的跳转</li>
+<li>动态创建</li>
+<li>资源冲突</li>
+<li>静态常量 <!--SR:!2025-12-14,683,250--></li>
+</ol>
+<h2 id="组件之间的跳转">组件之间的跳转</h2>
+<p>组件化中两个功能模块时不直接依赖的，其依赖规则是通过 Base module
+间接依赖，当组件之间的 Activity
+进行界面跳转时，由于没有相互依赖的关系，往往会无法引用另一个 module 中的
+Activity。</p>
+<h3 id="隐式跳转">隐式跳转</h3>
+<p>隐式跳转是通过 Android 原生 Intent 匹配机制来实现相应跳转，就是使用
+Action 来跳转到对应的 Activity，这样使用隐式跳转的方式就可以跨 module
+实现 Activity 之间的跳转了，注意一点，如果移出 Activity 所在的 module
+而不移出相应的跳转，如果继续跳转会出现异常，使用隐式 Intent
+跳转需要验证是否会接收该 Intent，需要对该 Intent 对象调用
+resolveActivity() 方法来判断至少有一个应用能够处理该
+Intent，通过隐式跳转的方式还可以设置 exported 为 false 来确保只有自己的
+App 才能够启动对应的组件。</p>
+<h3 id="arouter-跳转">ARouter 跳转</h3>
+<p>在 Android 开发中可将 module 看成不同的网络，而对应的 Router
+就是连接各个 module
+的中转站，这个中转站可以对页面跳转的参数等进行统一处理，ARouter
+是阿里开源出来的一个页面跳转路由，使用 ARouter
+可以替代隐式跳转来完成不同
+module、不同组件之间的跳转以及跳转过程的监听、参数的传递等，ARouter
+支持路径跳转和 URL 跳转两种方式，使用也非常灵活，ARouter
+的具体使用这里不做介绍，其具体使用会在单独一篇文章中详解，</p>
+<p><strong>ARouter 与 Android 传统跳转方式的对比如下</strong>：</p>
+<ol type="1">
+<li>显式跳转需要依赖于类，而<mark style="background: #83d98fA6;">路由跳转通过指定的路径跳转</mark>
+；</li>
+<li>隐式跳转通过 AndroidManifest 集中管理，导致协作开发困难；原生使用
+AndroidManifest
+来注册，而<mark style="background: #83d98fA6;">路由使用注解注册</mark></li>
+<li>原生 startActivity 之后跳转过程交由 Android
+系统控制，而<mark style="background: #83d98fA6;">路由跳转采用的是 AOP
+切面编程可对跳转过程进行拦截和过滤</mark> 。
+<!--SR:!2024-12-19,473,250--></li>
+</ol>
+<h2 id="动态创建">动态创建</h2>
+<p>组件化开发中最重要的一点就是各个模块、各个组件之间要尽可能解耦，这样很容易就会想到使用
+Java
+中的反射机制，使用反射可在运行状态下获取某个类的所有信息，然后就可以动态操作这个类的属性和方法了。如果
+Fragment 单独作为一个组件来使用时，当这个 Fragment
+组件不需要被移出后，如果是常规的 Fragment 则会因为索引不到该 Fragment
+而使得 App
+崩溃，想一下如果<mark style="background: #83d98fA6;">使用反射创建
+Fragment </mark> 的方式则至少不会引起 App
+崩溃，这里可以捕捉异常完成相关逻辑，这样是不是降低了耦合呢。可见，虽然反射有一定的性能问题，但使用反射确实能在一定程度上降低耦合，学习组件化
+Java 反射机制应该是必须的一部分。</p>
+<p>组件化开发中要求每个组件都能独立运行，一般情况下每个组件都有一定的初始化步骤，最好的一种情况是项目需要的几个组件的初始化基本相同，那就可将初始化放在
+BaseModule
+中进行统一初始化，但是这种情况毕竟比较理想，一般情况是每个组件的初始化都不一样，可能你会想到在各自的
+Application 初始化，如果在各自的 Application 中初始化，当在最终编译由于
+Application
+的合并难免会出一些问题，这种方式也不可取，到这里又想到了反射，在各组件中创建初始化文件，然后<mark style="background: #83d98fA6;">在最终的
+Application 中通过反射完成各个组件的初始化操作</mark> ，这里通过 Java
+的反射机制完成了组件化开发中 Application 的动态配置。
+<!--SR:!2025-01-18,497,250--></p>
+<h2 id="资源冲突">资源冲突</h2>
+<p>组件化开发过程中，如果 ModuleA 的 AmdroidManifest 文件中使用
+android:name 属性指定了相应的 Application，而主 App Module 的
+AndroidManifest 文件中也使用 android:name 属性指定了相对应的
+Application，此时就必须在 <strong>主 App Module</strong> 的
+AndroidManifest 文件中<mark style="background: #83d98fA6;">使用
+tools:replace="android:name" 来解决冲突</mark> ，使用 replace
+属性表示该属性也就是在 标签下的 android:name
+属性可在编译过程中被替换，这样根据 AndroidManifest
+文件替换规则最终指定的 Application 应该是 App Module 中的指定的
+Application。</p>
+<p>举一个例子，我在项目中的某个功能 Module 中使用 SMSSDK
+来完成短信验证的功能，因为其他地方不用，所以只引入到了要使用的功能
+Module 中，如果其他 Module 会使用应该将 SMSSDK 引入到 BaseModule
+中，使用 SMSSDK 如果不指定该 Module 的 Application，MobSDK 会将
+com.mob.MobApplication 指定为该 Module 的
+Application，此时在整体编译打包时就会出现 AndroidManifest 文件的
+android:name 属性冲突，当然了解决方法就是使用 replace 属性了。
+AndroidManifest 文件合并后的主要冲突也就是这个问题了，当然
+下的其他属性有冲突，也是使用 replace
+属性。在实际的开发中多验证会更有收获喔。</p>
+<p>组件化开发中另外需要注意的一点是防止资源名称一样导致最终合并的时候，因为冲突造成资源引用错误或者某些资源丢失等，如字符串、颜色值等资源等合并的时候会被后面加载的相同名称的资源所替换，解决的思路是在资源命名上要有一定的规则，<mark style="background: #83d98fA6;">可以在
+build.gradle 文件中配置 "resourcePrefix" 组件名称
+""的方式强制约束开发者确保资源名称唯一</mark>
+，建议<mark style="background: #83d98fA6;"> Module
+中资源的命名格式为"Module 名称_功能_其他 "</mark> 。
+<!--SR:!2025-04-23,403,230--></p>
+<h2 id="静态常量">静态常量</h2>
+<p><strong>组件化开发中，最终合并时每个组件都是以 Lib Module
+的形式存在</strong>，而 Lib Module 中 R.java
+文件中定义的静态变量没有声明为 final，这就意味着不能在组件 Module
+中使用相对应的常量了，如在时候 switch
+语句就不能使用了，这就要求<mark style="background: #83d98fA6;">在组件中要使用
+if 语句来替代 switch 语句</mark>
+，当然在组件独立运行的时候是没有这个问题的。</p>
+<p>开发中经常会使用到 Butterknife，Butterknife 可非常方便的对 View 及
+View
+的事件等进行注解操作，它采用的是编译时注解机制，注解中只能使用常量，所以在
+Butterknife 在组件化开发中应该使用 R2 代替 R，R2 实际上是 R 的拷贝， R2
+对应声明的变量是 final，所以在组件化开发中如果使用 Butterknife
+在相应的注解中要使用 R2 替代 R。 <!--SR:!2025-01-05,487,250--></p>
+<p><strong>相关笔记:</strong></p>
+<ul>
+<li><a href="../8d431f07c8d4c47c4e9646c57f218a9fa1d9864a">Android 组件化
+Application</a></li>
+<li><a href="../8b9b73b54d7308edd29570d8d41c94b255818281">Android 组件化
+ARouter</a></li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>🔵
+<ul>
+<li><a href="../8d431f07c8d4c47c4e9646c57f218a9fa1d9864a">Android 组件化
+Application</a></li>
+<li><a href="../8b9b73b54d7308edd29570d8d41c94b255818281">Android 组件化
+ARouter</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.技能</category>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>srcard</tag>
+        <tag>android</tag>
+        <tag>技能</tag>
+        <tag>组件化</tag>
       </tags>
   </entry>
   <entry>
@@ -10297,8 +10297,8 @@ MECE 的。</p>
         <category>Learn</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
+        <tag>技能</tag>
         <tag>Learn</tag>
         <tag>learn</tag>
       </tags>
@@ -10451,6 +10451,178 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a h
         <tag>编程语言</tag>
         <tag>python</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git 开发环境</title>
+    <url>/398c907730d3d916e72688bf34e18ad17c4edeff/</url>
+    <content><![CDATA[<h2 id="安装">安装</h2>
+<ul>
+<li>Win10</li>
+</ul>
+<p><a href="https://git-scm.com/downloads">Git 下载地址</a></p>
+<ul>
+<li>Deepin</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install git</span></code></pre></div>
+<h2 id="配置">配置</h2>
+<h3 id="windows-配置环境变量">Windows 配置环境变量</h3>
+<p>Settings &gt; System &gt; AdvanceSystemSetting &gt; Environment
+Variables &gt; Path &gt; Edit</p>
+<h3 id="配置git-全局姓名和邮箱">配置Git 全局姓名和邮箱</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">&quot;qiaogaojian&quot;</span>  </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">&quot;qiaogaojian@vip.qq.com&quot;</span></span></code></pre></div>
+<h3 id="生成并配置-ssh-密钥">生成并配置 ssh 密钥</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> rsa <span class="at">-C</span> <span class="st">&quot;qiaogaojian@vip.qq.com&quot;</span> </span></code></pre></div>
+<ul>
+<li>Win10</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> C:<span class="dt">\U</span>sers<span class="dt">\A</span>dministrator<span class="dt">\.</span>ssh<span class="dt">\i</span>d_rsa.pub <span class="co"># 显示公钥</span></span></code></pre></div>
+<ul>
+<li>Deepin</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ssh 公钥</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_rsa.pub <span class="co"># 显示公钥</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># deepinvm</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">ssh-rsa</span> AAAAB3NzaC1yc2EAAAADAQABAAABAQCsOwois8+V5yjMIorYN1FSPpArMF9plEdPt676iRPSlf3/oyrD5Uc7STiIIbGDph5IhbW2ZPsiZvxvrkXERFRMqZjmt6jE8ZITz1usxqQdZUKPK5qJQHNMyB66mckoqWgQ4o8NtdmAup/Uei+DAr/JaN7fA0TzZdqRnb7kLqL4U7koe1No23ml82CicEPBHgYEL8Dcs/yqIFQycepYoU0FsfGSfLDD/EbIJpdMjGm8OnkI3gUlcGMsdtuz65Z1h2EsUjTlGUIE8GvOdULpjm8ESFmMYt0PoEY1lHMLRscWvSNFJ6yxVpoUI6+PUsF/Sc4ZqKIxJDeq3t5wS4BZF7Yt qiaogaojian@vip.qq.com</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ubuntuvm</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ssh-rsa</span> AAAAB3NzaC1yc2EAAAADAQABAAABgQDhRPcvYHp5gXrRENiXVrQ67ItAx2JFRxHJcOPv62TZX7o0AgolopmQQpiHECUmeRvtyH/pxdSgaAo/jcJFYX5RsN73G1GHRn/WsjJ6Dm+G4pGxwTHeuJodY29gX/i3NIBLJFYOrBhwPjMfAs7Qq8TL8XU1JArjER8fwX6tvNENmYvbWrASNfIlt55qbny9s4kzL6GBBhseF5Xm5LZ09sQHFuI1YPHkHqb0Eb+eTv5rT/LW0/pa9bSiFRKh86bBKCTKt78w8ZeFmKQf5jTYNxlIlFWWYwfh+OAS1PyG1UHwTU863X20kqbH81wIihgcrU+B7vFtQS9NlWhq9bUuEZag5v5WV3aT73Dl5mnnzch/6NUpMXIdMwl8WMJHewbo2NGO27r5nWltW4tdgi7LJuY8FgacLcHARSlbUBOxLkvKeveuJdsJRQjGSComFwBNLY9VbxEM2HGIUikdhAbJvPBLeRb7J8rGwF/eQVhdByJ3b3TvpRHMoOACRDwkc9H+Qi0= qiaogaojian@vip.qq.com</span></code></pre></div>
+<p>然后复制ssh公钥到Github或Gitlab等后台的ssh公钥管理里.</p>
+<h3 id="ssh-连接测试">SSH 连接测试</h3>
+<pre class="shell"><code>ssh -T git@gitee.com
+ssh -T git@github.com</code></pre>
+<!--SR:!2025-06-12,388,250-->
+<h2 id="使用">使用</h2>
+<ul>
+<li><a href="../abbec60d7f2fb585a004df0095b46c95af076c53">Git
+常用命令</a></li>
+<li><a href="../1724764acb83566cfbcc5cedf7fe0bf07a4ed3a1">Git submodule
+子模块的管理和使用</a></li>
+<li>[[Smartgit 安装破解]]</li>
+</ul>
+<p><strong>相关笔记:</strong></p>
+<ul>
+<li><a
+href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>🔵
+<ul>
+<li><a href="../abbec60d7f2fb585a004df0095b46c95af076c53">Git
+常用命令</a></li>
+<li><a
+href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
+<li><a href="../1724764acb83566cfbcc5cedf7fe0bf07a4ed3a1">Git submodule
+子模块的管理和使用</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>6.工具</category>
+        <category>开发</category>
+        <category>开发环境</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
+        <tag>开发环境</tag>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity3D高级编程 主程手记</title>
+    <url>/41291e4cef1b7c5ee961eb9d22af60f1f3203b23/</url>
+    <content><![CDATA[<h2 id="第1章-软件架构">第1章 软件架构</h2>
+<h3 id="架构的意义">1.1 架构的意义</h3>
+<p>在软件系统中，架构的重要性不言而喻，项目从研发到上线运营，我们要在不同的方案中选择合适的架构，例如，前端渲染引擎是自己研发，还是使用商业引擎？商业引擎是使用Unity3D，还是Unreal或其他？具体到怎么用，则要考虑是使用UGUI，还是使用NGUI？UI里的事件系统如何进行统一处理？AI行为算法是选择行为树，还是状态机，抑或是选择事件型决策树？数据如何获取和存储？场景如何拆分？是否需要将资源分离出去？是使用长连接还是短连接？是选择TCP还是UDP？服务器端是用C++，还是用Java或Python？是全部使用关系型数据库，还是加入Cache机制？网络协议是用Protocol
+Buff，还是用JSON或XML，抑或是使用完全自定义格式等。</p>
+<p>这些项目中的每个子系统都要有自己的方向，把子系统的决策方向合起来再加入它们之间的关联调用就构成了一个完整的架构，即每个系统、模块、组件都是软件系统架构中的一部分。</p>
+<p>一个完整的架构图通常会伴随些许子系统的细节，或者说子模块的架构图。UML对象关系图就是一种架构图，它描述了数据类之间的关系，可把系统中的对象用文字和连接图的方式描述清楚。部署图也是其中一种架构图，它把需要多少种服务器、它们分别起到什么作用，以及它们相互之间的关系描述清楚了，而时序图则把系统程序调用的次序与流程描述清楚了。这些不同角度的架构图合起来就构成了一个完整的项目架构图。如果把子系统架构细节略去，在不关心细节的情况下，描述各系统的合作方式，展现给人们的是整体的解决方案，从宏观的角度看整个项目的布局，会让人一目了然。</p>
+<p>可以把软件架构理解为软件程序的架子，与现实中的书架有异曲同工之妙，这个架子上有很多大大小小的格子，每个格子里都可以放置固定种类的程序。架子有大有小，大的需要花费点时间去定制，小的则轻便快捷。</p>
+<p>架子的大小是由设计师决定的，设计师根据客户的需求设计，假如放置的空间大，且需要承载的东西多，那么就往容量大的方向设计，让它能容纳更多的东西，能放置各种不同类型的程序，反之则做得简约些，这样更容易理解，又轻又快。</p>
+<p>架子完成后要拿出去用，如果一出现异常情况就倒了或散架了，就不算是一个好的架子，架子的好坏可从以下几个方面进行评估。</p>
+<ol type="1">
+<li><strong>承载力</strong></li>
+</ol>
+<p>书架上能放多少东西，能放多重的东西，是使用者（这里使用者可以为客户、玩家或程序员）比较关注的问题。</p>
+<p>从软件架构的程序意义来说，一个架构能承载多少个逻辑系统，当代码行数扩展到100万行时是否依然能够有序且规范地运行，以及程序员彼此工作的模块耦合度是否依然能保持原来的设计要求，能够承载多少个程序员共同开发，共同开发的效率又如何，这是对软件架构承载力的评定指标。</p>
+<p>从架构的目标上来看，对于服务器来说，当前架构能承受多少人同时访问，能承载的日均访问量是多少，这就是它承载力的体现。而对于客户端来说，能显示多少UI元素，可渲染多少模型（包括同屏渲染和非同屏渲染），则是它的承载力的体现。</p>
+<ol start="2" type="1">
+<li><strong>可扩展性</strong></li>
+</ol>
+<p>如果书架上只能放书，这个书架的用途就太单一了，花瓶不能放、箱子不能放、鞋子不能放、袋子不能放、衣服不能放，客户八成不买单。</p>
+<ol start="3" type="1">
+<li><strong>易用性</strong></li>
+</ol>
+<p>易用性是架构师比较容易忽视的一个点。如果架构师设计了完整的架构，但具体执行时被程序员认为不好用，这时架构师还是执着地推动它的使用，那么团队间就会加深矛盾，这样开发效率就会下降。</p>
+<ol start="4" type="1">
+<li><strong>可伸缩性</strong></li>
+</ol>
+<p>还是用书架比喻，假设现在没有这么多书和东西要放，房子也不够大，那么书架如果可以折叠缩小到我需要的大小则会更受用户欢迎，这就是可伸缩性的体现。</p>
+<p>若软件架构能像我们制造的书架一样可随时放大或随时折叠缩小，那就太好了。当需要的承载量没有这么大时，可以不使用不需要的功能，化繁为简，只启用需要的部分功能，这样就可以随时简化开发流程。</p>
+<ol start="5" type="1">
+<li><strong>容错性以及错误的感知力</strong></li>
+</ol>
+<p>书架也会有磕磕碰碰的时候，同样也会出现因某处做工不精导致使用时歪歪斜斜的情况，如果我们保证不了完全没有问题，至少需要保证它不会因为一点小小的毛病而彻底散架。</p>
+<p>从服务器端角度，容错性包括数据库容错性、应用服务器容错性、缓存服务器容错性，以及中心服务器容错性，每个环节出现问题都会通知相关中心服务器改变策略，或者监控服务器检测得知该服务器出现故障，自动更换成备用服务器或者更换链路。</p>
+<p>从客户端角度，容错性包括当程序发生错误时，是否同样能够继续保持运行而不崩溃；当这个页面程序出错时，是否依然能够运行其他程序而不闪退或崩溃。同时所有出现的程序错误，都能及时地记录下来并发送到后台，存储为错误日志，便于开发人员及时得到详细的错误信息，能够根据错误信息快速找出问题所在。</p>
+<h3 id="软件架构的思维方式">1.2 软件架构的思维方式</h3>
+<p>《优秀架构师必须掌握的架构思维》的文章就很好地对抽象能力进行了分析，以下三种抽象能力源自这篇文章。</p>
+<p><strong>第一种：分层思维</strong></p>
+<p>分层是我们应对和管理复杂性的基本思维武器。</p>
+<p>面对一个复杂的系统，我们一开始总是无从下手，就好比一下子在我们面前摆了很多的问题，杂乱无章。这很大程度上会导致我们慌张、焦急、惶恐。分层思维，能很好地帮助我们抽象一个复杂系统的架构层次，从而清晰地描述有多少层面的事务需要我们解决，以及解决层级的先后次序。</p>
+<p><strong>第二种：分治思维</strong></p>
+<p>分而治之也是应对和管理复杂性的一般性方法</p>
+<p>对于一个无法一次解决的大问题，我们先把大问题分解成若干个子问题，如果子问题还无法解决，则继续分解成子子问题，直到可以直接解决为止，这就是分解（divide）的过程；然后将子子问题的解组合成子问题的解，再将子问题的解组合成原问题的解，这就是组合（combine）的过程。</p>
+<p><strong>第三种：演化思维</strong></p>
+<p>经常有人讨论：架构是设计出来的还是演化出来的？基于多年的经验，我认为架构既是设计出来的，同时也是演化出来的。对于互联网系统，基本上可以说是三分设计，七分演化，既在设计中演化，又在演化中设计，是一个不断迭代的过程。</p>
+<h3 id="如何构建unity3d项目">1.3 如何构建Unity3D项目</h3>
+<ol type="1">
+<li><strong>前端与后端架构之间的共性</strong></li>
+</ol>
+<p>前后端架构的目标都是高性能、高可用、可扩展、安全、可容错。对于前端来说，除了这些目标特性外，还需要加入更多的用户体验，包括视觉效果和操作灵敏度。</p>
+<p>作为前端工程师，用户体验是比较重要的，这种体验涉及很多方面，包括性能、视觉效果，以及操作上的人性化等。例如，如何让游戏加载速度更流畅、如何制作更绚丽的特效、如何减少电量的消耗、如何最快地响应用户操作等。</p>
+<ol start="2" type="1">
+<li><strong>培养架构设计思维</strong></li>
+</ol>
+<p>良好的架构设计思维的培养，离不开工作中大量高质量项目的实战锻炼，以及平时的学习、思考和总结。</p>
+<p>基本的架构设计思维在大学计算机课程（比如数据结构和算法）中可以找到，大学里以学习理论知识为主。回头看，基本的架构设计思维在那时就已经埋下种子，后面的工程实践会进一步消化和应用所学的理论知识，随着经验的积累，我们能够解决的问题的复杂性和规模逐渐变大，但所用的方法依然是抽象、分层、分治和演化。</p>
+<ol start="3" type="1">
+<li><strong>试着构建Unity3D项目</strong></li>
+</ol>
+<p>我们可以使用以上方法来试着构建Unity3D项目。下面采用分层的思维方式先确定架构的层级，如图1-8所示。</p>
+<p>图1-8　Unity3D分层设计</p>
+<p>把整个项目分成五大层级，即网络层、数据管理层、资源管理层、核心逻辑框架层、UI框架层。</p>
+<p>第2章 C#技术要点<br />
+2.1　Unity3D中C#的底层原理</p>
+<p>Unity底层在运行C#程序时有两种机制，一种是Mono，另一种是IL2CPP。</p>
+<p>这里要引出一个很重要的概念“IL”。IL的全称是Intermediate
+Language，但很多时候我们看到的是CIL（Common Intermediate
+Language，特指在.NET平台下的IL标准），其实大部分文章中提到的IL和CIL表示的是同一个东西，即中间语言。</p>
+<p>IL是一种低阶（lowest-level）的人类可读的编程语言。我们可以将通用语言翻译成IL，然后汇编成字节码，最后运行在虚拟机上；也可以把IL看作一个面向对象的汇编语言，只是它必须运行在虚拟机上，而且是完全基于堆栈的语言。也就是说，C#、VB、J#这种遵循CLI规范的高级语言，会被各自的编译器编译成中间语言IL（CIL），当需要运行它们时就会被实时地加载到运行时库中，由虚拟机动态地编译成汇编代码（JIT）并执行。</p>
+<p>2.1 Unity3D中C#的底层原理<br />
+其实IL有三种转译模式。</p>
+<p>·Just-in-time（JIT）编译：在程序运行过程中将CIL转译为机器码。</p>
+<p>·Ahead-of-Time（AOT）编译：将IL转译成机器码并存储在文件中，此文件并不能完全独立运行。通常此种模式可产生出绝大部分JIT模式所产生的机器码，只是有部分例外，例如trampolines或是控管监督相关的代码仍旧需要JIT来运行。</p>
+<p>·完全静态编译：这个模式只支持少数平台，它基于AOT编译模式更进一步产生所有的机器码。完全静态编译模式可以让程序在运行期完全不需要用到JIT，这个做法适用于iOS操作系统、PlayStation
+3以及XBox 360等不允许使用JIT的操作系统。</p>
+<p>Unity在打包iOS操作系统的时候就使用了第三种方式，而在Android和Windows上则使用JIT实时编译来运行代码。</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.技能</category>
+        <category>Unity3d</category>
+        <category>book</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>技能</tag>
+        <tag>Unity3d</tag>
+        <tag>book</tag>
       </tags>
   </entry>
   <entry>
@@ -10673,95 +10845,14 @@ x64</p></li>
       </categories>
       <tags>
         <tag>开发环境</tag>
-        <tag>mscv</tag>
         <tag>vscode</tag>
-        <tag>理论</tag>
-        <tag>opengl</tag>
-        <tag>图形学</tag>
-        <tag>cpp</tag>
         <tag>计算机</tag>
         <tag>OpenGL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git 开发环境</title>
-    <url>/398c907730d3d916e72688bf34e18ad17c4edeff/</url>
-    <content><![CDATA[<h2 id="安装">安装</h2>
-<ul>
-<li>Win10</li>
-</ul>
-<p><a href="https://git-scm.com/downloads">Git 下载地址</a></p>
-<ul>
-<li>Deepin</li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install git</span></code></pre></div>
-<h2 id="配置">配置</h2>
-<h3 id="windows-配置环境变量">Windows 配置环境变量</h3>
-<p>Settings &gt; System &gt; AdvanceSystemSetting &gt; Environment
-Variables &gt; Path &gt; Edit</p>
-<h3 id="配置git-全局姓名和邮箱">配置Git 全局姓名和邮箱</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">&quot;qiaogaojian&quot;</span>  </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">&quot;qiaogaojian@vip.qq.com&quot;</span></span></code></pre></div>
-<h3 id="生成并配置-ssh-密钥">生成并配置 ssh 密钥</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> rsa <span class="at">-C</span> <span class="st">&quot;qiaogaojian@vip.qq.com&quot;</span> </span></code></pre></div>
-<ul>
-<li>Win10</li>
-</ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> C:<span class="dt">\U</span>sers<span class="dt">\A</span>dministrator<span class="dt">\.</span>ssh<span class="dt">\i</span>d_rsa.pub <span class="co"># 显示公钥</span></span></code></pre></div>
-<ul>
-<li>Deepin</li>
-</ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ssh 公钥</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_rsa.pub <span class="co"># 显示公钥</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># deepinvm</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">ssh-rsa</span> AAAAB3NzaC1yc2EAAAADAQABAAABAQCsOwois8+V5yjMIorYN1FSPpArMF9plEdPt676iRPSlf3/oyrD5Uc7STiIIbGDph5IhbW2ZPsiZvxvrkXERFRMqZjmt6jE8ZITz1usxqQdZUKPK5qJQHNMyB66mckoqWgQ4o8NtdmAup/Uei+DAr/JaN7fA0TzZdqRnb7kLqL4U7koe1No23ml82CicEPBHgYEL8Dcs/yqIFQycepYoU0FsfGSfLDD/EbIJpdMjGm8OnkI3gUlcGMsdtuz65Z1h2EsUjTlGUIE8GvOdULpjm8ESFmMYt0PoEY1lHMLRscWvSNFJ6yxVpoUI6+PUsF/Sc4ZqKIxJDeq3t5wS4BZF7Yt qiaogaojian@vip.qq.com</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ubuntuvm</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ssh-rsa</span> AAAAB3NzaC1yc2EAAAADAQABAAABgQDhRPcvYHp5gXrRENiXVrQ67ItAx2JFRxHJcOPv62TZX7o0AgolopmQQpiHECUmeRvtyH/pxdSgaAo/jcJFYX5RsN73G1GHRn/WsjJ6Dm+G4pGxwTHeuJodY29gX/i3NIBLJFYOrBhwPjMfAs7Qq8TL8XU1JArjER8fwX6tvNENmYvbWrASNfIlt55qbny9s4kzL6GBBhseF5Xm5LZ09sQHFuI1YPHkHqb0Eb+eTv5rT/LW0/pa9bSiFRKh86bBKCTKt78w8ZeFmKQf5jTYNxlIlFWWYwfh+OAS1PyG1UHwTU863X20kqbH81wIihgcrU+B7vFtQS9NlWhq9bUuEZag5v5WV3aT73Dl5mnnzch/6NUpMXIdMwl8WMJHewbo2NGO27r5nWltW4tdgi7LJuY8FgacLcHARSlbUBOxLkvKeveuJdsJRQjGSComFwBNLY9VbxEM2HGIUikdhAbJvPBLeRb7J8rGwF/eQVhdByJ3b3TvpRHMoOACRDwkc9H+Qi0= qiaogaojian@vip.qq.com</span></code></pre></div>
-<p>然后复制ssh公钥到Github或Gitlab等后台的ssh公钥管理里.</p>
-<h3 id="ssh-连接测试">SSH 连接测试</h3>
-<pre class="shell"><code>ssh -T git@gitee.com
-ssh -T git@github.com</code></pre>
-<!--SR:!2025-06-12,388,250-->
-<h2 id="使用">使用</h2>
-<ul>
-<li><a href="../abbec60d7f2fb585a004df0095b46c95af076c53">Git
-常用命令</a></li>
-<li><a href="../1724764acb83566cfbcc5cedf7fe0bf07a4ed3a1">Git submodule
-子模块的管理和使用</a></li>
-<li>[[Smartgit 安装破解]]</li>
-</ul>
-<p><strong>Backlinks:</strong></p>
-<ul>
-<li><a
-href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
-</ul>
-<blockquote class="pullquote mindmap mindmap-md"><ul>
-<li>🔵
-<ul>
-<li><a href="../abbec60d7f2fb585a004df0095b46c95af076c53">Git
-常用命令</a></li>
-<li><a
-href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
-<li><a href="../1724764acb83566cfbcc5cedf7fe0bf07a4ed3a1">Git submodule
-子模块的管理和使用</a></li>
-</ul></li>
-</ul>
-</blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>6.工具</category>
-        <category>开发</category>
-        <category>开发环境</category>
-      </categories>
-      <tags>
-        <tag>开发</tag>
-        <tag>工具</tag>
-        <tag>srcard</tag>
-        <tag>开发环境</tag>
-        <tag>git</tag>
+        <tag>图形学</tag>
+        <tag>cpp</tag>
+        <tag>mscv</tag>
+        <tag>理论</tag>
+        <tag>opengl</tag>
       </tags>
   </entry>
   <entry>
@@ -10866,102 +10957,11 @@ href="../b780bb9e95975417c037cc3060dfd3da8b830810">浮点数精度问题及解�
         <category>Python</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
+        <tag>技能</tag>
         <tag>编程语言</tag>
         <tag>python</tag>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Unity3D高级编程 主程手记</title>
-    <url>/41291e4cef1b7c5ee961eb9d22af60f1f3203b23/</url>
-    <content><![CDATA[<h2 id="第1章-软件架构">第1章 软件架构</h2>
-<h3 id="架构的意义">1.1 架构的意义</h3>
-<p>在软件系统中，架构的重要性不言而喻，项目从研发到上线运营，我们要在不同的方案中选择合适的架构，例如，前端渲染引擎是自己研发，还是使用商业引擎？商业引擎是使用Unity3D，还是Unreal或其他？具体到怎么用，则要考虑是使用UGUI，还是使用NGUI？UI里的事件系统如何进行统一处理？AI行为算法是选择行为树，还是状态机，抑或是选择事件型决策树？数据如何获取和存储？场景如何拆分？是否需要将资源分离出去？是使用长连接还是短连接？是选择TCP还是UDP？服务器端是用C++，还是用Java或Python？是全部使用关系型数据库，还是加入Cache机制？网络协议是用Protocol
-Buff，还是用JSON或XML，抑或是使用完全自定义格式等。</p>
-<p>这些项目中的每个子系统都要有自己的方向，把子系统的决策方向合起来再加入它们之间的关联调用就构成了一个完整的架构，即每个系统、模块、组件都是软件系统架构中的一部分。</p>
-<p>一个完整的架构图通常会伴随些许子系统的细节，或者说子模块的架构图。UML对象关系图就是一种架构图，它描述了数据类之间的关系，可把系统中的对象用文字和连接图的方式描述清楚。部署图也是其中一种架构图，它把需要多少种服务器、它们分别起到什么作用，以及它们相互之间的关系描述清楚了，而时序图则把系统程序调用的次序与流程描述清楚了。这些不同角度的架构图合起来就构成了一个完整的项目架构图。如果把子系统架构细节略去，在不关心细节的情况下，描述各系统的合作方式，展现给人们的是整体的解决方案，从宏观的角度看整个项目的布局，会让人一目了然。</p>
-<p>可以把软件架构理解为软件程序的架子，与现实中的书架有异曲同工之妙，这个架子上有很多大大小小的格子，每个格子里都可以放置固定种类的程序。架子有大有小，大的需要花费点时间去定制，小的则轻便快捷。</p>
-<p>架子的大小是由设计师决定的，设计师根据客户的需求设计，假如放置的空间大，且需要承载的东西多，那么就往容量大的方向设计，让它能容纳更多的东西，能放置各种不同类型的程序，反之则做得简约些，这样更容易理解，又轻又快。</p>
-<p>架子完成后要拿出去用，如果一出现异常情况就倒了或散架了，就不算是一个好的架子，架子的好坏可从以下几个方面进行评估。</p>
-<ol type="1">
-<li><strong>承载力</strong></li>
-</ol>
-<p>书架上能放多少东西，能放多重的东西，是使用者（这里使用者可以为客户、玩家或程序员）比较关注的问题。</p>
-<p>从软件架构的程序意义来说，一个架构能承载多少个逻辑系统，当代码行数扩展到100万行时是否依然能够有序且规范地运行，以及程序员彼此工作的模块耦合度是否依然能保持原来的设计要求，能够承载多少个程序员共同开发，共同开发的效率又如何，这是对软件架构承载力的评定指标。</p>
-<p>从架构的目标上来看，对于服务器来说，当前架构能承受多少人同时访问，能承载的日均访问量是多少，这就是它承载力的体现。而对于客户端来说，能显示多少UI元素，可渲染多少模型（包括同屏渲染和非同屏渲染），则是它的承载力的体现。</p>
-<ol start="2" type="1">
-<li><strong>可扩展性</strong></li>
-</ol>
-<p>如果书架上只能放书，这个书架的用途就太单一了，花瓶不能放、箱子不能放、鞋子不能放、袋子不能放、衣服不能放，客户八成不买单。</p>
-<ol start="3" type="1">
-<li><strong>易用性</strong></li>
-</ol>
-<p>易用性是架构师比较容易忽视的一个点。如果架构师设计了完整的架构，但具体执行时被程序员认为不好用，这时架构师还是执着地推动它的使用，那么团队间就会加深矛盾，这样开发效率就会下降。</p>
-<ol start="4" type="1">
-<li><strong>可伸缩性</strong></li>
-</ol>
-<p>还是用书架比喻，假设现在没有这么多书和东西要放，房子也不够大，那么书架如果可以折叠缩小到我需要的大小则会更受用户欢迎，这就是可伸缩性的体现。</p>
-<p>若软件架构能像我们制造的书架一样可随时放大或随时折叠缩小，那就太好了。当需要的承载量没有这么大时，可以不使用不需要的功能，化繁为简，只启用需要的部分功能，这样就可以随时简化开发流程。</p>
-<ol start="5" type="1">
-<li><strong>容错性以及错误的感知力</strong></li>
-</ol>
-<p>书架也会有磕磕碰碰的时候，同样也会出现因某处做工不精导致使用时歪歪斜斜的情况，如果我们保证不了完全没有问题，至少需要保证它不会因为一点小小的毛病而彻底散架。</p>
-<p>从服务器端角度，容错性包括数据库容错性、应用服务器容错性、缓存服务器容错性，以及中心服务器容错性，每个环节出现问题都会通知相关中心服务器改变策略，或者监控服务器检测得知该服务器出现故障，自动更换成备用服务器或者更换链路。</p>
-<p>从客户端角度，容错性包括当程序发生错误时，是否同样能够继续保持运行而不崩溃；当这个页面程序出错时，是否依然能够运行其他程序而不闪退或崩溃。同时所有出现的程序错误，都能及时地记录下来并发送到后台，存储为错误日志，便于开发人员及时得到详细的错误信息，能够根据错误信息快速找出问题所在。</p>
-<h3 id="软件架构的思维方式">1.2 软件架构的思维方式</h3>
-<p>《优秀架构师必须掌握的架构思维》的文章就很好地对抽象能力进行了分析，以下三种抽象能力源自这篇文章。</p>
-<p><strong>第一种：分层思维</strong></p>
-<p>分层是我们应对和管理复杂性的基本思维武器。</p>
-<p>面对一个复杂的系统，我们一开始总是无从下手，就好比一下子在我们面前摆了很多的问题，杂乱无章。这很大程度上会导致我们慌张、焦急、惶恐。分层思维，能很好地帮助我们抽象一个复杂系统的架构层次，从而清晰地描述有多少层面的事务需要我们解决，以及解决层级的先后次序。</p>
-<p><strong>第二种：分治思维</strong></p>
-<p>分而治之也是应对和管理复杂性的一般性方法</p>
-<p>对于一个无法一次解决的大问题，我们先把大问题分解成若干个子问题，如果子问题还无法解决，则继续分解成子子问题，直到可以直接解决为止，这就是分解（divide）的过程；然后将子子问题的解组合成子问题的解，再将子问题的解组合成原问题的解，这就是组合（combine）的过程。</p>
-<p><strong>第三种：演化思维</strong></p>
-<p>经常有人讨论：架构是设计出来的还是演化出来的？基于多年的经验，我认为架构既是设计出来的，同时也是演化出来的。对于互联网系统，基本上可以说是三分设计，七分演化，既在设计中演化，又在演化中设计，是一个不断迭代的过程。</p>
-<h3 id="如何构建unity3d项目">1.3 如何构建Unity3D项目</h3>
-<ol type="1">
-<li><strong>前端与后端架构之间的共性</strong></li>
-</ol>
-<p>前后端架构的目标都是高性能、高可用、可扩展、安全、可容错。对于前端来说，除了这些目标特性外，还需要加入更多的用户体验，包括视觉效果和操作灵敏度。</p>
-<p>作为前端工程师，用户体验是比较重要的，这种体验涉及很多方面，包括性能、视觉效果，以及操作上的人性化等。例如，如何让游戏加载速度更流畅、如何制作更绚丽的特效、如何减少电量的消耗、如何最快地响应用户操作等。</p>
-<ol start="2" type="1">
-<li><strong>培养架构设计思维</strong></li>
-</ol>
-<p>良好的架构设计思维的培养，离不开工作中大量高质量项目的实战锻炼，以及平时的学习、思考和总结。</p>
-<p>基本的架构设计思维在大学计算机课程（比如数据结构和算法）中可以找到，大学里以学习理论知识为主。回头看，基本的架构设计思维在那时就已经埋下种子，后面的工程实践会进一步消化和应用所学的理论知识，随着经验的积累，我们能够解决的问题的复杂性和规模逐渐变大，但所用的方法依然是抽象、分层、分治和演化。</p>
-<ol start="3" type="1">
-<li><strong>试着构建Unity3D项目</strong></li>
-</ol>
-<p>我们可以使用以上方法来试着构建Unity3D项目。下面采用分层的思维方式先确定架构的层级，如图1-8所示。</p>
-<p>图1-8　Unity3D分层设计</p>
-<p>把整个项目分成五大层级，即网络层、数据管理层、资源管理层、核心逻辑框架层、UI框架层。</p>
-<p>第2章 C#技术要点<br />
-2.1　Unity3D中C#的底层原理</p>
-<p>Unity底层在运行C#程序时有两种机制，一种是Mono，另一种是IL2CPP。</p>
-<p>这里要引出一个很重要的概念“IL”。IL的全称是Intermediate
-Language，但很多时候我们看到的是CIL（Common Intermediate
-Language，特指在.NET平台下的IL标准），其实大部分文章中提到的IL和CIL表示的是同一个东西，即中间语言。</p>
-<p>IL是一种低阶（lowest-level）的人类可读的编程语言。我们可以将通用语言翻译成IL，然后汇编成字节码，最后运行在虚拟机上；也可以把IL看作一个面向对象的汇编语言，只是它必须运行在虚拟机上，而且是完全基于堆栈的语言。也就是说，C#、VB、J#这种遵循CLI规范的高级语言，会被各自的编译器编译成中间语言IL（CIL），当需要运行它们时就会被实时地加载到运行时库中，由虚拟机动态地编译成汇编代码（JIT）并执行。</p>
-<p>2.1 Unity3D中C#的底层原理<br />
-其实IL有三种转译模式。</p>
-<p>·Just-in-time（JIT）编译：在程序运行过程中将CIL转译为机器码。</p>
-<p>·Ahead-of-Time（AOT）编译：将IL转译成机器码并存储在文件中，此文件并不能完全独立运行。通常此种模式可产生出绝大部分JIT模式所产生的机器码，只是有部分例外，例如trampolines或是控管监督相关的代码仍旧需要JIT来运行。</p>
-<p>·完全静态编译：这个模式只支持少数平台，它基于AOT编译模式更进一步产生所有的机器码。完全静态编译模式可以让程序在运行期完全不需要用到JIT，这个做法适用于iOS操作系统、PlayStation
-3以及XBox 360等不允许使用JIT的操作系统。</p>
-<p>Unity在打包iOS操作系统的时候就使用了第三种方式，而在Android和Windows上则使用JIT实时编译来运行代码。</p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>5.技能</category>
-        <category>Unity3d</category>
-        <category>book</category>
-      </categories>
-      <tags>
-        <tag>技能</tag>
-        <tag>srcard</tag>
-        <tag>Unity3d</tag>
-        <tag>book</tag>
       </tags>
   </entry>
   <entry>
@@ -11013,7 +11013,7 @@ we can use the following command:</p>
 href="https://www.geeksforgeeks.org/python-import-module-from-different-directory/">Python
 – Import module from different directory - GeeksforGeeks</a></li>
 </ul>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a href="../db420423d1fbc960f8c883a692a8a16e45a73523">Python import
 导入其他脚本</a></li>
@@ -11149,7 +11149,7 @@ src="https://polarisxu.studygolang.com/posts/go/imgs/go-install05.png" />
 <li>选择 GoLand 或 VSCode 或其他你喜欢的开发工具</li>
 </ul>
 <p>Enjoy Coding with Go！</p>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a
 href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
@@ -11157,12 +11157,12 @@ href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
 <blockquote class="pullquote mindmap mindmap-md"><ul>
 <li>🔵
 <ul>
-<li><a
-href="../128e80a43f1ada4a71707853f6686b261ffbe241">golang-standards-project-layout</a></li>
-<li><a
-href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
 <li><a href="../c105306376235e068a5bdf844b850dfeef744b03">goup- Elegant
 Go installer</a></li>
+<li><a
+href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
+<li><a
+href="../128e80a43f1ada4a71707853f6686b261ffbe241">golang-standards-project-layout</a></li>
 </ul></li>
 </ul>
 </blockquote>
@@ -11173,12 +11173,12 @@ Go installer</a></li>
         <category>Go</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
+        <tag>技能</tag>
         <tag>开发环境</tag>
         <tag>编程语言</tag>
-        <tag>Go</tag>
         <tag>go</tag>
+        <tag>Go</tag>
       </tags>
   </entry>
   <entry>
@@ -11212,7 +11212,7 @@ Go installer</a></li>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 以指定的版本来执行脚本</span></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ex">n</span> use 11.5.0  test.js</span></code></pre></div>
 <!--SR:!2027-07-15,1112,252-->
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a href="../3971919f211d721a9f8d95e718242813c25f0224">Deepin Node
 开发环境搭建</a></li>
@@ -11232,223 +11232,11 @@ Go installer</a></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>开发</tag>
-        <tag>工具</tag>
         <tag>srcard</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
         <tag>开发环境</tag>
         <tag>n</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Yarn 简介</title>
-    <url>/7b091b2e5e657dc1b00930468a070a01e85e4293/</url>
-    <content><![CDATA[<p>Yarn 是 Facebook 发布的新一代包管理工具，旨在解决以往使用 npm
-作为包管理会遇到的一些问题。特点：<mark style="background: #83d98fA6;">快</mark>
-、<mark style="background: #83d98fA6;">可靠</mark>
-、<mark style="background: #83d98fA6;">安全</mark> 。</p>
-<h2 id="yarn-的优点">Yarn 的优点？</h2>
-<ul>
-<li><strong>速度快</strong> 。速度快主要来自以下两个方面： 　1.
-并行安装：无论 npm 还是 Yarn 在执行包的安装时，都会执行一系列任务。npm
-是按照队列执行每个 package，也就是说必须要等到当前 package
-安装完成之后，才能继续后面的安装。而 Yarn
-是同步执行所有任务，提高了性能。 　2.
-离线模式：如果之前已经安装过一个软件包，用 Yarn
-再次安装时之间从缓存中获取，就不用像 npm 那样再从网络下载了。</li>
-<li><strong>安装版本统一</strong>：为了防止拉取到不同的版本，Yarn
-有一个锁定文件 (lock file)
-记录了被确切安装上的模块的版本号。每次只要新增了一个模块，Yarn
-就会创建（或更新）yarn.lock
-这个文件。这么做就保证了，每一次拉取同一个项目依赖时，使用的都是一样的模块版本。npm
-其实也有办法实现处处使用相同版本的 packages，但需要开发者执行 npm
-shrinkwrap 命令。这个命令将会生成一个锁定文件，在执行 npm install
-的时候，该锁定文件会先被读取，和 Yarn 读取 yarn.lock 文件一个道理。npm
-和 Yarn 两者的不同之处在于，Yarn 默认会生成这样的锁定文件，而 npm 要通过
-shrinkwrap 命令生成 npm-shrinkwrap.json
-文件，只有当这个文件存在的时候，packages 版本信息才会被记录和更新。</li>
-<li><strong>更简洁的输出</strong>：npm 的输出信息比较冗长。在执行 npm
-install 的时候，命令行里会不断地打印出所有被安装上的依赖。相比之下，Yarn
-简洁太多：默认情况下，结合了 emoji
-直观且直接地打印出必要的信息，也提供了一些命令供开发者查询额外的安装信息。</li>
-<li><strong>多注册来源处理：</strong>
-所有的依赖包，不管他被不同的库间接关联引用多少次，安装这个包时，只会从一个注册来源去装，要么是
-npm 要么是 bower, 防止出现混乱不一致。</li>
-<li><strong>更好的语义化</strong>： yarn 改变了一些 npm 命令的名称，比如
-yarn add/remove，感觉上比 npm 原本的 install/uninstall 要更清晰。
-<!--SR:!2026-07-12,958,270--></li>
-</ul>
-<h2 id="常用命令">常用命令</h2>
-<p><strong>执行 <code>yarn / yarn install</code> 解析 package.json
-时，分为 4 个步骤：</strong></p>
-<ol type="1">
-<li><strong>依赖关系解析</strong>：yarn 在解析 package.json
-文件时，会对其每个依赖包进行遍历分析生成 yarn.lock
-文件。该文件描述了项目中每个包以及每个包中所依赖的包的版本信息。<br />
-</li>
-<li><strong>包下载</strong>：根据第一步中解析的结果下载特定版本的包。如果该包曾经被下载过，则跳过此次的下载操作，直接使用本地缓存，即
-yarn 的离线模式特性。<br />
-</li>
-<li><strong>包关联</strong>：关联拷贝下载或者缓存在全局的包到项目。<br />
-</li>
-<li><strong>包编译</strong>：编译项目中使用到的包。 <br />
-<!--SR:!2025-09-17,640,250--></li>
-</ol>
-<p>yarn.lock(该文件用于锁定包版本已保障每次编译的结果一致，也可通过 yarn
-install --no-lockfile 命令设置不生成 yarn.lock 文件)</p>
-<p><strong>yarn &amp; npm 常用命令对比</strong> Yarn 的命令基本跟 npm
-的大同小异， 使用 <code>yarn init</code> 生成 package.json 文件， 用
-<code>yarn add</code>和 <code>yarn add --dev</code> 分别替换
-<code>npm install --save</code> 和<code>npm install --dev</code>
-命令即可。</p>
-<table width="825">
-<thead>
-<tr>
-<th>
-NPM
-</th>
-<th>
-YARN
-</th>
-<th>
-说明
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-npm init
-</td>
-<td>
-yarn init
-</td>
-<td>
-初始化某个项目
-</td>
-</tr>
-<tr>
-<td>
-npm install/link
-</td>
-<td>
-yarn install/link
-</td>
-<td>
-默认的安装依赖操作
-</td>
-</tr>
-<tr>
-<td>
-npm install taco —save
-</td>
-<td>
-yarn add taco
-</td>
-<td>
-安装某个依赖，并且默认保存到 package.
-</td>
-</tr>
-<tr>
-<td>
-npm uninstall taco —save
-</td>
-<td>
-yarn remove taco
-</td>
-<td>
-移除某个依赖项目
-</td>
-</tr>
-<tr>
-<td>
-npm install taco —save-dev
-</td>
-<td>
-yarn add taco —dev
-</td>
-<td>
-安装某个开发时依赖项目
-</td>
-</tr>
-<tr>
-<td>
-npm update taco —save
-</td>
-<td>
-yarn upgrade taco
-</td>
-<td>
-更新某个依赖项目
-</td>
-</tr>
-<tr>
-<td>
-npm install taco --global
-</td>
-<td>
-yarn global add taco
-</td>
-<td>
-安装某个全局依赖项目
-</td>
-</tr>
-<tr>
-<td>
-npm publish/login/logout
-</td>
-<td>
-yarn publish/login/logout
-</td>
-<td>
-发布 / 登录 / 登出，一系列 NPM Registry 操作
-</td>
-</tr>
-<tr>
-<td>
-npm run/test
-</td>
-<td>
-yarn run/test
-</td>
-<td>
-运行某个命令
-</td>
-</tr>
-</tbody>
-</table>
-<!--SR:!2026-05-28,818,250-->
-<h2 id="设置国内源">设置国内源</h2>
-<p>yarn 原仓库包下载不稳定时需要设置国内源</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">yarn</span> config set registry https://registry.npmmirror.com/</span></code></pre></div>
-<p><strong>Backlinks:</strong></p>
-<ul>
-<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
-开发环境搭建 Win10</a></li>
-<li><a href="../3971919f211d721a9f8d95e718242813c25f0224">Deepin Node
-开发环境搭建</a></li>
-</ul>
-<blockquote class="pullquote mindmap mindmap-md"><ul>
-<li>🔵
-<ul>
-<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
-开发环境搭建 Win10</a></li>
-<li><a href="../3971919f211d721a9f8d95e718242813c25f0224">Deepin Node
-开发环境搭建</a></li>
-</ul></li>
-</ul>
-</blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>5.技能</category>
-        <category>Server</category>
-        <category>Node</category>
-      </categories>
-      <tags>
-        <tag>技能</tag>
-        <tag>srcard</tag>
-        <tag>Server</tag>
-        <tag>Node</tag>
-        <tag>yarn</tag>
       </tags>
   </entry>
   <entry>
@@ -12433,11 +12221,223 @@ realities.</p>
         <category>语法</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
+        <tag>技能</tag>
+        <tag>english</tag>
         <tag>English</tag>
         <tag>语法</tag>
-        <tag>english</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Yarn 简介</title>
+    <url>/7b091b2e5e657dc1b00930468a070a01e85e4293/</url>
+    <content><![CDATA[<p>Yarn 是 Facebook 发布的新一代包管理工具，旨在解决以往使用 npm
+作为包管理会遇到的一些问题。特点：<mark style="background: #83d98fA6;">快</mark>
+、<mark style="background: #83d98fA6;">可靠</mark>
+、<mark style="background: #83d98fA6;">安全</mark> 。</p>
+<h2 id="yarn-的优点">Yarn 的优点？</h2>
+<ul>
+<li><strong>速度快</strong> 。速度快主要来自以下两个方面： 　1.
+并行安装：无论 npm 还是 Yarn 在执行包的安装时，都会执行一系列任务。npm
+是按照队列执行每个 package，也就是说必须要等到当前 package
+安装完成之后，才能继续后面的安装。而 Yarn
+是同步执行所有任务，提高了性能。 　2.
+离线模式：如果之前已经安装过一个软件包，用 Yarn
+再次安装时之间从缓存中获取，就不用像 npm 那样再从网络下载了。</li>
+<li><strong>安装版本统一</strong>：为了防止拉取到不同的版本，Yarn
+有一个锁定文件 (lock file)
+记录了被确切安装上的模块的版本号。每次只要新增了一个模块，Yarn
+就会创建（或更新）yarn.lock
+这个文件。这么做就保证了，每一次拉取同一个项目依赖时，使用的都是一样的模块版本。npm
+其实也有办法实现处处使用相同版本的 packages，但需要开发者执行 npm
+shrinkwrap 命令。这个命令将会生成一个锁定文件，在执行 npm install
+的时候，该锁定文件会先被读取，和 Yarn 读取 yarn.lock 文件一个道理。npm
+和 Yarn 两者的不同之处在于，Yarn 默认会生成这样的锁定文件，而 npm 要通过
+shrinkwrap 命令生成 npm-shrinkwrap.json
+文件，只有当这个文件存在的时候，packages 版本信息才会被记录和更新。</li>
+<li><strong>更简洁的输出</strong>：npm 的输出信息比较冗长。在执行 npm
+install 的时候，命令行里会不断地打印出所有被安装上的依赖。相比之下，Yarn
+简洁太多：默认情况下，结合了 emoji
+直观且直接地打印出必要的信息，也提供了一些命令供开发者查询额外的安装信息。</li>
+<li><strong>多注册来源处理：</strong>
+所有的依赖包，不管他被不同的库间接关联引用多少次，安装这个包时，只会从一个注册来源去装，要么是
+npm 要么是 bower, 防止出现混乱不一致。</li>
+<li><strong>更好的语义化</strong>： yarn 改变了一些 npm 命令的名称，比如
+yarn add/remove，感觉上比 npm 原本的 install/uninstall 要更清晰。
+<!--SR:!2026-07-12,958,270--></li>
+</ul>
+<h2 id="常用命令">常用命令</h2>
+<p><strong>执行 <code>yarn / yarn install</code> 解析 package.json
+时，分为 4 个步骤：</strong></p>
+<ol type="1">
+<li><strong>依赖关系解析</strong>：yarn 在解析 package.json
+文件时，会对其每个依赖包进行遍历分析生成 yarn.lock
+文件。该文件描述了项目中每个包以及每个包中所依赖的包的版本信息。<br />
+</li>
+<li><strong>包下载</strong>：根据第一步中解析的结果下载特定版本的包。如果该包曾经被下载过，则跳过此次的下载操作，直接使用本地缓存，即
+yarn 的离线模式特性。<br />
+</li>
+<li><strong>包关联</strong>：关联拷贝下载或者缓存在全局的包到项目。<br />
+</li>
+<li><strong>包编译</strong>：编译项目中使用到的包。 <br />
+<!--SR:!2025-09-17,640,250--></li>
+</ol>
+<p>yarn.lock(该文件用于锁定包版本已保障每次编译的结果一致，也可通过 yarn
+install --no-lockfile 命令设置不生成 yarn.lock 文件)</p>
+<p><strong>yarn &amp; npm 常用命令对比</strong> Yarn 的命令基本跟 npm
+的大同小异， 使用 <code>yarn init</code> 生成 package.json 文件， 用
+<code>yarn add</code>和 <code>yarn add --dev</code> 分别替换
+<code>npm install --save</code> 和<code>npm install --dev</code>
+命令即可。</p>
+<table width="825">
+<thead>
+<tr>
+<th>
+NPM
+</th>
+<th>
+YARN
+</th>
+<th>
+说明
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+npm init
+</td>
+<td>
+yarn init
+</td>
+<td>
+初始化某个项目
+</td>
+</tr>
+<tr>
+<td>
+npm install/link
+</td>
+<td>
+yarn install/link
+</td>
+<td>
+默认的安装依赖操作
+</td>
+</tr>
+<tr>
+<td>
+npm install taco —save
+</td>
+<td>
+yarn add taco
+</td>
+<td>
+安装某个依赖，并且默认保存到 package.
+</td>
+</tr>
+<tr>
+<td>
+npm uninstall taco —save
+</td>
+<td>
+yarn remove taco
+</td>
+<td>
+移除某个依赖项目
+</td>
+</tr>
+<tr>
+<td>
+npm install taco —save-dev
+</td>
+<td>
+yarn add taco —dev
+</td>
+<td>
+安装某个开发时依赖项目
+</td>
+</tr>
+<tr>
+<td>
+npm update taco —save
+</td>
+<td>
+yarn upgrade taco
+</td>
+<td>
+更新某个依赖项目
+</td>
+</tr>
+<tr>
+<td>
+npm install taco --global
+</td>
+<td>
+yarn global add taco
+</td>
+<td>
+安装某个全局依赖项目
+</td>
+</tr>
+<tr>
+<td>
+npm publish/login/logout
+</td>
+<td>
+yarn publish/login/logout
+</td>
+<td>
+发布 / 登录 / 登出，一系列 NPM Registry 操作
+</td>
+</tr>
+<tr>
+<td>
+npm run/test
+</td>
+<td>
+yarn run/test
+</td>
+<td>
+运行某个命令
+</td>
+</tr>
+</tbody>
+</table>
+<!--SR:!2026-05-28,818,250-->
+<h2 id="设置国内源">设置国内源</h2>
+<p>yarn 原仓库包下载不稳定时需要设置国内源</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">yarn</span> config set registry https://registry.npmmirror.com/</span></code></pre></div>
+<p><strong>相关笔记:</strong></p>
+<ul>
+<li><a href="../3971919f211d721a9f8d95e718242813c25f0224">Deepin Node
+开发环境搭建</a></li>
+<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
+开发环境搭建 Win10</a></li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>🔵
+<ul>
+<li><a href="../3971919f211d721a9f8d95e718242813c25f0224">Deepin Node
+开发环境搭建</a></li>
+<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
+开发环境搭建 Win10</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.技能</category>
+        <category>Server</category>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>技能</tag>
+        <tag>Server</tag>
+        <tag>Node</tag>
+        <tag>yarn</tag>
       </tags>
   </entry>
   <entry>
@@ -12521,20 +12521,20 @@ class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#
 <li>npm 包的发布与更新 </li>
 <li>npm 源的搭建</li>
 </ul>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
-<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
-开发环境搭建 Win10</a></li>
 <li><a href="../3971919f211d721a9f8d95e718242813c25f0224">Deepin Node
 开发环境搭建</a></li>
+<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
+开发环境搭建 Win10</a></li>
 </ul>
 <blockquote class="pullquote mindmap mindmap-md"><ul>
 <li>🔵
 <ul>
-<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
-开发环境搭建 Win10</a></li>
 <li><a href="../3971919f211d721a9f8d95e718242813c25f0224">Deepin Node
 开发环境搭建</a></li>
+<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
+开发环境搭建 Win10</a></li>
 </ul></li>
 </ul>
 </blockquote>
@@ -12545,9 +12545,9 @@ class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>开发</tag>
-        <tag>工具</tag>
         <tag>srcard</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
         <tag>开发环境</tag>
         <tag>npm</tag>
       </tags>
@@ -12725,8 +12725,8 @@ href="https://github.com/chyingp/nodejs-learning-guide">nodejs-learning-guide</a
         <category>Javascript</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
+        <tag>技能</tag>
         <tag>编程语言</tag>
         <tag>Javascript</tag>
         <tag>node</tag>
@@ -13363,11 +13363,11 @@ Sheet</a></p>
         <category>Regex</category>
       </categories>
       <tags>
-        <tag>开发</tag>
-        <tag>工具</tag>
         <tag>srcard</tag>
-        <tag>Regex</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
         <tag>regex</tag>
+        <tag>Regex</tag>
       </tags>
   </entry>
   <entry>
@@ -14177,11 +14177,11 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
         <category>Vim</category>
       </categories>
       <tags>
-        <tag>Vim</tag>
-        <tag>开发</tag>
-        <tag>vim</tag>
-        <tag>工具</tag>
         <tag>srcard</tag>
+        <tag>工具</tag>
+        <tag>Vim</tag>
+        <tag>vim</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
@@ -14281,7 +14281,7 @@ src="https://upload-images.jianshu.io/upload_images/3947109-efdd076117d53040.png
 alt="image.png" />
 <figcaption aria-hidden="true">image.png</figcaption>
 </figure>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a href="../398c907730d3d916e72688bf34e18ad17c4edeff">Git
 开发环境</a></li>
@@ -14301,11 +14301,11 @@ alt="image.png" />
         <category>Git</category>
       </categories>
       <tags>
-        <tag>开发</tag>
-        <tag>工具</tag>
         <tag>srcard</tag>
-        <tag>git</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
         <tag>Git</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -14785,7 +14785,7 @@ do I add a python package built by poetry to another python project with
 poetry? - Stack Overflow</a> [^6]: <a
 href="https://python-poetry.org/docs/cli/#add">Commands | Documentation
 | Poetry - Python dependency management and packaging made easy</a></p>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a href="../edefd41cca3bfb461242cf05e60f7dad6fd1663e">Python
 开发环境</a></li>
@@ -14795,11 +14795,11 @@ Micromamba + Poetry 环境管理</a></li>
 <blockquote class="pullquote mindmap mindmap-md"><ul>
 <li>🔵
 <ul>
-<li><a href="../edefd41cca3bfb461242cf05e60f7dad6fd1663e">Python
-开发环境</a></li>
 <li><a
 href="../34423981d978e285acba77d18622f5a99ad45aeb/#Micromamba%20的安装与配置">Python
 Micromamba + Poetry 环境管理#Micromamba 的安装与配置</a></li>
+<li><a href="../edefd41cca3bfb461242cf05e60f7dad6fd1663e">Python
+开发环境</a></li>
 <li><a href="../34423981d978e285acba77d18622f5a99ad45aeb">Python
 Micromamba + Poetry 环境管理</a></li>
 </ul></li>
@@ -14827,11 +14827,114 @@ role="doc-backlink">↩︎</a></p></li>
         <category>Python</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
+        <tag>技能</tag>
         <tag>编程语言</tag>
         <tag>python</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>浮点数精度问题及解决方案</title>
+    <url>/b780bb9e95975417c037cc3060dfd3da8b830810/</url>
+    <content><![CDATA[<blockquote>
+<p>原文地址 <a
+href="https://fivecakes.com/p/5f2fa84aa02ad92eba436b17">fivecakes.com</a></p>
+</blockquote>
+<h2 id="浮点数精度问题">浮点数精度问题</h2>
+<p>浮点数精度问题示例：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">&#123;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> a <span class="op">=</span> <span class="fl">0.1</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%f</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span>a<span class="op">);</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%.10f</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span>a<span class="op">);</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%.15f</span><span class="sc">\n\n</span><span class="st">&quot;</span><span class="op">,</span>a<span class="op">);</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> b <span class="op">=</span> <span class="dv">100000000</span><span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> c <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> d <span class="op">=</span> b <span class="op">+</span> c<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%f</span><span class="sc">\n\n</span><span class="st">&quot;</span><span class="op">,</span> d<span class="op">);</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<p>输出为</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.100000</span>            <span class="co">//正确输出是因为四舍五入了</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fl">0.1000000015</span>        <span class="co">//将精确度提高就会发现误差</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fl">0.100000001490116</span>   <span class="co">//再次提高精度</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fl">100000008.000000</span>    <span class="co">//加法居然算错了？傻了吧？</span></span></code></pre></div>
+<!--SR:!2025-01-03,491,250-->
+<h2 id="浮点数精度误差原因">浮点数精度误差原因</h2>
+<p><strong>1.
+第一种造成精度误差的原因是大多数小数转化为二进制为无限小数，而计算机内存有限，只能保存一部分，</strong></p>
+<p>例如：<br />
+0.1 转换为二进制是 0.0001100110011001100110011001100...<br />
+float
+只能保留一部分，所以一定会有误差，好在大多数场景用不到这么高的精度，不过要注意多个小误差累积成大误差。</p>
+<p><strong>2.
+第二种造成精度误差的原因是因为较大的浮点数与较小的浮点数相加。</strong></p>
+<p>例子中 <code>100000000 + 5</code> 居然等于
+100000008，这是因为浮点数是用科学计数法来存储数据，即：<br />
+<span class="math inline">\(100000000 = 1.011111010111100001 \times
+2^{26}\)</span> <span class="math inline">\(5 = 1.01 \times
+2^{2}\)</span><br />
+两个数相加的时候先要对阶，就是把指数部分统一，按照小阶数化为大阶数的原则：<br />
+<span class="math inline">\(5 = 0.00000000000000000000000101 \times
+2^{26}\)</span><br />
+按照 IEEE 754 标准，<mark style="background: #fefe00A6;">浮点数 float 为
+32 位，1 个符号位，8 个指数位，23 个小数位。 </mark> 而
+0.00000000000000000000000101（小数点后有 26 位）不能用 23
+位保存下来，所以舍入成 0.00000000000000000000001（小数点后有 23
+位），就是这里的舍入造成的误差。<br />
+对阶后，将尾数相加得到结果：<br />
+(0.00000000000000000000001+1.011111010111100001)^{26} = 100000008
+<!--SR:!2025-01-02,490,250--></p>
+<h2 id="浮点数精度误差问题解决方法">浮点数精度误差问题解决方法</h2>
+<p><mark style="background: #fbab4bA6;">浮点数在工程控制，游戏引擎等众多领域有着广泛的应用。但是因为其有误差，所以不适合在金融领域使用。</mark></p>
+<p>某水果 3.6 元一斤，某人买了 1.2 斤，总计 4.32 元。如果用 float
+存储价格的话，一单的误差比较小看不出差别。但是如果统计一年的营业额，累加很多
+float 就会出现较大的误差。</p>
+<h3 id="放大成int再还原法">放大成int再还原法</h3>
+<p><mark style="background: #83d98fA6;">货币通常只精确到小数点后两位，所以我们可以将其乘
+100，用整数存储</mark> 。上面那个例子可以将 3.6 存成 int 型 360，1.2 用
+float 存储，4.32 存成 int 型 432(其实 432
+由浮点数计算而来也是有误差的，但是一次计算误差非常小，四舍五入就可以得到正确的值)。累加一年营业额时累加的是
+int，所以不会有误差。</p>
+<h3 id="保存分子分母法">保存分子分母法</h3>
+<p>更特殊的情况，某水果 3.6 元一斤，某人买了 1.2 斤，75 折，含税
+0.02，快递费 1.5，总价为
+3.6x1.2x0.75x0.98+1.5，多次使用浮点数参与运算，有可能造成累积误差。<mark style="background: #83d98fA6;">这种情况可以可以分子和分母分别保存</mark>
+。计算时只计算分子，计算的结果也分子分母分别保存，只有显示时才除一下分母，而一次计算的误差非常小，四舍五入就可以得到正确的值。不过用这种方法要小心分子和分母溢出，或者写到一半发现这里要开个平方根或者求个三角函数，然后发现结果根本不是有理数了，进而开始怀疑人生。
+<!--SR:!2025-01-01,489,250--></p>
+<p><strong>相关笔记:</strong></p>
+<ul>
+<li><a href="../559d1c14e339502eb59ce0020fe110f15c087dee">python
+数据精度</a></li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>🔵
+<ul>
+<li><a href="../559d1c14e339502eb59ce0020fe110f15c087dee">python
+数据精度</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>4.理论</category>
+        <category>计算机</category>
+        <category>体系结构</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>计算机</tag>
+        <tag>理论</tag>
+        <tag>体系结构</tag>
+        <tag>basis</tag>
+        <tag>cs</tag>
       </tags>
   </entry>
   <entry>
@@ -15085,7 +15188,7 @@ LaTeX 表示方法</a></p>
 href="https://blog.csdn.net/foreverdengwei/article/details/8189243">latex
 中括号大小控制_Cloud-Datacenter-Renewable Energy-Big Data-Model-CSDN
 博客</a></p>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a href="../07578cff2dd4bfd8c55f223f930878824a64ceaa">Obsidian+Hexo
 Markdown 测试</a></li>
@@ -15114,114 +15217,11 @@ href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
         <category>Obsidian</category>
       </categories>
       <tags>
+        <tag>srcard</tag>
         <tag>工具</tag>
-        <tag>srcard</tag>
-        <tag>Obsidian</tag>
-        <tag>效率</tag>
         <tag>latex</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>浮点数精度问题及解决方案</title>
-    <url>/b780bb9e95975417c037cc3060dfd3da8b830810/</url>
-    <content><![CDATA[<blockquote>
-<p>原文地址 <a
-href="https://fivecakes.com/p/5f2fa84aa02ad92eba436b17">fivecakes.com</a></p>
-</blockquote>
-<h2 id="浮点数精度问题">浮点数精度问题</h2>
-<p>浮点数精度问题示例：</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">&#123;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> a <span class="op">=</span> <span class="fl">0.1</span><span class="op">;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%f</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span>a<span class="op">);</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%.10f</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span>a<span class="op">);</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%.15f</span><span class="sc">\n\n</span><span class="st">&quot;</span><span class="op">,</span>a<span class="op">);</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> b <span class="op">=</span> <span class="dv">100000000</span><span class="op">;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> c <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> d <span class="op">=</span> b <span class="op">+</span> c<span class="op">;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%f</span><span class="sc">\n\n</span><span class="st">&quot;</span><span class="op">,</span> d<span class="op">);</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
-<p>输出为</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.100000</span>            <span class="co">//正确输出是因为四舍五入了</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fl">0.1000000015</span>        <span class="co">//将精确度提高就会发现误差</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fl">0.100000001490116</span>   <span class="co">//再次提高精度</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fl">100000008.000000</span>    <span class="co">//加法居然算错了？傻了吧？</span></span></code></pre></div>
-<!--SR:!2025-01-03,491,250-->
-<h2 id="浮点数精度误差原因">浮点数精度误差原因</h2>
-<p><strong>1.
-第一种造成精度误差的原因是大多数小数转化为二进制为无限小数，而计算机内存有限，只能保存一部分，</strong></p>
-<p>例如：<br />
-0.1 转换为二进制是 0.0001100110011001100110011001100...<br />
-float
-只能保留一部分，所以一定会有误差，好在大多数场景用不到这么高的精度，不过要注意多个小误差累积成大误差。</p>
-<p><strong>2.
-第二种造成精度误差的原因是因为较大的浮点数与较小的浮点数相加。</strong></p>
-<p>例子中 <code>100000000 + 5</code> 居然等于
-100000008，这是因为浮点数是用科学计数法来存储数据，即：<br />
-<span class="math inline">\(100000000 = 1.011111010111100001 \times
-2^{26}\)</span> <span class="math inline">\(5 = 1.01 \times
-2^{2}\)</span><br />
-两个数相加的时候先要对阶，就是把指数部分统一，按照小阶数化为大阶数的原则：<br />
-<span class="math inline">\(5 = 0.00000000000000000000000101 \times
-2^{26}\)</span><br />
-按照 IEEE 754 标准，<mark style="background: #fefe00A6;">浮点数 float 为
-32 位，1 个符号位，8 个指数位，23 个小数位。 </mark> 而
-0.00000000000000000000000101（小数点后有 26 位）不能用 23
-位保存下来，所以舍入成 0.00000000000000000000001（小数点后有 23
-位），就是这里的舍入造成的误差。<br />
-对阶后，将尾数相加得到结果：<br />
-(0.00000000000000000000001+1.011111010111100001)^{26} = 100000008
-<!--SR:!2025-01-02,490,250--></p>
-<h2 id="浮点数精度误差问题解决方法">浮点数精度误差问题解决方法</h2>
-<p><mark style="background: #fbab4bA6;">浮点数在工程控制，游戏引擎等众多领域有着广泛的应用。但是因为其有误差，所以不适合在金融领域使用。</mark></p>
-<p>某水果 3.6 元一斤，某人买了 1.2 斤，总计 4.32 元。如果用 float
-存储价格的话，一单的误差比较小看不出差别。但是如果统计一年的营业额，累加很多
-float 就会出现较大的误差。</p>
-<h3 id="放大成int再还原法">放大成int再还原法</h3>
-<p><mark style="background: #83d98fA6;">货币通常只精确到小数点后两位，所以我们可以将其乘
-100，用整数存储</mark> 。上面那个例子可以将 3.6 存成 int 型 360，1.2 用
-float 存储，4.32 存成 int 型 432(其实 432
-由浮点数计算而来也是有误差的，但是一次计算误差非常小，四舍五入就可以得到正确的值)。累加一年营业额时累加的是
-int，所以不会有误差。</p>
-<h3 id="保存分子分母法">保存分子分母法</h3>
-<p>更特殊的情况，某水果 3.6 元一斤，某人买了 1.2 斤，75 折，含税
-0.02，快递费 1.5，总价为
-3.6x1.2x0.75x0.98+1.5，多次使用浮点数参与运算，有可能造成累积误差。<mark style="background: #83d98fA6;">这种情况可以可以分子和分母分别保存</mark>
-。计算时只计算分子，计算的结果也分子分母分别保存，只有显示时才除一下分母，而一次计算的误差非常小，四舍五入就可以得到正确的值。不过用这种方法要小心分子和分母溢出，或者写到一半发现这里要开个平方根或者求个三角函数，然后发现结果根本不是有理数了，进而开始怀疑人生。
-<!--SR:!2025-01-01,489,250--></p>
-<p><strong>Backlinks:</strong></p>
-<ul>
-<li><a href="../559d1c14e339502eb59ce0020fe110f15c087dee">python
-数据精度</a></li>
-</ul>
-<blockquote class="pullquote mindmap mindmap-md"><ul>
-<li>🔵
-<ul>
-<li><a href="../559d1c14e339502eb59ce0020fe110f15c087dee">python
-数据精度</a></li>
-</ul></li>
-</ul>
-</blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>4.理论</category>
-        <category>计算机</category>
-        <category>体系结构</category>
-      </categories>
-      <tags>
-        <tag>srcard</tag>
-        <tag>理论</tag>
-        <tag>计算机</tag>
-        <tag>cs</tag>
-        <tag>basis</tag>
-        <tag>体系结构</tag>
+        <tag>效率</tag>
+        <tag>Obsidian</tag>
       </tags>
   </entry>
   <entry>
@@ -15316,8 +15316,8 @@ Overflow</a></p>
         <category>Javascript</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
+        <tag>技能</tag>
         <tag>编程语言</tag>
         <tag>Javascript</tag>
         <tag>javascript</tag>
@@ -15458,7 +15458,7 @@ to<code>$HOME/.go/VERSION</code> and symlinks it to
 href="https://golang.org/dl">https://golang.org/dl</a>.</li>
 <li><code>goup upgrade</code> upgrades goup.</li>
 </ul>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a href="../620293c2dd4cc0e2283aea0680aff5d2076e8bfb">Go
 开发环境搭建</a></li>
@@ -15478,13 +15478,75 @@ href="https://golang.org/dl">https://golang.org/dl</a>.</li>
         <category>Go</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
+        <tag>技能</tag>
         <tag>开发环境</tag>
         <tag>编程语言</tag>
-        <tag>Go</tag>
         <tag>go</tag>
+        <tag>Go</tag>
         <tag>tool</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>代码编辑快捷键</title>
+    <url>/d2cb8fb770f80b19ad9497aaca6122a86a7a16bf/</url>
+    <content><![CDATA[<p>自用代码编辑快捷键,所有编辑器通用</p>
+<p><strong>代码浏览</strong></p>
+<p>                      | hotkey | function | | | -------------- |
+----------------------- | --- | | alt + r | FindUsages | | | alt + d |
+GotoDeclaration | | | alt + g | GotoClass | | | alt + ; | GotoLine | | |
+alt + t | GotoTest | | | alt + q | Back | | | alt + e | Forward | | |
+alt + j | EditorMoveToPageBottom | | | alt + k | EditorMoveToPageTop | |
+| alt + h | EditorLineStart | | | alt + l | EditorLineEnd | | | alt + 1
+| CollapseAllRegions | | | alt + [2-5] | ExpandAllToLevel1 | | | alt + 6
+| ExpandAllRegions | | | ctrl + alt + f | FileStructurePopup | | | ctrl
++ alt + h | CallHierarchy | | | alt + p | PinActiveTab | | | ctrl + w |
+CloseAllUnpinnedEditors | | | gi | GotoImplementation | | | gu |
+GotoSuperMethod | | <!--SR:!2025-01-30,274,250--></p>
+<p><strong>代码编辑</strong></p>
+<p>                     | hotkey | function | | | ---------------- |
+--------------------- | --- | | alt + f | ReformatCode | | | ctrl + / |
+CommentByLineComment | | | ctrl + f | Find | | | shift + shift |
+SearchEverywhere | | | ctrl + shift + f | FindInPath | | | ctrl + h |
+Replace | | | ctrl + shift + h | ReplaceInPath | | | alt + n | Generate
+| | | ctrl + t | SaveAsTemplate | | | alt + ↓ | MoveLineDown | | | alt +
+↑ | MoveLineUp | | | ctrl + ↓ | EditorCloneCaretBelow | | | ctrl + ↑ |
+EditorCloneCaretAbove | | | alt + s | SelectAllOccurrences | | | ctrl +
+d | EditorDuplicate | | <!--SR:!2024-08-12,175,250--></p>
+<p><strong>工程</strong></p>
+<p>                      | hotkey | function | | ------- |
+-------------------------- | | alt + ~ | ActivateTerminalToolWindow | |
+f2 | RenameElement | | f5 | Run | | f6 | Debug | | f7 |
+ToggleLineBreakpoint | | f8 | BuildProject | | f9 | StepInto | | f10 |
+StepOver | | f11 | Resume | | f12 | Stop |
+<!--SR:!2025-02-06,509,250--></p>
+<p><strong>相关笔记:</strong></p>
+<ul>
+<li><a
+href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>🔵
+<ul>
+<li><a
+href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>6.工具</category>
+        <category>开发</category>
+        <category>开发环境</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
+        <tag>开发环境</tag>
+        <tag>config</tag>
+        <tag>快捷键</tag>
+        <tag>env</tag>
       </tags>
   </entry>
   <entry>
@@ -15562,68 +15624,6 @@ href="https://link.zhihu.com/?target=http%3A//www.jb51.net/article/54498.htm">Py
       </tags>
   </entry>
   <entry>
-    <title>代码编辑快捷键</title>
-    <url>/d2cb8fb770f80b19ad9497aaca6122a86a7a16bf/</url>
-    <content><![CDATA[<p>自用代码编辑快捷键,所有编辑器通用</p>
-<p><strong>代码浏览</strong></p>
-<p>                      | hotkey | function | | | -------------- |
------------------------ | --- | | alt + r | FindUsages | | | alt + d |
-GotoDeclaration | | | alt + g | GotoClass | | | alt + ; | GotoLine | | |
-alt + t | GotoTest | | | alt + q | Back | | | alt + e | Forward | | |
-alt + j | EditorMoveToPageBottom | | | alt + k | EditorMoveToPageTop | |
-| alt + h | EditorLineStart | | | alt + l | EditorLineEnd | | | alt + 1
-| CollapseAllRegions | | | alt + [2-5] | ExpandAllToLevel1 | | | alt + 6
-| ExpandAllRegions | | | ctrl + alt + f | FileStructurePopup | | | ctrl
-+ alt + h | CallHierarchy | | | alt + p | PinActiveTab | | | ctrl + w |
-CloseAllUnpinnedEditors | | | gi | GotoImplementation | | | gu |
-GotoSuperMethod | | <!--SR:!2025-01-30,274,250--></p>
-<p><strong>代码编辑</strong></p>
-<p>                     | hotkey | function | | | ---------------- |
---------------------- | --- | | alt + f | ReformatCode | | | ctrl + / |
-CommentByLineComment | | | ctrl + f | Find | | | shift + shift |
-SearchEverywhere | | | ctrl + shift + f | FindInPath | | | ctrl + h |
-Replace | | | ctrl + shift + h | ReplaceInPath | | | alt + n | Generate
-| | | ctrl + t | SaveAsTemplate | | | alt + ↓ | MoveLineDown | | | alt +
-↑ | MoveLineUp | | | ctrl + ↓ | EditorCloneCaretBelow | | | ctrl + ↑ |
-EditorCloneCaretAbove | | | alt + s | SelectAllOccurrences | | | ctrl +
-d | EditorDuplicate | | <!--SR:!2024-08-12,175,250--></p>
-<p><strong>工程</strong></p>
-<p>                      | hotkey | function | | ------- |
--------------------------- | | alt + ~ | ActivateTerminalToolWindow | |
-f2 | RenameElement | | f5 | Run | | f6 | Debug | | f7 |
-ToggleLineBreakpoint | | f8 | BuildProject | | f9 | StepInto | | f10 |
-StepOver | | f11 | Resume | | f12 | Stop |
-<!--SR:!2025-02-06,509,250--></p>
-<p><strong>Backlinks:</strong></p>
-<ul>
-<li><a
-href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
-</ul>
-<blockquote class="pullquote mindmap mindmap-md"><ul>
-<li>🔵
-<ul>
-<li><a
-href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
-</ul></li>
-</ul>
-</blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>6.工具</category>
-        <category>开发</category>
-        <category>开发环境</category>
-      </categories>
-      <tags>
-        <tag>开发</tag>
-        <tag>工具</tag>
-        <tag>srcard</tag>
-        <tag>开发环境</tag>
-        <tag>config</tag>
-        <tag>快捷键</tag>
-        <tag>env</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Multi-line text search in VSCode</title>
     <url>/d1804a15ace07b410373641e47601a0feea08b84/</url>
     <content><![CDATA[<blockquote>
@@ -15683,11 +15683,11 @@ sharing! It might not work for all cases, it might need some finetuning
         <category>Regex</category>
       </categories>
       <tags>
-        <tag>开发</tag>
-        <tag>工具</tag>
         <tag>srcard</tag>
-        <tag>Regex</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
         <tag>regex</tag>
+        <tag>Regex</tag>
       </tags>
   </entry>
   <entry>
@@ -15709,20 +15709,20 @@ id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
 </ol>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> config set registry https://registry.npmjs.org/</span></code></pre></div>
 <h2 id="参考">参考</h2>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
-<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
-开发环境搭建 Win10</a></li>
 <li><a href="../3971919f211d721a9f8d95e718242813c25f0224">Deepin Node
 开发环境搭建</a></li>
+<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
+开发环境搭建 Win10</a></li>
 </ul>
 <blockquote class="pullquote mindmap mindmap-md"><ul>
 <li>🔵
 <ul>
-<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
-开发环境搭建 Win10</a></li>
 <li><a href="../3971919f211d721a9f8d95e718242813c25f0224">Deepin Node
 开发环境搭建</a></li>
+<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
+开发环境搭建 Win10</a></li>
 </ul></li>
 </ul>
 </blockquote>
@@ -15742,8 +15742,8 @@ href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>开发</tag>
         <tag>工具</tag>
+        <tag>开发</tag>
         <tag>开发环境</tag>
         <tag>npm</tag>
         <tag>node</tag>
@@ -15813,7 +15813,7 @@ href="../7b091b2e5e657dc1b00930468a070a01e85e4293/#常用命令">Yarn
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="ex">nvm</span> <span class="at">-h</span> 　　　　　　　  <span class="co"># 可以看到nvm的所有命令，都有相应的解释。</span></span></code></pre></div>
 <!--SR:!2027-07-08,1115,252-->
 <h2 id="参考">参考</h2>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a
 href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
@@ -15824,12 +15824,12 @@ href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
 <li><a
 href="../7b091b2e5e657dc1b00930468a070a01e85e4293/#设置国内源">Yarn
 简介#设置国内源</a></li>
-<li><a href="../8183437d1e8a3a1b5ffeb5e902bff641794983a4">Npm
-常用命令</a></li>
-<li><a href="../d654a8e3a8d8cd17a3ce34bfdb21aca3bf2174a8">Npm
-配置国内源</a></li>
 <li><a href="../7b091b2e5e657dc1b00930468a070a01e85e4293/#常用命令">Yarn
 简介#常用命令</a></li>
+<li><a href="../d654a8e3a8d8cd17a3ce34bfdb21aca3bf2174a8">Npm
+配置国内源</a></li>
+<li><a href="../8183437d1e8a3a1b5ffeb5e902bff641794983a4">Npm
+常用命令</a></li>
 <li><a
 href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
 </ul></li>
@@ -15856,12 +15856,210 @@ href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>开发</tag>
-        <tag>工具</tag>
         <tag>srcard</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
         <tag>开发环境</tag>
         <tag>deepin</tag>
         <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python import 导入其他脚本</title>
+    <url>/db420423d1fbc960f8c883a692a8a16e45a73523/</url>
+    <content><![CDATA[<p>假设有如下目录结构：</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> dir0</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> file1.py</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> file2.py</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> dir3</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>　　　　<span class="op">|</span> file3.py</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> dir4</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>　　　　<span class="op">|</span> file4.py</span></code></pre></div>
+<p><mark style="background: #be9affA6;">dir0</mark> 文件夹下有
+<mark style="background: #fefe00A6;">file1.py</mark>
+、<mark style="background: #fefe00A6;">file2.py</mark> 两个文件 和
+<mark style="background: #018bffA6;">dir3</mark>
+、<mark style="background: #018bffA6;">dir4</mark>
+两个子文件夹，<mark style="background: #018bffA6;">dir3</mark> 中有
+<mark style="background: #fefe00A6;">file3.py</mark>
+文件，<mark style="background: #018bffA6;">dir4</mark> 中有
+<mark style="background: #fefe00A6;">file4.py</mark> 文件。</p>
+<h2 id="导入同级模块">1. 导入同级模块</h2>
+<p>python 导入同级模块（在同一个文件夹中的 py 文件）直接导入即可。</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xxx</span></code></pre></div>
+<p>如在 file1.py 中想导入 file2.py，注意无需加后缀 ".py"：</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> file2</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用file2中函数时需加上前缀&quot;file2.&quot;，即：</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># file2.fuction_name()</span></span></code></pre></div>
+<h2 id="导入下级模块">2. 导入下级模块</h2>
+<p>导入下级目录模块也很容易，<mark style="background: #fbab4bA6;">需在下级目录中新建一个空白的__init__.py
+文件再导入</mark> ：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dirname <span class="im">import</span> xxx</span></code></pre></div>
+<p>如在 file1.py 中想导入 dir3 下的 file3.py，首先要在 dir3
+中新建一个空白的_<em>init</em>___.py 文件。</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> dir0</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> file1.py</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> file2.py</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> dir3</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>　　　<span class="op">|</span> <span class="fu">__init__</span>.py</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>　　　<span class="op">|</span> file3.py</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> dir4</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>　　　<span class="op">|</span> file4.py</span></code></pre></div>
+<p>再使用如下语句：</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plan A</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dir3 <span class="im">import</span> file3</span></code></pre></div>
+<p>或是</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plan B</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dir3.file3</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import dir3.file3 as df3</span></span></code></pre></div>
+<p>但使用第二种方式则下文需要一直带着路径 dir3
+书写，较为累赘，建议可以另起一个别名。</p>
+<h2 id="导入上级模块">3. 导入上级模块</h2>
+<p>要导入上级目录下模块，可以使用 sys.path： 　</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">&quot;..&quot;</span>) </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xxx</span></code></pre></div>
+<p>如在 <code>file4.py</code> 中想引入 import 上级目录下的 file1.py：
+<strong>file4.py</strong></p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">&quot;..&quot;</span>) </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> file1</span></code></pre></div>
+<p><strong>python 中 sys.path 的作用?</strong></p>
+<p>当使用 import
+语句<mark style="background: #018bffA6;">导入模块</mark>
+时，解释器会搜索<mark style="background: #fefe00A6;">当前模块所在目录</mark>
+以及 <mark style="background: #fefe00A6;">sys.path 指定的路径</mark>
+去找需要 import 的模块，所以这里是直接把上级目录加到了 sys.path 里。
+<!--SR:!2026-08-28,875,250--></p>
+<p><strong>“..” 的含义：</strong> 等同于 linux
+里的‘..’，表示当前工作目录的上级目录。实际上 python 中的‘.’也和 linux
+中一致，表示当前目录。</p>
+<h2 id="导入隔壁文件夹下的模块">4. 导入隔壁文件夹下的模块</h2>
+<p>如在 <code>file4.py</code> 中想引入 import 在 dir3 目录下的
+file3.py。</p>
+<p>这其实是前面两个操作的组合，其思路本质上是将上级目录加到 sys.path
+里，再按照对下级目录模块的方式导入。</p>
+<p>同样需要被引文件夹也就是 dir3 下有空的__init__.py 文件。</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> <span class="bu">dir</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> file1.py</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> file2.py</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> dir3</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>　　　　<span class="op">|</span> <span class="fu">__init__</span>.py</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>　　　　<span class="op">|</span> file3.py</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> dir4</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>　　　　<span class="op">|</span> file4.py</span></code></pre></div>
+<p>同时也要将上级目录加到 sys.path 里： <strong>file4.py</strong></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">&quot;..&quot;</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dir3 <span class="im">import</span> file3</span></code></pre></div>
+<h2 id="常见错误及-import-原理">5. 常见错误及 import 原理：</h2>
+<p>在使用直接从上级目录引入模块的操作时：</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> .. <span class="im">import</span> xxx</span></code></pre></div>
+<p>经常会报错:</p>
+<pre><code>ValueError: attempted relative import beyond top-level package</code></pre>
+<p>这是由于相对导入时，文件夹实质上充当的是
+package，也就是包的角色（比如我们常用的 numpy、pandas 都是包）。如果
+python 解释器没有认同该文件夹是
+package，那么这就是一个普通的文件夹，无法实现相对导入。</p>
+<p><strong>python 中文件夹作为 package 需要满足的条件?</strong></p>
+<ol type="1">
+<li>文件夹中<mark style="background: #fefe00A6;">必须</mark>
+存在有<code>__init__.py</code> 文件，可以为空。</li>
+<li>不能作为顶层模块来执行该文件夹中的 py 文件。
+<!--SR:!2026-05-21,812,250--></li>
+</ol>
+<h2 id="导入最佳实践">6. 导入最佳实践</h2>
+<ul>
+<li>把项目根目录加入环境变量(手动或通过脚本)<br />
+</li>
+<li>import 导入路径以项目根目录下的源码目录 src 为起始, 如下:<br />
+</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.core.logger_class <span class="im">import</span> Logger  </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.core.config_class <span class="im">import</span> LoadConfig  </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.core.db_class <span class="im">import</span> MySql, Mongo, Redis, Kafka  </span></code></pre></div>
+<p>参考:<a href="../56cb0e4adfad291addb261565828641abeb80450">Python
+Import module from different directory</a></p>
+<h2 id="各种导入示例">各种导入示例</h2>
+<p><img src="/images/Pasted%20image%2020220904222845.png" />
+<!--SR:!2026-05-27,814,250--></p>
+<p><strong>参考</strong></p>
+<p><a
+href="https://stackoverflow.com/questions/14132789/relative-imports-for-the-billionth-time">python
+- Relative imports for the billionth time - Stack Overflow</a></p>
+<p><strong>相关笔记:</strong></p>
+<ul>
+<li><a href="../56cb0e4adfad291addb261565828641abeb80450">Python Import
+module from different directory</a></li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>🔵
+<ul>
+<li><a href="../56cb0e4adfad291addb261565828641abeb80450">Python Import
+module from different directory</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.技能</category>
+        <category>编程语言</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>技能</tag>
+        <tag>编程语言</tag>
+        <tag>python</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>syncthing 如何移动同步仓库位置</title>
+    <url>/e3241164d2ab8c7695daba3b911d08ae7e2b2873/</url>
+    <content><![CDATA[<p><strong>how to move syncthing folder position?</strong></p>
+<ol type="1">
+<li>Make sure the folder is <mark style="background: #018bffA6;">up to
+date</mark> with the remote. (probably not strictly necessary)</li>
+<li><mark style="background: #018bffA6;">Stop Syncthing</mark> (Pausing
+the folder could be enough)</li>
+<li><mark style="background: #018bffA6;">Copy the folder</mark> to the
+external drive (e.g. using rsync or equivalent).</li>
+<li><mark style="background: #018bffA6;">Edit the path in syncthing
+config file</mark>
+(C:/Users/Administrator/AppData/Local/Syncthing/config.xml )</li>
+<li><mark style="background: #018bffA6;">Restart syncthing</mark></li>
+<li>Wait for scanning and initial sync (exchanging and comparing
+metadata to be sure the contents are the same as on remote) to
+finish.</li>
+<li>if everything works ok, delete the original folder
+<!--SR:!2026-11-14,914,250--></li>
+</ol>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>6.工具</category>
+        <category>效率</category>
+        <category>Syncthing</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>工具</tag>
+        <tag>效率</tag>
+        <tag>syncthing</tag>
+        <tag>Syncthing</tag>
       </tags>
   </entry>
   <entry>
@@ -19267,206 +19465,8 @@ the search to the titles.</strong></li>
         <category>Python</category>
       </categories>
       <tags>
+        <tag>srcard</tag>
         <tag>技能</tag>
-        <tag>srcard</tag>
-        <tag>编程语言</tag>
-        <tag>python</tag>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>syncthing 如何移动同步仓库位置</title>
-    <url>/e3241164d2ab8c7695daba3b911d08ae7e2b2873/</url>
-    <content><![CDATA[<p><strong>how to move syncthing folder position?</strong></p>
-<ol type="1">
-<li>Make sure the folder is <mark style="background: #018bffA6;">up to
-date</mark> with the remote. (probably not strictly necessary)</li>
-<li><mark style="background: #018bffA6;">Stop Syncthing</mark> (Pausing
-the folder could be enough)</li>
-<li><mark style="background: #018bffA6;">Copy the folder</mark> to the
-external drive (e.g. using rsync or equivalent).</li>
-<li><mark style="background: #018bffA6;">Edit the path in syncthing
-config file</mark>
-(C:/Users/Administrator/AppData/Local/Syncthing/config.xml )</li>
-<li><mark style="background: #018bffA6;">Restart syncthing</mark></li>
-<li>Wait for scanning and initial sync (exchanging and comparing
-metadata to be sure the contents are the same as on remote) to
-finish.</li>
-<li>if everything works ok, delete the original folder
-<!--SR:!2026-11-14,914,250--></li>
-</ol>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>6.工具</category>
-        <category>效率</category>
-        <category>Syncthing</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>srcard</tag>
-        <tag>效率</tag>
-        <tag>Syncthing</tag>
-        <tag>syncthing</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python import 导入其他脚本</title>
-    <url>/db420423d1fbc960f8c883a692a8a16e45a73523/</url>
-    <content><![CDATA[<p>假设有如下目录结构：</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> dir0</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> file1.py</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> file2.py</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> dir3</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>　　　　<span class="op">|</span> file3.py</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> dir4</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>　　　　<span class="op">|</span> file4.py</span></code></pre></div>
-<p><mark style="background: #be9affA6;">dir0</mark> 文件夹下有
-<mark style="background: #fefe00A6;">file1.py</mark>
-、<mark style="background: #fefe00A6;">file2.py</mark> 两个文件 和
-<mark style="background: #018bffA6;">dir3</mark>
-、<mark style="background: #018bffA6;">dir4</mark>
-两个子文件夹，<mark style="background: #018bffA6;">dir3</mark> 中有
-<mark style="background: #fefe00A6;">file3.py</mark>
-文件，<mark style="background: #018bffA6;">dir4</mark> 中有
-<mark style="background: #fefe00A6;">file4.py</mark> 文件。</p>
-<h2 id="导入同级模块">1. 导入同级模块</h2>
-<p>python 导入同级模块（在同一个文件夹中的 py 文件）直接导入即可。</p>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xxx</span></code></pre></div>
-<p>如在 file1.py 中想导入 file2.py，注意无需加后缀 ".py"：</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> file2</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用file2中函数时需加上前缀&quot;file2.&quot;，即：</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># file2.fuction_name()</span></span></code></pre></div>
-<h2 id="导入下级模块">2. 导入下级模块</h2>
-<p>导入下级目录模块也很容易，<mark style="background: #fbab4bA6;">需在下级目录中新建一个空白的__init__.py
-文件再导入</mark> ：</p>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dirname <span class="im">import</span> xxx</span></code></pre></div>
-<p>如在 file1.py 中想导入 dir3 下的 file3.py，首先要在 dir3
-中新建一个空白的_<em>init</em>___.py 文件。</p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> dir0</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> file1.py</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> file2.py</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> dir3</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>　　　<span class="op">|</span> <span class="fu">__init__</span>.py</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>　　　<span class="op">|</span> file3.py</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> dir4</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>　　　<span class="op">|</span> file4.py</span></code></pre></div>
-<p>再使用如下语句：</p>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plan A</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dir3 <span class="im">import</span> file3</span></code></pre></div>
-<p>或是</p>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plan B</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> dir3.file3</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># import dir3.file3 as df3</span></span></code></pre></div>
-<p>但使用第二种方式则下文需要一直带着路径 dir3
-书写，较为累赘，建议可以另起一个别名。</p>
-<h2 id="导入上级模块">3. 导入上级模块</h2>
-<p>要导入上级目录下模块，可以使用 sys.path： 　</p>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">&quot;..&quot;</span>) </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xxx</span></code></pre></div>
-<p>如在 <code>file4.py</code> 中想引入 import 上级目录下的 file1.py：
-<strong>file4.py</strong></p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">&quot;..&quot;</span>) </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> file1</span></code></pre></div>
-<p><strong>python 中 sys.path 的作用?</strong></p>
-<p>当使用 import
-语句<mark style="background: #018bffA6;">导入模块</mark>
-时，解释器会搜索<mark style="background: #fefe00A6;">当前模块所在目录</mark>
-以及 <mark style="background: #fefe00A6;">sys.path 指定的路径</mark>
-去找需要 import 的模块，所以这里是直接把上级目录加到了 sys.path 里。
-<!--SR:!2026-08-28,875,250--></p>
-<p><strong>“..” 的含义：</strong> 等同于 linux
-里的‘..’，表示当前工作目录的上级目录。实际上 python 中的‘.’也和 linux
-中一致，表示当前目录。</p>
-<h2 id="导入隔壁文件夹下的模块">4. 导入隔壁文件夹下的模块</h2>
-<p>如在 <code>file4.py</code> 中想引入 import 在 dir3 目录下的
-file3.py。</p>
-<p>这其实是前面两个操作的组合，其思路本质上是将上级目录加到 sys.path
-里，再按照对下级目录模块的方式导入。</p>
-<p>同样需要被引文件夹也就是 dir3 下有空的__init__.py 文件。</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">--</span> <span class="bu">dir</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> file1.py</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> file2.py</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> dir3</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>　　　　<span class="op">|</span> <span class="fu">__init__</span>.py</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>　　　　<span class="op">|</span> file3.py</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>　　<span class="op">|</span> dir4</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>　　　　<span class="op">|</span> file4.py</span></code></pre></div>
-<p>同时也要将上级目录加到 sys.path 里： <strong>file4.py</strong></p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">&quot;..&quot;</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dir3 <span class="im">import</span> file3</span></code></pre></div>
-<h2 id="常见错误及-import-原理">5. 常见错误及 import 原理：</h2>
-<p>在使用直接从上级目录引入模块的操作时：</p>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> .. <span class="im">import</span> xxx</span></code></pre></div>
-<p>经常会报错:</p>
-<pre><code>ValueError: attempted relative import beyond top-level package</code></pre>
-<p>这是由于相对导入时，文件夹实质上充当的是
-package，也就是包的角色（比如我们常用的 numpy、pandas 都是包）。如果
-python 解释器没有认同该文件夹是
-package，那么这就是一个普通的文件夹，无法实现相对导入。</p>
-<p><strong>python 中文件夹作为 package 需要满足的条件?</strong></p>
-<ol type="1">
-<li>文件夹中<mark style="background: #fefe00A6;">必须</mark>
-存在有<code>__init__.py</code> 文件，可以为空。</li>
-<li>不能作为顶层模块来执行该文件夹中的 py 文件。
-<!--SR:!2026-05-21,812,250--></li>
-</ol>
-<h2 id="导入最佳实践">6. 导入最佳实践</h2>
-<ul>
-<li>把项目根目录加入环境变量(手动或通过脚本)<br />
-</li>
-<li>import 导入路径以项目根目录下的源码目录 src 为起始, 如下:<br />
-</li>
-</ul>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.core.logger_class <span class="im">import</span> Logger  </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.core.config_class <span class="im">import</span> LoadConfig  </span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.core.db_class <span class="im">import</span> MySql, Mongo, Redis, Kafka  </span></code></pre></div>
-<p>参考:<a href="../56cb0e4adfad291addb261565828641abeb80450">Python
-Import module from different directory</a></p>
-<h2 id="各种导入示例">各种导入示例</h2>
-<p><img src="/images/Pasted%20image%2020220904222845.png" />
-<!--SR:!2026-05-27,814,250--></p>
-<p><strong>参考</strong></p>
-<p><a
-href="https://stackoverflow.com/questions/14132789/relative-imports-for-the-billionth-time">python
-- Relative imports for the billionth time - Stack Overflow</a></p>
-<p><strong>Backlinks:</strong></p>
-<ul>
-<li><a href="../56cb0e4adfad291addb261565828641abeb80450">Python Import
-module from different directory</a></li>
-</ul>
-<blockquote class="pullquote mindmap mindmap-md"><ul>
-<li>🔵
-<ul>
-<li><a href="../56cb0e4adfad291addb261565828641abeb80450">Python Import
-module from different directory</a></li>
-</ul></li>
-</ul>
-</blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>5.技能</category>
-        <category>编程语言</category>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>技能</tag>
-        <tag>srcard</tag>
         <tag>编程语言</tag>
         <tag>python</tag>
         <tag>Python</tag>
@@ -19522,7 +19522,7 @@ src="https://mmbiz.qpic.cn/sz_mmbiz_png/h988a0nsgw4LeDd1Nmo1m49c4y7OibemBcFmrTpE
 <!--SR:!2026-03-25,716,210--></p>
 <p><strong>「参考资料：」</strong>
 https://www.cnblogs.com/xuexianqi/p/12801475.html</p>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a href="../edefd41cca3bfb461242cf05e60f7dad6fd1663e">Python
 开发环境</a></li>
@@ -19542,8 +19542,8 @@ https://www.cnblogs.com/xuexianqi/p/12801475.html</p>
         <category>Python</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
+        <tag>技能</tag>
         <tag>编程语言</tag>
         <tag>python</tag>
         <tag>Python</tag>
@@ -19610,7 +19610,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a hr
 <li><a href="../f4d9b39cffbb9a542e360bd81bf53fa67120f26c">说说 Python
 的命名规范</a></li>
 </ul>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a
 href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
@@ -19618,14 +19618,14 @@ href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
 <blockquote class="pullquote mindmap mindmap-md"><ul>
 <li>🔵
 <ul>
+<li><a href="../f4d9b39cffbb9a542e360bd81bf53fa67120f26c">说说 Python
+的命名规范</a></li>
 <li><a href="../acc2d6da5dd37affe3f03e94d2997ae7cd02bc92">Python
 项目管理最佳实践 Poetry</a></li>
 <li><a
 href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
 <li><a href="../e85089d47d0a9a1e5419aad022437f772a987bd7">Python 修改
 pip 源为国内镜像源</a></li>
-<li><a href="../f4d9b39cffbb9a542e360bd81bf53fa67120f26c">说说 Python
-的命名规范</a></li>
 </ul></li>
 </ul>
 </blockquote>
@@ -19636,9 +19636,9 @@ pip 源为国内镜像源</a></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>开发</tag>
-        <tag>工具</tag>
         <tag>srcard</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
         <tag>开发环境</tag>
         <tag>python</tag>
       </tags>
@@ -19733,7 +19733,7 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a hr
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> __message__(<span class="va">self</span>, msgid):</span></code></pre></div>
 <p>其中 <strong>id</strong>.<code>__parent__</code> 和
 <code>__message__</code> 都采用了系统保留字命名法。</p>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a href="../edefd41cca3bfb461242cf05e60f7dad6fd1663e">Python
 开发环境</a></li>
@@ -19753,8 +19753,8 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a hr
         <category>Python</category>
       </categories>
       <tags>
-        <tag>技能</tag>
         <tag>srcard</tag>
+        <tag>技能</tag>
         <tag>编程语言</tag>
         <tag>python</tag>
         <tag>Python</tag>
@@ -19857,10 +19857,11 @@ href="../88126fb48eff3a2801350be86a88d44654485719">test_note1</a></p>
 <pre><code>[链接](链接地址)  
 [[obsidian双链]]</code></pre>
 <h3 id="图片">图片</h3>
-<p><img src="/images/Pasted%20image%2020221009213236.png" /> <img
-src="/images/0-2.png" /> <img
+<p><img
 src="https://upload-images.jianshu.io/upload_images/3947109-1c9256e2c1f95874.png"
-alt="image.png" /></p>
+alt="远程图片地址" /> <img
+src="/images/Pasted%20image%2020221009213236.png" /> <img
+src="/images/0-2.png" /></p>
 <pre><code>![](远程图片地址)
 ![[obsidian 图片]]
 ![](obsidian 本地图片名字)</code></pre>
@@ -20040,26 +20041,26 @@ role="doc-noteref"><sup>2</sup></a>.</p>
 <p>You can also use words, to fit your writing style more closely<a
 href="#fn3" class="footnote-ref" id="fnref3"
 role="doc-noteref"><sup>3</sup></a>.</p>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a
-href="../2ecb1b3db0ee1e06c985b053a234f661d8ad4410">test_note2</a></li>
-<li><a
 href="../88126fb48eff3a2801350be86a88d44654485719">test_note1</a></li>
+<li><a
+href="../2ecb1b3db0ee1e06c985b053a234f661d8ad4410">test_note2</a></li>
 <li><a
 href="../67a4849e0e109ca44843a368388ff861956e472d">test_note2</a></li>
 </ul>
 <blockquote class="pullquote mindmap mindmap-md"><ul>
 <li>🔵
 <ul>
+<li><a
+href="../88126fb48eff3a2801350be86a88d44654485719">test_note1</a></li>
 <li><a href="../b53e358a25ba3e25467609d60291ee2c9907edf2">常用 LaTeX
 公式符号</a></li>
 <li><a
-href="../88126fb48eff3a2801350be86a88d44654485719">test_note1</a></li>
+href="../67a4849e0e109ca44843a368388ff861956e472d">test_note2</a></li>
 <li><a
 href="../2ecb1b3db0ee1e06c985b053a234f661d8ad4410">test_note2</a></li>
-<li><a
-href="../67a4849e0e109ca44843a368388ff861956e472d">test_note2</a></li>
 </ul></li>
 </ul>
 </blockquote>
@@ -20087,11 +20088,11 @@ role="doc-backlink">↩︎</a></p></li>
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>obsidian</tag>
-        <tag>markdown</tag>
         <tag>hexo</tag>
-        <tag>test</tag>
+        <tag>markdown</tag>
         <tag>输出</tag>
+        <tag>test</tag>
+        <tag>obsidian</tag>
       </tags>
   </entry>
   <entry>
@@ -20121,11 +20122,11 @@ href="../88126fb48eff3a2801350be86a88d44654485719">test_note1</a></li>
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>obsidian</tag>
-        <tag>markdown</tag>
         <tag>hexo</tag>
-        <tag>test</tag>
+        <tag>markdown</tag>
         <tag>输出</tag>
+        <tag>test</tag>
+        <tag>obsidian</tag>
       </tags>
   </entry>
   <entry>
@@ -20143,10 +20144,10 @@ href="../88126fb48eff3a2801350be86a88d44654485719">test_note1</a></p>
 <li>🔵
 <ul>
 <li><a
+href="../88126fb48eff3a2801350be86a88d44654485719">test_note1</a></li>
+<li><a
 href="../07578cff2dd4bfd8c55f223f930878824a64ceaa/#链接">Obsidian+Hexo
 Markdown 测试#链接</a></li>
-<li><a
-href="../88126fb48eff3a2801350be86a88d44654485719">test_note1</a></li>
 </ul></li>
 </ul>
 </blockquote>
@@ -20157,11 +20158,11 @@ href="../88126fb48eff3a2801350be86a88d44654485719">test_note1</a></li>
         <category>deep</category>
       </categories>
       <tags>
-        <tag>obsidian</tag>
-        <tag>markdown</tag>
         <tag>hexo</tag>
-        <tag>test</tag>
+        <tag>markdown</tag>
         <tag>输出</tag>
+        <tag>test</tag>
+        <tag>obsidian</tag>
         <tag>deep</tag>
       </tags>
   </entry>
@@ -20174,7 +20175,7 @@ href="../07578cff2dd4bfd8c55f223f930878824a64ceaa/#注脚">Obsidian+Hexo
 Markdown 测试#注脚</a></p>
 <p>[[9.输出_note2]]</p>
 <p>[[9.输出_note2]]</p>
-<p><strong>Backlinks:</strong></p>
+<p><strong>相关笔记:</strong></p>
 <ul>
 <li><a href="../07578cff2dd4bfd8c55f223f930878824a64ceaa">Obsidian+Hexo
 Markdown 测试</a></li>
@@ -20186,15 +20187,15 @@ href="../67a4849e0e109ca44843a368388ff861956e472d">test_note2</a></li>
 <blockquote class="pullquote mindmap mindmap-md"><ul>
 <li>🔵
 <ul>
+<li><a
+href="../2ecb1b3db0ee1e06c985b053a234f661d8ad4410">test_note2</a></li>
 <li><a href="../07578cff2dd4bfd8c55f223f930878824a64ceaa">Obsidian+Hexo
 Markdown 测试</a></li>
 <li><a
-href="../2ecb1b3db0ee1e06c985b053a234f661d8ad4410">test_note2</a></li>
-<li><a
-href="../67a4849e0e109ca44843a368388ff861956e472d">test_note2</a></li>
-<li><a
 href="../07578cff2dd4bfd8c55f223f930878824a64ceaa/#注脚">Obsidian+Hexo
 Markdown 测试#注脚</a></li>
+<li><a
+href="../67a4849e0e109ca44843a368388ff861956e472d">test_note2</a></li>
 </ul></li>
 </ul>
 </blockquote>
@@ -20204,11 +20205,11 @@ Markdown 测试#注脚</a></li>
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>obsidian</tag>
-        <tag>markdown</tag>
         <tag>hexo</tag>
-        <tag>test</tag>
+        <tag>markdown</tag>
         <tag>输出</tag>
+        <tag>test</tag>
+        <tag>obsidian</tag>
       </tags>
   </entry>
 </search>
