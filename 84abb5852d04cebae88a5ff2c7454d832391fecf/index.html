@@ -1,0 +1,3140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Android 第三方库 RxBinding 详解 | 胖哥智创笔记</title>
+  <meta name="keywords" content=" srcard , android , 技能 , Android , rxjava , rxbinding ">
+  <meta name="description" content="Android 第三方库 RxBinding 详解 | 胖哥智创笔记">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="https://qiaogaojian.github.io/categories/index.html">
+<meta property="og:site_name" content="胖哥智创笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-09-28T09:08:22.000Z">
+<meta property="article:modified_time" content="2022-10-09T04:33:58.444Z">
+<meta property="article:author" content="胖哥智创笔记">
+<meta property="article:tag" content="Math,数学,Calculus,微积分,Linear Algebra,线性代数,Computer Science,计算机原理,编程,设计模式,计算机网络,计算机图形学,Computer Graphics,Unity,Unity3d,CG,HLSL,OpenGL,C#,Android,Java,GameFramework,ML,Shader,Golang,Go,Asm,Adb,BlockChain,VSCode,Web,Tools,PHP,Ubuntu,ThinkPHP,MySql,Sqlite,重构,Windows,Win10,Git,Mac,Linux,树莓派,VS,AS,Android Studio,PhpStorm,PyCharm,Vim,Rider,Jupyter,Kali,Js,JavaScript,Hexo,3dMax,Maya,Zbrush,汇编,游戏设计,Roguelike,Roguelite,地图生成,技能,FSM,NGUI,UGUI,UV,法线,光照,后端,Html,Css,C语言,C++,Python,机器学习,信息安全,操作系统,IDE,工具,效率,VR,AR,BitCoin,Eos,数据结构,算法,排序,查找,Leetcode,RoadMap,Tips,Trick,Bug,BestPratice,Tutorial,Tao​">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>胖哥智创笔记</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/qiaogaojian"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:1281208053@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=1281208053&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+    <a class="more-menus">更多菜单</a>
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(86)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="2.工作">
+            <i class="fold iconfont icon-right"></i>
+            2.工作
+            <small>(5)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="2.工作&lt;---&gt;环境">
+            
+            环境
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="2.工作&lt;---&gt;项目">
+            <i class="fold iconfont icon-right"></i>
+            项目
+            <small>(4)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="2.工作&lt;---&gt;项目&lt;---&gt;机器人">
+            <i class="fold iconfont icon-right"></i>
+            机器人
+            <small>(4)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="2.工作&lt;---&gt;项目&lt;---&gt;机器人&lt;---&gt;_How_">
+            
+            _How_
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="2.工作&lt;---&gt;项目&lt;---&gt;机器人&lt;---&gt;论文">
+            
+            论文
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="2.工作&lt;---&gt;项目&lt;---&gt;机器人&lt;---&gt;Project">
+            
+            Project
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="3.项目">
+            
+            3.项目
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="4.理论">
+            <i class="fold iconfont icon-right"></i>
+            4.理论
+            <small>(8)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="4.理论&lt;---&gt;管理学">
+            <i class="fold iconfont icon-right"></i>
+            管理学
+            <small>(5)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="4.理论&lt;---&gt;管理学&lt;---&gt;思维模型">
+            
+            思维模型
+            <small>(5)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="4.理论&lt;---&gt;计算机">
+            <i class="fold iconfont icon-right"></i>
+            计算机
+            <small>(3)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="4.理论&lt;---&gt;计算机&lt;---&gt;软件工程">
+            <i class="fold iconfont icon-right"></i>
+            软件工程
+            <small>(1)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="4.理论&lt;---&gt;计算机&lt;---&gt;软件工程&lt;---&gt;架构">
+            
+            架构
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="4.理论&lt;---&gt;计算机&lt;---&gt;体系结构">
+            
+            体系结构
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="4.理论&lt;---&gt;计算机&lt;---&gt;图形学">
+            <i class="fold iconfont icon-right"></i>
+            图形学
+            <small>(1)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="4.理论&lt;---&gt;计算机&lt;---&gt;图形学&lt;---&gt;OpenGL">
+            
+            OpenGL
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="5.技能">
+            <i class="fold iconfont icon-right"></i>
+            5.技能
+            <small>(43)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;编程语言">
+            <i class="fold iconfont icon-right"></i>
+            编程语言
+            <small>(16)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;编程语言&lt;---&gt;CSharp">
+            
+            CSharp
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;编程语言&lt;---&gt;Go">
+            
+            Go
+            <small>(3)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;编程语言&lt;---&gt;Javascript">
+            
+            Javascript
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;编程语言&lt;---&gt;Python">
+            
+            Python
+            <small>(10)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;问题记录">
+            
+            问题记录
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;AI">
+            <i class="fold iconfont icon-right"></i>
+            AI
+            <small>(7)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;AI&lt;---&gt;_What_">
+            
+            _What_
+            <small>(4)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;AI&lt;---&gt;Agent">
+            
+            Agent
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;AI&lt;---&gt;Tools">
+            <i class="fold iconfont icon-right"></i>
+            Tools
+            <small>(1)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;AI&lt;---&gt;Tools&lt;---&gt;Pytorch">
+            
+            Pytorch
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;Android">
+            
+            Android
+            <small>(9)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;English">
+            <i class="fold iconfont icon-right"></i>
+            English
+            <small>(1)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;English&lt;---&gt;语法">
+            
+            语法
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;Learn">
+            
+            Learn
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;Server">
+            <i class="fold iconfont icon-right"></i>
+            Server
+            <small>(2)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;Server&lt;---&gt;MySql">
+            
+            MySql
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;Server&lt;---&gt;Node">
+            
+            Node
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;Unity3d">
+            <i class="fold iconfont icon-right"></i>
+            Unity3d
+            <small>(6)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="5.技能&lt;---&gt;Unity3d&lt;---&gt;book">
+            
+            book
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="6.工具">
+            <i class="fold iconfont icon-right"></i>
+            6.工具
+            <small>(25)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;开发">
+            <i class="fold iconfont icon-right"></i>
+            开发
+            <small>(18)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;开发&lt;---&gt;开发环境">
+            
+            开发环境
+            <small>(11)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;开发&lt;---&gt;Git">
+            
+            Git
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;开发&lt;---&gt;Regex">
+            
+            Regex
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;开发&lt;---&gt;Vim">
+            
+            Vim
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;开发&lt;---&gt;VSCode">
+            
+            VSCode
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;系统">
+            <i class="fold iconfont icon-right"></i>
+            系统
+            <small>(2)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;系统&lt;---&gt;Win">
+            
+            Win
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;效率">
+            <i class="fold iconfont icon-right"></i>
+            效率
+            <small>(3)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;效率&lt;---&gt;Hexo">
+            
+            Hexo
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;效率&lt;---&gt;Obsidian">
+            
+            Obsidian
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;效率&lt;---&gt;Syncthing">
+            
+            Syncthing
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;AI">
+            <i class="fold iconfont icon-right"></i>
+            AI
+            <small>(2)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="6.工具&lt;---&gt;AI&lt;---&gt;监控">
+            
+            监控
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="9.输出">
+            <i class="fold iconfont icon-right"></i>
+            9.输出
+            <small>(4)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="9.输出&lt;---&gt;hexo">
+            <i class="fold iconfont icon-right"></i>
+            hexo
+            <small>(4)</small>
+        </div>
+        
+            <ul class="sub hide">
+                
+                    
+    <li>
+        <div data-rel="9.输出&lt;---&gt;hexo&lt;---&gt;deep">
+            
+            deep
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+                
+            </ul>
+        
+    </li>
+
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+                <a class="dynamic-menu "
+                   target="_self"
+                   
+                   href="/">关于</a>
+        
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="86">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>编程语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>工具</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>工作</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>管理学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>规范</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>环境</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>机器人</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计算机</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>技能</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>架构</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>监控</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>开发</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>开发环境</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>快捷键</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>理论</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>论文</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>强化学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>软件工程</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>输出</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>双足机器人</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>思维模型</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>体系结构</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>图形学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>问题记录</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>无参考学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>项目</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>效率</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>语法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>组件化</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Agent</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>AI</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>android</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Android</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>basis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>book</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>config</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cpp</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cs</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>csharp</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>CSharp</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>deep</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>deepin</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>english</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>English</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>env</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>go</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Go</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>gradle</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>hexo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hexo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>How</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>javascript</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Javascript</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>latex</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>learn</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Learn</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>markdown</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>mscv</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>mysql</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MySql</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>n</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>node</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Node</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>npm</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>obsidian</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Obsidian</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>opengl</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>OpenGL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Project</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pytorch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>regex</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Regex</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>retrofit</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>rxandroid</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>rxbinding</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>rxjava</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>rxlifecycle</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Server</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>shell</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>sql</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>srcard</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>style</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>syncthing</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Syncthing</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>test</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tool</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Tools</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>unity3d</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Unity3d</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>vim</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Vim</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>vscode</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>VSCode</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>What</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Win</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>win10</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>yarn</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 6.工具 AI 监控 "
+           href="/77451a76ae1222084a1d5bf6efd199dc659c54c0/"
+           data-tag="工具,AI,监控"
+           data-author="" >
+            <span class="post-title" title="GPU 实时监控工具 nvtop">GPU 实时监控工具 nvtop</span>
+            <span class="post-date" title="2024-10-23 15:11:34">2024/10/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 AI 监控 "
+           href="/dafbf23c5bb3f1d8424b4f834eebbe9529c9a5a2/"
+           data-tag="工具,AI,监控"
+           data-author="" >
+            <span class="post-title" title="GPU 实时监控工具 nvitop">GPU 实时监控工具 nvitop</span>
+            <span class="post-date" title="2024-10-23 15:11:34">2024/10/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 2.工作 项目 机器人 Project "
+           href="/ec75ee41345f503e58f539d384bf00b7f6619bf3/"
+           data-tag="工作,机器人,项目,Project"
+           data-author="" >
+            <span class="post-title" title="humanoid-gym">humanoid-gym</span>
+            <span class="post-date" title="2024-10-23 11:06:49">2024/10/23</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 AI _What_ "
+           href="/9bc9a7485650f095deaae9b54954ff069f4b967c/"
+           data-tag="srcard,技能,What,AI"
+           data-author="" >
+            <span class="post-title" title="Q-learning">Q-learning</span>
+            <span class="post-date" title="2024-10-21 16:13:24">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 2.工作 项目 机器人 _How_ "
+           href="/eae48e333decc89b2d7694211309b582a3a53702/"
+           data-tag="工作,机器人,项目,How"
+           data-author="" >
+            <span class="post-title" title="具身智能机器人强化学习流程">具身智能机器人强化学习流程</span>
+            <span class="post-date" title="2024-10-21 16:13:24">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 AI _What_ "
+           href="/689f27ebabe459360038ee0e75643af26f2e718a/"
+           data-tag="技能,What,AI"
+           data-author="" >
+            <span class="post-title" title="强化学习">强化学习</span>
+            <span class="post-date" title="2024-10-21 15:12:17">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 AI _What_ "
+           href="/f73bfa22fa41a750b86dbbf00f115c1aee76a24c/"
+           data-tag="srcard,技能,What,AI"
+           data-author="" >
+            <span class="post-title" title="深度学习">深度学习</span>
+            <span class="post-date" title="2024-10-21 15:12:17">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 AI _What_ "
+           href="/fb2736e62d44c8a1f1c732650a20795e18086c1b/"
+           data-tag="srcard,技能,What,AI"
+           data-author="" >
+            <span class="post-title" title="深度强化学习">深度强化学习</span>
+            <span class="post-date" title="2024-10-21 15:12:17">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 4.理论 管理学 思维模型 "
+           href="/7b448d3954955971e57a58afd73611f31b5e5a6c/"
+           data-tag="理论,管理学,思维模型"
+           data-author="" >
+            <span class="post-title" title="如何制定战略：SWOT分析">如何制定战略：SWOT分析</span>
+            <span class="post-date" title="2024-10-21 14:07:26">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 4.理论 管理学 思维模型 "
+           href="/7bacfdd00ff5a8e8d795626f99fe26ccfd3f2bee/"
+           data-tag="理论,管理学,思维模型"
+           data-author="" >
+            <span class="post-title" title="如何提升团队效率：从KPI到OKR">如何提升团队效率：从KPI到OKR</span>
+            <span class="post-date" title="2024-10-21 14:07:26">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 4.理论 管理学 思维模型 "
+           href="/b16b8cbb6354ce048d8af60c5393d71fef7ff366/"
+           data-tag="理论,管理学,思维模型"
+           data-author="" >
+            <span class="post-title" title="如何持续改进：PDCA循环">如何持续改进：PDCA循环</span>
+            <span class="post-date" title="2024-10-21 14:07:26">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 4.理论 管理学 思维模型 "
+           href="/ea19a057b9f6962770374b42fe9d89e6419c5b15/"
+           data-tag="理论,管理学,思维模型"
+           data-author="" >
+            <span class="post-title" title="如何制定目标：SMART原则">如何制定目标：SMART原则</span>
+            <span class="post-date" title="2024-10-21 14:07:26">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 4.理论 管理学 思维模型 "
+           href="/ba467b73efcd15a60483f83c189c000cf0942806/"
+           data-tag="理论,管理学,思维模型"
+           data-author="" >
+            <span class="post-title" title="如何分析问题：从2W1H到6W3H">如何分析问题：从2W1H到6W3H</span>
+            <span class="post-date" title="2024-10-21 12:08:54">2024/10/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 AI Agent "
+           href="/abbf70ac8ba77757a641c0239455ace455e75d93/"
+           data-tag="技能,AI,Agent"
+           data-author="" >
+            <span class="post-title" title="Ollama + continue 实现本地 github copilot">Ollama + continue 实现本地 github copilot</span>
+            <span class="post-date" title="2024-08-22 20:01:04">2024/08/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 AI Agent "
+           href="/dffaec73c007ef934fe39c476c8808f2511390b2/"
+           data-tag="技能,AI,Agent"
+           data-author="" >
+            <span class="post-title" title="AutoGen +Ollama  构建多智能体应用">AutoGen +Ollama  构建多智能体应用</span>
+            <span class="post-date" title="2024-08-22 20:01:04">2024/08/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 2.工作 项目 机器人 论文 "
+           href="/6f252f6a1db58de9aa515272f56dab6e4f95c489/"
+           data-tag="srcard,工作,机器人,双足机器人,项目,无参考学习,强化学习,论文"
+           data-author="" >
+            <span class="post-title" title="0.Humanoid-Gym Reinforcement Learning for Humanoid">0.Humanoid-Gym Reinforcement Learning for Humanoid</span>
+            <span class="post-date" title="2024-07-13 11:36:11">2024/07/13</span>
+        </a>
+        
+        
+        <a  class="全部文章 2.工作 项目 机器人 论文 "
+           href="/e4b141ee8dc17c4b43e1fd1f735217e727de0901/"
+           data-tag="srcard,工作,机器人,项目,论文"
+           data-author="" >
+            <span class="post-title" title="1.Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning">1.Learning to Walk in Minutes Using Massively Parallel Deep Reinforcement Learning</span>
+            <span class="post-date" title="2024-07-13 11:36:11">2024/07/13</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 AI Tools Pytorch "
+           href="/b8bc8d6b00b5f8aacbc31724c33dd6ecb004e746/"
+           data-tag="技能,AI,Pytorch,Tools"
+           data-author="" >
+            <span class="post-title" title="Pytorch + Obsidian + Conda + Cuda 搭建交互式笔记开发环境">Pytorch + Obsidian + Conda + Cuda 搭建交互式笔记开发环境</span>
+            <span class="post-date" title="2024-03-25 10:00:30">2024/03/25</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 系统 Win "
+           href="/28d1a8623c53b973e6eba5aa565993ad168ff4c7/"
+           data-tag="工具,srcard,Win,系统,win10"
+           data-author="" >
+            <span class="post-title" title="删除系统盘大文件">删除系统盘大文件</span>
+            <span class="post-date" title="2024-02-22 14:01:03">2024/02/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 系统 Win "
+           href="/2d1f9519eec9a78f5d1c656af80d324daef1e7d3/"
+           data-tag="工具,Win,系统"
+           data-author="" >
+            <span class="post-title" title="Windows 设置固定 IP 地址">Windows 设置固定 IP 地址</span>
+            <span class="post-date" title="2024-02-22 14:01:03">2024/02/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/34423981d978e285acba77d18622f5a99ad45aeb/"
+           data-tag="srcard,技能,编程语言,Python,python"
+           data-author="" >
+            <span class="post-title" title="Python Micromamba + Poetry 环境管理">Python Micromamba + Poetry 环境管理</span>
+            <span class="post-date" title="2024-02-07 10:32:46">2024/02/07</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 问题记录 "
+           href="/7bf3c7f1c32eb04fedc6483bf336ade813fdbba4/"
+           data-tag="android,技能,问题记录"
+           data-author="" >
+            <span class="post-title" title="Android Databinding 报错 Index -1 out of bounds for length">Android Databinding 报错 Index -1 out of bounds for length</span>
+            <span class="post-date" title="2023-11-21 18:00:43">2023/11/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 3.项目 "
+           href="/d39be376aabd974a170ece9d764aefad9a10716a/"
+           data-tag="项目"
+           data-author="" >
+            <span class="post-title" title="3.项目">3.项目</span>
+            <span class="post-date" title="2023-11-21 13:42:55">2023/11/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/0392a0e3ceaeed8b3de4b915d8129b9bc39ecb46/"
+           data-tag="srcard,android,rxlifecycle,技能,Android,rxjava"
+           data-author="" >
+            <span class="post-title" title="Android 第三方库 RxLifecycle 使用详解">Android 第三方库 RxLifecycle 使用详解</span>
+            <span class="post-date" title="2023-03-22 20:09:53">2023/03/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/0951b49d41f9fcd124f4e34b6dcdd3a8b3c57776/"
+           data-tag="srcard,android,技能,Android,rxjava,rxandroid"
+           data-author="" >
+            <span class="post-title" title="Android 第三方库 RxJava 和 RxAndroid">Android 第三方库 RxJava 和 RxAndroid</span>
+            <span class="post-date" title="2023-03-22 20:09:53">2023/03/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/168f80ccc9a1e0380cb794165e96a3ede46e9989/"
+           data-tag="srcard,android,技能,Android,rxjava,retrofit"
+           data-author="" >
+            <span class="post-title" title="Android 第三方库 Retrofit 的使用">Android 第三方库 Retrofit 的使用</span>
+            <span class="post-date" title="2023-03-22 20:09:53">2023/03/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/84abb5852d04cebae88a5ff2c7454d832391fecf/"
+           data-tag="srcard,android,技能,Android,rxjava,rxbinding"
+           data-author="" >
+            <span class="post-title" title="Android 第三方库 RxBinding 详解">Android 第三方库 RxBinding 详解</span>
+            <span class="post-date" title="2023-03-22 20:09:53">2023/03/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/8b9b73b54d7308edd29570d8d41c94b255818281/"
+           data-tag="srcard,android,技能,Android,组件化"
+           data-author="" >
+            <span class="post-title" title="Android 组件化 ARouter">Android 组件化 ARouter</span>
+            <span class="post-date" title="2023-03-21 18:54:45">2023/03/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/8d431f07c8d4c47c4e9646c57f218a9fa1d9864a/"
+           data-tag="srcard,android,技能,Android,组件化"
+           data-author="" >
+            <span class="post-title" title="Android 组件化 Application">Android 组件化 Application</span>
+            <span class="post-date" title="2023-03-21 18:54:45">2023/03/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/0b3130ada3d0531d62d35d48e876a299c5888b77/"
+           data-tag="工具,开发,开发环境,linux,shell"
+           data-author="" >
+            <span class="post-title" title="Fish 入门指南">Fish 入门指南</span>
+            <span class="post-date" title="2023-02-11 18:54:41">2023/02/11</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/3971919f211d721a9f8d95e718242813c25f0224/"
+           data-tag="工具,开发,srcard,开发环境,deepin"
+           data-author="" >
+            <span class="post-title" title="Deepin Node 开发环境搭建">Deepin Node 开发环境搭建</span>
+            <span class="post-date" title="2023-02-05 17:37:22">2023/02/05</span>
+        </a>
+        
+        
+        <a  class="全部文章 2.工作 环境 "
+           href="/0c32955781debd23d9593f3ed51d05fde4a7304f/"
+           data-tag="开发环境,linux,环境,工作,deepin"
+           data-author="" >
+            <span class="post-title" title="开发环境">开发环境</span>
+            <span class="post-date" title="2023-02-02 11:30:21">2023/02/02</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Server MySql "
+           href="/33120becbdc187139d7db6f82981ed7857eb67c4/"
+           data-tag="srcard,技能,mysql,Server,sql,MySql"
+           data-author="" >
+            <span class="post-title" title="MySQL 常用命令">MySQL 常用命令</span>
+            <span class="post-date" title="2023-01-31 17:18:06">2023/01/31</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/f7bf833465dabddc3cd869dddcaf81e9212e2ad6/"
+           data-tag="srcard,android,技能,Android,gradle"
+           data-author="" >
+            <span class="post-title" title="Android Gradle 自定义插件">Android Gradle 自定义插件</span>
+            <span class="post-date" title="2022-11-29 19:06:08">2022/11/29</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 CSharp "
+           href="/152d72cba6e2a9d433c833539acb7aad0d157e32/"
+           data-tag="srcard,技能,编程语言,CSharp,csharp"
+           data-author="" >
+            <span class="post-title" title="CSharp 中 enum 和 string int 互转">CSharp 中 enum 和 string int 互转</span>
+            <span class="post-date" title="2022-11-25 19:17:14">2022/11/25</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Unity3d "
+           href="/5e9148833be13811cc59d73a3b6e21becdfa6d33/"
+           data-tag="srcard,技能,Unity3d,unity3d"
+           data-author="" >
+            <span class="post-title" title="Unity3d 的碰撞">Unity3d 的碰撞</span>
+            <span class="post-date" title="2022-11-25 19:17:14">2022/11/25</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Unity3d "
+           href="/a8a30876dbd0634ee6c5cea023ef0046c4106029/"
+           data-tag="srcard,技能,Unity3d,unity3d"
+           data-author="" >
+            <span class="post-title" title="Unity3d 的路径">Unity3d 的路径</span>
+            <span class="post-date" title="2022-11-25 19:17:14">2022/11/25</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Unity3d "
+           href="/bcc078844d812baf3f3b68274a6e012c483473c3/"
+           data-tag="srcard,技能,Unity3d,unity3d"
+           data-author="" >
+            <span class="post-title" title="Unity3d Sprite 和 UI Image 的区别">Unity3d Sprite 和 UI Image 的区别</span>
+            <span class="post-date" title="2022-11-25 19:17:14">2022/11/25</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Unity3d "
+           href="/e1257bd34fdb147bfaa2dba0b1d8b5f7a8d1c85b/"
+           data-tag="srcard,技能,Unity3d,unity3d"
+           data-author="" >
+            <span class="post-title" title="Unity3d 的坐标">Unity3d 的坐标</span>
+            <span class="post-date" title="2022-11-25 19:17:14">2022/11/25</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Unity3d "
+           href="/edeac672c5add21d3ccf7222dee322ab10cfc8d3/"
+           data-tag="技能,Unity3d"
+           data-author="" >
+            <span class="post-title" title="Unity3d 2048 核心算法讲解">Unity3d 2048 核心算法讲解</span>
+            <span class="post-date" title="2022-11-25 19:17:14">2022/11/25</span>
+        </a>
+        
+        
+        <a  class="全部文章 4.理论 计算机 软件工程 架构 "
+           href="/86a4ca2747eb0b337ebe6bd34e1d8f48db19e6e6/"
+           data-tag="srcard,android,计算机,理论,架构,软件工程"
+           data-author="" >
+            <span class="post-title" title="Android UI 架构演进：从 MVC 到 MVP、MVVM、MVI">Android UI 架构演进：从 MVC 到 MVP、MVVM、MVI</span>
+            <span class="post-date" title="2022-11-18 07:29:21">2022/11/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/e74920cc7906fcb231ccf12aa8c5650951c16c02/"
+           data-tag="srcard,android,技能,Android"
+           data-author="" >
+            <span class="post-title" title="Android 组件化">Android 组件化</span>
+            <span class="post-date" title="2022-11-18 07:29:21">2022/11/18</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/56d70cf3369177ebae7b633765b1511801136821/"
+           data-tag="工具,开发,srcard,开发环境,config,style"
+           data-author="" >
+            <span class="post-title" title="主题颜色配置">主题颜色配置</span>
+            <span class="post-date" title="2022-11-12 03:27:34">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 VSCode "
+           href="/83c7554526d9f6f294c507e0cebbc479c501c9b6/"
+           data-tag="工具,开发,vscode,tool,VSCode"
+           data-author="" >
+            <span class="post-title" title="VSCode 安装与配置">VSCode 安装与配置</span>
+            <span class="post-date" title="2022-11-12 03:27:34">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 Vim "
+           href="/053607f1ecbb56d63ebb7de4259e83a4be807ce6/"
+           data-tag="Vim,工具,开发,vim"
+           data-author="" >
+            <span class="post-title" title="vim 使用全局剪贴板">vim 使用全局剪贴板</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/10d99ef2a6dd035cac70c5f8def086cda109f1ad/"
+           data-tag="工具,开发,开发环境,linux,shell"
+           data-author="" >
+            <span class="post-title" title="Fish 命令行工具">Fish 命令行工具</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Go "
+           href="/128e80a43f1ada4a71707853f6686b261ffbe241/"
+           data-tag="技能,开发环境,规范,Go,go,编程语言"
+           data-author="" >
+            <span class="post-title" title="golang-standards-project-layout">golang-standards-project-layout</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Android "
+           href="/1fb05f97cf4037d2eec2f0599f188ff8500faf52/"
+           data-tag="srcard,android,技能,Android,组件化"
+           data-author="" >
+            <span class="post-title" title="Android 组件化基础">Android 组件化基础</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 Git "
+           href="/1724764acb83566cfbcc5cedf7fe0bf07a4ed3a1/"
+           data-tag="工具,开发,srcard,Git,git"
+           data-author="" >
+            <span class="post-title" title="Git submodule 子模块的管理和使用">Git submodule 子模块的管理和使用</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Learn "
+           href="/28d7c50088a145a2bd9672fc6e86430b1c6c7778/"
+           data-tag="srcard,技能,Learn,learn"
+           data-author="" >
+            <span class="post-title" title="打造一套知识笔记管理系统">打造一套知识笔记管理系统</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/2f88c002ba6526df0f92a7b357c463949c11dcf1/"
+           data-tag="技能,编程语言,Python,python"
+           data-author="" >
+            <span class="post-title" title="flask 参数传递的4种方式">flask 参数传递的4种方式</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/398c907730d3d916e72688bf34e18ad17c4edeff/"
+           data-tag="工具,开发,srcard,开发环境,git"
+           data-author="" >
+            <span class="post-title" title="Git 开发环境">Git 开发环境</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Unity3d book "
+           href="/41291e4cef1b7c5ee961eb9d22af60f1f3203b23/"
+           data-tag="srcard,技能,book,Unity3d"
+           data-author="" >
+            <span class="post-title" title="Unity3D高级编程 主程手记">Unity3D高级编程 主程手记</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 4.理论 计算机 图形学 OpenGL "
+           href="/508c9a68905bb93d25c20ae865f0112a1de431d4/"
+           data-tag="开发环境,计算机,vscode,OpenGL,cpp,图形学,mscv,理论,opengl"
+           data-author="" >
+            <span class="post-title" title="VSCode 使用 MSVC 编译器搭建 OpenGL 开发环境">VSCode 使用 MSVC 编译器搭建 OpenGL 开发环境</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/559d1c14e339502eb59ce0020fe110f15c087dee/"
+           data-tag="srcard,技能,编程语言,Python,python"
+           data-author="" >
+            <span class="post-title" title="python 数据精度">python 数据精度</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/56cb0e4adfad291addb261565828641abeb80450/"
+           data-tag="技能,编程语言,Python,python"
+           data-author="" >
+            <span class="post-title" title="Python Import module from different directory">Python Import module from different directory</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Go "
+           href="/620293c2dd4cc0e2283aea0680aff5d2076e8bfb/"
+           data-tag="srcard,技能,开发环境,Go,go,编程语言"
+           data-author="" >
+            <span class="post-title" title="Go 开发环境搭建">Go 开发环境搭建</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/6978a289dcba3aeb0d923a1a4eccfa6de5d90adb/"
+           data-tag="工具,开发,srcard,开发环境,n"
+           data-author="" >
+            <span class="post-title" title="N 常用命令">N 常用命令</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 English 语法 "
+           href="/7864604a0891d53c1a4994773d776e209e02b19f/"
+           data-tag="srcard,技能,english,English,语法"
+           data-author="" >
+            <span class="post-title" title="英语语法">英语语法</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 Server Node "
+           href="/7b091b2e5e657dc1b00930468a070a01e85e4293/"
+           data-tag="srcard,技能,Server,Node,yarn"
+           data-author="" >
+            <span class="post-title" title="Yarn 简介">Yarn 简介</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/8183437d1e8a3a1b5ffeb5e902bff641794983a4/"
+           data-tag="工具,开发,srcard,开发环境,npm"
+           data-author="" >
+            <span class="post-title" title="Npm 常用命令">Npm 常用命令</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Javascript "
+           href="/939ad8bd1529bf657e3a88d27d336d13020d0bb4/"
+           data-tag="srcard,技能,编程语言,node,Javascript"
+           data-author="" >
+            <span class="post-title" title="Node child_process 多进程">Node child_process 多进程</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 Vim "
+           href="/a40746dc076dc0723d0b0f534a88fdc8d9835bfe/"
+           data-tag="Vim,工具,开发,vim,srcard"
+           data-author="" >
+            <span class="post-title" title="Vim 常用命令">Vim 常用命令</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 Regex "
+           href="/a69be125961a1ce5fdd646ee40f33bddb5085f93/"
+           data-tag="工具,开发,srcard,regex,Regex"
+           data-author="" >
+            <span class="post-title" title="Learn Regex the Easy Way">Learn Regex the Easy Way</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 Git "
+           href="/abbec60d7f2fb585a004df0095b46c95af076c53/"
+           data-tag="工具,开发,srcard,Git,git"
+           data-author="" >
+            <span class="post-title" title="Git 常用命令">Git 常用命令</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/acc2d6da5dd37affe3f03e94d2997ae7cd02bc92/"
+           data-tag="srcard,技能,编程语言,Python,python"
+           data-author="" >
+            <span class="post-title" title="Python 项目管理最佳实践 Poetry">Python 项目管理最佳实践 Poetry</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 4.理论 计算机 体系结构 "
+           href="/b780bb9e95975417c037cc3060dfd3da8b830810/"
+           data-tag="srcard,计算机,理论,cs,basis,体系结构"
+           data-author="" >
+            <span class="post-title" title="浮点数精度问题及解决方案">浮点数精度问题及解决方案</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 效率 Obsidian "
+           href="/b53e358a25ba3e25467609d60291ee2c9907edf2/"
+           data-tag="工具,srcard,Obsidian,latex,效率"
+           data-author="" >
+            <span class="post-title" title="常用 LaTeX 公式符号">常用 LaTeX 公式符号</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Javascript "
+           href="/bb000b546660c66d13b4e96258ca3f5a491be94a/"
+           data-tag="srcard,技能,编程语言,Javascript,javascript"
+           data-author="" >
+            <span class="post-title" title="JS == 和 === 的区别">JS == 和 === 的区别</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Go "
+           href="/c105306376235e068a5bdf844b850dfeef744b03/"
+           data-tag="srcard,技能,开发环境,Go,go,编程语言,tool"
+           data-author="" >
+            <span class="post-title" title="goup- Elegant Go installer">goup- Elegant Go installer</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/c2e8c098df921faf1829e09a3915f459a93b29d0/"
+           data-tag="技能,编程语言,Python,python"
+           data-author="" >
+            <span class="post-title" title="深入浅出 python 闭包">深入浅出 python 闭包</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/d2cb8fb770f80b19ad9497aaca6122a86a7a16bf/"
+           data-tag="工具,开发,srcard,开发环境,config,env,快捷键"
+           data-author="" >
+            <span class="post-title" title="代码编辑快捷键">代码编辑快捷键</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 Regex "
+           href="/d1804a15ace07b410373641e47601a0feea08b84/"
+           data-tag="工具,开发,srcard,regex,Regex"
+           data-author="" >
+            <span class="post-title" title="Multi-line text search in VSCode">Multi-line text search in VSCode</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/d3a05d21422f48a7ec5201cd68c70d24af5ce081/"
+           data-tag="工具,开发,srcard,开发环境,deepin,Node"
+           data-author="" >
+            <span class="post-title" title="Node 开发环境搭建 Win10">Node 开发环境搭建 Win10</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/d654a8e3a8d8cd17a3ce34bfdb21aca3bf2174a8/"
+           data-tag="工具,开发,开发环境,npm,node"
+           data-author="" >
+            <span class="post-title" title="Npm 配置国内源">Npm 配置国内源</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/db420423d1fbc960f8c883a692a8a16e45a73523/"
+           data-tag="srcard,技能,编程语言,Python,python"
+           data-author="" >
+            <span class="post-title" title="Python import 导入其他脚本">Python import 导入其他脚本</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/ddf3c4fa453b37a29757e2fadc5ce4bdc4f3368c/"
+           data-tag="srcard,技能,编程语言,Python,python"
+           data-author="" >
+            <span class="post-title" title="Comprehensive Python Cheatsheet">Comprehensive Python Cheatsheet</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 效率 Syncthing "
+           href="/e3241164d2ab8c7695daba3b911d08ae7e2b2873/"
+           data-tag="工具,srcard,效率,Syncthing,syncthing"
+           data-author="" >
+            <span class="post-title" title="syncthing 如何移动同步仓库位置">syncthing 如何移动同步仓库位置</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/e85089d47d0a9a1e5419aad022437f772a987bd7/"
+           data-tag="srcard,技能,编程语言,Python,python"
+           data-author="" >
+            <span class="post-title" title="Python 修改 pip 源为国内镜像源">Python 修改 pip 源为国内镜像源</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 开发 开发环境 "
+           href="/edefd41cca3bfb461242cf05e60f7dad6fd1663e/"
+           data-tag="工具,开发,srcard,开发环境,python"
+           data-author="" >
+            <span class="post-title" title="Python 开发环境">Python 开发环境</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 5.技能 编程语言 Python "
+           href="/f4d9b39cffbb9a542e360bd81bf53fa67120f26c/"
+           data-tag="srcard,技能,编程语言,Python,python"
+           data-author="" >
+            <span class="post-title" title="说说 Python 的命名规范">说说 Python 的命名规范</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 6.工具 效率 Hexo "
+           href="/fe1909fe74c4cb6f352187498b19f73b6b30b23d/"
+           data-tag="工具,hexo,效率,Hexo"
+           data-author="" >
+            <span class="post-title" title="Hexo Next主题添加访问量统计功能">Hexo Next主题添加访问量统计功能</span>
+            <span class="post-date" title="2022-11-12 00:42:56">2022/11/12</span>
+        </a>
+        
+        
+        <a  class="全部文章 9.输出 hexo "
+           href="/07578cff2dd4bfd8c55f223f930878824a64ceaa/"
+           data-tag="obsidian,输出,markdown,test,hexo"
+           data-author="" >
+            <span class="post-title" title="Obsidian+Hexo Markdown 测试">Obsidian+Hexo Markdown 测试</span>
+            <span class="post-date" title="2022-10-11 21:40:23">2022/10/11</span>
+        </a>
+        
+        
+        <a  class="全部文章 9.输出 hexo "
+           href="/2ecb1b3db0ee1e06c985b053a234f661d8ad4410/"
+           data-tag="obsidian,输出,markdown,test,hexo"
+           data-author="" >
+            <span class="post-title" title="test_note2">test_note2</span>
+            <span class="post-date" title="2022-10-11 21:40:23">2022/10/11</span>
+        </a>
+        
+        
+        <a  class="全部文章 9.输出 hexo deep "
+           href="/67a4849e0e109ca44843a368388ff861956e472d/"
+           data-tag="obsidian,输出,markdown,test,hexo,deep"
+           data-author="" >
+            <span class="post-title" title="test_note2">test_note2</span>
+            <span class="post-date" title="2022-10-11 21:40:23">2022/10/11</span>
+        </a>
+        
+        
+        <a  class="全部文章 9.输出 hexo "
+           href="/88126fb48eff3a2801350be86a88d44654485719/"
+           data-tag="obsidian,输出,markdown,test,hexo"
+           data-author="" >
+            <span class="post-title" title="test_note1">test_note1</span>
+            <span class="post-date" title="2022-10-11 21:40:23">2022/10/11</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-84abb5852d04cebae88a5ff2c7454d832391fecf" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Android 第三方库 RxBinding 详解</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="5.技能">5.技能</a> > 
+            
+            <a  data-rel="5.技能&lt;---&gt;Android">Android</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color2">srcard</a>
+            
+            <a class="color3">android</a>
+            
+            <a class="color3">技能</a>
+            
+            <a class="color3">Android</a>
+            
+            <a class="color2">rxjava</a>
+            
+            <a class="color5">rxbinding</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2024-10-25 10:47:17'>2023-03-22 20:09</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#rxbinding-%E7%AE%80%E4%BB%8B"><span class="toc-text">1. RxBinding 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rxbinding-%E4%BB%8B%E7%BB%8D"><span class="toc-text">1.1 RxBinding 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E5%BC%8F%E7%9A%84-android-ui"><span class="toc-text">1.2 响应式的 Android UI</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rxbinding-%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">2. RxBinding 使用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6"><span class="toc-text">2.1 点击事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%BF%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6"><span class="toc-text">2.2 长点击事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%AD%A2%E9%87%8D%E5%A4%8D%E7%82%B9%E5%87%BB"><span class="toc-text">2.3 防止重复点击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E5%8D%95%E7%9A%84%E9%AA%8C%E8%AF%81-textchanges"><span class="toc-text">2.4 表单的验证 (textChanges)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E9%AA%8C%E8%AF%81%E7%A0%81%E5%80%92%E8%AE%A1%E6%97%B6"><span class="toc-text">2.5 获取验证码倒计时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#recyclerview-%E7%9A%84%E6%94%AF%E6%8C%81"><span class="toc-text">2.6 RecyclerView 的支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9-ui-%E6%8E%A7%E4%BB%B6%E8%BF%9B%E8%A1%8C%E5%A4%9A%E6%AC%A1%E7%9B%91%E5%90%AC"><span class="toc-text">2.7 对 UI 控件进行多次监听</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rxbinding-%E7%BB%93%E5%90%88-rxpermissions-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">3. RxBinding 结合
+RxPermissions 的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#android-6.0-%E4%B9%8B%E5%90%8E%E6%9D%83%E9%99%90%E7%9A%84%E6%94%B9%E5%8F%98"><span class="toc-text">3.1 Android 6.0 之后权限的改变</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rxpermissions-%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="toc-text">3.2 RxPermissions 的介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rxbinding-%E7%BB%93%E5%90%88-rxpermissions"><span class="toc-text">3.3 RxBinding 结合
+RxPermissions</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8-rxbinding-%E4%B8%AD%E4%BD%BF%E7%94%A8-rxpermissions"><span class="toc-text">3.3.1 在 RxBinding 中使用
+RxPermissions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rxbinding-%E7%BB%93%E5%90%88-compose%E4%BD%BF%E7%94%A8-rxpermissions"><span class="toc-text">3.3.2 RxBinding 结合
+compose，使用 RxPermissions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E6%9D%83%E9%99%90%E7%9A%84%E7%94%A8%E6%B3%95"><span class="toc-text">3.3.3 使用多个权限的用法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rxbinding-%E4%BD%BF%E7%94%A8%E7%9A%84%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-text">4. RxBinding 使用的注意点</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>原文地址 <a
+target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000021623958">segmentfault.com</a></p>
+</blockquote>
+<h2 id="rxbinding-简介">1. RxBinding 简介</h2>
+<h3 id="rxbinding-介绍">1.1 RxBinding 介绍</h3>
+<p>RxBinding 是 Jake Wharton 大神写的框架，它的 API 能够把 Android
+平台和兼容包内的 <mark style="background: #fefe00A6;">UI 控件变为
+Observable 对象</mark> ，这样就可以把 UI 控件的事件当作 RxJava
+中的数据流来使用了。</p>
+<p>比如 View 的 onClick 事件，使用 RxView.clicks(view）即可获取一个
+Observable 对象，每当用户单击这个 View 的时候，该 Observable
+对象就会发射一个事件， Observable 的观察者就可以通过 onNext
+回调知道用户单击了 View。 <!--SR:!2027-02-16,949,250--></p>
+<p>RxBinding GitHub 地址：<a
+target="_blank" rel="noopener" href="https://link.segmentfault.com/?enc=8jIQjRlzvoEQxF%2F0ZvcMdg%3D%3D.HoEAkY9QS3mVt5PyTA8jbt8bg00NN0ZcX2bEUxtePYxCCgO%2B4SH8vQEUucQ9L33Z">https://github.com/JakeWharto...</a></p>
+<p><strong>RxBinding 的优点：</strong></p>
+<ul>
+<li>它是对 Android View
+事件的扩展，它使得开发者可以<mark style="background: #fefe00A6;">对 View
+事件使用 RxJava 的各种操作</mark></li>
+<li>提供了<mark style="background: #fefe00A6;">与 RxJava
+一致的回调</mark>
+，使得代码简洁明了，尤其是页面上充斥着大量的监昕件，以及各种各样的匿名内部类</li>
+<li><mark style="background: #fefe00A6;">几乎支持所有的常用控件及事件</mark>
+（ v4 、v7、 design、recyclerview 等〉，另外每个库还有对应的 Kotlin
+支持库。 <!--SR:!2024-09-26,418,250--></li>
+</ul>
+<p><strong>RxBinding 的下载：</strong></p>
+<p>Platform bindings:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>implementation <span class="er">&#39;</span>com<span class="op">.</span><span class="fu">jakewharton</span><span class="op">.</span><span class="fu">rxbinding3</span><span class="op">:</span>rxbinding<span class="op">:</span><span class="fl">3.1.0</span><span class="er">&#39;</span></span></code></pre></div>
+<p>AndroidX library bindings:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>implementation <span class="er">&#39;</span>com<span class="op">.</span><span class="fu">jakewharton</span><span class="op">.</span><span class="fu">rxbinding3</span><span class="op">:</span>rxbinding<span class="op">-</span>core<span class="op">:</span><span class="fl">3.1.0</span><span class="er">&#39;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>implementation <span class="er">&#39;</span>com<span class="op">.</span><span class="fu">jakewharton</span><span class="op">.</span><span class="fu">rxbinding3</span><span class="op">:</span>rxbinding<span class="op">-</span>appcompat<span class="op">:</span><span class="fl">3.1.0</span><span class="er">&#39;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>implementation <span class="er">&#39;</span>com<span class="op">.</span><span class="fu">jakewharton</span><span class="op">.</span><span class="fu">rxbinding3</span><span class="op">:</span>rxbinding<span class="op">-</span>drawerlayout<span class="op">:</span><span class="fl">3.1.0</span><span class="er">&#39;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>implementation <span class="er">&#39;</span>com<span class="op">.</span><span class="fu">jakewharton</span><span class="op">.</span><span class="fu">rxbinding3</span><span class="op">:</span>rxbinding<span class="op">-</span>leanback<span class="op">:</span><span class="fl">3.1.0</span><span class="er">&#39;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>implementation <span class="er">&#39;</span>com<span class="op">.</span><span class="fu">jakewharton</span><span class="op">.</span><span class="fu">rxbinding3</span><span class="op">:</span>rxbinding<span class="op">-</span>recyclerview<span class="op">:</span><span class="fl">3.1.0</span><span class="er">&#39;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>implementation <span class="er">&#39;</span>com<span class="op">.</span><span class="fu">jakewharton</span><span class="op">.</span><span class="fu">rxbinding3</span><span class="op">:</span>rxbinding<span class="op">-</span>slidingpanelayout<span class="op">:</span><span class="fl">3.1.0</span><span class="er">&#39;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>implementation <span class="er">&#39;</span>com<span class="op">.</span><span class="fu">jakewharton</span><span class="op">.</span><span class="fu">rxbinding3</span><span class="op">:</span>rxbinding<span class="op">-</span>swiperefreshlayout<span class="op">:</span><span class="fl">3.1.0</span><span class="er">&#39;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>implementation <span class="er">&#39;</span>com<span class="op">.</span><span class="fu">jakewharton</span><span class="op">.</span><span class="fu">rxbinding3</span><span class="op">:</span>rxbinding<span class="op">-</span>viewpager<span class="op">:</span><span class="fl">3.1.0</span><span class="er">&#39;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>implementation <span class="er">&#39;</span>com<span class="op">.</span><span class="fu">jakewharton</span><span class="op">.</span><span class="fu">rxbinding3</span><span class="op">:</span>rxbinding<span class="op">-</span>viewpager2<span class="op">:</span><span class="fl">3.1.0</span><span class="er">&#39;</span></span></code></pre></div>
+<p>Google 'material' library bindings:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>implementation <span class="er">&#39;</span>com<span class="op">.</span><span class="fu">jakewharton</span><span class="op">.</span><span class="fu">rxbinding3</span><span class="op">:</span>rxbinding<span class="op">-</span>material<span class="op">:</span><span class="fl">3.1.0</span><span class="er">&#39;</span></span></code></pre></div>
+<h3 id="响应式的-android-ui">1.2 响应式的 Android UI</h3>
+<p>对 UI 事件（例如点击、滑动和文本输入）的响应几乎是 Android App
+开发的基本部分，但是 Android SDK 对 UI 事件的处理有些复杂
+，我们通常需要使用各种 listeners、handlers、<br />
+TextWatchers 和其他组件等组合来响应 UI
+事件。这些组件中的每一个都需要编写大量的样板代码，更为糟糕的是，实现这些不同组件的方式并不一致。例如，你可以通过实现
+OnClickListener 来处理 OnClick 件。</p>
+<p>这种一致性的缺乏可能会为代码增加很多复杂性。如果有些 UI
+组件需要依赖于其他 UI 组件的输出，那么事情会变得更加复杂。</p>
+<p>即使是一个简单的需求，例如要求用户将其名称输入到 EditText
+，以便个性化地展示 TextView 的文本内容，而 TextView
+需要嵌套回调，这是非常难以实现和维护的（有人将嵌套回调称为
+“回调地狱”〉。</p>
+<p>显然，处理 UI 事件的标准化方法有大大简化代码的空间，而 RxBinding
+就是这样的库，它<br />
+提供的绑定能够将任何 Android View 事件转换为 Observable。</p>
+<p>一旦将 View 事件转换为 Observable ，它将发射数据流形式的 UI
+事件，我们就可以订阅这个数据流，这与订阅其他 Observable
+方式相同。接下来，看看如何实现 OnClick 事件：</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Button</span> button <span class="op">=</span> <span class="fu">findViewById</span><span class="op">(</span>R<span class="op">.</span><span class="fu">id</span><span class="op">.</span><span class="fu">button</span><span class="op">);</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>RxView<span class="op">.</span><span class="fu">clicks</span><span class="op">(</span>button<span class="op">)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">subscribe</span><span class="op">(</span><span class="kw">new</span> Consumer<span class="op">&lt;</span><span class="bu">Object</span><span class="op">&gt;()</span> <span class="op">&#123;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">@Override</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accept</span><span class="op">(</span><span class="bu">Object</span> obj<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;RxBinding.click&quot;</span><span class="op">);</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            <span class="op">&#125;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;);</span></span></code></pre></div>
+<p>这种方法不仅更简洁，而且是一种标准的实现方式，我们可以将其应用于整个
+App 的所有 UI
+事件。例如，<mark style="background: #fefe00A6;">捕获文本输入</mark>
+与捕获点击事件的模式是一样的：</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>EditText editText <span class="op">=</span> <span class="fu">findViewById</span><span class="op">(</span>R<span class="op">.</span><span class="fu">id</span><span class="op">.</span><span class="fu">edit_text</span><span class="op">);</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>RxTextView<span class="op">.</span><span class="fu">textChanges</span><span class="op">(</span>editText<span class="op">)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">subscribe</span><span class="op">(</span><span class="kw">new</span> Consumer<span class="op">&lt;</span><span class="bu">CharSequence</span><span class="op">&gt;()</span> <span class="op">&#123;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">@Override</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accept</span><span class="op">(</span><span class="bu">CharSequence</span> charSequence<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;RxBinding.textChanges-&gt; &quot;</span> <span class="op">+</span> charSequence<span class="op">);</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>            <span class="op">&#125;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;);</span></span></code></pre></div>
+<!--SR:!2024-10-19,433,250-->
+<h2 id="rxbinding-使用场景">2. RxBinding 使用场景</h2>
+<p>RxBinding 可以应用于整个 App 的所有 UI 事件，下面列举一些 RxBinding
+比较常见的使用场景。</p>
+<h3 id="点击事件">2.1 点击事件</h3>
+<p>按钮的点击事件是每 App 都会用到的场景，可以使用 RxView 的
+clicks(<span class="citation" data-cites="NonNull">@NonNull</span> View
+view）方法来绑定 UI 控件</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>RxView<span class="op">.</span><span class="fu">clicks</span><span class="op">(</span>button1<span class="op">)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">subscribe</span><span class="op">(</span><span class="kw">new</span> Consumer<span class="op">&lt;</span><span class="bu">Object</span><span class="op">&gt;()</span> <span class="op">&#123;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">@Override</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accept</span><span class="op">(</span><span class="bu">Object</span> o<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;演示点击事件&quot;</span><span class="op">);</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            <span class="op">&#125;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;);</span></span></code></pre></div>
+<!--SR:!2026-07-19,811,250-->
+<h3 id="长点击事件">2.2 长点击事件</h3>
+<p>长点击事件也是一个比较常见的事件，可以使用 RxView 的 longClicks(<span
+class="citation" data-cites="NonNull">@NonNull</span> View view)
+方法来绑定 UI 控件</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>RxView<span class="op">.</span><span class="fu">longClicks</span><span class="op">(</span>button2<span class="op">)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">subscribe</span><span class="op">(</span><span class="kw">new</span> Consumer<span class="op">&lt;</span>Unit<span class="op">&gt;()</span> <span class="op">&#123;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">@Override</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accept</span><span class="op">(</span>Unit unit<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;演示长点击事件&quot;</span><span class="op">);</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>            <span class="op">&#125;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;);</span></span></code></pre></div>
+<!--SR:!2024-09-10,408,250-->
+<h3 id="防止重复点击">2.3 防止重复点击</h3>
+<p>在弱网络环境下，经常会遇到点击某个按钮没有响应的情况，此时心急的用户可能会多次点击按钮，从而造成事件的多次触发，显然这是我们不愿意看到的情况。可以利用
+throttleFirst 操作符获取某段时间内的第一次点击事件。</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>RxView<span class="op">.</span><span class="fu">clicks</span><span class="op">(</span>button3<span class="op">)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">compose</span><span class="op">(</span>RxUtils<span class="op">.</span><span class="fu">useRxViewTransformer</span><span class="op">(</span>RxBindingAct<span class="op">.</span><span class="fu">this</span><span class="op">))</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">throttleFirst</span><span class="op">(</span><span class="dv">1000</span><span class="op">,</span> <span class="bu">TimeUnit</span><span class="op">.</span><span class="fu">MILLISECONDS</span><span class="op">)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">subscribe</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Consumer</span><span class="op">()</span> <span class="op">&#123;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">@Override</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accept</span><span class="op">(</span><span class="bu">Object</span> o<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;防止重复点击&quot;</span><span class="op">);</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>            <span class="op">&#125;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;);</span></span></code></pre></div>
+<!--SR:!2024-09-08,407,250-->
+<h3 id="表单的验证-textchanges">2.4 表单的验证 (textChanges)</h3>
+<p>App
+内常见的表单验证是用户登录页面，我们需要对用户名、密码做一些校验。对于校验，有些是服务端做的，例如，用户名是否存在、用户名的密码是否正确等。而有些校验则需要客户端来做，例如，用户名是否输入、输入的用户名是否规范、密码是否输入等。</p>
+<p>例如，手机号码不足 11 位时，会出现一个提示</p>
+<p>如果密码没有输入，就点击 “登录” 按钮，则会弹出一个提示</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>EditText phone <span class="op">=</span> <span class="fu">findViewById</span><span class="op">(</span>R<span class="op">.</span><span class="fu">id</span><span class="op">.</span><span class="fu">phone</span><span class="op">);</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>EditText password <span class="op">=</span> <span class="fu">findViewById</span><span class="op">(</span>R<span class="op">.</span><span class="fu">id</span><span class="op">.</span><span class="fu">password</span><span class="op">);</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">Observable</span><span class="op">&lt;</span><span class="bu">CharSequence</span><span class="op">&gt;</span> observablePhone <span class="op">=</span> RxTextView<span class="op">.</span><span class="fu">textChanges</span><span class="op">(</span>phone<span class="op">);</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">Observable</span><span class="op">&lt;</span><span class="bu">CharSequence</span><span class="op">&gt;</span> observablePassword <span class="op">=</span> RxTextView<span class="op">.</span><span class="fu">textChanges</span><span class="op">(</span>password<span class="op">);</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="bu">Observable</span><span class="op">.</span><span class="fu">combineLatest</span><span class="op">(</span>observablePhone<span class="op">,</span> observablePassword<span class="op">,</span> <span class="kw">new</span> BiFunction<span class="op">&lt;</span><span class="bu">CharSequence</span><span class="op">,</span> <span class="bu">CharSequence</span><span class="op">,</span> ValidationResult<span class="op">&gt;()</span> <span class="op">&#123;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> ValidationResult <span class="fu">apply</span><span class="op">(</span><span class="bu">CharSequence</span> charSequence1<span class="op">,</span> <span class="bu">CharSequence</span> charSequence2<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        ValidationResult result <span class="op">=</span> <span class="kw">new</span> <span class="fu">ValidationResult</span><span class="op">();</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>charSequence1<span class="op">.</span><span class="fu">length</span><span class="op">()</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>            result<span class="op">.</span><span class="fu">flag</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>            result<span class="op">.</span><span class="fu">message</span> <span class="op">=</span> <span class="st">&quot;手机号码不能为空&quot;</span><span class="op">;</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>charSequence1<span class="op">.</span><span class="fu">length</span><span class="op">()</span> <span class="op">!=</span> <span class="dv">11</span><span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>            result<span class="op">.</span><span class="fu">flag</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>            result<span class="op">.</span><span class="fu">message</span> <span class="op">=</span> <span class="st">&quot;手机号码需要11位&quot;</span><span class="op">;</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;</span> <span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>charSequence2<span class="op">.</span><span class="fu">length</span><span class="op">()</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>            result<span class="op">.</span><span class="fu">flag</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>            result<span class="op">.</span><span class="fu">message</span> <span class="op">=</span> <span class="st">&quot;密码不能为空&quot;</span><span class="op">;</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> result<span class="op">;</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;).</span><span class="fu">subscribe</span><span class="op">(</span><span class="kw">new</span> Consumer<span class="op">&lt;</span>ValidationResult<span class="op">&gt;()</span> <span class="op">&#123;</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accept</span><span class="op">(</span>ValidationResult validationResult<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> validationResult<span class="op">;</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;);</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="bu">Button</span> login <span class="op">=</span> <span class="fu">findViewById</span><span class="op">(</span>R<span class="op">.</span><span class="fu">id</span><span class="op">.</span><span class="fu">login</span><span class="op">);</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>RxView<span class="op">.</span><span class="fu">clicks</span><span class="op">(</span>login<span class="op">)</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">compose</span><span class="op">(</span>RxUtils<span class="op">.</span><span class="fu">useRxViewTransformer</span><span class="op">(</span>RxBindingAct<span class="op">.</span><span class="fu">this</span><span class="op">))</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">subscribeOn</span><span class="op">(</span>AndroidSchedulers<span class="op">.</span><span class="fu">mainThread</span><span class="op">())</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">subscribe</span><span class="op">(</span><span class="kw">new</span> Consumer<span class="op">&lt;</span><span class="bu">Object</span><span class="op">&gt;()</span> <span class="op">&#123;</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>            <span class="at">@Override</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accept</span><span class="op">(</span><span class="bu">Object</span> o<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="op">(</span>result <span class="op">==</span> <span class="kw">null</span><span class="op">)</span> <span class="cf">return</span><span class="op">;</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="op">(</span>result<span class="op">.</span><span class="fu">flag</span><span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>                    Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;result-&gt; 登陆成功.&quot;</span><span class="op">);</span></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>                <span class="op">&#125;</span> <span class="cf">else</span> <span class="op">&#123;</span></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>                    Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;result-&gt; &quot;</span> <span class="op">+</span> result<span class="op">.</span><span class="fu">message</span><span class="op">);</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>                <span class="op">&#125;</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>            <span class="op">&#125;</span></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;);</span></span></code></pre></div>
+<p>combineLatest 的作用是将多个 Observable
+发射的数据组装起来然后再发射出来。这里两个输入框只要内容发生变化，就会发送
+Observable ，此时我们即可在 BiFunction
+中利用验证方法去判断输入框中最新的内容，最终返 ValidationResult 对象。
+<!--SR:!2026-12-06,896,250--></p>
+<h3 id="获取验证码倒计时">2.5 获取验证码倒计时</h3>
+<p>用户注册账号时，一般需要获取验证码来验证手机号码</p>
+<p>在等待验证码的过程中， App 界面上通常会有一个倒计时，提示我们剩余 xx
+秒可以重新获取验证码。</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">final</span> <span class="dt">long</span> MAX_COUNT_TIME <span class="op">=</span> <span class="dv">60</span><span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>RxView<span class="op">.</span><span class="fu">clicks</span><span class="op">(</span>button5<span class="op">)</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">throttleFirst</span><span class="op">(</span>MAX_COUNT_TIME<span class="op">,</span> <span class="bu">TimeUnit</span><span class="op">.</span><span class="fu">SECONDS</span><span class="op">)</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">flatMap</span><span class="op">(</span><span class="kw">new</span> Function<span class="op">&lt;</span><span class="bu">Object</span><span class="op">,</span> ObservableSource<span class="op">&lt;</span><span class="bu">Long</span><span class="op">&gt;&gt;()</span> <span class="op">&#123;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">@Override</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>            <span class="kw">public</span> ObservableSource<span class="op">&lt;</span><span class="bu">Long</span><span class="op">&gt;</span> <span class="fu">apply</span><span class="op">(</span><span class="bu">Object</span> o<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                <span class="co">// 1. 更新发送按钮的状态，并初始化显现倒计时文字</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>                Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;flatMap&quot;</span><span class="op">);</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                <span class="co">// 2. 返回 n 秒内的倒计时观察者对象</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="bu">Observable</span><span class="op">.</span><span class="fu">interval</span><span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="bu">TimeUnit</span><span class="op">.</span><span class="fu">SECONDS</span><span class="op">,</span> Schedulers<span class="op">.</span><span class="fu">io</span><span class="op">()).</span><span class="fu">take</span><span class="op">(</span>MAX_COUNT_TIME<span class="op">);</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>            <span class="op">&#125;</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;)</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 将递增数字替换成递减的倒计时数字</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">map</span><span class="op">(</span><span class="kw">new</span> Function<span class="op">&lt;</span><span class="bu">Long</span><span class="op">,</span> <span class="bu">Long</span><span class="op">&gt;()</span> <span class="op">&#123;</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">@Override</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>            <span class="kw">public</span> <span class="bu">Long</span> <span class="fu">apply</span><span class="op">(</span><span class="bu">Long</span> aLong<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>                Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;map: &quot;</span> <span class="op">+</span> aLong<span class="op">);</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> MAX_COUNT_TIME <span class="op">-</span> <span class="op">(</span>aLong <span class="op">-</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>            <span class="op">&#125;</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;)</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 切换到 Android 的主线程</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">observeOn</span><span class="op">(</span>AndroidSchedulers<span class="op">.</span><span class="fu">mainThread</span><span class="op">())</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">subscribe</span><span class="op">(</span><span class="kw">new</span> Consumer<span class="op">&lt;</span><span class="bu">Long</span><span class="op">&gt;()</span> <span class="op">&#123;</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>            <span class="at">@Override</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accept</span><span class="op">(</span><span class="bu">Long</span> aLong<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="op">(</span>aLong <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>                    Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;倒计时完成.&quot;</span><span class="op">);</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>                <span class="op">&#125;</span> <span class="cf">else</span> <span class="op">&#123;</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>                    Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;倒计时剩余：&quot;</span> <span class="op">+</span> aLong <span class="op">+</span> <span class="st">&quot; 秒&quot;</span><span class="op">);</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>                <span class="op">&#125;</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>            <span class="op">&#125;</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;);</span></span></code></pre></div>
+<p>Observable.interval(1, TimeUnit.SECONDS, Schedulers.io()) 表示每 1
+秒发射一次数据。<br />
+take(MAX_COUNT_TIME) 和后面的操作表示按钮在 60s
+内不可再次被点击，并且在这段时间每隔一秒发射一次数据用于更新 UI。
+<mark style="background: #83d98fA6;">在实际使用中，需要在 flatMap
+里做获取短信验证码络请求。</mark> <!--SR:!2025-12-18,684,250--></p>
+<h3 id="recyclerview-的支持">2.6 RecyclerView 的支持</h3>
+<p>Rx.Bindin 提供了一个 rxbinding-recyclerview 的库，专门用于对
+RecyclerView 支持。</p>
+<p>其中， RxRecyclerView 提供了几个状态的观察：</p>
+<ul>
+<li><strong>scrollStateChanges</strong> 观察 RecyclerView
+的滚动状态</li>
+<li><strong>scrollEvents</strong> 观察 RecyclerView 的滚动事件</li>
+<li><strong>childAttachStateChangeEvents</strong> 观察 child view 的
+detached 状态， LayoutManager 或者 RecyclerView 认为不再需要一个 child
+view 时，就会调用这个方法。 如果 child view
+占用资源，则应当释放资源。</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>RxRecyclerView</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">scrollStateChanges</span><span class="op">(</span>recyclerView<span class="op">)</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">subscribe</span><span class="op">(</span><span class="kw">new</span> Consumer<span class="op">&lt;</span><span class="bu">Integer</span><span class="op">&gt;()</span> <span class="op">&#123;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">@Override</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accept</span><span class="op">(</span><span class="bu">Integer</span> scrollState<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;scrollState: &quot;</span> <span class="op">+</span> scrollState<span class="op">);</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>            <span class="op">&#125;</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;);</span></span></code></pre></div>
+<p>scrollState 表示 RecyclerView 中定义的滚动状态。</p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// RecyclerView 当前没有滚动</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">int</span> SCROLL_STATE_IDLE <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">// RecyclerView 正在被拖动</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">int</span> SCROLL_STATE_DRAGGING <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">// 手指已经离开屏幕，RecyclerView 正在做动画移动到最终位置</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">static</span> <span class="dt">final</span> <span class="dt">int</span> SCROLL_STATE_SETTLING <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span></code></pre></div>
+<p>除可以对 RecyclerView 状态的进行监听外，还能对点击事件进行监听</p>
+<p>在 Adapter 的 onBindViewHolder() 中，可以使用 clicks() 来绑定
+itemView 的点击事件。 <!--SR:!2025-01-15,495,250--></p>
+<h3 id="对-ui-控件进行多次监听">2.7 对 UI 控件进行多次监听</h3>
+<p>可以利用 RxJava 的操作符，例如 publish、share、replay ，实现对 UI
+控件的多次监听</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Observable</span> observable <span class="op">=</span> RxView<span class="op">.</span><span class="fu">clicks</span><span class="op">(</span>button5<span class="op">)</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">compose</span><span class="op">(</span>RxUtils<span class="op">.</span><span class="fu">useRxViewTransformer</span><span class="op">(</span><span class="kw">this</span><span class="op">))</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">share</span><span class="op">();</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>observable<span class="op">.</span><span class="fu">subscribe</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Consumer</span><span class="op">()</span> <span class="op">&#123;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accept</span><span class="op">(</span><span class="bu">Object</span> o<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;第一次监听&quot;</span><span class="op">);</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;);</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>observable<span class="op">.</span><span class="fu">subscribe</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Consumer</span><span class="op">()</span> <span class="op">&#123;</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">@Override</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accept</span><span class="op">(</span><span class="bu">Object</span> o<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;第二次监听&quot;</span><span class="op">);</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;);</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co">// 执行结果</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a> 第一次监听</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a> 第二次监听</span></code></pre></div>
+<p>使用了 share 操作符，随后做了两次监监听，点击该控件打印两次
+<!--SR:!2027-04-01,983,250--></p>
+<h2 id="rxbinding-结合-rxpermissions-的使用">3. RxBinding 结合
+RxPermissions 的使用</h2>
+<h3 id="android-6.0-之后权限的改变">3.1 Android 6.0 之后权限的改变</h3>
+<p><a
+target="_blank" rel="noopener" href="https://developer.android.google.cn/training/permissions/requesting">Request
+app permissions  |  Android Developers</a> <a
+target="_blank" rel="noopener" href="https://developer.android.google.cn/guide/topics/permissions/overview#perm-groups">Permissions
+on Android  |  Android Developers</a></p>
+<p>Android 6.0
+带来一个很大变化就是权限机制的改变，特别是运行时权限。</p>
+<p>Android 6.0＋添加的运行时权限可分为两类：</p>
+<ul>
+<li>Normal Permissions:
+这类权限不涉及个人隐私，不需要用户授权，比如手机震动、访问网络等。</li>
+<li>Dangerous Permissions ：这类权限涉及个人隐私，需要用户授权，比如读取
+SD 卡、访问通讯录等</li>
+</ul>
+<p>Dangerous Permissions 是有分组的。App 运行在 Android
+6.0＋的手机之上，如果用户申请了某个 Dangerous Permissions
+，而该用户己经授权了一个与他现在申请的是同一组的 Dangerous Permissions
+，那么系统会自动授权，无须用户再次授权。<br />
+<img src="https://segmentfault.com/img/remote/1460000021623961" /></p>
+<p>对于 Android 6.0 以下的手机，用户在安装 App
+的时候可以看到权限声明产生一个权限列表，用户只有在同意之后才能完成 App
+的安装。如果用户想要使用某个
+App，就需要忍受其一些不必要的权限（例如访问通讯录、短信的权限等）。从
+Android 6.0 以后我们可以直接安装 App，当 App
+需要我们授予不恰当的权限的时候，我们可以予以拒绝。当然作为用户也可以在手机的设置界面里对每个
+App 的权限进行查看，井对单个权限进行授权或者解除授权。</p>
+<p>App 的 targetSdkVersion 是 23 及以上，并且 App 运行在 Android 6.0
+及以上的设备时，需同时满足这两个条件才需要动态地请求危险权限。</p>
+<h3 id="rxpermissions-的介绍">3.2 RxPermissions 的介绍</h3>
+<p>在处理运行时权限时，通常需要两步：</p>
+<ul>
+<li>申请权限</li>
+<li>处理权限回调，根据授权的情况进行回调</li>
+</ul>
+<p>RxPermissions 的出现可以简化这些步骤，它是基于 RxJava 开发的 Android
+框架，帮助 Android 6.0 之后处理运行时权限的检测。</p>
+<p>RxPermissions GitHub 地址：<a
+target="_blank" rel="noopener" href="https://github.com/tbruyelle/RxPermissions">GitHub -
+tbruyelle/RxPermissions: Android runtime permissions powered by
+RxJava2</a></p>
+<p>RxPermissions 的下载：</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>allprojects <span class="op">&#123;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    repositories <span class="op">&#123;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>        <span class="kw">...</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        maven <span class="op">&#123;</span> url <span class="er">&#39;</span>https<span class="op">:</span><span class="co">//jitpack.io&#39; &#125;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>dependencies <span class="op">&#123;</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    implementation <span class="er">&#39;</span>com<span class="op">.</span><span class="fu">github</span><span class="op">.</span><span class="fu">tbruyelle</span><span class="op">:</span>rxpermissions<span class="op">:</span><span class="fl">0.10.2</span><span class="er">&#39;</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<h3 id="rxbinding-结合-rxpermissions">3.3 RxBinding 结合
+RxPermissions</h3>
+<p>在 RxPermissions 使用之前，需要先创建 RxPermissions 的实例。可以在
+Activity 的 onCreate() 中进行创建，创建之后才能使用它。</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>RxPermissions rxPermissions <span class="op">=</span> <span class="kw">new</span> <span class="fu">RxPermissions</span><span class="op">(</span><span class="kw">this</span><span class="op">);</span></span></code></pre></div>
+<h4 id="在-rxbinding-中使用-rxpermissions">3.3.1 在 RxBinding 中使用
+RxPermissions</h4>
+<p>举一个拨打电话的例子，CALL_PHONE 在 Android 6.0 之后是一个 Dangerous
+Permissions,
+第一次使用时需要动态申请该权限，只有得到允许才能完成后面打电话的动作。</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>RxView<span class="op">.</span><span class="fu">clicks</span><span class="op">(</span><span class="fu">findViewById</span><span class="op">(</span>R<span class="op">.</span><span class="fu">id</span><span class="op">.</span><span class="fu">button</span><span class="op">))</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">subscribe</span><span class="op">(</span><span class="kw">new</span> Consumer<span class="op">&lt;</span><span class="bu">Object</span><span class="op">&gt;()</span> <span class="op">&#123;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">@Override</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accept</span><span class="op">(</span><span class="bu">Object</span> object<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                rxPermissions<span class="op">.</span><span class="fu">request</span><span class="op">(</span><span class="bu">Manifest</span><span class="op">.</span><span class="fu">permission</span><span class="op">.</span><span class="fu">CALL_PHONE</span><span class="op">)</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>                        <span class="op">.</span><span class="fu">subscribe</span><span class="op">(</span><span class="kw">new</span> Consumer<span class="op">&lt;</span><span class="bu">Boolean</span><span class="op">&gt;()</span> <span class="op">&#123;</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>                            <span class="at">@Override</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>                            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accept</span><span class="op">(</span><span class="bu">Boolean</span> granted<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>                                <span class="cf">if</span> <span class="op">(</span>granted<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>                                    Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;授权成功.&quot;</span><span class="op">);</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>                                <span class="op">&#125;</span> <span class="cf">else</span> <span class="op">&#123;</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>                                    Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;授权失败&quot;</span><span class="op">);</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>                                <span class="op">&#125;</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>                            <span class="op">&#125;</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>                        <span class="op">&#125;);</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>            <span class="op">&#125;</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;);</span></span></code></pre></div>
+<h4 id="rxbinding-结合-compose使用-rxpermissions">3.3.2 RxBinding 结合
+compose，使用 RxPermissions</h4>
+<p>RxBinding 可以结合 compose 操作符来使用 RxPermissions 。</p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>RxView<span class="op">.</span><span class="fu">clicks</span><span class="op">(</span><span class="fu">findViewById</span><span class="op">(</span>R<span class="op">.</span><span class="fu">id</span><span class="op">.</span><span class="fu">button</span><span class="op">))</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">compose</span><span class="op">(</span>rxPermissions<span class="op">.&lt;</span>Unit<span class="op">&gt;</span><span class="fu">ensure</span><span class="op">(</span><span class="bu">Manifest</span><span class="op">.</span><span class="fu">permission</span><span class="op">.</span><span class="fu">CALL_PHONE</span><span class="op">))</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">subscribe</span><span class="op">(</span><span class="kw">new</span> Consumer<span class="op">&lt;</span><span class="bu">Boolean</span><span class="op">&gt;()</span> <span class="op">&#123;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">@Override</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accept</span><span class="op">(</span><span class="bu">Boolean</span> granted<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="op">(</span>granted<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>                    Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;授权成功.&quot;</span><span class="op">);</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>                <span class="op">&#125;</span> <span class="cf">else</span> <span class="op">&#123;</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>                    Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;授权失败&quot;</span><span class="op">);</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>                <span class="op">&#125;</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>            <span class="op">&#125;</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;);</span></span></code></pre></div>
+<h4 id="使用多个权限的用法">3.3.3 使用多个权限的用法</h4>
+<p>RxPermissions 也支持申请多个权限，如同时申请 CAMERA 和
+WRITE_EXTERNAL_STORAGE
+的权限。单击按钮之后，需要授权两次，任何一次授权的失败都会导致
+“打开相机失败”。只有两次申请权限都成功，才能 “打开相机成功”。</p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>RxView<span class="op">.</span><span class="fu">clicks</span><span class="op">(</span><span class="fu">findViewById</span><span class="op">(</span>R<span class="op">.</span><span class="fu">id</span><span class="op">.</span><span class="fu">button</span><span class="op">))</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">compose</span><span class="op">(</span>rxPermissions<span class="op">.</span><span class="fu">ensure</span><span class="op">(</span><span class="bu">Manifest</span><span class="op">.</span><span class="fu">permission</span><span class="op">.</span><span class="fu">CALL_PHONE</span><span class="op">,</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                <span class="bu">Manifest</span><span class="op">.</span><span class="fu">permission</span><span class="op">.</span><span class="fu">WRITE_EXTERNAL_STORAGE</span><span class="op">))</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">subscribe</span><span class="op">(</span><span class="kw">new</span> Consumer<span class="op">&lt;</span><span class="bu">Boolean</span><span class="op">&gt;()</span> <span class="op">&#123;</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">@Override</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>            <span class="kw">public</span> <span class="dt">void</span> <span class="fu">accept</span><span class="op">(</span><span class="bu">Boolean</span> granted<span class="op">)</span> <span class="kw">throws</span> <span class="bu">Exception</span> <span class="op">&#123;</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> <span class="op">(</span>granted<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>                    Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;打开相机成功.&quot;</span><span class="op">);</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>                <span class="op">&#125;</span> <span class="cf">else</span> <span class="op">&#123;</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>                    Log<span class="op">.</span><span class="fu">d</span><span class="op">(</span>TAG<span class="op">,</span> <span class="st">&quot;打开相机失败&quot;</span><span class="op">);</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>                <span class="op">&#125;</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>            <span class="op">&#125;</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;);</span></span></code></pre></div>
+<h2 id="rxbinding-使用的注意点">4. RxBinding 使用的注意点</h2>
+<p>trello 的 RxLifecycle</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>https<span class="op">:</span><span class="co">//github.com/trello/RxLifecycle</span></span></code></pre></div>
+<p>知乎的 RxLifecycle</p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>https<span class="op">:</span><span class="co">//github.com/zhihu/RxLifecycle</span></span></code></pre></div>
+<p>其它的 RxLifecycle，这个与知乎的 RxLifecycle 的区别是，
+LifecycleTransformer 实现了多个 Transformer 接口。</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>https<span class="op">:</span><span class="co">//github.com/fengzhizi715/SAF/tree/master/saf-rxlifecycle</span></span></code></pre></div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以加微信bs2hwx </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+    <div id="comments">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC82MDE5NS8zNjY2Mw==">
+        <script type="text/javascript">
+			(function(d, s) {
+				var j, e = d.getElementsByTagName(s)[0];
+
+				if (typeof LivereTower === 'function') { return; }
+
+				j = d.createElement(s);
+				window.livereOptions = {
+					eagerLoading: true,
+					scrollEventTargetSelector: '#post'
+                }
+				j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+				j.async = true;
+				e.parentNode.insertBefore(j, e);
+			})(document, 'script');
+        </script>
+        <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry"><span class="miit">
+                <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
+                <a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">京ICP证030173号</a>
+        </span>
+    
+    ©2016-2024 bs2h
+</p>
+<!-- <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p> -->
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:true,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?07b17699976e6c59a5432b46de225325";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<script src="/js/busuanzi.pure.mini.js" ></script>
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 18px 3px 15px 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 512px;
+        }
+        .nav.fullscreen {
+            margin-left: -512px;
+        }
+        .nav-left {
+            width: 120px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 512px;
+            margin-left: -512px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    
+    <a class="dynamic-menu " target="_self"   href="/">关于</a>
+    
+    
+</div>
+
+
+</html>

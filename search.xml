@@ -2341,8 +2341,8 @@ src="https://exp-picture.cdn.bcebos.com/51f9aa3ea8db574a8271942ba7f7dfb2dd19179e
         <category>Win</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>工具</tag>
+        <tag>srcard</tag>
         <tag>Win</tag>
         <tag>系统</tag>
         <tag>win10</tag>
@@ -5320,9 +5320,9 @@ role="doc-backlink">↩︎</a></p></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>工具</tag>
         <tag>开发</tag>
+        <tag>srcard</tag>
         <tag>开发环境</tag>
         <tag>deepin</tag>
       </tags>
@@ -5435,11 +5435,11 @@ href="../56d70cf3369177ebae7b633765b1511801136821">主题颜色配置</a></li>
         <category>环境</category>
       </categories>
       <tags>
+        <tag>开发环境</tag>
+        <tag>linux</tag>
         <tag>环境</tag>
         <tag>工作</tag>
-        <tag>开发环境</tag>
         <tag>deepin</tag>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -9179,9 +9179,9 @@ href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>工具</tag>
         <tag>开发</tag>
+        <tag>srcard</tag>
         <tag>开发环境</tag>
         <tag>config</tag>
         <tag>style</tag>
@@ -9277,6 +9277,67 @@ Vim 剪贴板里面的东西粘贴到 Vim 之外的地方？</a></li>
         <tag>工具</tag>
         <tag>开发</tag>
         <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Fish 命令行工具</title>
+    <url>/10d99ef2a6dd035cac70c5f8def086cda109f1ad/</url>
+    <content><![CDATA[<p>deepin 的终端命令行没有智能提示，感觉不好用，推荐安装
+fish，命令行辅助工具。</p>
+<h3 id="安装">安装</h3>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install fish</span></code></pre></div>
+<h3 id="启用">启用</h3>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chsh</span> <span class="at">-s</span> /usr/bin/fish</span></code></pre></div>
+<h3 id="关闭欢迎词">关闭欢迎词</h3>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-U</span> fish_greeting</span></code></pre></div>
+<h3 id="设置">设置</h3>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fish_config</span></span></code></pre></div>
+<p>推荐的颜色主题：Tomorrow Night，选中点右上角的“Set
+Theme”按钮(灰底浅灰色字，请仔细找)。 推荐的提示符：Informative
+Vcs，选中以后点右上角的“Set Prompt”按钮(灰底浅灰色字，请仔细找)。</p>
+<h3 id="使用方法">使用方法</h3>
+<p>使用方法等可以参考我以前的博客“<a
+href="../0b3130ada3d0531d62d35d48e876a299c5888b77">Fish
+入门指南</a>”。</p>
+<h3 id="安装-fisher-插件">安装 Fisher 插件</h3>
+<p>参考:<a href="https://github.com/jorgebucaran/fisher">GitHub -
+jorgebucaran/fisher: A plugin manager for Fish.</a></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-sL</span> https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish <span class="kw">|</span> <span class="bu">source</span> <span class="kw">&amp;&amp;</span> <span class="ex">fisher</span> install jorgebucaran/fisher</span></code></pre></div>
+<h3 id="注意事项">注意事项</h3>
+<p>在极少数情况下，fish 环境执行脚本会报错，这时可以临时切换到 bash
+执行那个脚本(.sh
+文件)。通常不会遇到，万一遇到了临时切换一下就可以了。</p>
+<p><strong>相关笔记:</strong></p>
+<ul>
+<li><a
+href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>🔵
+<ul>
+<li><a
+href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
+<li><a href="../0b3130ada3d0531d62d35d48e876a299c5888b77">Fish
+入门指南</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>6.工具</category>
+        <category>开发</category>
+        <category>开发环境</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>开发</tag>
+        <tag>开发环境</tag>
+        <tag>linux</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
   <entry>
@@ -9555,207 +9616,6 @@ scripts and code is a WIP.</p>
       </tags>
   </entry>
   <entry>
-    <title>Fish 命令行工具</title>
-    <url>/10d99ef2a6dd035cac70c5f8def086cda109f1ad/</url>
-    <content><![CDATA[<p>deepin 的终端命令行没有智能提示，感觉不好用，推荐安装
-fish，命令行辅助工具。</p>
-<h3 id="安装">安装</h3>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install fish</span></code></pre></div>
-<h3 id="启用">启用</h3>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chsh</span> <span class="at">-s</span> /usr/bin/fish</span></code></pre></div>
-<h3 id="关闭欢迎词">关闭欢迎词</h3>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-U</span> fish_greeting</span></code></pre></div>
-<h3 id="设置">设置</h3>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">fish_config</span></span></code></pre></div>
-<p>推荐的颜色主题：Tomorrow Night，选中点右上角的“Set
-Theme”按钮(灰底浅灰色字，请仔细找)。 推荐的提示符：Informative
-Vcs，选中以后点右上角的“Set Prompt”按钮(灰底浅灰色字，请仔细找)。</p>
-<h3 id="使用方法">使用方法</h3>
-<p>使用方法等可以参考我以前的博客“<a
-href="../0b3130ada3d0531d62d35d48e876a299c5888b77">Fish
-入门指南</a>”。</p>
-<h3 id="安装-fisher-插件">安装 Fisher 插件</h3>
-<p>参考:<a href="https://github.com/jorgebucaran/fisher">GitHub -
-jorgebucaran/fisher: A plugin manager for Fish.</a></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-sL</span> https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish <span class="kw">|</span> <span class="bu">source</span> <span class="kw">&amp;&amp;</span> <span class="ex">fisher</span> install jorgebucaran/fisher</span></code></pre></div>
-<h3 id="注意事项">注意事项</h3>
-<p>在极少数情况下，fish 环境执行脚本会报错，这时可以临时切换到 bash
-执行那个脚本(.sh
-文件)。通常不会遇到，万一遇到了临时切换一下就可以了。</p>
-<p><strong>相关笔记:</strong></p>
-<ul>
-<li><a
-href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
-</ul>
-<blockquote class="pullquote mindmap mindmap-md"><ul>
-<li>🔵
-<ul>
-<li><a
-href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
-<li><a href="../0b3130ada3d0531d62d35d48e876a299c5888b77">Fish
-入门指南</a></li>
-</ul></li>
-</ul>
-</blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>6.工具</category>
-        <category>开发</category>
-        <category>开发环境</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>开发</tag>
-        <tag>开发环境</tag>
-        <tag>linux</tag>
-        <tag>shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git submodule 子模块的管理和使用</title>
-    <url>/1724764acb83566cfbcc5cedf7fe0bf07a4ed3a1/</url>
-    <content><![CDATA[<h2 id="使用前提">使用前提</h2>
-<p>经常碰到这种情况：当你在一个 Git
-项目上工作时，你需要在其中使用另外一个 Git
-项目。也许它是一个第三方开发的 Git
-库或者是你独立开发和并在多个父项目中使用的。这个情况下一个常见的问题产生了：你想将两个项目单独处理但是又需要在其中一个中使用另外一个。</p>
-<p>在 Git
-中你可以用子模块<code>submodule</code>来管理这些项目，<code>submodule</code>允许你将一个
-Git 仓库当作另外一个 Git
-仓库的子目录。这允许你克隆另外一个仓库到你的项目中并且保持你的提交相对独立。</p>
-<h2 id="添加子模块">添加子模块</h2>
-<p><strong>添加子模块命令?</strong></p>
-<p>此文中统一将远程项目<code>git@gitee.com:qiaogaojian/framework.git</code>克隆到本地<code>Framework</code>文件夹。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git submodule add git@gitee.com:qiaogaojian/framework.git Framework</span></code></pre></div>
-<!--SR:!2026-04-06,777,230-->
-<p>添加子模块后运行<code>git status</code>, 可以看到目录有增加 1
-个文件<code>.gitmodules</code>, 这个文件用来保存子模块的信息。</p>
-<pre><code>$ git status
-On branch master
-
-Initial commit
-
-Changes to be committed:
-  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
-
-    new file:   .gitmodules
-    new file:   assets</code></pre>
-<h2 id="查看子模块">查看子模块</h2>
-<p><strong>查看子模块命令?</strong></p>
-<pre><code>$ git submodule
- e33f854d3f51f5ebd771a68da05ad0371a3c0570 assets (heads/master)</code></pre>
-<!--SR:!2027-07-28,1125,250-->
-<h2 id="更新子模块">更新子模块</h2>
-<ul>
-<li><p><strong>更新项目内子模块到最新版本命令?</strong></p>
-<pre><code>$ git submodule update</code></pre></li>
-<li><p>更新子模块为远程项目的最新版本</p>
-<pre><code>$ git submodule update --remote</code></pre></li>
-</ul>
-<h2 id="克隆包含子模块的项目">克隆包含子模块的项目</h2>
-<p>克隆包含子模块的项目有二种方法：一种是先克隆父项目，再更新子模块；另一种是直接递归克隆整个项目。</p>
-<h3 id="克隆父项目再更新子模块">克隆父项目，再更新子模块</h3>
-<ol type="1">
-<li>克隆父项目</li>
-</ol>
-<pre><code>$ git clone https://github.com/maonx/vimwiki-assets.git assets</code></pre>
-<ol start="2" type="1">
-<li>查看子模块</li>
-</ol>
-<pre><code>$ git submodule
- -e33f854d3f51f5ebd771a68da05ad0371a3c0570 assets</code></pre>
-<p>子模块前面有一个<code>-</code>，说明子模块文件还未检入（空文件夹）。</p>
-<ol start="3" type="1">
-<li>初始化子模块</li>
-</ol>
-<pre><code>$ git submodule init
-Submodule &#39;assets&#39; (https://github.com/maonx/vimwiki-assets.git) registered for path &#39;assets&#39;</code></pre>
-<p>初始化模块只需在克隆父项目后运行一次。</p>
-<ol start="4" type="1">
-<li>更新子模块</li>
-</ol>
-<pre><code>$ git submodule update
-Cloning into &#39;assets&#39;...
-remote: Counting objects: 151, done.
-remote: Compressing objects: 100% (80/80), done.
-remote: Total 151 (delta 18), reused 0 (delta 0), pack-reused 70
-Receiving objects: 100% (151/151), 1.34 MiB | 569.00 KiB/s, done.
-Resolving deltas: 100% (36/36), done.
-Checking connectivity... done.
-Submodule path &#39;assets&#39;: checked out &#39;e33f854d3f51f5ebd771a68da05ad0371a3c0570&#39;</code></pre>
-<h3 id="递归克隆整个项目">递归克隆整个项目</h3>
-<p><strong>clone 带子模块的项目?</strong></p>
-<pre><code>git clone https://github.com/maonx/vimwiki-assets.git assets --recursive</code></pre>
-<p>递归克隆整个项目，子模块已经同时更新了，一步到位。
-<!--SR:!2026-10-01,939,250--></p>
-<h2 id="修改子模块">修改子模块</h2>
-<p>在子模块中修改文件后，直接提交到远程项目分支。</p>
-<pre><code>$ git add .
-$ git ci -m &quot;commit&quot;
-$ git push origin HEAD:master</code></pre>
-<h2 id="删除子模块">删除子模块</h2>
-<p><strong>怎么删除子模块?</strong></p>
-<p><strong>删除子模块比较麻烦，需要手动删除相关的文件，否则在添加子模块时有可能出现错误</strong><br />
-同样以删除<code>assets</code>文件夹为例</p>
-<ol type="1">
-<li>删除子模块文件夹</li>
-</ol>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git rm <span class="at">--cached</span> assets</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm <span class="at">-rf</span> assets</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm <span class="at">-rf</span> .git/modules/assets</span></code></pre></div>
-<ol start="2" type="1">
-<li>删除<code>.gitmodules</code>文件中相关子模块信息</li>
-</ol>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[submodule</span> <span class="st">&quot;assets&quot;</span>]</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">path</span> = assets</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">url</span> = https://github.com/maonx/vimwiki-assets.git</span></code></pre></div>
-<ol start="3" type="1">
-<li>删除<code>.git/config</code>中的相关子模块信息</li>
-</ol>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[submodule</span> <span class="st">&quot;assets&quot;</span>]</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">url</span> = https://github.com/maonx/vimwiki-assets.git</span></code></pre></div>
-<!--SR:!2026-04-10,709,210-->
-<h2 id="更换子模块">更换子模块</h2>
-<ul>
-<li>先删除</li>
-<li>再添加</li>
-</ul>
-<p><strong>相关笔记:</strong></p>
-<ul>
-<li><a href="../398c907730d3d916e72688bf34e18ad17c4edeff">Git
-开发环境</a></li>
-</ul>
-<blockquote class="pullquote mindmap mindmap-md"><ul>
-<li>🔵
-<ul>
-<li><a href="../398c907730d3d916e72688bf34e18ad17c4edeff">Git
-开发环境</a></li>
-</ul></li>
-</ul>
-</blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>6.工具</category>
-        <category>开发</category>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>srcard</tag>
-        <tag>工具</tag>
-        <tag>开发</tag>
-        <tag>Git</tag>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Android 组件化基础</title>
     <url>/1fb05f97cf4037d2eec2f0599f188ff8500faf52/</url>
     <content><![CDATA[<blockquote>
@@ -9894,6 +9754,146 @@ ARouter</a></li>
         <tag>技能</tag>
         <tag>Android</tag>
         <tag>组件化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git submodule 子模块的管理和使用</title>
+    <url>/1724764acb83566cfbcc5cedf7fe0bf07a4ed3a1/</url>
+    <content><![CDATA[<h2 id="使用前提">使用前提</h2>
+<p>经常碰到这种情况：当你在一个 Git
+项目上工作时，你需要在其中使用另外一个 Git
+项目。也许它是一个第三方开发的 Git
+库或者是你独立开发和并在多个父项目中使用的。这个情况下一个常见的问题产生了：你想将两个项目单独处理但是又需要在其中一个中使用另外一个。</p>
+<p>在 Git
+中你可以用子模块<code>submodule</code>来管理这些项目，<code>submodule</code>允许你将一个
+Git 仓库当作另外一个 Git
+仓库的子目录。这允许你克隆另外一个仓库到你的项目中并且保持你的提交相对独立。</p>
+<h2 id="添加子模块">添加子模块</h2>
+<p><strong>添加子模块命令?</strong></p>
+<p>此文中统一将远程项目<code>git@gitee.com:qiaogaojian/framework.git</code>克隆到本地<code>Framework</code>文件夹。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git submodule add git@gitee.com:qiaogaojian/framework.git Framework</span></code></pre></div>
+<!--SR:!2026-04-06,777,230-->
+<p>添加子模块后运行<code>git status</code>, 可以看到目录有增加 1
+个文件<code>.gitmodules</code>, 这个文件用来保存子模块的信息。</p>
+<pre><code>$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+
+    new file:   .gitmodules
+    new file:   assets</code></pre>
+<h2 id="查看子模块">查看子模块</h2>
+<p><strong>查看子模块命令?</strong></p>
+<pre><code>$ git submodule
+ e33f854d3f51f5ebd771a68da05ad0371a3c0570 assets (heads/master)</code></pre>
+<!--SR:!2027-07-28,1125,250-->
+<h2 id="更新子模块">更新子模块</h2>
+<ul>
+<li><p><strong>更新项目内子模块到最新版本命令?</strong></p>
+<pre><code>$ git submodule update</code></pre></li>
+<li><p>更新子模块为远程项目的最新版本</p>
+<pre><code>$ git submodule update --remote</code></pre></li>
+</ul>
+<h2 id="克隆包含子模块的项目">克隆包含子模块的项目</h2>
+<p>克隆包含子模块的项目有二种方法：一种是先克隆父项目，再更新子模块；另一种是直接递归克隆整个项目。</p>
+<h3 id="克隆父项目再更新子模块">克隆父项目，再更新子模块</h3>
+<ol type="1">
+<li>克隆父项目</li>
+</ol>
+<pre><code>$ git clone https://github.com/maonx/vimwiki-assets.git assets</code></pre>
+<ol start="2" type="1">
+<li>查看子模块</li>
+</ol>
+<pre><code>$ git submodule
+ -e33f854d3f51f5ebd771a68da05ad0371a3c0570 assets</code></pre>
+<p>子模块前面有一个<code>-</code>，说明子模块文件还未检入（空文件夹）。</p>
+<ol start="3" type="1">
+<li>初始化子模块</li>
+</ol>
+<pre><code>$ git submodule init
+Submodule &#39;assets&#39; (https://github.com/maonx/vimwiki-assets.git) registered for path &#39;assets&#39;</code></pre>
+<p>初始化模块只需在克隆父项目后运行一次。</p>
+<ol start="4" type="1">
+<li>更新子模块</li>
+</ol>
+<pre><code>$ git submodule update
+Cloning into &#39;assets&#39;...
+remote: Counting objects: 151, done.
+remote: Compressing objects: 100% (80/80), done.
+remote: Total 151 (delta 18), reused 0 (delta 0), pack-reused 70
+Receiving objects: 100% (151/151), 1.34 MiB | 569.00 KiB/s, done.
+Resolving deltas: 100% (36/36), done.
+Checking connectivity... done.
+Submodule path &#39;assets&#39;: checked out &#39;e33f854d3f51f5ebd771a68da05ad0371a3c0570&#39;</code></pre>
+<h3 id="递归克隆整个项目">递归克隆整个项目</h3>
+<p><strong>clone 带子模块的项目?</strong></p>
+<pre><code>git clone https://github.com/maonx/vimwiki-assets.git assets --recursive</code></pre>
+<p>递归克隆整个项目，子模块已经同时更新了，一步到位。
+<!--SR:!2026-10-01,939,250--></p>
+<h2 id="修改子模块">修改子模块</h2>
+<p>在子模块中修改文件后，直接提交到远程项目分支。</p>
+<pre><code>$ git add .
+$ git ci -m &quot;commit&quot;
+$ git push origin HEAD:master</code></pre>
+<h2 id="删除子模块">删除子模块</h2>
+<p><strong>怎么删除子模块?</strong></p>
+<p><strong>删除子模块比较麻烦，需要手动删除相关的文件，否则在添加子模块时有可能出现错误</strong><br />
+同样以删除<code>assets</code>文件夹为例</p>
+<ol type="1">
+<li>删除子模块文件夹</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git rm <span class="at">--cached</span> assets</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm <span class="at">-rf</span> assets</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm <span class="at">-rf</span> .git/modules/assets</span></code></pre></div>
+<ol start="2" type="1">
+<li>删除<code>.gitmodules</code>文件中相关子模块信息</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[submodule</span> <span class="st">&quot;assets&quot;</span>]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">path</span> = assets</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">url</span> = https://github.com/maonx/vimwiki-assets.git</span></code></pre></div>
+<ol start="3" type="1">
+<li>删除<code>.git/config</code>中的相关子模块信息</li>
+</ol>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[submodule</span> <span class="st">&quot;assets&quot;</span>]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">url</span> = https://github.com/maonx/vimwiki-assets.git</span></code></pre></div>
+<!--SR:!2026-04-10,709,210-->
+<h2 id="更换子模块">更换子模块</h2>
+<ul>
+<li>先删除</li>
+<li>再添加</li>
+</ul>
+<p><strong>相关笔记:</strong></p>
+<ul>
+<li><a href="../398c907730d3d916e72688bf34e18ad17c4edeff">Git
+开发环境</a></li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>🔵
+<ul>
+<li><a href="../398c907730d3d916e72688bf34e18ad17c4edeff">Git
+开发环境</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>6.工具</category>
+        <category>开发</category>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>开发</tag>
+        <tag>srcard</tag>
+        <tag>Git</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -10527,9 +10527,9 @@ href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>工具</tag>
         <tag>开发</tag>
+        <tag>srcard</tag>
         <tag>开发环境</tag>
         <tag>git</tag>
       </tags>
@@ -11232,223 +11232,11 @@ href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>工具</tag>
         <tag>开发</tag>
+        <tag>srcard</tag>
         <tag>开发环境</tag>
         <tag>n</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Yarn 简介</title>
-    <url>/7b091b2e5e657dc1b00930468a070a01e85e4293/</url>
-    <content><![CDATA[<p>Yarn 是 Facebook 发布的新一代包管理工具，旨在解决以往使用 npm
-作为包管理会遇到的一些问题。特点：<mark style="background: #83d98fA6;">快</mark>
-、<mark style="background: #83d98fA6;">可靠</mark>
-、<mark style="background: #83d98fA6;">安全</mark> 。</p>
-<h2 id="yarn-的优点">Yarn 的优点？</h2>
-<ul>
-<li><strong>速度快</strong> 。速度快主要来自以下两个方面： 　1.
-并行安装：无论 npm 还是 Yarn 在执行包的安装时，都会执行一系列任务。npm
-是按照队列执行每个 package，也就是说必须要等到当前 package
-安装完成之后，才能继续后面的安装。而 Yarn
-是同步执行所有任务，提高了性能。 　2.
-离线模式：如果之前已经安装过一个软件包，用 Yarn
-再次安装时之间从缓存中获取，就不用像 npm 那样再从网络下载了。</li>
-<li><strong>安装版本统一</strong>：为了防止拉取到不同的版本，Yarn
-有一个锁定文件 (lock file)
-记录了被确切安装上的模块的版本号。每次只要新增了一个模块，Yarn
-就会创建（或更新）yarn.lock
-这个文件。这么做就保证了，每一次拉取同一个项目依赖时，使用的都是一样的模块版本。npm
-其实也有办法实现处处使用相同版本的 packages，但需要开发者执行 npm
-shrinkwrap 命令。这个命令将会生成一个锁定文件，在执行 npm install
-的时候，该锁定文件会先被读取，和 Yarn 读取 yarn.lock 文件一个道理。npm
-和 Yarn 两者的不同之处在于，Yarn 默认会生成这样的锁定文件，而 npm 要通过
-shrinkwrap 命令生成 npm-shrinkwrap.json
-文件，只有当这个文件存在的时候，packages 版本信息才会被记录和更新。</li>
-<li><strong>更简洁的输出</strong>：npm 的输出信息比较冗长。在执行 npm
-install 的时候，命令行里会不断地打印出所有被安装上的依赖。相比之下，Yarn
-简洁太多：默认情况下，结合了 emoji
-直观且直接地打印出必要的信息，也提供了一些命令供开发者查询额外的安装信息。</li>
-<li><strong>多注册来源处理：</strong>
-所有的依赖包，不管他被不同的库间接关联引用多少次，安装这个包时，只会从一个注册来源去装，要么是
-npm 要么是 bower, 防止出现混乱不一致。</li>
-<li><strong>更好的语义化</strong>： yarn 改变了一些 npm 命令的名称，比如
-yarn add/remove，感觉上比 npm 原本的 install/uninstall 要更清晰。
-<!--SR:!2026-07-12,958,270--></li>
-</ul>
-<h2 id="常用命令">常用命令</h2>
-<p><strong>执行 <code>yarn / yarn install</code> 解析 package.json
-时，分为 4 个步骤：</strong></p>
-<ol type="1">
-<li><strong>依赖关系解析</strong>：yarn 在解析 package.json
-文件时，会对其每个依赖包进行遍历分析生成 yarn.lock
-文件。该文件描述了项目中每个包以及每个包中所依赖的包的版本信息。<br />
-</li>
-<li><strong>包下载</strong>：根据第一步中解析的结果下载特定版本的包。如果该包曾经被下载过，则跳过此次的下载操作，直接使用本地缓存，即
-yarn 的离线模式特性。<br />
-</li>
-<li><strong>包关联</strong>：关联拷贝下载或者缓存在全局的包到项目。<br />
-</li>
-<li><strong>包编译</strong>：编译项目中使用到的包。 <br />
-<!--SR:!2025-09-17,640,250--></li>
-</ol>
-<p>yarn.lock(该文件用于锁定包版本已保障每次编译的结果一致，也可通过 yarn
-install --no-lockfile 命令设置不生成 yarn.lock 文件)</p>
-<p><strong>yarn &amp; npm 常用命令对比</strong> Yarn 的命令基本跟 npm
-的大同小异， 使用 <code>yarn init</code> 生成 package.json 文件， 用
-<code>yarn add</code>和 <code>yarn add --dev</code> 分别替换
-<code>npm install --save</code> 和<code>npm install --dev</code>
-命令即可。</p>
-<table width="825">
-<thead>
-<tr>
-<th>
-NPM
-</th>
-<th>
-YARN
-</th>
-<th>
-说明
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-npm init
-</td>
-<td>
-yarn init
-</td>
-<td>
-初始化某个项目
-</td>
-</tr>
-<tr>
-<td>
-npm install/link
-</td>
-<td>
-yarn install/link
-</td>
-<td>
-默认的安装依赖操作
-</td>
-</tr>
-<tr>
-<td>
-npm install taco —save
-</td>
-<td>
-yarn add taco
-</td>
-<td>
-安装某个依赖，并且默认保存到 package.
-</td>
-</tr>
-<tr>
-<td>
-npm uninstall taco —save
-</td>
-<td>
-yarn remove taco
-</td>
-<td>
-移除某个依赖项目
-</td>
-</tr>
-<tr>
-<td>
-npm install taco —save-dev
-</td>
-<td>
-yarn add taco —dev
-</td>
-<td>
-安装某个开发时依赖项目
-</td>
-</tr>
-<tr>
-<td>
-npm update taco —save
-</td>
-<td>
-yarn upgrade taco
-</td>
-<td>
-更新某个依赖项目
-</td>
-</tr>
-<tr>
-<td>
-npm install taco --global
-</td>
-<td>
-yarn global add taco
-</td>
-<td>
-安装某个全局依赖项目
-</td>
-</tr>
-<tr>
-<td>
-npm publish/login/logout
-</td>
-<td>
-yarn publish/login/logout
-</td>
-<td>
-发布 / 登录 / 登出，一系列 NPM Registry 操作
-</td>
-</tr>
-<tr>
-<td>
-npm run/test
-</td>
-<td>
-yarn run/test
-</td>
-<td>
-运行某个命令
-</td>
-</tr>
-</tbody>
-</table>
-<!--SR:!2026-05-28,818,250-->
-<h2 id="设置国内源">设置国内源</h2>
-<p>yarn 原仓库包下载不稳定时需要设置国内源</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">yarn</span> config set registry https://registry.npmmirror.com/</span></code></pre></div>
-<p><strong>相关笔记:</strong></p>
-<ul>
-<li><a href="../3971919f211d721a9f8d95e718242813c25f0224">Deepin Node
-开发环境搭建</a></li>
-<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
-开发环境搭建 Win10</a></li>
-</ul>
-<blockquote class="pullquote mindmap mindmap-md"><ul>
-<li>🔵
-<ul>
-<li><a href="../3971919f211d721a9f8d95e718242813c25f0224">Deepin Node
-开发环境搭建</a></li>
-<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
-开发环境搭建 Win10</a></li>
-</ul></li>
-</ul>
-</blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>5.技能</category>
-        <category>Server</category>
-        <category>Node</category>
-      </categories>
-      <tags>
-        <tag>srcard</tag>
-        <tag>技能</tag>
-        <tag>Server</tag>
-        <tag>Node</tag>
-        <tag>yarn</tag>
       </tags>
   </entry>
   <entry>
@@ -12441,6 +12229,218 @@ realities.</p>
       </tags>
   </entry>
   <entry>
+    <title>Yarn 简介</title>
+    <url>/7b091b2e5e657dc1b00930468a070a01e85e4293/</url>
+    <content><![CDATA[<p>Yarn 是 Facebook 发布的新一代包管理工具，旨在解决以往使用 npm
+作为包管理会遇到的一些问题。特点：<mark style="background: #83d98fA6;">快</mark>
+、<mark style="background: #83d98fA6;">可靠</mark>
+、<mark style="background: #83d98fA6;">安全</mark> 。</p>
+<h2 id="yarn-的优点">Yarn 的优点？</h2>
+<ul>
+<li><strong>速度快</strong> 。速度快主要来自以下两个方面： 　1.
+并行安装：无论 npm 还是 Yarn 在执行包的安装时，都会执行一系列任务。npm
+是按照队列执行每个 package，也就是说必须要等到当前 package
+安装完成之后，才能继续后面的安装。而 Yarn
+是同步执行所有任务，提高了性能。 　2.
+离线模式：如果之前已经安装过一个软件包，用 Yarn
+再次安装时之间从缓存中获取，就不用像 npm 那样再从网络下载了。</li>
+<li><strong>安装版本统一</strong>：为了防止拉取到不同的版本，Yarn
+有一个锁定文件 (lock file)
+记录了被确切安装上的模块的版本号。每次只要新增了一个模块，Yarn
+就会创建（或更新）yarn.lock
+这个文件。这么做就保证了，每一次拉取同一个项目依赖时，使用的都是一样的模块版本。npm
+其实也有办法实现处处使用相同版本的 packages，但需要开发者执行 npm
+shrinkwrap 命令。这个命令将会生成一个锁定文件，在执行 npm install
+的时候，该锁定文件会先被读取，和 Yarn 读取 yarn.lock 文件一个道理。npm
+和 Yarn 两者的不同之处在于，Yarn 默认会生成这样的锁定文件，而 npm 要通过
+shrinkwrap 命令生成 npm-shrinkwrap.json
+文件，只有当这个文件存在的时候，packages 版本信息才会被记录和更新。</li>
+<li><strong>更简洁的输出</strong>：npm 的输出信息比较冗长。在执行 npm
+install 的时候，命令行里会不断地打印出所有被安装上的依赖。相比之下，Yarn
+简洁太多：默认情况下，结合了 emoji
+直观且直接地打印出必要的信息，也提供了一些命令供开发者查询额外的安装信息。</li>
+<li><strong>多注册来源处理：</strong>
+所有的依赖包，不管他被不同的库间接关联引用多少次，安装这个包时，只会从一个注册来源去装，要么是
+npm 要么是 bower, 防止出现混乱不一致。</li>
+<li><strong>更好的语义化</strong>： yarn 改变了一些 npm 命令的名称，比如
+yarn add/remove，感觉上比 npm 原本的 install/uninstall 要更清晰。
+<!--SR:!2026-07-12,958,270--></li>
+</ul>
+<h2 id="常用命令">常用命令</h2>
+<p><strong>执行 <code>yarn / yarn install</code> 解析 package.json
+时，分为 4 个步骤：</strong></p>
+<ol type="1">
+<li><strong>依赖关系解析</strong>：yarn 在解析 package.json
+文件时，会对其每个依赖包进行遍历分析生成 yarn.lock
+文件。该文件描述了项目中每个包以及每个包中所依赖的包的版本信息。<br />
+</li>
+<li><strong>包下载</strong>：根据第一步中解析的结果下载特定版本的包。如果该包曾经被下载过，则跳过此次的下载操作，直接使用本地缓存，即
+yarn 的离线模式特性。<br />
+</li>
+<li><strong>包关联</strong>：关联拷贝下载或者缓存在全局的包到项目。<br />
+</li>
+<li><strong>包编译</strong>：编译项目中使用到的包。 <br />
+<!--SR:!2025-09-17,640,250--></li>
+</ol>
+<p>yarn.lock(该文件用于锁定包版本已保障每次编译的结果一致，也可通过 yarn
+install --no-lockfile 命令设置不生成 yarn.lock 文件)</p>
+<p><strong>yarn &amp; npm 常用命令对比</strong> Yarn 的命令基本跟 npm
+的大同小异， 使用 <code>yarn init</code> 生成 package.json 文件， 用
+<code>yarn add</code>和 <code>yarn add --dev</code> 分别替换
+<code>npm install --save</code> 和<code>npm install --dev</code>
+命令即可。</p>
+<table width="825">
+<thead>
+<tr>
+<th>
+NPM
+</th>
+<th>
+YARN
+</th>
+<th>
+说明
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+npm init
+</td>
+<td>
+yarn init
+</td>
+<td>
+初始化某个项目
+</td>
+</tr>
+<tr>
+<td>
+npm install/link
+</td>
+<td>
+yarn install/link
+</td>
+<td>
+默认的安装依赖操作
+</td>
+</tr>
+<tr>
+<td>
+npm install taco —save
+</td>
+<td>
+yarn add taco
+</td>
+<td>
+安装某个依赖，并且默认保存到 package.
+</td>
+</tr>
+<tr>
+<td>
+npm uninstall taco —save
+</td>
+<td>
+yarn remove taco
+</td>
+<td>
+移除某个依赖项目
+</td>
+</tr>
+<tr>
+<td>
+npm install taco —save-dev
+</td>
+<td>
+yarn add taco —dev
+</td>
+<td>
+安装某个开发时依赖项目
+</td>
+</tr>
+<tr>
+<td>
+npm update taco —save
+</td>
+<td>
+yarn upgrade taco
+</td>
+<td>
+更新某个依赖项目
+</td>
+</tr>
+<tr>
+<td>
+npm install taco --global
+</td>
+<td>
+yarn global add taco
+</td>
+<td>
+安装某个全局依赖项目
+</td>
+</tr>
+<tr>
+<td>
+npm publish/login/logout
+</td>
+<td>
+yarn publish/login/logout
+</td>
+<td>
+发布 / 登录 / 登出，一系列 NPM Registry 操作
+</td>
+</tr>
+<tr>
+<td>
+npm run/test
+</td>
+<td>
+yarn run/test
+</td>
+<td>
+运行某个命令
+</td>
+</tr>
+</tbody>
+</table>
+<!--SR:!2026-05-28,818,250-->
+<h2 id="设置国内源">设置国内源</h2>
+<p>yarn 原仓库包下载不稳定时需要设置国内源</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">yarn</span> config set registry https://registry.npmmirror.com/</span></code></pre></div>
+<p><strong>相关笔记:</strong></p>
+<ul>
+<li><a href="../3971919f211d721a9f8d95e718242813c25f0224">Deepin Node
+开发环境搭建</a></li>
+<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
+开发环境搭建 Win10</a></li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>🔵
+<ul>
+<li><a href="../3971919f211d721a9f8d95e718242813c25f0224">Deepin Node
+开发环境搭建</a></li>
+<li><a href="../d3a05d21422f48a7ec5201cd68c70d24af5ce081">Node
+开发环境搭建 Win10</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>5.技能</category>
+        <category>Server</category>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>技能</tag>
+        <tag>Server</tag>
+        <tag>Node</tag>
+        <tag>yarn</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Npm 常用命令</title>
     <url>/8183437d1e8a3a1b5ffeb5e902bff641794983a4/</url>
     <content><![CDATA[<h3 id="安装模块">1. 安装模块</h3>
@@ -12545,9 +12545,9 @@ class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>工具</tag>
         <tag>开发</tag>
+        <tag>srcard</tag>
         <tag>开发环境</tag>
         <tag>npm</tag>
       </tags>
@@ -13539,11 +13539,11 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
         <category>Vim</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>Vim</tag>
         <tag>工具</tag>
         <tag>开发</tag>
         <tag>vim</tag>
+        <tag>srcard</tag>
       </tags>
   </entry>
   <entry>
@@ -14177,9 +14177,9 @@ Sheet</a></p>
         <category>Regex</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>工具</tag>
         <tag>开发</tag>
+        <tag>srcard</tag>
         <tag>regex</tag>
         <tag>Regex</tag>
       </tags>
@@ -14301,9 +14301,9 @@ alt="image.png" />
         <category>Git</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>工具</tag>
         <tag>开发</tag>
+        <tag>srcard</tag>
         <tag>Git</tag>
         <tag>git</tag>
       </tags>
@@ -14835,6 +14835,109 @@ role="doc-backlink">↩︎</a></p></li>
       </tags>
   </entry>
   <entry>
+    <title>浮点数精度问题及解决方案</title>
+    <url>/b780bb9e95975417c037cc3060dfd3da8b830810/</url>
+    <content><![CDATA[<blockquote>
+<p>原文地址 <a
+href="https://fivecakes.com/p/5f2fa84aa02ad92eba436b17">fivecakes.com</a></p>
+</blockquote>
+<h2 id="浮点数精度问题">浮点数精度问题</h2>
+<p>浮点数精度问题示例：</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">&#123;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> a <span class="op">=</span> <span class="fl">0.1</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%f</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span>a<span class="op">);</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%.10f</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span>a<span class="op">);</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%.15f</span><span class="sc">\n\n</span><span class="st">&quot;</span><span class="op">,</span>a<span class="op">);</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> b <span class="op">=</span> <span class="dv">100000000</span><span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> c <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> d <span class="op">=</span> b <span class="op">+</span> c<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%f</span><span class="sc">\n\n</span><span class="st">&quot;</span><span class="op">,</span> d<span class="op">);</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<p>输出为</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.100000</span>            <span class="co">//正确输出是因为四舍五入了</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fl">0.1000000015</span>        <span class="co">//将精确度提高就会发现误差</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fl">0.100000001490116</span>   <span class="co">//再次提高精度</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fl">100000008.000000</span>    <span class="co">//加法居然算错了？傻了吧？</span></span></code></pre></div>
+<!--SR:!2025-01-03,491,250-->
+<h2 id="浮点数精度误差原因">浮点数精度误差原因</h2>
+<p><strong>1.
+第一种造成精度误差的原因是大多数小数转化为二进制为无限小数，而计算机内存有限，只能保存一部分，</strong></p>
+<p>例如：<br />
+0.1 转换为二进制是 0.0001100110011001100110011001100...<br />
+float
+只能保留一部分，所以一定会有误差，好在大多数场景用不到这么高的精度，不过要注意多个小误差累积成大误差。</p>
+<p><strong>2.
+第二种造成精度误差的原因是因为较大的浮点数与较小的浮点数相加。</strong></p>
+<p>例子中 <code>100000000 + 5</code> 居然等于
+100000008，这是因为浮点数是用科学计数法来存储数据，即：<br />
+<span class="math inline">\(100000000 = 1.011111010111100001 \times
+2^{26}\)</span> <span class="math inline">\(5 = 1.01 \times
+2^{2}\)</span><br />
+两个数相加的时候先要对阶，就是把指数部分统一，按照小阶数化为大阶数的原则：<br />
+<span class="math inline">\(5 = 0.00000000000000000000000101 \times
+2^{26}\)</span><br />
+按照 IEEE 754 标准，<mark style="background: #fefe00A6;">浮点数 float 为
+32 位，1 个符号位，8 个指数位，23 个小数位。 </mark> 而
+0.00000000000000000000000101（小数点后有 26 位）不能用 23
+位保存下来，所以舍入成 0.00000000000000000000001（小数点后有 23
+位），就是这里的舍入造成的误差。<br />
+对阶后，将尾数相加得到结果：<br />
+(0.00000000000000000000001+1.011111010111100001)^{26} = 100000008
+<!--SR:!2025-01-02,490,250--></p>
+<h2 id="浮点数精度误差问题解决方法">浮点数精度误差问题解决方法</h2>
+<p><mark style="background: #fbab4bA6;">浮点数在工程控制，游戏引擎等众多领域有着广泛的应用。但是因为其有误差，所以不适合在金融领域使用。</mark></p>
+<p>某水果 3.6 元一斤，某人买了 1.2 斤，总计 4.32 元。如果用 float
+存储价格的话，一单的误差比较小看不出差别。但是如果统计一年的营业额，累加很多
+float 就会出现较大的误差。</p>
+<h3 id="放大成int再还原法">放大成int再还原法</h3>
+<p><mark style="background: #83d98fA6;">货币通常只精确到小数点后两位，所以我们可以将其乘
+100，用整数存储</mark> 。上面那个例子可以将 3.6 存成 int 型 360，1.2 用
+float 存储，4.32 存成 int 型 432(其实 432
+由浮点数计算而来也是有误差的，但是一次计算误差非常小，四舍五入就可以得到正确的值)。累加一年营业额时累加的是
+int，所以不会有误差。</p>
+<h3 id="保存分子分母法">保存分子分母法</h3>
+<p>更特殊的情况，某水果 3.6 元一斤，某人买了 1.2 斤，75 折，含税
+0.02，快递费 1.5，总价为
+3.6x1.2x0.75x0.98+1.5，多次使用浮点数参与运算，有可能造成累积误差。<mark style="background: #83d98fA6;">这种情况可以可以分子和分母分别保存</mark>
+。计算时只计算分子，计算的结果也分子分母分别保存，只有显示时才除一下分母，而一次计算的误差非常小，四舍五入就可以得到正确的值。不过用这种方法要小心分子和分母溢出，或者写到一半发现这里要开个平方根或者求个三角函数，然后发现结果根本不是有理数了，进而开始怀疑人生。
+<!--SR:!2025-01-01,489,250--></p>
+<p><strong>相关笔记:</strong></p>
+<ul>
+<li><a href="../559d1c14e339502eb59ce0020fe110f15c087dee">python
+数据精度</a></li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>🔵
+<ul>
+<li><a href="../559d1c14e339502eb59ce0020fe110f15c087dee">python
+数据精度</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>4.理论</category>
+        <category>计算机</category>
+        <category>体系结构</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>计算机</tag>
+        <tag>理论</tag>
+        <tag>cs</tag>
+        <tag>basis</tag>
+        <tag>体系结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用 LaTeX 公式符号</title>
     <url>/b53e358a25ba3e25467609d60291ee2c9907edf2/</url>
     <content><![CDATA[<h2 id="希腊字符">希腊字符</h2>
@@ -15114,8 +15217,8 @@ href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
         <category>Obsidian</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>工具</tag>
+        <tag>srcard</tag>
         <tag>Obsidian</tag>
         <tag>latex</tag>
         <tag>效率</tag>
@@ -15459,109 +15562,6 @@ href="https://link.zhihu.com/?target=http%3A//www.jb51.net/article/54498.htm">Py
       </tags>
   </entry>
   <entry>
-    <title>浮点数精度问题及解决方案</title>
-    <url>/b780bb9e95975417c037cc3060dfd3da8b830810/</url>
-    <content><![CDATA[<blockquote>
-<p>原文地址 <a
-href="https://fivecakes.com/p/5f2fa84aa02ad92eba436b17">fivecakes.com</a></p>
-</blockquote>
-<h2 id="浮点数精度问题">浮点数精度问题</h2>
-<p>浮点数精度问题示例：</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">&#123;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> a <span class="op">=</span> <span class="fl">0.1</span><span class="op">;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%f</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span>a<span class="op">);</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%.10f</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span>a<span class="op">);</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%.15f</span><span class="sc">\n\n</span><span class="st">&quot;</span><span class="op">,</span>a<span class="op">);</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> b <span class="op">=</span> <span class="dv">100000000</span><span class="op">;</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> c <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> d <span class="op">=</span> b <span class="op">+</span> c<span class="op">;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;%f</span><span class="sc">\n\n</span><span class="st">&quot;</span><span class="op">,</span> d<span class="op">);</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
-<p>输出为</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.100000</span>            <span class="co">//正确输出是因为四舍五入了</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fl">0.1000000015</span>        <span class="co">//将精确度提高就会发现误差</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fl">0.100000001490116</span>   <span class="co">//再次提高精度</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fl">100000008.000000</span>    <span class="co">//加法居然算错了？傻了吧？</span></span></code></pre></div>
-<!--SR:!2025-01-03,491,250-->
-<h2 id="浮点数精度误差原因">浮点数精度误差原因</h2>
-<p><strong>1.
-第一种造成精度误差的原因是大多数小数转化为二进制为无限小数，而计算机内存有限，只能保存一部分，</strong></p>
-<p>例如：<br />
-0.1 转换为二进制是 0.0001100110011001100110011001100...<br />
-float
-只能保留一部分，所以一定会有误差，好在大多数场景用不到这么高的精度，不过要注意多个小误差累积成大误差。</p>
-<p><strong>2.
-第二种造成精度误差的原因是因为较大的浮点数与较小的浮点数相加。</strong></p>
-<p>例子中 <code>100000000 + 5</code> 居然等于
-100000008，这是因为浮点数是用科学计数法来存储数据，即：<br />
-<span class="math inline">\(100000000 = 1.011111010111100001 \times
-2^{26}\)</span> <span class="math inline">\(5 = 1.01 \times
-2^{2}\)</span><br />
-两个数相加的时候先要对阶，就是把指数部分统一，按照小阶数化为大阶数的原则：<br />
-<span class="math inline">\(5 = 0.00000000000000000000000101 \times
-2^{26}\)</span><br />
-按照 IEEE 754 标准，<mark style="background: #fefe00A6;">浮点数 float 为
-32 位，1 个符号位，8 个指数位，23 个小数位。 </mark> 而
-0.00000000000000000000000101（小数点后有 26 位）不能用 23
-位保存下来，所以舍入成 0.00000000000000000000001（小数点后有 23
-位），就是这里的舍入造成的误差。<br />
-对阶后，将尾数相加得到结果：<br />
-(0.00000000000000000000001+1.011111010111100001)^{26} = 100000008
-<!--SR:!2025-01-02,490,250--></p>
-<h2 id="浮点数精度误差问题解决方法">浮点数精度误差问题解决方法</h2>
-<p><mark style="background: #fbab4bA6;">浮点数在工程控制，游戏引擎等众多领域有着广泛的应用。但是因为其有误差，所以不适合在金融领域使用。</mark></p>
-<p>某水果 3.6 元一斤，某人买了 1.2 斤，总计 4.32 元。如果用 float
-存储价格的话，一单的误差比较小看不出差别。但是如果统计一年的营业额，累加很多
-float 就会出现较大的误差。</p>
-<h3 id="放大成int再还原法">放大成int再还原法</h3>
-<p><mark style="background: #83d98fA6;">货币通常只精确到小数点后两位，所以我们可以将其乘
-100，用整数存储</mark> 。上面那个例子可以将 3.6 存成 int 型 360，1.2 用
-float 存储，4.32 存成 int 型 432(其实 432
-由浮点数计算而来也是有误差的，但是一次计算误差非常小，四舍五入就可以得到正确的值)。累加一年营业额时累加的是
-int，所以不会有误差。</p>
-<h3 id="保存分子分母法">保存分子分母法</h3>
-<p>更特殊的情况，某水果 3.6 元一斤，某人买了 1.2 斤，75 折，含税
-0.02，快递费 1.5，总价为
-3.6x1.2x0.75x0.98+1.5，多次使用浮点数参与运算，有可能造成累积误差。<mark style="background: #83d98fA6;">这种情况可以可以分子和分母分别保存</mark>
-。计算时只计算分子，计算的结果也分子分母分别保存，只有显示时才除一下分母，而一次计算的误差非常小，四舍五入就可以得到正确的值。不过用这种方法要小心分子和分母溢出，或者写到一半发现这里要开个平方根或者求个三角函数，然后发现结果根本不是有理数了，进而开始怀疑人生。
-<!--SR:!2025-01-01,489,250--></p>
-<p><strong>相关笔记:</strong></p>
-<ul>
-<li><a href="../559d1c14e339502eb59ce0020fe110f15c087dee">python
-数据精度</a></li>
-</ul>
-<blockquote class="pullquote mindmap mindmap-md"><ul>
-<li>🔵
-<ul>
-<li><a href="../559d1c14e339502eb59ce0020fe110f15c087dee">python
-数据精度</a></li>
-</ul></li>
-</ul>
-</blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>4.理论</category>
-        <category>计算机</category>
-        <category>体系结构</category>
-      </categories>
-      <tags>
-        <tag>srcard</tag>
-        <tag>计算机</tag>
-        <tag>理论</tag>
-        <tag>cs</tag>
-        <tag>basis</tag>
-        <tag>体系结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>代码编辑快捷键</title>
     <url>/d2cb8fb770f80b19ad9497aaca6122a86a7a16bf/</url>
     <content><![CDATA[<p>自用代码编辑快捷键,所有编辑器通用</p>
@@ -15614,9 +15614,9 @@ href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>工具</tag>
         <tag>开发</tag>
+        <tag>srcard</tag>
         <tag>开发环境</tag>
         <tag>config</tag>
         <tag>env</tag>
@@ -15683,9 +15683,9 @@ sharing! It might not work for all cases, it might need some finetuning
         <category>Regex</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>工具</tag>
         <tag>开发</tag>
+        <tag>srcard</tag>
         <tag>regex</tag>
         <tag>Regex</tag>
       </tags>
@@ -15797,9 +15797,9 @@ href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>工具</tag>
         <tag>开发</tag>
+        <tag>srcard</tag>
         <tag>开发环境</tag>
         <tag>deepin</tag>
         <tag>Node</tag>
@@ -19465,8 +19465,8 @@ finish.</li>
         <category>Syncthing</category>
       </categories>
       <tags>
-        <tag>srcard</tag>
         <tag>工具</tag>
+        <tag>srcard</tag>
         <tag>效率</tag>
         <tag>Syncthing</tag>
         <tag>syncthing</tag>
@@ -19546,6 +19546,100 @@ https://www.cnblogs.com/xuexianqi/p/12801475.html</p>
         <tag>技能</tag>
         <tag>编程语言</tag>
         <tag>Python</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python 开发环境</title>
+    <url>/edefd41cca3bfb461242cf05e60f7dad6fd1663e/</url>
+    <content><![CDATA[<h2 id="安装">安装</h2>
+<h3 id="win10">Win10</h3>
+<p>安装 python 3.9 最新版本</p>
+<p><a href="https://www.python.org/downloads/">python 下载地址</a></p>
+<p>按默认选项安装后, 默认同时安装 pip 和配置环境变量</p>
+<p><strong>升级 Pip</strong></p>
+<pre class="node"><code>// 进入python安装目录
+.\python.exe  -m pip install --upgrade pip</code></pre>
+<!--SR:!2027-10-31,1190,250-->
+<h3 id="deepin">Deepin</h3>
+<p>Deepin 自带 python2 和 python3</p>
+<p><strong>Pip 安装</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install python3-pip</span></code></pre></div>
+<p><strong>升级 Pip</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> install <span class="at">--upgrade</span> pip</span></code></pre></div>
+<!--SR:!2027-02-23,1040,250-->
+<h2 id="配置">配置</h2>
+<h3 id="pip-常用命令">pip 常用命令</h3>
+<pre class="node"><code>// pip 安装命令
+pip install packagename
+// pip 卸载包命令
+pip uninstall packagename
+// pip 检测更新命令
+pip list –outdated
+// pip 升级包命令
+pip install --upgrade packagename  </code></pre>
+<!--SR:!2024-10-14,523,250-->
+<p><strong>pip 安装特定版本库?</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install packagename==version</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install scikit-learn==0.18.0    <span class="co"># 下载scikit-learn的0.18.0版本</span></span></code></pre></div>
+<!--SR:!2026-07-31,810,230-->
+<p><strong>pip 镜像源修改</strong>: <a
+href="../e85089d47d0a9a1e5419aad022437f772a987bd7">Python 修改 pip
+源为国内镜像源</a></p>
+<h3 id="vscode-python-配置">vscode python 配置</h3>
+<p>设置以当前文件路径为工作路径</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;python.terminal.executeInFileDir&quot;</span>: true,</span></code></pre></div>
+<!--SR:!2027-05-14,1088,250-->
+<p>launch.json 设置调试时以当前文件路径为工作路径</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>&#123;</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;version&quot;</span>: <span class="st">&quot;0.2.0&quot;</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;configurations&quot;</span>: [</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    &#123;</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>      ...</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;cwd&quot;</span>: <span class="st">&quot;$</span><span class="sc">&#123;fileDirname&#125;</span><span class="st">&quot;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    &#125;</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  ]</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>&#125;</span></code></pre></div>
+<!--SR:!2026-07-24,910,250-->
+<h2 id="使用">使用</h2>
+<ul>
+<li><a href="../acc2d6da5dd37affe3f03e94d2997ae7cd02bc92">Python
+项目管理最佳实践 Poetry</a></li>
+<li><a href="../f4d9b39cffbb9a542e360bd81bf53fa67120f26c">说说 Python
+的命名规范</a></li>
+</ul>
+<p><strong>相关笔记:</strong></p>
+<ul>
+<li><a
+href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>🔵
+<ul>
+<li><a
+href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
+<li><a href="../e85089d47d0a9a1e5419aad022437f772a987bd7">Python 修改
+pip 源为国内镜像源</a></li>
+<li><a href="../f4d9b39cffbb9a542e360bd81bf53fa67120f26c">说说 Python
+的命名规范</a></li>
+<li><a href="../acc2d6da5dd37affe3f03e94d2997ae7cd02bc92">Python
+项目管理最佳实践 Poetry</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>6.工具</category>
+        <category>开发</category>
+        <category>开发环境</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>开发</tag>
+        <tag>srcard</tag>
+        <tag>开发环境</tag>
         <tag>python</tag>
       </tags>
   </entry>
@@ -19663,100 +19757,6 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a hr
         <tag>技能</tag>
         <tag>编程语言</tag>
         <tag>Python</tag>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python 开发环境</title>
-    <url>/edefd41cca3bfb461242cf05e60f7dad6fd1663e/</url>
-    <content><![CDATA[<h2 id="安装">安装</h2>
-<h3 id="win10">Win10</h3>
-<p>安装 python 3.9 最新版本</p>
-<p><a href="https://www.python.org/downloads/">python 下载地址</a></p>
-<p>按默认选项安装后, 默认同时安装 pip 和配置环境变量</p>
-<p><strong>升级 Pip</strong></p>
-<pre class="node"><code>// 进入python安装目录
-.\python.exe  -m pip install --upgrade pip</code></pre>
-<!--SR:!2027-10-31,1190,250-->
-<h3 id="deepin">Deepin</h3>
-<p>Deepin 自带 python2 和 python3</p>
-<p><strong>Pip 安装</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install python3-pip</span></code></pre></div>
-<p><strong>升级 Pip</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip3</span> install <span class="at">--upgrade</span> pip</span></code></pre></div>
-<!--SR:!2027-02-23,1040,250-->
-<h2 id="配置">配置</h2>
-<h3 id="pip-常用命令">pip 常用命令</h3>
-<pre class="node"><code>// pip 安装命令
-pip install packagename
-// pip 卸载包命令
-pip uninstall packagename
-// pip 检测更新命令
-pip list –outdated
-// pip 升级包命令
-pip install --upgrade packagename  </code></pre>
-<!--SR:!2024-10-14,523,250-->
-<p><strong>pip 安装特定版本库?</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install packagename==version</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install scikit-learn==0.18.0    <span class="co"># 下载scikit-learn的0.18.0版本</span></span></code></pre></div>
-<!--SR:!2026-07-31,810,230-->
-<p><strong>pip 镜像源修改</strong>: <a
-href="../e85089d47d0a9a1e5419aad022437f772a987bd7">Python 修改 pip
-源为国内镜像源</a></p>
-<h3 id="vscode-python-配置">vscode python 配置</h3>
-<p>设置以当前文件路径为工作路径</p>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;python.terminal.executeInFileDir&quot;</span>: true,</span></code></pre></div>
-<!--SR:!2027-05-14,1088,250-->
-<p>launch.json 设置调试时以当前文件路径为工作路径</p>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>&#123;</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;version&quot;</span>: <span class="st">&quot;0.2.0&quot;</span>,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;configurations&quot;</span>: [</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    &#123;</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>      ...</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;cwd&quot;</span>: <span class="st">&quot;$</span><span class="sc">&#123;fileDirname&#125;</span><span class="st">&quot;</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    &#125;</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>&#125;</span></code></pre></div>
-<!--SR:!2026-07-24,910,250-->
-<h2 id="使用">使用</h2>
-<ul>
-<li><a href="../acc2d6da5dd37affe3f03e94d2997ae7cd02bc92">Python
-项目管理最佳实践 Poetry</a></li>
-<li><a href="../f4d9b39cffbb9a542e360bd81bf53fa67120f26c">说说 Python
-的命名规范</a></li>
-</ul>
-<p><strong>相关笔记:</strong></p>
-<ul>
-<li><a
-href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
-</ul>
-<blockquote class="pullquote mindmap mindmap-md"><ul>
-<li>🔵
-<ul>
-<li><a
-href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
-<li><a href="../e85089d47d0a9a1e5419aad022437f772a987bd7">Python 修改
-pip 源为国内镜像源</a></li>
-<li><a href="../f4d9b39cffbb9a542e360bd81bf53fa67120f26c">说说 Python
-的命名规范</a></li>
-<li><a href="../acc2d6da5dd37affe3f03e94d2997ae7cd02bc92">Python
-项目管理最佳实践 Poetry</a></li>
-</ul></li>
-</ul>
-</blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>6.工具</category>
-        <category>开发</category>
-        <category>开发环境</category>
-      </categories>
-      <tags>
-        <tag>srcard</tag>
-        <tag>工具</tag>
-        <tag>开发</tag>
-        <tag>开发环境</tag>
         <tag>python</tag>
       </tags>
   </entry>
