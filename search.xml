@@ -2341,8 +2341,8 @@ src="https://exp-picture.cdn.bcebos.com/51f9aa3ea8db574a8271942ba7f7dfb2dd19179e
         <category>Win</category>
       </categories>
       <tags>
-        <tag>工具</tag>
         <tag>srcard</tag>
+        <tag>工具</tag>
         <tag>Win</tag>
         <tag>系统</tag>
         <tag>win10</tag>
@@ -5237,10 +5237,10 @@ src="https://img-blog.csdnimg.cn/20210318222346139.png?x-oss-process=image/water
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>工具</tag>
-        <tag>开发</tag>
         <tag>开发环境</tag>
+        <tag>工具</tag>
         <tag>linux</tag>
+        <tag>开发</tag>
         <tag>shell</tag>
       </tags>
   </entry>
@@ -5320,10 +5320,10 @@ role="doc-backlink">↩︎</a></p></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>工具</tag>
-        <tag>开发</tag>
         <tag>srcard</tag>
         <tag>开发环境</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
         <tag>deepin</tag>
       </tags>
   </entry>
@@ -9179,10 +9179,10 @@ href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>工具</tag>
-        <tag>开发</tag>
         <tag>srcard</tag>
         <tag>开发环境</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
         <tag>config</tag>
         <tag>style</tag>
       </tags>
@@ -9220,63 +9220,6 @@ href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
         <tag>vscode</tag>
         <tag>tool</tag>
         <tag>VSCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vim 使用全局剪贴板</title>
-    <url>/053607f1ecbb56d63ebb7de4259e83a4be807ce6/</url>
-    <content><![CDATA[<p>查看 vim 的 clipboard 功能是否开启</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">vim</span> <span class="at">--version</span> <span class="kw">|</span> <span class="fu">grep</span> clipboard</span></code></pre></div>
-<p><img src="/images/2325099-c78cfca714ce958a.png" />没有开启是减号
-如果不支持 clipboard 功能, 需要安装支持 clipboard 的 vim 版本</p>
-<h3 id="ubuntu">ubuntu</h3>
-<p>安装 vim-gtk</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install vim-gtk <span class="at">-y</span></span></code></pre></div>
-<h3 id="centos">centos</h3>
-<p>安装 vim-x11 和 vim-enhanced</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">yum</span> install vim<span class="pp">*</span></span></code></pre></div>
-<p>使用 vimx 代替 vim<br />
-编辑 <code>~/.zshrc</code> 添加：</p>
-<pre><code>alias vi=&#39;vimx&#39;
-alias vim=&#39;vimx&#39;</code></pre>
-<ul>
-<li>Debian &amp; Ubuntu: Install <code>vim-gtk</code> or
-<code>vim-gnome</code>.</li>
-<li>Fedora: install <code>vim-X11</code>, and run <code>vimx</code>
-instead of <code>vim</code> (<a
-href="https://link.jianshu.com?t=https%3A%2F%2Fvi.stackexchange.com%2Fq%2F2063%2F51">more
-info</a>).</li>
-<li>Arch Linux: install <code>gvim</code> (this will enable
-<code>+clipboard</code> for normal <code>vim</code> as well).</li>
-</ul>
-<h3 id="使用">使用</h3>
-<ul>
-<li>用 <code>"+y</code> 代替 <code>y</code>
-将选中的内容复制到系统剪贴板，效果和 <code>ctrl-c</code> 一致。</li>
-<li>用 <code>"+p</code> 代替 <code>p</code>
-将剪贴板内容复制到指定位置，也可以用 <code>ctrl-v</code>。</li>
-</ul>
-<p><strong>参考：</strong></p>
-<ul>
-<li><a
-href="https://link.jianshu.com?t=https%3A%2F%2Fvi.stackexchange.com%2Fquestions%2F84%2Fhow-can-i-copy-text-to-the-system-clipboard-from-vim">how-can-i-copy-text-to-the-system-clipboard-from-vim</a></li>
-<li><a
-href="https://link.jianshu.com?t=https%3A%2F%2Fvi.stackexchange.com%2Fquestions%2F2063%2Fhow-do-i-get-clipboard-support-in-fedora-20">how-do-i-get-clipboard-support-in-fedora-20</a></li>
-<li><a
-href="https://link.jianshu.com?t=https%3A%2F%2Fwww.zhihu.com%2Fquestion%2F19863631">如何将
-Vim 剪贴板里面的东西粘贴到 Vim 之外的地方？</a></li>
-</ul>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>6.工具</category>
-        <category>开发</category>
-        <category>Vim</category>
-      </categories>
-      <tags>
-        <tag>Vim</tag>
-        <tag>工具</tag>
-        <tag>开发</tag>
-        <tag>vim</tag>
       </tags>
   </entry>
   <entry>
@@ -9333,10 +9276,10 @@ href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>工具</tag>
-        <tag>开发</tag>
         <tag>开发环境</tag>
+        <tag>工具</tag>
         <tag>linux</tag>
+        <tag>开发</tag>
         <tag>shell</tag>
       </tags>
   </entry>
@@ -9616,6 +9559,203 @@ scripts and code is a WIP.</p>
       </tags>
   </entry>
   <entry>
+    <title>vim 使用全局剪贴板</title>
+    <url>/053607f1ecbb56d63ebb7de4259e83a4be807ce6/</url>
+    <content><![CDATA[<p>查看 vim 的 clipboard 功能是否开启</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">vim</span> <span class="at">--version</span> <span class="kw">|</span> <span class="fu">grep</span> clipboard</span></code></pre></div>
+<p><img src="/images/2325099-c78cfca714ce958a.png" />没有开启是减号
+如果不支持 clipboard 功能, 需要安装支持 clipboard 的 vim 版本</p>
+<h3 id="ubuntu">ubuntu</h3>
+<p>安装 vim-gtk</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install vim-gtk <span class="at">-y</span></span></code></pre></div>
+<h3 id="centos">centos</h3>
+<p>安装 vim-x11 和 vim-enhanced</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">yum</span> install vim<span class="pp">*</span></span></code></pre></div>
+<p>使用 vimx 代替 vim<br />
+编辑 <code>~/.zshrc</code> 添加：</p>
+<pre><code>alias vi=&#39;vimx&#39;
+alias vim=&#39;vimx&#39;</code></pre>
+<ul>
+<li>Debian &amp; Ubuntu: Install <code>vim-gtk</code> or
+<code>vim-gnome</code>.</li>
+<li>Fedora: install <code>vim-X11</code>, and run <code>vimx</code>
+instead of <code>vim</code> (<a
+href="https://link.jianshu.com?t=https%3A%2F%2Fvi.stackexchange.com%2Fq%2F2063%2F51">more
+info</a>).</li>
+<li>Arch Linux: install <code>gvim</code> (this will enable
+<code>+clipboard</code> for normal <code>vim</code> as well).</li>
+</ul>
+<h3 id="使用">使用</h3>
+<ul>
+<li>用 <code>"+y</code> 代替 <code>y</code>
+将选中的内容复制到系统剪贴板，效果和 <code>ctrl-c</code> 一致。</li>
+<li>用 <code>"+p</code> 代替 <code>p</code>
+将剪贴板内容复制到指定位置，也可以用 <code>ctrl-v</code>。</li>
+</ul>
+<p><strong>参考：</strong></p>
+<ul>
+<li><a
+href="https://link.jianshu.com?t=https%3A%2F%2Fvi.stackexchange.com%2Fquestions%2F84%2Fhow-can-i-copy-text-to-the-system-clipboard-from-vim">how-can-i-copy-text-to-the-system-clipboard-from-vim</a></li>
+<li><a
+href="https://link.jianshu.com?t=https%3A%2F%2Fvi.stackexchange.com%2Fquestions%2F2063%2Fhow-do-i-get-clipboard-support-in-fedora-20">how-do-i-get-clipboard-support-in-fedora-20</a></li>
+<li><a
+href="https://link.jianshu.com?t=https%3A%2F%2Fwww.zhihu.com%2Fquestion%2F19863631">如何将
+Vim 剪贴板里面的东西粘贴到 Vim 之外的地方？</a></li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>6.工具</category>
+        <category>开发</category>
+        <category>Vim</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>开发</tag>
+        <tag>Vim</tag>
+        <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git submodule 子模块的管理和使用</title>
+    <url>/1724764acb83566cfbcc5cedf7fe0bf07a4ed3a1/</url>
+    <content><![CDATA[<h2 id="使用前提">使用前提</h2>
+<p>经常碰到这种情况：当你在一个 Git
+项目上工作时，你需要在其中使用另外一个 Git
+项目。也许它是一个第三方开发的 Git
+库或者是你独立开发和并在多个父项目中使用的。这个情况下一个常见的问题产生了：你想将两个项目单独处理但是又需要在其中一个中使用另外一个。</p>
+<p>在 Git
+中你可以用子模块<code>submodule</code>来管理这些项目，<code>submodule</code>允许你将一个
+Git 仓库当作另外一个 Git
+仓库的子目录。这允许你克隆另外一个仓库到你的项目中并且保持你的提交相对独立。</p>
+<h2 id="添加子模块">添加子模块</h2>
+<p><strong>添加子模块命令?</strong></p>
+<p>此文中统一将远程项目<code>git@gitee.com:qiaogaojian/framework.git</code>克隆到本地<code>Framework</code>文件夹。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git submodule add git@gitee.com:qiaogaojian/framework.git Framework</span></code></pre></div>
+<!--SR:!2026-04-06,777,230-->
+<p>添加子模块后运行<code>git status</code>, 可以看到目录有增加 1
+个文件<code>.gitmodules</code>, 这个文件用来保存子模块的信息。</p>
+<pre><code>$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+
+    new file:   .gitmodules
+    new file:   assets</code></pre>
+<h2 id="查看子模块">查看子模块</h2>
+<p><strong>查看子模块命令?</strong></p>
+<pre><code>$ git submodule
+ e33f854d3f51f5ebd771a68da05ad0371a3c0570 assets (heads/master)</code></pre>
+<!--SR:!2027-07-28,1125,250-->
+<h2 id="更新子模块">更新子模块</h2>
+<ul>
+<li><p><strong>更新项目内子模块到最新版本命令?</strong></p>
+<pre><code>$ git submodule update</code></pre></li>
+<li><p>更新子模块为远程项目的最新版本</p>
+<pre><code>$ git submodule update --remote</code></pre></li>
+</ul>
+<h2 id="克隆包含子模块的项目">克隆包含子模块的项目</h2>
+<p>克隆包含子模块的项目有二种方法：一种是先克隆父项目，再更新子模块；另一种是直接递归克隆整个项目。</p>
+<h3 id="克隆父项目再更新子模块">克隆父项目，再更新子模块</h3>
+<ol type="1">
+<li>克隆父项目</li>
+</ol>
+<pre><code>$ git clone https://github.com/maonx/vimwiki-assets.git assets</code></pre>
+<ol start="2" type="1">
+<li>查看子模块</li>
+</ol>
+<pre><code>$ git submodule
+ -e33f854d3f51f5ebd771a68da05ad0371a3c0570 assets</code></pre>
+<p>子模块前面有一个<code>-</code>，说明子模块文件还未检入（空文件夹）。</p>
+<ol start="3" type="1">
+<li>初始化子模块</li>
+</ol>
+<pre><code>$ git submodule init
+Submodule &#39;assets&#39; (https://github.com/maonx/vimwiki-assets.git) registered for path &#39;assets&#39;</code></pre>
+<p>初始化模块只需在克隆父项目后运行一次。</p>
+<ol start="4" type="1">
+<li>更新子模块</li>
+</ol>
+<pre><code>$ git submodule update
+Cloning into &#39;assets&#39;...
+remote: Counting objects: 151, done.
+remote: Compressing objects: 100% (80/80), done.
+remote: Total 151 (delta 18), reused 0 (delta 0), pack-reused 70
+Receiving objects: 100% (151/151), 1.34 MiB | 569.00 KiB/s, done.
+Resolving deltas: 100% (36/36), done.
+Checking connectivity... done.
+Submodule path &#39;assets&#39;: checked out &#39;e33f854d3f51f5ebd771a68da05ad0371a3c0570&#39;</code></pre>
+<h3 id="递归克隆整个项目">递归克隆整个项目</h3>
+<p><strong>clone 带子模块的项目?</strong></p>
+<pre><code>git clone https://github.com/maonx/vimwiki-assets.git assets --recursive</code></pre>
+<p>递归克隆整个项目，子模块已经同时更新了，一步到位。
+<!--SR:!2026-10-01,939,250--></p>
+<h2 id="修改子模块">修改子模块</h2>
+<p>在子模块中修改文件后，直接提交到远程项目分支。</p>
+<pre><code>$ git add .
+$ git ci -m &quot;commit&quot;
+$ git push origin HEAD:master</code></pre>
+<h2 id="删除子模块">删除子模块</h2>
+<p><strong>怎么删除子模块?</strong></p>
+<p><strong>删除子模块比较麻烦，需要手动删除相关的文件，否则在添加子模块时有可能出现错误</strong><br />
+同样以删除<code>assets</code>文件夹为例</p>
+<ol type="1">
+<li>删除子模块文件夹</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git rm <span class="at">--cached</span> assets</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm <span class="at">-rf</span> assets</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm <span class="at">-rf</span> .git/modules/assets</span></code></pre></div>
+<ol start="2" type="1">
+<li>删除<code>.gitmodules</code>文件中相关子模块信息</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[submodule</span> <span class="st">&quot;assets&quot;</span>]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">path</span> = assets</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">url</span> = https://github.com/maonx/vimwiki-assets.git</span></code></pre></div>
+<ol start="3" type="1">
+<li>删除<code>.git/config</code>中的相关子模块信息</li>
+</ol>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[submodule</span> <span class="st">&quot;assets&quot;</span>]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">url</span> = https://github.com/maonx/vimwiki-assets.git</span></code></pre></div>
+<!--SR:!2026-04-10,709,210-->
+<h2 id="更换子模块">更换子模块</h2>
+<ul>
+<li>先删除</li>
+<li>再添加</li>
+</ul>
+<p><strong>相关笔记:</strong></p>
+<ul>
+<li><a href="../398c907730d3d916e72688bf34e18ad17c4edeff">Git
+开发环境</a></li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>🔵
+<ul>
+<li><a href="../398c907730d3d916e72688bf34e18ad17c4edeff">Git
+开发环境</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>6.工具</category>
+        <category>开发</category>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
+        <tag>Git</tag>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Android 组件化基础</title>
     <url>/1fb05f97cf4037d2eec2f0599f188ff8500faf52/</url>
     <content><![CDATA[<blockquote>
@@ -9754,146 +9894,6 @@ ARouter</a></li>
         <tag>技能</tag>
         <tag>Android</tag>
         <tag>组件化</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git submodule 子模块的管理和使用</title>
-    <url>/1724764acb83566cfbcc5cedf7fe0bf07a4ed3a1/</url>
-    <content><![CDATA[<h2 id="使用前提">使用前提</h2>
-<p>经常碰到这种情况：当你在一个 Git
-项目上工作时，你需要在其中使用另外一个 Git
-项目。也许它是一个第三方开发的 Git
-库或者是你独立开发和并在多个父项目中使用的。这个情况下一个常见的问题产生了：你想将两个项目单独处理但是又需要在其中一个中使用另外一个。</p>
-<p>在 Git
-中你可以用子模块<code>submodule</code>来管理这些项目，<code>submodule</code>允许你将一个
-Git 仓库当作另外一个 Git
-仓库的子目录。这允许你克隆另外一个仓库到你的项目中并且保持你的提交相对独立。</p>
-<h2 id="添加子模块">添加子模块</h2>
-<p><strong>添加子模块命令?</strong></p>
-<p>此文中统一将远程项目<code>git@gitee.com:qiaogaojian/framework.git</code>克隆到本地<code>Framework</code>文件夹。</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git submodule add git@gitee.com:qiaogaojian/framework.git Framework</span></code></pre></div>
-<!--SR:!2026-04-06,777,230-->
-<p>添加子模块后运行<code>git status</code>, 可以看到目录有增加 1
-个文件<code>.gitmodules</code>, 这个文件用来保存子模块的信息。</p>
-<pre><code>$ git status
-On branch master
-
-Initial commit
-
-Changes to be committed:
-  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
-
-    new file:   .gitmodules
-    new file:   assets</code></pre>
-<h2 id="查看子模块">查看子模块</h2>
-<p><strong>查看子模块命令?</strong></p>
-<pre><code>$ git submodule
- e33f854d3f51f5ebd771a68da05ad0371a3c0570 assets (heads/master)</code></pre>
-<!--SR:!2027-07-28,1125,250-->
-<h2 id="更新子模块">更新子模块</h2>
-<ul>
-<li><p><strong>更新项目内子模块到最新版本命令?</strong></p>
-<pre><code>$ git submodule update</code></pre></li>
-<li><p>更新子模块为远程项目的最新版本</p>
-<pre><code>$ git submodule update --remote</code></pre></li>
-</ul>
-<h2 id="克隆包含子模块的项目">克隆包含子模块的项目</h2>
-<p>克隆包含子模块的项目有二种方法：一种是先克隆父项目，再更新子模块；另一种是直接递归克隆整个项目。</p>
-<h3 id="克隆父项目再更新子模块">克隆父项目，再更新子模块</h3>
-<ol type="1">
-<li>克隆父项目</li>
-</ol>
-<pre><code>$ git clone https://github.com/maonx/vimwiki-assets.git assets</code></pre>
-<ol start="2" type="1">
-<li>查看子模块</li>
-</ol>
-<pre><code>$ git submodule
- -e33f854d3f51f5ebd771a68da05ad0371a3c0570 assets</code></pre>
-<p>子模块前面有一个<code>-</code>，说明子模块文件还未检入（空文件夹）。</p>
-<ol start="3" type="1">
-<li>初始化子模块</li>
-</ol>
-<pre><code>$ git submodule init
-Submodule &#39;assets&#39; (https://github.com/maonx/vimwiki-assets.git) registered for path &#39;assets&#39;</code></pre>
-<p>初始化模块只需在克隆父项目后运行一次。</p>
-<ol start="4" type="1">
-<li>更新子模块</li>
-</ol>
-<pre><code>$ git submodule update
-Cloning into &#39;assets&#39;...
-remote: Counting objects: 151, done.
-remote: Compressing objects: 100% (80/80), done.
-remote: Total 151 (delta 18), reused 0 (delta 0), pack-reused 70
-Receiving objects: 100% (151/151), 1.34 MiB | 569.00 KiB/s, done.
-Resolving deltas: 100% (36/36), done.
-Checking connectivity... done.
-Submodule path &#39;assets&#39;: checked out &#39;e33f854d3f51f5ebd771a68da05ad0371a3c0570&#39;</code></pre>
-<h3 id="递归克隆整个项目">递归克隆整个项目</h3>
-<p><strong>clone 带子模块的项目?</strong></p>
-<pre><code>git clone https://github.com/maonx/vimwiki-assets.git assets --recursive</code></pre>
-<p>递归克隆整个项目，子模块已经同时更新了，一步到位。
-<!--SR:!2026-10-01,939,250--></p>
-<h2 id="修改子模块">修改子模块</h2>
-<p>在子模块中修改文件后，直接提交到远程项目分支。</p>
-<pre><code>$ git add .
-$ git ci -m &quot;commit&quot;
-$ git push origin HEAD:master</code></pre>
-<h2 id="删除子模块">删除子模块</h2>
-<p><strong>怎么删除子模块?</strong></p>
-<p><strong>删除子模块比较麻烦，需要手动删除相关的文件，否则在添加子模块时有可能出现错误</strong><br />
-同样以删除<code>assets</code>文件夹为例</p>
-<ol type="1">
-<li>删除子模块文件夹</li>
-</ol>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git rm <span class="at">--cached</span> assets</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm <span class="at">-rf</span> assets</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> rm <span class="at">-rf</span> .git/modules/assets</span></code></pre></div>
-<ol start="2" type="1">
-<li>删除<code>.gitmodules</code>文件中相关子模块信息</li>
-</ol>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[submodule</span> <span class="st">&quot;assets&quot;</span>]</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">path</span> = assets</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">url</span> = https://github.com/maonx/vimwiki-assets.git</span></code></pre></div>
-<ol start="3" type="1">
-<li>删除<code>.git/config</code>中的相关子模块信息</li>
-</ol>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[submodule</span> <span class="st">&quot;assets&quot;</span>]</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">url</span> = https://github.com/maonx/vimwiki-assets.git</span></code></pre></div>
-<!--SR:!2026-04-10,709,210-->
-<h2 id="更换子模块">更换子模块</h2>
-<ul>
-<li>先删除</li>
-<li>再添加</li>
-</ul>
-<p><strong>相关笔记:</strong></p>
-<ul>
-<li><a href="../398c907730d3d916e72688bf34e18ad17c4edeff">Git
-开发环境</a></li>
-</ul>
-<blockquote class="pullquote mindmap mindmap-md"><ul>
-<li>🔵
-<ul>
-<li><a href="../398c907730d3d916e72688bf34e18ad17c4edeff">Git
-开发环境</a></li>
-</ul></li>
-</ul>
-</blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>6.工具</category>
-        <category>开发</category>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>开发</tag>
-        <tag>srcard</tag>
-        <tag>Git</tag>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -10454,87 +10454,6 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a h
       </tags>
   </entry>
   <entry>
-    <title>Git 开发环境</title>
-    <url>/398c907730d3d916e72688bf34e18ad17c4edeff/</url>
-    <content><![CDATA[<h2 id="安装">安装</h2>
-<ul>
-<li>Win10</li>
-</ul>
-<p><a href="https://git-scm.com/downloads">Git 下载地址</a></p>
-<ul>
-<li>Deepin</li>
-</ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install git</span></code></pre></div>
-<h2 id="配置">配置</h2>
-<h3 id="windows-配置环境变量">Windows 配置环境变量</h3>
-<p>Settings &gt; System &gt; AdvanceSystemSetting &gt; Environment
-Variables &gt; Path &gt; Edit</p>
-<h3 id="配置git-全局姓名和邮箱">配置Git 全局姓名和邮箱</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">&quot;qiaogaojian&quot;</span>  </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">&quot;qiaogaojian@vip.qq.com&quot;</span></span></code></pre></div>
-<h3 id="生成并配置-ssh-密钥">生成并配置 ssh 密钥</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> rsa <span class="at">-C</span> <span class="st">&quot;qiaogaojian@vip.qq.com&quot;</span> </span></code></pre></div>
-<ul>
-<li>Win10</li>
-</ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> C:<span class="dt">\U</span>sers<span class="dt">\A</span>dministrator<span class="dt">\.</span>ssh<span class="dt">\i</span>d_rsa.pub <span class="co"># 显示公钥</span></span></code></pre></div>
-<ul>
-<li>Deepin</li>
-</ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ssh 公钥</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_rsa.pub <span class="co"># 显示公钥</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># deepinvm</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">ssh-rsa</span> AAAAB3NzaC1yc2EAAAADAQABAAABAQCsOwois8+V5yjMIorYN1FSPpArMF9plEdPt676iRPSlf3/oyrD5Uc7STiIIbGDph5IhbW2ZPsiZvxvrkXERFRMqZjmt6jE8ZITz1usxqQdZUKPK5qJQHNMyB66mckoqWgQ4o8NtdmAup/Uei+DAr/JaN7fA0TzZdqRnb7kLqL4U7koe1No23ml82CicEPBHgYEL8Dcs/yqIFQycepYoU0FsfGSfLDD/EbIJpdMjGm8OnkI3gUlcGMsdtuz65Z1h2EsUjTlGUIE8GvOdULpjm8ESFmMYt0PoEY1lHMLRscWvSNFJ6yxVpoUI6+PUsF/Sc4ZqKIxJDeq3t5wS4BZF7Yt qiaogaojian@vip.qq.com</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ubuntuvm</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ssh-rsa</span> AAAAB3NzaC1yc2EAAAADAQABAAABgQDhRPcvYHp5gXrRENiXVrQ67ItAx2JFRxHJcOPv62TZX7o0AgolopmQQpiHECUmeRvtyH/pxdSgaAo/jcJFYX5RsN73G1GHRn/WsjJ6Dm+G4pGxwTHeuJodY29gX/i3NIBLJFYOrBhwPjMfAs7Qq8TL8XU1JArjER8fwX6tvNENmYvbWrASNfIlt55qbny9s4kzL6GBBhseF5Xm5LZ09sQHFuI1YPHkHqb0Eb+eTv5rT/LW0/pa9bSiFRKh86bBKCTKt78w8ZeFmKQf5jTYNxlIlFWWYwfh+OAS1PyG1UHwTU863X20kqbH81wIihgcrU+B7vFtQS9NlWhq9bUuEZag5v5WV3aT73Dl5mnnzch/6NUpMXIdMwl8WMJHewbo2NGO27r5nWltW4tdgi7LJuY8FgacLcHARSlbUBOxLkvKeveuJdsJRQjGSComFwBNLY9VbxEM2HGIUikdhAbJvPBLeRb7J8rGwF/eQVhdByJ3b3TvpRHMoOACRDwkc9H+Qi0= qiaogaojian@vip.qq.com</span></code></pre></div>
-<p>然后复制ssh公钥到Github或Gitlab等后台的ssh公钥管理里.</p>
-<h3 id="ssh-连接测试">SSH 连接测试</h3>
-<pre class="shell"><code>ssh -T git@gitee.com
-ssh -T git@github.com</code></pre>
-<!--SR:!2025-06-12,388,250-->
-<h2 id="使用">使用</h2>
-<ul>
-<li><a href="../abbec60d7f2fb585a004df0095b46c95af076c53">Git
-常用命令</a></li>
-<li><a href="../1724764acb83566cfbcc5cedf7fe0bf07a4ed3a1">Git submodule
-子模块的管理和使用</a></li>
-<li>[[Smartgit 安装破解]]</li>
-</ul>
-<p><strong>相关笔记:</strong></p>
-<ul>
-<li><a
-href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
-</ul>
-<blockquote class="pullquote mindmap mindmap-md"><ul>
-<li>🔵
-<ul>
-<li><a
-href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
-<li><a href="../1724764acb83566cfbcc5cedf7fe0bf07a4ed3a1">Git submodule
-子模块的管理和使用</a></li>
-<li><a href="../abbec60d7f2fb585a004df0095b46c95af076c53">Git
-常用命令</a></li>
-</ul></li>
-</ul>
-</blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>6.工具</category>
-        <category>开发</category>
-        <category>开发环境</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>开发</tag>
-        <tag>srcard</tag>
-        <tag>开发环境</tag>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Unity3D高级编程 主程手记</title>
     <url>/41291e4cef1b7c5ee961eb9d22af60f1f3203b23/</url>
     <content><![CDATA[<h2 id="第1章-软件架构">第1章 软件架构</h2>
@@ -10623,6 +10542,87 @@ Language，特指在.NET平台下的IL标准），其实大部分文章中提到
         <tag>技能</tag>
         <tag>book</tag>
         <tag>Unity3d</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git 开发环境</title>
+    <url>/398c907730d3d916e72688bf34e18ad17c4edeff/</url>
+    <content><![CDATA[<h2 id="安装">安装</h2>
+<ul>
+<li>Win10</li>
+</ul>
+<p><a href="https://git-scm.com/downloads">Git 下载地址</a></p>
+<ul>
+<li>Deepin</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install git</span></code></pre></div>
+<h2 id="配置">配置</h2>
+<h3 id="windows-配置环境变量">Windows 配置环境变量</h3>
+<p>Settings &gt; System &gt; AdvanceSystemSetting &gt; Environment
+Variables &gt; Path &gt; Edit</p>
+<h3 id="配置git-全局姓名和邮箱">配置Git 全局姓名和邮箱</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">&quot;qiaogaojian&quot;</span>  </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">&quot;qiaogaojian@vip.qq.com&quot;</span></span></code></pre></div>
+<h3 id="生成并配置-ssh-密钥">生成并配置 ssh 密钥</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> rsa <span class="at">-C</span> <span class="st">&quot;qiaogaojian@vip.qq.com&quot;</span> </span></code></pre></div>
+<ul>
+<li>Win10</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> C:<span class="dt">\U</span>sers<span class="dt">\A</span>dministrator<span class="dt">\.</span>ssh<span class="dt">\i</span>d_rsa.pub <span class="co"># 显示公钥</span></span></code></pre></div>
+<ul>
+<li>Deepin</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ssh 公钥</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_rsa.pub <span class="co"># 显示公钥</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># deepinvm</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">ssh-rsa</span> AAAAB3NzaC1yc2EAAAADAQABAAABAQCsOwois8+V5yjMIorYN1FSPpArMF9plEdPt676iRPSlf3/oyrD5Uc7STiIIbGDph5IhbW2ZPsiZvxvrkXERFRMqZjmt6jE8ZITz1usxqQdZUKPK5qJQHNMyB66mckoqWgQ4o8NtdmAup/Uei+DAr/JaN7fA0TzZdqRnb7kLqL4U7koe1No23ml82CicEPBHgYEL8Dcs/yqIFQycepYoU0FsfGSfLDD/EbIJpdMjGm8OnkI3gUlcGMsdtuz65Z1h2EsUjTlGUIE8GvOdULpjm8ESFmMYt0PoEY1lHMLRscWvSNFJ6yxVpoUI6+PUsF/Sc4ZqKIxJDeq3t5wS4BZF7Yt qiaogaojian@vip.qq.com</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ubuntuvm</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ssh-rsa</span> AAAAB3NzaC1yc2EAAAADAQABAAABgQDhRPcvYHp5gXrRENiXVrQ67ItAx2JFRxHJcOPv62TZX7o0AgolopmQQpiHECUmeRvtyH/pxdSgaAo/jcJFYX5RsN73G1GHRn/WsjJ6Dm+G4pGxwTHeuJodY29gX/i3NIBLJFYOrBhwPjMfAs7Qq8TL8XU1JArjER8fwX6tvNENmYvbWrASNfIlt55qbny9s4kzL6GBBhseF5Xm5LZ09sQHFuI1YPHkHqb0Eb+eTv5rT/LW0/pa9bSiFRKh86bBKCTKt78w8ZeFmKQf5jTYNxlIlFWWYwfh+OAS1PyG1UHwTU863X20kqbH81wIihgcrU+B7vFtQS9NlWhq9bUuEZag5v5WV3aT73Dl5mnnzch/6NUpMXIdMwl8WMJHewbo2NGO27r5nWltW4tdgi7LJuY8FgacLcHARSlbUBOxLkvKeveuJdsJRQjGSComFwBNLY9VbxEM2HGIUikdhAbJvPBLeRb7J8rGwF/eQVhdByJ3b3TvpRHMoOACRDwkc9H+Qi0= qiaogaojian@vip.qq.com</span></code></pre></div>
+<p>然后复制ssh公钥到Github或Gitlab等后台的ssh公钥管理里.</p>
+<h3 id="ssh-连接测试">SSH 连接测试</h3>
+<pre class="shell"><code>ssh -T git@gitee.com
+ssh -T git@github.com</code></pre>
+<!--SR:!2025-06-12,388,250-->
+<h2 id="使用">使用</h2>
+<ul>
+<li><a href="../abbec60d7f2fb585a004df0095b46c95af076c53">Git
+常用命令</a></li>
+<li><a href="../1724764acb83566cfbcc5cedf7fe0bf07a4ed3a1">Git submodule
+子模块的管理和使用</a></li>
+<li>[[Smartgit 安装破解]]</li>
+</ul>
+<p><strong>相关笔记:</strong></p>
+<ul>
+<li><a
+href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>🔵
+<ul>
+<li><a
+href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
+<li><a href="../1724764acb83566cfbcc5cedf7fe0bf07a4ed3a1">Git submodule
+子模块的管理和使用</a></li>
+<li><a href="../abbec60d7f2fb585a004df0095b46c95af076c53">Git
+常用命令</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>6.工具</category>
+        <category>开发</category>
+        <category>开发环境</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>开发环境</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -11232,10 +11232,10 @@ href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>工具</tag>
-        <tag>开发</tag>
         <tag>srcard</tag>
         <tag>开发环境</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
         <tag>n</tag>
       </tags>
   </entry>
@@ -12545,10 +12545,10 @@ class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>工具</tag>
-        <tag>开发</tag>
         <tag>srcard</tag>
         <tag>开发环境</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
         <tag>npm</tag>
       </tags>
   </entry>
@@ -13539,11 +13539,11 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
         <category>Vim</category>
       </categories>
       <tags>
-        <tag>Vim</tag>
+        <tag>srcard</tag>
         <tag>工具</tag>
         <tag>开发</tag>
+        <tag>Vim</tag>
         <tag>vim</tag>
-        <tag>srcard</tag>
       </tags>
   </entry>
   <entry>
@@ -14177,9 +14177,9 @@ Sheet</a></p>
         <category>Regex</category>
       </categories>
       <tags>
+        <tag>srcard</tag>
         <tag>工具</tag>
         <tag>开发</tag>
-        <tag>srcard</tag>
         <tag>regex</tag>
         <tag>Regex</tag>
       </tags>
@@ -14301,9 +14301,9 @@ alt="image.png" />
         <category>Git</category>
       </categories>
       <tags>
+        <tag>srcard</tag>
         <tag>工具</tag>
         <tag>开发</tag>
-        <tag>srcard</tag>
         <tag>Git</tag>
         <tag>git</tag>
       </tags>
@@ -15217,8 +15217,8 @@ href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
         <category>Obsidian</category>
       </categories>
       <tags>
-        <tag>工具</tag>
         <tag>srcard</tag>
+        <tag>工具</tag>
         <tag>Obsidian</tag>
         <tag>latex</tag>
         <tag>效率</tag>
@@ -15562,68 +15562,6 @@ href="https://link.zhihu.com/?target=http%3A//www.jb51.net/article/54498.htm">Py
       </tags>
   </entry>
   <entry>
-    <title>代码编辑快捷键</title>
-    <url>/d2cb8fb770f80b19ad9497aaca6122a86a7a16bf/</url>
-    <content><![CDATA[<p>自用代码编辑快捷键,所有编辑器通用</p>
-<p><strong>代码浏览</strong></p>
-<p>                      | hotkey | function | | | -------------- |
------------------------ | --- | | alt + r | FindUsages | | | alt + d |
-GotoDeclaration | | | alt + g | GotoClass | | | alt + ; | GotoLine | | |
-alt + t | GotoTest | | | alt + q | Back | | | alt + e | Forward | | |
-alt + j | EditorMoveToPageBottom | | | alt + k | EditorMoveToPageTop | |
-| alt + h | EditorLineStart | | | alt + l | EditorLineEnd | | | alt + 1
-| CollapseAllRegions | | | alt + [2-5] | ExpandAllToLevel1 | | | alt + 6
-| ExpandAllRegions | | | ctrl + alt + f | FileStructurePopup | | | ctrl
-+ alt + h | CallHierarchy | | | alt + p | PinActiveTab | | | ctrl + w |
-CloseAllUnpinnedEditors | | | gi | GotoImplementation | | | gu |
-GotoSuperMethod | | <!--SR:!2025-01-30,274,250--></p>
-<p><strong>代码编辑</strong></p>
-<p>                     | hotkey | function | | | ---------------- |
---------------------- | --- | | alt + f | ReformatCode | | | ctrl + / |
-CommentByLineComment | | | ctrl + f | Find | | | shift + shift |
-SearchEverywhere | | | ctrl + shift + f | FindInPath | | | ctrl + h |
-Replace | | | ctrl + shift + h | ReplaceInPath | | | alt + n | Generate
-| | | ctrl + t | SaveAsTemplate | | | alt + ↓ | MoveLineDown | | | alt +
-↑ | MoveLineUp | | | ctrl + ↓ | EditorCloneCaretBelow | | | ctrl + ↑ |
-EditorCloneCaretAbove | | | alt + s | SelectAllOccurrences | | | ctrl +
-d | EditorDuplicate | | <!--SR:!2024-08-12,175,250--></p>
-<p><strong>工程</strong></p>
-<p>                      | hotkey | function | | ------- |
--------------------------- | | alt + ~ | ActivateTerminalToolWindow | |
-f2 | RenameElement | | f5 | Run | | f6 | Debug | | f7 |
-ToggleLineBreakpoint | | f8 | BuildProject | | f9 | StepInto | | f10 |
-StepOver | | f11 | Resume | | f12 | Stop |
-<!--SR:!2025-02-06,509,250--></p>
-<p><strong>相关笔记:</strong></p>
-<ul>
-<li><a
-href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
-</ul>
-<blockquote class="pullquote mindmap mindmap-md"><ul>
-<li>🔵
-<ul>
-<li><a
-href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
-</ul></li>
-</ul>
-</blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>6.工具</category>
-        <category>开发</category>
-        <category>开发环境</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>开发</tag>
-        <tag>srcard</tag>
-        <tag>开发环境</tag>
-        <tag>config</tag>
-        <tag>env</tag>
-        <tag>快捷键</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Multi-line text search in VSCode</title>
     <url>/d1804a15ace07b410373641e47601a0feea08b84/</url>
     <content><![CDATA[<blockquote>
@@ -15683,11 +15621,73 @@ sharing! It might not work for all cases, it might need some finetuning
         <category>Regex</category>
       </categories>
       <tags>
+        <tag>srcard</tag>
         <tag>工具</tag>
         <tag>开发</tag>
-        <tag>srcard</tag>
         <tag>regex</tag>
         <tag>Regex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>代码编辑快捷键</title>
+    <url>/d2cb8fb770f80b19ad9497aaca6122a86a7a16bf/</url>
+    <content><![CDATA[<p>自用代码编辑快捷键,所有编辑器通用</p>
+<p><strong>代码浏览</strong></p>
+<p>                      | hotkey | function | | | -------------- |
+----------------------- | --- | | alt + r | FindUsages | | | alt + d |
+GotoDeclaration | | | alt + g | GotoClass | | | alt + ; | GotoLine | | |
+alt + t | GotoTest | | | alt + q | Back | | | alt + e | Forward | | |
+alt + j | EditorMoveToPageBottom | | | alt + k | EditorMoveToPageTop | |
+| alt + h | EditorLineStart | | | alt + l | EditorLineEnd | | | alt + 1
+| CollapseAllRegions | | | alt + [2-5] | ExpandAllToLevel1 | | | alt + 6
+| ExpandAllRegions | | | ctrl + alt + f | FileStructurePopup | | | ctrl
++ alt + h | CallHierarchy | | | alt + p | PinActiveTab | | | ctrl + w |
+CloseAllUnpinnedEditors | | | gi | GotoImplementation | | | gu |
+GotoSuperMethod | | <!--SR:!2025-01-30,274,250--></p>
+<p><strong>代码编辑</strong></p>
+<p>                     | hotkey | function | | | ---------------- |
+--------------------- | --- | | alt + f | ReformatCode | | | ctrl + / |
+CommentByLineComment | | | ctrl + f | Find | | | shift + shift |
+SearchEverywhere | | | ctrl + shift + f | FindInPath | | | ctrl + h |
+Replace | | | ctrl + shift + h | ReplaceInPath | | | alt + n | Generate
+| | | ctrl + t | SaveAsTemplate | | | alt + ↓ | MoveLineDown | | | alt +
+↑ | MoveLineUp | | | ctrl + ↓ | EditorCloneCaretBelow | | | ctrl + ↑ |
+EditorCloneCaretAbove | | | alt + s | SelectAllOccurrences | | | ctrl +
+d | EditorDuplicate | | <!--SR:!2024-08-12,175,250--></p>
+<p><strong>工程</strong></p>
+<p>                      | hotkey | function | | ------- |
+-------------------------- | | alt + ~ | ActivateTerminalToolWindow | |
+f2 | RenameElement | | f5 | Run | | f6 | Debug | | f7 |
+ToggleLineBreakpoint | | f8 | BuildProject | | f9 | StepInto | | f10 |
+StepOver | | f11 | Resume | | f12 | Stop |
+<!--SR:!2025-02-06,509,250--></p>
+<p><strong>相关笔记:</strong></p>
+<ul>
+<li><a
+href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
+</ul>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>🔵
+<ul>
+<li><a
+href="../0c32955781debd23d9593f3ed51d05fde4a7304f">开发环境</a></li>
+</ul></li>
+</ul>
+</blockquote>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>6.工具</category>
+        <category>开发</category>
+        <category>开发环境</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>开发环境</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
+        <tag>config</tag>
+        <tag>env</tag>
+        <tag>快捷键</tag>
       </tags>
   </entry>
   <entry>
@@ -15797,10 +15797,10 @@ href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>工具</tag>
-        <tag>开发</tag>
         <tag>srcard</tag>
         <tag>开发环境</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
         <tag>deepin</tag>
         <tag>Node</tag>
       </tags>
@@ -15857,9 +15857,9 @@ href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
         <category>开发环境</category>
       </categories>
       <tags>
+        <tag>开发环境</tag>
         <tag>工具</tag>
         <tag>开发</tag>
-        <tag>开发环境</tag>
         <tag>npm</tag>
         <tag>node</tag>
       </tags>
@@ -16025,6 +16025,41 @@ module from different directory</a></li>
         <tag>编程语言</tag>
         <tag>Python</tag>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>syncthing 如何移动同步仓库位置</title>
+    <url>/e3241164d2ab8c7695daba3b911d08ae7e2b2873/</url>
+    <content><![CDATA[<p><strong>how to move syncthing folder position?</strong></p>
+<ol type="1">
+<li>Make sure the folder is <mark style="background: #018bffA6;">up to
+date</mark> with the remote. (probably not strictly necessary)</li>
+<li><mark style="background: #018bffA6;">Stop Syncthing</mark> (Pausing
+the folder could be enough)</li>
+<li><mark style="background: #018bffA6;">Copy the folder</mark> to the
+external drive (e.g. using rsync or equivalent).</li>
+<li><mark style="background: #018bffA6;">Edit the path in syncthing
+config file</mark>
+(C:/Users/Administrator/AppData/Local/Syncthing/config.xml )</li>
+<li><mark style="background: #018bffA6;">Restart syncthing</mark></li>
+<li>Wait for scanning and initial sync (exchanging and comparing
+metadata to be sure the contents are the same as on remote) to
+finish.</li>
+<li>if everything works ok, delete the original folder
+<!--SR:!2026-11-14,914,250--></li>
+</ol>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>6.工具</category>
+        <category>效率</category>
+        <category>Syncthing</category>
+      </categories>
+      <tags>
+        <tag>srcard</tag>
+        <tag>工具</tag>
+        <tag>效率</tag>
+        <tag>Syncthing</tag>
+        <tag>syncthing</tag>
       </tags>
   </entry>
   <entry>
@@ -19438,41 +19473,6 @@ the search to the titles.</strong></li>
       </tags>
   </entry>
   <entry>
-    <title>syncthing 如何移动同步仓库位置</title>
-    <url>/e3241164d2ab8c7695daba3b911d08ae7e2b2873/</url>
-    <content><![CDATA[<p><strong>how to move syncthing folder position?</strong></p>
-<ol type="1">
-<li>Make sure the folder is <mark style="background: #018bffA6;">up to
-date</mark> with the remote. (probably not strictly necessary)</li>
-<li><mark style="background: #018bffA6;">Stop Syncthing</mark> (Pausing
-the folder could be enough)</li>
-<li><mark style="background: #018bffA6;">Copy the folder</mark> to the
-external drive (e.g. using rsync or equivalent).</li>
-<li><mark style="background: #018bffA6;">Edit the path in syncthing
-config file</mark>
-(C:/Users/Administrator/AppData/Local/Syncthing/config.xml )</li>
-<li><mark style="background: #018bffA6;">Restart syncthing</mark></li>
-<li>Wait for scanning and initial sync (exchanging and comparing
-metadata to be sure the contents are the same as on remote) to
-finish.</li>
-<li>if everything works ok, delete the original folder
-<!--SR:!2026-11-14,914,250--></li>
-</ol>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.6.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>6.工具</category>
-        <category>效率</category>
-        <category>Syncthing</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>srcard</tag>
-        <tag>效率</tag>
-        <tag>Syncthing</tag>
-        <tag>syncthing</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Python 修改 pip 源为国内镜像源</title>
     <url>/e85089d47d0a9a1e5419aad022437f772a987bd7/</url>
     <content><![CDATA[<p><strong>「Python
@@ -19636,10 +19636,10 @@ pip 源为国内镜像源</a></li>
         <category>开发环境</category>
       </categories>
       <tags>
-        <tag>工具</tag>
-        <tag>开发</tag>
         <tag>srcard</tag>
         <tag>开发环境</tag>
+        <tag>工具</tag>
+        <tag>开发</tag>
         <tag>python</tag>
       </tags>
   </entry>
@@ -19786,8 +19786,8 @@ href="https://moguangpeng998.github.io/2020/06/13/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%8
         <category>Hexo</category>
       </categories>
       <tags>
-        <tag>工具</tag>
         <tag>hexo</tag>
+        <tag>工具</tag>
         <tag>效率</tag>
         <tag>Hexo</tag>
       </tags>
