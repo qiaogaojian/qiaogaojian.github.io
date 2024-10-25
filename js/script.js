@@ -812,3 +812,26 @@ function copy (text) {
     }
     return isSuccess
 }
+
+function reinitMindmap() {
+  if (typeof(MindElixir) !== 'undefined') {
+    document.querySelectorAll('.km-view').forEach(function(element) {
+      if (!element.hasAttribute('data-processed')) {
+        new MindElixir({
+          el: element,
+          direction: MindElixir.LEFT,
+          data: JSON.parse(element.getAttribute('data-mindmap')),
+          draggable: false,
+          contextMenu: false,
+          toolBar: false,
+          nodeMenu: false
+        });
+        element.setAttribute('data-processed', 'true');
+      }
+    });
+  }
+}
+
+// 在 initArticle 函数中调用
+initArticle();
+reinitMindmap();
