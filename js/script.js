@@ -896,4 +896,4 @@ function reinitMindmap() {
 
 // 在 initArticle 函数中调用
 // initArticle();
-reinitMindmap();
+// reinitMindmap();
